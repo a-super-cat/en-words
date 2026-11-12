@@ -1,1 +1,587 @@
-{"category":"remote-work","entries":[{"examples":[{"en":"I'm based in Shanghai, so there's a thirteen-hour difference with the US East Coast.","zh":"我在上海，所以和美国东海岸有十三小时时差。"}],"kind":"chunk","situation":{"en":"I'm based in Shanghai — mornings your time work best for me.","zh":"新同事在另一个大陆，你介绍自己的时区和适合开会的时间。"},"term":"I'm based in ...","zh":"我常驻在……（介绍时区用）"},{"examples":[{"en":"Our overlap is only two hours a day, so we keep meetings for decisions only.","zh":"我们每天只有两小时重叠时间，所以会议只用来做决策。"}],"kind":"chunk","situation":{"en":"We have about three hours of overlap — let's put the design review there.","zh":"你和海外同事商量把评审放在重叠时段。"},"term":"working hours overlap","zh":"工作时间重叠（跨时区协作的关键概念）"},{"examples":[{"en":"I'll leave my notes in the doc so the US team can pick it up in their morning.","zh":"我会把笔记留在文档里，美国团队早上就能接上。"}],"kind":"chunk","situation":{"en":"Just drop your update in the doc and I'll pick it up tomorrow.","zh":"你告诉同事异步交接的方式：写进文档就行。"},"term":"pick it up in their morning","zh":"在他们早上（上班时）接上、继续处理"},{"examples":[{"en":"Let me record a quick walkthrough instead of scheduling a call across time zones.","zh":"我录一段讲解视频吧，省得跨时区约电话了。"}],"kind":"chunk","situation":{"en":"I recorded a five-minute walkthrough of the failing flow — link in the ticket.","zh":"你跟同事说你录了讲解，链接在工单里。"},"term":"record a quick walkthrough","zh":"录一段快速讲解（视频）"},{"examples":[{"en":"Please keep the discussion in the ticket, not in private messages — future us will thank you.","zh":"请把讨论留在工单里，别用私聊，未来的我们会感谢你的。"}],"kind":"chunk","situation":{"en":"Let's keep this in the doc comments so it's searchable later.","zh":"有人想转去私聊，你想把讨论留痕。"},"term":"keep the discussion in the ticket","zh":"把讨论留在工单/文档里（别转私聊）"},{"examples":[{"en":"He's offline now — it's 2 a.m. his time. He'll see it when he's back online.","zh":"他现在离线，他那边凌晨两点了。他上线时会看到的。"}],"kind":"chunk","situation":{"en":"She's offline for the day; expect a reply tomorrow her time.","zh":"你提醒大家对方今天已经下线了。"},"term":"He'll see it when he's back online.","zh":"他上线时会看到的（异步预期管理）"},{"examples":[{"en":"No need to reply right away — this is not urgent, just flagging it.","zh":"不用马上回，不急，只是同步一下。"}],"kind":"sentence","situation":{"en":"No need to reply right away, just wanted it on your radar.","zh":"你给对方发了个消息加上这句，免得他有压力。"},"term":"No need to reply right away.","zh":"不用马上回复（异步礼仪神句）"},{"examples":[{"en":"Just flagging this early so it doesn't surprise anyone in the review.","zh":"我提前同步一下，免得评审时大家措手不及。"}],"kind":"chunk","situation":{"en":"Just flagging that the timeline might slip — details in the doc.","zh":"你在频道里提前预警时间可能延期。"},"term":"just flagging","zh":"只是提前同步一下（预警开场白）"},{"examples":[{"en":"I'll write this up in the doc so everyone can read it in their own time zone.","zh":"我会把这个写进文档，方便大家各自在自己的时区看。"}],"kind":"chunk","situation":{"en":"Rather than another meeting, I'll write it up tonight.","zh":"你提议用文档代替再开一次会。"},"term":"write this up in the doc","zh":"把这件事写成文档（同步给大家）"},{"examples":[{"en":"Could you leave your comments on the doc by Thursday your time?","zh":"你能在你那边的周四之前把评论留在文档上吗？"}],"kind":"sentence","situation":{"en":"Comments by Wednesday your time would be perfect.","zh":"约评论截止时间时，你特意点明用对方的时区。"},"term":"by Thursday your time","zh":"按你的时区在周四前（跨时区说截止时间的说法）"},{"examples":[{"en":"Let's move this to async — drop your thoughts in the doc and we'll decide tomorrow.","zh":"我们转异步吧，把想法写在文档里，明天再定。"}],"kind":"chunk","situation":{"en":"This thread is getting long; let's move it to async in the doc.","zh":"频道里讨论太长了，你提议转成文档异步讨论。"},"term":"move this to async","zh":"把这件事转成异步（别开会了）"},{"examples":[{"en":"Working async means writing things down as if the reader is asleep — because they probably are.","zh":"异步协作意味着把事情写清楚到读者像睡着了一样——因为他们可能真的在睡觉。"}],"kind":"chunk","note":"这句是远程文化的名言式表达：异步写作要自带完整上下文，不能指望对方追问。","situation":{"en":"Rule of thumb for our team: write it as if the reader is asleep.","zh":"你在入职指南里写异步写作的原则。"},"term":"as if the reader is asleep","zh":"（写作时）假设读者在睡觉（自带上下文的异步原则）"},{"examples":[{"en":"I left a comment on line forty-two explaining why the check has to happen before the write.","zh":"我在第四十二行留了条评论，解释了为什么检查必须在写之前做。"}],"kind":"chunk","situation":{"en":"I left a few comments on the doc — mostly questions, not blockers.","zh":"你通知同事文档上有你的评论。"},"term":"leave a comment on the doc","zh":"在文档上留评论"},{"examples":[{"en":"Please resolve the thread once you've addressed it, so I know it's done.","zh":"处理完了请把讨论串标记为已解决，我就知道完事了。"}],"kind":"sentence","situation":{"en":"Could you resolve the older threads? The doc is hard to read now.","zh":"文档评论太多，你请同事把处理完的折叠掉。"},"term":"Please resolve the thread once you've addressed it.","zh":"处理完请把讨论标记为已解决"},{"examples":[{"en":"Let me tag you in the doc where your input is needed.","zh":"我会在文档里需要你意见的地方艾特你。"}],"kind":"chunk","situation":{"en":"I'll tag the right people in the thread.","zh":"你答应把相关的人拉进讨论。"},"term":"tag you in the doc","zh":"在文档里艾特你"},{"examples":[{"en":"I'll summarize the thread for anyone who doesn't want to read forty messages.","zh":"我来总结一下这个讨论串，省得大家看四十条消息。"}],"kind":"chunk","situation":{"en":"Quick summary for the thread: we agreed on option B, rollout starts Monday.","zh":"长讨论后你主动在串里发总结。"},"term":"summarize the thread","zh":"把讨论串总结一下（异步好习惯）"},{"examples":[{"en":"That's EOD for me — I'll hand this over to the Berlin team now.","zh":"我这边今天到此为止了，我把这个交接给柏林团队。"}],"kind":"chunk","situation":{"en":"EOD for me — handover notes are in the ticket.","zh":"下班前你在频道里交接。"},"term":"That's EOD for me.","zh":"我这边今天结束了（EOD = end of day）"},{"examples":[{"en":"I'll hand over the incident to the next shift with a written summary.","zh":"我会用书面总结把这个故障交接给下一班。"}],"kind":"chunk","situation":{"en":"Let me write the handover before I log off.","zh":"值班交接前你说先把交接文档写好。"},"term":"hand over to the next shift","zh":"交接给下一班（跨时区接力）"},{"examples":[{"en":"Can we make this meeting optional and record it for the Asia team?","zh":"这个会能改成可选参加、并录下来给亚洲团队看吗？"}],"kind":"sentence","situation":{"en":"I'll record it for anyone who can't join live.","zh":"你宣布会议会录像照顾其他时区。"},"term":"record it for the ... team","zh":"把（会议）录下来给……团队看"},{"examples":[{"en":"The decision is documented in the RFC, in case anyone wonders later why we did this.","zh":"这个决策记录在 RFC 里了，免得以后有人问当初为什么这么定。"}],"kind":"chunk","situation":{"en":"Decisions go in the doc, not in meeting memory.","zh":"你强调决策要落文档不能靠记忆。"},"term":"documented in the RFC","zh":"记录在 RFC 文档里（决策留痕）"},{"examples":[{"en":"Let's not block on this — I'll proceed with option A unless someone objects by Friday.","zh":"别卡在这了，我按方案 A 推进，除非有人在周五前反对。"}],"kind":"chunk","note":"这是远程团队的名技法：懒共识（lazy consensus）——给明确的截止时间，沉默视为同意。","situation":{"en":"I'll proceed unless someone objects by tomorrow noon.","zh":"群里没人回应你的方案，你给出默认推进法。"},"term":"unless someone objects by ...","zh":"除非有人在……之前反对（默认推进法）"},{"examples":[{"en":"Heads up: the freeze starts Friday, so land your changes before then.","zh":"提前说一声：周五开始封版，要合并的改动赶在那之前。"}],"kind":"chunk","register":"casual","situation":{"en":"Heads up — the staging database resets tonight.","zh":"你提前给团队打预防针。"},"term":"Heads up: ...","zh":"提前说一声、提醒一下（开场）"},{"examples":[{"en":"For visibility, I'm posting the incident summary in the public channel.","zh":"为了让大家都能看到，我把故障总结发在公开频道。"}],"kind":"chunk","situation":{"en":"Posting here for visibility — full details in the doc.","zh":"你在频道发简短版并指向完整文档。"},"term":"for visibility","zh":"为了让大家都看到（同步信息的固定说法）"},{"examples":[{"en":"Please react with an emoji once you've read it, so I know it landed.","zh":"看完了请用表情回复一下，我就知道传达到了。"}],"kind":"sentence","register":"casual","situation":{"en":"React with a check mark when your part is done.","zh":"你设计了一个轻量签到机制。"},"term":"react with an emoji once you've read it","zh":"看完用表情回复一下（已读确认）"},{"examples":[{"en":"Her status says she's in focus time until three — don't expect a reply.","zh":"她的状态显示三点前是专注时间，别指望回复。"}],"kind":"chunk","situation":{"en":"My status will show focus time during the migration.","zh":"你提前说明深度工作期间状态会显示专注中。"},"term":"in focus time","zh":"在专注时间（勿扰状态）"},{"examples":[{"en":"Set your working hours in the calendar so people stop booking your evenings.","zh":"在日历里设好工作时间，大家就不会老订你的晚上了。"}],"kind":"chunk","situation":{"en":"My working hours are in my profile — meetings outside them need a ping first.","zh":"你在个人说明里写了工作时间规则。"},"term":"set your working hours","zh":"设置（日历里的）工作时间"},{"examples":[{"en":"The whole retro is async this month — add your notes to the board by Wednesday.","zh":"这个月的复盘全改成异步，周三前把笔记加到看板上。"}],"kind":"chunk","situation":{"en":"Retro is async this time; the board is open until Friday.","zh":"你宣布本月复盘改为异步进行。"},"term":"async retro","zh":"异步复盘（不开会、看板留言）"},{"examples":[{"en":"I recorded a Loom walking through the new flow — it's linked in the ticket.","zh":"我录了一段 Loom 讲解新流程，链接在工单里。"}],"kind":"chunk","note":"Loom 是最常见的异步录屏工具，很多远程团队把它当动词用：I'll Loom it. 我录个屏说明。","situation":{"en":"Rather than a call, I'll Loom the demo for you.","zh":"你提议录屏代替开会演示。"},"term":"a Loom walkthrough","zh":"一段 Loom 录屏讲解"},{"examples":[{"en":"Time zones are the tax you pay for a global team — documentation is how you pay less of it.","zh":"时区是全球团队要交的税，文档就是少交税的方法。"}],"kind":"chunk","note":"这句适合写在远程协作指南的开头，也是面试聊远程经验时的好句子。","situation":{"en":"My take: time zones are a tax, and good docs are the discount.","zh":"面试聊到远程协作的挑战，你给一个精辟总结。"},"term":"the tax you pay for a global team","zh":"全球团队要付的“税”（比喻时区成本）"},{"examples":[{"en":"Can we find a time that isn't midnight for anyone?","zh":"我们能找一个对谁来说都不是半夜的时间吗？"}],"kind":"sentence","register":"casual","situation":{"en":"Let's rotate the meeting time so the pain is shared fairly.","zh":"约全球会议时你提议轮换时间、轮流吃亏。"},"term":"a time that isn't midnight for anyone","zh":"一个对谁都不是半夜的时间"},{"examples":[{"en":"Let's rotate who takes the late slot, so it's not always the same people suffering.","zh":"我们轮换谁上晚班时段，别老是同一批人受罪。"}],"kind":"chunk","situation":{"en":"We'll rotate the meeting time monthly.","zh":"你宣布会议时间每月轮换一次。"},"term":"rotate who takes the late slot","zh":"轮换谁来上晚班时段（公平原则）"},{"examples":[{"en":"Sorry for the delay — your message landed in my evening, I only saw it this morning.","zh":"抱歉回复晚了，你的消息到我这边时是晚上，我今早才看到。"}],"kind":"sentence","situation":{"en":"Apologies for the late reply — time zones.","zh":"你为回复慢向对方简单解释时区原因。"},"term":"Sorry for the delay — time zones.","zh":"抱歉回复晚了，时区原因"},{"examples":[{"en":"I'll be OOO next week with no email access.","zh":"我下周休假外出，不看邮件。"}],"kind":"chunk","note":"OOO 是 out of office 的缩写，远程团队日历和状态里到处都是：OOO until Monday。","situation":{"en":"Half the reviewers are OOO, so expect slow reviews.","zh":"你提前预警评审会慢：好多人休假。"},"term":"I'll be OOO next week.","zh":"我下周不在（OOO = out of office）"},{"examples":[{"en":"Just a friendly nudge on the review — no rush, today if you can.","zh":"友情提醒一下评审的事，不急，今天能看就最好。"}],"kind":"chunk","register":"casual","situation":{"en":"Friendly nudge on the doc comments when you get a chance.","zh":"你想催一下又不想显得逼人。"},"term":"just a friendly nudge","zh":"友情提醒一下（催人神器）"},{"examples":[{"en":"Blocking you is the last thing I want — ping me the moment you're stuck.","zh":"我最不想的就是卡住你，你一卡住马上戳我。"}],"kind":"chunk","situation":{"en":"If I ever block you, escalate — don't wait a day.","zh":"你对新人说被你卡住时要升级、别干等。"},"term":"blocking you is the last thing I want","zh":"我最不想的就是拖住你"},{"examples":[{"en":"Let's default to writing it down — if it's not written, it didn't happen.","zh":"我们默认一切落字：没写下来的，就算没发生。"}],"kind":"chunk","note":"远程文化的核心信条之一，出自 GitLab 的公开手册，面试聊远程协作时引用很加分。","situation":{"en":"Our rule: if it's not written, it didn't happen.","zh":"你向新人介绍团队的文档文化。"},"term":"if it's not written, it didn't happen","zh":"没写下来就等于没发生（文档文化信条）"},{"examples":[{"en":"The stand-up is a written update now — post yours before ten your time.","zh":"站会改成书面更新了，在你那边十点前发出来。"}],"kind":"chunk","situation":{"en":"Written stand-ups start Monday; template is in the channel.","zh":"你宣布站会改成书面形式。"},"term":"a written update","zh":"书面更新（代替开会）"},{"examples":[{"en":"I'll catch up on the thread when I'm back at my desk.","zh":"我回到工位时会把这个讨论串补看完。"}],"kind":"chunk","situation":{"en":"Twenty messages behind — I'll catch up tonight.","zh":"你发现讨论串落后了二十条，说晚上补上。"},"term":"catch up on the thread","zh":"把讨论串补看完"},{"examples":[{"en":"Please keep PR descriptions self-explanatory — reviewers may be asleep in another time zone.","zh":"PR 描述请写得自解释，评审的人可能正在另一个时区睡觉。"}],"kind":"sentence","situation":{"en":"Write the summary as if the reader has zero context.","zh":"你给团队讲 PR 描述的写作标准。"},"term":"self-explanatory","zh":"自带解释的、无需追问就能懂的"},{"examples":[{"en":"One more async tip: ask your question in public channels, so the answer helps everyone.","zh":"再一个异步小技巧：问题问在公开频道，答案能帮到所有人。"}],"kind":"chunk","situation":{"en":"Ask in the channel, not in DMs — others probably have the same question.","zh":"有人私聊你问题，你引导他去公开频道问。"},"term":"ask in public channels","zh":"在公开频道提问（别私聊）"}],"layer":"B","title":"远程协作"}
+{
+ "category": "remote-work",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Our overlap is only two hours a day, so we keep meetings for decisions only.",
+     "zh": "我们每天只有两小时重叠时间，所以会议只用来做决策。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We have about three hours of overlap — let's put the design review there.",
+    "zh": "你和海外同事商量把评审放在重叠时段。"
+   },
+   "term": "working hours overlap",
+   "zh": "工作时间重叠（跨时区协作的关键概念）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'll leave my notes in the doc so the US team can pick it up in their morning.",
+     "zh": "我会把笔记留在文档里，美国团队早上就能接上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Just drop your update in the doc and I'll pick it up tomorrow.",
+    "zh": "你告诉同事异步交接的方式：写进文档就行。"
+   },
+   "term": "pick it up",
+   "zh": "接上、继续处理（在对方时区开始工作时）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let me record a quick walkthrough instead of scheduling a call across time zones.",
+     "zh": "我录一段讲解视频吧，省得跨时区约电话了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I recorded a five-minute walkthrough of the failing flow — link in the ticket.",
+    "zh": "你跟同事说你录了讲解，链接在工单里。"
+   },
+   "term": "record a quick walkthrough",
+   "zh": "录一段快速讲解（视频）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Please keep the discussion in the ticket, not in private messages — future us will thank you.",
+     "zh": "请把讨论留在工单里，别用私聊，未来的我们会感谢你的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let's keep the discussion in the ticket so it's searchable later.",
+    "zh": "有人想转去私聊，你想把讨论留痕。"
+   },
+   "term": "keep the discussion in the ticket",
+   "zh": "把讨论留在工单/文档里（别转私聊）"
+  },
+  {
+   "examples": [
+    {
+     "en": "He's offline now — it's 2 a.m. his time. He'll see it when he's back online.",
+     "zh": "他现在离线，他那边凌晨两点了。他上线时会看到的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "He'll see it when he's back online — no need to wait up for a reply.",
+    "zh": "你提醒大家对方今天已经下线了。"
+   },
+   "term": "He'll see it when he's back online.",
+   "zh": "他上线时会看到的（异步预期管理）"
+  },
+  {
+   "examples": [
+    {
+     "en": "No need to reply right away — this is not urgent, just flagging it.",
+     "zh": "不用马上回，不急，只是同步一下。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "No need to reply right away, just wanted it on your radar.",
+    "zh": "你给对方发了个消息加上这句，免得他有压力。"
+   },
+   "term": "No need to reply right away.",
+   "zh": "不用马上回复（异步礼仪神句）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Just flagging this early so it doesn't surprise anyone in the review.",
+     "zh": "我提前同步一下，免得评审时大家措手不及。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Just flagging that the timeline might slip — details in the doc.",
+    "zh": "你在频道里提前预警时间可能延期。"
+   },
+   "term": "just flagging",
+   "zh": "只是提前同步一下（预警开场白）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'll write this up in the doc so everyone can read it in their own time zone.",
+     "zh": "我会把这个写进文档，方便大家各自在自己的时区看。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Rather than another meeting, I'll write it up tonight.",
+    "zh": "你提议用文档代替再开一次会。"
+   },
+   "term": "write this up in the doc",
+   "zh": "把这件事写成文档（同步给大家）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Could you leave your comments on the doc by Thursday your time?",
+     "zh": "你能在你那边的周四之前把评论留在文档上吗？"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Comments by Wednesday your time would be perfect.",
+    "zh": "约评论截止时间时，你特意点明用对方的时区。"
+   },
+   "term": "by Thursday your time",
+   "zh": "按你的时区在周四前（跨时区说截止时间的说法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let's move this to async — drop your thoughts in the doc and we'll decide tomorrow.",
+     "zh": "我们转异步吧，把想法写在文档里，明天再定。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "This thread is getting long; let's move it to async in the doc.",
+    "zh": "频道里讨论太长了，你提议转成文档异步讨论。"
+   },
+   "term": "move this to async",
+   "zh": "把这件事转成异步（别开会了）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Working async means writing things down as if the reader is asleep — because they probably are.",
+     "zh": "异步协作意味着把事情写清楚到读者像睡着了一样——因为他们可能真的在睡觉。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "这句是远程文化的名言式表达：异步写作要自带完整上下文，不能指望对方追问。",
+   "situation": {
+    "en": "Rule of thumb for our team: write it as if the reader is asleep.",
+    "zh": "你在入职指南里写异步写作的原则。"
+   },
+   "term": "as if the reader is asleep",
+   "zh": "（写作时）假设读者在睡觉（自带上下文的异步原则）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I left a comment on line forty-two explaining why the check has to happen before the write.",
+     "zh": "我在第四十二行留了条评论，解释了为什么检查必须在写之前做。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I left a few comments on the doc — mostly questions, not blockers.",
+    "zh": "你通知同事文档上有你的评论。"
+   },
+   "term": "leave a comment on the doc",
+   "zh": "在文档上留评论"
+  },
+  {
+   "examples": [
+    {
+     "en": "Please resolve the thread once you've addressed it, so I know it's done.",
+     "zh": "处理完了请把讨论串标记为已解决，我就知道完事了。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Please resolve the thread once you've addressed it — the doc is getting hard to read.",
+    "zh": "文档评论太多，你请同事把处理完的折叠掉。"
+   },
+   "term": "Please resolve the thread once you've addressed it.",
+   "zh": "处理完请把讨论标记为已解决"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let me tag you in the doc where your input is needed.",
+     "zh": "我会在文档里需要你意见的地方艾特你。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'll tag the right people in the thread.",
+    "zh": "你答应把相关的人拉进讨论。"
+   },
+   "term": "tag you in the doc",
+   "zh": "在文档里艾特你"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'll summarize the thread for anyone who doesn't want to read forty messages.",
+     "zh": "我来总结一下这个讨论串，省得大家看四十条消息。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Quick summary for the thread: we agreed on option B, rollout starts Monday.",
+    "zh": "长讨论后你主动在串里发总结。"
+   },
+   "term": "summarize the thread",
+   "zh": "把讨论串总结一下（异步好习惯）"
+  },
+  {
+   "examples": [
+    {
+     "en": "That's EOD for me — I'll hand this over to the Berlin team now.",
+     "zh": "我这边今天到此为止了，我把这个交接给柏林团队。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "That's EOD for me — handover notes are in the ticket.",
+    "zh": "下班前你在频道里交接。"
+   },
+   "term": "That's EOD for me.",
+   "zh": "我这边今天结束了（EOD = end of day）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'll hand over the incident to the next shift with a written summary.",
+     "zh": "我会用书面总结把这个故障交接给下一班。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let me write the handover before I log off.",
+    "zh": "值班交接前你说先把交接文档写好。"
+   },
+   "term": "hand over to the next shift",
+   "zh": "交接给下一班（跨时区接力）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Can we make this meeting optional and record it for the Asia team?",
+     "zh": "这个会能改成可选参加、并录下来给亚洲团队看吗？"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "I'll record it for anyone who can't join live.",
+    "zh": "你宣布会议会录像照顾其他时区。"
+   },
+   "term": "record it for the ... team",
+   "zh": "把（会议）录下来给……团队看"
+  },
+  {
+   "examples": [
+    {
+     "en": "The decision is documented in the RFC, in case anyone wonders later why we did this.",
+     "zh": "这个决策记录在 RFC 里了，免得以后有人问当初为什么这么定。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "It'll be documented in the RFC, not just in meeting memory.",
+    "zh": "你强调决策要落文档不能靠记忆。"
+   },
+   "term": "documented in the RFC",
+   "zh": "记录在 RFC 文档里（决策留痕）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let's not block on this — I'll proceed with option A unless someone objects by Friday.",
+     "zh": "别卡在这了，我按方案 A 推进，除非有人在周五前反对。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "这是远程团队的名技法：懒共识（lazy consensus）——给明确的截止时间，沉默视为同意。",
+   "situation": {
+    "en": "I'll proceed unless someone objects by tomorrow noon.",
+    "zh": "群里没人回应你的方案，你给出默认推进法。"
+   },
+   "term": "unless someone objects by ...",
+   "zh": "除非有人在……之前反对（默认推进法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Heads up: the freeze starts Friday, so land your changes before then.",
+     "zh": "提前说一声：周五开始封版，要合并的改动赶在那之前。"
+    }
+   ],
+   "kind": "chunk",
+   "register": "casual",
+   "situation": {
+    "en": "Heads up — the staging database resets tonight.",
+    "zh": "你提前给团队打预防针。"
+   },
+   "term": "Heads up: ...",
+   "zh": "提前说一声、提醒一下（开场）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Please react with an emoji once you've read it, so I know it landed.",
+     "zh": "看完了请用表情回复一下，我就知道传达到了。"
+    }
+   ],
+   "kind": "sentence",
+   "register": "casual",
+   "situation": {
+    "en": "Please react with an emoji once you've read it — a check mark works.",
+    "zh": "你设计了一个轻量签到机制。"
+   },
+   "term": "react with an emoji once you've read it",
+   "zh": "看完用表情回复一下（已读确认）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Her status says she's in focus time until three — don't expect a reply.",
+     "zh": "她的状态显示三点前是专注时间，别指望回复。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "My status will show focus time during the migration.",
+    "zh": "你提前说明深度工作期间状态会显示专注中。"
+   },
+   "term": "in focus time",
+   "zh": "在专注时间（勿扰状态）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Set your working hours in the calendar so people stop booking your evenings.",
+     "zh": "在日历里设好工作时间，大家就不会老订你的晚上了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "My working hours are in my profile — meetings outside them need a ping first.",
+    "zh": "你在个人说明里写了工作时间规则。"
+   },
+   "term": "set your working hours",
+   "zh": "设置（日历里的）工作时间"
+  },
+  {
+   "examples": [
+    {
+     "en": "The whole retro is async this month — add your notes to the board by Wednesday.",
+     "zh": "这个月的复盘全改成异步，周三前把笔记加到看板上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Retro is async this time; the board is open until Friday.",
+    "zh": "你宣布本月复盘改为异步进行。"
+   },
+   "term": "async retro",
+   "zh": "异步复盘（不开会、看板留言）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I recorded a Loom walking through the new flow — it's linked in the ticket.",
+     "zh": "我录了一段 Loom 讲解新流程，链接在工单里。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "Loom 是最常见的异步录屏工具，很多远程团队把它当动词用：I'll Loom it. 我录个屏说明。",
+   "situation": {
+    "en": "Rather than a call, I'll Loom the demo for you.",
+    "zh": "你提议录屏代替开会演示。"
+   },
+   "term": "a Loom walkthrough",
+   "zh": "一段 Loom 录屏讲解"
+  },
+  {
+   "examples": [
+    {
+     "en": "Time zones are the tax you pay for a global team — documentation is how you pay less of it.",
+     "zh": "时区是全球团队要交的税，文档就是少交税的方法。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "这句适合写在远程协作指南的开头，也是面试聊远程经验时的好句子。",
+   "situation": {
+    "en": "Remember: time zones are the tax you pay for a global team, and good docs are the discount.",
+    "zh": "面试聊到远程协作的挑战，你给一个精辟总结。"
+   },
+   "term": "the tax you pay for a global team",
+   "zh": "全球团队要付的“税”（比喻时区成本）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Can we find a time that isn't midnight for anyone?",
+     "zh": "我们能找一个对谁来说都不是半夜的时间吗？"
+    }
+   ],
+   "kind": "sentence",
+   "register": "casual",
+   "situation": {
+    "en": "Let's pick a time that isn't midnight for anyone this time.",
+    "zh": "约全球会议时你提议轮换时间、轮流吃亏。"
+   },
+   "term": "a time that isn't midnight for anyone",
+   "zh": "一个对谁都不是半夜的时间"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let's rotate who takes the late slot, so it's not always the same people suffering.",
+     "zh": "我们轮换谁上晚班时段，别老是同一批人受罪。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We'll rotate who takes the late slot every month, so it's fair.",
+    "zh": "你宣布会议时间每月轮换一次。"
+   },
+   "term": "rotate who takes the late slot",
+   "zh": "轮换谁来上晚班时段（公平原则）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Sorry for the delay — your message landed in my evening, I only saw it this morning.",
+     "zh": "抱歉回复晚了，你的消息到我这边时是晚上，我今早才看到。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Apologies for the late reply — time zones.",
+    "zh": "你为回复慢向对方简单解释时区原因。"
+   },
+   "term": "Sorry for the delay — time zones.",
+   "zh": "抱歉回复晚了，时区原因"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'll be OOO next week with no email access.",
+     "zh": "我下周休假外出，不看邮件。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "OOO 是 out of office 的缩写，远程团队日历和状态里到处都是：OOO until Monday。",
+   "situation": {
+    "en": "Just so you know, I'll be OOO next week.",
+    "zh": "你提前预警评审会慢：好多人休假。"
+   },
+   "term": "I'll be OOO next week.",
+   "zh": "我下周不在（OOO = out of office）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Just a friendly nudge on the review — no rush, today if you can.",
+     "zh": "友情提醒一下评审的事，不急，今天能看就最好。"
+    }
+   ],
+   "kind": "chunk",
+   "register": "casual",
+   "situation": {
+    "en": "Friendly nudge on the doc comments when you get a chance.",
+    "zh": "你想催一下又不想显得逼人。"
+   },
+   "term": "just a friendly nudge",
+   "zh": "友情提醒一下（催人神器）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Blocking you is the last thing I want — ping me the moment you're stuck.",
+     "zh": "我最不想的就是卡住你，你一卡住马上戳我。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Blocking you is the last thing I want — escalate if it ever happens.",
+    "zh": "你对新人说被你卡住时要升级、别干等。"
+   },
+   "term": "blocking you is the last thing I want",
+   "zh": "我最不想的就是拖住你"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let's default to writing it down — if it's not written, it didn't happen.",
+     "zh": "我们默认一切落字：没写下来的，就算没发生。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "远程文化的核心信条之一，出自 GitLab 的公开手册，面试聊远程协作时引用很加分。",
+   "situation": {
+    "en": "Our rule: if it's not written, it didn't happen.",
+    "zh": "你向新人介绍团队的文档文化。"
+   },
+   "term": "if it's not written, it didn't happen",
+   "zh": "没写下来就等于没发生（文档文化信条）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The stand-up is a written update now — post yours before ten your time.",
+     "zh": "站会改成书面更新了，在你那边十点前发出来。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Written stand-ups start Monday; template is in the channel.",
+    "zh": "你宣布站会改成书面形式。"
+   },
+   "term": "a written update",
+   "zh": "书面更新（代替开会）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'll catch up on the thread when I'm back at my desk.",
+     "zh": "我回到工位时会把这个讨论串补看完。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Twenty messages behind — I'll catch up tonight.",
+    "zh": "你发现讨论串落后了二十条，说晚上补上。"
+   },
+   "term": "catch up on the thread",
+   "zh": "把讨论串补看完"
+  },
+  {
+   "examples": [
+    {
+     "en": "Please keep PR descriptions self-explanatory — reviewers may be asleep in another time zone.",
+     "zh": "PR 描述请写得自解释，评审的人可能正在另一个时区睡觉。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Keep it self-explanatory — assume the reader has zero context.",
+    "zh": "你给团队讲 PR 描述的写作标准。"
+   },
+   "term": "self-explanatory",
+   "zh": "自带解释的、无需追问就能懂的"
+  },
+  {
+   "examples": [
+    {
+     "en": "One more async tip: ask your question in public channels, so the answer helps everyone.",
+     "zh": "再一个异步小技巧：问题问在公开频道，答案能帮到所有人。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ask in the channel, not in DMs — others probably have the same question.",
+    "zh": "有人私聊你问题，你引导他去公开频道问。"
+   },
+   "term": "ask in public channels",
+   "zh": "在公开频道提问（别私聊）"
+  }
+ ],
+ "layer": "B",
+ "title": "远程协作"
+}
