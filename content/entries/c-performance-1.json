@@ -1,1 +1,415 @@
-{"category":"performance","entries":[{"examples":[{"en":"Profile first, optimize second — my guess about the bottleneck was wrong twice this year.","zh":"先分析再优化，我今年已经猜错两次瓶颈了。"}],"kind":"chunk","note":"measure, don't guess 是性能优化的第一信条；profile first 是它最常见的口头版本。","situation":{"en":"Before we rewrite anything, profile first — data over opinions.","zh":"团队想直接重写慢模块，你拦住说先看数据。"},"term":"profile first","zh":"先做性能分析（别靠猜）"},{"examples":[{"en":"The flame graph made it obvious: half the time was going into JSON parsing.","zh":"火焰图让问题一目了然：一半时间花在 JSON 解析上。"}],"kind":"chunk","situation":{"en":"One look at the flame graph and the hot spot jumps out.","zh":"你向新人介绍火焰图怎么读。"},"term":"flame graph","zh":"火焰图"},{"examples":[{"en":"Serialization is the hot spot — everything else is noise by comparison.","zh":"序列化就是热点，其他的比起来都是噪声。"}],"kind":"chunk","situation":{"en":"The profiler says the hot spot moved to the network layer.","zh":"你汇报优化一轮后热点转移了。"},"term":"hot spot","zh":"热点（最耗资源的那处代码）"},{"examples":[{"en":"Optimizing the hot path bought us forty percent; the cold path nobody touches.","zh":"优化热路径给我们带来了 40% 的提升，冷路径没人碰。"}],"kind":"chunk","situation":{"en":"Keep the hot path allocation-free.","zh":"你给评审意见：热路径上别分配内存。"},"term":"hot path","zh":"热路径（最常执行的代码）"},{"examples":[{"en":"This runs once at startup — it's a cold path, don't waste effort optimizing it.","zh":"这段只在启动时跑一次，是冷路径，别费力气优化它。"}],"kind":"chunk","situation":{"en":"Cold path, cold rules: correctness first, speed later.","zh":"你给冷路径定优化原则。"},"term":"cold path","zh":"冷路径（很少执行的代码）"},{"examples":[{"en":"Our benchmark showed the new parser is twice as fast on real-world files.","zh":"我们的基准测试显示，新解析器在真实文件上快了一倍。"}],"kind":"chunk","situation":{"en":"Don't trust my laptop numbers — run the benchmark on the CI machine.","zh":"你提醒同事别信本机跑分。"},"term":"benchmark","zh":"基准测试、跑分"},{"examples":[{"en":"Microbenchmarks lie when the JIT would have optimized the real workload differently.","zh":"当 JIT 对真实负载的优化方式不同，微基准就会骗人。"}],"kind":"chunk","situation":{"en":"That microbenchmark measures the harness, not the code.","zh":"你指出一个微基准测的其实是框架本身。"},"term":"microbenchmark","zh":"微基准（只测一小段代码的）"},{"examples":[{"en":"Establish a baseline before the change, or you'll argue about the result forever.","zh":"动手之前先测一个基线，不然结果出来能吵一辈子。"}],"kind":"chunk","situation":{"en":"Baseline first: current p99 is eight hundred milliseconds.","zh":"优化立项时你先报基线数字。"},"term":"baseline measurement","zh":"基线测量（优化前的对照）"},{"examples":[{"en":"The March release had a silent performance regression — twenty percent slower, nobody noticed for weeks.","zh":"三月的版本悄悄出了性能退化，慢了 20%，几周都没人发现。"}],"kind":"chunk","situation":{"en":"We added alerts to catch performance regressions in CI.","zh":"你介绍怎么防退化再次溜过去。"},"term":"performance regression","zh":"性能退化、回退"},{"examples":[{"en":"Load testing showed the service falls over at three thousand requests per second.","zh":"压力测试显示，这个服务在每秒三千请求时就趴了。"}],"kind":"chunk","situation":{"en":"Before the sale, we load test at twice the expected peak.","zh":"你介绍大促前的压测标准。"},"term":"load testing","zh":"压力测试、负载测试"},{"examples":[{"en":"Stress testing isn't about realistic traffic — it's about finding where it breaks.","zh":"极限测试不是模拟真实流量，是找它在哪断裂。"}],"kind":"chunk","situation":{"en":"Stress test it until something snaps; that's the number I want.","zh":"你给压测同事定目标：测到断为止。"},"term":"stress testing","zh":"极限/破坏性测试"},{"examples":[{"en":"The soak test ran for three days and exposed a slow memory leak.","zh":"耐久测试跑了三天，暴露了一个缓慢的内存泄漏。"}],"kind":"chunk","situation":{"en":"Short tests look fine; the soak test is where leaks confess.","zh":"你解释为什么短测没问题还要跑长测。"},"term":"soak test","zh":"耐久测试（长时间运行看泄漏）"},{"examples":[{"en":"Capacity planning says we'll outgrow this cluster in about five months.","zh":"容量规划说，我们大概五个月后就会超出这个集群。"}],"kind":"chunk","situation":{"en":"Capacity planning is just arithmetic plus honesty about growth.","zh":"你给容量规划祛魅：算术加诚实。"},"term":"capacity planning","zh":"容量规划"},{"examples":[{"en":"Keep thirty percent headroom for spikes, or every sale becomes an incident.","zh":"留 30% 的余量给峰值，不然每次大促都是一次事故。"}],"kind":"chunk","situation":{"en":"We're running with almost no headroom right now.","zh":"你在会上警告容量余量见底了。"},"term":"headroom","zh":"余量、冗余空间"},{"examples":[{"en":"At eighty percent CPU, the disks saturate and latency goes nonlinear.","zh":"CPU 到 80% 时磁盘就饱和了，延迟开始非线性上升。"}],"kind":"chunk","situation":{"en":"The thread pool saturates long before the CPU does.","zh":"你指出先饱和的其实是线程池。"},"term":"saturate","zh":"饱和、跑满"},{"examples":[{"en":"Lock contention, not CPU, was the ceiling — forty threads fighting over one map.","zh":"天花板是锁竞争不是 CPU：四十个线程抢一个 map。"}],"kind":"chunk","situation":{"en":"Sharding the lock removed most of the contention.","zh":"你汇报锁分片的优化效果。"},"term":"lock contention","zh":"锁竞争"},{"examples":[{"en":"False sharing: two threads updating different variables that happen to share a cache line.","zh":"伪共享：两个线程更新不同的变量，却恰好在同一条缓存行上。"}],"kind":"chunk","note":"这是很显功底的一个词，系统面试聊到 CPU 缓存时说出来效果很好。","situation":{"en":"Padding the struct fixed the false sharing problem.","zh":"你介绍一个很底层的优化手法。"},"term":"false sharing","zh":"伪共享（缓存行竞争）"},{"examples":[{"en":"Cache locality beats clever algorithms at our data sizes — the data fits in L2.","zh":"在我们的数据量下，缓存局部性比聪明的算法更重要，数据能装进 L2。"}],"kind":"chunk","situation":{"en":"We laid the data out for cache locality, not for elegance.","zh":"你解释数据布局为什么这么摆。"},"term":"cache locality","zh":"缓存局部性"},{"examples":[{"en":"The mobile build's memory footprint doubled after we bundled the analytics SDK.","zh":"打包了分析 SDK 之后，移动构建的内存占用翻倍了。"}],"kind":"chunk","situation":{"en":"On low-end phones, memory footprint is the whole game.","zh":"你强调低端机上内存就是一切。"},"term":"memory footprint","zh":"内存占用、内存足迹"},{"examples":[{"en":"A high allocation rate keeps the garbage collector busy and the tail latency ugly.","zh":"高分配率让垃圾回收器忙个不停，尾延迟很难看。"}],"kind":"chunk","situation":{"en":"We cut the allocation rate by reusing buffers in the loop.","zh":"你介绍减少分配的改法。"},"term":"allocation rate","zh":"（内存）分配率"},{"examples":[{"en":"A two-hundred-millisecond GC pause during peak traffic shows up as user-visible jank.","zh":"高峰期一次两百毫秒的 GC 停顿，用户能直接感受到卡顿。"}],"kind":"chunk","situation":{"en":"The pauses correlate exactly with GC pauses, not with deploys.","zh":"你用数据排除部署嫌疑。"},"term":"GC pause","zh":"垃圾回收停顿"},{"examples":[{"en":"Our latency budget for the whole request is three hundred milliseconds; the database gets eighty.","zh":"整个请求的延迟预算是三百毫秒，数据库分到八十。"}],"kind":"chunk","situation":{"en":"That new check costs forty milliseconds of our latency budget.","zh":"评审时你指出新校验的延迟代价。"},"term":"latency budget","zh":"延迟预算"},{"examples":[{"en":"The mean looks fine; the p99 is where users suffer.","zh":"平均值看没事，p99 才是用户受罪的地方。"}],"kind":"chunk","note":"说延迟永远报分位数不报平均，这个习惯本身就是资深信号。","situation":{"en":"Report the p95 and p99, never just the average.","zh":"你给监控大盘提要求。"},"term":"p99 latency","zh":"p99 延迟（99 分位）"},{"examples":[{"en":"Median response is fifty milliseconds, but the tail goes to four seconds.","zh":"中位数响应是五十毫秒，但尾巴能拖到四秒。"}],"kind":"chunk","situation":{"en":"Averages hide the tail — look at the distribution.","zh":"你提醒同事平均数会藏住尾部。"},"term":"tail latency","zh":"尾延迟（最慢的那批请求）"},{"examples":[{"en":"Every fix moves the bottleneck — first the CPU, then the disk, then the network.","zh":"每次修复都会让瓶颈转移：先是 CPU，再是磁盘，再是网络。"}],"kind":"chunk","situation":{"en":"We fixed the query; now the bottleneck shifted to serialization.","zh":"你汇报优化的连锁反应。"},"term":"the bottleneck shifts","zh":"瓶颈转移（修好一个冒出下一个）"},{"examples":[{"en":"Amdahl's law caps the win: if the serial part is twenty percent, infinite cores still only get you five times.","zh":"阿姆达尔定律给收益封了顶：串行部分占两成，核心再多也只有五倍。"}],"kind":"chunk","situation":{"en":"Before adding cores, check Amdahl's law — what's the serial fraction?","zh":"你拦住想靠加机器解决问题的同事。"},"term":"Amdahl's law","zh":"阿姆达尔定律"},{"examples":[{"en":"Optimizing the report generator was premature optimization — it runs once a night.","zh":"优化报表生成器是过早优化，它一晚上就跑一次。"}],"kind":"chunk","note":"premature optimization is the root of all evil 是 Knuth 的名言，面试里引用恰当很加分，但别滥用。","situation":{"en":"That's premature optimization — measure the real path first.","zh":"你评价一个花哨的优化提案。"},"term":"premature optimization","zh":"过早优化"},{"examples":[{"en":"The ORM was generating an N+1 query for every order on the page.","zh":"ORM 为页面上的每个订单都生成了一次额外查询，就是经典的 N+1。"}],"kind":"chunk","situation":{"en":"Classic N+1 — eager-load the items and it disappears.","zh":"评审时你一眼认出问题并给解法。"},"term":"N+1 query problem","zh":"N+1 查询问题"},{"examples":[{"en":"The query plan shows a full table scan where an index scan should be.","zh":"执行计划显示本该走索引扫描的地方在全表扫描。"}],"kind":"chunk","situation":{"en":"Let me look at the query plan before guessing.","zh":"遇到慢查询你说先看执行计划。"},"term":"query plan","zh":"（数据库）执行计划"},{"examples":[{"en":"Batching a hundred tiny writes into one cut the I/O by an order of magnitude.","zh":"把一百次小写入合成一次，I/O 降了一个数量级。"}],"kind":"chunk","situation":{"en":"Batching is boring and it wins almost every time.","zh":"你总结一条朴素经验。"},"term":"batching","zh":"批处理、攒批"},{"examples":[{"en":"Without backpressure, a fast producer will bury a slow consumer in its own queue.","zh":"没有背压，快生产者会用自己的队列把慢消费者埋掉。"}],"kind":"chunk","situation":{"en":"We added backpressure so the pipeline degrades gracefully.","zh":"你介绍管道的过载保护。"},"term":"backpressure","zh":"背压（下游慢时让上游慢下来）"},{"examples":[{"en":"Memoization turned an exponential mess into a table lookup.","zh":"记忆化把指数级的灾难变成了查表。"}],"kind":"chunk","situation":{"en":"Cache it with memoization — the inputs repeat constantly.","zh":"你给重复计算的函数提优化法。"},"term":"memoization","zh":"记忆化（缓存计算结果）"},{"examples":[{"en":"The bundle grew by three hundred kilobytes because someone imported a whole library for one function.","zh":"有人为了一个函数引了整个库，包体积涨了三百 KB。"}],"kind":"chunk","situation":{"en":"Bundle size is a feature on slow networks.","zh":"你强调包体积在弱网下就是功能本身。"},"term":"bundle size","zh":"（前端）包体积"},{"examples":[{"en":"Code splitting cut the initial load in half — the admin pages load only when visited.","zh":"代码分割把首屏加载砍了一半，管理页访问时才加载。"}],"kind":"chunk","situation":{"en":"Route-level code splitting is the cheapest win here.","zh":"你给前端性能提第一刀。"},"term":"code splitting","zh":"代码分割（按需加载）"},{"examples":[{"en":"Virtual scrolling keeps the DOM small even with a hundred thousand rows.","zh":"虚拟滚动让十万行数据时 DOM 也保持很小。"}],"kind":"chunk","situation":{"en":"Don't render ten thousand rows — virtualize the list.","zh":"评审时你拦住直渲染长列表的实现。"},"term":"virtual scrolling","zh":"虚拟滚动"},{"examples":[{"en":"The warm-up period pollutes the first minute of every benchmark — discard it.","zh":"预热期会污染基准测试的头一分钟，把它丢掉。"}],"kind":"chunk","situation":{"en":"Measure in steady state, after warm-up.","zh":"你纠正同事的测试方法。"},"term":"steady state","zh":"稳态（预热后的稳定运行）"},{"examples":[{"en":"There's too much jitter in these numbers to conclude anything — run it ten more times.","zh":"这些数字抖动太大，什么结论都下不了，再跑十次。"}],"kind":"chunk","situation":{"en":"Cloud benchmarks are noisy; jitter is the tax you pay.","zh":"你解释云上跑分的噪声。"},"term":"jitter","zh":"抖动（测量/时延的不稳定）"},{"examples":[{"en":"We profile in production with a sampling profiler — the overhead is under one percent.","zh":"我们在生产环境用采样剖析器 profiling，开销不到百分之一。"}],"kind":"chunk","situation":{"en":"Continuous profiling caught what staging never reproduced.","zh":"你介绍持续剖析抓到的线上问题。"},"term":"continuous profiling","zh":"持续性能剖析"},{"examples":[{"en":"The performance gate in CI fails the build if the main bundle grows by more than five percent.","zh":"CI 里的性能门禁规定：主包涨超过 5% 就让构建失败。"}],"kind":"chunk","situation":{"en":"Treat performance budgets like tests — gates, not wishes.","zh":"你主张把性能预算做成硬门禁。"},"term":"performance budget","zh":"性能预算（门禁）"},{"examples":[{"en":"Start with the low-hanging fruit: one missing index fixed half the slow queries.","zh":"先摘低垂的果实：补上一个缺失的索引就修好了一半慢查询。"}],"kind":"chunk","note":"low-hanging fruit 是通用职场习语，任何“先做容易的”场景都能用，不限于性能。","situation":{"en":"Before the big rewrite, grab the low-hanging fruit.","zh":"你建议先做容易见效的部分。"},"term":"low-hanging fruit","zh":"低垂的果实（容易见效的事）"}],"layer":"C","title":"性能优化"}
+{
+ "category": "performance",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Profile first, optimize second — my guess about the bottleneck was wrong twice this year.",
+     "zh": "先分析再优化，我今年已经猜错两次瓶颈了。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "measure, don't guess 是性能优化的第一信条；profile first 是它最常见的口头版本。",
+   "situation": {
+    "en": "Before we rewrite anything, profile first — data over opinions.",
+    "zh": "团队想直接重写慢模块，你拦住说先看数据。"
+   },
+   "term": "profile first",
+   "zh": "先做性能分析（别靠猜）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The flame graph made it obvious: half the time was going into JSON parsing.",
+     "zh": "火焰图让问题一目了然：一半时间花在 JSON 解析上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "One look at the flame graph and the hot spot jumps out.",
+    "zh": "你向新人介绍火焰图怎么读。"
+   },
+   "term": "flame graph",
+   "zh": "火焰图"
+  },
+  {
+   "examples": [
+    {
+     "en": "Serialization is the hot spot — everything else is noise by comparison.",
+     "zh": "序列化就是热点，其他的比起来都是噪声。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The profiler says the hot spot moved to the network layer.",
+    "zh": "你汇报优化一轮后热点转移了。"
+   },
+   "term": "hot spot",
+   "zh": "热点（最耗资源的那处代码）"
+  },
+  {
+   "examples": [
+    {
+     "en": "This runs once at startup — it's a cold path, don't waste effort optimizing it.",
+     "zh": "这段只在启动时跑一次，是冷路径，别费力气优化它。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Cold path, cold rules: correctness first, speed later.",
+    "zh": "你给冷路径定优化原则。"
+   },
+   "term": "cold path",
+   "zh": "冷路径（很少执行的代码）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Microbenchmarks lie when the JIT would have optimized the real workload differently.",
+     "zh": "当 JIT 对真实负载的优化方式不同，微基准就会骗人。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "That microbenchmark measures the harness, not the code.",
+    "zh": "你指出一个微基准测的其实是框架本身。"
+   },
+   "term": "microbenchmark",
+   "zh": "微基准（只测一小段代码的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Establish a baseline before the change, or you'll argue about the result forever.",
+     "zh": "动手之前先测一个基线，不然结果出来能吵一辈子。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Baseline first: current p99 is eight hundred milliseconds.",
+    "zh": "优化立项时你先报基线数字。"
+   },
+   "term": "baseline measurement",
+   "zh": "基线测量（优化前的对照）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The March release had a silent performance regression — twenty percent slower, nobody noticed for weeks.",
+     "zh": "三月的版本悄悄出了性能退化，慢了 20%，几周都没人发现。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We added alerts to catch performance regressions in CI.",
+    "zh": "你介绍怎么防退化再次溜过去。"
+   },
+   "term": "performance regression",
+   "zh": "性能退化、回退"
+  },
+  {
+   "examples": [
+    {
+     "en": "Load testing showed the service falls over at three thousand requests per second.",
+     "zh": "压力测试显示，这个服务在每秒三千请求时就趴了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Before the sale, we load test at twice the expected peak.",
+    "zh": "你介绍大促前的压测标准。"
+   },
+   "term": "load testing",
+   "zh": "压力测试、负载测试"
+  },
+  {
+   "examples": [
+    {
+     "en": "Stress testing isn't about realistic traffic — it's about finding where it breaks.",
+     "zh": "极限测试不是模拟真实流量，是找它在哪断裂。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Stress test it until something snaps; that's the number I want.",
+    "zh": "你给压测同事定目标：测到断为止。"
+   },
+   "term": "stress testing",
+   "zh": "极限/破坏性测试"
+  },
+  {
+   "examples": [
+    {
+     "en": "The soak test ran for three days and exposed a slow memory leak.",
+     "zh": "耐久测试跑了三天，暴露了一个缓慢的内存泄漏。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Short tests look fine; the soak test is where leaks confess.",
+    "zh": "你解释为什么短测没问题还要跑长测。"
+   },
+   "term": "soak test",
+   "zh": "耐久测试（长时间运行看泄漏）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keep thirty percent headroom for spikes, or every sale becomes an incident.",
+     "zh": "留 30% 的余量给峰值，不然每次大促都是一次事故。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We're running with almost no headroom right now.",
+    "zh": "你在会上警告容量余量见底了。"
+   },
+   "term": "headroom",
+   "zh": "余量、冗余空间"
+  },
+  {
+   "examples": [
+    {
+     "en": "At eighty percent CPU, the disks saturate and latency goes nonlinear.",
+     "zh": "CPU 到 80% 时磁盘就饱和了，延迟开始非线性上升。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The thread pool saturates long before the CPU does.",
+    "zh": "你指出先饱和的其实是线程池。"
+   },
+   "term": "saturate",
+   "zh": "饱和、跑满"
+  },
+  {
+   "examples": [
+    {
+     "en": "False sharing: two threads updating different variables that happen to share a cache line.",
+     "zh": "伪共享：两个线程更新不同的变量，却恰好在同一条缓存行上。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "这是很显功底的一个词，系统面试聊到 CPU 缓存时说出来效果很好。",
+   "situation": {
+    "en": "Padding the struct fixed the false sharing problem.",
+    "zh": "你介绍一个很底层的优化手法。"
+   },
+   "term": "false sharing",
+   "zh": "伪共享（缓存行竞争）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Cache locality beats clever algorithms at our data sizes — the data fits in L2.",
+     "zh": "在我们的数据量下，缓存局部性比聪明的算法更重要，数据能装进 L2。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We laid the data out for cache locality, not for elegance.",
+    "zh": "你解释数据布局为什么这么摆。"
+   },
+   "term": "cache locality",
+   "zh": "缓存局部性"
+  },
+  {
+   "examples": [
+    {
+     "en": "A high allocation rate keeps the garbage collector busy and the tail latency ugly.",
+     "zh": "高分配率让垃圾回收器忙个不停，尾延迟很难看。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We cut the allocation rate by reusing buffers in the loop.",
+    "zh": "你介绍减少分配的改法。"
+   },
+   "term": "allocation rate",
+   "zh": "（内存）分配率"
+  },
+  {
+   "examples": [
+    {
+     "en": "Our latency budget for the whole request is three hundred milliseconds; the database gets eighty.",
+     "zh": "整个请求的延迟预算是三百毫秒，数据库分到八十。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "That new check costs forty milliseconds of our latency budget.",
+    "zh": "评审时你指出新校验的延迟代价。"
+   },
+   "term": "latency budget",
+   "zh": "延迟预算"
+  },
+  {
+   "examples": [
+    {
+     "en": "Median response is fifty milliseconds, but the tail goes to four seconds.",
+     "zh": "中位数响应是五十毫秒，但尾巴能拖到四秒。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Averages hide the tail — look at the distribution.",
+    "zh": "你提醒同事平均数会藏住尾部。"
+   },
+   "term": "tail latency",
+   "zh": "尾延迟（最慢的那批请求）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every fix moves the bottleneck — first the CPU, then the disk, then the network.",
+     "zh": "每次修复都会让瓶颈转移：先是 CPU，再是磁盘，再是网络。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We fixed the query; now the bottleneck shifted to serialization.",
+    "zh": "你汇报优化的连锁反应。"
+   },
+   "term": "the bottleneck shifts",
+   "zh": "瓶颈转移（修好一个冒出下一个）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Amdahl's law caps the win: if the serial part is twenty percent, infinite cores still only get you five times.",
+     "zh": "阿姆达尔定律给收益封了顶：串行部分占两成，核心再多也只有五倍。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Before adding cores, check Amdahl's law — what's the serial fraction?",
+    "zh": "你拦住想靠加机器解决问题的同事。"
+   },
+   "term": "Amdahl's law",
+   "zh": "阿姆达尔定律"
+  },
+  {
+   "examples": [
+    {
+     "en": "Optimizing the report generator was premature optimization — it runs once a night.",
+     "zh": "优化报表生成器是过早优化，它一晚上就跑一次。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "premature optimization is the root of all evil 是 Knuth 的名言，面试里引用恰当很加分，但别滥用。",
+   "situation": {
+    "en": "That's premature optimization — measure the real path first.",
+    "zh": "你评价一个花哨的优化提案。"
+   },
+   "term": "premature optimization",
+   "zh": "过早优化"
+  },
+  {
+   "examples": [
+    {
+     "en": "The query plan shows a full table scan where an index scan should be.",
+     "zh": "执行计划显示本该走索引扫描的地方在全表扫描。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let me look at the query plan before guessing.",
+    "zh": "遇到慢查询你说先看执行计划。"
+   },
+   "term": "query plan",
+   "zh": "（数据库）执行计划"
+  },
+  {
+   "examples": [
+    {
+     "en": "Batching a hundred tiny writes into one cut the I/O by an order of magnitude.",
+     "zh": "把一百次小写入合成一次，I/O 降了一个数量级。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Batching is boring and it wins almost every time.",
+    "zh": "你总结一条朴素经验。"
+   },
+   "term": "batching",
+   "zh": "批处理、攒批"
+  },
+  {
+   "examples": [
+    {
+     "en": "Virtual scrolling keeps the DOM small even with a hundred thousand rows.",
+     "zh": "虚拟滚动让十万行数据时 DOM 也保持很小。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Don't render ten thousand rows — virtualize the list.",
+    "zh": "评审时你拦住直渲染长列表的实现。"
+   },
+   "term": "virtual scrolling",
+   "zh": "虚拟滚动"
+  },
+  {
+   "examples": [
+    {
+     "en": "The warm-up period pollutes the first minute of every benchmark — discard it.",
+     "zh": "预热期会污染基准测试的头一分钟，把它丢掉。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Measure in steady state, after warm-up.",
+    "zh": "你纠正同事的测试方法。"
+   },
+   "term": "steady state",
+   "zh": "稳态（预热后的稳定运行）"
+  },
+  {
+   "examples": [
+    {
+     "en": "There's too much jitter in these numbers to conclude anything — run it ten more times.",
+     "zh": "这些数字抖动太大，什么结论都下不了，再跑十次。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Cloud benchmarks are noisy; jitter is the tax you pay.",
+    "zh": "你解释云上跑分的噪声。"
+   },
+   "term": "jitter",
+   "zh": "抖动（测量/时延的不稳定）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We profile in production with a sampling profiler — the overhead is under one percent.",
+     "zh": "我们在生产环境用采样剖析器 profiling，开销不到百分之一。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Continuous profiling caught what staging never reproduced.",
+    "zh": "你介绍持续剖析抓到的线上问题。"
+   },
+   "term": "continuous profiling",
+   "zh": "持续性能剖析"
+  },
+  {
+   "examples": [
+    {
+     "en": "The performance gate in CI fails the build if the main bundle grows by more than five percent.",
+     "zh": "CI 里的性能门禁规定：主包涨超过 5% 就让构建失败。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Treat performance budgets like tests — gates, not wishes.",
+    "zh": "你主张把性能预算做成硬门禁。"
+   },
+   "term": "performance budget",
+   "zh": "性能预算（门禁）"
+  }
+ ],
+ "layer": "C",
+ "title": "性能优化"
+}
