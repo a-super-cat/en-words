@@ -44,6 +44,11 @@ const selectedMorph = computed(() => {
 });
 /** 单词详解二期的人工内容（词源、搭配、场景例句），目前只覆盖高频技术词 */
 const selectedNote = computed(() => (selected.value?.word ? getWordNote(selected.value.word.word) : undefined));
+/** Etymonline 词源页链接：站方挡嵌入和抓取，只能跳转到它的页面看全文 */
+const selectedEtymUrl = computed(() => {
+  const w = selected.value?.word?.word;
+  return w ? `https://www.etymonline.com/word/${encodeURIComponent(w.toLowerCase())}` : null;
+});
 const showAll = ref(false);
 
 const analysis = computed(() => (dict.value && text.value ? analyze(text.value, dict.value, vocab.model) : null));
@@ -173,6 +178,9 @@ function reset() {
         </template>
         <p v-else-if="!selectedEntry" class="muted small">
           词典里没有这个词。需要的话可以到<RouterLink to="/library">词库</RouterLink>里手动添加。
+        </p>
+        <p v-if="selectedEtymUrl" class="muted small">
+          <a :href="selectedEtymUrl" target="_blank" rel="noopener">在 Etymonline 查这个词的词源 ↗</a>
         </p>
         <div v-if="selected.word" class="row">
           <button v-if="selectedStatus === 'unknown' || selectedStatus === 'known'" type="button" @click="collectSelected">
