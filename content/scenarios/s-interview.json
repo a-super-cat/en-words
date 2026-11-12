@@ -389,12 +389,12 @@
      "en": "Sure — I usually start design problems with a few clarifying questions, if that's okay.",
      "chunks": [
       {
-       "term": "switch gears",
-       "zh": "换个方向、转个话题"
-      },
-      {
        "term": "clarifying questions",
        "zh": "澄清问题"
+      },
+      {
+       "term": "if that's okay",
+       "zh": "如果可以的话（礼貌征询）"
       }
      ]
     }
@@ -455,7 +455,7 @@
     },
     {
      "speaker": "me",
-     "zh": "你答取舍：Redis 是因为要亚毫秒级的原子计数（Lua 脚本）。挂掉时你的选择是 fail open 放行 + 本地兜底限流，因为限流是为了保护，不该让它单点把 API 拖死；但你也指出计费类接口应该反过来。",
+     "zh": "你答取舍：Redis 是因为要亚毫秒级的原子计数（Lua 脚本）。挂掉时你的选择是先放行、用本地粗粒度限流兜底，因为限流是为了保护，不该让它单点把 API 拖死；但计费类接口应该反过来。",
      "en": "Redis because we need atomic counters with sub-millisecond latency — we'd use a Lua script so the check-and-increment is one step. If Redis goes down, I'd fail open, with a coarse local limit as backup: the limiter exists to protect the API, it shouldn't become the thing that kills it. For billing-sensitive endpoints, I'd flip that choice.",
      "chunks": [
       {
