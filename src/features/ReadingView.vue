@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, shallowRef } from 'vue';
 import SpeakButton from '../components/SpeakButton.vue';
+import { decompose, formatParts } from '../lib/morphology';
 import { useApp } from '../stores/app';
 import { useVocab } from '../stores/vocab';
 import { analyze, sentenceAt, type Segment, type UnknownWord, type WordStatus } from '../vocab/analyze';
@@ -29,6 +30,17 @@ const added = ref(0);
 const selected = shallowRef<Segment | null>(null);
 /** 词库里有同名词条时优先显示词库的中文（那是给技术场景写的，比通用词典准） */
 const selectedEntry = computed(() => (selected.value?.key ? app.byTerm.get(selected.value.key) : undefined));
+/** 构词拆解（词根词缀）：拆得出才显示，拆不出不硬凑 */
+const selectedMorph = computed(() => {
+  const w = selected.value?.word;
+  if (!w || !dict.value) return null;
+  const d = dict.value;
+  const parts = decompose(w.word, {
+    isWord: (stem) => d.resolve(stem) !== undefined,
+    glossOf: (stem) => d.resolve(stem)?.zh,
+  });
+  return parts ? formatParts(parts) : null;
+});
 const showAll = ref(false);
 
 const analysis = computed(() => (dict.value && text.value ? analyze(text.value, dict.value, vocab.model) : null));
@@ -146,6 +158,8 @@ function reset() {
         </div>
         <p v-if="selectedEntry">{{ selectedEntry.zh }}<span class="muted small">（词库词条）</span></p>
         <p v-if="selected.word" :class="{ 'muted small': selectedEntry }">{{ selected.word.zh }}</p>
+        <p v-if="selected.word?.en" class="muted small">{{ selected.word.en }}</p>
+        <p v-if="selectedMorph" class="muted small">构词：{{ selectedMorph }}</p>
         <p v-else-if="!selectedEntry" class="muted small">
           词典里没有这个词。需要的话可以到<RouterLink to="/library">词库</RouterLink>里手动添加。
         </p>

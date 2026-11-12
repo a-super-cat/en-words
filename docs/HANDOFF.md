@@ -71,7 +71,7 @@ en-words 是一个**自用**的英语训练工具，只有一个用户。它跑�
 | 词块 | 1483 条（B 层 436，C 层 1047，A 层和 D 层 0） | `content/entries/*.json`，44 个文件 |
 | 面试题 | 150 道，9 个分类 | `content/questions/*.json` |
 | 场景剧本 | 30 个，8 个分类 | `content/scenarios/*.json` |
-| 词频词典 | 30000 个通用词 + 787 个补充词 | `content/wordlists/frequency.json`（脚本生成） |
+| 词频词典 | 30000 个通用词 + 655 个补充词，每词带中英双语释义 | `content/wordlists/frequency.json`（脚本生成） |
 
 **还没有的东西**：
 
@@ -506,7 +506,7 @@ Dexie 靠版本号决定要不要升级。改了已有的 `version(n).stores(...
 
 ### 9.4 不要直接 import 词典 JSON
 
-`frequency.json` 有 2.6 MB。直接 `import` 它，TypeScript 会去解析整个文件来推断类型，类型检查会变得极慢；它还会被打进首屏的包里。`src/vocab/dictionary.ts` 的 `loadDictionary()` 用 `import.meta.glob` 按需加载，并且只加载一次。需要词典的页面都这样用：
+`frequency.json` 有 4.2 MB（含每个词的英文释义）。直接 `import` 它，TypeScript 会去解析整个文件来推断类型，类型检查会变得极慢；它还会被打进首屏的包里。`src/vocab/dictionary.ts` 的 `loadDictionary()` 用 `import.meta.glob` 按需加载，并且只加载一次。需要词典的页面都这样用：
 
 ```ts
 const dict = shallowRef<Dictionary | null>(null);

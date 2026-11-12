@@ -2,6 +2,8 @@
 export interface DictWord {
   word: string;
   zh: string;
+  /** 英文释义（第一个义项，截断过）。单词详解用，学词时中英对照。 */
+  en: string;
   phonetic: string;
   /** 词频排名，从 1 开始。补充的低频词没有排名。 */
   rank: number | null;
@@ -9,8 +11,8 @@ export interface DictWord {
   tech: boolean;
 }
 
-/** [单词, 中文释义, 音标, 变形, 是否技术词] */
-type RawWord = [string, string, string, string, number?];
+/** [单词, 中文释义, 音标, 变形, 是否技术词, 英文释义] */
+type RawWord = [string, string, string, string, number?, string?];
 
 export interface RawDictionary {
   words: RawWord[];
@@ -53,8 +55,8 @@ export function buildDictionary(raw: RawDictionary): Dictionary {
   const byWord = new Map<string, DictWord>();
   const lemmaOf = new Map<string, DictWord>();
 
-  const add = ([word, zh, phonetic, forms, tech]: RawWord, rank: number | null) => {
-    const entry: DictWord = { word, zh, phonetic, rank, tech: tech === 1 };
+  const add = ([word, zh, phonetic, forms, tech, en]: RawWord, rank: number | null) => {
+    const entry: DictWord = { word, zh, en: en ?? '', phonetic, rank, tech: tech === 1 };
     const key = word.toLowerCase();
     if (!byWord.has(key)) byWord.set(key, entry);
     // 一个变形可能属于多个词（left 既是 leave 的过去式，也可能是别的词的变形），保留词频更高的那个

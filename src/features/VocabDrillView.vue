@@ -3,6 +3,7 @@ import { computed, onBeforeUnmount, onMounted, ref, shallowRef } from 'vue';
 import { useRoute } from 'vue-router';
 import SpeakButton from '../components/SpeakButton.vue';
 import { dropFocus, useHotkeys } from '../lib/keys';
+import { decompose, formatParts } from '../lib/morphology';
 import { speak, stopSpeaking } from '../lib/tts';
 import { useApp } from '../stores/app';
 import { useVocab } from '../stores/vocab';
@@ -54,6 +55,17 @@ const tally = ref({ known: 0, added: 0 });
 const left = ref(0);
 
 const current = computed(() => queue.value[index.value]);
+/** 构词拆解（词根词缀），翻面看释义时一起给，帮着记 */
+const currentMorph = computed(() => {
+  const w = current.value;
+  if (!w || !dict.value) return null;
+  const d = dict.value;
+  const parts = decompose(w.word, {
+    isWord: (stem) => d.resolve(stem) !== undefined,
+    glossOf: (stem) => d.resolve(stem)?.zh,
+  });
+  return parts ? formatParts(parts) : null;
+});
 const range = computed(() => bandRange(triageBand ?? band.value));
 
 const say = (w: DictWord) => app.settings.autoSpeak && speak(w.word, app.settings);
@@ -203,6 +215,8 @@ useHotkeys((key, e) => {
 
       <template v-else>
         <p class="gloss">{{ current.zh }}</p>
+        <p v-if="current.en" class="muted small">{{ current.en }}</p>
+        <p v-if="currentMorph" class="muted small">构词：{{ currentMorph }}</p>
         <p v-if="!isAssess" class="muted small">已收进生词本。</p>
         <div class="row">
           <button v-if="isAssess && saidKnown" type="button" class="danger" :disabled="busy" @click="confirm(false)">

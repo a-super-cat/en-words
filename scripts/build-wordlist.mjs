@@ -64,7 +64,7 @@ function gloss(translation, techFirst) {
 const lines = readFileSync(src, 'utf8').split(/\r?\n/);
 const header = parseLine(lines[0]);
 const col = Object.fromEntries(header.map((name, i) => [name, i]));
-for (const name of ['word', 'phonetic', 'translation', 'bnc', 'frq', 'exchange']) {
+for (const name of ['word', 'phonetic', 'definition', 'translation', 'bnc', 'frq', 'exchange']) {
   if (!(name in col)) throw new Error(`CSV 里没有 ${name} 列`);
 }
 
@@ -111,6 +111,7 @@ for (let n = 1; n < lines.length; n++) {
   dict.set(key, {
     word,
     translation,
+    definition: c[col.definition],
     tech,
     phonetic: c[col.phonetic],
     // 当代语料的词频更贴近技术阅读。只有 BNC 排名的多是旧词和专名，排名打对折处理。
@@ -133,11 +134,20 @@ if (dict.has('be') && !dict.get('be').forms.includes('am')) dict.get('be').forms
 const overridesPath = join(root, 'content', 'wordlists', 'overrides.json');
 const overrides = existsSync(overridesPath) ? JSON.parse(readFileSync(overridesPath, 'utf8')) : {};
 
+/** 英文释义（单词详解一期）：只取第一个义项，按词边界截断到 90 字符，控制词典体积 */
+function enGloss(definition) {
+  let text = (definition ?? '').split('\\n')[0].trim().replace(/\s+/g, ' ');
+  if (text.length > 90) text = text.slice(0, 90).replace(/\s+\S*$/, '') + '…';
+  return text;
+}
+
 const pack = (e, techFirst) => [
   e.word,
   overrides[e.word.toLowerCase()] ?? gloss(e.translation, techFirst),
   e.phonetic,
   e.forms.join(' '),
+  e.tech ? 1 : 0,
+  enGloss(e.definition),
 ];
 
 // ---- 通用高频词 ----
@@ -180,11 +190,9 @@ writeFileSync(
   out,
   JSON.stringify({
     source: 'ECDICT (https://github.com/skywind3000/ECDICT), MIT License',
-    note: '由 scripts/build-wordlist.mjs 生成，不要手工修改。每项是 [单词, 中文释义, 音标, 变形]。words 按词频排序；extra 是补充的低频词，第 5 项为 1 表示技术词。',
+    note: '由 scripts/build-wordlist.mjs 生成，不要手工修改。每项是 [单词, 中文释义, 音标, 变形, 是否技术词, 英文释义]。words 按词频排序；extra 是补充的低频词。',
     words: top.map((e) => pack(e, false)),
-    extra: [...extra.values()]
-      .sort((a, b) => a.word.localeCompare(b.word))
-      .map((e) => [...pack(e, e.tech), e.tech ? 1 : 0]),
+    extra: [...extra.values()].sort((a, b) => a.word.localeCompare(b.word)).map((e) => pack(e, e.tech)),
   }) + '\n',
   'utf8',
 );
