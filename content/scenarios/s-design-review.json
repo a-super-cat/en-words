@@ -1,0 +1,374 @@
+{
+  "category": "design-review",
+  "title": "方案评审和争论",
+  "scenarios": [
+    {
+      "id": "design-defend-cache-proposal",
+      "title": "你的缓存方案被质疑",
+      "setting": "周三下午的方案评审会。你提议给商品详情接口加一层缓存，解决高峰期变慢的问题。资深后端 Olga 说话很直接，对数据不一致有顾虑；主持评审的是架构师 Tom。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Tom",
+          "en": "Okay, we've all read the doc, hopefully. Do you want to give us the short version before we get into questions?",
+          "zh": "好，文档大家应该都看过了吧。提问之前，你先简单讲一下？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你概括方案：商品详情接口读远多于写，高峰期卡在数据库上。所以你提议在它前面加一层缓存，十分钟过期。",
+          "en": "Sure. At a high level, the product detail endpoint is read-heavy, and at peak time the database is the bottleneck. So I'm proposing a cache in front of it, with a ten-minute expiry.",
+          "chunks": [
+            { "term": "at a high level", "zh": "从整体上看、概括地说" },
+            { "term": "bottleneck", "zh": "瓶颈" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Olga",
+          "en": "Ten minutes? So if someone changes a price, customers see the old one for ten minutes. I don't love that.",
+          "zh": "十分钟？那有人改了价格，顾客还要看十分钟的旧价格。我不太喜欢这样。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你肯定她问到了点子上，并说明正因如此，价格和库存完全不进缓存，仍然直接查数据库。缓存的只是描述、图片这类很少变的内容。",
+          "en": "That's a good point, and it's exactly why price and stock aren't cached at all. Those still come straight from the database. We only cache things like descriptions and images, which rarely change.",
+          "chunks": [
+            { "term": "That's a good point.", "zh": "说得好、这一点很对" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Olga",
+          "en": "Hmm, okay. But what happens when Redis goes down? Does the whole page go down with it?",
+          "zh": "嗯，好吧。那 Redis 挂了怎么办？整个页面跟着一起挂？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说不会：缓存不可用时直接回去查数据库，页面会变慢但不会挂。代价是多了一个要运维的组件，你认为值得。",
+          "en": "No. If the cache is unavailable, we fall back to the database, so the page gets slower but stays up. The trade-off here is one more moving part to operate, and I think that's worth it.",
+          "chunks": [
+            { "term": "fall back to ...", "zh": "退回到……、降级使用……" },
+            { "term": "The trade-off here is ...", "zh": "这里的取舍是……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Tom",
+          "en": "Let me play devil's advocate for a second. Why not just add a read replica? No new component, no invalidation headaches.",
+          "zh": "我故意唱个反调。为什么不直接加一个只读副本？不用引入新组件，也没有缓存失效的麻烦。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说只读副本你们评估过，最后没选。它能分摊负载，但每个请求还是要跑那几个很重的联表查询，而慢的正是这些查询。",
+          "en": "We did look at a read replica, and decided against it. It spreads the load, but every request still runs the same heavy joins. And those joins are what's slow.",
+          "chunks": [
+            { "term": "decide against", "zh": "决定不采用" },
+            { "term": "read replica", "zh": "只读副本" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Olga",
+          "en": "Fair. I'm still a bit nervous about invalidation, though. That's where these things always go wrong.",
+          "zh": "有道理。不过缓存失效这块我还是有点不放心，这类方案总是在这儿出问题。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说你也有同样的担心，这一块确实最容易出事。所以建议先只在一个品类上线，观察两周，再决定要不要扩大。",
+          "en": "I share that concern. Cache invalidation is where I'd expect trouble too. So how about we roll it out to one category first, watch it for two weeks, and then decide whether to go wider?",
+          "chunks": [
+            { "term": "cache invalidation", "zh": "缓存失效" },
+            { "term": "roll out", "zh": "逐步上线、推出" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Olga",
+          "en": "Yeah, okay. I'm on board with that.",
+          "zh": "嗯，可以。这样我同意。"
+        },
+        {
+          "speaker": "them",
+          "name": "Tom",
+          "en": "Good. Can you update the doc with the fallback and the rollout plan? Then I think we're done here.",
+          "zh": "好。你把降级和灰度计划补进文档吧？那今天就到这儿。"
+        }
+      ]
+    },
+    {
+      "id": "design-disagree-microservices",
+      "title": "你不同意同事的方案",
+      "setting": "周一的技术方案讨论。同事 Diego 提议把运行良好的单体后台拆成六个微服务，理由是以后好扩展。你觉得现在拆不值得，但不想泼他冷水。Diego 很有热情、话也多，经理 Grace 在旁听。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Diego",
+          "en": "So yeah, that's the idea: six services, each with its own database and pipeline. Big change, I know, but honestly, I think we'll thank ourselves in a year. Thoughts?",
+          "zh": "嗯，思路就是这样：六个服务，各有各的数据库和流水线。我知道改动很大，但说真的，一年后我们会庆幸做了这件事。大家怎么看？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你先肯定他的文档写得很细，然后提出顾虑：运维这块你不放心，团队只有五个工程师，却要跑六个服务。",
+          "en": "Thanks, Diego, the doc is really thorough. That said, I have a concern about the operational side. We're five engineers, and we'd be running six services.",
+          "chunks": [
+            { "term": "I have a concern about ...", "zh": "我对……有顾虑" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Diego",
+          "en": "Sure, but that's what the platform tooling is for, right? And the monolith isn't gonna scale forever. Deploys already take twenty minutes.",
+          "zh": "是，可平台工具不就是干这个的吗？而且单体不可能一直撑下去。现在部署一次就要二十分钟了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你承认部署慢是个问题，但不相信拆服务能解决它：二十分钟里大部分是跑测试，拆完这些测试一个也不会少。",
+          "en": "I see your point, but I'm not convinced that breaking up the monolith fixes the deploy time. Most of those twenty minutes is the test suite, and we'd still have all those tests.",
+          "chunks": [
+            { "term": "I see your point, but ...", "zh": "我明白你的意思，不过……" },
+            { "term": "I'm not convinced that ...", "zh": "我不太相信……" },
+            { "term": "break up the monolith", "zh": "拆分单体应用" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Diego",
+          "en": "Okay, but it's not only deploys. Teams step on each other's toes all the time. Last week billing broke because of a change in reports.",
+          "zh": "好吧，可不只是部署的问题。大家老是互相踩脚。上周报表那边改了点东西，账单就坏了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你同意这确实是个真问题。然后问大家有没有想过另一条路：先在单体内部把模块边界划清楚，以后真要拆也容易得多。",
+          "en": "That one's a real problem, I agree. Have we considered drawing clear module boundaries inside the monolith first? If we need to split later, that makes it much easier.",
+          "chunks": [
+            { "term": "Have we considered ...?", "zh": "我们有没有考虑过……？" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Diego",
+          "en": "A modular monolith. Hmm. I mean, we could, but isn't that just kicking the can down the road?",
+          "zh": "模块化单体啊。嗯，也不是不行，可这不就是把问题往后拖吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说不这么看：以现在的规模，微服务带来的复杂度不划算。你倾向于先只把账单拆出去，看看效果再说。",
+          "en": "I don't think so. At our current scale, I'd say microservices are not worth the added complexity. I'd lean towards pulling out just billing first and seeing how that goes.",
+          "chunks": [
+            { "term": "not worth the added complexity", "zh": "不值得增加这份复杂度" },
+            { "term": "I'd lean towards ...", "zh": "我倾向于……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Grace",
+          "en": "Can I jump in? I kind of like that. Diego, could you live with billing as a pilot?",
+          "zh": "我插一句。这个想法我挺喜欢。Diego，先拿账单做试点，你能接受吗？"
+        },
+        {
+          "speaker": "them",
+          "name": "Diego",
+          "en": "Yeah... I guess so. As long as we actually come back and look at the rest, and it doesn't just die quietly.",
+          "zh": "嗯……应该可以吧。只要之后真的回头看剩下的部分，别悄悄地不了了之。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说你也不想让它不了了之。提议现在就定个日期，三个月后回头评估；你还愿意和他一起写评估标准。",
+          "en": "That's fair, and I don't want it to die either. Let's put a date on it and circle back in three months. I'm happy to write the success criteria with you.",
+          "chunks": [
+            { "term": "circle back", "zh": "回头再讨论" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Diego",
+          "en": "Deal. I'll update the doc tonight.",
+          "zh": "成交。我今晚把文档改了。"
+        }
+      ]
+    },
+    {
+      "id": "design-drive-to-decision",
+      "title": "两个方案僵持，你来推动结论",
+      "setting": "周五下午的方案评审会，已经开了五十分钟。Yuki 坚持用 WebSocket 做实时通知，Omar 坚持用轮询，两人僵持不下。你是这个项目的负责人，今天必须拿到结论。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Yuki",
+          "en": "I just don't see how polling every ten seconds is acceptable these days. Users expect notifications to be instant.",
+          "zh": "我实在不明白，都什么年代了，十秒轮询一次怎么能接受。用户期待的是通知马上到。"
+        },
+        {
+          "speaker": "them",
+          "name": "Omar",
+          "en": "And I don't see why we'd maintain a whole WebSocket layer for a bell icon. With respect, it's a bell icon.",
+          "zh": "我也不明白，为了一个小铃铛图标要维护一整层 WebSocket。恕我直言，那就是个小铃铛。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你插进来：只剩十分钟了。你想先退一步，说说你认为大家已经达成一致的部分，再看真正的分歧在哪。",
+          "en": "Can I jump in here? We have ten minutes left. Let me take a step back and say what I think we agree on, and then where we actually differ.",
+          "chunks": [
+            { "term": "Can I jump in here?", "zh": "我能插一句吗？" },
+            { "term": "Let me take a step back.", "zh": "我先退一步、从更大的角度说" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Omar",
+          "en": "Go ahead. I'd love to hear what we agree on at this point.",
+          "zh": "你说。我倒真想听听，到现在我们还有什么是一致的。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你总结：大家都同意通知必须可靠。唯一的分歧是，十秒的延迟对这个场景来说够不够。然后问 Yuki，有没有数据表明用户需要更快。",
+          "en": "To recap, we all agree that notifications must be reliable. The only real disagreement is whether a ten-second delay is good enough for our use case. Yuki, do we have any data showing that users need it faster?",
+          "chunks": [
+            { "term": "To recap, ...", "zh": "总结一下，……" },
+            { "term": "good enough for our use case", "zh": "对我们的场景来说够用了" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Yuki",
+          "en": "Not hard data, no. It's more of a gut feeling. But the chat feature next quarter will need real-time for sure.",
+          "zh": "硬数据没有，更多是直觉。但下个季度的聊天功能肯定需要实时。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说有道理，但聊天功能还没排期。所以你提议现在先用轮询作为过渡方案，同时把客户端写成以后可以换成 WebSocket 而不用改调用方。",
+          "en": "That's fair, but chat isn't scheduled yet. So my proposal is polling for now, as a stopgap. We'd write the client so that we can swap in WebSockets later without touching the callers.",
+          "chunks": [
+            { "term": "as a stopgap", "zh": "作为权宜之计、临时方案" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Yuki",
+          "en": "So we build it twice. Great.",
+          "zh": "也就是做两遍。真棒。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说不是做两遍，变的只有传输层。并且承诺：聊天功能一进路线图，就重新评估这个决定，到时候希望由她来负责那个设计。",
+          "en": "Not twice. Only the transport layer changes. And the moment chat is on the roadmap, we revisit this decision, and I'd like you to take ownership of that design.",
+          "chunks": [
+            { "term": "take ownership of", "zh": "负责、主导" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Yuki",
+          "en": "Hmm. Okay. I still think we'll regret it, but I can disagree and commit.",
+          "zh": "嗯，好吧。我还是觉得我们会后悔，不过我可以保留意见、照这个执行。"
+        },
+        {
+          "speaker": "them",
+          "name": "Omar",
+          "en": "Works for me. And for the record, if chat happens, I'm all for WebSockets.",
+          "zh": "我没问题。另外声明一下，真做聊天的话，我完全赞成用 WebSocket。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你感谢两人，然后收尾：会后你发一份纪要，写明今天的决定和重新评估的条件；轮询的设计这周交给 Omar。",
+          "en": "Thanks, both. I'll send out a summary after this, with the decision and the condition for revisiting it. Omar, the polling design is yours this week.",
+          "chunks": [
+            { "term": "I'll send out a summary after this.", "zh": "会后我发一份纪要" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "design-why-not-kafka",
+      "title": "被问为什么不用 Kafka",
+      "setting": "架构评审会上，你在讲新的后台任务系统：用一张 Postgres 表当任务队列，没有用 Kafka。新来的同事 Callum 很喜欢新技术，连连追问；技术总监 Anjali 也在听。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Callum",
+          "en": "Sorry, quick question before you go on. You're using a Postgres table as the job queue, not Kafka? Like, everybody uses Kafka for this.",
+          "zh": "不好意思，你往下讲之前我问一句。你是用 Postgres 的表当任务队列，而不是 Kafka？这种事大家不都用 Kafka 吗。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说问得好，先交代背景：现在的量大约是每天两万个任务，主要是发邮件和生成报表。",
+          "en": "Good question. To give you some context, we're looking at something on the order of twenty thousand jobs a day, mostly emails and report generation.",
+          "chunks": [
+            { "term": "to give you some context", "zh": "先交代一下背景" },
+            { "term": "on the order of", "zh": "大约在……这个量级" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Callum",
+          "en": "Okay, but that's today. What about when we grow? Kafka handles millions without breaking a sweat.",
+          "zh": "好，可那是现在。以后量上来了呢？Kafka 处理几百万条都不费劲。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说就算量涨到十倍，Postgres 也能轻松应付。你们没选 Kafka，是因为团队里没人在生产环境运维过它，而 Postgres 大家已经很熟。",
+          "en": "Even at ten times the volume, Postgres handles it comfortably. We opted for Postgres over Kafka because nobody on the team has run Kafka in production, and we already operate Postgres well.",
+          "chunks": [
+            { "term": "We opted for ... over ... because ...", "zh": "我们选了……而不是……，因为……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Anjali",
+          "en": "Let me push on that a little. Is this a we-don't-know-Kafka decision, or is it actually the right tool? Because one of those ages badly.",
+          "zh": "这一点我追问一下。这是因为我们不会 Kafka 才这么定的，还是它确实是合适的工具？前一种理由可经不起时间考验。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说两方面都有，但归根结底是一致性：任务和业务数据写在同一个事务里，不会出现订单存了、邮件任务却丢了的情况。换成 Kafka，要额外引入一套模式才能有同样的保证。",
+          "en": "A bit of both, but in the end it came down to consistency. The job is written in the same transaction as the business data, so we never save an order and lose its email. With Kafka, we'd need something like the outbox pattern to get that guarantee.",
+          "chunks": [
+            { "term": "It came down to ...", "zh": "归根结底是……" },
+            { "term": "outbox pattern", "zh": "发件箱模式" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Callum",
+          "en": "Huh, I hadn't thought about the transaction part. But don't we lose stuff like replay and multiple consumers?",
+          "zh": "哦，事务这一点我倒没想到。可这样不就没有消息回放、多个消费者这些能力了吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你承认会失去这些，但眼下没有任何需求用得上。你坦白说自己没在生产环境用过 Kafka，不过据你了解，等有好几个系统要消费同一批事件时它才真正值得，你们还没到那一步。",
+          "en": "We do, and today nothing needs them. I haven't used Kafka in production, but my understanding is that it earns its place once several systems need the same event stream. We're not there yet.",
+          "chunks": [
+            { "term": "I haven't used ... in production, but ...", "zh": "我没在生产环境用过……，不过……" },
+            { "term": "My understanding is that ...", "zh": "据我的理解，……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Anjali",
+          "en": "And if we do get there? I don't want to be rewriting this in eighteen months.",
+          "zh": "那真到了那一步呢？我可不想一年半以后把这套东西重写一遍。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你解释：队列藏在一个很小的接口后面，业务代码和它是解耦的，以后可以换掉底层实现。你还会在文档里写明，量到多少就该重新评估。",
+          "en": "The queue sits behind a small interface, so the business code is decoupled from it and we can swap the backend later. I'll also write down in the doc the volume at which we should revisit this.",
+          "chunks": [
+            { "term": "decouple", "zh": "解耦" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Anjali",
+          "en": "Good, put a number on it. I'm fine with this.",
+          "zh": "好，把具体数字写上。我没意见了。"
+        },
+        {
+          "speaker": "them",
+          "name": "Callum",
+          "en": "Yeah, makes sense. Honestly, it's kind of refreshing. I'll stop saying Kafka now.",
+          "zh": "嗯，说得通。说实话，还挺让人耳目一新的。我不再提 Kafka 了。"
+        }
+      ]
+    }
+  ]
+}

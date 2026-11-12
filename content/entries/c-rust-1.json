@@ -1,0 +1,608 @@
+{
+  "layer": "C",
+  "category": "rust",
+  "title": "Rust",
+  "entries": [
+    {
+      "term": "ownership model",
+      "kind": "chunk",
+      "zh": "所有权模型",
+      "examples": [
+        {
+          "en": "Rust's ownership model lets it free memory deterministically without a garbage collector.",
+          "zh": "Rust 的所有权模型让它不需要垃圾回收器就能确定性地释放内存。"
+        },
+        {
+          "en": "It took me a few weeks to stop fighting the ownership model and start designing around it.",
+          "zh": "我花了几个星期才不再跟所有权模型较劲，开始顺着它来做设计。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Rust 没有 GC，也不用手动释放内存，它是怎么管理内存的？",
+        "en": "Through its ownership model: every value has exactly one owner, and the value is dropped when that owner goes out of scope."
+      },
+      "collocations": ["ownership rules", "a single owner", "ownership and borrowing"]
+    },
+    {
+      "term": "move semantics",
+      "kind": "chunk",
+      "zh": "移动语义",
+      "examples": [
+        {
+          "en": "Rust uses move semantics by default, so assigning a String to another variable invalidates the original.",
+          "zh": "Rust 默认使用移动语义，所以把一个 String 赋给另一个变量后，原来的变量就失效了。"
+        },
+        {
+          "en": "Unlike C++, move semantics in Rust are checked by the compiler, so you can't touch a moved-from value.",
+          "zh": "和 C++ 不同，Rust 的移动语义由编译器检查，所以你没法再碰一个已经被移走的值。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：把一个 Vec 按值传给函数之后，为什么调用方就不能再用它了？",
+        "en": "Because of move semantics: passing the Vec by value moves it into the function, so the caller no longer owns it."
+      },
+      "note": "编译器的报错通常是 use of moved value 或 borrow of moved value。实现了 Copy 的类型（比如整数）赋值时是复制，不是移动。"
+    },
+    {
+      "term": "transfer ownership",
+      "kind": "chunk",
+      "zh": "转移所有权",
+      "examples": [
+        {
+          "en": "Sending a value through a channel transfers ownership to the receiving thread.",
+          "zh": "把一个值通过 channel 发出去，所有权就转移给了接收线程。"
+        },
+        {
+          "en": "If the function only needs to read the data, don't transfer ownership; just pass a reference.",
+          "zh": "如果函数只需要读数据，就不要转移所有权，传个引用就行。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：我把 buffer 传进新线程的 move 闭包以后，为什么外面就不能再用了？",
+        "en": "Because the move closure transfers ownership of the buffer to the new thread."
+      },
+      "note": "也说 hand over ownership。从接收方的角度说是 take ownership of the value。"
+    },
+    {
+      "term": "go out of scope",
+      "kind": "chunk",
+      "zh": "（变量）离开作用域",
+      "examples": [
+        {
+          "en": "The file handle is closed automatically when it goes out of scope.",
+          "zh": "文件句柄一离开作用域就会自动关闭。"
+        },
+        {
+          "en": "The lock is released as soon as the guard goes out of scope, so you can't forget to unlock.",
+          "zh": "守卫一离开作用域锁就释放了，所以你不可能忘记解锁。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Rust 里一个值占用的内存是在什么时候释放的？",
+        "en": "When its owner goes out of scope, Rust drops the value and frees the memory right there."
+      },
+      "note": "这就是 Rust 版的 RAII：资源的释放绑定在作用域上。值被释放说 the value is dropped。"
+    },
+    {
+      "term": "clone the value",
+      "kind": "chunk",
+      "zh": "克隆这个值（显式做一次深拷贝）",
+      "examples": [
+        {
+          "en": "At first I cloned the value everywhere just to make the borrow checker happy.",
+          "zh": "一开始我到处克隆值，只是为了让借用检查器不报错。"
+        },
+        {
+          "en": "Cloning the value is explicit in Rust, so expensive copies are easy to spot in review.",
+          "zh": "在 Rust 里克隆一个值必须显式写出来，所以开销大的拷贝在 Review 时很容易看出来。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里为了绕过编译错误，在热点循环里每次都复制整个 Vec，你想提醒他：",
+        "en": "Do we need to clone the value on every iteration here? I think we can just borrow it."
+      },
+      "note": "clone 是显式的深拷贝，可能很贵；Copy 是隐式的按位复制，只适用于整数这类简单类型。"
+    },
+    {
+      "term": "the borrow checker",
+      "kind": "chunk",
+      "zh": "借用检查器",
+      "examples": [
+        {
+          "en": "The borrow checker rejected my code because I was mutating the list while iterating over it.",
+          "zh": "借用检查器拒绝了我的代码，因为我在遍历列表的同时修改它。"
+        },
+        {
+          "en": "Once you stop fighting the borrow checker, you realize it's catching real bugs.",
+          "zh": "一旦你不再跟借用检查器对着干，就会发现它抓到的都是真 bug。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Rust 是靠编译器的哪个部分来保证引用始终有效的？",
+        "en": "That's the borrow checker. It verifies at compile time that no reference outlives the data it points to."
+      },
+      "collocations": ["fight the borrow checker", "satisfy the borrow checker", "the borrow checker complains"]
+    },
+    {
+      "term": "borrow",
+      "kind": "word",
+      "zh": "借用（只拿引用，不拿走所有权）",
+      "examples": [
+        {
+          "en": "The function only borrows the config, so the caller can keep using it afterwards.",
+          "zh": "这个函数只是借用配置，所以调用方之后还能继续用它。"
+        },
+        {
+          "en": "You can't move a value while it's still borrowed somewhere else.",
+          "zh": "一个值还在别处被借用的时候，你不能把它移走。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：函数只想读一下参数，不想把它的所有权拿走，该怎么写？",
+        "en": "Have the function borrow the value by taking a reference instead of taking it by value."
+      },
+      "collocations": ["borrow a value", "a mutable borrow", "an immutable borrow"],
+      "note": "既是动词也是名词：a borrow 指一次借用。"
+    },
+    {
+      "term": "mutable reference",
+      "kind": "chunk",
+      "zh": "可变引用",
+      "examples": [
+        {
+          "en": "You can only have one mutable reference to a value at a time.",
+          "zh": "同一时间，一个值只能有一个可变引用。"
+        },
+        {
+          "en": "I passed a mutable reference to the buffer so the parser could fill it in place.",
+          "zh": "我传了一个指向缓冲区的可变引用，这样解析器可以原地往里填数据。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：函数想原地修改调用方的数据，但又不想拿走所有权，参数该用什么类型？",
+        "en": "It should take a mutable reference, so it can change the data in place while the caller keeps ownership."
+      },
+      "note": "写作 &mut T。可变引用是独占的，所以也叫 exclusive reference。"
+    },
+    {
+      "term": "immutable reference",
+      "kind": "chunk",
+      "zh": "不可变引用",
+      "examples": [
+        {
+          "en": "You can hand out as many immutable references as you like, as long as nobody is mutating the value.",
+          "zh": "只要没人在修改这个值，不可变引用你想给出多少个都行。"
+        },
+        {
+          "en": "The cache hands out immutable references, so readers never need to copy the data.",
+          "zh": "缓存对外给的是不可变引用，所以读的一方不需要拷贝数据。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：多个地方可以同时读同一份数据吗？有什么限制？",
+        "en": "Yes, you can have any number of immutable references at once, but not while a mutable reference exists."
+      },
+      "note": "写作 &T，也叫 shared reference（共享引用）。"
+    },
+    {
+      "term": "exclusive access",
+      "kind": "chunk",
+      "zh": "独占访问",
+      "examples": [
+        {
+          "en": "A mutable reference guarantees exclusive access, so nothing else can read the value while you change it.",
+          "zh": "可变引用保证独占访问，所以你修改这个值的时候，别的地方都读不到它。"
+        },
+        {
+          "en": "Because we have exclusive access to the buffer, we can resize it without any locking.",
+          "zh": "因为我们对这个缓冲区有独占访问权，所以不加锁就能调整它的大小。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么 Rust 不允许一个可变引用和其他引用同时存在？",
+        "en": "Because mutation requires exclusive access. If someone else could read the value while it changes, they might see invalid data."
+      },
+      "note": "这条规则常被概括为 aliasing XOR mutability：要么有多个只读的别名，要么只有一个可写的，不能同时有。"
+    },
+    {
+      "term": "lifetime annotation",
+      "kind": "chunk",
+      "zh": "生命周期标注",
+      "examples": [
+        {
+          "en": "I had to add a lifetime annotation because the struct holds a reference to the input string.",
+          "zh": "我不得不加一个生命周期标注，因为这个结构体里存着对输入字符串的引用。"
+        },
+        {
+          "en": "Lifetime annotations don't change how long anything lives; they just describe the relationship to the compiler.",
+          "zh": "生命周期标注不会改变任何东西的存活时间，只是把关系描述给编译器听。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：函数签名里的 'a 是干什么用的？",
+        "en": "It's a lifetime annotation. It tells the compiler how the lifetime of the returned reference relates to the inputs."
+      },
+      "collocations": ["add a lifetime annotation", "lifetime parameter", "explicit lifetimes"]
+    },
+    {
+      "term": "dangling reference",
+      "kind": "chunk",
+      "zh": "悬垂引用",
+      "examples": [
+        {
+          "en": "Returning a reference to a local variable would create a dangling reference, so the compiler rejects it.",
+          "zh": "返回局部变量的引用会造成悬垂引用，所以编译器会拒绝。"
+        },
+        {
+          "en": "In C++ a dangling reference compiles fine and blows up at runtime; in Rust it never compiles.",
+          "zh": "在 C++ 里悬垂引用能正常编译，到运行时才出事；在 Rust 里它根本编译不过。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：引用指向的数据已经被释放了，这种引用叫什么？Rust 怎么处理？",
+        "en": "That's a dangling reference. Safe Rust rules it out at compile time, because a reference is never allowed to outlive its data."
+      },
+      "note": "C/C++ 里更常说 dangling pointer（悬垂指针）。"
+    },
+    {
+      "term": "outlive",
+      "kind": "word",
+      "zh": "比……活得久（生命周期更长），o 开头",
+      "examples": [
+        {
+          "en": "The reference can't outlive the value it points to.",
+          "zh": "引用不能比它指向的值活得更久。"
+        },
+        {
+          "en": "The spawned thread might outlive the function, so it can't borrow local variables.",
+          "zh": "新起的线程可能比这个函数活得久，所以它不能借用局部变量。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：编译器报错说 borrowed value does not live long enough，是什么意思？",
+        "en": "It means the reference would outlive the value it borrows from, so it would end up dangling."
+      }
+    },
+    {
+      "term": "lifetime elision",
+      "kind": "chunk",
+      "zh": "生命周期省略（编译器自动推断，不用手写）",
+      "examples": [
+        {
+          "en": "Thanks to lifetime elision, most functions that take references don't need explicit annotations.",
+          "zh": "多亏了生命周期省略，大多数接收引用的函数都不需要显式标注。"
+        },
+        {
+          "en": "Lifetime elision doesn't apply here because the function takes two references and returns one.",
+          "zh": "这里用不上生命周期省略，因为函数接收两个引用、返回一个引用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：既然每个引用都有生命周期，为什么平时写函数几乎不用标？",
+        "en": "Because of lifetime elision: the compiler fills in the lifetimes for the common cases using a few simple rules."
+      },
+      "note": "elision 读 /ɪˈlɪʒn/，动词是 elide。"
+    },
+    {
+      "term": "the 'static lifetime",
+      "kind": "chunk",
+      "zh": "'static 生命周期（在整个程序运行期间都有效）",
+      "examples": [
+        {
+          "en": "String literals have the 'static lifetime because they're baked into the binary.",
+          "zh": "字符串字面量具有 'static 生命周期，因为它们直接编进了二进制文件里。"
+        },
+        {
+          "en": "Spawning a thread requires a 'static bound, so the closure can't borrow anything from the caller's stack.",
+          "zh": "起一个线程要求满足 'static 约束，所以闭包不能借用调用方栈上的任何东西。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：字符串字面量的引用可以在程序里到处传、随便存，为什么不会悬垂？",
+        "en": "Because string literals have the 'static lifetime: they live in the binary for the entire run of the program."
+      },
+      "note": "容易误解：T: 'static 这个约束并不要求值永远活着，只要求类型里不含非 'static 的借用，所以 String 这种拥有数据的类型也满足。"
+    },
+    {
+      "term": "memory safety",
+      "kind": "chunk",
+      "zh": "内存安全",
+      "examples": [
+        {
+          "en": "We chose Rust for the parser because we wanted memory safety without giving up performance.",
+          "zh": "解析器我们选了 Rust，因为我们想要内存安全，又不想牺牲性能。"
+        },
+        {
+          "en": "Most of the security bugs in our old C++ code were memory safety issues like use-after-free.",
+          "zh": "我们旧 C++ 代码里的安全漏洞，大多数是释放后使用这类内存安全问题。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：和 C++ 比，Rust 最大的卖点是什么？",
+        "en": "Memory safety without a garbage collector. Bugs like use-after-free and double free are ruled out in safe code."
+      },
+      "collocations": ["a memory-safe language", "use-after-free", "double free", "buffer overflow"]
+    },
+    {
+      "term": "at compile time",
+      "kind": "chunk",
+      "zh": "在编译期（而不是运行时）",
+      "examples": [
+        {
+          "en": "Rust catches a whole class of concurrency bugs at compile time instead of in production.",
+          "zh": "Rust 在编译期就能抓住一整类并发 bug，而不是等到线上才暴露。"
+        },
+        {
+          "en": "A value's size has to be known at compile time unless it lives behind a pointer.",
+          "zh": "一个值的大小必须在编译期确定，除非它放在指针后面。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Rust 的所有权和借用检查会拖慢程序的运行速度吗？",
+        "en": "No, because those checks all happen at compile time, so they cost nothing when the program runs."
+      },
+      "note": "反义是 at runtime。作定语时加连字符：a compile-time error。"
+    },
+    {
+      "term": "zero-cost abstraction",
+      "kind": "chunk",
+      "zh": "零成本抽象",
+      "examples": [
+        {
+          "en": "Iterators are a zero-cost abstraction: the chain compiles down to the same code as a hand-written loop.",
+          "zh": "迭代器是零成本抽象：一串链式调用编译出来的代码和手写循环一样。"
+        },
+        {
+          "en": "A zero-cost abstraction means you don't pay at runtime for features you don't use.",
+          "zh": "零成本抽象的意思是：没用到的特性，你不用在运行时为它付出代价。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用迭代器、闭包这些高级写法，会不会比手写循环慢？",
+        "en": "Generally not. They're zero-cost abstractions, so the compiler optimizes them into the same machine code as a manual loop."
+      },
+      "note": "这个说法来自 C++。成本并没有消失，而是转移到了编译时间上。"
+    },
+    {
+      "term": "runtime overhead",
+      "kind": "chunk",
+      "zh": "运行时开销",
+      "examples": [
+        {
+          "en": "The checks happen during compilation, so they add no runtime overhead.",
+          "zh": "这些检查发生在编译阶段，所以不会增加运行时开销。"
+        },
+        {
+          "en": "A garbage collector adds runtime overhead that we couldn't afford in the audio thread.",
+          "zh": "垃圾回收器会带来运行时开销，在音频线程里我们承受不起。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：和 Java、Go 这类带 GC 的语言比，Rust 在性能上的优势来自哪里？",
+        "en": "There's no garbage collector, so there's very little runtime overhead and no GC pauses, which makes latency much more predictable."
+      },
+      "collocations": ["add runtime overhead", "with no runtime overhead", "a minimal runtime"]
+    },
+    {
+      "term": "undefined behavior",
+      "kind": "chunk",
+      "zh": "未定义行为",
+      "examples": [
+        {
+          "en": "Reading freed memory is undefined behavior in C++, but safe Rust simply won't compile it.",
+          "zh": "读已经释放的内存在 C++ 里是未定义行为，而安全的 Rust 代码根本不让它编译通过。"
+        },
+        {
+          "en": "If an unsafe block breaks the aliasing rules, you get undefined behavior even though the code compiles.",
+          "zh": "如果 unsafe 块破坏了别名规则，即使代码能编译，也会出现未定义行为。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：C++ 里发生数据竞争或者越界访问，标准规定会怎么样？Rust 呢？",
+        "en": "In C++ that's undefined behavior, so anything can happen. Safe Rust guarantees you can't trigger undefined behavior at all."
+      },
+      "note": "缩写 UB，逐个字母读。英式拼写是 behaviour。"
+    },
+    {
+      "term": "trait bound",
+      "kind": "chunk",
+      "zh": "trait 约束（限制泛型参数必须实现某个 trait）",
+      "examples": [
+        {
+          "en": "I added a trait bound so the function only accepts types that can be serialized.",
+          "zh": "我加了一个 trait 约束，让这个函数只接受可以序列化的类型。"
+        },
+        {
+          "en": "The error says the trait bound isn't satisfied, which means the type doesn't implement Clone.",
+          "zh": "报错说 trait 约束没满足，意思是这个类型没有实现 Clone。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：泛型函数里想调用参数的某个方法，编译器怎么知道这个类型有这个方法？",
+        "en": "You put a trait bound on the type parameter, for example T: Display, so the compiler knows which methods are available."
+      },
+      "collocations": ["implement a trait", "satisfy a trait bound", "a where clause"],
+      "note": "trait 相当于其他语言里的接口，定义一组类型可以共享的行为；国内一般直接说 trait。"
+    },
+    {
+      "term": "monomorphization",
+      "kind": "word",
+      "zh": "单态化",
+      "examples": [
+        {
+          "en": "Generics are fast in Rust because of monomorphization, but it does increase the binary size.",
+          "zh": "Rust 的泛型之所以快是因为单态化，不过它确实会让二进制体积变大。"
+        },
+        {
+          "en": "Monomorphization gives the optimizer a concrete type, so it can inline the calls.",
+          "zh": "单态化让优化器拿到具体类型，所以它可以把调用内联掉。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Rust 的泛型和 Java 的泛型在实现上有什么不同？",
+        "en": "Rust uses monomorphization: the compiler generates a separate copy of the code for each concrete type, whereas Java erases the types."
+      },
+      "note": "重音在 -za- 上：mono-morphi-ZA-tion。动词是 monomorphize。C++ 的模板实例化是同一个思路。"
+    },
+    {
+      "term": "static dispatch",
+      "kind": "chunk",
+      "zh": "静态分发",
+      "examples": [
+        {
+          "en": "With generics you get static dispatch, so the compiler knows exactly which function to call.",
+          "zh": "用泛型得到的是静态分发，编译器确切地知道要调用哪个函数。"
+        },
+        {
+          "en": "We kept static dispatch in the hot loop so the calls could be inlined.",
+          "zh": "热点循环里我们保留了静态分发，这样调用可以被内联。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：泛型函数调用 trait 方法时，具体调哪个实现是什么时候决定的？",
+        "en": "At compile time. That's static dispatch: each call is resolved to a concrete function, so it can be inlined."
+      }
+    },
+    {
+      "term": "dynamic dispatch",
+      "kind": "chunk",
+      "zh": "动态分发",
+      "examples": [
+        {
+          "en": "We used dynamic dispatch for the plugins because the concrete types aren't known until runtime.",
+          "zh": "插件这部分我们用了动态分发，因为具体类型到运行时才知道。"
+        },
+        {
+          "en": "Dynamic dispatch costs an extra pointer lookup per call and usually prevents inlining.",
+          "zh": "动态分发每次调用要多查一次指针，而且通常没法内联。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个 Vec 里放着实现了同一个 trait 的不同类型，调用方法时是怎么找到具体实现的？",
+        "en": "Through dynamic dispatch: each call goes through a vtable that's looked up at runtime."
+      },
+      "note": "对应的关键字是 dyn。vtable 是虚函数表。"
+    },
+    {
+      "term": "trait object",
+      "kind": "chunk",
+      "zh": "trait 对象",
+      "examples": [
+        {
+          "en": "We store the handlers as trait objects so one list can hold different concrete types.",
+          "zh": "我们把处理器存成 trait 对象，这样一个列表里可以放不同的具体类型。"
+        },
+        {
+          "en": "A trait object is a fat pointer: one pointer to the data and one to the vtable.",
+          "zh": "trait 对象是一个胖指针：一个指针指向数据，另一个指向虚函数表。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个集合里想放多种不同的类型，只要它们都实现了同一个接口，在 Rust 里该怎么写？",
+        "en": "Use trait objects, for example a Vec of Box<dyn Shape>, and the methods are called through dynamic dispatch."
+      },
+      "collocations": ["a boxed trait object", "a fat pointer", "vtable"],
+      "note": "写作 dyn Trait，通常放在 Box、& 或 Arc 后面。"
+    },
+    {
+      "term": "pattern matching",
+      "kind": "chunk",
+      "zh": "模式匹配",
+      "examples": [
+        {
+          "en": "We use pattern matching to handle each message type in the protocol.",
+          "zh": "我们用模式匹配来处理协议里的每一种消息类型。"
+        },
+        {
+          "en": "Pattern matching lets you destructure a nested struct and bind its fields in one line.",
+          "zh": "模式匹配可以让你一行代码就把嵌套的结构体解构开，并绑定里面的字段。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Rust 的 match 和其他语言的 switch 比，强在哪里？",
+        "en": "It does real pattern matching: you can destructure enums and structs, bind values, and the compiler checks that every case is covered."
+      },
+      "collocations": ["match on an enum", "destructure a struct", "a match arm"]
+    },
+    {
+      "term": "exhaustive match",
+      "kind": "chunk",
+      "zh": "穷尽匹配（必须覆盖所有情况）",
+      "examples": [
+        {
+          "en": "Rust enforces exhaustive matches, so adding a new variant breaks the build until every match handles it.",
+          "zh": "Rust 强制要求穷尽匹配，所以新增一个变体之后，每个 match 都处理到它之前编译都过不了。"
+        },
+        {
+          "en": "I avoid a catch-all arm so we keep the benefit of an exhaustive match.",
+          "zh": "我不写兜底分支，这样才能保住穷尽匹配带来的好处。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：给枚举加了一个新的取值，怎么保证所有用到它的地方都改到了？",
+        "en": "The compiler enforces exhaustive matches, so every match that doesn't handle the new variant fails to compile."
+      },
+      "note": "exhaustive 读 /ɪɡˈzɔːstɪv/，h 不发音。兜底分支叫 catch-all arm 或 wildcard arm。"
+    },
+    {
+      "term": "enum variant",
+      "kind": "chunk",
+      "zh": "枚举的变体（枚举的每一种取值）",
+      "examples": [
+        {
+          "en": "Each enum variant can carry its own data, which makes enums great for modeling states.",
+          "zh": "每个枚举变体都可以带自己的数据，所以枚举特别适合用来建模状态。"
+        },
+        {
+          "en": "We added an enum variant for the timeout case instead of using a magic error code.",
+          "zh": "我们为超时的情况加了一个枚举变体，而不是用一个魔法错误码。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Rust 的枚举和 C 里的枚举有什么不一样？",
+        "en": "Each enum variant can hold different data, so a Rust enum is really a tagged union, not just a list of constants."
+      },
+      "note": "这种带数据的枚举在类型理论里叫 sum type 或 tagged union。variant 读 /ˈveriənt/。"
+    },
+    {
+      "term": "Option type",
+      "kind": "chunk",
+      "zh": "表示“可能没有值”的类型（Rust 用它代替 null）",
+      "examples": [
+        {
+          "en": "Rust has no null; a value that might be missing is wrapped in the Option type.",
+          "zh": "Rust 没有 null，可能不存在的值要用 Option 类型包起来。"
+        },
+        {
+          "en": "The lookup returns an Option, so the caller is forced to handle the missing case.",
+          "zh": "查找返回的是 Option，所以调用方必须处理找不到的情况。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Rust 没有 null，那怎么表示“这个值可能不存在”？",
+        "en": "With the Option type: it's either Some with a value or None, and the compiler makes you handle both."
+      },
+      "note": "两个变体是 Some(value) 和 None。和 Java 的 Optional 类似，但 Rust 里没有 null 可以绕过去。"
+    },
+    {
+      "term": "Result type",
+      "kind": "chunk",
+      "zh": "表示“操作可能失败”的返回类型（Rust 用它代替异常）",
+      "examples": [
+        {
+          "en": "Every fallible function returns a Result type, so errors are visible in the signature.",
+          "zh": "每个可能失败的函数都返回 Result 类型，所以错误在函数签名里一目了然。"
+        },
+        {
+          "en": "The compiler warns you if you ignore a Result, which makes it hard to drop errors silently.",
+          "zh": "如果你忽略了一个 Result，编译器会给出警告，所以很难悄悄把错误丢掉。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Rust 没有异常，函数执行失败了怎么告诉调用方？",
+        "en": "It returns a Result type, which is either Ok with the value or Err with the error, and the caller has to deal with it."
+      },
+      "note": "两个变体是 Ok(value) 和 Err(error)。可能失败的函数叫 a fallible function。"
+    }
+  ]
+}

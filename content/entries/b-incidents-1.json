@@ -1,0 +1,664 @@
+{
+  "layer": "B",
+  "category": "incidents",
+  "title": "事故与线上问题沟通",
+  "entries": [
+    {
+      "term": "We're seeing elevated error rates on ...",
+      "kind": "sentence",
+      "zh": "我们发现……的错误率偏高（通报问题的开场）",
+      "examples": [
+        {
+          "en": "We're seeing elevated error rates on the checkout API, starting about ten minutes ago.",
+          "zh": "我们发现结账接口的错误率偏高，大约从十分钟前开始。"
+        }
+      ],
+      "situation": {
+        "zh": "你值班时看到登录服务的 5xx 突然变多，要在事故频道里通报。",
+        "en": "We're seeing elevated error rates on the login service. I'm investigating now and will update shortly."
+      },
+      "note": "elevated 比 high 更克制，是事故通报里的常用词。同样的句式：We're seeing increased latency on ...。",
+      "collocations": ["elevated latency", "a spike in errors"]
+    },
+    {
+      "term": "Just a heads-up, ...",
+      "kind": "sentence",
+      "zh": "提前跟大家说一声，……（h 开头）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Just a heads-up, we're about to restart the database, so you may see a few errors.",
+          "zh": "提前跟大家说一声，我们马上要重启数据库，可能会看到一些报错。"
+        }
+      ],
+      "situation": {
+        "zh": "你发现主库的磁盘快满了，暂时还没出问题，想先提醒团队。",
+        "en": "Just a heads-up, the disk on the primary is at ninety percent. I'm cleaning up old logs now."
+      },
+      "note": "heads-up 是名词，用于还没出事、先打个招呼的场合。别人提醒了你，回 Thanks for the heads-up.",
+      "collocations": ["give someone a heads-up", "Thanks for the heads-up."]
+    },
+    {
+      "term": "Is anyone else seeing this?",
+      "kind": "sentence",
+      "zh": "还有别人也遇到这个情况吗？",
+      "examples": [
+        {
+          "en": "The dashboard won't load for me. Is anyone else seeing this?",
+          "zh": "我这边仪表盘打不开，还有别人也遇到这个情况吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你访问内部管理后台一直超时，不确定是自己网络的问题还是服务出了问题。你在群里问：",
+        "en": "The admin console keeps timing out for me. Is anyone else seeing this, or is it just me?"
+      },
+      "note": "后面常跟 or is it just me?。别人的回答：Same here.（我也是）/ Works fine for me.（我这边正常）"
+    },
+    {
+      "term": "Something's off with ...",
+      "kind": "sentence",
+      "zh": "……有点不对劲（还说不清具体是什么问题）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Something's off with the payment queue; messages are piling up but nothing is failing.",
+          "zh": "支付队列有点不对劲：消息在堆积，但又没有任何报错。"
+        }
+      ],
+      "situation": {
+        "zh": "你看到订单量比平时同一时间少了一半，但没有任何告警。你在群里说：",
+        "en": "Something's off with order volume. It's half of what we normally see at this hour."
+      },
+      "note": "off 在这里是“不正常”的意思：The numbers look off. 语气比 broken 轻，表示还没确定。"
+    },
+    {
+      "term": "It looks like ... is down.",
+      "kind": "sentence",
+      "zh": "看起来……挂了（完全不可用）",
+      "examples": [
+        {
+          "en": "It looks like the search service is down; every request is returning a 503.",
+          "zh": "看起来搜索服务挂了，所有请求都在返回 503。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问为什么页面上的推荐栏是空的。你查了一下，推荐服务完全没有响应。你说：",
+        "en": "It looks like the recommendation service is down. I'm checking whether the last deploy caused it."
+      },
+      "note": "down 指完全不可用；只是变慢或部分失败说 degraded。恢复了说 It's back up."
+    },
+    {
+      "term": "I'll take point on this.",
+      "kind": "sentence",
+      "zh": "这个我来牵头（主动认领事故负责人）",
+      "examples": [
+        {
+          "en": "I'll take point on this. Sam, can you check whether anything was deployed in the last hour?",
+          "zh": "这个我来牵头。Sam，你能查一下过去一小时有没有发过版吗？"
+        }
+      ],
+      "situation": {
+        "zh": "告警响了，频道里五六个人都在看，但没人说谁负责。你想站出来：",
+        "en": "I'll take point on this. Please post what you find in this thread so we keep everything in one place."
+      },
+      "note": "take point 原是军事用语，指走在队伍最前面。也说 I'll lead on this."
+    },
+    {
+      "term": "I'm looking into it.",
+      "kind": "sentence",
+      "zh": "我在查了（回应别人：已经有人接手）",
+      "examples": [
+        {
+          "en": "Thanks for flagging this. I'm looking into it and will report back in fifteen minutes.",
+          "zh": "谢谢提醒。我在查了，十五分钟后回来同步。"
+        }
+      ],
+      "situation": {
+        "zh": "客服同事在群里说有用户反映收不到验证码。你是值班工程师，想马上回应：",
+        "en": "I'm looking into it now. Can you send me one of the affected phone numbers?"
+      },
+      "note": "look into 是“调查”，比 look at 更深入。先回这一句，让对方知道问题有人管了。"
+    },
+    {
+      "term": "dig into",
+      "kind": "chunk",
+      "zh": "深入排查（某一块），d 开头的短语动词",
+      "examples": [
+        {
+          "en": "Can you dig into the database logs while I check the load balancer?",
+          "zh": "我去看负载均衡，你能深入查一下数据库日志吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你和同事一起排查故障，怀疑问题出在缓存层。你想自己去细查这一块：",
+        "en": "I'll dig into the cache layer. Let me know if you find anything on the API side."
+      },
+      "note": "比 look into 更强调“往深里挖”。过去式 dug：I dug into the logs and found a pattern."
+    },
+    {
+      "term": "I'll handle comms.",
+      "kind": "sentence",
+      "zh": "对外沟通我来负责（事故分工）",
+      "examples": [
+        {
+          "en": "You two focus on the fix. I'll handle comms and keep the status page updated.",
+          "zh": "你们两个专心修。对外沟通我来负责，状态页也由我更新。"
+        }
+      ],
+      "situation": {
+        "zh": "故障排查很紧张，但客服和业务方不停地来问进展，打断工程师。你想把这摊事接过来：",
+        "en": "I'll handle comms, so please send all stakeholder questions to me instead of the engineers."
+      },
+      "note": "comms 是 communications 的口语缩写。事故中有专人负责沟通，排查的人才不会被打断。"
+    },
+    {
+      "term": "Let's split this up.",
+      "kind": "sentence",
+      "zh": "我们分头查吧（把这件事拆开分工）",
+      "examples": [
+        {
+          "en": "Let's split this up: I'll take the API servers, and you take the database.",
+          "zh": "我们分头查吧：我看 API 服务器，你看数据库。"
+        }
+      ],
+      "situation": {
+        "zh": "三个人挤在一起看同一份日志，效率很低。你想提议各看一块：",
+        "en": "Let's split this up. Priya, can you check the queue? Tom, the recent deploys? I'll look at the database."
+      },
+      "note": "分配具体的活时说 I'll take X, you take Y."
+    },
+    {
+      "term": "We're still investigating.",
+      "kind": "sentence",
+      "zh": "我们还在排查（i 开头的动词）",
+      "examples": [
+        {
+          "en": "We're still investigating, but we've confirmed the problem is isolated to one region.",
+          "zh": "我们还在排查，不过已经确认问题只出现在一个区域。"
+        }
+      ],
+      "situation": {
+        "zh": "事故发生二十分钟了，业务方问有没有结论。你还没有结论，但想如实同步：",
+        "en": "We're still investigating. We know it started after the 2 p.m. deploy, and we're checking that change now."
+      },
+      "note": "没有新进展也要定时同步。这句后面最好接上已知的事实，别只说一句“还在查”。"
+    },
+    {
+      "term": "Here's what we know so far.",
+      "kind": "sentence",
+      "zh": "目前已知的情况是这样的（动词 k 开头）",
+      "examples": [
+        {
+          "en": "Here's what we know so far: checkout is failing for about five percent of users.",
+          "zh": "目前已知的情况是这样的：大约 5% 的用户结账失败。"
+        }
+      ],
+      "situation": {
+        "zh": "经理刚加入事故电话会议，让你快速讲一下现状。你开口先说：",
+        "en": "Here's what we know so far. Errors started at 9:40, only on mobile, and a rollback didn't help."
+      },
+      "note": "so far 强调“到目前为止”，暗示情况还可能变。还不知道的部分可以说 What we don't know yet is ...。"
+    },
+    {
+      "term": "We haven't pinned down the cause yet.",
+      "kind": "sentence",
+      "zh": "我们还没确定原因（动词短语 p 开头）",
+      "examples": [
+        {
+          "en": "We haven't pinned down the cause yet, but it looks related to the cache upgrade.",
+          "zh": "我们还没确定原因，但看起来和缓存升级有关。"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理问：到底是什么导致的？你们有怀疑方向，但还没证实。你回答：",
+        "en": "We haven't pinned down the cause yet. Our main suspect is this morning's config change, and we're testing that now."
+      },
+      "note": "pin down 是“准确地确定”。不要把猜测说成结论，可以说 our main suspect is ... 或 it looks related to ...。"
+    },
+    {
+      "term": "rule out",
+      "kind": "chunk",
+      "zh": "排除（某种可能性），r 开头的短语动词",
+      "examples": [
+        {
+          "en": "We've ruled out the database, since query latency looks completely normal.",
+          "zh": "我们已经排除了数据库的问题，因为查询延迟看起来完全正常。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：会不会是昨天那次发版引起的？你已经把它回滚过了，问题还在。你说：",
+        "en": "I think we can rule out the deploy. I rolled it back twenty minutes ago and the errors haven't changed."
+      },
+      "note": "同步进展时，说明“已经排除了什么”和“发现了什么”一样有用。",
+      "collocations": ["rule out a cause", "can't rule it out"]
+    },
+    {
+      "term": "I'll post another update in ... minutes.",
+      "kind": "sentence",
+      "zh": "我……分钟后再同步一次",
+      "examples": [
+        {
+          "en": "No change since the last message. I'll post another update in thirty minutes.",
+          "zh": "和上一条消息相比没有变化。我三十分钟后再同步一次。"
+        }
+      ],
+      "situation": {
+        "zh": "你刚在事故频道里同步完现状，想让大家知道下次什么时候有消息，免得一直来问。",
+        "en": "That's all for now. I'll post another update in fifteen minutes, or sooner if anything changes."
+      },
+      "note": "说清下一次同步的时间，大家就不会一直来追问。后面常接 or sooner if anything changes。"
+    },
+    {
+      "term": "We don't have an ETA yet.",
+      "kind": "sentence",
+      "zh": "我们还给不出预计时间（用三个字母的缩写）",
+      "examples": [
+        {
+          "en": "We don't have an ETA yet, but we should know more once the rollback finishes.",
+          "zh": "我们还给不出预计时间，不过等回滚完成后应该会更清楚。"
+        }
+      ],
+      "situation": {
+        "zh": "业务方追问：到底什么时候能好？你们还在找原因，真的没法估。你回答：",
+        "en": "We don't have an ETA yet. I'd rather not guess, but I'll update you every twenty minutes."
+      },
+      "note": "ETA 是 estimated time of arrival 的缩写，逐个字母读，工作里泛指“预计完成时间”。冠词用 an。"
+    },
+    {
+      "term": "We expect to have this resolved within ...",
+      "kind": "sentence",
+      "zh": "我们预计在……之内解决",
+      "examples": [
+        {
+          "en": "We expect to have this resolved within the hour, once the new nodes are in service.",
+          "zh": "等新节点上线后，我们预计一小时之内解决。"
+        }
+      ],
+      "situation": {
+        "zh": "修复已经在发布中，大概还要半小时。业务方问还要多久。你回答：",
+        "en": "We expect to have this resolved within thirty minutes. The fix is rolling out now."
+      },
+      "note": "expect to 比 will 留有余地，是给时间承诺时的稳妥说法。within the hour 指“一小时之内”。"
+    },
+    {
+      "term": "My best guess is ...",
+      "kind": "sentence",
+      "zh": "我最靠谱的猜测是……（没有把握时给出估计）",
+      "examples": [
+        {
+          "en": "My best guess is another hour, but that depends on how long the restore takes.",
+          "zh": "我估计还要一个小时，但这取决于数据恢复要多久。"
+        }
+      ],
+      "situation": {
+        "zh": "经理说：我知道你没法确定，但我得给客户一个大概的时间。你回答：",
+        "en": "My best guess is two hours. Please treat that as an estimate, not a commitment."
+      },
+      "note": "先声明是 guess，再给数字，对方就不会把它当成承诺。"
+    },
+    {
+      "term": "worst case",
+      "kind": "chunk",
+      "zh": "最坏的情况（两个词）",
+      "examples": [
+        {
+          "en": "Worst case, we restore from last night's backup and lose a few hours of data.",
+          "zh": "最坏的情况是，我们从昨晚的备份恢复，丢掉几个小时的数据。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问：如果这个修复不管用，怎么办？你想说明兜底方案和要花的时间：",
+        "en": "Worst case, we fail over to the other region. That would take about forty minutes."
+      },
+      "note": "口头直接用 Worst case, ... 开头，完整说法是 in the worst case。对应 best case（最好的情况）。",
+      "collocations": ["a worst-case scenario", "best case"]
+    },
+    {
+      "term": "It's too early to say.",
+      "kind": "sentence",
+      "zh": "现在下结论还太早",
+      "examples": [
+        {
+          "en": "It's too early to say whether the fix worked; we need another ten minutes of data.",
+          "zh": "现在说修复有没有生效还太早，我们还需要再看十分钟的数据。"
+        }
+      ],
+      "situation": {
+        "zh": "修复刚发上去两分钟，有人问：是不是已经好了？你不想过早下结论：",
+        "en": "It's too early to say. Error rates are dropping, but I want to watch them for a few more minutes."
+      },
+      "note": "后面可以接 whether / if 从句。比 I don't know 更专业：表示需要更多数据，而不是没在管。"
+    },
+    {
+      "term": "I could use a hand with ...",
+      "kind": "sentence",
+      "zh": "……这块我需要人帮一把（h 开头，口语）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I could use a hand with the log analysis if anyone on the platform team is free.",
+          "zh": "日志分析这块我需要人帮一把，平台团队有人有空吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你一个人既要排查又要回复各方消息，忙不过来。你在群里求助：",
+        "en": "I could use a hand with this. Could someone take over the customer updates while I debug?"
+      },
+      "note": "could use 是“需要”的委婉说法：I could use some help. 事故中不要硬撑，早点开口。"
+    },
+    {
+      "term": "pull in",
+      "kind": "chunk",
+      "zh": "把（某人、某团队）拉进来一起处理，p 开头的短语动词",
+      "examples": [
+        {
+          "en": "This looks like a networking problem, so let's pull in someone from the infrastructure team.",
+          "zh": "这看起来是网络问题，我们拉一个基础设施团队的人进来吧。"
+        }
+      ],
+      "situation": {
+        "zh": "你排查到问题可能出在数据库层，但你对它不熟。你对事故负责人说：",
+        "en": "I think we need to pull in the database team. This is outside what I know well."
+      },
+      "note": "也说 bring in。宾语是代词时放中间：pull them in。",
+      "collocations": ["pull someone in", "bring in an expert"]
+    },
+    {
+      "term": "hand off",
+      "kind": "chunk",
+      "zh": "交接（把手上的事转给下一个人），动词短语",
+      "examples": [
+        {
+          "en": "My shift ends in ten minutes, so I'm going to hand off the incident to Wei.",
+          "zh": "我的班还有十分钟结束，所以我要把这个事故交接给 Wei。"
+        }
+      ],
+      "situation": {
+        "zh": "你已经连续处理了六个小时，下一班值班的同事上线了。你在频道里说：",
+        "en": "I'm going to hand off to Lena now. I've written up the current state and the next steps in the doc."
+      },
+      "note": "动词分开写 hand off，名词连写 handoff：a clean handoff。也说 hand over。",
+      "collocations": ["hand off to the next on-call", "a clean handoff", "handoff notes"]
+    },
+    {
+      "term": "Here's where things stand.",
+      "kind": "sentence",
+      "zh": "目前的状况是这样的（交接时交代进度，动词 s 开头）",
+      "examples": [
+        {
+          "en": "Here's where things stand: the rollback is done, but error rates haven't fully recovered.",
+          "zh": "目前的状况是这样的：回滚已经完成，但错误率还没有完全恢复。"
+        }
+      ],
+      "situation": {
+        "zh": "接班的同事刚上线，对事故一无所知。你要把现状交代给他，开口先说：",
+        "en": "Here's where things stand. Customers are no longer affected, but the root cause is still open and the fix needs review."
+      },
+      "note": "where things stand 指“事情现在处于什么状态”，重点在进度；what we know so far 重点在已知信息。"
+    },
+    {
+      "term": "Sorry to wake you up, but ...",
+      "kind": "sentence",
+      "zh": "抱歉把你吵醒了，但是……",
+      "examples": [
+        {
+          "en": "Sorry to wake you up, but the primary database is down and we need your help.",
+          "zh": "抱歉把你吵醒了，但是主库挂了，我们需要你帮忙。"
+        }
+      ],
+      "situation": {
+        "zh": "凌晨三点，你处理不了一个存储故障，只好打电话给最熟悉这块的同事。电话接通后你说：",
+        "en": "Sorry to wake you up, but we've got a storage outage and I've run out of things to try."
+      },
+      "note": "半夜找人先道歉，再用一句话说清出了什么事、为什么需要对方。"
+    },
+    {
+      "term": "We're seeing signs of recovery.",
+      "kind": "sentence",
+      "zh": "我们看到了恢复的迹象",
+      "examples": [
+        {
+          "en": "We're seeing signs of recovery: error rates have dropped from twenty percent to two.",
+          "zh": "我们看到了恢复的迹象：错误率已经从 20% 降到了 2%。"
+        }
+      ],
+      "situation": {
+        "zh": "回滚完成五分钟后，指标开始好转，但还没完全正常。你同步给大家：",
+        "en": "We're seeing signs of recovery since the rollback. I'll confirm once the numbers are fully stable."
+      },
+      "note": "指标刚开始好转、还不能宣布恢复时用这句，比直接说 It's fixed 稳妥。"
+    },
+    {
+      "term": "We've pushed a fix.",
+      "kind": "sentence",
+      "zh": "修复已经发上去了（p 开头的动词）",
+      "examples": [
+        {
+          "en": "We've pushed a fix, and it should reach all servers in about ten minutes.",
+          "zh": "修复已经发上去了，大约十分钟后会覆盖到所有服务器。"
+        }
+      ],
+      "situation": {
+        "zh": "你定位到是一个配置写错了，改好并发布了。你在事故频道里同步：",
+        "en": "We've pushed a fix for the bad config. Error rates should start dropping within a few minutes."
+      },
+      "note": "push a fix 指把修复发到线上。也说 The fix is out. / The fix is live.",
+      "collocations": ["push a fix", "The fix is live."]
+    },
+    {
+      "term": "back to normal",
+      "kind": "chunk",
+      "zh": "恢复正常",
+      "examples": [
+        {
+          "en": "Latency is back to normal, and the queue has drained completely.",
+          "zh": "延迟已经恢复正常，队列也完全消化完了。"
+        }
+      ],
+      "situation": {
+        "zh": "修复上线二十分钟后，各项指标都回到了平时的水平。你在频道里说：",
+        "en": "Everything is back to normal as of 3:15. Thanks, everyone, for jumping in."
+      },
+      "note": "主语通常是指标或系统：Error rates are back to normal. 也说 back to baseline（回到基线水平）。",
+      "collocations": ["get back to normal", "back to baseline"]
+    },
+    {
+      "term": "keep an eye on",
+      "kind": "chunk",
+      "zh": "继续盯着、留意（含 eye 的习语）",
+      "examples": [
+        {
+          "en": "I'll keep an eye on the error rate for the next hour in case it comes back.",
+          "zh": "接下来一小时我会继续盯着错误率，以防问题再出现。"
+        }
+      ],
+      "situation": {
+        "zh": "事故已经缓解，大家准备散了。你想让值班同事今晚多留意一下内存指标：",
+        "en": "Could you keep an eye on memory usage tonight? If it climbs again, page me."
+      },
+      "note": "比 monitor 口语。加 close 可以加强语气：keep a close eye on。",
+      "collocations": ["keep a close eye on", "keep an eye out for"]
+    },
+    {
+      "term": "The issue is now resolved.",
+      "kind": "sentence",
+      "zh": "问题现已解决（正式宣布，r 开头）",
+      "examples": [
+        {
+          "en": "The issue is now resolved, and all services are operating normally.",
+          "zh": "问题现已解决，所有服务运行正常。"
+        }
+      ],
+      "situation": {
+        "zh": "指标已经稳定了半小时，你要在事故频道里正式宣布结束，并说明后续：",
+        "en": "The issue is now resolved. We'll keep monitoring overnight and share a postmortem by Friday."
+      },
+      "note": "resolved 指问题彻底解决；只是止住了影响、根因还没修，说 mitigated。两者别混用。"
+    },
+    {
+      "term": "We're aware of an issue affecting ...",
+      "kind": "sentence",
+      "zh": "我们已注意到一个影响……的问题（对外公告的开头）",
+      "register": "formal",
+      "examples": [
+        {
+          "en": "We're aware of an issue affecting file uploads and are working to resolve it.",
+          "zh": "我们已注意到一个影响文件上传的问题，正在处理。"
+        }
+      ],
+      "situation": {
+        "zh": "支付功能出了故障，你要在状态页上发第一条公告，先让客户知道你们已经在处理了。",
+        "en": "We're aware of an issue affecting payments for some customers. Our team is investigating, and we'll post an update within thirty minutes."
+      },
+      "note": "状态页第一条公告的标准开头。只说影响，不猜原因。"
+    },
+    {
+      "term": "Some users may experience ...",
+      "kind": "sentence",
+      "zh": "部分用户可能会遇到……（对外说明影响）",
+      "register": "formal",
+      "examples": [
+        {
+          "en": "Some users may experience delays when sending messages while we work on a fix.",
+          "zh": "在我们修复期间，部分用户发送消息时可能会遇到延迟。"
+        }
+      ],
+      "situation": {
+        "zh": "搜索服务响应变慢，但没有完全不可用。你要在公告里说明用户会感受到什么：",
+        "en": "Some users may experience slow search results. Other features are not affected."
+      },
+      "note": "some 和 may 让说法既不夸大也不缩小。后面常接 delays、errors、slow loading times。"
+    },
+    {
+      "term": "The impact is limited to ...",
+      "kind": "sentence",
+      "zh": "影响仅限于……",
+      "examples": [
+        {
+          "en": "The impact is limited to customers in Europe who signed up in the last week.",
+          "zh": "影响仅限于最近一周注册的欧洲客户。"
+        }
+      ],
+      "situation": {
+        "zh": "销售负责人紧张地问：是不是所有客户都用不了了？实际只有用旧版应用的人受影响。你回答：",
+        "en": "No, the impact is limited to users on the old mobile app, which is roughly three percent of traffic."
+      },
+      "note": "对业务方先讲影响范围，再讲技术细节。问影响时说 What's the customer impact?"
+    },
+    {
+      "term": "We sincerely apologize for ...",
+      "kind": "sentence",
+      "zh": "我们为……诚挚致歉（对客户的正式道歉）",
+      "register": "formal",
+      "examples": [
+        {
+          "en": "We sincerely apologize for the disruption this caused to your team.",
+          "zh": "对于这次给贵团队造成的影响，我们诚挚致歉。"
+        }
+      ],
+      "situation": {
+        "zh": "事故恢复后，你要给受影响的企业客户写说明邮件，开头先正式道歉：",
+        "en": "We sincerely apologize for yesterday's outage. We know you rely on our service, and we fell short."
+      },
+      "note": "apologize for + 名词或动名词。口头对同事说 Sorry about that 就够了，这句用在书面的对外沟通里。英式拼写是 apologise。"
+    },
+    {
+      "term": "We'll share more details as soon as we have them.",
+      "kind": "sentence",
+      "zh": "一有更多信息，我们会马上同步（对外承诺后续）",
+      "examples": [
+        {
+          "en": "We'll share more details as soon as we have them, including a full timeline.",
+          "zh": "一有更多信息我们会马上同步，包括完整的时间线。"
+        }
+      ],
+      "situation": {
+        "zh": "客户成功经理问：客户想知道根本原因，我该怎么回？原因还没查清。你建议她这样说：",
+        "en": "You can tell them we're still investigating, and that we'll share more details as soon as we have them."
+      },
+      "note": "还没有答案时用这句，既不沉默也不乱承诺。"
+    },
+    {
+      "term": "This isn't about assigning blame.",
+      "kind": "sentence",
+      "zh": "这不是要追究谁的责任（复盘开场）",
+      "examples": [
+        {
+          "en": "This isn't about assigning blame; we want to understand how the system allowed this to happen.",
+          "zh": "这不是要追究谁的责任，我们是想弄清楚系统为什么会允许这种事发生。"
+        }
+      ],
+      "situation": {
+        "zh": "复盘会上，执行了那条出错命令的同事明显很紧张。你作为主持人开场说：",
+        "en": "Before we start, this isn't about assigning blame. Anyone on the team could have run that command."
+      },
+      "note": "assign blame 是“归咎于某人”。近义说法：We're not here to point fingers.",
+      "collocations": ["assign blame", "point fingers"]
+    },
+    {
+      "term": "slip through",
+      "kind": "chunk",
+      "zh": "（问题）漏过去、没被拦住，s 开头的短语动词",
+      "examples": [
+        {
+          "en": "The bug slipped through because our tests only covered the default configuration.",
+          "zh": "这个 bug 漏过去了，因为我们的测试只覆盖了默认配置。"
+        }
+      ],
+      "situation": {
+        "zh": "复盘会上，你想问这个问题为什么没在评审和测试阶段被发现，但不想听起来像在指责谁：",
+        "en": "I'd like to understand how this slipped through both code review and CI."
+      },
+      "note": "主语是问题本身，不是人，所以不带指责的意味。完整的习语是 slip through the cracks。",
+      "collocations": ["slip through the cracks", "slip through code review"]
+    },
+    {
+      "term": "contributing factor",
+      "kind": "chunk",
+      "zh": "促成因素（导致事故的多个因素之一）",
+      "examples": [
+        {
+          "en": "A contributing factor was that the alert went to a channel nobody was watching.",
+          "zh": "一个促成因素是，告警发到了一个没人看的频道。"
+        }
+      ],
+      "situation": {
+        "zh": "复盘时有人说：都怪发布的人没检查。你想把讨论引向系统层面的原因：",
+        "en": "I'd call that one contributing factor. Another is that the pipeline let an untested config reach production."
+      },
+      "note": "复盘里说 contributing factors 而不是 whose fault，因为事故很少只有一个原因。"
+    },
+    {
+      "term": "What could we have done differently?",
+      "kind": "sentence",
+      "zh": "我们当时本可以怎么做得不一样？（复盘提问）",
+      "examples": [
+        {
+          "en": "Looking back at the first hour, what could we have done differently?",
+          "zh": "回头看最初的一小时，我们当时本可以怎么做得不一样？"
+        }
+      ],
+      "situation": {
+        "zh": "复盘会上时间线已经过完了，你想引导大家讨论改进点，而不是谁做错了：",
+        "en": "So, what could we have done differently to detect this sooner?"
+      },
+      "note": "could have done 表示“本可以做而没做”。用 we 而不是 you，问的是团队和流程，不是某个人。"
+    },
+    {
+      "term": "To prevent this from happening again, ...",
+      "kind": "sentence",
+      "zh": "为了防止这种情况再次发生，……（引出改进措施）",
+      "examples": [
+        {
+          "en": "To prevent this from happening again, we're adding a validation step to the deploy pipeline.",
+          "zh": "为了防止这种情况再次发生，我们会在部署流水线里加一个校验步骤。"
+        }
+      ],
+      "situation": {
+        "zh": "复盘快结束了，你要总结最重要的一条改进措施：给配置变更加上自动校验。",
+        "en": "To prevent this from happening again, we'll validate every config change in CI before it can be deployed."
+      },
+      "note": "prevent ... from doing 里的 from 不要漏。这句在对内复盘和对客户的说明里都能用。"
+    }
+  ]
+}

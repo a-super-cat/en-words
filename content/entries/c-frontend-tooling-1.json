@@ -1,0 +1,657 @@
+{
+  "layer": "C",
+  "category": "frontend-tooling",
+  "title": "前端工程：TypeScript、状态管理与构建",
+  "entries": [
+    {
+      "term": "type inference",
+      "kind": "chunk",
+      "zh": "类型推断",
+      "examples": [
+        {
+          "en": "I rely on type inference for local variables and only annotate function parameters and public return types.",
+          "zh": "局部变量我靠类型推断，只给函数参数和对外的返回类型写注解。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里给每个变量都手写了类型，比如 const n: number = 1，你想回复：",
+        "en": "We can drop most of these. Type inference already gives us number here, and the annotations just add noise."
+      },
+      "collocations": ["infer the return type", "let TypeScript infer it"],
+      "note": "动词是 infer：TypeScript infers the type from the initial value。"
+    },
+    {
+      "term": "type annotation",
+      "kind": "chunk",
+      "zh": "类型注解",
+      "examples": [
+        {
+          "en": "I put an explicit type annotation on the return value, so mistakes surface in the function, not in its callers.",
+          "zh": "我给返回值加了显式的类型注解，这样写错时报错会出在函数本身，而不是调用方。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：既然 TypeScript 能自动推断，哪些地方你还是会手写类型？",
+        "en": "I add type annotations at boundaries: function parameters, exported APIs, and anything that comes from outside, like API responses."
+      },
+      "note": "动词是 annotate。推断不出来或者推断得太宽的地方才需要写。"
+    },
+    {
+      "term": "catch it at compile time",
+      "kind": "chunk",
+      "zh": "在编译期就发现（错误）",
+      "examples": [
+        {
+          "en": "After the migration to TypeScript, a renamed field gets caught at compile time instead of blowing up in production.",
+          "zh": "迁到 TypeScript 之后，字段改名这类问题在编译期就能发现，不会等到线上才炸。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：给一个老的 JavaScript 项目引入 TypeScript，最大的收益是什么？",
+        "en": "A whole class of bugs, like typos and wrong argument types, we now catch at compile time rather than at runtime."
+      },
+      "collocations": ["a compile-time error", "fail at runtime"],
+      "note": "反面是 at runtime。blow up 是口语，指出错崩掉。"
+    },
+    {
+      "term": "declaration file",
+      "kind": "chunk",
+      "zh": "类型声明文件（.d.ts）",
+      "examples": [
+        {
+          "en": "The library didn't ship types, so I wrote a small declaration file for the functions we use.",
+          "zh": "那个库没带类型，所以我给我们用到的几个函数写了一个小的类型声明文件。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：引入一个纯 JavaScript 写的第三方库，TypeScript 报找不到类型，你怎么办？",
+        "en": "First I'd look for an @types package. If there isn't one, I'd write a declaration file that declares the module."
+      },
+      "collocations": ["type declarations", "ship its own types"],
+      "note": "只包含类型、不含实现。社区维护的类型放在 DefinitelyTyped，也就是 @types/xxx。"
+    },
+    {
+      "term": "runtime validation",
+      "kind": "chunk",
+      "zh": "运行时校验（类型在运行时不存在，所以要做）",
+      "examples": [
+        {
+          "en": "We added runtime validation with Zod at the API boundary, because TypeScript types don't exist at runtime.",
+          "zh": "我们在接口边界上用 Zod 加了运行时校验，因为 TypeScript 的类型在运行时是不存在的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：接口返回的数据你已经定义了类型，为什么线上还是出现了字段为 undefined 的报错？",
+        "en": "The type was only a promise we made to the compiler. Without runtime validation, nothing checks that the response actually matches it."
+      },
+      "note": "TypeScript 的类型在编译后会被擦除。常见做法是从 schema 推导出类型：z.infer<typeof schema>。"
+    },
+    {
+      "term": "union type",
+      "kind": "chunk",
+      "zh": "联合类型",
+      "examples": [
+        {
+          "en": "We replaced the string field with a union type of three literals, so typos no longer compile.",
+          "zh": "我们把那个 string 字段换成了三个字面量组成的联合类型，拼错了就编译不过。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个状态字段只可能是 loading、success、error 三个值之一，类型上怎么表达？",
+        "en": "I'd use a union type of string literals rather than plain string, so the compiler rejects any other value."
+      },
+      "note": "写作 A | B。相对的 A & B 叫 intersection type（交叉类型）。"
+    },
+    {
+      "term": "narrow the type",
+      "kind": "chunk",
+      "zh": "收窄类型",
+      "examples": [
+        {
+          "en": "Inside the if block, TypeScript narrows the type to string, so I can call toUpperCase safely.",
+          "zh": "在 if 块里面，TypeScript 把类型收窄成了 string，所以可以放心调用 toUpperCase。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个值的类型是 string | undefined，怎么才能安全地调用它的方法？",
+        "en": "Check it first. An if statement or an early return narrows the type to string, and after that the compiler lets you use it."
+      },
+      "collocations": ["type narrowing", "narrow it down to"],
+      "note": "名词是 type narrowing。常见的收窄手段：typeof、instanceof、in、判等、真值检查。这种跟着代码流程走的分析叫 control flow analysis。"
+    },
+    {
+      "term": "type guard",
+      "kind": "chunk",
+      "zh": "类型守卫",
+      "examples": [
+        {
+          "en": "I wrote a custom type guard, isApiError, so the catch block knows what shape the error has.",
+          "zh": "我写了一个自定义类型守卫 isApiError，这样 catch 块里就知道错误对象长什么样。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：catch 到的错误是 unknown 类型，你怎么安全地读它上面的字段？",
+        "en": "I'd write a type guard, a function that returns error is ApiError, and call it before touching any fields."
+      },
+      "note": "返回值写成 x is T 的写法叫 type predicate。从 TypeScript 5.5 起，简单的判断函数可以自动推断出 type predicate。"
+    },
+    {
+      "term": "discriminated union",
+      "kind": "chunk",
+      "zh": "可辨识联合（靠一个公共字段区分成员）",
+      "ipa": "/dɪˈskrɪmɪneɪtɪd ˈjuːniən/",
+      "examples": [
+        {
+          "en": "We modeled the request state as a discriminated union, so data only exists when the status is success.",
+          "zh": "我们把请求状态建模成可辨识联合，只有 status 是 success 的时候才有 data。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个对象有 loading、data、error 三个可选字段，容易出现互相矛盾的组合，类型上怎么避免？",
+        "en": "I'd turn it into a discriminated union with a status field. Each variant carries only its own data, so impossible states can't be represented."
+      },
+      "note": "那个公共字段叫 discriminant，通常是字面量类型。也叫 tagged union。相关的名言：make impossible states impossible。"
+    },
+    {
+      "term": "exhaustiveness check",
+      "kind": "chunk",
+      "zh": "穷尽性检查（确保每个分支都处理了）",
+      "ipa": "/ɪɡˈzɔːstɪvnəs/",
+      "examples": [
+        {
+          "en": "We added an exhaustiveness check with never, so adding a new status breaks the build until every switch handles it.",
+          "zh": "我们用 never 加了穷尽性检查，新增一个状态后，所有 switch 都处理它之前构建是过不了的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：联合类型新增了一个成员，怎么保证所有用到它的 switch 语句都不会漏掉？",
+        "en": "Add an exhaustiveness check: in the default branch, assign the value to a variable of type never. An unhandled member becomes a compile error."
+      },
+      "note": "形容词是 exhaustive（穷尽的）。也可以写 value satisfies never，或者用 typescript-eslint 的 switch-exhaustiveness-check 规则。"
+    },
+    {
+      "term": "opt out of type checking",
+      "kind": "chunk",
+      "zh": "放弃类型检查（any 的实际效果）",
+      "examples": [
+        {
+          "en": "Every any in that file opts out of type checking, and that's exactly where the production bug slipped through.",
+          "zh": "那个文件里的每个 any 都等于放弃了类型检查，线上那个 bug 就是从这儿漏过去的。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里为了让代码编译通过，把接口返回值标成了 any，你想回复：",
+        "en": "Using any here opts out of type checking for everything downstream. Could we use unknown and narrow it instead?"
+      },
+      "collocations": ["overuse any", "an explicit any", "use unknown instead"],
+      "note": "any 会传染：从 any 上读出来的值还是 any。拿不准类型时用 unknown，它强制你先收窄再使用。“滥用 any”可以说 overuse any。"
+    },
+    {
+      "term": "type assertion",
+      "kind": "chunk",
+      "zh": "类型断言（as 写法）",
+      "examples": [
+        {
+          "en": "I'd avoid the type assertion here, because it silences the compiler without actually checking the data.",
+          "zh": "这里我会避免用类型断言，因为它只是让编译器闭嘴，并没有真正检查数据。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用 as 把一个值强行指定成某个类型，有什么风险？",
+        "en": "A type assertion is unchecked. You're telling the compiler to trust you, so if you're wrong, it fails at runtime."
+      },
+      "note": "它不做任何运行时转换，所以别和其他语言里的 cast 混为一谈。后缀的 ! 叫 non-null assertion。只想检查、不想改变推断出的类型时，用 satisfies。"
+    },
+    {
+      "term": "enable strict mode",
+      "kind": "chunk",
+      "zh": "开启严格模式（TypeScript 编译选项）",
+      "examples": [
+        {
+          "en": "We enabled strict mode one folder at a time, fixing a few hundred errors along the way.",
+          "zh": "我们一个目录一个目录地开启严格模式，一路上修了几百个报错。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：接手一个 TypeScript 配置很宽松的老项目，你会先做什么？",
+        "en": "I'd enable strict mode incrementally. It turns on checks like noImplicitAny and strictNullChecks, which catch most real bugs."
+      },
+      "note": "tsconfig 里的 strict 是一组开关的总称，包括 noImplicitAny、strictNullChecks 等。没写类型又推断不出来时得到的 any 叫 implicit any。"
+    },
+    {
+      "term": "strict null checks",
+      "kind": "chunk",
+      "zh": "严格空值检查",
+      "examples": [
+        {
+          "en": "Turning on strict null checks surfaced dozens of places where we assumed the user was always logged in.",
+          "zh": "打开严格空值检查之后，暴露出几十处我们默认用户一定已登录的地方。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：线上最常见的那类 cannot read properties of undefined 报错，TypeScript 能帮上什么忙？",
+        "en": "With strict null checks on, null and undefined aren't assignable to other types, so the compiler forces you to handle the missing case."
+      },
+      "note": "对应编译选项 strictNullChecks。常配合可选链 ?. 和空值合并 ?? 使用。"
+    },
+    {
+      "term": "generic constraint",
+      "kind": "chunk",
+      "zh": "泛型约束",
+      "examples": [
+        {
+          "en": "I added a generic constraint, T extends { id: string }, so the helper only accepts items that have an ID.",
+          "zh": "我加了一个泛型约束 T extends { id: string }，这样这个工具函数只接受带 id 的元素。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：写一个通用函数，按 key 从对象里取值，怎么让 key 只能是这个对象上存在的属性名？",
+        "en": "Use a generic constraint: K extends keyof T. Then the compiler rejects any key that isn't a property of the object."
+      },
+      "note": "用 extends 关键字表达。T、K 这些叫 type parameter；调用时一般不用手写，TypeScript 会从实参推断。"
+    },
+    {
+      "term": "single source of truth",
+      "kind": "chunk",
+      "zh": "单一数据源（同一份数据只存一处）",
+      "examples": [
+        {
+          "en": "We made the URL the single source of truth for filters, so a shared link always shows the same results.",
+          "zh": "我们把 URL 当作筛选条件的单一数据源，这样分享出去的链接看到的结果永远一致。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：同一份用户信息在三个组件里各存了一份，经常对不上，你怎么改？",
+        "en": "I'd keep it in one store as the single source of truth and have every component read from there instead of keeping a copy."
+      },
+      "note": "也可以简称 source of truth。"
+    },
+    {
+      "term": "dispatch an action",
+      "kind": "chunk",
+      "zh": "派发一个 action",
+      "examples": [
+        {
+          "en": "The component just dispatches an action; it doesn't know how the state is actually updated.",
+          "zh": "组件只管派发一个 action，并不知道状态具体是怎么更新的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：在 Redux 这类架构里，组件想改全局状态，流程是怎样的？",
+        "en": "The component dispatches an action that describes what happened, a reducer computes the next state, and subscribed components re-render."
+      },
+      "note": "action 是描述“发生了什么”的普通对象，建议按事件命名（todoAdded），而不是按 setter 命名。"
+    },
+    {
+      "term": "mutate the state directly",
+      "kind": "chunk",
+      "zh": "直接修改 state（不可变更新的反面）",
+      "examples": [
+        {
+          "en": "The reducer mutated the state directly, so the selector returned the same reference and nothing re-rendered.",
+          "zh": "那个 reducer 直接修改了 state，selector 拿到的还是同一个引用，所以什么都没重新渲染。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Redux Toolkit 的 reducer 里可以写 state.items.push(x)，这不是违反了不可变原则吗？",
+        "en": "It only looks like you mutate the state directly. Immer records the changes on a draft and produces a new immutable state."
+      },
+      "note": "Pinia 和 Vue 的响应式状态本来就是直接改的；Redux、Zustand 这类靠引用比较来判断变化的库才要求不可变更新。"
+    },
+    {
+      "term": "selector",
+      "kind": "word",
+      "zh": "选择器（从 store 里取出或派生一部分状态的函数）",
+      "examples": [
+        {
+          "en": "Each component subscribes through a narrow selector, so it only re-renders when its own slice changes.",
+          "zh": "每个组件都通过一个很窄的选择器来订阅，只有自己那一小块状态变了才重新渲染。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：全局状态里任何字段一变，所有用到它的组件都跟着渲染，怎么优化？",
+        "en": "Have each component read through a selector that returns only what it needs, and memoize the ones that derive new objects."
+      },
+      "note": "返回新对象或新数组的选择器每次引用都不同，要用 createSelector 之类的工具做缓存。"
+    },
+    {
+      "term": "middleware",
+      "kind": "word",
+      "zh": "中间件（在 action 到达 reducer 之前拦截处理）",
+      "examples": [
+        {
+          "en": "We log every action and report failures through a small middleware instead of touching each reducer.",
+          "zh": "我们用一个很小的中间件来记录每个 action 并上报失败，而不用去改每个 reducer。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：reducer 必须是纯函数，那请求接口这类异步逻辑放在哪里？",
+        "en": "In middleware. It sits between dispatch and the reducers, so it can run async work and dispatch more actions when it finishes."
+      },
+      "note": "Redux 里最常见的是 thunk。后端框架（Express、Koa）里的中间件是同一个词。"
+    },
+    {
+      "term": "client state",
+      "kind": "chunk",
+      "zh": "客户端状态（只存在于前端的界面状态）",
+      "examples": [
+        {
+          "en": "Once server data moved into the query cache, the only client state left was the theme and a few toggles.",
+          "zh": "服务端数据挪进查询缓存之后，剩下的客户端状态就只有主题和几个开关了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：弹窗是否打开、当前选中哪个标签页，这类数据需要放进请求缓存库吗？",
+        "en": "No, that's client state. It never leaves the browser, so local component state or a small store is enough."
+      },
+      "note": "和 server state 相对。也有人叫 UI state。"
+    },
+    {
+      "term": "in sync with the server",
+      "kind": "chunk",
+      "zh": "和服务端保持同步",
+      "examples": [
+        {
+          "en": "After every mutation we refetch the list to keep the UI in sync with the server.",
+          "zh": "每次修改之后我们都重新请求列表，让界面和服务端保持同步。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：多人同时编辑同一份数据，怎么保证每个人页面上看到的不是旧数据？",
+        "en": "To stay in sync with the server, I'd refetch on window focus and push changes over a WebSocket for the views that need it."
+      },
+      "collocations": ["keep A in sync with B", "get out of sync"],
+      "note": "反义是 out of sync。"
+    },
+    {
+      "term": "invalidate the query",
+      "kind": "chunk",
+      "zh": "让查询缓存失效（标记为过期并重新请求）",
+      "examples": [
+        {
+          "en": "After the user saves the form, we invalidate the query so the list refetches with the new data.",
+          "zh": "用户保存表单之后，我们让这个查询的缓存失效，列表就会带着新数据重新请求。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用 TanStack Query 时，新增了一条记录，列表页怎么更新？",
+        "en": "In the mutation's onSuccess, I invalidate the query for the list. It's marked stale and refetched if it's on screen."
+      },
+      "note": "TanStack Query 里是 queryClient.invalidateQueries({ queryKey })。也可以用 setQueryData 直接写缓存，省一次请求。"
+    },
+    {
+      "term": "stale-while-revalidate",
+      "kind": "chunk",
+      "zh": "先返回旧缓存、同时在后台重新请求（一种缓存策略）",
+      "examples": [
+        {
+          "en": "With stale-while-revalidate, users see the cached list instantly while a fresh copy loads in the background.",
+          "zh": "用了 stale-while-revalidate 策略，用户立刻就能看到缓存的列表，新数据同时在后台加载。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：每次回到列表页都要转圈等接口，体验很差，但又不能一直显示旧数据，怎么平衡？",
+        "en": "I'd use a stale-while-revalidate strategy: show the cached data right away, refetch in the background, and swap it in when it arrives."
+      },
+      "note": "名字来自 HTTP 的 Cache-Control 扩展指令，SWR 这个库就是以它命名的。stale 是“过期的”，revalidate 是“重新验证”。"
+    },
+    {
+      "term": "poll the server",
+      "kind": "chunk",
+      "zh": "轮询服务端",
+      "examples": [
+        {
+          "en": "We poll the server every ten seconds for the job status and stop as soon as it finishes.",
+          "zh": "我们每十秒轮询一次服务端查任务状态，任务一结束就停。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：页面要显示一个后台导出任务的进度，后端暂时不支持 WebSocket，前端怎么做？",
+        "en": "I'd poll the server at a fixed interval while the job is running, and pause when the tab is hidden."
+      },
+      "note": "名词是 polling，long polling 是长轮询。数据变化频繁、实时性要求高时，换成 WebSocket 或 SSE。"
+    },
+    {
+      "term": "bundler",
+      "kind": "word",
+      "zh": "打包器",
+      "examples": [
+        {
+          "en": "We replaced webpack with a faster bundler, and production builds went from four minutes to under one.",
+          "zh": "我们把 webpack 换成了一个更快的打包器，生产构建从四分钟降到了一分钟以内。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：浏览器已经原生支持 ES 模块了，为什么上线前还要把代码打成包？",
+        "en": "A bundler still pays off in production: it cuts the number of requests, removes dead code, and splits the output into cacheable chunks."
+      },
+      "note": "动词是 bundle，产物也叫 bundle。常见的有 webpack、Rollup、esbuild、Rolldown；Vite 是构建工具，生产构建时底层用的也是打包器。"
+    },
+    {
+      "term": "dev server",
+      "kind": "chunk",
+      "zh": "开发服务器",
+      "examples": [
+        {
+          "en": "Our dev server starts in under a second because it serves source files as native ES modules.",
+          "zh": "我们的开发服务器不到一秒就能启动，因为它直接把源文件当原生 ES 模块提供给浏览器。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：本地开发时前端请求后端接口遇到跨域，一般怎么解决？",
+        "en": "I'd configure a proxy in the dev server, so the browser talks to the same origin and the dev server forwards the API calls."
+      },
+      "note": "dev 是 development 的缩写，口头几乎都说 dev server。"
+    },
+    {
+      "term": "hot module replacement",
+      "kind": "chunk",
+      "zh": "模块热替换（改代码后不刷新页面）",
+      "examples": [
+        {
+          "en": "With hot module replacement, I can tweak a component and keep the form state I've already filled in.",
+          "zh": "有了模块热替换，我改一个组件，之前填好的表单状态还在。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：本地改了一行代码，页面没有整体刷新就更新了，这是怎么做到的？",
+        "en": "That's hot module replacement. The dev server pushes the changed module over a WebSocket, and the runtime swaps it in without a full reload."
+      },
+      "note": "缩写 HMR，口头两种都说。也有人叫 hot reload。"
+    },
+    {
+      "term": "transpile",
+      "kind": "word",
+      "zh": "转译（把新语法或 TS 转成浏览器能跑的 JS）",
+      "ipa": "/trænˈspaɪl/",
+      "examples": [
+        {
+          "en": "We only transpile for browsers from the last two years, which removed a lot of legacy helper code.",
+          "zh": "我们只针对近两年的浏览器做转译，去掉了一大堆为老浏览器准备的辅助代码。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用 esbuild 或 SWC 处理 TypeScript 特别快，但它们少做了什么？",
+        "en": "They only transpile: they strip the types without checking them. So we still run tsc with noEmit in CI for type checking."
+      },
+      "note": "和 compile 的区别：transpile 特指源码到源码的转换。名词是 transpiler，例如 Babel、SWC、esbuild。"
+    },
+    {
+      "term": "source map",
+      "kind": "chunk",
+      "zh": "源码映射（把压缩后的代码对应回源码）",
+      "examples": [
+        {
+          "en": "We upload source maps to our error tracker, so production stack traces point to the original TypeScript.",
+          "zh": "我们把 source map 上传到错误监控平台，线上的报错堆栈就能直接指到原始的 TypeScript 代码。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：线上报错的堆栈全是压缩后的一行代码，根本看不出是哪里的问题，怎么办？",
+        "en": "Generate source maps during the build and upload them to the error tracker, but don't serve them publicly."
+      },
+      "note": "国内一般直接说英文，不翻译。公开暴露会泄露源码，常见做法是只上传给监控平台，不随静态资源一起发布。"
+    },
+    {
+      "term": "monorepo",
+      "kind": "word",
+      "zh": "单一代码仓库（多个包放在一个仓库里）",
+      "examples": [
+        {
+          "en": "We moved the web app, the admin app, and the shared UI package into a monorepo.",
+          "zh": "我们把 Web 应用、管理后台和共享的 UI 包都挪进了一个 monorepo。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：几个前端项目共用一套组件和工具函数，每次改动都要先发包再升级版本，很麻烦，有什么办法？",
+        "en": "I'd put them in a monorepo with workspaces, so apps depend on the shared packages directly and one PR can change both."
+      },
+      "note": "反义是 polyrepo。常用工具：pnpm workspaces、Turborepo、Nx。仓库大了以后，要靠构建缓存和只跑受影响的任务来保证 CI 速度。"
+    },
+    {
+      "term": "hoist dependencies",
+      "kind": "chunk",
+      "zh": "依赖提升（把依赖装到根目录的 node_modules）",
+      "examples": [
+        {
+          "en": "npm hoists dependencies to the root node_modules, which let our code import packages it never declared.",
+          "zh": "npm 会把依赖提升到根目录的 node_modules，结果我们的代码能 import 到自己从没声明过的包。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个包没写在 package.json 里，本地却能正常 import，换了包管理器后突然报错，为什么？",
+        "en": "That's a phantom dependency. The old package manager hoists dependencies to the root, while pnpm's strict layout only exposes what you declared."
+      },
+      "note": "名词说法是 dependency hoisting。能用到没声明的包叫 phantom dependency（幽灵依赖）。pnpm 用符号链接的严格目录结构避免这个问题。"
+    },
+    {
+      "term": "lint rule",
+      "kind": "chunk",
+      "zh": "代码检查规则（ESLint 里的一条）",
+      "examples": [
+        {
+          "en": "We added a lint rule that bans importing from another feature's internal folders.",
+          "zh": "我们加了一条 lint 规则，禁止从别的功能模块的内部目录里 import。"
+        }
+      ],
+      "situation": {
+        "zh": "同事反复在 code review 里指出同一类问题，比如忘了处理 Promise，你在周会上建议：",
+        "en": "Let's enforce it with a lint rule instead of catching it in review. The linter never gets tired of repeating itself."
+      },
+      "collocations": ["enforce it with a lint rule", "disable the rule for this line", "a lint error"],
+      "note": "lint 也作动词：lint the code。工具叫 linter。规则可以设成 warn 或 error，有些带自动修复。"
+    },
+    {
+      "term": "code formatter",
+      "kind": "chunk",
+      "zh": "代码格式化工具",
+      "examples": [
+        {
+          "en": "We let the code formatter decide on style, so nobody argues about semicolons in code review anymore.",
+          "zh": "代码风格交给格式化工具决定，code review 里再也没人争论要不要加分号了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：团队里每个人的缩进、引号习惯都不一样，diff 里全是无关改动，你怎么治理？",
+        "en": "Adopt a code formatter like Prettier, run it on save and in CI, and stop discussing style altogether."
+      },
+      "note": "linter 管代码质量，formatter 只管排版。Prettier 这种几乎不给配置项的工具常被形容为 opinionated。"
+    },
+    {
+      "term": "pre-commit hook",
+      "kind": "chunk",
+      "zh": "提交前钩子（git commit 之前自动跑检查）",
+      "examples": [
+        {
+          "en": "A pre-commit hook runs the linter and formatter on staged files, so broken code rarely reaches CI.",
+          "zh": "提交前钩子会对暂存的文件跑 lint 和格式化，有问题的代码很少能进到 CI。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：怎么保证大家提交的代码都通过了格式化和静态检查，而不是等 CI 失败了再改？",
+        "en": "I'd set up a pre-commit hook with husky and lint-staged, and keep the same checks in CI because hooks can be skipped."
+      },
+      "note": "钩子可以用 --no-verify 跳过，所以 CI 里的检查不能省。"
+    },
+    {
+      "term": "design system",
+      "kind": "chunk",
+      "zh": "设计系统（统一的设计规范加组件）",
+      "examples": [
+        {
+          "en": "Before we had a design system, every team built its own button, and no two looked the same.",
+          "zh": "在有设计系统之前，每个团队都自己写按钮，没有两个长得一样的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：公司有十几个产品线，界面风格各不相同，你会怎么推动统一？",
+        "en": "I'd start a design system together with the designers: shared tokens and guidelines first, then a component library that implements them."
+      },
+      "note": "设计系统不只是组件库，还包括设计原则、规范文档和 design tokens。"
+    },
+    {
+      "term": "design tokens",
+      "kind": "chunk",
+      "zh": "设计令牌（颜色、间距、字号等设计变量）",
+      "examples": [
+        {
+          "en": "Colors and spacing are defined as design tokens, so supporting dark mode was mostly swapping one set of values.",
+          "zh": "颜色和间距都定义成了设计令牌，所以支持深色模式基本上就是换一套值。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：设计师改了品牌主色，怎么做到所有产品一次性更新，而不是到处搜索替换色值？",
+        "en": "Define the color as a design token, expose it as a CSS variable, and have every component reference the token instead of a hex value."
+      },
+      "note": "通常输出成 CSS 变量。分层命名很常见：基础 token（blue-500）和语义 token（color-primary）。"
+    },
+    {
+      "term": "component library",
+      "kind": "chunk",
+      "zh": "组件库",
+      "examples": [
+        {
+          "en": "We publish our component library as a versioned package and document every component in Storybook.",
+          "zh": "我们的组件库作为带版本号的包发布，每个组件都在 Storybook 里有文档。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们是自己从零写基础组件，还是基于开源方案？为什么？",
+        "en": "We built our component library on top of headless primitives, so we get accessibility for free and fully control the styling."
+      },
+      "collocations": ["an in-house component library", "a third-party component library"]
+    },
+    {
+      "term": "breaking change",
+      "kind": "chunk",
+      "zh": "破坏性变更（升级后旧用法不能用了）",
+      "examples": [
+        {
+          "en": "Renaming that prop is a breaking change, so it has to wait for the next major version.",
+          "zh": "给那个 prop 改名属于破坏性变更，得等下一个大版本再做。"
+        }
+      ],
+      "situation": {
+        "zh": "同事想直接删掉组件库里一个老的 prop，而还有五个项目在用，你想回复：",
+        "en": "That's a breaking change for five apps. Let's deprecate it with a warning first and remove it in the next major."
+      },
+      "note": "按语义化版本（semver），破坏性变更要升主版本号。反面是 backward compatible。"
+    },
+    {
+      "term": "micro-frontend",
+      "kind": "word",
+      "zh": "微前端",
+      "examples": [
+        {
+          "en": "We split the portal into micro-frontends so each team could deploy on its own schedule.",
+          "zh": "我们把门户拆成了微前端，每个团队可以按自己的节奏发布。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：什么情况下你会把一个大型前端应用拆成多个可以独立部署的子应用？",
+        "en": "Micro-frontends make sense when several teams are blocked by one release train. For a single team, the overhead isn't worth it."
+      },
+      "note": "代价：共享依赖的版本管理、样式隔离、包体积变大。常见实现有 Module Federation、qiankun、single-spa。"
+    }
+  ]
+}

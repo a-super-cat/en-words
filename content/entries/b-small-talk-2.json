@@ -1,0 +1,510 @@
+{
+  "layer": "B",
+  "category": "small-talk",
+  "title": "闲聊与日常",
+  "entries": [
+    {
+      "term": "take a few days off",
+      "kind": "chunk",
+      "zh": "请几天假、休息几天（含 off）",
+      "examples": [
+        {
+          "en": "I'm going to take a few days off after the release.",
+          "zh": "发版之后我打算休息几天。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你国庆前后有什么打算。你想说你准备在假期后面再多请几天假。",
+        "en": "I'm planning to take a few days off right after the holiday, so I'll be out for the whole week."
+      },
+      "collocations": ["take a day off", "take Friday off", "I'm off tomorrow."],
+      "note": "take ... off：take Friday off、take a week off。“我明天休假”说 I'm off tomorrow."
+    },
+    {
+      "term": "Are you going anywhere for ...?",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "……（假期）你打算去哪儿玩吗？（含 a 开头、表示“任何地方”的词）",
+      "examples": [
+        {
+          "en": "Are you going anywhere for the long weekend?",
+          "zh": "这个小长假你打算去哪儿玩吗？"
+        }
+      ],
+      "situation": {
+        "zh": "快到圣诞假期了，你想问同事有没有出行计划。",
+        "en": "Are you going anywhere for Christmas, or staying in town?"
+      },
+      "note": "用 anywhere 让问题更轻松，对方说“哪儿也不去”也不尴尬。the holidays 指年底假期，a long weekend 是小长假。"
+    },
+    {
+      "term": "How was your trip?",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "这趟出去玩得怎么样？（含 t 开头的名词）",
+      "examples": [
+        {
+          "en": "Welcome back! How was your trip? You went to Portugal, right?",
+          "zh": "欢迎回来！玩得怎么样？你去的是葡萄牙对吧？"
+        }
+      ],
+      "situation": {
+        "zh": "同事休假两周刚回来，你记得他去了意大利，想问问他玩得如何。",
+        "en": "Hey, welcome back! How was your trip?"
+      },
+      "note": "同事休假回来后的标准问候。trip 指一次具体的出行；travel 多作动词或泛指旅行，不说 How was your travel?"
+    },
+    {
+      "term": "catch up on sleep",
+      "kind": "chunk",
+      "register": "casual",
+      "zh": "补觉（c 开头的短语动词 + sleep）",
+      "examples": [
+        {
+          "en": "I didn't go anywhere over the break. I mostly caught up on sleep.",
+          "zh": "假期我哪儿也没去，基本上都在补觉。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你这个长周末打算做什么。你最近熬夜太多，只想把觉补回来。",
+        "en": "Honestly, I just want to catch up on sleep. I've been up late all week."
+      },
+      "collocations": ["catch up on email", "catch up on a show", "catch up with a friend"],
+      "note": "catch up on 后面接落下的事：catch up on email、catch up on a show。和 catch up with someone（跟某人叙旧）不同。"
+    },
+    {
+      "term": "go back to my hometown",
+      "kind": "chunk",
+      "zh": "回老家（含 h 开头的名词）",
+      "examples": [
+        {
+          "en": "I usually go back to my hometown for the Spring Festival.",
+          "zh": "春节我一般回老家。"
+        }
+      ],
+      "situation": {
+        "zh": "外国同事问你春节怎么过。你想说你会回老家和父母待一个星期。",
+        "en": "I'm going to go back to my hometown and spend a week with my parents."
+      },
+      "note": "hometown 是你长大的地方。春节说 the Spring Festival 或 Lunar New Year，可以顺便解释一句：It's the biggest holiday in China."
+    },
+    {
+      "term": "What do you do for fun?",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "你平时闲下来都玩些什么？（问爱好的自然说法，含 f 开头的名词）",
+      "examples": [
+        {
+          "en": "So, what do you do for fun when you're not coding?",
+          "zh": "那你不写代码的时候，都玩些什么？"
+        }
+      ],
+      "situation": {
+        "zh": "团建聚餐时你坐在一位不太熟的同事旁边，想了解他工作之外的兴趣。",
+        "en": "So what do you do for fun outside of work?"
+      },
+      "note": "比 What are your hobbies? 自然得多，后者像面试或课本。也说 What do you do in your free time?"
+    },
+    {
+      "term": "I'm really into ...",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "我特别喜欢、迷上了……（用介词 i 开头的那个词）",
+      "examples": [
+        {
+          "en": "I'm really into cycling these days. I ride about fifty kilometers every weekend.",
+          "zh": "我最近特别迷骑行，每个周末骑五十公里左右。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你有什么爱好。你最近迷上了做手冲咖啡。",
+        "en": "I'm really into pour-over coffee lately. I just bought a new grinder."
+      },
+      "note": "be into 后面接名词或动名词，表示很感兴趣。不感兴趣说 I'm not really into ...，比 I don't like 委婉。"
+    },
+    {
+      "term": "work out",
+      "kind": "chunk",
+      "register": "casual",
+      "zh": "健身、锻炼（w 开头的短语动词）",
+      "examples": [
+        {
+          "en": "I try to work out three times a week, usually before work.",
+          "zh": "我尽量每周健身三次，一般在上班前。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你怎么保持精力的。你想说你每周会去公司附近的健身房锻炼几次。",
+        "en": "I work out at the gym near the office a few times a week. It really helps me sleep."
+      },
+      "collocations": ["go to the gym", "a good workout", "go for a run"],
+      "note": "名词是一个词 workout：a good workout。去健身房说 go to the gym。"
+    },
+    {
+      "term": "binge-watch",
+      "kind": "word",
+      "register": "casual",
+      "zh": "一口气刷完（一部剧），b 开头，带连字符",
+      "ipa": "/ˈbɪndʒ wɑːtʃ/",
+      "examples": [
+        {
+          "en": "I binge-watched the whole season over the weekend.",
+          "zh": "我周末一口气把整季都刷完了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你周末干嘛了。你其实在沙发上连看了十集新出的科幻剧。",
+        "en": "I binge-watched that new sci-fi show. I couldn't stop after the first episode."
+      },
+      "note": "binge 原指暴饮暴食。也可以只说 binge：I binged the whole thing. 一季是 a season，一集是 an episode，剧是 a show 或 a series。"
+    },
+    {
+      "term": "Any recommendations?",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "有什么推荐的吗？（两个词，省略了 Do you have）",
+      "examples": [
+        {
+          "en": "I just finished my last show and need a new one. Any recommendations?",
+          "zh": "我刚把上一部剧追完，想找部新的。有什么推荐吗？"
+        }
+      ],
+      "situation": {
+        "zh": "同事说他玩过很多 Switch 游戏。你刚买了一台，想请他推荐几款。",
+        "en": "I just got a Switch. Any recommendations?"
+      },
+      "note": "问剧、游戏、餐馆、书都可以用。对方推荐之后可以回：I'll check it out.（我回头看看。）"
+    },
+    {
+      "term": "How's the family?",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "家里人都好吗？（用 the，不用 your）",
+      "examples": [
+        {
+          "en": "Good to see you again! How's the family?",
+          "zh": "又见面了，真好！家里人都好吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你和一位以前聊过家里情况的同事很久没见了。寒暄时你想问候一下他的家人。",
+        "en": "It's been a while! How's the family?"
+      },
+      "note": "只对已经聊过家庭的人用。回答：Everyone's doing well, thanks. 不要主动问婚否、年龄、收入，这些在英美职场算隐私。"
+    },
+    {
+      "term": "Do you have any kids?",
+      "kind": "sentence",
+      "zh": "你有孩子吗？（用 k 开头的口语词）",
+      "examples": [
+        {
+          "en": "You mentioned a school run earlier. Do you have any kids?",
+          "zh": "你刚才提到要送孩子上学。你有孩子吗？"
+        }
+      ],
+      "situation": {
+        "zh": "同事说他早上要先去一趟学校才能来上班。你想顺着话题问他是不是有孩子。",
+        "en": "Oh, do you have any kids?"
+      },
+      "note": "对方自己提到相关话题后再问才得体。对方说没有，就自然地换话题，不要追问“为什么不要”或“打算什么时候要”。"
+    },
+    {
+      "term": "How old are they?",
+      "kind": "sentence",
+      "zh": "他们多大了？（问对方孩子的年龄）",
+      "examples": [
+        {
+          "en": "Two boys? That sounds like a lot of fun. How old are they?",
+          "zh": "两个男孩？听着就很热闹。他们多大了？"
+        }
+      ],
+      "situation": {
+        "zh": "同事说他有两个女儿。你想接着问孩子的年龄。",
+        "en": "Oh, nice. How old are they?"
+      },
+      "note": "问孩子的年龄没问题，是很好的追问；但不要问成年人的年龄。只有一个孩子时说 How old is he? 或 How old is she?"
+    },
+    {
+      "term": "They keep me busy.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "他们让我闲不下来。（说孩子让自己忙得团团转，含 k 开头的动词）",
+      "examples": [
+        {
+          "en": "I have two kids under five, so they keep me busy.",
+          "zh": "我有两个不到五岁的孩子，所以被他们折腾得闲不下来。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你：家里两个孩子，周末应该很热闹吧？你想幽默地说确实忙。",
+        "en": "Oh yeah, they keep me busy. I can't remember the last time I slept in."
+      },
+      "note": "聊孩子时的常见说法，语气是带着笑的抱怨。也可以说 They're a handful.（他们可难带了。）"
+    },
+    {
+      "term": "pick up the kids",
+      "kind": "chunk",
+      "zh": "接孩子（放学）",
+      "examples": [
+        {
+          "en": "I need to leave at five today to pick up the kids from school.",
+          "zh": "我今天五点得走，要去学校接孩子。"
+        }
+      ],
+      "situation": {
+        "zh": "同事约你下午五点半开个短会，但你那个时间要去幼儿园接孩子。",
+        "en": "Could we do it earlier? I have to pick up the kids at five thirty."
+      },
+      "collocations": ["drop off the kids", "pick them up from school", "daycare"],
+      "note": "送孩子说 drop off the kids：I drop them off at eight. 只有一个孩子时说 pick up my son 或 my daughter。"
+    },
+    {
+      "term": "I'm originally from ...",
+      "kind": "sentence",
+      "zh": "我老家是……（含 o 开头的副词）",
+      "examples": [
+        {
+          "en": "I'm originally from Chengdu, but I've lived in Shanghai for ten years.",
+          "zh": "我老家是成都，不过在上海住了十年了。"
+        }
+      ],
+      "situation": {
+        "zh": "新同事问你：你是哪里人？你在西安长大，现在住在深圳。",
+        "en": "I'm originally from Xi'an, but I moved to Shenzhen for work about eight years ago."
+      },
+      "note": "originally 暗示“在那里出生或长大，现在不一定住那儿”。介绍家乡时加一句对方能懂的：It's famous for spicy food."
+    },
+    {
+      "term": "I'm based in ...",
+      "kind": "sentence",
+      "zh": "我常驻……、人在……（说工作所在的城市，b 开头的过去分词）",
+      "examples": [
+        {
+          "en": "I'm based in Hangzhou, but I work closely with the team in Berlin.",
+          "zh": "我常驻杭州，不过和柏林的团队合作很多。"
+        }
+      ],
+      "situation": {
+        "zh": "第一次和海外同事视频闲聊，对方问你人在哪个办公室。你在北京办公。",
+        "en": "I'm based in Beijing. I joined the platform team about two months ago."
+      },
+      "note": "based in 说的是工作地点，不一定是老家。远程办公可以说 I work remotely from Chengdu."
+    },
+    {
+      "term": "How are you settling in?",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "你适应得怎么样了？（问新入职或新搬来的人，s 开头的动词）",
+      "examples": [
+        {
+          "en": "It's your second week, right? How are you settling in?",
+          "zh": "这是你来的第二周吧？适应得怎么样了？"
+        }
+      ],
+      "situation": {
+        "zh": "组里来了一位新同事，入职刚几天。你在茶水间遇到他，想关心一下。",
+        "en": "Hey, how are you settling in? Let me know if you need help finding anything."
+      },
+      "note": "settle in 指适应新环境。被问到时可以答：Pretty well, thanks. Everyone's been really helpful."
+    },
+    {
+      "term": "I'm still getting used to ...",
+      "kind": "sentence",
+      "zh": "我还在适应……（含 used to）",
+      "examples": [
+        {
+          "en": "I'm still getting used to the time difference with the US team.",
+          "zh": "我还在适应和美国团队之间的时差。"
+        }
+      ],
+      "situation": {
+        "zh": "你刚入职一个月，同事问你新工作感觉如何。你觉得不错，只是内部工具太多还没摸熟。",
+        "en": "It's going well. I'm still getting used to all the internal tools, though."
+      },
+      "note": "get used to 后面接名词或动名词，这里的 to 是介词：I'm getting used to speaking English all day. 不要和 used to do（过去常常）混淆。"
+    },
+    {
+      "term": "What's it like living in ...?",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "住在……是什么感觉？（问对方城市的生活，含 like）",
+      "examples": [
+        {
+          "en": "What's it like living in Seattle? I've only seen it in movies.",
+          "zh": "住在西雅图是什么感觉？我只在电影里见过。"
+        }
+      ],
+      "situation": {
+        "zh": "视频会议开始前闲聊，你得知对方同事住在都柏林，想问问那边的生活怎么样。",
+        "en": "Oh, you're in Dublin? I've never been. What's it like living in Ireland?"
+      },
+      "note": "What's it like ...? 问的是“怎么样、是什么感觉”。不说 How is it like?，这是常见错误。聊文化差异时多用 different，少用 strange。"
+    },
+    {
+      "term": "I really appreciate it.",
+      "kind": "sentence",
+      "zh": "真的很感谢。（比 thanks 更郑重，a 开头的动词）",
+      "ipa": "/əˈpriːʃieɪt/",
+      "examples": [
+        {
+          "en": "Thanks for covering for me yesterday. I really appreciate it.",
+          "zh": "谢谢你昨天帮我顶班，真的很感谢。"
+        }
+      ],
+      "situation": {
+        "zh": "你请假那天，同事替你处理了一个线上问题。回来后你想郑重地谢谢他。",
+        "en": "Thanks for jumping in while I was out. I really appreciate it."
+      },
+      "note": "appreciate 后面通常接事情：I appreciate your help. 回应别人的感谢：No problem. / Anytime. / Happy to help."
+    },
+    {
+      "term": "I owe you one.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "我欠你一个人情。（四个词）",
+      "examples": [
+        {
+          "en": "Thanks for swapping shifts with me. I owe you one.",
+          "zh": "谢谢你跟我换班，我欠你一个人情。"
+        }
+      ],
+      "situation": {
+        "zh": "同事周五晚上临时替你值了班。你想说这份人情你记下了。",
+        "en": "You're a lifesaver. I owe you one."
+      },
+      "note": "one 指 a favor。熟人之间用，表示“下次换我帮你”。类似：You're a lifesaver.（你救了我一命。）"
+    },
+    {
+      "term": "Congrats on ...!",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "恭喜你……！（口语缩略形式，c 开头）",
+      "examples": [
+        {
+          "en": "Congrats on the promotion! You really deserve it.",
+          "zh": "恭喜升职！你实至名归。"
+        }
+      ],
+      "situation": {
+        "zh": "你听说同事上周刚当了爸爸，见面时想祝贺他。",
+        "en": "Congrats on the new baby! How are you all doing?"
+      },
+      "note": "介词用 on，不用 for。正式一点说 Congratulations on ...，注意它永远带 s。"
+    },
+    {
+      "term": "I'm sorry to hear that.",
+      "kind": "sentence",
+      "zh": "听到这个消息我很难过。（对别人的坏消息表示慰问）",
+      "examples": [
+        {
+          "en": "I'm sorry to hear that. I hope your dad feels better soon.",
+          "zh": "听到这个消息我很难过，希望你父亲早日康复。"
+        }
+      ],
+      "situation": {
+        "zh": "同事说他家里老人上周末住院了，这几天可能要早点走。你想表示关心。",
+        "en": "I'm sorry to hear that. Take all the time you need."
+      },
+      "note": "这里的 sorry 是“难过、同情”，不是道歉。对方家人去世时说 I'm so sorry for your loss."
+    },
+    {
+      "term": "Let me know if there's anything I can do.",
+      "kind": "sentence",
+      "zh": "有什么我能帮上忙的，尽管说。（慰问时用，以 Let me know 开头）",
+      "examples": [
+        {
+          "en": "That sounds really stressful. Let me know if there's anything I can do.",
+          "zh": "听起来压力真的很大。有什么我能帮上忙的，尽管说。"
+        }
+      ],
+      "situation": {
+        "zh": "同事家里有急事，这周要请几天假，手头还有没做完的任务。你想表示愿意帮忙。",
+        "en": "Don't worry about work. Let me know if there's anything I can do."
+      },
+      "note": "更实在的做法是直接提具体的帮助：I can take over your tickets this week."
+    },
+    {
+      "term": "I'm not feeling well.",
+      "kind": "sentence",
+      "zh": "我身体不太舒服。（含 f 开头的 -ing 动词）",
+      "examples": [
+        {
+          "en": "I'm not feeling well, so I'm going to head home early today.",
+          "zh": "我身体不太舒服，今天打算早点回家。"
+        }
+      ],
+      "situation": {
+        "zh": "早上起来你头疼、嗓子疼，想在团队群里说一声今天不来了。",
+        "en": "Hi all, I'm not feeling well today, so I'm going to take the day off."
+      },
+      "note": "不需要详细描述病情。不说 My body is not comfortable，这是中式英语。也说 I'm feeling a bit under the weather."
+    },
+    {
+      "term": "come down with",
+      "kind": "chunk",
+      "register": "casual",
+      "zh": "染上、得了（感冒之类的小病），三个词的短语动词",
+      "examples": [
+        {
+          "en": "I think I'm coming down with a cold. My throat has been sore all day.",
+          "zh": "我好像要感冒了，嗓子疼了一整天。"
+        }
+      ],
+      "situation": {
+        "zh": "你下午开始打喷嚏、浑身发冷，同事问你是不是不舒服。你觉得自己可能要生病了。",
+        "en": "Yeah, I think I'm coming down with something. I might work from home tomorrow."
+      },
+      "note": "come down with a cold、the flu、something。常用进行时，表示“好像要病了”。"
+    },
+    {
+      "term": "take a sick day",
+      "kind": "chunk",
+      "zh": "请一天病假（含 s 开头的形容词）",
+      "examples": [
+        {
+          "en": "I had a fever last night, so I'm taking a sick day.",
+          "zh": "我昨晚发烧了，所以今天请一天病假。"
+        }
+      ],
+      "situation": {
+        "zh": "同事带病来上班，咳个不停。你想劝他请假回家休息。",
+        "en": "You sound terrible. You should take a sick day and get some rest."
+      },
+      "collocations": ["call in sick", "sick leave", "PTO"],
+      "note": "病假统称 sick leave：I'm on sick leave. 临时打招呼请病假说 call in sick。带薪假常说 PTO（paid time off）。"
+    },
+    {
+      "term": "Hope you feel better soon.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "祝你早点好起来。（省略了主语 I，含 feel better）",
+      "examples": [
+        {
+          "en": "Don't worry about the review. Hope you feel better soon!",
+          "zh": "评审的事别操心了。祝你早点好起来！"
+        }
+      ],
+      "situation": {
+        "zh": "同事在群里说他感冒了，今天请假。你想回复一句问候。",
+        "en": "Take care, and hope you feel better soon!"
+      },
+      "note": "同事生病请假时的标准回复。也说 Feel better! 或 Get well soon!，后者更像写在卡片上的话。"
+    },
+    {
+      "term": "I have a doctor's appointment.",
+      "kind": "sentence",
+      "zh": "我约了医生、要去看病。（含 a 开头、表示“预约”的名词）",
+      "examples": [
+        {
+          "en": "I have a doctor's appointment tomorrow morning, so I'll be in around eleven.",
+          "zh": "我明天上午约了医生，大概十一点到。"
+        }
+      ],
+      "situation": {
+        "zh": "你周四下午要去医院复查，想提前告诉经理你三点要走。",
+        "en": "Just a heads-up: I have a doctor's appointment on Thursday, so I'll need to leave at three."
+      },
+      "note": "普通看病说 see a doctor 或 have a doctor's appointment。说 go to the hospital 听起来像住院或急诊。"
+    }
+  ]
+}

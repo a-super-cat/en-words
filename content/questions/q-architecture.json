@@ -1,0 +1,332 @@
+{
+  "category": "architecture",
+  "title": "架构和模式",
+  "questions": [
+    {
+      "id": "arch-monolith-or-microservices",
+      "prompt": "When would you keep a monolith, and what would have to be true before you'd move to microservices?",
+      "zh": "什么情况下你会继续用单体？要满足哪些条件你才会转向微服务？",
+      "outline": [
+        "A well-structured monolith is simpler to build, test, deploy, and debug",
+        "Microservices buy independent deployment and scaling per team",
+        "They cost network failures, data consistency work, and operational overhead",
+        "Signals to split: teams blocking each other, very different scaling or release needs",
+        "You need solid CI/CD and observability before you start"
+      ],
+      "chunks": [
+        { "term": "break up the monolith", "zh": "拆分单体应用" },
+        { "term": "not worth the added complexity", "zh": "不值得为此增加复杂度" },
+        { "term": "outgrow", "zh": "规模增长到原有方案不够用" },
+        { "term": "cross-team dependency", "zh": "跨团队依赖" },
+        { "term": "The trade-off here is ...", "zh": "这里的取舍是……" }
+      ],
+      "followUps": [
+        "Have you seen a microservices migration that made things worse? What went wrong?",
+        "What is a modular monolith, and when is it enough?"
+      ]
+    },
+    {
+      "id": "arch-service-boundaries",
+      "prompt": "How do you decide where to draw the boundaries between services?",
+      "zh": "服务和服务之间的边界画在哪里，你是怎么决定的？",
+      "outline": [
+        "Follow business capabilities and bounded contexts, not technical layers",
+        "Each service owns its data; no shared database",
+        "Things that change together should live together",
+        "Warning sign: one feature needs coordinated deploys across several services",
+        "Start coarse; wrong boundaries are expensive to move later"
+      ],
+      "chunks": [
+        { "term": "service boundary", "zh": "服务边界" },
+        { "term": "bounded context", "zh": "限界上下文" },
+        { "term": "loosely coupled", "zh": "松耦合的" },
+        { "term": "high cohesion", "zh": "高内聚" },
+        { "term": "domain-driven design", "zh": "领域驱动设计" },
+        { "term": "API contract", "zh": "接口契约" }
+      ],
+      "followUps": ["What would you do with two services that turn out to be too chatty with each other?"]
+    },
+    {
+      "id": "arch-incremental-migration",
+      "prompt": "How would you migrate a business-critical monolith to services without a big-bang rewrite?",
+      "zh": "不搞一次性推倒重写的话，你会怎么把一个业务关键的单体迁移成多个服务？",
+      "outline": [
+        "Put a routing layer in front and move one capability at a time",
+        "Pick a first slice that is low-risk but real",
+        "Data is the hard part: split tables, sync during the transition, then cut over",
+        "Run old and new side by side and compare results before switching traffic",
+        "Keep a rollback path at every step, and delete the old code afterwards"
+      ],
+      "chunks": [
+        { "term": "strangler fig pattern", "zh": "绞杀者模式" },
+        { "term": "anti-corruption layer", "zh": "防腐层" },
+        { "term": "dual-write", "zh": "双写" },
+        { "term": "cut over", "zh": "（把读写或流量）切到新系统" },
+        { "term": "reconcile the data", "zh": "核对数据并把差异对平" },
+        { "term": "roll back", "zh": "回滚" }
+      ],
+      "followUps": ["How do you keep the migration from stalling halfway?"]
+    },
+    {
+      "id": "arch-event-driven-costs",
+      "prompt": "What are the benefits and the hidden costs of an event-driven architecture?",
+      "zh": "事件驱动架构有哪些好处，又有哪些隐性成本？",
+      "outline": [
+        "Producers and consumers are decoupled and scale independently",
+        "New consumers can be added without touching the producer",
+        "Costs: eventual consistency, harder debugging, no single place that shows the flow",
+        "You must handle duplicates, ordering, and schema evolution",
+        "Use it where async fits; keep request-response for simple queries"
+      ],
+      "chunks": [
+        { "term": "event-driven architecture", "zh": "事件驱动架构" },
+        { "term": "decouple", "zh": "解耦" },
+        { "term": "eventual consistency", "zh": "最终一致性" },
+        { "term": "at-least-once delivery", "zh": "至少一次投递" },
+        { "term": "out of order", "zh": "乱序（到达）" },
+        { "term": "dead-letter queue", "zh": "死信队列" }
+      ],
+      "followUps": ["How do you evolve an event schema without breaking existing consumers?"]
+    },
+    {
+      "id": "arch-reliable-event-publishing",
+      "prompt": "A service updates its database and then publishes an event. What can go wrong, and how do you make that reliable?",
+      "zh": "一个服务先更新自己的数据库，再发布一条事件。这里会出什么问题？你怎么让它变可靠？",
+      "outline": [
+        "Either step can fail alone, leaving the database and the broker out of sync",
+        "A distributed transaction across database and broker is rarely practical",
+        "Outbox: write the event in the same local transaction as the data",
+        "A relay or change data capture publishes events from the outbox table",
+        "Delivery becomes at-least-once, so consumers must be idempotent"
+      ],
+      "chunks": [
+        { "term": "outbox pattern", "zh": "发件箱模式" },
+        { "term": "two-phase commit", "zh": "两阶段提交" },
+        { "term": "domain event", "zh": "领域事件" },
+        { "term": "message broker", "zh": "消息代理" },
+        { "term": "idempotent", "zh": "幂等的" },
+        { "term": "deduplicate", "zh": "去重" }
+      ],
+      "followUps": ["How does a consumer make its processing idempotent in practice?"]
+    },
+    {
+      "id": "arch-cqrs-when",
+      "prompt": "When is CQRS worth it, and what problems does it introduce?",
+      "zh": "CQRS 什么时候值得用？它又会带来哪些问题？",
+      "outline": [
+        "Separate the write model from read models shaped for queries",
+        "Worth it when read and write shapes or loads differ a lot",
+        "The read side is usually updated asynchronously, so it can be stale",
+        "More moving parts: projections, rebuilds, two models to keep in sync",
+        "It does not require event sourcing; start with the simplest form"
+      ],
+      "chunks": [
+        { "term": "CQRS", "zh": "命令查询职责分离" },
+        { "term": "event sourcing", "zh": "事件溯源" },
+        { "term": "materialized view", "zh": "物化视图" },
+        { "term": "stale read", "zh": "过期读（读到了旧数据）" },
+        { "term": "read-your-writes consistency", "zh": "读己之写一致性" },
+        { "term": "replay the events", "zh": "重放事件" }
+      ],
+      "followUps": ["How do you handle a user who saves a change and immediately reloads the list?"]
+    },
+    {
+      "id": "arch-cross-service-consistency",
+      "prompt": "How do you keep data consistent when one business operation spans several services?",
+      "zh": "一个业务操作要跨好几个服务时，你怎么保证数据一致？",
+      "outline": [
+        "Avoid distributed transactions; use a saga of local transactions",
+        "Each step has a compensating action in case a later step fails",
+        "Orchestration centralizes the flow; choreography spreads it across events",
+        "Every step must be idempotent so retries are safe",
+        "Accept intermediate states and make them visible to users"
+      ],
+      "chunks": [
+        { "term": "saga", "zh": "把长事务拆成多个本地事务、失败就逐步补偿的模式" },
+        { "term": "compensating transaction", "zh": "补偿事务" },
+        { "term": "distributed transaction", "zh": "分布式事务" },
+        { "term": "idempotency key", "zh": "幂等键" },
+        { "term": "partial failure", "zh": "部分失败" },
+        { "term": "state machine", "zh": "状态机" }
+      ],
+      "followUps": [
+        "What if a compensating action itself fails?",
+        "When would you choose orchestration over choreography?"
+      ]
+    },
+    {
+      "id": "arch-patterns-in-practice",
+      "prompt": "Which design patterns have you actually found valuable in production code, and where have you seen them overused?",
+      "zh": "哪些设计模式你在生产代码里真正觉得有价值？又在哪些地方见过它们被滥用？",
+      "outline": [
+        "Pick two or three you have really used, and the problem each solved",
+        "Strategy for swappable algorithms; adapter to isolate third-party APIs",
+        "Observer or events for decoupling; decorator for cross-cutting behavior",
+        "Overuse: interfaces with one implementation, factories nobody needs",
+        "Rule of thumb: introduce a pattern when the pain is real, not predicted"
+      ],
+      "chunks": [
+        { "term": "strategy pattern", "zh": "策略模式" },
+        { "term": "adapter pattern", "zh": "适配器模式" },
+        { "term": "decorator pattern", "zh": "装饰器模式" },
+        { "term": "over-engineer", "zh": "过度设计" },
+        { "term": "premature abstraction", "zh": "过早抽象" },
+        { "term": "Let me give you a concrete example.", "zh": "我给你举个具体的例子。" }
+      ],
+      "followUps": ["How do you push back when a teammate adds an abstraction you think is unnecessary?"]
+    },
+    {
+      "id": "arch-testable-business-logic",
+      "prompt": "How do you structure a service so the business logic stays testable and independent of frameworks and databases?",
+      "zh": "你怎么组织一个服务，让业务逻辑保持可测试，并且不依赖具体的框架和数据库？",
+      "outline": [
+        "Keep domain logic at the center, free of framework imports",
+        "Define interfaces for what the domain needs; implement them at the edges",
+        "Dependencies point inward, toward the domain",
+        "Test the core with fakes; cover adapters with integration tests",
+        "Do not over-layer a simple CRUD service"
+      ],
+      "chunks": [
+        { "term": "hexagonal architecture", "zh": "六边形架构" },
+        { "term": "business logic", "zh": "业务逻辑" },
+        { "term": "depend on abstractions", "zh": "依赖抽象（而不是具体实现）" },
+        { "term": "point inward", "zh": "（依赖方向）指向内层" },
+        { "term": "swap out the implementation", "zh": "把具体实现换掉" },
+        { "term": "mock out a dependency", "zh": "把依赖模拟掉" }
+      ],
+      "followUps": ["Where does this structure start to cost more than it gives back?"]
+    },
+    {
+      "id": "arch-slow-dependency",
+      "prompt": "A downstream dependency becomes slow. How do you stop it from taking your service down with it?",
+      "zh": "一个下游依赖变慢了。你怎么防止它把你的服务一起拖垮？",
+      "outline": [
+        "Set a timeout on every call; the default is often no timeout at all",
+        "Retry only idempotent calls, with backoff, jitter, and a retry budget",
+        "A circuit breaker stops calls to a dependency that keeps failing",
+        "Isolate resources per dependency so one cannot exhaust every thread",
+        "Decide the fallback: cached data, a default response, or a clear error"
+      ],
+      "chunks": [
+        { "term": "set a timeout", "zh": "设置超时" },
+        { "term": "retry with exponential backoff", "zh": "带指数退避的重试" },
+        { "term": "circuit breaker", "zh": "熔断器" },
+        { "term": "cascading failure", "zh": "级联故障" },
+        { "term": "bulkhead", "zh": "舱壁隔离" },
+        { "term": "degrade gracefully", "zh": "优雅降级" }
+      ],
+      "followUps": [
+        "How can retries make an outage worse?",
+        "How do you choose the timeout value?"
+      ]
+    },
+    {
+      "id": "arch-safe-frequent-deploys",
+      "prompt": "How do you ship changes to a high-traffic system many times a day without causing outages?",
+      "zh": "一个高流量的系统，你怎么做到一天发布很多次而不引发事故？",
+      "outline": [
+        "Small changes behind feature flags; separate deploy from release",
+        "Canary first, watch key metrics, then roll out gradually",
+        "Roll back automatically when error rate or latency regresses",
+        "Schema and API changes must work with both old and new versions",
+        "Use the error budget to balance speed against stability"
+      ],
+      "chunks": [
+        { "term": "canary release", "zh": "灰度发布（金丝雀）" },
+        { "term": "feature flag", "zh": "功能开关" },
+        { "term": "roll out", "zh": "（分批）推出、上线" },
+        { "term": "blast radius", "zh": "影响范围（爆炸半径）" },
+        { "term": "backward compatible", "zh": "向后兼容的" },
+        { "term": "error budget", "zh": "错误预算" }
+      ],
+      "followUps": ["What do you do when the error budget for the quarter is already spent?"]
+    },
+    {
+      "id": "arch-observability-for-oncall",
+      "prompt": "How do you make a distributed system observable enough that the on-call engineer can find the cause of an incident quickly?",
+      "zh": "你怎么让一个分布式系统具备足够的可观测性，让值班工程师能很快找到事故原因？",
+      "outline": [
+        "Three signals: metrics for trends, logs for detail, traces for request flow",
+        "Propagate a correlation ID through every service and queue",
+        "Alert on user-facing symptoms tied to SLOs, not on every possible cause",
+        "One dashboard per service: traffic, errors, latency, saturation",
+        "Every alert links to a runbook; prune the noisy ones"
+      ],
+      "chunks": [
+        { "term": "distributed tracing", "zh": "分布式链路追踪" },
+        { "term": "correlation ID", "zh": "关联 ID" },
+        { "term": "structured logging", "zh": "结构化日志" },
+        { "term": "instrument the code", "zh": "给代码埋点" },
+        { "term": "alert fatigue", "zh": "告警疲劳" },
+        { "term": "runbook", "zh": "应急操作手册" }
+      ],
+      "followUps": ["How do you keep observability costs under control as traffic grows?"]
+    },
+    {
+      "id": "arch-security-by-design",
+      "prompt": "How do you build security into the architecture of a multi-service system, rather than bolting it on afterwards?",
+      "zh": "对一个多服务的系统，你怎么把安全做进架构里，而不是事后再补？",
+      "outline": [
+        "Authenticate at the edge, but authorize inside each service",
+        "Do not trust the internal network: mutual TLS between services",
+        "Least privilege for services, people, and database accounts",
+        "Keep secrets in a vault, rotated, never in code or images",
+        "Threat-model new designs and log security-relevant actions"
+      ],
+      "chunks": [
+        { "term": "authentication", "zh": "认证（确认你是谁）" },
+        { "term": "authorization", "zh": "授权（确认你能做什么）" },
+        { "term": "least privilege", "zh": "最小权限" },
+        { "term": "secrets management", "zh": "密钥管理" },
+        { "term": "encryption in transit", "zh": "传输加密" },
+        { "term": "audit log", "zh": "审计日志" }
+      ],
+      "followUps": ["How do you revoke access quickly when a token or key leaks?"]
+    },
+    {
+      "id": "arch-technology-selection",
+      "prompt": "Walk me through how you evaluate and choose a new technology for your team, say a database or a message broker.",
+      "zh": "给我讲讲你是怎么为团队评估和选定一项新技术的，比如一个数据库或者消息中间件。",
+      "outline": [
+        "Start from requirements and constraints, not from the technology",
+        "Shortlist a few options, including the boring one you already run",
+        "Compare fit, maturity, operating cost, team skills, and cost of leaving",
+        "Prototype against your riskiest requirement",
+        "Write down the decision and its trade-offs, and get buy-in"
+      ],
+      "chunks": [
+        { "term": "make the case for", "zh": "摆出理由论证（某事值得做）" },
+        { "term": "get buy-in from", "zh": "争取到……的认可和支持" },
+        { "term": "decide against", "zh": "决定不采用" },
+        { "term": "POC", "zh": "概念验证" },
+        { "term": "architecture decision record", "zh": "架构决策记录" },
+        { "term": "It came down to ...", "zh": "归根结底取决于……" }
+      ],
+      "followUps": [
+        "Tell me about a technology choice you would make differently today.",
+        "How do you handle a teammate who is pushing hard for a trendy tool?"
+      ]
+    },
+    {
+      "id": "arch-sync-vs-async",
+      "prompt": "How do you choose between synchronous calls and asynchronous messaging between two services?",
+      "zh": "两个服务之间是用同步调用还是异步消息，你怎么选？",
+      "outline": [
+        "Synchronous when the caller needs the answer now and can accept the coupling",
+        "Asynchronous when work can wait, or the consumer may be slow or down",
+        "Chains of synchronous calls add up latency and multiply failure points",
+        "Messaging adds a broker to operate and makes flows harder to trace",
+        "Often a mix: synchronous for queries, asynchronous for side effects"
+      ],
+      "chunks": [
+        { "term": "message queue", "zh": "消息队列" },
+        { "term": "tightly coupled", "zh": "紧耦合的" },
+        { "term": "smooth out traffic spikes", "zh": "削峰（把流量尖峰抹平）" },
+        { "term": "high availability", "zh": "高可用" },
+        { "term": "consumer lag", "zh": "消费延迟" },
+        { "term": "fan-out", "zh": "扇出" }
+      ],
+      "followUps": ["How does the user find out the result if the work finishes asynchronously?"]
+    }
+  ]
+}

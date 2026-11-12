@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.graphflow/
+.codegraph/
+*.local
+data/raw/

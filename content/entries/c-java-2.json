@@ -1,0 +1,801 @@
+{
+  "layer": "C",
+  "category": "java",
+  "title": "Java 与 JVM",
+  "entries": [
+    {
+      "term": "CompletableFuture",
+      "kind": "word",
+      "zh": "Java 8 引入的可组合异步结果类（C 开头）",
+      "examples": [
+        {
+          "en": "We call the three services in parallel with CompletableFuture and combine the results at the end.",
+          "zh": "我们用 CompletableFuture 并行调用这三个服务，最后把结果合并起来。"
+        },
+        {
+          "en": "Each CompletableFuture runs on our own executor, not the common pool.",
+          "zh": "每个 CompletableFuture 都跑在我们自己的 executor 上，而不是公共线程池。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个接口要调三个互不依赖的下游服务，怎么缩短总耗时？",
+        "en": "I'd wrap each call in a CompletableFuture, run them in parallel, and join the results."
+      },
+      "collocations": ["chain CompletableFutures", "combine two futures", "complete exceptionally"],
+      "note": "不指定 executor 时，异步任务默认跑在 ForkJoinPool.commonPool() 上，不适合做阻塞 I/O。"
+    },
+    {
+      "term": "virtual threads",
+      "kind": "chunk",
+      "zh": "虚拟线程",
+      "examples": [
+        {
+          "en": "After moving to Java 21, we ran each request on a virtual thread instead of a pooled one.",
+          "zh": "升级到 Java 21 之后，我们让每个请求跑在一个虚拟线程上，而不是线程池里的线程。"
+        },
+        {
+          "en": "Virtual threads are cheap, so you create one per task instead of pooling them.",
+          "zh": "虚拟线程很便宜，所以是每个任务创建一个，而不是把它们池化。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Java 21 在并发方面最重要的新特性是什么？",
+        "en": "Virtual threads. They're lightweight threads managed by the JVM, so blocking code can scale to huge numbers of concurrent requests."
+      },
+      "note": "适合 I/O 密集型任务，对 CPU 密集型任务没有帮助。"
+    },
+    {
+      "term": "platform thread",
+      "kind": "chunk",
+      "zh": "平台线程（和虚拟线程相对）",
+      "examples": [
+        {
+          "en": "Each platform thread maps to an OS thread, so we can't have hundreds of thousands of them.",
+          "zh": "每个平台线程对应一个操作系统线程，所以我们不可能开几十万个。"
+        },
+        {
+          "en": "For CPU-heavy work we still use a small pool of platform threads.",
+          "zh": "CPU 密集的工作我们还是用一个小的平台线程池。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Java 21 之前的普通线程和操作系统线程是什么关系？",
+        "en": "A platform thread is a thin wrapper around an OS thread, which is why it's expensive to create and to block."
+      }
+    },
+    {
+      "term": "block the calling thread",
+      "kind": "chunk",
+      "zh": "阻塞调用方线程",
+      "examples": [
+        {
+          "en": "Calling get on the future blocks the calling thread until the result is ready.",
+          "zh": "对 future 调用 get 会阻塞调用方线程，直到结果就绪。"
+        },
+        {
+          "en": "We didn't want to block the calling thread, so we returned the future and let the caller decide.",
+          "zh": "我们不想阻塞调用方线程，所以直接返回 future，让调用方自己决定。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里刚创建完异步任务就马上调 join()，你想指出问题：",
+        "en": "Calling join right away blocks the calling thread, so we lose the benefit of making it async."
+      }
+    },
+    {
+      "term": "submit a task",
+      "kind": "chunk",
+      "zh": "提交任务（给线程池）",
+      "examples": [
+        {
+          "en": "We submit a task to the executor for each file and collect the futures.",
+          "zh": "我们为每个文件向 executor 提交一个任务，然后把返回的 future 收集起来。"
+        },
+        {
+          "en": "If you submit a task when the queue and the pool are both full, it gets rejected.",
+          "zh": "如果提交任务时队列和线程池都满了，任务会被拒绝。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：ExecutorService 怎么用？",
+        "en": "You submit a task to it, it runs the task on one of its threads, and you get a Future back."
+      },
+      "collocations": ["submit a task to the executor", "reject a task", "shut down the executor"],
+      "note": "executor 读 /ɪɡˈzekjətər/，重音在第二个音节。"
+    },
+    {
+      "term": "object-relational mapping",
+      "kind": "chunk",
+      "zh": "对象关系映射（ORM 的全称）",
+      "examples": [
+        {
+          "en": "We use Hibernate for object-relational mapping, but we still write SQL for the reporting queries.",
+          "zh": "我们用 Hibernate 做对象关系映射，但报表查询还是手写 SQL。"
+        },
+        {
+          "en": "Object-relational mapping saves a lot of boilerplate, but you need to know what SQL it generates.",
+          "zh": "对象关系映射能省掉很多样板代码，但你得清楚它生成了什么 SQL。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Hibernate 这类框架主要帮你做了什么？",
+        "en": "It does object-relational mapping: it maps Java objects to rows in tables and generates the SQL for us."
+      },
+      "note": "平时几乎都说缩写 ORM，逐个字母读；an ORM 也可以指这类框架本身。"
+    },
+    {
+      "term": "N+1 query problem",
+      "kind": "chunk",
+      "zh": "N+1 查询问题",
+      "examples": [
+        {
+          "en": "The page was slow because of an N+1 query problem: one query per order to load its items.",
+          "zh": "页面慢是因为 N+1 查询问题：每个订单都要单独查一次它的明细。"
+        },
+        {
+          "en": "We caught the N+1 query problem by turning on SQL logging in the test environment.",
+          "zh": "我们在测试环境打开 SQL 日志，才发现了 N+1 查询问题。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：列表页只展示 50 条数据，却发出了 51 条 SQL，这是什么问题？",
+        "en": "That's the N+1 query problem: one query for the list, then one more for each row's association."
+      },
+      "note": "读作 N plus one。"
+    },
+    {
+      "term": "lazy loading",
+      "kind": "chunk",
+      "zh": "懒加载（用到时才查关联数据）",
+      "examples": [
+        {
+          "en": "With lazy loading, the order items aren't fetched until something actually touches them.",
+          "zh": "用懒加载的话，订单明细要等到真正被访问时才会去查。"
+        },
+        {
+          "en": "Lazy loading failed with a LazyInitializationException because the session was already closed.",
+          "zh": "懒加载抛了 LazyInitializationException，因为 session 已经关了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：查一个订单时，Hibernate 会把它关联的明细集合一起查出来吗？",
+        "en": "Not by default. Collections use lazy loading, so they're only fetched when you first access them."
+      }
+    },
+    {
+      "term": "eager loading",
+      "kind": "chunk",
+      "zh": "急加载（查主对象时把关联数据一起查出来）",
+      "examples": [
+        {
+          "en": "We switched that association to eager loading, and suddenly every query joined three extra tables.",
+          "zh": "我们把那个关联改成急加载，结果每条查询都多 join 了三张表。"
+        },
+        {
+          "en": "Eager loading is fine for a single lookup, but it hurts on list endpoints.",
+          "zh": "急加载对单条查询没问题，但在列表接口上很伤性能。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：既然按需查询会带来很多次额外查询，为什么不把所有关联都设成一次查出来？",
+        "en": "Because eager loading pulls in data you often don't need, and it applies to every query on that entity."
+      },
+      "note": "eager 读 /ˈiːɡər/。JPA 里 @ManyToOne 默认就是 eager，一般建议显式改成 lazy。"
+    },
+    {
+      "term": "fetch join",
+      "kind": "chunk",
+      "zh": "抓取连接（一条 SQL 把关联数据一起查出来）",
+      "examples": [
+        {
+          "en": "We fixed the slow endpoint with a fetch join, which loads the orders and items in one query.",
+          "zh": "我们用 fetch join 修好了那个慢接口，一条查询就把订单和明细都加载出来。"
+        },
+        {
+          "en": "Be careful with a fetch join on a collection, because pagination then happens in memory.",
+          "zh": "对集合用 fetch join 要小心，因为这时分页是在内存里做的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：发现循环里逐条查关联数据之后，你是怎么改的？",
+        "en": "I rewrote the query with a fetch join, so the associations come back in the same query."
+      },
+      "note": "JPQL 里写作 JOIN FETCH。另一种办法是 batch fetching（批量抓取）。"
+    },
+    {
+      "term": "connection pool",
+      "kind": "chunk",
+      "zh": "连接池",
+      "examples": [
+        {
+          "en": "Every request borrows a connection from the connection pool and returns it when the transaction ends.",
+          "zh": "每个请求从连接池里借一个连接，事务结束时还回去。"
+        },
+        {
+          "en": "We sized the connection pool at twenty, because a bigger pool just moved the contention to the database.",
+          "zh": "我们把连接池大小定在 20，因为池子再大也只是把竞争转移到数据库上。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么不在每次查询时新建一个数据库连接？",
+        "en": "Opening a connection is expensive, so we keep a connection pool and reuse the connections."
+      },
+      "collocations": ["size the connection pool", "exhaust the connection pool", "borrow a connection from the pool"],
+      "note": "Spring Boot 默认的连接池是 HikariCP。"
+    },
+    {
+      "term": "connection leak",
+      "kind": "chunk",
+      "zh": "连接泄漏",
+      "examples": [
+        {
+          "en": "We had a connection leak: one code path never closed the connection when an exception was thrown.",
+          "zh": "我们有一处连接泄漏：有一条代码路径在抛异常时没有关闭连接。"
+        },
+        {
+          "en": "HikariCP's leak detection pointed us straight to the connection leak.",
+          "zh": "HikariCP 的泄漏检测直接帮我们定位到了连接泄漏。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：服务跑了几个小时后，所有请求都卡在获取数据库连接上，可能是什么原因？",
+        "en": "It sounds like a connection leak: connections are borrowed but never returned, so the pool eventually runs dry."
+      }
+    },
+    {
+      "term": "optimistic locking",
+      "kind": "chunk",
+      "zh": "乐观锁",
+      "examples": [
+        {
+          "en": "We use optimistic locking on the inventory table, since conflicts are rare and we can just retry.",
+          "zh": "库存表我们用乐观锁，因为冲突很少，冲突了重试就行。"
+        },
+        {
+          "en": "With optimistic locking, the second writer gets an exception instead of silently overwriting the first.",
+          "zh": "用乐观锁的话，第二个写入者会收到异常，而不是悄悄覆盖第一个人的修改。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：两个用户同时编辑同一条记录，怎么防止后提交的悄悄覆盖先提交的，又不用一直占着数据库的行锁？",
+        "en": "I'd use optimistic locking: each update checks the version, and fails if someone else changed the row first."
+      }
+    },
+    {
+      "term": "pessimistic locking",
+      "kind": "chunk",
+      "zh": "悲观锁",
+      "examples": [
+        {
+          "en": "For the wallet balance we chose pessimistic locking, because retries under heavy contention were too expensive.",
+          "zh": "钱包余额我们选了悲观锁，因为高竞争下反复重试的代价太大。"
+        },
+        {
+          "en": "Pessimistic locking uses SELECT ... FOR UPDATE, so other transactions wait until we commit.",
+          "zh": "悲观锁用的是 SELECT ... FOR UPDATE，所以其他事务要等我们提交之后才能继续。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：如果同一行的写冲突非常频繁，你会用哪种加锁策略？",
+        "en": "I'd go with pessimistic locking and lock the row up front, so we don't waste work on retries."
+      },
+      "note": "pessimistic 读 /ˌpesɪˈmɪstɪk/。"
+    },
+    {
+      "term": "version column",
+      "kind": "chunk",
+      "zh": "版本号字段（乐观锁用的那一列）",
+      "examples": [
+        {
+          "en": "Hibernate bumps the version column on every update and checks it in the WHERE clause.",
+          "zh": "Hibernate 每次更新都会把版本号字段加一，并在 WHERE 条件里校验它。"
+        },
+        {
+          "en": "We added a version column to the orders table so concurrent edits fail fast.",
+          "zh": "我们给订单表加了版本号字段，这样并发修改会立刻失败。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：乐观锁具体是怎么实现的？",
+        "en": "We add a version column, and each update only succeeds if the version still matches what we read."
+      },
+      "collocations": ["add a version column", "bump the version", "a stale version"],
+      "note": "JPA 里用 @Version 标注这个字段。"
+    },
+    {
+      "term": "immutable object",
+      "kind": "chunk",
+      "zh": "不可变对象",
+      "examples": [
+        {
+          "en": "We pass immutable objects between threads, so we never have to worry about locking them.",
+          "zh": "线程之间我们只传不可变对象，所以根本不用操心加锁。"
+        },
+        {
+          "en": "Money is modeled as an immutable object; adding two amounts returns a new instance.",
+          "zh": "金额被建模成不可变对象，两个金额相加会返回一个新实例。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：String 为什么可以放心地在多个线程之间共享？",
+        "en": "Because a String is an immutable object: once it's created, its state can never change."
+      },
+      "collocations": ["make the class immutable", "final fields", "an unmodifiable list"],
+      "note": "immutable 读 /ɪˈmjuːtəbl/。"
+    },
+    {
+      "term": "defensive copy",
+      "kind": "chunk",
+      "zh": "防御性拷贝",
+      "examples": [
+        {
+          "en": "The constructor makes a defensive copy of the list, so callers can't change it behind our back.",
+          "zh": "构造器会对这个列表做一次防御性拷贝，这样调用方就没法在背后偷偷改它。"
+        },
+        {
+          "en": "List.copyOf gives us a defensive copy that is also unmodifiable.",
+          "zh": "List.copyOf 给我们的防御性拷贝同时也是不可修改的。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里把外面传进来的 List 直接存进字段，你想提个建议：",
+        "en": "Could we make a defensive copy here? Otherwise the caller can still modify the list after passing it in."
+      }
+    },
+    {
+      "term": "record",
+      "kind": "word",
+      "zh": "记录类（Java 16 起，专门用来装数据的不可变类）",
+      "examples": [
+        {
+          "en": "We turned the DTOs into records and deleted about two hundred lines of boilerplate.",
+          "zh": "我们把这些 DTO 改成了 record，删掉了大约两百行样板代码。"
+        },
+        {
+          "en": "A record gives you equals, hashCode and toString for free.",
+          "zh": "record 会自动帮你生成 equals、hashCode 和 toString。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：现代 Java 里，一个只用来装数据的不可变类怎么写最简洁？",
+        "en": "I'd declare it as a record, which generates the constructor, accessors, equals and hashCode for me."
+      },
+      "collocations": ["declare it as a record", "record components", "compact constructor"],
+      "note": "字段都是 final，但只是浅不可变：字段指向的 List 仍然可能被修改。名词重音在第一个音节 /ˈrekərd/。"
+    },
+    {
+      "term": "equals and hashCode contract",
+      "kind": "chunk",
+      "zh": "equals 和 hashCode 的约定",
+      "examples": [
+        {
+          "en": "The class overrode equals but not hashCode, which broke the equals and hashCode contract.",
+          "zh": "这个类只重写了 equals 没重写 hashCode，违反了 equals 和 hashCode 的约定。"
+        },
+        {
+          "en": "Because of the equals and hashCode contract, equal objects must always return the same hash code.",
+          "zh": "根据 equals 和 hashCode 的约定，相等的对象必须返回相同的哈希码。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：自定义类作为 HashMap 的 key，put 进去之后却 get 不出来，可能是什么原因？",
+        "en": "The class probably violates the equals and hashCode contract, so two equal keys end up in different buckets."
+      },
+      "collocations": ["override equals and hashCode", "break the contract", "violate the contract"]
+    },
+    {
+      "term": "hash collision",
+      "kind": "chunk",
+      "zh": "哈希冲突",
+      "examples": [
+        {
+          "en": "Our hashCode only used one field, so we got lots of hash collisions and slow lookups.",
+          "zh": "我们的 hashCode 只用了一个字段，结果哈希冲突很多，查找变慢。"
+        },
+        {
+          "en": "HashMap handles a hash collision by chaining entries in the same bucket.",
+          "zh": "HashMap 处理哈希冲突的办法是把条目链在同一个桶里。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：两个不同的 key 落到了同一个桶里，HashMap 怎么办？",
+        "en": "That's a hash collision. The entries share the bucket as a linked list, which turns into a tree if it gets long."
+      }
+    },
+    {
+      "term": "generics",
+      "kind": "word",
+      "zh": "泛型",
+      "ipa": "/dʒəˈnerɪks/",
+      "examples": [
+        {
+          "en": "We used generics so the same repository base class works for every entity type.",
+          "zh": "我们用了泛型，这样同一个 repository 基类可以适用于所有实体类型。"
+        },
+        {
+          "en": "Generics catch type errors at compile time instead of blowing up with a ClassCastException.",
+          "zh": "泛型能在编译期发现类型错误，而不是运行时炸出一个 ClassCastException。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：List<String> 比不带类型的 List 好在哪里？",
+        "en": "With generics the compiler checks the element type, so we don't need casts and we catch mistakes early."
+      },
+      "collocations": ["a generic type", "a generic method", "type parameter"]
+    },
+    {
+      "term": "type erasure",
+      "kind": "chunk",
+      "zh": "类型擦除",
+      "examples": [
+        {
+          "en": "Because of type erasure, we can't check at runtime whether it's a List of String.",
+          "zh": "因为类型擦除，我们没法在运行时判断它是不是 List<String>。"
+        },
+        {
+          "en": "Type erasure is why we had to pass the Class object into the deserializer.",
+          "zh": "正是因为类型擦除，我们才不得不把 Class 对象传给反序列化器。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么 Java 里不能写 new T()？",
+        "en": "Because of type erasure: the type parameter is gone at runtime, so the JVM doesn't know what T is."
+      }
+    },
+    {
+      "term": "bounded wildcard",
+      "kind": "chunk",
+      "zh": "有界通配符",
+      "examples": [
+        {
+          "en": "I changed the parameter to a bounded wildcard so it accepts a list of any subtype.",
+          "zh": "我把参数改成了有界通配符，这样它能接受任意子类型的列表。"
+        },
+        {
+          "en": "A bounded wildcard like ? extends Number lets you read from the list but not add to it.",
+          "zh": "像 ? extends Number 这样的有界通配符，让你可以从列表里读，但不能往里加。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：为什么 List<Integer> 不能传给参数类型是 List<Number> 的方法？该怎么改？",
+        "en": "Generics are invariant, so use a bounded wildcard: declare the parameter as List<? extends Number>."
+      },
+      "note": "口诀 PECS：producer extends, consumer super。"
+    },
+    {
+      "term": "raw type",
+      "kind": "chunk",
+      "zh": "原始类型（不带类型参数的泛型类）",
+      "examples": [
+        {
+          "en": "The legacy code uses raw types everywhere, so the compiler can't catch a wrong element type.",
+          "zh": "老代码里到处是原始类型，所以编译器查不出元素类型用错了。"
+        },
+        {
+          "en": "Don't use a raw type in new code; use List<?> if you really don't care about the element type.",
+          "zh": "新代码里不要用原始类型；如果真的不关心元素类型，就用 List<?>。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里把变量声明成不带尖括号的 List，你想指出：",
+        "en": "This is a raw type, so we lose type checking. Could you add the type argument?"
+      },
+      "note": "不要和 primitive type（基本类型，如 int）混淆。"
+    },
+    {
+      "term": "autoboxing",
+      "kind": "word",
+      "zh": "自动装箱",
+      "examples": [
+        {
+          "en": "The loop was slow because autoboxing created a new Long on almost every iteration.",
+          "zh": "这个循环很慢，因为自动装箱几乎每次迭代都会新建一个 Long。"
+        },
+        {
+          "en": "Autoboxing hides the conversion, so an unexpected null turns into a NullPointerException when it's unboxed.",
+          "zh": "自动装箱把转换藏起来了，所以一个意外的 null 在拆箱时就变成了 NullPointerException。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用 Map<Long, Long> 做计数器，为什么比用 long 数组慢很多？",
+        "en": "Mostly because of autoboxing: every update allocates wrapper objects instead of working with primitive values."
+      },
+      "note": "反过来叫 unboxing（拆箱）。"
+    },
+    {
+      "term": "stream pipeline",
+      "kind": "chunk",
+      "zh": "Stream 流水线（一串链式的流操作）",
+      "examples": [
+        {
+          "en": "I rewrote the nested loops as a stream pipeline with a filter, a map and a collect.",
+          "zh": "我把嵌套循环改写成了一条 Stream 流水线，依次是 filter、map 和 collect。"
+        },
+        {
+          "en": "A stream pipeline is lazy, so nothing runs until you call a terminal operation.",
+          "zh": "Stream 流水线是惰性的，在调用终止操作之前什么都不会执行。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：我在 map 里明明写了打印语句，为什么运行时什么都没打出来？",
+        "en": "A stream pipeline doesn't do anything until it has a terminal operation, and yours only has a map."
+      }
+    },
+    {
+      "term": "terminal operation",
+      "kind": "chunk",
+      "zh": "终止操作（Stream 的）",
+      "examples": [
+        {
+          "en": "Nothing happened because I forgot the terminal operation at the end of the stream.",
+          "zh": "什么都没发生，因为我忘了在 stream 末尾加终止操作。"
+        },
+        {
+          "en": "collect is a terminal operation, so you can't reuse the stream after calling it.",
+          "zh": "collect 是终止操作，调用之后这个 stream 就不能再用了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Stream 里的 filter 和 collect 有什么本质区别？",
+        "en": "filter is an intermediate operation and it's lazy, while collect is a terminal operation that actually runs the pipeline."
+      },
+      "note": "相对的是 intermediate operation（中间操作）。"
+    },
+    {
+      "term": "return an empty Optional",
+      "kind": "chunk",
+      "zh": "返回一个空的 Optional",
+      "examples": [
+        {
+          "en": "If no user matches, the repository returns an empty Optional instead of null.",
+          "zh": "如果没有匹配的用户，repository 会返回一个空的 Optional，而不是 null。"
+        },
+        {
+          "en": "We return an empty Optional here so the caller has to handle the missing case.",
+          "zh": "我们在这里返回一个空的 Optional，这样调用方就必须处理值不存在的情况。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：查不到数据的时候，这个查询方法应该返回 null 吗？",
+        "en": "I'd rather return an empty Optional, so the caller can't forget to handle the missing value."
+      },
+      "note": "Optional 主要用作返回类型，不建议用在字段和方法参数上。"
+    },
+    {
+      "term": "checked exception",
+      "kind": "chunk",
+      "zh": "受检异常",
+      "examples": [
+        {
+          "en": "IOException is a checked exception, so we either catch it or declare it on the method.",
+          "zh": "IOException 是受检异常，所以我们要么捕获它，要么在方法上声明它。"
+        },
+        {
+          "en": "We wrap the checked exception in a runtime exception because the lambda isn't allowed to throw it.",
+          "zh": "我们把受检异常包成运行时异常，因为 lambda 里不允许抛出它。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Java 的异常分哪两类？编译器对它们的要求有什么不同？",
+        "en": "A checked exception must be caught or declared, and the compiler enforces that; unchecked exceptions don't have that rule."
+      },
+      "note": "相对的是 unchecked exception（非受检异常），即 RuntimeException 及其子类。"
+    },
+    {
+      "term": "swallow an exception",
+      "kind": "chunk",
+      "zh": "吞掉异常",
+      "examples": [
+        {
+          "en": "The catch block swallowed the exception, so we had no idea why the job kept failing.",
+          "zh": "catch 块把异常吞掉了，所以我们完全不知道任务为什么一直失败。"
+        },
+        {
+          "en": "Please don't swallow the exception here; at least log it with the stack trace.",
+          "zh": "这里请不要吞掉异常，至少把它连同堆栈一起打到日志里。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里写了一个空的 catch 块，你想指出问题：",
+        "en": "An empty catch block will swallow the exception, and we'll never know something went wrong."
+      }
+    },
+    {
+      "term": "attach a profiler",
+      "kind": "chunk",
+      "zh": "挂上性能剖析器",
+      "examples": [
+        {
+          "en": "I attached a profiler to one production instance and found we spent half the CPU on JSON parsing.",
+          "zh": "我在一台生产实例上挂了性能剖析器，发现一半的 CPU 花在了 JSON 解析上。"
+        },
+        {
+          "en": "Before guessing, let's attach a profiler and look at the flame graph.",
+          "zh": "先别猜，我们挂上性能剖析器，看看火焰图。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：服务 CPU 一直很高，你怎么找出时间花在了哪里？",
+        "en": "I'd attach a profiler like async-profiler to a live instance and look at the flame graph."
+      },
+      "collocations": ["profile the service under load", "flame graph", "CPU profiling"],
+      "note": "常用工具有 async-profiler 和 JDK 自带的 Java Flight Recorder（JFR）。"
+    },
+    {
+      "term": "take a thread dump",
+      "kind": "chunk",
+      "zh": "抓一份线程转储",
+      "examples": [
+        {
+          "en": "I took a thread dump and saw that all the workers were blocked on the same lock.",
+          "zh": "我抓了一份线程转储，发现所有工作线程都阻塞在同一把锁上。"
+        },
+        {
+          "en": "Take a few thread dumps ten seconds apart to see which threads are actually stuck.",
+          "zh": "每隔十秒抓一份线程转储，多抓几份，看哪些线程是真的卡住了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：服务没崩，但请求全部卡住没有响应，你第一步做什么？",
+        "en": "I'd take a thread dump with jstack to see what every thread is doing and where it's blocked."
+      }
+    },
+    {
+      "term": "hot path",
+      "kind": "chunk",
+      "zh": "热点路径",
+      "examples": [
+        {
+          "en": "That method is on the hot path, so even a small allocation there adds up.",
+          "zh": "那个方法在热点路径上，所以哪怕一次很小的分配，累积起来也很可观。"
+        },
+        {
+          "en": "We moved the logging out of the hot path and throughput went up noticeably.",
+          "zh": "我们把日志从热点路径里挪了出去，吞吐量明显提高了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：这段代码又不复杂，为什么要这么抠性能？",
+        "en": "Because it's on the hot path. It runs for every single request, so the cost matters here."
+      }
+    },
+    {
+      "term": "warm up the JVM",
+      "kind": "chunk",
+      "zh": "预热 JVM",
+      "examples": [
+        {
+          "en": "We warm up the JVM with synthetic traffic before the instance starts taking real requests.",
+          "zh": "在实例开始接真实请求之前，我们先用模拟流量预热 JVM。"
+        },
+        {
+          "en": "The first requests after a deploy were slow because we hadn't warmed up the JVM yet.",
+          "zh": "发布之后头几个请求很慢，因为我们还没把 JVM 预热好。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：每次发布后的头一两分钟延迟都偏高，怎么解决？",
+        "en": "We warm up the JVM before the instance joins the load balancer, so the hot code is already compiled."
+      },
+      "note": "名词是 warm-up，例如 a warm-up period。"
+    },
+    {
+      "term": "JIT compiler",
+      "kind": "chunk",
+      "zh": "即时编译器",
+      "examples": [
+        {
+          "en": "Once the JIT compiler kicks in, the same loop runs many times faster.",
+          "zh": "即时编译器一介入，同一个循环就快了很多倍。"
+        },
+        {
+          "en": "The JIT compiler inlines small methods, so we don't need to do it by hand.",
+          "zh": "即时编译器会内联小方法，所以不用我们手动去做。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Java 是解释执行的吗？为什么程序跑一会儿之后会变快？",
+        "en": "It starts out interpreted, and then the JIT compiler compiles the hot methods to native code."
+      },
+      "note": "JIT 读作一个词 /dʒɪt/，全称 just-in-time。HotSpot 里有 C1 和 C2 两个编译器。"
+    },
+    {
+      "term": "dependency conflict",
+      "kind": "chunk",
+      "zh": "依赖冲突",
+      "examples": [
+        {
+          "en": "We hit a dependency conflict: two libraries pulled in different versions of Jackson.",
+          "zh": "我们碰到了依赖冲突：两个库引入了不同版本的 Jackson。"
+        },
+        {
+          "en": "I resolved the dependency conflict by pinning the version in dependencyManagement.",
+          "zh": "我在 dependencyManagement 里把版本固定下来，解决了这个依赖冲突。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：本地能跑，部署后却报 NoSuchMethodError，可能是什么原因？",
+        "en": "It's usually a dependency conflict: a different version of the library ended up on the classpath at runtime."
+      },
+      "collocations": ["resolve a dependency conflict", "pin the version", "check the dependency tree"]
+    },
+    {
+      "term": "transitive dependency",
+      "kind": "chunk",
+      "zh": "传递依赖",
+      "examples": [
+        {
+          "en": "Log4j came in as a transitive dependency, so nobody on the team knew we were using it.",
+          "zh": "Log4j 是作为传递依赖被引进来的，所以团队里没人知道我们在用它。"
+        },
+        {
+          "en": "We excluded the transitive dependency and declared the version we wanted explicitly.",
+          "zh": "我们排除了那个传递依赖，并显式声明了我们想要的版本。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：我们的 pom 里没写这个库，它怎么会出现在包里？",
+        "en": "It's a transitive dependency: one of the libraries we depend on pulls it in."
+      },
+      "collocations": ["exclude a transitive dependency", "pull in a dependency"]
+    },
+    {
+      "term": "on the classpath",
+      "kind": "chunk",
+      "zh": "在类路径上",
+      "examples": [
+        {
+          "en": "The driver wasn't on the classpath at runtime, so the app failed with ClassNotFoundException.",
+          "zh": "运行时驱动不在类路径上，所以应用抛了 ClassNotFoundException 起不来。"
+        },
+        {
+          "en": "If two versions of the same class are on the classpath, the first one found wins.",
+          "zh": "如果类路径上有同一个类的两个版本，先被找到的那个生效。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：编译没问题，一启动就报找不到类，为什么？",
+        "en": "The jar was probably there at compile time but isn't on the classpath at runtime."
+      }
+    },
+    {
+      "term": "cover it with unit tests",
+      "kind": "chunk",
+      "zh": "用单元测试把它覆盖到",
+      "examples": [
+        {
+          "en": "The pricing logic is tricky, so I covered it with unit tests before refactoring anything.",
+          "zh": "定价逻辑比较绕，所以我在重构之前先用单元测试把它覆盖到了。"
+        },
+        {
+          "en": "Once it's a pure function, it's easy to cover it with unit tests.",
+          "zh": "一旦它变成纯函数，用单元测试覆盖它就很容易。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：要重构一段没人敢动的老代码，你会先做什么？",
+        "en": "First I'd cover it with unit tests, so I can tell right away if the refactoring changes the behavior."
+      }
+    },
+    {
+      "term": "mock out a dependency",
+      "kind": "chunk",
+      "zh": "把依赖模拟掉（测试里用假对象顶替）",
+      "examples": [
+        {
+          "en": "With Mockito we can mock out a dependency in one line and control what it returns.",
+          "zh": "用 Mockito，我们一行代码就能把一个依赖 mock 掉，并控制它的返回值。"
+        },
+        {
+          "en": "If you have to mock out every dependency, the class is probably doing too much.",
+          "zh": "如果每个依赖你都得 mock 掉，那这个类多半干的事太多了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：被测的类要调用外部支付接口，单元测试里怎么处理？",
+        "en": "I'd mock out that dependency with Mockito, so the test is fast and doesn't call the real service."
+      },
+      "note": "mock 既是动词也是名词（a mock）。相关的还有 stub 和 fake。"
+    }
+  ]
+}

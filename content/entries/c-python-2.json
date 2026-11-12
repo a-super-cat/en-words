@@ -1,0 +1,517 @@
+{
+  "layer": "C",
+  "category": "python",
+  "title": "Python",
+  "entries": [
+    {
+      "term": "WSGI",
+      "kind": "word",
+      "zh": "Python 同步 Web 应用和服务器之间的标准接口（缩写，W 开头）",
+      "examples": [
+        {
+          "en": "Our Django app runs behind Gunicorn, which talks to it through WSGI.",
+          "zh": "我们的 Django 应用跑在 Gunicorn 后面，Gunicorn 通过 WSGI 和它通信。"
+        },
+        {
+          "en": "WSGI is synchronous by design, so each request ties up a worker until the response is done.",
+          "zh": "WSGI 天生是同步的，所以每个请求会占住一个 worker，直到响应结束。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Gunicorn 这类服务器是怎么调用你的 Flask 或 Django 应用的？",
+        "en": "Through WSGI, a standard interface: the server calls the application with the request environment and gets the response back."
+      },
+      "note": "全称 Web Server Gateway Interface。常读成一个词 “whiz-ghee”，也有人逐字母读。"
+    },
+    {
+      "term": "ASGI",
+      "kind": "word",
+      "zh": "Python 异步 Web 应用和服务器之间的标准接口（缩写，A 开头）",
+      "examples": [
+        {
+          "en": "FastAPI is built on ASGI, so it can handle WebSockets and long-lived connections natively.",
+          "zh": "FastAPI 构建在 ASGI 之上，所以原生支持 WebSocket 和长连接。"
+        },
+        {
+          "en": "We moved to ASGI so the handlers could await downstream calls instead of blocking a worker.",
+          "zh": "我们迁到了 ASGI，这样处理函数可以 await 下游调用，而不是堵住一个 worker。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：FastAPI 为什么要用 Uvicorn 来跑，而不能直接用 Gunicorn 的同步 worker？",
+        "en": "Because FastAPI is an ASGI application, so it needs an ASGI server like Uvicorn that runs an event loop."
+      },
+      "note": "全称 Asynchronous Server Gateway Interface，可以看成前一条的异步版。"
+    },
+    {
+      "term": "worker process",
+      "kind": "chunk",
+      "zh": "工作进程",
+      "examples": [
+        {
+          "en": "With sync workers, each worker process handles one request at a time, so slow requests pile up.",
+          "zh": "用同步 worker 时，每个工作进程一次只处理一个请求，所以慢请求会堆积起来。"
+        },
+        {
+          "en": "We restart each worker process after a thousand requests to keep slow memory leaks under control.",
+          "zh": "我们让每个工作进程处理一千个请求后重启，把缓慢的内存泄漏控制住。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个 Python Web 服务怎么用上机器的多个核？",
+        "en": "We run several worker processes behind the same port. Each worker process has its own interpreter and its own GIL."
+      },
+      "collocations": [
+        "spawn worker processes",
+        "a pre-fork server",
+        "the master process"
+      ]
+    },
+    {
+      "term": "request-response cycle",
+      "kind": "chunk",
+      "zh": "请求-响应周期",
+      "examples": [
+        {
+          "en": "Sending the email inside the request-response cycle made the signup endpoint painfully slow.",
+          "zh": "在请求-响应周期里发邮件，让注册接口慢得受不了。"
+        },
+        {
+          "en": "Anything that takes more than a second shouldn't happen in the request-response cycle.",
+          "zh": "耗时超过一秒的事情都不应该放在请求-响应周期里做。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：生成报表要三十秒，用户点了按钮之后你怎么处理？",
+        "en": "I wouldn't do it in the request-response cycle. I'd queue a background job and return right away with a job ID."
+      }
+    },
+    {
+      "term": "evaluate the queryset",
+      "kind": "chunk",
+      "zh": "对查询集求值（这时才真正查数据库）",
+      "examples": [
+        {
+          "en": "Chaining filters is free; nothing hits the database until you evaluate the queryset.",
+          "zh": "链式加过滤条件没有任何开销；直到对查询集求值，才会真正访问数据库。"
+        },
+        {
+          "en": "Calling len() evaluates the queryset and loads every row, so use count() instead.",
+          "zh": "调用 len() 会对查询集求值并把每一行都加载进来，所以应该改用 count()。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Django 里写了 User.objects.filter(...)，这一行执行时会发 SQL 吗？",
+        "en": "No. Querysets are lazy, so the SQL only runs when you evaluate the queryset, for example by iterating over it."
+      },
+      "note": "Django 的 QuerySet 是惰性的（lazy）：迭代、len()、list()、bool() 都会触发求值。"
+    },
+    {
+      "term": "schema migration",
+      "kind": "chunk",
+      "zh": "数据库表结构迁移（s 开头）",
+      "examples": [
+        {
+          "en": "Every model change goes through a schema migration that's reviewed like any other code.",
+          "zh": "每次模型改动都要走一次表结构迁移，并且像其他代码一样经过评审。"
+        },
+        {
+          "en": "That schema migration locked the table for minutes, so now we run big ones off-peak.",
+          "zh": "那次表结构迁移把表锁了好几分钟，所以现在大的迁移我们都放在低峰期跑。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：给线上的表加一个字段，你们的流程是什么？",
+        "en": "We generate a schema migration with makemigrations, review the SQL, and apply it during the deploy before the new code starts."
+      },
+      "collocations": [
+        "run the migrations",
+        "apply a migration",
+        "a data migration",
+        "squash migrations"
+      ],
+      "note": "schema 读 /ˈskiːmə/。"
+    },
+    {
+      "term": "validate the request body",
+      "kind": "chunk",
+      "zh": "校验请求体",
+      "examples": [
+        {
+          "en": "FastAPI validates the request body against the Pydantic model before our handler even runs.",
+          "zh": "FastAPI 会在我们的处理函数运行之前，先按 Pydantic 模型校验请求体。"
+        },
+        {
+          "en": "We validate the request body at the edge, so the rest of the code can trust its input.",
+          "zh": "我们在入口处校验请求体，这样后面的代码可以放心使用输入。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：客户端传来的 JSON 里有个字段类型不对，FastAPI 里你需要手写判断吗？",
+        "en": "No. FastAPI validates the request body against the Pydantic model and returns a 422 with the details automatically."
+      }
+    },
+    {
+      "term": "serializer",
+      "kind": "word",
+      "zh": "序列化器（把模型对象和 JSON 互相转换的那一层）",
+      "examples": [
+        {
+          "en": "The serializer decides which model fields are exposed in the API response.",
+          "zh": "由序列化器决定模型的哪些字段会暴露在接口响应里。"
+        },
+        {
+          "en": "We use one serializer for reads and a stricter one for writes.",
+          "zh": "读操作我们用一个序列化器，写操作用另一个更严格的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Django REST framework 里，模型对象是怎么变成 JSON、又是在哪里校验输入的？",
+        "en": "Through a serializer. It converts model instances to JSON and also validates incoming data before we save it."
+      },
+      "collocations": [
+        "serialize to JSON",
+        "deserialize the payload",
+        "a nested serializer"
+      ]
+    },
+    {
+      "term": "inject a database session",
+      "kind": "chunk",
+      "zh": "注入一个数据库会话",
+      "examples": [
+        {
+          "en": "We inject a database session into each endpoint with Depends, and it's closed when the request finishes.",
+          "zh": "我们用 Depends 给每个接口注入一个数据库会话，请求结束时它会被关闭。"
+        },
+        {
+          "en": "Because we inject the database session, tests can override it with one that points at a test database.",
+          "zh": "因为数据库会话是注入进来的，测试可以把它替换成指向测试库的会话。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：FastAPI 里每个请求用到的数据库连接是怎么拿到、又怎么保证释放的？",
+        "en": "We inject a database session through a dependency that yields it, so the cleanup code always runs once the request is done."
+      },
+      "note": "FastAPI 的依赖用 Depends 声明；测试里用 app.dependency_overrides 替换。"
+    },
+    {
+      "term": "virtual environment",
+      "kind": "chunk",
+      "zh": "虚拟环境",
+      "examples": [
+        {
+          "en": "Each project gets its own virtual environment, so their dependencies never clash.",
+          "zh": "每个项目有自己的虚拟环境，所以它们的依赖不会打架。"
+        },
+        {
+          "en": "I forgot to activate the virtual environment and installed everything into the system Python.",
+          "zh": "我忘了激活虚拟环境，把所有东西都装进了系统 Python。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：两个项目依赖同一个库的不同版本，在一台机器上怎么共存？",
+        "en": "Give each project its own virtual environment, so each one has an isolated set of installed packages."
+      },
+      "collocations": [
+        "create a virtual environment",
+        "activate the virtual environment"
+      ],
+      "note": "口语里常直接说 a venv。"
+    },
+    {
+      "term": "pin the dependencies",
+      "kind": "chunk",
+      "zh": "把依赖固定到确切版本（p 开头的动词）",
+      "examples": [
+        {
+          "en": "We pin the dependencies to exact versions so every build installs the same thing.",
+          "zh": "我们把依赖固定到确切版本，这样每次构建装的东西都一样。"
+        },
+        {
+          "en": "Nobody had pinned the dependencies, so a new release of a library broke production overnight.",
+          "zh": "没人把依赖版本固定下来，结果某个库发了新版，一夜之间把线上搞挂了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：代码没改，上周还正常的镜像今天重新构建却出了问题，怎么避免？",
+        "en": "Pin the dependencies, including the indirect ones, in a lock file, so a build never picks up a new release by accident."
+      },
+      "collocations": [
+        "pin a version",
+        "a lock file",
+        "an unpinned dependency"
+      ]
+    },
+    {
+      "term": "dependency resolver",
+      "kind": "chunk",
+      "zh": "依赖解析器（算出一组互相兼容的版本的那个组件）",
+      "examples": [
+        {
+          "en": "The dependency resolver couldn't find versions of the two libraries that work together.",
+          "zh": "依赖解析器找不到能让这两个库一起工作的版本组合。"
+        },
+        {
+          "en": "We switched to uv mostly because its dependency resolver is so much faster than pip's.",
+          "zh": "我们换成 uv 主要是因为它的依赖解析器比 pip 的快太多了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：pip install 为什么卡了半天，最后报版本冲突？",
+        "en": "The dependency resolver was backtracking through versions and couldn't find a set that satisfies every constraint."
+      }
+    },
+    {
+      "term": "build a wheel",
+      "kind": "chunk",
+      "zh": "构建 wheel 包（Python 的预构建分发格式）",
+      "examples": [
+        {
+          "en": "CI builds a wheel for each platform, so users don't need a compiler to install it.",
+          "zh": "CI 会为每个平台构建 wheel 包，这样用户安装时不需要编译器。"
+        },
+        {
+          "en": "We build a wheel once and install that same file in staging and production.",
+          "zh": "我们只构建一次 wheel 包，然后在预发和生产环境安装同一个文件。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们内部的 Python 库是怎么分发给其他团队的？",
+        "en": "We build a wheel in CI and publish it to our private package index, and other teams install it with pip."
+      },
+      "note": "wheel 是预构建的分发格式（.whl）；另一种是 source distribution（sdist），安装时可能需要编译。"
+    },
+    {
+      "term": "editable install",
+      "kind": "chunk",
+      "zh": "可编辑安装（改了源码立刻生效，不用重装）",
+      "examples": [
+        {
+          "en": "I use an editable install during development, so code changes show up without reinstalling the package.",
+          "zh": "开发时我用可编辑安装，这样改了代码不用重装包就能生效。"
+        },
+        {
+          "en": "With an editable install, the tests import the code straight from the source tree.",
+          "zh": "用可编辑安装的话，测试直接从源码目录导入代码。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：我在本地改了这个库的代码，为什么另一个项目里跑的还是旧版本？",
+        "en": "You probably installed a regular copy. Do an editable install with pip install -e, and your changes will be picked up."
+      }
+    },
+    {
+      "term": "dunder method",
+      "kind": "chunk",
+      "zh": "双下划线方法（魔术方法的口头说法，d 开头）",
+      "examples": [
+        {
+          "en": "We implemented the __eq__ and __hash__ dunder methods so the objects can be used as dict keys.",
+          "zh": "我们实现了 __eq__ 和 __hash__ 这两个双下划线方法，这样对象就能当字典的键用。"
+        },
+        {
+          "en": "Dunder methods like __len__ and __getitem__ let your class work with built-in functions and syntax.",
+          "zh": "像 __len__ 和 __getitem__ 这样的双下划线方法，能让你的类配合内置函数和语法使用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：怎么让自己写的类支持 len()、下标访问和 == 比较？",
+        "en": "By implementing the matching dunder methods: __len__, __getitem__ and __eq__."
+      },
+      "note": "dunder 是 double underscore 的缩略，__init__ 读作 “dunder init”。也叫 magic method 或 special method。"
+    },
+    {
+      "term": "metaclass",
+      "kind": "word",
+      "zh": "元类",
+      "examples": [
+        {
+          "en": "The ORM uses a metaclass to turn the fields you declare into database columns.",
+          "zh": "这个 ORM 用元类把你声明的字段变成数据库的列。"
+        },
+        {
+          "en": "I've only needed a metaclass once; a class decorator or __init_subclass__ is usually enough.",
+          "zh": "我只有一次真的需要元类；通常用类装饰器或 __init_subclass__ 就够了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Python 里类本身也是对象，那创建类的又是什么？",
+        "en": "A metaclass. By default it's type, and you can write your own metaclass to customize how classes are created."
+      }
+    },
+    {
+      "term": "method resolution order",
+      "kind": "chunk",
+      "zh": "方法解析顺序",
+      "examples": [
+        {
+          "en": "With multiple inheritance, the method resolution order decides which parent's method gets called first.",
+          "zh": "多继承时，方法解析顺序决定先调用哪个父类的方法。"
+        },
+        {
+          "en": "super() follows the method resolution order, so it doesn't always call the direct parent.",
+          "zh": "super() 是按方法解析顺序走的，所以调用的不一定是直接父类。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个类继承了两个父类，两个父类都有同名方法，调用的是哪个？",
+        "en": "Python follows the method resolution order, which is computed with C3 linearization. You can inspect it through the __mro__ attribute."
+      },
+      "note": "缩写 MRO，逐字母读。"
+    },
+    {
+      "term": "abstract base class",
+      "kind": "chunk",
+      "zh": "抽象基类",
+      "examples": [
+        {
+          "en": "We defined an abstract base class for storage backends, with S3 and local disk as implementations.",
+          "zh": "我们为存储后端定义了一个抽象基类，S3 和本地磁盘是它的两个实现。"
+        },
+        {
+          "en": "You can't instantiate an abstract base class until every abstract method has been overridden.",
+          "zh": "抽象基类的所有抽象方法都被重写之前，是不能实例化的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Python 里想强制子类必须实现某些方法，怎么做？",
+        "en": "Define an abstract base class with abc.ABC and mark the methods with @abstractmethod. A subclass that skips one can't be instantiated."
+      },
+      "note": "缩写 ABC。不要求继承、只按“长得像”来约束时，用 typing.Protocol（structural subtyping）。"
+    },
+    {
+      "term": "monkey-patch",
+      "kind": "chunk",
+      "zh": "打猴子补丁（在运行时替换别人的函数或属性，动词）",
+      "examples": [
+        {
+          "en": "The test monkey-patches time.time so we can control the clock.",
+          "zh": "这个测试用猴子补丁替换了 time.time，这样我们就能控制时钟。"
+        },
+        {
+          "en": "We had to monkey-patch the library as a stopgap until the upstream fix was released.",
+          "zh": "在上游的修复发布之前，我们只能先给这个库打猴子补丁顶一下。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：第三方库里有个 bug，我们又不想 fork，能不能先临时绕过去？",
+        "en": "We could monkey-patch that one function at startup, but let's add a comment and remove it once the fix is released."
+      },
+      "note": "名词是 monkey patching。pytest 里对应的 fixture 叫 monkeypatch。"
+    },
+    {
+      "term": "task queue",
+      "kind": "chunk",
+      "zh": "任务队列（跑后台任务用的，t 开头）",
+      "examples": [
+        {
+          "en": "We push slow work like sending emails onto a task queue and return to the user immediately.",
+          "zh": "我们把发邮件这类慢活丢到任务队列里，然后立刻给用户返回。"
+        },
+        {
+          "en": "Celery is the task queue we use, with Redis as the broker.",
+          "zh": "我们用的任务队列是 Celery，用 Redis 做 broker。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户上传视频后要转码好几分钟，这个流程你怎么设计？",
+        "en": "The API just saves the file and puts a job on a task queue. A separate worker picks it up and does the transcoding."
+      },
+      "collocations": [
+        "a Celery worker",
+        "a periodic task",
+        "retry a failed task"
+      ],
+      "note": "queue 读 /kjuː/。"
+    },
+    {
+      "term": "enqueue a task",
+      "kind": "chunk",
+      "zh": "把一个任务放进队列（e 开头的动词）",
+      "examples": [
+        {
+          "en": "The view enqueues a task and returns a 202, and the worker does the actual processing.",
+          "zh": "视图把一个任务放进队列并返回 202，真正的处理由 worker 来做。"
+        },
+        {
+          "en": "We only enqueue the task after the transaction commits, otherwise the worker may not find the row.",
+          "zh": "我们等事务提交之后才把任务放进队列，否则 worker 可能查不到那行数据。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：Celery 的 worker 报错说找不到刚创建的订单，可数据库里明明有，怎么回事？",
+        "en": "We enqueue the task before the transaction commits. Let's use transaction.on_commit so the worker only sees committed data."
+      },
+      "note": "enqueue 读 /ɪnˈkjuː/。Celery 里对应 task.delay() 或 apply_async()。"
+    },
+    {
+      "term": "profile the code",
+      "kind": "chunk",
+      "zh": "对代码做性能剖析（动词短语，p 开头）",
+      "examples": [
+        {
+          "en": "Before optimizing anything, I profiled the code and found that most of the time was JSON serialization.",
+          "zh": "在优化之前，我先对代码做了性能剖析，发现大部分时间花在 JSON 序列化上。"
+        },
+        {
+          "en": "We profile the code in production with py-spy, because it doesn't need a restart.",
+          "zh": "我们在生产环境用 py-spy 对代码做性能剖析，因为它不需要重启服务。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个接口很慢，你怎么确定慢在哪里，而不是凭感觉猜？",
+        "en": "I'd profile the code first, with cProfile locally or py-spy in production, and look at where the time actually goes."
+      },
+      "collocations": [
+        "a sampling profiler",
+        "a flame graph",
+        "a hot spot"
+      ]
+    },
+    {
+      "term": "C extension",
+      "kind": "chunk",
+      "zh": "C 扩展（用 C 写的 Python 模块）",
+      "examples": [
+        {
+          "en": "The hot loop was rewritten as a C extension, which made it about fifty times faster.",
+          "zh": "那个热点循环被改写成了 C 扩展，速度快了大约五十倍。"
+        },
+        {
+          "en": "Installing it failed because the C extension had no prebuilt wheel for our platform.",
+          "zh": "安装失败了，因为这个 C 扩展没有适用于我们平台的预构建 wheel。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Python 这么慢，NumPy 这类库为什么能这么快？",
+        "en": "Because the heavy lifting happens in C extensions: the loops run in compiled code, not in the interpreter."
+      },
+      "collocations": [
+        "write a C extension",
+        "drop down to C",
+        "a compiled extension module"
+      ]
+    },
+    {
+      "term": "free-threaded build",
+      "kind": "chunk",
+      "zh": "自由线程构建版（去掉了 GIL 的 CPython）",
+      "examples": [
+        {
+          "en": "On the free-threaded build, threads can finally run Python code in parallel on multiple cores.",
+          "zh": "在自由线程构建版上，线程终于可以在多个核上并行执行 Python 代码了。"
+        },
+        {
+          "en": "We're not using the free-threaded build yet, because some of our C extensions don't support it.",
+          "zh": "我们还没用自由线程构建版，因为有些 C 扩展还不支持它。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：听说新版 Python 可以去掉 GIL 了，你了解吗？",
+        "en": "Yes. Since 3.13 there's an optional free-threaded build without the GIL, but the default build still has it."
+      },
+      "note": "来自 PEP 703：3.13 起作为实验特性提供，3.14 起成为官方支持的可选构建；默认构建仍然带 GIL。"
+    }
+  ]
+}

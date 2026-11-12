@@ -1,0 +1,759 @@
+{
+  "layer": "C",
+  "category": "arch-reliability",
+  "title": "架构：可靠性、安全与可观测性",
+  "entries": [
+    {
+      "term": "high availability",
+      "kind": "chunk",
+      "zh": "高可用（名词）",
+      "examples": [
+        {
+          "en": "We run the service in three availability zones to achieve high availability.",
+          "zh": "我们把服务部署在三个可用区，以实现高可用。"
+        },
+        {
+          "en": "High availability wasn't a requirement for the internal tool, so we kept a single instance.",
+          "zh": "内部工具对高可用没有要求，所以我们只留了一个实例。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：这个支付服务在设计上最看重什么？",
+        "en": "The top priority was high availability, because every minute of downtime directly costs us revenue."
+      },
+      "note": "形容词说法是 highly available：a highly available system。缩写 HA 口头也常用。",
+      "collocations": ["achieve high availability", "design for high availability", "a highly available system"]
+    },
+    {
+      "term": "redundancy",
+      "kind": "word",
+      "zh": "冗余（名词）",
+      "ipa": "/rɪˈdʌndənsi/",
+      "examples": [
+        {
+          "en": "We built redundancy into every layer, so losing one node doesn't take the service down.",
+          "zh": "我们在每一层都做了冗余，所以挂掉一个节点不会让服务不可用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个机房断电了，你们的服务怎么还能撑住？",
+        "en": "We have redundancy across data centers, so traffic just shifts to the healthy one."
+      },
+      "collocations": ["build in redundancy", "add redundancy", "redundant instances"]
+    },
+    {
+      "term": "fail over",
+      "kind": "chunk",
+      "zh": "故障转移（动词短语）",
+      "examples": [
+        {
+          "en": "When the primary goes down, we automatically fail over to the standby within thirty seconds.",
+          "zh": "主节点挂掉后，我们会在三十秒内自动切到备用节点。"
+        },
+        {
+          "en": "The failover took longer than expected because the health check interval was too long.",
+          "zh": "这次故障转移比预期慢，因为健康检查的间隔太长了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：主节点宕机之后会发生什么？",
+        "en": "We fail over to a standby in another zone, and the application reconnects automatically."
+      },
+      "note": "动词分开写 fail over，名词和形容词连写 failover：an automatic failover。",
+      "collocations": ["fail over to a standby", "an automatic failover", "trigger a failover"]
+    },
+    {
+      "term": "outage",
+      "kind": "word",
+      "zh": "服务中断（事故，o 开头）",
+      "ipa": "/ˈaʊtɪdʒ/",
+      "examples": [
+        {
+          "en": "We had a two-hour outage last quarter because a bad config got pushed to production.",
+          "zh": "上个季度我们有过一次两小时的服务中断，原因是一个有问题的配置被推到了生产环境。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：讲一次你经历过的线上大故障。",
+        "en": "The worst one was a regional outage that took down checkout for about forty minutes."
+      },
+      "note": "outage 指服务不可用的一段时间；没到不可用的程度，一般说 incident 或 degradation。",
+      "collocations": ["a major outage", "a partial outage", "cause an outage"]
+    },
+    {
+      "term": "fault-tolerant",
+      "kind": "word",
+      "zh": "容错的（形容词）",
+      "examples": [
+        {
+          "en": "The pipeline is fault-tolerant, so a crashed worker just gets its tasks reassigned.",
+          "zh": "这条流水线是容错的，某个 worker 崩了，它的任务会被重新分配。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：单台机器挂了，你们的系统会受影响吗？",
+        "en": "No, the system is fault-tolerant by design. It keeps serving requests even if a couple of nodes die."
+      },
+      "note": "名词是 fault tolerance：We need better fault tolerance here.",
+      "collocations": ["a fault-tolerant system", "fault tolerance"]
+    },
+    {
+      "term": "set a timeout",
+      "kind": "chunk",
+      "zh": "设置超时",
+      "examples": [
+        {
+          "en": "We set a timeout on every outbound call so a slow dependency can't tie up our threads.",
+          "zh": "我们给每个对外调用都设了超时，这样慢的依赖就不会占住我们的线程。"
+        },
+        {
+          "en": "Nobody had set a timeout on that HTTP client, so requests hung forever.",
+          "zh": "那个 HTTP 客户端没人设超时，所以请求会一直挂着。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里调用了一个第三方接口，但没做任何时间限制。你想回复：",
+        "en": "Can we set a timeout here? If their API hangs, this call will block the whole request."
+      },
+      "note": "动词“超时”是 time out（分开写）：The call timed out. 名词 timeout 连写。",
+      "collocations": ["set a timeout on a call", "a connection timeout", "hit the timeout"]
+    },
+    {
+      "term": "retry with exponential backoff",
+      "kind": "chunk",
+      "zh": "带指数退避的重试（动词短语）",
+      "examples": [
+        {
+          "en": "The client retries with exponential backoff, so it doesn't hammer a service that's already struggling.",
+          "zh": "客户端用指数退避来重试，这样就不会猛打一个本来就快撑不住的服务。"
+        },
+        {
+          "en": "We retry with exponential backoff and give up after five attempts.",
+          "zh": "我们按指数退避重试，五次之后就放弃。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：调用下游偶尔失败，你怎么处理？",
+        "en": "For transient errors we retry with exponential backoff, and we cap the number of attempts."
+      },
+      "note": "backoff 是名词，动词分开写 back off。只应该重试 transient（瞬时）错误，而且操作要能安全地重复执行。",
+      "collocations": ["retry with exponential backoff and jitter", "cap the number of retries", "a retry policy"]
+    },
+    {
+      "term": "circuit breaker",
+      "kind": "chunk",
+      "zh": "熔断器",
+      "examples": [
+        {
+          "en": "We put a circuit breaker around the payment API so failures there don't exhaust our connection pool.",
+          "zh": "我们给支付接口加了熔断器，这样它出故障也不会耗尽我们的连接池。"
+        },
+        {
+          "en": "Once the error rate crossed fifty percent, the circuit breaker tripped and we started failing fast.",
+          "zh": "错误率一过 50%，熔断器就跳闸了，我们开始快速失败。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：下游服务持续报错的时候，你怎么保护自己的服务？",
+        "en": "We wrap the call in a circuit breaker. When it opens, we stop calling the dependency and return a fallback."
+      },
+      "note": "熔断“打开”说 the breaker opens 或 trips，恢复说 closes，中间的试探状态叫 half-open。",
+      "collocations": ["the circuit breaker trips", "the circuit breaker opens", "wrap a call in a circuit breaker"]
+    },
+    {
+      "term": "cascading failure",
+      "kind": "chunk",
+      "zh": "级联故障",
+      "examples": [
+        {
+          "en": "One slow database query turned into a cascading failure across four services.",
+          "zh": "一条慢查询最后演变成了波及四个服务的级联故障。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么你们要给每个下游调用都加超时和熔断？",
+        "en": "Mostly to prevent cascading failures, where one unhealthy service drags down everything that depends on it."
+      },
+      "note": "动词说法：The failure cascaded to the upstream services.",
+      "collocations": ["prevent cascading failures", "trigger a cascading failure"]
+    },
+    {
+      "term": "degrade gracefully",
+      "kind": "chunk",
+      "zh": "优雅降级（动词短语）",
+      "examples": [
+        {
+          "en": "If the recommendation service is down, the home page degrades gracefully and shows popular items instead.",
+          "zh": "推荐服务挂了的话，首页会优雅降级，改为展示热门商品。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：非核心依赖不可用时，页面应该怎么表现？",
+        "en": "It should degrade gracefully. Users lose personalization, but they can still browse and check out."
+      },
+      "note": "名词是 graceful degradation。",
+      "collocations": ["degrade gracefully under load", "graceful degradation"]
+    },
+    {
+      "term": "SLA",
+      "kind": "word",
+      "zh": "服务等级协议（对客户的承诺，缩写）",
+      "examples": [
+        {
+          "en": "Our SLA promises 99.9% availability, and we owe customers credits if we miss it.",
+          "zh": "我们的 SLA 承诺 99.9% 的可用性，达不到就要给客户补偿。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们对外部客户有什么可用性承诺？",
+        "en": "We have an SLA of 99.9% monthly uptime, with service credits if we breach it."
+      },
+      "note": "SLA 是对客户的合同承诺，违反了有赔偿；SLO 是内部目标，通常定得比 SLA 更严。逐个字母读。",
+      "collocations": ["meet the SLA", "breach the SLA", "an SLA of 99.9%"]
+    },
+    {
+      "term": "SLO",
+      "kind": "word",
+      "zh": "服务等级目标（内部目标，缩写）",
+      "examples": [
+        {
+          "en": "We set an SLO of 99.95% successful requests, measured over a rolling 30-day window.",
+          "zh": "我们定的 SLO 是请求成功率 99.95%，按滚动 30 天窗口统计。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们团队怎么定义“服务足够可靠”？",
+        "en": "We define an SLO for each critical user journey, for example 99.9% of checkouts succeed within two seconds."
+      },
+      "note": "冠词用 an：an SLO（S 读 /es/，以元音开头）。",
+      "collocations": ["define an SLO", "meet the SLO", "violate the SLO"]
+    },
+    {
+      "term": "error budget",
+      "kind": "chunk",
+      "zh": "错误预算",
+      "examples": [
+        {
+          "en": "We burned through most of our error budget this month, so we paused risky releases.",
+          "zh": "这个月我们把错误预算用掉了大半，所以暂停了有风险的发布。"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理问：为什么这周不能上新功能？你想解释：",
+        "en": "We've used up our error budget for the quarter, so we're focusing on reliability work until it recovers."
+      },
+      "note": "错误预算 = 1 − SLO。比如 SLO 是 99.9%，那 0.1% 的失败就是可以“花”的预算。",
+      "collocations": ["burn through the error budget", "exhaust the error budget", "have error budget left"]
+    },
+    {
+      "term": "four nines",
+      "kind": "chunk",
+      "zh": "四个 9（可用性 99.99%）",
+      "examples": [
+        {
+          "en": "Going from three nines to four nines would mean less than an hour of downtime per year.",
+          "zh": "从三个 9 提到四个 9，意味着一年的停机时间不到一小时。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：这个系统的可用性目标是多少？",
+        "en": "We're targeting four nines, which gives us roughly four minutes of downtime per month."
+      },
+      "note": "三个 9（99.9%）大约是每年停机 8.8 小时，四个 9 约 53 分钟，五个 9 约 5 分钟。",
+      "collocations": ["three nines", "five nines of availability"]
+    },
+    {
+      "term": "uptime",
+      "kind": "word",
+      "zh": "正常运行时间（占比）",
+      "examples": [
+        {
+          "en": "We've maintained 99.98% uptime over the past year, even with weekly deployments.",
+          "zh": "过去一年即使每周都发版，我们也保持了 99.98% 的正常运行时间。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你怎么用一句话说明你们的服务很稳定？",
+        "en": "Our uptime has been above 99.95% for six consecutive quarters."
+      },
+      "note": "反义词是 downtime（停机时间）。",
+      "collocations": ["99.9% uptime", "guarantee uptime"]
+    },
+    {
+      "term": "observability",
+      "kind": "word",
+      "zh": "可观测性",
+      "ipa": "/əbˌzɜːrvəˈbɪləti/",
+      "examples": [
+        {
+          "en": "We invested in observability early, so we can usually tell what's wrong within minutes.",
+          "zh": "我们很早就在可观测性上做了投入，所以通常几分钟内就能看出问题在哪。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：接手一个老系统，你会先补什么？",
+        "en": "I'd start with observability. Without metrics, logs, and traces, we're debugging in the dark."
+      },
+      "note": "三大支柱是 metrics、logs、traces。重音在 -bil- 上。",
+      "collocations": ["improve observability", "an observability gap", "observability tooling"]
+    },
+    {
+      "term": "emit metrics",
+      "kind": "chunk",
+      "zh": "上报指标（动词短语，e 开头）",
+      "examples": [
+        {
+          "en": "Each service emits metrics for request rate, error rate, and latency.",
+          "zh": "每个服务都会上报请求量、错误率和延迟这几项指标。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：新的定时任务上线后，你怎么知道它跑得正不正常？",
+        "en": "It emits metrics for run duration and failure count, and I've added both to our dashboard."
+      },
+      "note": "metric 是可数名词：a metric、key metrics。请求量、错误数、耗时（rate、errors、duration）合称 RED 指标。",
+      "collocations": ["emit a metric", "track a metric", "key metrics"]
+    },
+    {
+      "term": "structured logging",
+      "kind": "chunk",
+      "zh": "结构化日志",
+      "examples": [
+        {
+          "en": "We switched to structured logging, so now we can filter logs by user ID or request path.",
+          "zh": "我们换成了结构化日志，现在可以按用户 ID 或请求路径来过滤日志。"
+        }
+      ],
+      "situation": {
+        "zh": "同事抱怨：线上日志全是拼出来的字符串，根本没法查。你建议：",
+        "en": "Let's move to structured logging and emit JSON, so every field is searchable."
+      },
+      "collocations": ["structured logs", "log in JSON", "search the logs"]
+    },
+    {
+      "term": "distributed tracing",
+      "kind": "chunk",
+      "zh": "分布式链路追踪",
+      "examples": [
+        {
+          "en": "Distributed tracing showed that most of the latency came from a single downstream call.",
+          "zh": "分布式链路追踪显示，大部分延迟来自某一个下游调用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个请求经过十几个服务，变慢了你怎么定位？",
+        "en": "I'd look at distributed tracing first. The trace shows how long each hop took, so the slow span stands out."
+      },
+      "note": "一次请求的完整链路叫 trace，其中每一段叫 span。",
+      "collocations": ["add distributed tracing", "a trace", "a span"]
+    },
+    {
+      "term": "correlation ID",
+      "kind": "chunk",
+      "zh": "关联 ID（c 开头）",
+      "examples": [
+        {
+          "en": "We attach a correlation ID to every request and pass it along to all downstream services.",
+          "zh": "我们给每个请求带上一个关联 ID，并把它一路传给所有下游服务。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：同一个请求在三个服务里的日志，怎么串起来看？",
+        "en": "Search by the correlation ID. Every service logs it, so you get the full picture of one request."
+      },
+      "note": "也叫 request ID。“透传”说 propagate：propagate the correlation ID across services。",
+      "collocations": ["propagate the correlation ID", "log the correlation ID", "search by correlation ID"]
+    },
+    {
+      "term": "alert on ...",
+      "kind": "chunk",
+      "zh": "针对…告警（动词 + 介词）",
+      "examples": [
+        {
+          "en": "We alert on symptoms users actually feel, like error rate, not on CPU usage.",
+          "zh": "我们针对用户真正能感受到的症状告警，比如错误率，而不是 CPU 使用率。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：这个新接口上线后，监控上要加点什么？",
+        "en": "I'd alert on the error rate and p95 latency, and leave the rest as dashboards."
+      },
+      "note": "alert 作名词的搭配：set up an alert、the alert fired（告警触发了）。",
+      "collocations": ["alert on error rate", "set up an alert", "the alert fired"]
+    },
+    {
+      "term": "dashboard",
+      "kind": "word",
+      "zh": "仪表盘（监控大盘）",
+      "examples": [
+        {
+          "en": "I built a dashboard that shows error rate and latency for each endpoint.",
+          "zh": "我做了一个仪表盘，展示每个接口的错误率和延迟。"
+        }
+      ],
+      "situation": {
+        "zh": "站会上你想说：发布之后你会怎么盯着线上情况。",
+        "en": "I'll keep an eye on the dashboard for the first hour after the release."
+      },
+      "collocations": ["build a dashboard", "check the dashboard", "a spike on the dashboard"]
+    },
+    {
+      "term": "alert fatigue",
+      "kind": "chunk",
+      "zh": "告警疲劳",
+      "examples": [
+        {
+          "en": "We were getting hundreds of alerts a day, and alert fatigue meant people started ignoring them.",
+          "zh": "我们当时一天收到几百条告警，告警疲劳导致大家开始无视它们。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：告警是不是越多越安全？",
+        "en": "No. Too many alerts lead to alert fatigue, and then the one that matters gets missed."
+      },
+      "note": "fatigue 读 /fəˈtiːɡ/，重音在后面。",
+      "collocations": ["cause alert fatigue", "reduce alert fatigue", "a noisy alert"]
+    },
+    {
+      "term": "threshold",
+      "kind": "word",
+      "zh": "阈值",
+      "ipa": "/ˈθreʃhoʊld/",
+      "examples": [
+        {
+          "en": "We raised the alert threshold because brief spikes kept waking people up for nothing.",
+          "zh": "我们把告警阈值调高了，因为短暂的尖峰老是白白把人吵醒。"
+        }
+      ],
+      "situation": {
+        "zh": "同事说：这个告警一天响二十次，每次都自己恢复。你建议：",
+        "en": "Let's tune the threshold, or require the condition to hold for five minutes before it fires."
+      },
+      "collocations": ["tune the threshold", "cross the threshold", "set a threshold"]
+    },
+    {
+      "term": "false alarm",
+      "kind": "chunk",
+      "zh": "误报、虚惊一场（两个词）",
+      "examples": [
+        {
+          "en": "It turned out to be a false alarm; the health check itself was broken, not the service.",
+          "zh": "结果是一次误报：坏的是健康检查本身，不是服务。"
+        }
+      ],
+      "situation": {
+        "zh": "你半夜被告警叫醒，查了之后发现服务一切正常。你在群里说：",
+        "en": "False alarm. The service is healthy; the monitoring agent just lost its connection."
+      },
+      "note": "更技术化的说法是 false positive；口头报平安时说 false alarm 最自然。"
+    },
+    {
+      "term": "root cause",
+      "kind": "chunk",
+      "zh": "根因",
+      "examples": [
+        {
+          "en": "The root cause was a missing index, which made the query time out under load.",
+          "zh": "根因是缺了一个索引，导致查询在高负载下超时。"
+        },
+        {
+          "en": "We restored service first and looked for the root cause afterwards.",
+          "zh": "我们先恢复服务，之后再找根因。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问：昨晚的故障到底是怎么回事？",
+        "en": "We're still digging, but the root cause appears to be a connection leak in the new release."
+      },
+      "note": "根因分析叫 root cause analysis，缩写 RCA。",
+      "collocations": ["identify the root cause", "get to the root cause", "root cause analysis"]
+    },
+    {
+      "term": "mitigation",
+      "kind": "word",
+      "zh": "缓解措施（名词，m 开头）",
+      "examples": [
+        {
+          "en": "As a short-term mitigation, we doubled the connection pool while we worked on a proper fix.",
+          "zh": "作为短期缓解措施，我们把连接池扩大了一倍，同时着手做正式的修复。"
+        }
+      ],
+      "situation": {
+        "zh": "故障群里有人问：现在有什么办法先止血吗？",
+        "en": "The quickest mitigation is to roll back the last deploy. We can investigate once things are stable."
+      },
+      "note": "mitigation 是先止血，不等于根治（fix）。动词是 mitigate：mitigate the impact。",
+      "collocations": ["a short-term mitigation", "apply a mitigation", "mitigate the impact"]
+    },
+    {
+      "term": "blast radius",
+      "kind": "chunk",
+      "zh": "影响范围（爆炸半径）",
+      "examples": [
+        {
+          "en": "We deploy to one region at a time to limit the blast radius of a bad release.",
+          "zh": "我们一次只发一个区域，以限制有问题的版本的影响范围。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么不把所有租户放在同一个集群里？",
+        "en": "Splitting them into separate cells reduces the blast radius. A failure in one cell only affects a fraction of customers."
+      },
+      "collocations": ["limit the blast radius", "reduce the blast radius", "a small blast radius"]
+    },
+    {
+      "term": "postmortem",
+      "kind": "word",
+      "zh": "事故复盘（p 开头）",
+      "examples": [
+        {
+          "en": "We wrote a blameless postmortem and shared it with the whole engineering team.",
+          "zh": "我们写了一份不追责的事故复盘，并分享给了整个工程团队。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：线上事故解决之后，你们还会做什么？",
+        "en": "We always hold a postmortem within a week, focused on what failed in the system rather than who made the mistake."
+      },
+      "note": "blameless 指对事不对人。有的公司叫 incident review 或 retrospective。",
+      "collocations": ["write a postmortem", "hold a postmortem", "a blameless postmortem"]
+    },
+    {
+      "term": "on call",
+      "kind": "chunk",
+      "zh": "值班（待命处理线上问题）",
+      "examples": [
+        {
+          "en": "I was on call that week, so I was the first one to get the alert.",
+          "zh": "那周是我值班，所以我是第一个收到告警的人。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们团队怎么保证半夜出问题有人处理？",
+        "en": "We have a weekly rotation, and whoever is on call responds within fifteen minutes."
+      },
+      "note": "作定语时加连字符：the on-call engineer、an on-call rotation。",
+      "collocations": ["be on call", "the on-call engineer", "an on-call rotation"]
+    },
+    {
+      "term": "canary release",
+      "kind": "chunk",
+      "zh": "灰度发布（金丝雀）",
+      "examples": [
+        {
+          "en": "We do a canary release to five percent of traffic before rolling out to everyone.",
+          "zh": "我们先对 5% 的流量做灰度发布，再全量上线。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们怎么降低新版本上线的风险？",
+        "en": "Every change goes out as a canary release first, and we compare its error rate against the stable version."
+      },
+      "note": "也说 canary deployment，口头常简称 canary：The canary looks healthy. canary 读 /kəˈneri/，重音在第二个音节。",
+      "collocations": ["do a canary release", "a canary deployment", "promote the canary"]
+    },
+    {
+      "term": "roll back",
+      "kind": "chunk",
+      "zh": "回滚（版本、发布，动词短语）",
+      "examples": [
+        {
+          "en": "Error rates spiked right after the deploy, so we rolled back within five minutes.",
+          "zh": "部署后错误率立刻飙升，所以我们五分钟内就回滚了。"
+        }
+      ],
+      "situation": {
+        "zh": "故障群里，你判断问题是刚发的版本导致的。你想说：",
+        "en": "I'm going to roll back the release now, and we can debug it in staging."
+      },
+      "note": "动词分开写 roll back，名词连写 rollback：a rollback plan。",
+      "collocations": ["roll back a release", "roll back to the previous version", "a rollback plan"]
+    },
+    {
+      "term": "feature flag",
+      "kind": "chunk",
+      "zh": "功能开关（f 开头，不用 toggle）",
+      "examples": [
+        {
+          "en": "The new checkout flow is behind a feature flag, so we can turn it off instantly.",
+          "zh": "新的结账流程放在功能开关后面，所以我们可以随时把它关掉。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：这个功能还没做完，能合到主干吗？",
+        "en": "Yes, as long as it's behind a feature flag that's off by default."
+      },
+      "note": "也叫 feature toggle。",
+      "collocations": ["behind a feature flag", "flip a feature flag", "clean up old feature flags"]
+    },
+    {
+      "term": "blue-green deployment",
+      "kind": "chunk",
+      "zh": "蓝绿部署",
+      "examples": [
+        {
+          "en": "With blue-green deployment, we switch traffic to the new environment only after it passes smoke tests.",
+          "zh": "用蓝绿部署的话，新环境通过冒烟测试之后，我们才把流量切过去。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：怎么做到发版出问题时可以瞬间切回旧版本？",
+        "en": "We use blue-green deployment. The old environment stays up, so switching back is just a routing change."
+      },
+      "note": "和灰度发布的区别：蓝绿是两套完整环境、一次性切流量，灰度是按比例逐步放量。",
+      "collocations": ["switch traffic to the green environment", "keep the old environment as a fallback"]
+    },
+    {
+      "term": "backward compatible",
+      "kind": "chunk",
+      "zh": "向后兼容的",
+      "examples": [
+        {
+          "en": "The new API version is backward compatible, so existing clients keep working without changes.",
+          "zh": "新版接口是向后兼容的，所以现有客户端不用改也能继续用。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里把响应体的一个字段删掉了。你想提醒：",
+        "en": "This isn't backward compatible. Older mobile clients still read that field, so let's keep it for now."
+      },
+      "note": "名词是 backward compatibility：break backward compatibility。也有人写 backwards。",
+      "collocations": ["stay backward compatible", "break backward compatibility", "a backward-compatible change"]
+    },
+    {
+      "term": "authentication",
+      "kind": "word",
+      "zh": "认证（确认你是谁）",
+      "ipa": "/ɔːˌθentɪˈkeɪʃn/",
+      "examples": [
+        {
+          "en": "Authentication is handled at the gateway, so individual services don't deal with passwords.",
+          "zh": "认证在网关层处理，所以各个服务不需要接触密码。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户登录这一步，你们是怎么确认身份的？",
+        "en": "We use token-based authentication. The user logs in once and sends a signed token with every request."
+      },
+      "note": "动词是 authenticate。多因素认证是 multi-factor authentication（MFA）。",
+      "collocations": ["token-based authentication", "multi-factor authentication", "authenticate a user"]
+    },
+    {
+      "term": "authorization",
+      "kind": "word",
+      "zh": "授权（确认你能做什么）",
+      "ipa": "/ˌɔːθərəˈzeɪʃn/",
+      "examples": [
+        {
+          "en": "Authorization happens in each service, because only the service knows who owns the resource.",
+          "zh": "授权放在各个服务里做，因为只有服务自己知道资源归谁。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户登录之后，怎么防止他看到别人的订单？",
+        "en": "That's an authorization check. On every request we verify that the order belongs to the caller."
+      },
+      "note": "authentication 解决“你是谁”，authorization 解决“你能做什么”，面试里别说混。",
+      "collocations": ["an authorization check", "be authorized to do something", "fine-grained authorization"]
+    },
+    {
+      "term": "encryption at rest",
+      "kind": "chunk",
+      "zh": "静态加密（存储时加密）",
+      "examples": [
+        {
+          "en": "We enable encryption at rest for every database and storage bucket that holds customer data.",
+          "zh": "凡是存放客户数据的数据库和存储桶，我们都开启了静态加密。"
+        }
+      ],
+      "situation": {
+        "zh": "安全评审时被问：如果有人拿到了数据库的磁盘快照怎么办？",
+        "en": "The snapshot would be useless to them, because we use encryption at rest with keys managed separately."
+      },
+      "collocations": ["enable encryption at rest", "encrypt data at rest"]
+    },
+    {
+      "term": "encryption in transit",
+      "kind": "chunk",
+      "zh": "传输加密",
+      "examples": [
+        {
+          "en": "Encryption in transit is enforced everywhere, including traffic between internal services.",
+          "zh": "传输加密在所有地方都是强制的，包括内部服务之间的流量。"
+        }
+      ],
+      "situation": {
+        "zh": "安全评审时被问：内网服务之间的调用是明文的吗？",
+        "en": "No, we require encryption in transit for all internal calls, using TLS between services."
+      },
+      "note": "实际手段一般是 TLS；服务之间双向校验证书叫 mutual TLS（mTLS）。",
+      "collocations": ["encrypt data in transit", "enforce TLS"]
+    },
+    {
+      "term": "least privilege",
+      "kind": "chunk",
+      "zh": "最小权限",
+      "examples": [
+        {
+          "en": "We follow the principle of least privilege, so each service can only read the tables it needs.",
+          "zh": "我们遵循最小权限原则，每个服务只能读它需要的表。"
+        }
+      ],
+      "situation": {
+        "zh": "同事为了省事，想给新服务一个管理员角色。你想说：",
+        "en": "I'd rather stick to least privilege and grant only the two permissions it actually needs."
+      },
+      "note": "privilege 读 /ˈprɪvəlɪdʒ/，拼写里没有 d。",
+      "collocations": ["the principle of least privilege", "grant permissions", "an overly permissive role"]
+    },
+    {
+      "term": "API gateway",
+      "kind": "chunk",
+      "zh": "API 网关",
+      "examples": [
+        {
+          "en": "All external traffic goes through an API gateway, which handles routing and authentication.",
+          "zh": "所有外部流量都经过 API 网关，由它负责路由和认证。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：客户端要调用十几个微服务，你会让它直接一个个去调吗？",
+        "en": "No, I'd put an API gateway in front, so clients have a single entry point."
+      },
+      "collocations": ["put an API gateway in front of the services", "route requests through the gateway"]
+    },
+    {
+      "term": "service discovery",
+      "kind": "chunk",
+      "zh": "服务发现",
+      "examples": [
+        {
+          "en": "We rely on service discovery, so nobody hard-codes the addresses of other services.",
+          "zh": "我们依赖服务发现，所以没人会把别的服务的地址写死。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：实例随时在扩缩容，调用方怎么知道该连哪台？",
+        "en": "Through service discovery. Instances register themselves on startup, and callers look them up by name."
+      },
+      "collocations": ["register with service discovery", "look up a service", "a service registry"]
+    },
+    {
+      "term": "service mesh",
+      "kind": "chunk",
+      "zh": "服务网格",
+      "examples": [
+        {
+          "en": "The service mesh handles retries and mutual TLS, so we don't reimplement them in every service.",
+          "zh": "服务网格负责重试和双向 TLS，所以我们不用在每个服务里重复实现。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：服务间调用的加密、重试、链路追踪，要每个团队各写一遍吗？",
+        "en": "No, we push that into a service mesh. A sidecar proxy next to each service takes care of it."
+      },
+      "note": "每个服务旁边的代理叫 sidecar（边车）。",
+      "collocations": ["adopt a service mesh", "a sidecar proxy"]
+    }
+  ]
+}

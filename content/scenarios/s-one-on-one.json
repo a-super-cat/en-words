@@ -1,0 +1,373 @@
+{
+  "category": "one-on-one",
+  "title": "1:1 面谈",
+  "scenarios": [
+    {
+      "id": "workload-too-heavy",
+      "title": "和经理聊工作量太大",
+      "setting": "周四下午，你和经理 Hannah 的每周 1:1。你同时在做支付迁移、轮值班，还被拉去支持增长团队的上线，已经连着加班两周。你不想只是诉苦，而是想让她帮你排优先级、减掉一些事。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Hannah",
+          "en": "Hey, good to see you. So, before we get into my list — how are you doing? You looked a bit wiped in standup this morning, honestly.",
+          "zh": "嗨，见到你真好。在说我这边的事之前——你最近怎么样？说实话，今天早上站会上你看起来有点累坏了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你承认最近很吃力：手上同时压着支付迁移、值班和支持增长团队上线三件事，精力不够分，这样下去撑不住。",
+          "en": "Honestly, I'm stretched thin. I have a lot on my plate right now — the payments migration, on-call, and launch support for the growth team — and this pace isn't sustainable.",
+          "chunks": [
+            { "term": "stretched thin", "zh": "摊得太开、精力不够分" },
+            { "term": "I have a lot on my plate right now.", "zh": "我现在手上的事情太多了。" },
+            { "term": "This pace isn't sustainable.", "zh": "这个节奏撑不下去。" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Hannah",
+          "en": "Okay. I'm glad you're telling me rather than just quietly burning out. What's hurting the most? Is it the hours, or is it something else?",
+          "zh": "好。我很高兴你告诉我，而不是自己默默熬到垮掉。最难受的是哪一块？是工时太长，还是别的？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说主要是来回切换任务：迁移需要整块时间专注，但你老是被上线的各种问题打断。结果迁移比预想的慢，大概落后计划一周了。",
+          "en": "It's mostly the context switching. The migration needs long stretches of focus, and I keep getting pulled into launch questions. It's taking longer than expected — we're about a week behind schedule.",
+          "chunks": [
+            { "term": "context switching", "zh": "在不同任务之间来回切换" },
+            { "term": "It's taking longer than expected.", "zh": "花的时间比预想的长。" },
+            { "term": "behind schedule", "zh": "落后于计划" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Hannah",
+          "en": "Right, that's not great, the migration has a hard deadline. Thing is, the growth team asked for you by name — you're the only one who knows that checkout code. I can't just pull you off it.",
+          "zh": "嗯，这可不太妙，迁移的截止日期是死的。问题是，增长团队点名要你——只有你懂那块结算代码。我没法直接把你撤下来。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你表示理解，然后提一个方案：你不再随叫随到，改成每天固定留一个小时集中答疑；另外把结算流程里难懂的部分写成文档，让他们不用事事都来问你。",
+          "en": "I get that. What if we set up a fixed office hour each day, instead of me being available all the time? I can also write up the tricky parts of the checkout flow, so they don't rely on me for everything.",
+          "chunks": [
+            { "term": "What if we ...?", "zh": "要不我们……？（提出一个方案）" },
+            { "term": "write up", "zh": "写成文档、整理成文字" },
+            { "term": "rely on", "zh": "依赖、指望" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Hannah",
+          "en": "Hmm, I like that. An hour a day I can sell to them. And what about on-call? You're up again the week after next, right?",
+          "zh": "嗯，这个我喜欢。一天一小时，我能说服他们。那值班呢？下下周又轮到你了，对吧？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你想请她帮忙：这一轮值班能不能先从你手上拿走，或者让你和别人换一下，等迁移上线后你再补回来。你强调自己不是想逃避值班，只是需要保住那一周。",
+          "en": "Yeah. Could you take that shift off my plate, or let me swap with someone? I'm happy to make it up after the migration ships. I'm not trying to get out of it — I just need to protect that week.",
+          "chunks": [
+            { "term": "take ... off my plate", "zh": "把……从我手上拿走、替我分担掉" },
+            { "term": "make it up", "zh": "之后补上" },
+            { "term": "get out of", "zh": "逃避、躲掉（该做的事）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Hannah",
+          "en": "No, that's fair. I'll ask Tomasz, he owes me one. So, to be clear: the migration is your top priority, the office hour is number two, and anything else, you send them to me. Deal?",
+          "zh": "不会，这很合理。我去问 Tomasz，他欠我一个人情。那说清楚：迁移是你的头等大事，答疑时间排第二，其他任何事都让他们来找我。行吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你同意。你说这样安排的话，你有把握在月底前把迁移拉回正轨；如果进度又开始往后拖，你会第一时间告诉她。",
+          "en": "Deal. With that, I'm confident I can get the migration back on track by the end of the month. And if it starts to slip again, I'll flag it early.",
+          "chunks": [
+            { "term": "on track", "zh": "按计划进行、在正轨上" },
+            { "term": "slip", "zh": "（进度）延后、拖期" },
+            { "term": "flag ... early", "zh": "尽早把……提出来预警" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Hannah",
+          "en": "Perfect. And seriously — take Friday afternoon off. That's not a suggestion.",
+          "zh": "很好。还有，说真的——周五下午给我休息。这不是建议。"
+        }
+      ]
+    },
+    {
+      "id": "path-to-staff-promotion",
+      "title": "谈职业发展和晋升",
+      "setting": "季度末，你和经理 Marcus 的 1:1。你在高级工程师这个级别已经两年多，想弄清楚离 Staff 还差什么，并争取一个更能体现影响力的项目。Marcus 说话很直接，但愿意帮人。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Marcus",
+          "en": "Alright, you said you wanted to use today for career stuff. So — what's on your mind?",
+          "zh": "好，你说今天想聊聊职业发展的事。那——你在想什么？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说你在现在这个级别已经两年多了，感觉碰到了天花板。你想知道要升到下一级，到底需要做到什么。",
+          "en": "Thanks. I've been at senior for a little over two years, and I feel like I've hit a ceiling. What would it take to get to the next level?",
+          "chunks": [
+            { "term": "hit a ceiling", "zh": "碰到天花板、遇到瓶颈" },
+            { "term": "What would it take to get to the next level?", "zh": "要升到下一级，需要做到什么？" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marcus",
+          "en": "Fair question. I'll be straight with you: your execution is rock solid. Nobody doubts that. Where the committee pushes back is scope. Most of your wins are inside our team.",
+          "zh": "问得好。我跟你直说：你的执行力非常扎实，没人怀疑这一点。评审委员会有意见的地方是影响范围。你的成绩大多都在咱们团队内部。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你想确认自己没理解错：问题不在你做事的质量，而在于你的影响没有走出本团队。然后请他举个例子，什么样的工作才算有跨团队的影响。",
+          "en": "So what you're saying is, it's not the quality of my work, it's that my impact stays within the team. Could you give me an example of what cross-team impact would look like?",
+          "chunks": [
+            { "term": "So what you're saying is ...", "zh": "所以你的意思是……" },
+            { "term": "Could you give me an example?", "zh": "能给我举个例子吗？" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marcus",
+          "en": "Sure. Look at what Ingrid did with the build pipeline last year. She didn't just fix it for us, she got four teams to adopt it. That's the kind of story the committee wants.",
+          "zh": "行。你看 Ingrid 去年做的构建流水线。她不只是给咱们修好了，还让四个团队都用上了。委员会想看到的就是这种故事。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说这个例子很有帮助。其实你正想多承担一些跨团队的工作：现在各团队的前端监控各做各的，你想牵头把它统一起来。你想听听他怎么看。",
+          "en": "That helps. Actually, I'd like to take on more cross-team work. Every team does frontend monitoring differently, and I'd like to lead the effort to unify it. I'd love to get your take on that.",
+          "chunks": [
+            { "term": "I'd like to take on more ...", "zh": "我想多承担一些……" },
+            { "term": "lead the effort to ...", "zh": "牵头做……" },
+            { "term": "I'd love to get your take on ...", "zh": "我很想听听你对……的看法。" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marcus",
+          "en": "Hmm. As a stretch assignment, I like it. But let me play devil's advocate. That's a big, messy project. You'd need buy-in from three other leads, and I can't take anything off your plate this quarter.",
+          "zh": "嗯。作为一个有挑战的任务，我喜欢。不过我来唱个反调：这是个又大又乱的项目，你得争取到另外三个负责人的支持，而且这个季度我没法帮你减掉手上任何事。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你承认他说得有道理。你建议从小处做起：先找一个团队试点，拿到数据，再去争取更大范围的推广。这样也不会影响你手上的交付。",
+          "en": "That's fair. I'd suggest starting with one team as a pilot, getting some numbers, and then making the case for a wider rollout. That way my current deliverables aren't at risk.",
+          "chunks": [
+            { "term": "That's fair.", "zh": "说得有道理。" },
+            { "term": "I'd suggest starting with ...", "zh": "我建议从……开始。" },
+            { "term": "make the case for", "zh": "为……据理力争、论证其必要性" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marcus",
+          "en": "Okay, that I can get behind. Write me a one-pager by next Friday and I'll put it in front of the other leads. No promises on timing for the promo, though — next cycle is realistic, not this one.",
+          "zh": "好，这个我可以支持。下周五前给我写一页纸的方案，我拿去给其他负责人看。不过晋升的时间我不打包票——比较现实的是下一轮，不是这一轮。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说明白，你也没指望马上就有结果。不过你想请他每个月和你过一次进展，这样你能早早知道自己是否在正轨上，到绩效评审时不会有意外。",
+          "en": "Understood, I'm not expecting it overnight. Could we check in on this once a month, though? I'd like to know I'm on track well before the performance review, so there are no surprises.",
+          "chunks": [
+            { "term": "check in on", "zh": "定期过一下……的进展" },
+            { "term": "performance review", "zh": "绩效评审" },
+            { "term": "no surprises", "zh": "不出意外、心里有数" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marcus",
+          "en": "Yeah, absolutely. Put it on our agenda as a standing item. And for what it's worth — you've got this.",
+          "zh": "当然可以。把它加到咱们的议程里，作为固定项。还有，不管你信不信——你没问题的。"
+        }
+      ]
+    },
+    {
+      "id": "feedback-oversized-prs",
+      "title": "给新人提改进意见",
+      "setting": "你是团队里带新人的导师。入职两个月的 Diego 很积极，但他提的 PR 总是特别大，评审的人看不动，已经拖慢了好几次合并。你约他单独聊，想把问题说清楚，又不打击他的积极性。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Diego",
+          "en": "Hey! You wanted to chat? I hope I'm not in trouble, haha.",
+          "zh": "嗨！你找我聊聊？希望我没惹什么麻烦吧，哈哈。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你让他放心，然后问能不能给他提点反馈。先说好的：他上手非常快，上周处理那个缓存问题的方式你很欣赏。",
+          "en": "Not at all. Can I give you some feedback? First, the good part: you've ramped up really fast, and I really liked how you handled that cache bug last week.",
+          "chunks": [
+            { "term": "Can I give you some feedback?", "zh": "我能给你提点反馈吗？" },
+            { "term": "ramp up", "zh": "上手、进入状态" },
+            { "term": "I really liked how you ...", "zh": "我很欣赏你……的方式。" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Diego",
+          "en": "Oh, thanks! Okay, and... the not-so-good part? Go for it. I'd rather hear it now than in my review.",
+          "zh": "哦，谢谢！那……不太好的部分呢？说吧。我宁愿现在听，也不想到评审时才知道。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你具体指出问题：你注意到他的合并请求往往很大，上一个改了四十多个文件。这么大的改动评审的人很难认真看完，结果在那儿搁了好几天。",
+          "en": "I noticed that your pull requests tend to be very large. The last one touched over forty files. When a PR is that big, it's hard for reviewers to go through it properly, so it ended up sitting there for days.",
+          "chunks": [
+            { "term": "I noticed that ...", "zh": "我注意到……（客观地指出现象）" },
+            { "term": "go through", "zh": "从头到尾仔细看一遍" },
+            { "term": "end up", "zh": "（几经周折）最终……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Diego",
+          "en": "Yeah, I noticed that too. But honestly, I thought it was better to ship the whole feature in one go. If I split it up, the pieces don't really make sense on their own, you know?",
+          "zh": "嗯，我也注意到了。但说实话，我觉得一次把整个功能交上去更好。要是拆开，每一块单独看都不太说得通，你懂吧？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说你明白他的想法，但小的改动更容易评审，出了问题也更容易撤回。建议他下次拆成几个小的：先提重构，再提行为上的改动，没做完的部分用功能开关藏起来。",
+          "en": "I see your point, but smaller changes are easier to review and easier to roll back. Next time, I'd split this into smaller PRs: the refactoring first, then the behavior change, with the unfinished parts behind a feature flag.",
+          "chunks": [
+            { "term": "I see your point, but ...", "zh": "我明白你的意思，不过……" },
+            { "term": "split this into smaller PRs", "zh": "把这个拆成几个小的 PR" },
+            { "term": "feature flag", "zh": "功能开关" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Diego",
+          "en": "Huh. Okay, I never really thought of using flags like that. But doesn't that mean way more PRs? I don't want to spam everyone.",
+          "zh": "哦。好吧，我还真没想过这么用开关。可是那不就意味着 PR 多了好多吗？我不想刷屏打扰大家。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你告诉他没人会嫌小的合并请求多，小的反而评得更快。你提议：他开始做下一个功能之前，你们俩一起花二十分钟，把它拆成几步。",
+          "en": "Honestly, nobody minds small PRs — they get reviewed much faster. How about this: before you start your next feature, let's spend twenty minutes together and break it down into steps.",
+          "chunks": [
+            { "term": "nobody minds ...", "zh": "没人会介意……" },
+            { "term": "break ... down into", "zh": "把……拆分成" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Diego",
+          "en": "That'd be great, actually. I've got the notifications thing starting Monday — could we do it then?",
+          "zh": "那太好了，真的。我周一要开始做通知那个功能——到时候可以吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说周一可以，让他给你发个会议邀请。最后你把话说明白：这只是工作习惯上的调整，不是说他代码写得不好，他的代码质量本来就不错。",
+          "en": "Monday works. Send me a calendar invite. And just to be clear, this is about a habit, not the quality of your code — that part is already strong.",
+          "chunks": [
+            { "term": "send a calendar invite", "zh": "发一个日历邀请" },
+            { "term": "just to be clear", "zh": "把话说明白、免得误会" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Diego",
+          "en": "Thanks, I appreciate you being upfront about it. Sending the invite right now.",
+          "zh": "谢谢，感谢你这么坦率地告诉我。我现在就发邀请。"
+        }
+      ]
+    },
+    {
+      "id": "feedback-you-disagree-with",
+      "title": "收到一条你不太认同的反馈",
+      "setting": "绩效评审之后的 1:1。经理 Priya 转述了同事的一条反馈：你在设计评审会上显得不把别人的意见当回事。你不完全认同——你觉得自己只是在坚持技术标准——但你想先弄清楚具体情况，而不是急着辩解。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Priya",
+          "en": "So, most of the peer feedback was really positive. There's one piece I want to talk through, though. A couple of people said you can come across as, um, a bit dismissive in design reviews.",
+          "zh": "嗯，同事的反馈大部分都很正面。不过有一条我想跟你聊聊。有几个人说，你在设计评审会上有时会显得，呃，有点不把别人的意见当回事。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你先谢谢她的反馈，也谢谢她当面直说。你坦白说没意识到自己给人这种印象，请她多讲讲大家具体看到了什么。",
+          "en": "I appreciate the feedback, and thanks for telling me directly. Honestly, I didn't realize I come across as dismissive. Could you say more about what people saw?",
+          "chunks": [
+            { "term": "I appreciate the feedback.", "zh": "谢谢你的反馈。" },
+            { "term": "come across as", "zh": "给人……的印象" },
+            { "term": "Could you say more about ...?", "zh": "关于……能再多讲一些吗？" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Priya",
+          "en": "Sure. The one that came up twice was the design review for the search redesign. Apparently Wei proposed the caching layer, and you said, 'That's not going to work,' and moved on before he could explain.",
+          "zh": "好。被提到两次的是搜索改版的那次设计评审。据说 Wei 提出了缓存层的方案，你说了句“这行不通”，没等他解释就接着往下讲了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你想起了那次会。你交代一下当时的背景：会议快超时了，而且你确实担心那个方案的数据一致性。但你承认她说得对，你没让他把话说完。",
+          "en": "I remember that one. To give you some context, we were running out of time, and I had a real concern about consistency. But you're right that I didn't hear him out.",
+          "chunks": [
+            { "term": "to give you some context", "zh": "先交代一下背景" },
+            { "term": "I have a concern about ...", "zh": "我对……有顾虑。" },
+            { "term": "hear ... out", "zh": "听……把话说完" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Priya",
+          "en": "And I think that's the thing. Nobody's saying you were wrong about the design. It's that people stop bringing ideas when they get shut down like that. Especially the quieter folks.",
+          "zh": "我觉得关键就在这儿。没人说你对那个设计的判断是错的。问题是，被这样一口否掉之后，大家就不再提想法了，尤其是比较安静的那些人。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你坦率地说，你不太认同她转述的那个形容词——指出设计问题本来就是你的职责。但你承认你说话的方式让讨论进行不下去了，这是你自己没看到的盲区。",
+          "en": "I'll be honest, I'm not sure I agree with the word 'dismissive' — raising design problems is part of my job. But how I said it shut the conversation down, and that's clearly a blind spot for me.",
+          "chunks": [
+            { "term": "I'm not sure I agree with ...", "zh": "我不太认同……（委婉地表示不同意）" },
+            { "term": "shut ... down", "zh": "让……进行不下去、一口否掉" },
+            { "term": "blind spot", "zh": "盲区、自己意识不到的问题" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Priya",
+          "en": "That's fair, and I'm not asking you to lower the bar. So what would you do differently next time?",
+          "zh": "有道理，我也不是要你降低标准。那下次你会怎么做得不一样？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说下次你会先提问，而不是急着下结论，比如先问对方这个方案怎么处理过期数据。你会在这方面改进，还打算私下找 Wei 聊聊，把话说开。",
+          "en": "Next time I'd ask a question first instead of jumping to conclusions — something like, 'How would this handle stale data?' I'll work on that. And I'll follow up with Wei one on one to clear the air.",
+          "chunks": [
+            { "term": "I'll work on that.", "zh": "这一点我会改进。" },
+            { "term": "follow up with", "zh": "事后再找（某人）跟进" },
+            { "term": "clear the air", "zh": "把话说开、消除隔阂" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Priya",
+          "en": "I think he'd really appreciate that. Do you want me to say anything to him first, or...?",
+          "zh": "我想他会很感激的。需要我先跟他打个招呼吗，还是……？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说不用，你想自己去说。不过你想请她帮个忙：以后要是看到你又这样，会后马上告诉你。你宁愿当场就知道，也不想等到下次评审才听说。",
+          "en": "No, I'd rather do it myself. One ask, though: if you see me doing it again, could you tell me right afterwards? I'd rather hear it in the moment than at the next performance review.",
+          "chunks": [
+            { "term": "I'd rather ...", "zh": "我宁愿……" },
+            { "term": "in the moment", "zh": "当场、事情发生的当下" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Priya",
+          "en": "Deal. And honestly, the fact that you didn't get defensive just now — that's exactly what I was hoping for.",
+          "zh": "一言为定。说实话，你刚才没有急着为自己辩护——这正是我希望看到的。"
+        }
+      ]
+    }
+  ]
+}

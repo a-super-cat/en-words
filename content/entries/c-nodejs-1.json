@@ -1,0 +1,500 @@
+{
+  "layer": "C",
+  "category": "nodejs",
+  "title": "Node.js",
+  "entries": [
+    {
+      "term": "non-blocking I/O",
+      "kind": "chunk",
+      "zh": "非阻塞 I/O",
+      "examples": [
+        {
+          "en": "Node relies on non-blocking I/O, so one thread can juggle thousands of open connections.",
+          "zh": "Node 靠的是非阻塞 I/O，所以一个线程就能同时应付几千个打开的连接。"
+        },
+        {
+          "en": "With non-blocking I/O, the process doesn't sit idle while it waits for the database.",
+          "zh": "有了非阻塞 I/O，进程在等数据库的时候不会干等着。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Node 只有一个线程跑 JavaScript，为什么还能扛住高并发？",
+        "en": "Because it uses non-blocking I/O: it starts an operation, moves on, and handles the result later in a callback."
+      }
+    },
+    {
+      "term": "single-threaded",
+      "kind": "chunk",
+      "zh": "单线程的",
+      "examples": [
+        {
+          "en": "Your JavaScript is single-threaded, so one slow function holds up every other request.",
+          "zh": "你的 JavaScript 是单线程的，所以一个慢函数会拖住其他所有请求。"
+        },
+        {
+          "en": "Node isn't entirely single-threaded: libuv uses a few background threads for file I/O.",
+          "zh": "Node 并不完全是单线程的：libuv 会用几个后台线程来做文件 I/O。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：说 Node 是单线程的，这个说法准确吗？",
+        "en": "Only partly. JavaScript execution is single-threaded, but libuv has a thread pool and you can also start worker threads."
+      }
+    },
+    {
+      "term": "block the event loop",
+      "kind": "chunk",
+      "zh": "阻塞事件循环",
+      "examples": [
+        {
+          "en": "A synchronous JSON.parse on a 50 MB payload blocked the event loop for almost a second.",
+          "zh": "对一个 50 MB 的数据同步执行 JSON.parse，把事件循环阻塞了将近一秒。"
+        },
+        {
+          "en": "Never use the Sync versions of fs functions in a request handler; they block the event loop.",
+          "zh": "绝对不要在请求处理函数里用 fs 的 Sync 版本，它们会阻塞事件循环。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Node 服务的所有接口突然一起变慢，CPU 一个核跑满，你怀疑什么？",
+        "en": "Something is blocking the event loop, probably a heavy synchronous computation, so no other request can be served."
+      },
+      "collocations": ["event loop lag", "event loop delay", "a synchronous call"]
+    },
+    {
+      "term": "libuv thread pool",
+      "kind": "chunk",
+      "zh": "libuv 线程池",
+      "examples": [
+        {
+          "en": "File system calls and crypto run on the libuv thread pool, not on the main thread.",
+          "zh": "文件系统调用和加密运算跑在 libuv 线程池里，不在主线程上。"
+        },
+        {
+          "en": "The libuv thread pool has only four threads by default, so heavy password hashing can saturate it.",
+          "zh": "libuv 线程池默认只有四个线程，所以大量的密码哈希运算能把它占满。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Node 里读文件是异步的，可操作系统的文件 I/O 是阻塞的，这是怎么做到的？",
+        "en": "Node hands the call to the libuv thread pool, where a background thread does the blocking read and reports back."
+      },
+      "note": "默认 4 个线程，可用 UV_THREADPOOL_SIZE 调整。fs、dns.lookup、crypto、zlib 会用到它；网络 I/O 不走线程池，用的是 epoll/kqueue 这类系统机制。"
+    },
+    {
+      "term": "event-driven",
+      "kind": "chunk",
+      "zh": "事件驱动的",
+      "examples": [
+        {
+          "en": "Node's event-driven model fits services that mostly wait on other services.",
+          "zh": "Node 的事件驱动模型很适合那些大部分时间都在等别的服务的服务。"
+        },
+        {
+          "en": "In an event-driven server, nothing runs until an event such as an incoming request fires.",
+          "zh": "在事件驱动的服务器里，直到有事件触发（比如来了一个请求），才会有代码执行。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Node 适合做什么样的服务？不适合什么？",
+        "en": "Its event-driven, non-blocking model is great for I/O-heavy services, but it's a poor fit for CPU-heavy work."
+      }
+    },
+    {
+      "term": "timers phase",
+      "kind": "chunk",
+      "zh": "定时器阶段（事件循环里跑 setTimeout 回调的阶段）",
+      "examples": [
+        {
+          "en": "Callbacks from setTimeout and setInterval run in the timers phase of the event loop.",
+          "zh": "setTimeout 和 setInterval 的回调在事件循环的定时器阶段执行。"
+        },
+        {
+          "en": "If the loop is busy, the timers phase comes late, so a timer is never exact.",
+          "zh": "如果循环很忙，定时器阶段就会来得晚，所以定时器永远不可能精确。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：setTimeout 设了 100 毫秒，回调一定在 100 毫秒时执行吗？",
+        "en": "No. 100 ms is only the minimum delay. The callback runs in the timers phase, whenever the loop gets there."
+      },
+      "note": "Node 事件循环的阶段依次是：timers、pending callbacks、idle/prepare、poll、check、close callbacks。"
+    },
+    {
+      "term": "poll phase",
+      "kind": "chunk",
+      "zh": "轮询阶段（事件循环里等待并处理 I/O 事件的阶段）",
+      "examples": [
+        {
+          "en": "Most I/O callbacks run in the poll phase, and that's also where the loop waits when idle.",
+          "zh": "大部分 I/O 回调在轮询阶段执行，循环空闲时也是停在这里等待。"
+        },
+        {
+          "en": "With nothing else to do, the loop blocks in the poll phase until new I/O arrives or a timer is due.",
+          "zh": "没有别的事情可做时，循环会阻塞在轮询阶段，直到有新的 I/O 到来或者有定时器到期。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个空闲的 Node 进程没有请求进来时，事件循环在做什么？是在空转吗？",
+        "en": "No, it isn't spinning. It sits in the poll phase, waiting for the OS to report new I/O events."
+      }
+    },
+    {
+      "term": "check phase",
+      "kind": "chunk",
+      "zh": "check 阶段（setImmediate 的回调在这里执行）",
+      "examples": [
+        {
+          "en": "setImmediate callbacks run in the check phase, right after the poll phase finishes.",
+          "zh": "setImmediate 的回调在 check 阶段执行，紧跟在轮询阶段结束之后。"
+        },
+        {
+          "en": "Inside an I/O callback, setImmediate always fires before setTimeout 0, because the check phase comes next.",
+          "zh": "在 I/O 回调里，setImmediate 总是比 setTimeout 0 先触发，因为接下来就是 check 阶段。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：setImmediate 和 setTimeout(fn, 0) 有什么区别？",
+        "en": "setImmediate runs in the check phase, right after polling for I/O, while setTimeout has to wait for the timers phase."
+      }
+    },
+    {
+      "term": "nextTick queue",
+      "kind": "chunk",
+      "zh": "process.nextTick 的回调队列",
+      "examples": [
+        {
+          "en": "The nextTick queue is drained before promise callbacks and before the loop moves on.",
+          "zh": "nextTick 队列会先于 Promise 回调被清空，然后循环才继续往下走。"
+        },
+        {
+          "en": "Callbacks in the nextTick queue run right after the current operation, not in any particular phase.",
+          "zh": "nextTick 队列里的回调在当前操作结束后马上执行，不属于任何一个阶段。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：process.nextTick 的回调和 Promise.then 的回调，哪个先执行？",
+        "en": "The nextTick queue goes first. Node drains it completely, and then runs the promise microtasks."
+      },
+      "note": "它不属于事件循环的任何阶段：每个回调执行完，Node 都会先清空它，再清空 Promise 的微任务。很多场景可以用 queueMicrotask() 代替。"
+    },
+    {
+      "term": "starve the event loop",
+      "kind": "chunk",
+      "zh": "把事件循环饿死（让 I/O 一直得不到处理）",
+      "examples": [
+        {
+          "en": "A function that keeps calling process.nextTick recursively will starve the event loop.",
+          "zh": "一个不停递归调用 process.nextTick 的函数会把事件循环饿死。"
+        },
+        {
+          "en": "We split the big loop into batches with setImmediate so it wouldn't starve the event loop.",
+          "zh": "我们用 setImmediate 把大循环拆成一批一批地跑，免得把事件循环饿死。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：递归调用 process.nextTick 和递归调用 setImmediate，后果有什么不同？",
+        "en": "Recursive nextTick calls starve the event loop, because I/O never gets a turn. setImmediate lets the loop continue between calls."
+      }
+    },
+    {
+      "term": "callback hell",
+      "kind": "chunk",
+      "zh": "回调地狱",
+      "examples": [
+        {
+          "en": "The old upload code was callback hell: six levels of nesting and error checks everywhere.",
+          "zh": "老的上传代码就是回调地狱：嵌套了六层，到处都是错误检查。"
+        },
+        {
+          "en": "We got out of callback hell by converting the module to async/await one function at a time.",
+          "zh": "我们一个函数一个函数地把这个模块改成 async/await，才摆脱了回调地狱。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么后来大家都从回调改用 Promise 和 async/await？",
+        "en": "Mostly to escape callback hell. Deeply nested callbacks are hard to read, and error handling gets duplicated at every level."
+      },
+      "note": "也叫 the pyramid of doom。"
+    },
+    {
+      "term": "error-first callback",
+      "kind": "chunk",
+      "zh": "错误优先的回调（Node 的回调约定）",
+      "examples": [
+        {
+          "en": "Older Node APIs take an error-first callback, where the first argument is the error or null.",
+          "zh": "老的 Node API 接收错误优先的回调，第一个参数是错误对象或者 null。"
+        },
+        {
+          "en": "util.promisify works on any function that follows the error-first callback convention.",
+          "zh": "只要函数遵循错误优先的回调约定，util.promisify 就能用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Node 传统的回调风格里，怎么知道异步操作失败了？",
+        "en": "By convention it's an error-first callback: you check the first argument, and if it isn't null, the operation failed."
+      },
+      "collocations": ["promisify a function", "a callback-style API"]
+    },
+    {
+      "term": "promise chain",
+      "kind": "chunk",
+      "zh": "Promise 链（一串 .then 连起来）",
+      "examples": [
+        {
+          "en": "A missing return in the middle of the promise chain meant the next step ran too early.",
+          "zh": "Promise 链中间漏了一个 return，导致下一步提前执行了。"
+        },
+        {
+          "en": "I put a single catch at the end of the promise chain to handle errors from any step.",
+          "zh": "我在 Promise 链的末尾放了一个 catch，统一处理任何一步的错误。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：我在 .then 里又发了个请求，为什么后面的 .then 没等它完成就执行了？",
+        "en": "You need to return that promise. Otherwise the promise chain doesn't wait for it and moves straight on."
+      }
+    },
+    {
+      "term": "await in a loop",
+      "kind": "chunk",
+      "zh": "在循环里 await（一个一个串行地等）",
+      "examples": [
+        {
+          "en": "We were awaiting in a loop, so the fifty requests ran one after another instead of concurrently.",
+          "zh": "我们之前是在循环里 await，所以五十个请求是一个接一个跑的，而不是并发。"
+        },
+        {
+          "en": "It's fine to await in a loop when the calls must happen in order, like paginated fetches.",
+          "zh": "如果这些调用必须按顺序进行，比如分页拉取，在循环里 await 是没问题的。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里用 for 循环逐个等待一百个互不依赖的请求，你想建议：",
+        "en": "Since these are independent, we shouldn't await in a loop. Promise.all with a concurrency limit would be much faster."
+      },
+      "note": "并发执行用 Promise.all；不想让一个失败拖垮全部，用 Promise.allSettled。"
+    },
+    {
+      "term": "unhandled rejection",
+      "kind": "chunk",
+      "zh": "未处理的 Promise 拒绝",
+      "examples": [
+        {
+          "en": "An unhandled rejection in a background job took down the whole process last night.",
+          "zh": "昨晚一个后台任务里未处理的 Promise 拒绝把整个进程搞挂了。"
+        },
+        {
+          "en": "We log every unhandled rejection with its stack trace and then let the process exit.",
+          "zh": "我们会把每个未处理的 Promise 拒绝连同堆栈一起记下来，然后让进程退出。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个 Promise 被 reject 了，但没人 catch，现在的 Node 会怎么样？",
+        "en": "Since Node 15, an unhandled rejection crashes the process by default, just like an error nobody caught."
+      },
+      "note": "Node 15 起默认行为从打印警告改成了抛错退出。对应的事件是 process.on('unhandledRejection')。"
+    },
+    {
+      "term": "readable stream",
+      "kind": "chunk",
+      "zh": "可读流",
+      "examples": [
+        {
+          "en": "We read the CSV as a readable stream and process it row by row.",
+          "zh": "我们把 CSV 当成可读流来读，一行一行地处理。"
+        },
+        {
+          "en": "The HTTP request object is a readable stream, so you can consume the body in chunks.",
+          "zh": "HTTP 请求对象本身就是一个可读流，所以你可以分块读取请求体。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：要把一个 5 GB 的文件返回给客户端，Node 里怎么做才不会把内存撑爆？",
+        "en": "Open it as a readable stream and pipe it to the response, so only a small chunk is in memory at a time."
+      },
+      "collocations": ["writable stream", "transform stream", "consume a stream"],
+      "note": "四种流：readable、writable、duplex、transform。"
+    },
+    {
+      "term": "pipe ... into ...",
+      "kind": "chunk",
+      "zh": "把（一个流）接到（另一个流）上（p 开头，句型）",
+      "examples": [
+        {
+          "en": "We pipe the file stream into gzip and then into the HTTP response.",
+          "zh": "我们把文件流接到 gzip 上，再接到 HTTP 响应上。"
+        },
+        {
+          "en": "I'd use pipeline instead of piping one stream into another by hand, because it cleans up on errors.",
+          "zh": "我会用 pipeline，而不是手动把一个流接到另一个流上，因为它在出错时会做清理。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：怎么一边读上传的文件，一边直接写到对象存储，中间不落盘？",
+        "en": "Just pipe the request stream into the upload stream, ideally with pipeline so errors are handled properly."
+      },
+      "note": "pipe() 不会转发错误，出错时也不会销毁其他流；推荐用 stream.pipeline()（或 stream/promises 里的版本）。"
+    },
+    {
+      "term": "respect backpressure",
+      "kind": "chunk",
+      "zh": "遵守背压（下游写不动时就先停下，别继续灌数据）",
+      "examples": [
+        {
+          "en": "Our importer didn't respect backpressure, so pending writes piled up in memory until the process crashed.",
+          "zh": "我们的导入程序没有遵守背压，待写的数据在内存里越堆越多，直到进程崩溃。"
+        },
+        {
+          "en": "pipeline respects backpressure for you: it pauses the source whenever the destination can't keep up.",
+          "zh": "pipeline 会替你遵守背压：目标流跟不上的时候，它就暂停源头。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：读得比写得快很多，数据往可写流里猛灌，会出什么问题？怎么办？",
+        "en": "The data buffers up in memory. You have to respect backpressure: stop writing when write() returns false, and resume on the drain event."
+      },
+      "collocations": ["wait for the drain event", "highWaterMark", "the internal buffer"]
+    },
+    {
+      "term": "buffer the whole file in memory",
+      "kind": "chunk",
+      "zh": "把整个文件缓冲进内存",
+      "examples": [
+        {
+          "en": "readFile buffers the whole file in memory, which is fine for configs but not for uploads.",
+          "zh": "readFile 会把整个文件缓冲进内存，读配置没问题，处理上传就不行了。"
+        },
+        {
+          "en": "Instead of buffering the whole file in memory, we stream it to S3 as it arrives.",
+          "zh": "我们不再把整个文件缓冲进内存，而是边收边流式传到 S3。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：这个导出接口一遇到大文件就内存暴涨，你觉得原因是什么？",
+        "en": "It probably buffers the whole file in memory before sending it. Streaming it would keep memory usage flat."
+      }
+    },
+    {
+      "term": "Buffer",
+      "kind": "word",
+      "zh": "Node 里表示一段原始二进制数据的对象（类名，B 开头）",
+      "examples": [
+        {
+          "en": "Without an encoding, readFile gives you a Buffer, not a string.",
+          "zh": "不指定编码的话，readFile 返回的是 Buffer，而不是字符串。"
+        },
+        {
+          "en": "A Buffer has a fixed size, and its memory lives outside the V8 heap.",
+          "zh": "Buffer 的大小是固定的，而且它的内存在 V8 堆之外。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Node 里处理图片、网络包这类二进制数据，用的是什么类型？",
+        "en": "A Buffer, which is a fixed-length sequence of raw bytes. It's a subclass of Uint8Array."
+      },
+      "collocations": ["Buffer.from", "Buffer.alloc", "convert a Buffer to a string"],
+      "note": "new Buffer() 已废弃，用 Buffer.from() / Buffer.alloc()。Buffer.allocUnsafe() 更快，但内存没有清零。"
+    },
+    {
+      "term": "worker thread",
+      "kind": "chunk",
+      "zh": "工作线程（Node 里跑 CPU 密集任务用的）",
+      "examples": [
+        {
+          "en": "We moved the image resizing to a worker thread so the main thread stays responsive.",
+          "zh": "我们把图片缩放挪到了工作线程里，这样主线程能保持响应。"
+        },
+        {
+          "en": "Each worker thread has its own V8 isolate and its own event loop.",
+          "zh": "每个工作线程都有自己的 V8 isolate 和自己的事件循环。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Node 服务里有一段很重的计算，不想卡住其他请求，怎么办？",
+        "en": "I'd run it in a worker thread, ideally from a small pool, so the event loop stays free for I/O."
+      },
+      "collocations": ["spin up a worker thread", "a worker pool", "the worker_threads module"],
+      "note": "工作线程适合 CPU 密集任务，对 I/O 没有帮助——I/O 本来就是异步的。"
+    },
+    {
+      "term": "pass messages between threads",
+      "kind": "chunk",
+      "zh": "在线程之间传递消息",
+      "examples": [
+        {
+          "en": "Worker threads don't share variables; they pass messages between threads with postMessage.",
+          "zh": "工作线程之间不共享变量，而是用 postMessage 在线程之间传递消息。"
+        },
+        {
+          "en": "Passing messages between threads copies the data, so we transfer large ArrayBuffers instead.",
+          "zh": "在线程之间传递消息会复制数据，所以大的 ArrayBuffer 我们改用转移（transfer）的方式。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：主线程和工作线程之间怎么交换数据？",
+        "en": "They pass messages between threads. The data is copied with structured clone, unless you transfer it or use a SharedArrayBuffer."
+      }
+    },
+    {
+      "term": "spawn a child process",
+      "kind": "chunk",
+      "zh": "启动一个子进程（s 开头的动词）",
+      "examples": [
+        {
+          "en": "We spawn a child process to run ffmpeg and stream its output back to the client.",
+          "zh": "我们启动一个子进程来跑 ffmpeg，再把它的输出流式返回给客户端。"
+        },
+        {
+          "en": "Spawning a child process per request was too slow, so we keep a few long-lived ones around.",
+          "zh": "每个请求都启动一个子进程太慢了，所以我们保留了几个常驻的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Node 里要调用一个外部命令行工具，怎么做？",
+        "en": "I'd spawn a child process with child_process.spawn and read its stdout as a stream."
+      },
+      "note": "spawn 以流的方式返回输出；exec 会把输出全部缓冲起来；fork 专门用来启动另一个 Node 进程，并带一条 IPC 通道。"
+    },
+    {
+      "term": "fork a worker per core",
+      "kind": "chunk",
+      "zh": "每个 CPU 核 fork 一个工作进程",
+      "examples": [
+        {
+          "en": "With the cluster module, the primary process forks a worker per core and they share one port.",
+          "zh": "用 cluster 模块时，主进程给每个核 fork 一个工作进程，它们共用一个端口。"
+        },
+        {
+          "en": "We used to fork a worker per core, but now Kubernetes just runs more single-process pods.",
+          "zh": "我们以前是每个核 fork 一个工作进程，现在直接让 Kubernetes 多跑几个单进程的 pod。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Node 是单线程的，一台八核的机器怎么不浪费？",
+        "en": "Use the cluster module to fork a worker per core. The primary process accepts connections and hands them out to the workers."
+      },
+      "note": "PM2 的 cluster mode 底层就是 cluster 模块。主进程现在叫 primary（旧称 master）。"
+    },
+    {
+      "term": "take advantage of multiple cores",
+      "kind": "chunk",
+      "zh": "利用多核（t 开头的固定搭配）",
+      "examples": [
+        {
+          "en": "A single Node process can't take advantage of multiple cores for JavaScript execution.",
+          "zh": "单个 Node 进程在执行 JavaScript 时没法利用多核。"
+        },
+        {
+          "en": "To take advantage of multiple cores, we run one instance per core behind the load balancer.",
+          "zh": "为了利用多核，我们在负载均衡后面每个核跑一个实例。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们的 Node 服务部署在多核机器上，是怎么把 CPU 用起来的？",
+        "en": "We take advantage of multiple cores by running several processes, and we keep them stateless so any one can serve any request."
+      }
+    }
+  ]
+}

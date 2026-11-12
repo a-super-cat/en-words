@@ -1,0 +1,495 @@
+{
+  "layer": "B",
+  "category": "writing",
+  "title": "书面沟通：消息、邮件与 PR 描述",
+  "entries": [
+    {
+      "term": "Hi all,",
+      "kind": "chunk",
+      "zh": "各位好，（群发邮件或消息的称呼，第二个词 a 开头）",
+      "examples": [
+        {
+          "en": "Hi all, the staging environment will be down for maintenance tonight.",
+          "zh": "各位好，预发环境今晚停机维护。"
+        }
+      ],
+      "situation": {
+        "zh": "你要在团队频道里通知所有人：明天的发版推迟到周四。先打个招呼再说事。",
+        "en": "Hi all, tomorrow's release is moving to Thursday."
+      },
+      "note": "群发消息最常见的称呼。也用 Hi team, 或 Hi everyone,。Dear all 偏正式、偏老派。"
+    },
+    {
+      "term": "Quick question: ...",
+      "kind": "sentence",
+      "zh": "问个小问题：……",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Quick question: is the staging database safe to reset?",
+          "zh": "问个小问题：预发环境的数据库可以重置吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你在 Slack 上想问同事一个一句话就能答的问题：CI 用的是 Node 哪个版本。",
+        "en": "Quick question: which Node version does CI use?"
+      },
+      "note": "告诉对方这个问题不会占他多少时间。如果问题其实很长，就别用这个开头。"
+    },
+    {
+      "term": "I'm reaching out because ...",
+      "kind": "sentence",
+      "zh": "我联系你是因为……（r 开头的短语动词）",
+      "examples": [
+        {
+          "en": "I'm reaching out because we're seeing errors from your team's API.",
+          "zh": "我联系你是因为我们这边看到你们团队的接口在报错。"
+        }
+      ],
+      "situation": {
+        "zh": "你第一次给平台组一位不认识的同事发消息，想请他们帮忙开通权限，先说明来意。",
+        "en": "Hi Maria, I'm reaching out because my team needs access to the metrics cluster."
+      },
+      "note": "给不熟的人或别的团队发消息时用，开门见山说明来意。熟人之间不需要。"
+    },
+    {
+      "term": "Thanks for getting back to me.",
+      "kind": "sentence",
+      "zh": "谢谢你的回复。（get 开头的短语动词）",
+      "examples": [
+        {
+          "en": "Thanks for getting back to me so quickly. That clears it up.",
+          "zh": "谢谢你这么快回复，这下清楚了。"
+        }
+      ],
+      "situation": {
+        "zh": "你昨天发邮件问供应商一个接口问题，对方今天答复了，你回信时先道谢。",
+        "en": "Thanks for getting back to me. I'll try the new endpoint today."
+      },
+      "note": "回复别人的答复时的标准开头。get back to someone 是“回复某人”。"
+    },
+    {
+      "term": "Sorry for the late reply.",
+      "kind": "sentence",
+      "zh": "抱歉回复晚了。",
+      "examples": [
+        {
+          "en": "Sorry for the late reply. I was out on Friday.",
+          "zh": "抱歉回复晚了，我周五不在。"
+        }
+      ],
+      "situation": {
+        "zh": "同事三天前在邮件里问你一个问题，你今天才看到，回复时先道歉。",
+        "en": "Sorry for the late reply. This got lost in my inbox."
+      },
+      "note": "也说 Sorry for the delay. 一句带过就好，不用反复道歉。"
+    },
+    {
+      "term": "The short version is ...",
+      "kind": "sentence",
+      "zh": "简单说就是……（先给结论）",
+      "examples": [
+        {
+          "en": "The short version is we need to upgrade Node before the end of the month.",
+          "zh": "简单说就是：我们得在月底前升级 Node。"
+        }
+      ],
+      "situation": {
+        "zh": "你写了一封很长的调查邮件，想在开头用一句话告诉大家结论：问题出在连接池配置。",
+        "en": "The short version is the connection pool was misconfigured. Details below."
+      },
+      "note": "长消息先给结论，读的人可以决定要不要往下看。作用和在开头写 TL;DR 一样。"
+    },
+    {
+      "term": "A bit of background: ...",
+      "kind": "sentence",
+      "zh": "先交代一点背景：……",
+      "examples": [
+        {
+          "en": "A bit of background: this service was written before we moved to Kubernetes.",
+          "zh": "先交代一点背景：这个服务是我们迁到 Kubernetes 之前写的。"
+        }
+      ],
+      "situation": {
+        "zh": "你在邮件里向新来的同事解释为什么系统里有两套鉴权逻辑，想先讲来由。",
+        "en": "A bit of background: we acquired another product in 2022 and kept its auth system."
+      },
+      "note": "书面里用冒号引出背景，适合放在请求或提问之前。"
+    },
+    {
+      "term": "As discussed, ...",
+      "kind": "sentence",
+      "zh": "按之前讨论的，……",
+      "register": "formal",
+      "examples": [
+        {
+          "en": "As discussed, I'll take the frontend and Sam will handle the API.",
+          "zh": "按之前讨论的，前端我来做，接口 Sam 负责。"
+        }
+      ],
+      "situation": {
+        "zh": "会后你发邮件确认会上定的事：迁移安排在下周二晚上。",
+        "en": "As discussed, we'll run the migration next Tuesday night."
+      },
+      "note": "用于书面确认口头达成的结论。类似的有 As mentioned（如前所述）、As promised（如约）。"
+    },
+    {
+      "term": "As you may know, ...",
+      "kind": "sentence",
+      "zh": "你可能已经知道，……",
+      "examples": [
+        {
+          "en": "As you may know, we're retiring the v1 API at the end of June.",
+          "zh": "你可能已经知道，v1 接口我们六月底要下线。"
+        }
+      ],
+      "situation": {
+        "zh": "你写邮件通知各团队：公司正在把 CI 迁到新平台，这事大家多少听说过。",
+        "en": "As you may know, we're moving our CI pipelines to the new platform."
+      },
+      "note": "用 may 给不知情的人留了面子。写成 As you know 的话，万一对方不知道会尴尬。"
+    },
+    {
+      "term": "In case you missed it, ...",
+      "kind": "sentence",
+      "zh": "万一你没看到，……",
+      "examples": [
+        {
+          "en": "In case you missed it, the deploy freeze starts tomorrow at noon.",
+          "zh": "万一你没看到，发布冻结明天中午开始。"
+        }
+      ],
+      "situation": {
+        "zh": "上周的通知很多人没注意，你想在频道里再提一次：周五要轮换 API 密钥。",
+        "en": "In case you missed it, we're rotating the API keys on Friday."
+      },
+      "note": "重复通知时用，不带责备。缩写是 ICYMI。"
+    },
+    {
+      "term": "Just following up on ...",
+      "kind": "sentence",
+      "zh": "我来跟进一下……（之前说过的事）",
+      "examples": [
+        {
+          "en": "Just following up on my email from last week about the license renewal.",
+          "zh": "我来跟进一下上周那封关于许可证续期的邮件。"
+        }
+      ],
+      "situation": {
+        "zh": "你周一请运维开通权限，到周四还没动静，想再发条消息问问。",
+        "en": "Just following up on my access request from Monday."
+      },
+      "note": "催进展的标准开头。just 把语气放轻，表示“只是问问”。"
+    },
+    {
+      "term": "Just checking in on ...",
+      "kind": "sentence",
+      "zh": "我来问一下……的进展（c 开头的短语动词）",
+      "examples": [
+        {
+          "en": "Just checking in on the API keys. Is there anything you need from me?",
+          "zh": "我来问一下 API 密钥的进展，有什么需要我配合的吗？"
+        }
+      ],
+      "situation": {
+        "zh": "合作团队答应这周给你测试账号，周四了你想问问情况，又不想显得在催。",
+        "en": "Just checking in on the test accounts. Any idea when they'll be ready?"
+      },
+      "note": "比 following up 更轻，像是顺便问问。"
+    },
+    {
+      "term": "Friendly reminder that ...",
+      "kind": "sentence",
+      "zh": "友情提醒：……",
+      "examples": [
+        {
+          "en": "Friendly reminder that timesheets are due by Friday.",
+          "zh": "友情提醒：工时表周五前要交。"
+        }
+      ],
+      "situation": {
+        "zh": "你负责组织技术分享，想在频道里提醒大家明天下午三点开始。",
+        "en": "Friendly reminder that the tech talk starts at 3 p.m. tomorrow."
+      },
+      "note": "适合面向一群人的提醒。对同一个人反复用，会显得话里有话。"
+    },
+    {
+      "term": "Any update on ...?",
+      "kind": "sentence",
+      "zh": "……有进展吗？",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Any update on the certificate renewal?",
+          "zh": "证书续期有进展吗？"
+        }
+      ],
+      "situation": {
+        "zh": "基础设施组上周说在查磁盘告警的原因，你想问问结果。",
+        "en": "Any update on the disk alerts from last week?"
+      },
+      "note": "很直接，适合熟悉的同事。对不熟的人或上级，换成 Do you have any updates on ...? 更稳妥。"
+    },
+    {
+      "term": "Bumping this in case it got buried.",
+      "kind": "sentence",
+      "zh": "顶一下，怕这条被刷下去了。",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Bumping this in case it got buried. We still need a decision by Friday.",
+          "zh": "顶一下，怕这条被刷下去了。周五前我们还是需要一个决定。"
+        }
+      ],
+      "situation": {
+        "zh": "你两天前在频道里问的问题被别的消息淹没了，没人回，你想让大家重新看到。",
+        "en": "Bumping this in case it got buried over the weekend."
+      },
+      "note": "bump 是把旧消息“顶上来”。把没人回归因于消息太多，给对方留了台阶。"
+    },
+    {
+      "term": "Just a heads-up: ...",
+      "kind": "sentence",
+      "zh": "提前跟你说一声：……（h 开头的复合词）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Just a heads-up: I'm going to restart the staging server in ten minutes.",
+          "zh": "提前跟你们说一声：我十分钟后要重启预发服务器。"
+        }
+      ],
+      "situation": {
+        "zh": "你打算今晚合并一个会改动公共组件的大 PR，想提前告诉前端组。",
+        "en": "Just a heads-up: I'm merging a big change to the shared components tonight."
+      },
+      "note": "提前告知可能影响到对方的事。别人这样告诉你时，回 Thanks for the heads-up."
+    },
+    {
+      "term": "Just FYI, ...",
+      "kind": "sentence",
+      "zh": "跟你说一下，……（用三字母缩写，仅供知悉）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Just FYI, the design review moved to Thursday.",
+          "zh": "跟你说一下，设计评审改到周四了。"
+        }
+      ],
+      "situation": {
+        "zh": "你注意到依赖库发了新的大版本，暂时不用升级，只是想让团队知道。",
+        "en": "Just FYI, version 5 of the ORM came out yesterday. No need to upgrade yet."
+      },
+      "note": "FYI 是 for your information，逐个字母念。和 heads-up 的区别：FYI 只是知会，不暗示对方要做准备。"
+    },
+    {
+      "term": "No action needed.",
+      "kind": "sentence",
+      "zh": "不需要你做什么。（通知类消息的固定说法）",
+      "examples": [
+        {
+          "en": "The outage has been resolved. No action needed on your side.",
+          "zh": "故障已经解决，你那边不需要做什么。"
+        }
+      ],
+      "situation": {
+        "zh": "你通知各团队数据库今晚会自动切换到新实例，对他们是透明的，不用配合。",
+        "en": "The switch to the new instance is automatic. No action needed."
+      },
+      "note": "写通知时说明对方要不要行动，是一种体贴。需要行动时写 Action required。"
+    },
+    {
+      "term": "I wanted to let you know that ...",
+      "kind": "sentence",
+      "zh": "想跟你说一声，……（let 开头的动词短语）",
+      "examples": [
+        {
+          "en": "I wanted to let you know that the fix went out this morning.",
+          "zh": "想跟你说一声，修复今天上午已经发出去了。"
+        }
+      ],
+      "situation": {
+        "zh": "你答应帮客服同事查的那个订单问题找到原因了，发消息告诉她。",
+        "en": "I wanted to let you know that we found the cause of the duplicate orders."
+      },
+      "note": "中性的通知开头，好消息坏消息都能用。wanted 用过去式只是为了委婉。"
+    },
+    {
+      "term": "for visibility",
+      "kind": "chunk",
+      "zh": "为了让相关的人都知道（v 开头的名词）",
+      "examples": [
+        {
+          "en": "I'm posting this here for visibility, since it affects all backend teams.",
+          "zh": "我把这个发在这里是为了让相关的人都知道，因为它影响所有后端团队。"
+        }
+      ],
+      "situation": {
+        "zh": "你和同事私聊定了接口改动方案，想把结论贴到团队频道里让大家都能看到。",
+        "en": "Sharing our decision here for visibility: we're going with cursor-based pagination."
+      },
+      "collocations": ["sharing for visibility", "posting here for visibility", "cc'ing ... for visibility"],
+      "note": "英文团队的常用说法：不需要你做什么，只是不想让信息只留在私聊里。"
+    },
+    {
+      "term": "Here's the link to ...",
+      "kind": "sentence",
+      "zh": "这是……的链接",
+      "examples": [
+        {
+          "en": "Here's the link to the design doc we talked about.",
+          "zh": "这是我们聊到的那份设计文档的链接。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问监控面板在哪儿看，你把地址发给他。",
+        "en": "Here's the link to the dashboard."
+      },
+      "note": "发完链接最好加一句说明要看哪部分。"
+    },
+    {
+      "term": "I've attached ...",
+      "kind": "sentence",
+      "zh": "我附上了……（文件、截图）",
+      "examples": [
+        {
+          "en": "I've attached a screenshot of the error and the full stack trace.",
+          "zh": "我附上了报错的截图和完整的堆栈信息。"
+        }
+      ],
+      "situation": {
+        "zh": "你给供应商发邮件报告问题，把日志文件一起发了过去。",
+        "en": "I've attached the logs from the failed request."
+      },
+      "note": "邮件里的固定说法。老式的 Please find attached 现在显得生硬。"
+    },
+    {
+      "term": "steps to reproduce",
+      "kind": "chunk",
+      "zh": "复现步骤",
+      "examples": [
+        {
+          "en": "I've added the steps to reproduce to the ticket.",
+          "zh": "我已经把复现步骤加到任务单里了。"
+        }
+      ],
+      "situation": {
+        "zh": "测试同事只说“页面有时候会白屏”，你想请她写清楚怎么操作能触发。",
+        "en": "Could you add the steps to reproduce? I can't trigger it on my machine."
+      },
+      "note": "bug 报告的固定小标题，口头常说 repro steps。"
+    },
+    {
+      "term": "I'm seeing ...",
+      "kind": "sentence",
+      "zh": "我这边出现了……（报告看到的异常现象）",
+      "examples": [
+        {
+          "en": "I'm seeing a 502 error when I call the orders endpoint on staging.",
+          "zh": "我在预发环境调订单接口时出现了 502。"
+        }
+      ],
+      "situation": {
+        "zh": "你发现从今天上午开始登录接口偶尔超时，想在频道里报告这个现象。",
+        "en": "I'm seeing intermittent timeouts on the login endpoint since this morning."
+      },
+      "note": "报告问题时用进行时，表示现象正在发生。别人常回：I'm not seeing that on my end."
+    },
+    {
+      "term": "More details in the thread.",
+      "kind": "sentence",
+      "zh": "详情见这条消息下面的回复。",
+      "examples": [
+        {
+          "en": "The deploy failed twice this morning. More details in the thread.",
+          "zh": "今天上午部署失败了两次，详情见这条消息下面的回复。"
+        }
+      ],
+      "situation": {
+        "zh": "你在频道里只发了一句结论，把排查过程和日志放在了这条消息的回复里。",
+        "en": "The cause was an expired token. More details in the thread."
+      },
+      "note": "Slack 的习惯：主消息只写结论，细节放在 thread（消息下的回复串）里，不刷屏。"
+    },
+    {
+      "term": "sign off on",
+      "kind": "chunk",
+      "zh": "正式批准、签字确认（s 开头的短语动词）",
+      "examples": [
+        {
+          "en": "We need security to sign off on the design before we start building.",
+          "zh": "开工之前，我们需要安全团队正式批准这个设计。"
+        }
+      ],
+      "situation": {
+        "zh": "你发邮件请产品负责人在周三前对最终的需求范围给出正式确认。",
+        "en": "Could you sign off on the final scope by Wednesday?"
+      },
+      "note": "指有权决定的人给出正式同意。名词是 sign-off：We need sign-off from legal."
+    },
+    {
+      "term": "I see two options: ...",
+      "kind": "sentence",
+      "zh": "我看有两个选择：……",
+      "examples": [
+        {
+          "en": "I see two options: patch the old library or migrate to the new one.",
+          "zh": "我看有两个选择：给旧库打补丁，或者迁到新库。"
+        }
+      ],
+      "situation": {
+        "zh": "你给经理写消息请他做决定，想先把两条路摆出来：加缓存，或者升级数据库配置。",
+        "en": "I see two options: add a cache layer, or upgrade the database instance."
+      },
+      "note": "请别人做决定时，把选项列清楚并附上各自的代价，比开放式地问“怎么办”有效得多。"
+    },
+    {
+      "term": "My recommendation is to ...",
+      "kind": "sentence",
+      "zh": "我的建议是……（r 开头的名词，书面给结论）",
+      "register": "formal",
+      "examples": [
+        {
+          "en": "My recommendation is to ship the patch now and do the migration next quarter.",
+          "zh": "我的建议是现在先发补丁，下个季度再做迁移。"
+        }
+      ],
+      "situation": {
+        "zh": "你列完了两个方案的利弊，最后要表态：你倾向先放 10% 的流量。",
+        "en": "My recommendation is to send 10% of traffic to the new version first."
+      },
+      "note": "比 I think we should 更正式，适合写在方案对比的结尾。"
+    },
+    {
+      "term": "Let me know which you prefer.",
+      "kind": "sentence",
+      "zh": "告诉我你更想要哪个。",
+      "examples": [
+        {
+          "en": "I can do Tuesday or Thursday. Let me know which you prefer.",
+          "zh": "周二周四我都行，告诉我你更想要哪个。"
+        }
+      ],
+      "situation": {
+        "zh": "你给设计师发了两版交互方案的截图，请她选一个。",
+        "en": "Both versions are in the screenshots. Let me know which you prefer."
+      },
+      "note": "给出选项后的收尾句。which 后面可以加名词：which option you prefer。"
+    },
+    {
+      "term": "Unless anyone objects, I'll ...",
+      "kind": "sentence",
+      "zh": "如果没人反对，我就……（U 开头的连词）",
+      "examples": [
+        {
+          "en": "Unless anyone objects, I'll merge this on Friday morning.",
+          "zh": "如果没人反对，我周五上午就合并。"
+        }
+      ],
+      "situation": {
+        "zh": "你在频道里提议删掉一个没人用的旧接口，等了一天没人回复，想说明你准备动手了。",
+        "en": "Unless anyone objects, I'll remove the old endpoint tomorrow."
+      },
+      "note": "异步沟通里推进事情的好办法：给出默认方案和期限，没人反对就算同意。"
+    }
+  ]
+}

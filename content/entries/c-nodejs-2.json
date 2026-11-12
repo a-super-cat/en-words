@@ -1,0 +1,501 @@
+{
+  "layer": "C",
+  "category": "nodejs",
+  "title": "Node.js",
+  "entries": [
+    {
+      "term": "middleware chain",
+      "kind": "chunk",
+      "zh": "中间件链",
+      "examples": [
+        {
+          "en": "Each request passes through the middleware chain: logging, auth, body parsing, and then the route.",
+          "zh": "每个请求都会依次经过中间件链：日志、鉴权、解析请求体，最后才到路由。"
+        },
+        {
+          "en": "Order matters in the middleware chain, so the auth check has to come before the handlers.",
+          "zh": "中间件链里顺序很重要，所以鉴权检查必须放在处理函数前面。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Express 收到一个请求之后，内部是怎么一步步处理的？",
+        "en": "The request goes through the middleware chain in the order the middleware was registered, until one of them sends a response."
+      }
+    },
+    {
+      "term": "pass control to the next middleware",
+      "kind": "chunk",
+      "zh": "把控制权交给下一个中间件",
+      "examples": [
+        {
+          "en": "Calling next() passes control to the next middleware; forget it and the request just hangs.",
+          "zh": "调用 next() 会把控制权交给下一个中间件；忘了调用，请求就会一直挂着。"
+        },
+        {
+          "en": "In Koa, await next() passes control to the next middleware and resumes when it's done.",
+          "zh": "在 Koa 里，await next() 把控制权交给下一个中间件，等它执行完再回来继续。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：我加了一个 Express 中间件之后，所有请求都卡住不返回了，为什么？",
+        "en": "You probably never call next(), so it doesn't pass control to the next middleware and no response is ever sent."
+      }
+    },
+    {
+      "term": "error-handling middleware",
+      "kind": "chunk",
+      "zh": "错误处理中间件",
+      "examples": [
+        {
+          "en": "All errors end up in one error-handling middleware that logs them and returns a clean JSON response.",
+          "zh": "所有错误最后都汇总到一个错误处理中间件里，由它记日志并返回干净的 JSON 响应。"
+        },
+        {
+          "en": "Express recognizes error-handling middleware by its four arguments: err, req, res and next.",
+          "zh": "Express 靠四个参数来识别错误处理中间件：err、req、res 和 next。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Express 里怎么避免在每个路由里都写一遍 try/catch 和错误响应？",
+        "en": "Register an error-handling middleware at the end. In Express 5, a rejected promise from an async handler is forwarded to it automatically."
+      },
+      "note": "Express 4 里 async 处理函数抛的错不会自动转发，要自己 catch 之后调 next(err)。"
+    },
+    {
+      "term": "route handler",
+      "kind": "chunk",
+      "zh": "路由处理函数",
+      "examples": [
+        {
+          "en": "We keep each route handler thin: it validates the input and calls a service function.",
+          "zh": "我们让每个路由处理函数都保持很薄：只做输入校验，然后调用服务层的函数。"
+        },
+        {
+          "en": "The route handler was doing database queries, caching and formatting all in one place.",
+          "zh": "那个路由处理函数把数据库查询、缓存和格式化全堆在了一起。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们的 Node 项目里，业务逻辑是直接写在路由回调里吗？",
+        "en": "No. A route handler only parses the request and shapes the response; the business logic lives in a service layer."
+      }
+    },
+    {
+      "term": "short-circuit the request",
+      "kind": "chunk",
+      "zh": "把请求短路（提前返回，不再往下传）",
+      "examples": [
+        {
+          "en": "The auth middleware short-circuits the request with a 401 if the token is missing.",
+          "zh": "如果没带 token，鉴权中间件会直接返回 401，把请求短路掉。"
+        },
+        {
+          "en": "On a cache hit we short-circuit the request and never touch the database.",
+          "zh": "缓存命中时我们直接把请求短路掉，根本不碰数据库。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：中间件发现请求不合法时，后面的中间件和路由还会执行吗？",
+        "en": "Not if it short-circuits the request: it sends the response itself and doesn't call next()."
+      },
+      "note": "circuit 读 /ˈsɜːrkɪt/，u 不发音。"
+    },
+    {
+      "term": "uncaught exception",
+      "kind": "chunk",
+      "zh": "未捕获的异常",
+      "examples": [
+        {
+          "en": "An uncaught exception leaves the process in an unknown state, so we log it and exit.",
+          "zh": "未捕获的异常会让进程处于未知状态，所以我们记完日志就退出。"
+        },
+        {
+          "en": "Don't use the uncaught exception handler to keep the server running; let the process manager restart it.",
+          "zh": "不要靠未捕获异常的处理器让服务继续跑，应该让进程管理器把它重启。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：能不能监听 process 上的全局异常事件，把错误吞掉，让服务永远不挂？",
+        "en": "You shouldn't. After an uncaught exception the state may be corrupted, so the safe thing is to log, exit and restart."
+      },
+      "note": "对应的事件是 process.on('uncaughtException')。官方建议只在里面做同步的清理和记录，然后退出。"
+    },
+    {
+      "term": "handle SIGTERM",
+      "kind": "chunk",
+      "zh": "处理 SIGTERM 信号",
+      "examples": [
+        {
+          "en": "The service didn't handle SIGTERM, so every deploy cut off requests that were still running.",
+          "zh": "这个服务没有处理 SIGTERM 信号，所以每次部署都会掐断还在执行的请求。"
+        },
+        {
+          "en": "We handle SIGTERM by closing the server, waiting for open requests, and then exiting.",
+          "zh": "我们处理 SIGTERM 的方式是：先关闭服务器，等手头的请求处理完，再退出。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Kubernetes 滚动发布时，怎么保证 Node 服务不丢正在处理的请求？",
+        "en": "We handle SIGTERM: stop taking new requests, let the current ones finish, close the connections, and then exit."
+      },
+      "note": "Kubernetes 先发 SIGTERM，宽限期（默认 30 秒）过了还没退出才发 SIGKILL；SIGKILL 无法被捕获。"
+    },
+    {
+      "term": "stop accepting new connections",
+      "kind": "chunk",
+      "zh": "不再接受新连接",
+      "examples": [
+        {
+          "en": "server.close() stops accepting new connections but lets the existing ones finish.",
+          "zh": "server.close() 会让服务器不再接受新连接，但会让已有的连接处理完。"
+        },
+        {
+          "en": "First we fail the readiness check, then we stop accepting new connections a few seconds later.",
+          "zh": "我们先让就绪检查失败，过几秒再停止接受新连接。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：收到退出信号后，你的服务第一步做什么？",
+        "en": "It stops accepting new connections by calling server.close(), so new traffic goes to the other instances."
+      },
+      "note": "空闲的 keep-alive 连接会拖住 server.close() 的回调；Node 19 起 close() 会顺带关掉空闲连接，也可以手动调 server.closeIdleConnections()。"
+    },
+    {
+      "term": "finish in-flight requests",
+      "kind": "chunk",
+      "zh": "把在途的请求处理完（已经收到、还没返回的请求）",
+      "examples": [
+        {
+          "en": "On shutdown we give the server ten seconds to finish in-flight requests before forcing an exit.",
+          "zh": "关闭时我们给服务器十秒钟把在途的请求处理完，然后才强制退出。"
+        },
+        {
+          "en": "The pod was killed before it could finish its in-flight requests, so clients saw 502s.",
+          "zh": "pod 还没来得及把在途的请求处理完就被杀掉了，所以客户端看到了 502。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：发布的时候偶尔有用户看到 502，你觉得可能是什么原因？",
+        "en": "The old instances probably exit before they finish in-flight requests. We need to drain them before shutting down."
+      },
+      "note": "in-flight 指“已经发出、还没完成”。相关说法：drain connections（排空连接）。"
+    },
+    {
+      "term": "exit with a non-zero code",
+      "kind": "chunk",
+      "zh": "以非零退出码退出",
+      "examples": [
+        {
+          "en": "If the config is invalid, the process exits with a non-zero code so the orchestrator knows it failed.",
+          "zh": "如果配置不合法，进程会以非零退出码退出，这样编排系统就知道它失败了。"
+        },
+        {
+          "en": "The script printed an error but didn't exit with a non-zero code, so CI stayed green.",
+          "zh": "脚本打印了错误，却没有以非零退出码退出，所以 CI 还是绿的。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：迁移脚本明明失败了，为什么部署流水线还继续往下跑？",
+        "en": "Because the script caught the error and carried on. It should exit with a non-zero code so the pipeline stops."
+      },
+      "note": "process.exit() 会立刻终止进程，可能丢掉还没写完的输出；更稳妥的做法是设置 process.exitCode，让进程自然退出。"
+    },
+    {
+      "term": "unbounded cache",
+      "kind": "chunk",
+      "zh": "没有上限的缓存（只进不出）",
+      "examples": [
+        {
+          "en": "The leak turned out to be an unbounded cache: a Map that we kept adding to.",
+          "zh": "最后发现泄漏的原因是一个没有上限的缓存：一个我们只往里加、从不删的 Map。"
+        },
+        {
+          "en": "We replaced the unbounded cache with an LRU cache capped at ten thousand entries.",
+          "zh": "我们把那个没有上限的缓存换成了上限一万条的 LRU 缓存。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Node 服务里的内存泄漏，你见过最常见的原因是什么？",
+        "en": "The most common one I've seen is an unbounded cache, usually a module-level Map or object that only ever grows."
+      },
+      "note": "cache 读 /kæʃ/，和 cash 同音。"
+    },
+    {
+      "term": "event listener leak",
+      "kind": "chunk",
+      "zh": "事件监听器泄漏",
+      "examples": [
+        {
+          "en": "We had an event listener leak: every reconnect added a new handler without removing the old one.",
+          "zh": "我们遇到过事件监听器泄漏：每次重连都新加一个处理函数，却没有移除旧的。"
+        },
+        {
+          "en": "Node's MaxListenersExceededWarning is often the first hint of an event listener leak.",
+          "zh": "Node 的 MaxListenersExceededWarning 往往是事件监听器泄漏的第一个线索。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：日志里出现“某个 emitter 上加了 11 个监听器”的警告，要紧吗？",
+        "en": "It's worth checking. It usually points to an event listener leak, where we add a listener on every request and never remove it."
+      },
+      "collocations": [
+        "remove the listener",
+        "register a listener",
+        "use once instead of on"
+      ]
+    },
+    {
+      "term": "retained by a closure",
+      "kind": "chunk",
+      "zh": "被闭包引用着（所以回收不掉）",
+      "examples": [
+        {
+          "en": "The whole request object was retained by a closure in a timer that never got cleared.",
+          "zh": "整个请求对象被一个定时器里的闭包引用着，而那个定时器一直没被清掉。"
+        },
+        {
+          "en": "In the snapshot, the big array was retained by a closure we had registered as a callback.",
+          "zh": "在快照里能看到，那个大数组被一个我们注册成回调的闭包引用着。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：堆快照里看到一个大对象一直没被回收，你怎么找出是谁在引用它？",
+        "en": "I look at its retainer chain in the snapshot. Often it's retained by a closure, such as a callback or a timer that was never cleaned up."
+      },
+      "note": "DevTools 的 Retainers 面板显示的就是“谁在引用它”。间隔一段时间抓两份堆快照做对比，可以看出哪类对象只增不减。"
+    },
+    {
+      "term": "resident set size",
+      "kind": "chunk",
+      "zh": "常驻内存大小（RSS 的全称）",
+      "examples": [
+        {
+          "en": "The heap looked flat, but the resident set size kept growing, which pointed to native memory.",
+          "zh": "堆看起来很平稳，但常驻内存大小一直在涨，这说明问题出在原生内存上。"
+        },
+        {
+          "en": "The container was killed because its resident set size exceeded the memory limit, not because the JavaScript heap was full.",
+          "zh": "容器被杀是因为常驻内存大小超过了内存上限，而不是因为 JavaScript 堆满了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：process.memoryUsage() 返回的几个数字里，哪个代表进程实际占用的物理内存？",
+        "en": "The resident set size, rss. It covers the heap, the code and the stacks, plus memory outside the heap such as Buffers."
+      },
+      "note": "缩写 RSS，逐字母读。heapUsed 稳定而 rss 一直涨，通常要查 Buffer、原生模块或内存碎片。"
+    },
+    {
+      "term": "native addon",
+      "kind": "chunk",
+      "zh": "原生扩展模块（用 C/C++ 写的 Node 模块，a 开头）",
+      "examples": [
+        {
+          "en": "bcrypt is a native addon, so it has to be compiled or downloaded for each platform.",
+          "zh": "bcrypt 是一个原生扩展模块，所以每个平台都要单独编译或者下载对应的二进制。"
+        },
+        {
+          "en": "After upgrading Node we had to rebuild the native addons, because their binaries no longer loaded.",
+          "zh": "升级 Node 之后我们不得不重新编译那些原生扩展模块，因为原来的二进制加载不了了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：npm install 的时候为什么会调用 node-gyp，还要求装 Python 和 C++ 编译器？",
+        "en": "One of the dependencies is a native addon with no prebuilt binary for your platform, so it's being compiled from source."
+      },
+      "collocations": [
+        "prebuilt binaries",
+        "compile from source",
+        "rebuild native modules"
+      ],
+      "note": "用 Node-API（旧称 N-API）写的原生模块 ABI 稳定，升级 Node 大版本一般不用重新编译。"
+    },
+    {
+      "term": "CommonJS module",
+      "kind": "chunk",
+      "zh": "CommonJS 模块（用 require 的那种）",
+      "examples": [
+        {
+          "en": "The package ships as a CommonJS module, so we load it with require.",
+          "zh": "这个包是以 CommonJS 模块的形式发布的，所以我们用 require 加载它。"
+        },
+        {
+          "en": "In a CommonJS module, require is synchronous and can be called anywhere, even inside a function.",
+          "zh": "在 CommonJS 模块里，require 是同步的，而且哪里都能调，函数里面也行。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Node 默认把 .js 文件当成哪种模块？",
+        "en": "By default, a .js file is treated as a CommonJS module, unless package.json sets the type field to module."
+      },
+      "note": "口语里常缩写成 CJS。新版本的 Node 在没有 type 字段时，还会根据文件里有没有 import/export 语法自动识别。"
+    },
+    {
+      "term": "ES module",
+      "kind": "chunk",
+      "zh": "ES 模块（用 import / export 的那种）",
+      "examples": [
+        {
+          "en": "We publish the library as an ES module so bundlers can tree-shake it.",
+          "zh": "我们把这个库以 ES 模块的形式发布，这样打包工具可以对它做 tree shaking。"
+        },
+        {
+          "en": "In an ES module there's no __dirname, so you use import.meta.dirname instead.",
+          "zh": "ES 模块里没有 __dirname，要用 import.meta.dirname 代替。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：在 Node 里怎么让一个 .js 文件可以直接写 import 和 export？",
+        "en": "Mark it as an ES module, either by setting the type field to module in package.json or by using the .mjs extension."
+      },
+      "note": "口语里常说 ESM，逐字母读。ES 模块的导入导出是静态的，可以在执行前分析；CommonJS 的 require 是运行时同步加载。"
+    },
+    {
+      "term": "module resolution",
+      "kind": "chunk",
+      "zh": "模块解析（根据导入路径找到实际文件的过程）",
+      "examples": [
+        {
+          "en": "Module resolution failed because the ES module import was missing the .js file extension.",
+          "zh": "模块解析失败了，因为那个 ES 模块的 import 没写 .js 扩展名。"
+        },
+        {
+          "en": "The exports field in package.json controls module resolution for anyone importing the package.",
+          "zh": "package.json 里的 exports 字段控制着别人导入这个包时的模块解析。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：同样一句 import，TypeScript 编译能过，Node 运行时却报找不到模块，为什么？",
+        "en": "The two use different module resolution rules. Node's ES module loader needs the full relative path, including the file extension."
+      }
+    },
+    {
+      "term": "top-level await",
+      "kind": "chunk",
+      "zh": "顶层 await（不在 async 函数里直接用）",
+      "examples": [
+        {
+          "en": "We use top-level await to load the config before the server starts listening.",
+          "zh": "我们用顶层 await 在服务器开始监听之前先把配置加载好。"
+        },
+        {
+          "en": "Top-level await only works in ES modules, not in CommonJS.",
+          "zh": "顶层 await 只能在 ES 模块里用，CommonJS 里不行。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：我在文件最外层直接写 await，为什么报语法错误？",
+        "en": "Top-level await is only allowed in ES modules. This file is CommonJS, so either convert it or wrap the code in an async function."
+      },
+      "note": "新版本的 Node 可以用 require() 加载 ES 模块，但用了顶层 await 的不行，会报 ERR_REQUIRE_ASYNC_MODULE。"
+    },
+    {
+      "term": "module cache",
+      "kind": "chunk",
+      "zh": "模块缓存（同一个模块只加载执行一次）",
+      "examples": [
+        {
+          "en": "Because of the module cache, requiring the same file twice gives you the same object.",
+          "zh": "因为有模块缓存，同一个文件 require 两次，拿到的是同一个对象。"
+        },
+        {
+          "en": "The tests leaked state through the module cache, so we reset the modules between test files.",
+          "zh": "测试通过模块缓存泄漏了状态，所以我们在测试文件之间重置了模块。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：两个文件都 require 了同一个配置模块，其中一个改了配置对象，另一个能看到吗？",
+        "en": "Yes. Thanks to the module cache, the module is only evaluated once, and both files share the same exported object."
+      },
+      "note": "所以模块顶层的变量事实上是进程内的单例。CommonJS 的缓存在 require.cache 里。"
+    },
+    {
+      "term": "lockfile",
+      "kind": "word",
+      "zh": "锁文件（记录每个依赖确切版本的文件）",
+      "examples": [
+        {
+          "en": "We commit the lockfile, so CI and production install exactly the same dependency tree.",
+          "zh": "我们把锁文件提交进仓库，这样 CI 和生产环境装出来的依赖树完全一样。"
+        },
+        {
+          "en": "Someone deleted the lockfile to fix a conflict, and half our dependencies jumped a minor version.",
+          "zh": "有人为了解决冲突把锁文件删了，结果我们一半的依赖都跳了一个次版本。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：package.json 里已经写了版本范围，为什么还需要 package-lock.json？",
+        "en": "The lockfile records the exact version of every package, including indirect ones, so installs are reproducible."
+      },
+      "collocations": [
+        "commit the lockfile",
+        "a reproducible install",
+        "regenerate the lockfile"
+      ],
+      "note": "也写成 lock file。CI 里用 npm ci：严格按锁文件安装，和 package.json 对不上就报错。"
+    },
+    {
+      "term": "caret range",
+      "kind": "chunk",
+      "zh": "^ 版本范围（允许升到同一主版本内的更高版本）",
+      "examples": [
+        {
+          "en": "With a caret range like ^1.2.3, npm can install any 1.x version from 1.2.3 up.",
+          "zh": "用 ^1.2.3 这样的 ^ 范围，npm 可以安装 1.2.3 及以上的任何 1.x 版本。"
+        },
+        {
+          "en": "npm adds a caret range by default when you install a package.",
+          "zh": "安装包的时候，npm 默认会加上 ^ 范围。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：package.json 里版本号前面的 ^ 和 ~ 有什么区别？",
+        "en": "A caret range allows minor and patch updates within the same major version, while a tilde range only allows patch updates."
+      },
+      "note": "caret 读 /ˈkærət/，就是 ^ 这个符号；~ 叫 tilde /ˈtɪldə/。注意 0.x 版本下 ^0.2.3 只允许补丁升级。"
+    },
+    {
+      "term": "peer dependency",
+      "kind": "chunk",
+      "zh": "对等依赖（要求宿主项目自己安装的依赖）",
+      "examples": [
+        {
+          "en": "The plugin lists React as a peer dependency, so it uses whatever version the app has installed.",
+          "zh": "这个插件把 React 列为对等依赖，所以它用的是应用自己装的那个版本。"
+        },
+        {
+          "en": "The install failed because two packages wanted different versions of the same peer dependency.",
+          "zh": "安装失败了，因为两个包要求同一个对等依赖的不同版本。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你写一个 Express 插件，应该把 Express 放在 dependencies 里吗？",
+        "en": "No, it should be a peer dependency, so the plugin shares the host app's copy instead of bundling its own."
+      },
+      "note": "npm 7 起会自动安装 peer dependencies，版本冲突时直接报错（ERESOLVE）。"
+    },
+    {
+      "term": "supply chain attack",
+      "kind": "chunk",
+      "zh": "供应链攻击",
+      "examples": [
+        {
+          "en": "After a supply chain attack on a popular package, we started reviewing every lockfile change.",
+          "zh": "在一个流行的包遭到供应链攻击之后，我们开始审查锁文件的每一处改动。"
+        },
+        {
+          "en": "Install scripts are a common vector for supply chain attacks, so we disable them in CI.",
+          "zh": "安装脚本是供应链攻击的常见入口，所以我们在 CI 里把它们禁用了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：项目有上千个 npm 间接依赖，你觉得最大的安全风险是什么？",
+        "en": "A supply chain attack: if any one of those packages is compromised, malicious code runs with our privileges."
+      },
+      "collocations": [
+        "a compromised package",
+        "run npm audit",
+        "ignore install scripts"
+      ]
+    }
+  ]
+}

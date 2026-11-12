@@ -1,0 +1,279 @@
+{
+  "category": "requirements",
+  "title": "需求澄清",
+  "scenarios": [
+    {
+      "id": "req-clarify-report-sharing",
+      "title": "和产品经理确认模糊的需求",
+      "setting": "产品经理 Sofia 在需求文档里只写了一句“用户可以把报表分享给别人”。你准备估工期时发现这句话有好几种理解，于是约她聊十五分钟。Sofia 思路快，说话也快，觉得这事很简单。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Sofia",
+          "en": "So, report sharing. It's pretty simple, really: users click share, and the other person sees the report. What do you think, a week?",
+          "zh": "来说报表分享。其实挺简单的：用户点一下分享，对方就能看到报表。你觉得呢，一个星期？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说给时间之前想先确认几件事。第一个问题：她说的“别人”具体指谁？是同一家公司的同事，还是也包括没有账号的人？",
+          "en": "Before I give you a number, I'd like to clarify a few things. When you say 'share with others', what do you mean by 'others'? Colleagues in the same company, or also people without an account?",
+          "chunks": [
+            { "term": "What do you mean by ...?", "zh": "你说的……是什么意思？" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sofia",
+          "en": "Oh. Um, both, ideally? Like, a manager wants to send it to their accountant, and the accountant's not gonna sign up.",
+          "zh": "哦。嗯，最好两种都行？比如经理想发给他们的会计，会计可不会专门去注册。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你确认一下理解：这就意味着要有一个不登录也能打开的公开链接。然后指出这带来一个安全问题：报表里有收入数据，谁拿到链接都能看。",
+          "en": "Just to confirm, that means a public link that opens without logging in. That raises a security question, because these reports contain revenue data, and anyone who gets the link could see it.",
+          "chunks": [
+            { "term": "Just to confirm, ...", "zh": "确认一下，……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sofia",
+          "en": "Hmm, yeah, legal would probably freak out. Can we just make the link expire or something?",
+          "zh": "嗯，也是，法务大概会抓狂。能不能让链接过期什么的？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说可以，会过期的链接加可选密码是常见做法。接着问第二件事：能不能假定会计看到的是分享那一刻的快照，而不是实时更新的报表？",
+          "en": "We can. An expiring link with an optional password is a common pattern. Next question: is it safe to assume that the accountant sees a snapshot from the moment of sharing, not a live report?",
+          "chunks": [
+            { "term": "Is it safe to assume that ...?", "zh": "可以假定……吗？" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sofia",
+          "en": "I hadn't thought about that at all. What's easier?",
+          "zh": "这个我完全没想过。哪种好做？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说快照简单得多，也更安全，因为分享的人清楚对方到底能看到什么。你建议先只做快照，看以后有没有人要实时的。",
+          "en": "A snapshot is much simpler, and safer too, because the sender knows exactly what the other person can see. It might be worth starting with snapshots only and seeing if anyone asks for live ones.",
+          "chunks": [
+            { "term": "It might be worth ...", "zh": "也许值得……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sofia",
+          "en": "Okay, snapshot, expiring link, optional password. See, I told you it was simple. So, a week?",
+          "zh": "好，快照、会过期的链接、可选密码。你看，我就说很简单吧。那，一个星期？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说没那么快：有公开链接，还要过安全评审，你粗略估计要两周。等你把细节写下来，再给她确切的数字。",
+          "en": "Not quite. With the public link and a security review, my ballpark figure is two weeks. I'll firm that up once I've written down the details.",
+          "chunks": [
+            { "term": "ballpark figure", "zh": "粗略的估计数字" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sofia",
+          "en": "Two weeks, ugh. Okay. Can you put all of this in the ticket so I don't forget what we agreed?",
+          "zh": "两周。唉，好吧。你能把这些都写进工单吗？免得我忘了我们定了什么。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你答应今天就写进工单。请她读一遍并确认，确保你们的理解一致，然后你再动手。",
+          "en": "Sure, I'll write it up in the ticket today. Could you read through it and confirm, so we're on the same page before I start?",
+          "chunks": [
+            { "term": "on the same page", "zh": "理解一致、达成共识" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "req-downgrade-edge-cases",
+      "title": "指出需求里的边界情况",
+      "setting": "需求评审会。产品经理 Liam 刚讲完“套餐降级”功能：用户可以随时从专业版降到基础版。你读文档时发现有几种情况没有覆盖。设计师 Ingrid 也在，Liam 希望这周就开工。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Liam",
+          "en": "...so that's the flow. User hits downgrade, confirms, done. I think it's pretty clear-cut, so any questions, or can we get started this week?",
+          "zh": "……流程就是这样。用户点降级，确认，完事。我觉得挺明确的，大家有问题吗？没有的话这周就开工？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说主流程很清楚，但想提几个边界情况。第一个：专业版能建二十个项目，基础版只能建三个，那有十五个项目的用户降级时会怎样？",
+          "en": "The main flow is clear, but I'd like to raise a few edge cases. Pro allows twenty projects and Basic only three, so what happens if a user with fifteen projects downgrades?",
+          "chunks": [
+            { "term": "edge case", "zh": "边界情况" },
+            { "term": "What happens if ...?", "zh": "如果……会怎么样？" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Liam",
+          "en": "Uh, good question. I guess we delete the extra ones... no, that's terrible. Ingrid, did we design anything for this?",
+          "zh": "呃，问得好。那就把多出来的删掉？不行，那太糟了。Ingrid，这种情况我们设计过吗？"
+        },
+        {
+          "speaker": "them",
+          "name": "Ingrid",
+          "en": "No, nothing. The mockups only show the happy path.",
+          "zh": "没有，完全没有。设计稿只画了一切顺利的流程。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你提出另一种做法：什么都不删，把多出来的项目设成只读，让用户自己选哪三个保持可编辑。这样谁都不会丢数据。",
+          "en": "Another option would be to keep everything but make the extra projects read-only, and let the user choose which three stay editable. That way nobody loses data.",
+          "chunks": [
+            { "term": "Another option would be to ...", "zh": "另一个办法是……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Liam",
+          "en": "I like that, read-only. Okay, noted. What else?",
+          "zh": "这个好。只读。行，记下了。还有呢？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你想澄清第二点，是关于计费的：用户月中降级，是马上退差价，还是让专业版保留到这个账单周期结束？",
+          "en": "Just to clarify, if someone downgrades in the middle of the month, do we refund the difference right away, or do they keep Pro until the end of the billing period?",
+          "chunks": [
+            { "term": "Just to clarify, ...", "zh": "澄清一下，……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Liam",
+          "en": "End of the period, for sure. Finance hates refunds. Honestly, I thought this was a two-day ticket.",
+          "zh": "肯定是到周期结束。财务最讨厌退款。说实话，我本来以为这是个两天就能做完的需求。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你表示理解，但说现在花一个小时很值得，因为真实用户一定会碰到这些情况。最后一个是团队人数上限：超出上限的成员怎么处理？",
+          "en": "I get that. But an hour on this now will really pay off, because real users will hit these cases. The last one is the seat limit: what do we do with team members over the limit?",
+          "chunks": [
+            { "term": "pay off", "zh": "得到回报、值得" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Liam",
+          "en": "Okay, I honestly don't know. Same read-only idea? Can a person be read-only?",
+          "zh": "这个我真不知道。也用只读的办法？人能设成只读吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说技术上可以，但这是产品上的决定，你不想当场替他拍板。建议他和 Ingrid 把这三种情况补进需求文档，你先做不受影响的部分。",
+          "en": "Technically yes, but that's a product decision, and I don't want to make it on the spot. Why don't we let you and Ingrid add these three cases to the spec, while I start on the parts that aren't affected?",
+          "chunks": [
+            { "term": "Why don't we ...?", "zh": "我们何不……？" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Liam",
+          "en": "Yeah, that's sensible. Ingrid, can we sit down tomorrow morning? And thanks, better now than in production.",
+          "zh": "嗯，这样合理。Ingrid，明天上午我们碰一下？还有，谢谢，现在发现总比上线后发现强。"
+        }
+      ]
+    },
+    {
+      "id": "req-negotiate-scope",
+      "title": "工期太紧，谈范围",
+      "setting": "产品经理 Rosa 来找你：销售已经答应一个大客户，三周后交付单点登录、审计日志和自定义角色三个功能。你估算全部做完至少要六周。Rosa 压力很大，你想帮她，但不能答应做不到的事。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Rosa",
+          "en": "Okay, I'll just say it. Sales promised the client SSO, audit logs and custom roles by the end of the month, which is three weeks away. Please tell me that's doable.",
+          "zh": "好吧，我直说了。销售答应客户月底前交付单点登录、审计日志和自定义角色，也就是三周后。拜托告诉我这做得到。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说知道期限很紧，但三周做完三个功能不现实，你老实估计至少要六周。所以想和她一起看看，月底前到底能交付什么。",
+          "en": "I know we're up against a tight deadline, but all three in three weeks isn't realistic. My honest estimate is at least six. So let's figure out what we can actually deliver by the end of the month.",
+          "chunks": [
+            { "term": "up against a tight deadline", "zh": "面临很紧的期限" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rosa",
+          "en": "Six? Can't we just add people? Borrow two engineers from the growth team?",
+          "zh": "六周？不能加人吗？从增长团队借两个工程师过来？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说要是有这么简单就好了。让新来的人熟悉权限这块代码就要一两周，而且得由你来带，你就没时间开发了。",
+          "en": "I wish it worked that way. It would take a week or two to get them up to speed on the permissions code, and I'd be the one doing that instead of building.",
+          "chunks": [
+            { "term": "get ... up to speed", "zh": "让……尽快了解情况、上手" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rosa",
+          "en": "Okay. So what do I tell sales? They've already said yes to the client.",
+          "zh": "好吧。那我怎么跟销售说？他们已经答应客户了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说需要把必须有的和有了更好的分开。然后问她：这三个功能里，哪一个才是客户签约的硬条件？",
+          "en": "I think we need to separate the must-haves from the nice-to-haves. Of the three, which one is the client's actual condition for signing?",
+          "chunks": [
+            { "term": "separate the must-haves from the nice-to-haves", "zh": "把必须有的和锦上添花的分开" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rosa",
+          "en": "SSO. Their security team won't approve us without it. Audit logs they asked about, and custom roles, I think that was more of a wish.",
+          "zh": "单点登录。没有它，他们的安全团队不会批。审计日志他们问起过，自定义角色嘛，我觉得更像是个愿望。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你提出方案：三周内交付单点登录，加一个基础版的审计日志，只记录登录和权限变更。自定义角色这期砍掉，挪到下一期。",
+          "en": "Then here's what I'd propose. In three weeks we ship SSO plus a basic audit log, covering logins and permission changes only. We cut scope on custom roles and move them to the next phase.",
+          "chunks": [
+            { "term": "cut scope", "zh": "砍范围、缩减需求" },
+            { "term": "audit log", "zh": "审计日志" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rosa",
+          "en": "Hmm, they'll push back on roles. Is there really no way to squeeze it in, even a rough version?",
+          "zh": "嗯。角色这块他们会有意见的。真的没办法塞进去吗？哪怕是个粗糙的版本？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说你不太愿意这么做：角色系统做得粗糙，以后迁移数据会很痛苦。而且单点登录你需要留几天缓冲，因为你们从没对接过客户的身份系统。",
+          "en": "I'm hesitant to do that. A rough roles system means a painful data migration later. And I need a few days of buffer for SSO, since we've never integrated with their identity provider before.",
+          "chunks": [
+            { "term": "I'm hesitant to ...", "zh": "我不太愿意……、对……有顾虑" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rosa",
+          "en": "Okay, that I can explain. Can you give me something in writing, like a date for phase one and a rough date for roles?",
+          "zh": "好。这样我能解释得过去。你能给我一份书面的东西吗？第一期的日期，还有角色功能的大概日期？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你答应今天下班前给她一页纸的说明，写清每期包含什么和对应日期。如果有帮助，你也愿意和销售通个电话，当面给他们讲一遍。",
+          "en": "Sure, you'll have a one-pager by end of day, with what's in each phase and the dates. And if it helps, I'm happy to hop on a call with sales and walk them through it.",
+          "chunks": [
+            { "term": "hop on a call", "zh": "通个电话、开个短会" }
+          ]
+        }
+      ]
+    }
+  ]
+}

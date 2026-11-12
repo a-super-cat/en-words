@@ -1,0 +1,560 @@
+{
+  "layer": "C",
+  "category": "engineering",
+  "title": "工程实践",
+  "entries": [
+    {
+      "term": "integration test",
+      "kind": "chunk",
+      "zh": "集成测试",
+      "examples": [
+        {
+          "en": "The unit tests all passed, but an integration test caught the mismatch between the two services.",
+          "zh": "单元测试全过了，但有一个集成测试发现了两个服务之间对不上的地方。"
+        },
+        {
+          "en": "Our integration tests run against a real database in a container, not an in-memory one.",
+          "zh": "我们的集成测试跑在容器里的真实数据库上，而不是内存数据库。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：单元测试都过了，你怎么确认各个模块合在一起也没问题？",
+        "en": "We have integration tests that exercise the service together with its real database and message queue."
+      },
+      "collocations": ["write an integration test", "run the integration tests", "integration testing"]
+    },
+    {
+      "term": "end-to-end test",
+      "kind": "chunk",
+      "zh": "端到端测试",
+      "examples": [
+        {
+          "en": "We keep only a handful of end-to-end tests because they're slow and expensive to maintain.",
+          "zh": "端到端测试我们只留了少数几个，因为它们又慢、维护成本又高。"
+        },
+        {
+          "en": "The end-to-end test logs in, places an order, and checks the confirmation email.",
+          "zh": "这个端到端测试会登录、下一个订单，然后检查确认邮件。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们怎么验证用户从登录到下单的整条流程是通的？",
+        "en": "We have an end-to-end test for each critical user journey, and it runs against staging before every release."
+      },
+      "note": "常缩写成 E2E test。作定语时三个词之间加连字符：end-to-end。",
+      "collocations": ["an E2E test", "run the end-to-end tests", "a critical user journey"]
+    },
+    {
+      "term": "regression test",
+      "kind": "chunk",
+      "zh": "回归测试",
+      "examples": [
+        {
+          "en": "Every time we fix a bug, we add a regression test so it can't come back unnoticed.",
+          "zh": "每修一个 bug，我们都会加一个回归测试，免得它悄悄又出现。"
+        }
+      ],
+      "situation": {
+        "zh": "同事修了一个线上 bug，但 PR 里只有代码改动。你想建议：",
+        "en": "Could we add a regression test for this? I'd like to be sure it stays fixed."
+      },
+      "note": "regression 本身指“原来好的功能被改坏了”：This change introduced a regression.",
+      "collocations": ["add a regression test", "introduce a regression", "catch a regression"]
+    },
+    {
+      "term": "flaky test",
+      "kind": "chunk",
+      "zh": "不稳定的测试（时过时不过）",
+      "examples": [
+        {
+          "en": "That flaky test fails about one run in ten, usually because of a timing issue.",
+          "zh": "那个不稳定的测试大概十次里挂一次，通常是时序问题导致的。"
+        },
+        {
+          "en": "We quarantine flaky tests so they don't block everyone else's merges.",
+          "zh": "我们会把不稳定的测试隔离出来，免得卡住其他人的合并。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：CI 红了，但失败的那个用例和你的改动完全无关，怎么回事？你想说：",
+        "en": "I think it's a flaky test. I reran the job and it passed without any changes."
+      },
+      "note": "flaky 读 /ˈfleɪki/。也可以直接说 The test is flaky. 处理方式常说 quarantine（隔离）。",
+      "collocations": ["fix a flaky test", "quarantine a flaky test", "rerun the job"]
+    },
+    {
+      "term": "test coverage",
+      "kind": "chunk",
+      "zh": "测试覆盖率",
+      "examples": [
+        {
+          "en": "Our test coverage is around eighty percent, but the number alone doesn't tell you much.",
+          "zh": "我们的测试覆盖率在 80% 左右，但光看这个数字说明不了太多。"
+        },
+        {
+          "en": "I'd rather improve test coverage on the billing module than chase a hundred percent everywhere.",
+          "zh": "我宁愿提高计费模块的测试覆盖率，也不想在所有地方都追求 100%。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们会要求覆盖率必须到 100% 吗？",
+        "en": "No. We care more about meaningful test coverage on critical paths than about hitting a specific number."
+      },
+      "note": "也说 code coverage。“被测试覆盖到”说 be covered by tests。",
+      "collocations": ["increase test coverage", "low test coverage", "code coverage"]
+    },
+    {
+      "term": "continuous integration",
+      "kind": "chunk",
+      "zh": "持续集成",
+      "examples": [
+        {
+          "en": "With continuous integration, every commit is built and tested automatically within a few minutes.",
+          "zh": "有了持续集成，每次提交都会在几分钟内自动构建并测试。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：十几个人同时改一个代码库，你们怎么尽早发现互相冲突的改动？",
+        "en": "We rely on continuous integration. Everyone merges small changes daily, and each merge triggers a full build and test run."
+      },
+      "note": "缩写 CI，逐个字母读。口头常说 CI is red / green（CI 挂了 / 过了）。",
+      "collocations": ["set up continuous integration", "CI is green", "run in CI"]
+    },
+    {
+      "term": "CI pipeline",
+      "kind": "chunk",
+      "zh": "CI 流水线",
+      "examples": [
+        {
+          "en": "Our CI pipeline runs linting, unit tests, and a build before anyone can merge.",
+          "zh": "我们的 CI 流水线会先跑静态检查、单元测试和构建，通过了才能合并。"
+        },
+        {
+          "en": "The pipeline takes forty minutes, so I'm looking at running the test stages in parallel.",
+          "zh": "流水线要跑四十分钟，所以我在研究把几个测试阶段并行起来。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：你的 PR 为什么还没合？",
+        "en": "The CI pipeline is still running. It usually takes about twenty minutes."
+      },
+      "note": "流水线里的每一步叫 stage 或 job。“流水线挂了”说 The pipeline failed.",
+      "collocations": ["the pipeline failed", "a pipeline stage", "speed up the pipeline"]
+    },
+    {
+      "term": "break the build",
+      "kind": "chunk",
+      "zh": "把构建搞挂（动词短语）",
+      "examples": [
+        {
+          "en": "I broke the build yesterday because I forgot to commit a new file.",
+          "zh": "我昨天把构建搞挂了，因为有个新文件忘了提交。"
+        },
+        {
+          "en": "If you break the build, fixing it takes priority over everything else.",
+          "zh": "如果你把构建搞挂了，修好它比其他任何事都优先。"
+        }
+      ],
+      "situation": {
+        "zh": "你刚合进去的改动导致主干编译不过，大家都被卡住了。你在群里说：",
+        "en": "Sorry, I broke the build. I'm reverting my change now and will fix it properly on a branch."
+      },
+      "note": "名词说法：a broken build、a build failure。",
+      "collocations": ["a broken build", "a build failure", "fix the build"]
+    },
+    {
+      "term": "build artifact",
+      "kind": "chunk",
+      "zh": "构建产物",
+      "examples": [
+        {
+          "en": "We build once and promote the same build artifact from staging to production.",
+          "zh": "我们只构建一次，然后把同一个构建产物从预发推到生产。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们怎么保证预发上测过的东西和最终上线的是同一份？",
+        "en": "We never rebuild for production. The pipeline publishes one build artifact, and every environment deploys that exact image."
+      },
+      "note": "artifact 读 /ˈɑːrtɪfækt/，英式拼写是 artefact。Docker 镜像、jar 包、打包后的前端文件都算 artifact。",
+      "collocations": ["publish an artifact", "an artifact repository", "promote an artifact"]
+    },
+    {
+      "term": "continuous delivery",
+      "kind": "chunk",
+      "zh": "持续交付（不是持续部署）",
+      "examples": [
+        {
+          "en": "We practice continuous delivery, so the main branch is always in a releasable state.",
+          "zh": "我们实行持续交付，所以主干始终处于可发布的状态。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个改动写完之后，你们多快能把它发到线上？",
+        "en": "With continuous delivery, any commit that passes the pipeline can go out the same day with one click."
+      },
+      "note": "continuous delivery 指随时可以发布，发不发由人决定；continuous deployment 是通过流水线后自动发到生产。两者都缩写成 CD。",
+      "collocations": ["practice continuous delivery", "continuous deployment", "a CI/CD pipeline"]
+    },
+    {
+      "term": "refactor",
+      "kind": "word",
+      "zh": "重构（动词）",
+      "examples": [
+        {
+          "en": "I refactored the payment module before adding the new feature, which made the change much smaller.",
+          "zh": "加新功能之前我先重构了支付模块，这样后面的改动小了很多。"
+        },
+        {
+          "en": "Let's not refactor and change behavior in the same PR.",
+          "zh": "别在同一个 PR 里既重构又改行为。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：接手一段很难改的老代码，你会怎么做？",
+        "en": "I'd add tests around it first, then refactor in small steps so I can verify nothing breaks."
+      },
+      "note": "重构指不改变外部行为、只改善内部结构。名词是 refactoring；口头也直接把 refactor 当名词用：a big refactor。",
+      "collocations": ["refactor a module", "a large refactoring", "refactor in small steps"]
+    },
+    {
+      "term": "pay down technical debt",
+      "kind": "chunk",
+      "zh": "偿还技术债（动词短语，p 开头）",
+      "examples": [
+        {
+          "en": "We set aside twenty percent of each sprint to pay down technical debt.",
+          "zh": "我们每个迭代留出 20% 的时间来偿还技术债。"
+        },
+        {
+          "en": "We took on some technical debt to hit the launch date, and we paid it down the following quarter.",
+          "zh": "为了赶上线日期我们欠了一些技术债，下一个季度把它还掉了。"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理问：为什么这个季度要排两周不做新功能？",
+        "en": "We need to pay down technical debt in the checkout code. Right now every change there takes twice as long as it should."
+      },
+      "note": "debt 的 b 不发音，读 /det/。口头常说 tech debt。“欠下技术债”是 take on / accumulate technical debt。",
+      "collocations": ["take on technical debt", "accumulate technical debt", "tech debt"]
+    },
+    {
+      "term": "readability",
+      "kind": "word",
+      "zh": "可读性",
+      "examples": [
+        {
+          "en": "I split the function into three smaller ones purely for readability.",
+          "zh": "我把这个函数拆成三个小函数，纯粹是为了可读性。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里问：这里为什么不用那个一行的写法？你想回复：",
+        "en": "I went with the longer version for readability. The one-liner is clever, but it takes a minute to figure out."
+      },
+      "note": "形容词 readable：This is much more readable. 重音在 -bil- 上：/ˌriːdəˈbɪləti/。",
+      "collocations": ["improve readability", "hurt readability", "readable code"]
+    },
+    {
+      "term": "maintainability",
+      "kind": "word",
+      "zh": "可维护性",
+      "examples": [
+        {
+          "en": "We chose the simpler design for maintainability, even though it's slightly slower.",
+          "zh": "为了可维护性，我们选了更简单的设计，尽管它稍微慢一点。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：性能更好的方案和更简单的方案，你一般怎么选？",
+        "en": "Unless performance is a real problem, I optimize for maintainability, because code is read far more often than it's written."
+      },
+      "note": "形容词 maintainable。注意名词 maintenance 的拼写和读音：/ˈmeɪntənəns/，重音在第一个音节。",
+      "collocations": ["optimize for maintainability", "maintainable code", "hard to maintain"]
+    },
+    {
+      "term": "code smell",
+      "kind": "chunk",
+      "zh": "代码坏味道",
+      "examples": [
+        {
+          "en": "A function with eight parameters is a code smell; it's probably doing too much.",
+          "zh": "一个函数有八个参数就是一种代码坏味道，它多半做的事情太多了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：这个类两千行了，但功能都正常，有必要动它吗？",
+        "en": "A class that size is a code smell. It's not a bug, but it usually means several responsibilities are tangled together."
+      },
+      "note": "code smell 不是 bug，而是提示设计可能有问题的信号。可数：a code smell。",
+      "collocations": ["a common code smell", "duplicated code", "a long parameter list"]
+    },
+    {
+      "term": "sprint",
+      "kind": "word",
+      "zh": "迭代（Scrum 里固定周期的那种，s 开头）",
+      "examples": [
+        {
+          "en": "We work in two-week sprints and demo what we've built at the end of each one.",
+          "zh": "我们按两周一个迭代来做，每个迭代结束时演示做出来的东西。"
+        },
+        {
+          "en": "That ticket won't fit in this sprint, so let's schedule it for the next one.",
+          "zh": "那个任务这个迭代塞不下了，排到下一个迭代吧。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们团队的开发节奏是怎样的？",
+        "en": "We run two-week sprints. Each sprint starts with planning and ends with a demo."
+      },
+      "note": "相关会议：sprint planning（计划会）、sprint review（评审会）。“这个迭代内”说 in this sprint。",
+      "collocations": ["a two-week sprint", "sprint planning", "the sprint goal"]
+    },
+    {
+      "term": "backlog",
+      "kind": "word",
+      "zh": "待办列表（Scrum 里按优先级排的需求池）",
+      "examples": [
+        {
+          "en": "The backlog had over three hundred tickets, so we closed everything older than a year.",
+          "zh": "待办列表里有三百多个任务，所以我们把一年以上的全关掉了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事提了个不错的优化建议，但这个迭代已经排满了。你想说：",
+        "en": "Good idea. Let's add it to the backlog and prioritize it at the next planning meeting."
+      },
+      "note": "backlog 也泛指“积压”：a backlog of support tickets。",
+      "collocations": ["add it to the backlog", "prioritize the backlog", "a backlog item"]
+    },
+    {
+      "term": "story point",
+      "kind": "chunk",
+      "zh": "故事点",
+      "examples": [
+        {
+          "en": "We estimated the login rework at five story points, but it turned out to be closer to thirteen.",
+          "zh": "登录改造我们估的是 5 个故事点，结果实际更接近 13 个。"
+        }
+      ],
+      "situation": {
+        "zh": "新同事问：你们估任务的时候，为什么不直接说要几天？",
+        "en": "We use story points because they measure relative effort and complexity, not hours, so they don't turn into deadlines."
+      },
+      "note": "story point 衡量相对工作量，不等于人天。团队每个迭代完成的点数叫 velocity（速率）。",
+      "collocations": ["estimate in story points", "a five-point story", "team velocity"]
+    },
+    {
+      "term": "estimate",
+      "kind": "word",
+      "zh": "估算（工作量；名词和动词同形）",
+      "examples": [
+        {
+          "en": "My estimate is two weeks, assuming the API contract doesn't change.",
+          "zh": "我的估算是两周，前提是接口约定不变。"
+        },
+        {
+          "en": "It's hard to estimate this until we've done a quick spike.",
+          "zh": "在做一次快速的技术预研之前，这个很难估。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问：这个需求大概要做多久？你还没细看，只能给个粗略的数。",
+        "en": "My rough estimate is three to four weeks, but I'd like a day to break it down before I commit."
+      },
+      "note": "名词读 /ˈestɪmət/，动词读 /ˈestɪmeɪt/。spike 指为了搞清楚不确定性而做的限时预研。",
+      "collocations": ["a rough estimate", "give an estimate", "estimate the effort"]
+    },
+    {
+      "term": "backlog refinement",
+      "kind": "chunk",
+      "zh": "需求梳理（Scrum 的例行活动，两个词）",
+      "examples": [
+        {
+          "en": "In backlog refinement, we break large stories down and make sure the acceptance criteria are clear.",
+          "zh": "在需求梳理会上，我们把大的故事拆小，并确认验收标准是清楚的。"
+        }
+      ],
+      "situation": {
+        "zh": "计划会开了三个小时，因为很多需求到会上才第一次讨论细节。你建议：",
+        "en": "Let's do backlog refinement a few days before planning, so the stories are already sized and understood."
+      },
+      "note": "以前叫 backlog grooming，现在多说 refinement。“验收标准”是 acceptance criteria。",
+      "collocations": ["a refinement session", "acceptance criteria", "break down a story"]
+    },
+    {
+      "term": "staging environment",
+      "kind": "chunk",
+      "zh": "预发环境",
+      "examples": [
+        {
+          "en": "We test every release in the staging environment before it goes to production.",
+          "zh": "每个版本上生产之前，我们都会先在预发环境里测一遍。"
+        },
+        {
+          "en": "The bug didn't show up in staging because the data there is much smaller.",
+          "zh": "这个 bug 在预发环境没暴露出来，因为那边的数据量小得多。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：新版本上线前，你们在哪里做最后的验证？",
+        "en": "In a staging environment that mirrors production as closely as possible, including the same infrastructure config."
+      },
+      "note": "口头常省略成 staging：It works in staging.",
+      "collocations": ["deploy to staging", "test in staging", "mirror production"]
+    },
+    {
+      "term": "deploy to production",
+      "kind": "chunk",
+      "zh": "部署到生产环境",
+      "examples": [
+        {
+          "en": "We deploy to production several times a day, and each deploy takes about ten minutes.",
+          "zh": "我们一天往生产环境部署好几次，每次大约十分钟。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个改动合并之后，到用户能用上，中间要经过什么？",
+        "en": "Once it's merged, the pipeline runs the tests and we deploy to production automatically, usually within the hour."
+      },
+      "note": "production 口头常说 prod。deploy 也作名词：the last deploy，和 deployment 通用。",
+      "collocations": ["deploy to prod", "in production", "a production deploy"]
+    },
+    {
+      "term": "release branch",
+      "kind": "chunk",
+      "zh": "发布分支",
+      "examples": [
+        {
+          "en": "We cut a release branch every other Friday and only allow bug fixes on it.",
+          "zh": "我们每隔一周的周五拉一个发布分支，上面只允许修 bug。"
+        }
+      ],
+      "situation": {
+        "zh": "新同事问：马上要发版了，我的新功能还能往哪里合？",
+        "en": "Merge it into main. The release branch was cut yesterday, so only fixes go in there now."
+      },
+      "note": "“拉分支”用 cut：cut a release branch。把修复挑到发布分支上叫 cherry-pick。",
+      "collocations": ["cut a release branch", "cherry-pick a fix", "a code freeze"]
+    },
+    {
+      "term": "trunk-based development",
+      "kind": "chunk",
+      "zh": "主干开发",
+      "examples": [
+        {
+          "en": "We moved to trunk-based development, so nobody keeps a branch open for more than a day or two.",
+          "zh": "我们改成了主干开发，所以没人会让一个分支开着超过一两天。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们怎么避免长期分支合并时的大量冲突？",
+        "en": "We do trunk-based development. Everyone merges small changes into main daily, and unfinished work stays behind a flag."
+      },
+      "note": "trunk 就是主干分支（main）。对立面是长期存在的功能分支：long-lived feature branches。",
+      "collocations": ["merge into main", "short-lived branches", "long-lived feature branches"]
+    },
+    {
+      "term": "semantic versioning",
+      "kind": "chunk",
+      "zh": "语义化版本",
+      "examples": [
+        {
+          "en": "The library follows semantic versioning, so a major version bump means breaking changes.",
+          "zh": "这个库遵循语义化版本，所以主版本号升了就意味着有不兼容的改动。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：这个依赖从 2.4 升到 3.0，直接升会不会有问题？",
+        "en": "Probably. They follow semantic versioning, so a new major version means there are breaking changes to check."
+      },
+      "note": "版本号是 MAJOR.MINOR.PATCH：不兼容改动升 major，加功能升 minor，修 bug 升 patch。常缩写成 semver。",
+      "collocations": ["follow semantic versioning", "a major version", "a breaking change"]
+    },
+    {
+      "term": "linter",
+      "kind": "word",
+      "zh": "静态检查工具（查代码风格和常见错误，l 开头）",
+      "examples": [
+        {
+          "en": "The linter flags unused variables, so those never make it into a pull request.",
+          "zh": "静态检查工具会标出没用到的变量，所以这类问题进不了 PR。"
+        }
+      ],
+      "situation": {
+        "zh": "同事总在评审里指出别人的缩进和命名问题，大家都嫌烦。你建议：",
+        "en": "Let's have the linter enforce those rules in CI, so reviews can focus on the actual logic."
+      },
+      "note": "动词是 lint：lint the code。报出来的问题叫 a lint error / warning。",
+      "collocations": ["run the linter", "a lint error", "a lint rule"]
+    },
+    {
+      "term": "coding standards",
+      "kind": "chunk",
+      "zh": "代码规范（两个词，第二个词 s 开头）",
+      "examples": [
+        {
+          "en": "We wrote down our coding standards so new hires don't have to guess what the team expects.",
+          "zh": "我们把代码规范写了下来，这样新人就不用猜团队的要求是什么。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：团队里每个人的写法都不一样，你怎么处理？",
+        "en": "I'd agree on coding standards as a team first, then automate as much of the enforcement as we can."
+      },
+      "note": "也说 coding conventions。偏格式和命名的那份文档叫 style guide。",
+      "collocations": ["follow the coding standards", "enforce coding standards", "a style guide"]
+    },
+    {
+      "term": "static analysis",
+      "kind": "chunk",
+      "zh": "静态分析",
+      "examples": [
+        {
+          "en": "Static analysis caught a possible null dereference that none of our tests had covered.",
+          "zh": "静态分析发现了一处可能的空指针解引用，我们的测试都没覆盖到。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：除了测试，你们还有什么手段在上线前发现 bug？",
+        "en": "We run static analysis on every pull request, which catches things like null dereferences and resource leaks."
+      },
+      "note": "static analysis 指不运行代码就做的检查，范围比 linter 大，也包括类型检查和安全扫描。",
+      "collocations": ["run static analysis", "a static analysis tool", "type checking"]
+    },
+    {
+      "term": "architecture decision record",
+      "kind": "chunk",
+      "zh": "架构决策记录",
+      "examples": [
+        {
+          "en": "We wrote an architecture decision record explaining why we chose Postgres over DynamoDB.",
+          "zh": "我们写了一份架构决策记录，说明为什么选了 Postgres 而不是 DynamoDB。"
+        }
+      ],
+      "situation": {
+        "zh": "新同事问：当初为什么选了这个消息队列？现在没人说得清了。你建议以后：",
+        "en": "For choices like this, let's write an architecture decision record, so the context and the alternatives are captured."
+      },
+      "note": "缩写 ADR，逐个字母读。一份 ADR 通常包括背景、决定、考虑过的备选方案和后果。",
+      "collocations": ["write an ADR", "record the decision", "the alternatives considered"]
+    },
+    {
+      "term": "keep the docs up to date",
+      "kind": "chunk",
+      "zh": "保持文档更新",
+      "examples": [
+        {
+          "en": "We keep the docs up to date by changing them in the same PR as the code.",
+          "zh": "我们把文档和代码放在同一个 PR 里改，这样文档就能保持更新。"
+        }
+      ],
+      "situation": {
+        "zh": "同事抱怨：按照文档搭环境，一半的步骤都是错的。你想说：",
+        "en": "Yeah, nobody owns it. We should keep the docs up to date by fixing them whenever we touch that code."
+      },
+      "note": "过时的文档说 outdated 或 out of date。docs 是 documentation 的口语说法；documentation 不可数，不能说 a documentation。",
+      "collocations": ["outdated docs", "update the README", "write documentation"]
+    }
+  ]
+}

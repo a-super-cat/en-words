@@ -1,0 +1,411 @@
+{
+  "layer": "B",
+  "category": "one-on-one",
+  "title": "1:1、反馈与职业发展",
+  "entries": [
+    {
+      "term": "What's on your mind?",
+      "kind": "sentence",
+      "zh": "你有什么想聊的？（1:1 开场常问，字面是“你心里在想什么”）",
+      "examples": [
+        {
+          "en": "Thanks for making time. So, what's on your mind this week?",
+          "zh": "谢谢你抽时间。那么，这周你有什么想聊的？"
+        }
+      ],
+      "situation": {
+        "zh": "你带的新人约了你 1:1，坐下来之后你想请他先说。",
+        "en": "Good to see you. What's on your mind?"
+      },
+      "note": "经理开场的常用问法，把议程交给对方。被问到时可以直接答：A couple of things. First, ..."
+    },
+    {
+      "term": "One thing I wanted to bring up is ...",
+      "kind": "sentence",
+      "zh": "有件事我想提一下，就是……（b 开头的短语动词）",
+      "examples": [
+        {
+          "en": "One thing I wanted to bring up is the on-call schedule. It's been rough lately.",
+          "zh": "有件事我想提一下，就是值班安排，最近挺难熬的。"
+        }
+      ],
+      "situation": {
+        "zh": "1:1 上你想跟经理提：最近需求变更太频繁，团队有点吃不消。",
+        "en": "One thing I wanted to bring up is how often the requirements have been changing."
+      },
+      "note": "用过去式 wanted 比 want 委婉，听起来不像在发难。bring up 是“提起（话题）”。"
+    },
+    {
+      "term": "I'd love to get your take on ...",
+      "kind": "sentence",
+      "zh": "我很想听听你对……的看法（“看法”用 t 开头的名词）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I'd love to get your take on the design doc before I share it more widely.",
+          "zh": "在把设计文档发给更多人之前，我很想听听你的看法。"
+        }
+      ],
+      "situation": {
+        "zh": "你在两个技术方案之间拿不定主意，想在 1:1 上听听经理的意见。",
+        "en": "I'm torn between the two approaches. I'd love to get your take on this."
+      },
+      "note": "take 在这里是名词，指“看法”，比 opinion 口语。I'd love to 比 I want to 客气。"
+    },
+    {
+      "term": "Is there anything you need from me?",
+      "kind": "sentence",
+      "zh": "有什么需要我这边做的吗？（问对方需要你提供什么）",
+      "examples": [
+        {
+          "en": "Is there anything you need from me before the release next week?",
+          "zh": "下周发版之前，有什么需要我这边做的吗？"
+        }
+      ],
+      "situation": {
+        "zh": "1:1 快结束了，你作为经理想问下属：有没有需要你出面帮忙的事。",
+        "en": "Before we wrap up, is there anything you need from me?"
+      },
+      "note": "经理收尾时常问，下属也可以反过来问经理。问的是“我能提供什么”，比 Can I help you? 具体。"
+    },
+    {
+      "term": "I'm struggling with ...",
+      "kind": "sentence",
+      "zh": "我在……上有点吃力（s 开头的动词）",
+      "examples": [
+        {
+          "en": "I'm struggling with the new codebase. There's almost no documentation.",
+          "zh": "新代码库我啃得有点吃力，几乎没有文档。"
+        }
+      ],
+      "situation": {
+        "zh": "1:1 上经理问你最近怎么样，你想坦白：跨团队协调这件事你做得很吃力。",
+        "en": "Honestly, I'm struggling with the cross-team coordination. Everyone has different priorities."
+      },
+      "note": "承认困难的得体说法，并不丢人。后面最好接具体原因或你需要的帮助，不要只抱怨。"
+    },
+    {
+      "term": "have a lot on my plate",
+      "kind": "chunk",
+      "zh": "手头事情很多（字面：盘子里装得很满）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I have a lot on my plate right now, so I can't take the migration this sprint.",
+          "zh": "我现在手头事情很多，这个迭代接不了迁移的活。"
+        }
+      ],
+      "situation": {
+        "zh": "经理想再给你加一个项目，你想委婉地说明你已经排得很满了。",
+        "en": "I'd like to help, but I have a lot on my plate at the moment."
+      },
+      "collocations": [
+        "have too much on my plate",
+        "have enough on my plate"
+      ],
+      "note": "把工作量比作盘子里的食物。委婉表示忙不过来，比 I'm too busy 得体。"
+    },
+    {
+      "term": "stretched thin",
+      "kind": "chunk",
+      "zh": "（人手或精力）摊得太薄、顾不过来",
+      "examples": [
+        {
+          "en": "The team is stretched thin with two launches in the same month.",
+          "zh": "同一个月有两个上线，团队已经顾不过来了。"
+        }
+      ],
+      "situation": {
+        "zh": "你同时支持三个项目，想告诉经理你精力太分散，哪个都做不好。",
+        "en": "I'm stretched pretty thin across three projects, and I can't do any of them well."
+      },
+      "collocations": [
+        "be stretched thin",
+        "be spread too thin"
+      ],
+      "note": "字面是“被拉得很薄”，像面团摊得太开。可以说人，也可以说团队。说的是资源不够，不是能力不行。"
+    },
+    {
+      "term": "If I take this on, what should I drop?",
+      "kind": "sentence",
+      "zh": "如果我接下这个，该放掉哪一件？",
+      "examples": [
+        {
+          "en": "I'm happy to help, but if I take this on, what should I drop?",
+          "zh": "我很乐意帮忙，不过如果我接下这个，该放掉哪一件？"
+        }
+      ],
+      "situation": {
+        "zh": "经理临时让你去支援另一个团队两周，但你手上还有一个月底要交付的功能。",
+        "en": "If I take this on, what should I drop? I can't do both by the end of the month."
+      },
+      "note": "不直接说 no，而是把取舍交还给经理，是向上管理的经典句子。take on 是“接下（任务）”，drop 是“放掉”。"
+    },
+    {
+      "term": "I could use some help with ...",
+      "kind": "sentence",
+      "zh": "我在……上需要点帮助（委婉说法，用 could）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I could use some help with the load testing. I've never set it up before.",
+          "zh": "压测这块我需要点帮助，我以前没搭过。"
+        }
+      ],
+      "situation": {
+        "zh": "你一个人维护发布流水线，想在 1:1 上跟经理要一个人来分担。",
+        "en": "I could use some help with the release pipeline. Could someone share the load?"
+      },
+      "note": "could use 的意思是“有的话会很好”，比 I need help 轻，不显得在告急。"
+    },
+    {
+      "term": "Can I give you some feedback?",
+      "kind": "sentence",
+      "zh": "我能给你提点反馈吗？（先征得同意）",
+      "examples": [
+        {
+          "en": "Can I give you some feedback on yesterday's presentation?",
+          "zh": "昨天的演示，我能给你提点反馈吗？"
+        }
+      ],
+      "situation": {
+        "zh": "同事刚做完技术分享，你有几点建议，想先问他愿不愿意听。",
+        "en": "Nice talk! Can I give you some feedback on the demo part?"
+      },
+      "note": "先问一句再说，对方有心理准备，更容易听进去。更正式的说法：Would you be open to some feedback?"
+    },
+    {
+      "term": "I really liked how you ...",
+      "kind": "sentence",
+      "zh": "我很欣赏你……的做法（具体肯定某个行为，l 开头的动词）",
+      "examples": [
+        {
+          "en": "I really liked how you walked us through the trade-offs before proposing a solution.",
+          "zh": "我很欣赏你先带我们过了一遍各种取舍，然后才提方案。"
+        }
+      ],
+      "situation": {
+        "zh": "同事主持事故复盘会，没有让大家互相指责。你想具体地肯定这一点。",
+        "en": "I really liked how you kept the discussion focused on the system, not on who made the mistake."
+      },
+      "note": "夸要夸到具体行为上，比笼统的 Good job 有分量得多。how 后面接对方做的那件事。"
+    },
+    {
+      "term": "I noticed that ...",
+      "kind": "sentence",
+      "zh": "我注意到……（只描述看到的事实，不下评判）",
+      "examples": [
+        {
+          "en": "I noticed that the last three PRs didn't include any tests.",
+          "zh": "我注意到最近三个 PR 都没带测试。"
+        }
+      ],
+      "situation": {
+        "zh": "同事这周好几次站会都迟到，你想私下提一下，但不想听起来像在指责。",
+        "en": "I noticed that you've joined standup late a few times this week. Is everything OK?"
+      },
+      "note": "反馈从可观察的事实说起，不说 You're always late 这种定性的话。语气中性，对方不容易抵触。"
+    },
+    {
+      "term": "come across as",
+      "kind": "chunk",
+      "zh": "给人的感觉是……、显得……（c 开头的短语动词）",
+      "examples": [
+        {
+          "en": "Your comment came across as dismissive, though I'm sure you didn't mean it that way.",
+          "zh": "你那条评论给人的感觉有点不屑，虽然我相信你不是那个意思。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在评审里写了一句“这也太明显了吧”，你想提醒他这句话读起来有点冲。",
+        "en": "That comment might come across as a bit harsh, especially to someone new."
+      },
+      "note": "说的是别人的感受，不是“你就是这样的人”，所以不针对人。常和 might、a bit 连用，进一步软化。"
+    },
+    {
+      "term": "One thing that would make it even stronger is ...",
+      "kind": "sentence",
+      "zh": "有一点能让它更上一层楼，就是……（先肯定再提建议）",
+      "examples": [
+        {
+          "en": "The doc is clear. One thing that would make it even stronger is a rollback plan.",
+          "zh": "文档写得很清楚。有一点能让它更上一层楼，就是加一个回滚方案。"
+        }
+      ],
+      "situation": {
+        "zh": "下属的设计评审讲得不错，但没有提监控。你想先肯定，再提这个建议。",
+        "en": "Great walkthrough. One thing that would make it even stronger is a section on monitoring."
+      },
+      "note": "even stronger 暗含“现在已经不错了”，建议听起来是加分项而不是批评。不要用 but 转折，否则前面的肯定就白说了。"
+    },
+    {
+      "term": "I appreciate the feedback.",
+      "kind": "sentence",
+      "zh": "谢谢你的反馈。（a 开头的动词，比 thanks 郑重）",
+      "examples": [
+        {
+          "en": "I appreciate the feedback. I hadn't realized the doc was that hard to follow.",
+          "zh": "谢谢你的反馈，我之前没意识到那份文档这么难读。"
+        }
+      ],
+      "situation": {
+        "zh": "经理指出你在会上打断别人的次数有点多。你想先表示感谢。",
+        "en": "I appreciate the feedback. I'll pay more attention to that."
+      },
+      "note": "听到批评时的第一句话，先谢再说别的。更口语的说法：Thanks for telling me."
+    },
+    {
+      "term": "What could I have done better?",
+      "kind": "sentence",
+      "zh": "我当时哪里可以做得更好？",
+      "examples": [
+        {
+          "en": "Looking back at the launch, what could I have done better?",
+          "zh": "回头看这次上线，我当时哪里可以做得更好？"
+        }
+      ],
+      "situation": {
+        "zh": "你主导的项目延期了两周。复盘时你想主动问经理你的问题出在哪。",
+        "en": "I know the project slipped. What could I have done better?"
+      },
+      "note": "主动要反馈，显得成熟。could have done 指过去“本可以”。想问以后怎么做，说 What should I do differently next time?"
+    },
+    {
+      "term": "That's fair.",
+      "kind": "sentence",
+      "zh": "你说得在理。（接受批评，两个词，f 开头的形容词）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "That's fair. I should have asked for help sooner.",
+          "zh": "你说得在理，我应该早点求助的。"
+        }
+      ],
+      "situation": {
+        "zh": "同事说你的 PR 描述太简略，评审的人看不懂背景。你觉得批评得对。",
+        "en": "That's fair. I'll add more context to the description."
+      },
+      "note": "承认对方的批评站得住脚，不辩解。和 Fair enough 的区别：Fair enough 是“行吧，我不争了”，That's fair 是真心认可。"
+    },
+    {
+      "term": "I'll work on that.",
+      "kind": "sentence",
+      "zh": "这点我会改进。（w 开头的短语动词）",
+      "examples": [
+        {
+          "en": "You're right that my estimates are too optimistic. I'll work on that.",
+          "zh": "你说得对，我的估时太乐观了，这点我会改进。"
+        }
+      ],
+      "situation": {
+        "zh": "经理反馈说你的周报太长，抓不住重点。你表示会改。",
+        "en": "Got it. I'll work on that and keep next week's update to three bullet points."
+      },
+      "note": "work on 指花功夫改进，是一个持续的承诺。最好接一个具体做法，否则听起来像敷衍。"
+    },
+    {
+      "term": "blind spot",
+      "kind": "chunk",
+      "zh": "盲区（自己意识不到的弱点）",
+      "examples": [
+        {
+          "en": "Documentation has always been a blind spot for me, so thanks for pointing it out.",
+          "zh": "写文档一直是我的盲区，谢谢你指出来。"
+        }
+      ],
+      "situation": {
+        "zh": "同事说你讲方案时总是默认别人都懂背景。你承认这是自己没意识到的问题。",
+        "en": "I think that's a blind spot of mine. I'll try to give more context up front."
+      },
+      "note": "原指开车时后视镜照不到的区域。承认自己有 blind spot 不丢人，反而显得有自知之明。"
+    },
+    {
+      "term": "I'd like to take on more ...",
+      "kind": "sentence",
+      "zh": "我想承担更多……（职责、挑战）",
+      "examples": [
+        {
+          "en": "I'd like to take on more responsibility for the system design side.",
+          "zh": "系统设计这块，我想承担更多职责。"
+        }
+      ],
+      "situation": {
+        "zh": "1:1 上经理问你接下来半年有什么想法，你希望多做一些带项目的工作。",
+        "en": "I'd like to take on more project leadership, maybe starting with the next migration."
+      },
+      "collocations": [
+        "take on more responsibility",
+        "take on a bigger scope"
+      ],
+      "note": "take on 是“承担”。I'd like to 表达意愿而不强求，后面接 responsibility、ownership、leadership 都很自然。"
+    },
+    {
+      "term": "I'm interested in moving into ...",
+      "kind": "sentence",
+      "zh": "我有兴趣转向……（某个方向或角色）",
+      "examples": [
+        {
+          "en": "I'm interested in moving into a tech lead role over the next year.",
+          "zh": "未来一年，我有兴趣转向技术负责人的角色。"
+        }
+      ],
+      "situation": {
+        "zh": "你做了几年前端，想跟经理说你希望逐步转到平台基础设施方向。",
+        "en": "I'm interested in moving into platform work. Are there any projects I could start with?"
+      },
+      "note": "move into 指转到新的领域或角色。interested in 比 I want to 留有余地，适合第一次提这个话题。"
+    },
+    {
+      "term": "individual contributor",
+      "kind": "chunk",
+      "zh": "不带人的技术岗（和管理岗相对，两个词，常缩写成 IC）",
+      "examples": [
+        {
+          "en": "I'd rather stay an individual contributor than move into management.",
+          "zh": "比起转管理，我更想继续走不带人的技术路线。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问你想不想带团队。你想说你更愿意留在技术路线上，往 Staff 工程师发展。",
+        "en": "I'd like to stay on the individual contributor track and work toward staff engineer."
+      },
+      "collocations": [
+        "IC track",
+        "senior individual contributor"
+      ],
+      "note": "指不管人、靠专业能力贡献的岗位。IC track 和 management track 是两条并行的晋升路线。"
+    },
+    {
+      "term": "grow into",
+      "kind": "chunk",
+      "zh": "逐步成长到能胜任（某个角色），g 开头的短语动词",
+      "examples": [
+        {
+          "en": "I think I can grow into the tech lead role with some coaching.",
+          "zh": "有人带一带的话，我觉得我能逐步胜任技术负责人这个角色。"
+        }
+      ],
+      "situation": {
+        "zh": "经理提议让你接手一个更大的模块，你觉得现在还差一点，但愿意边做边学。",
+        "en": "It's a stretch for me right now, but I'm confident I can grow into it."
+      },
+      "note": "原指孩子长大后衣服就合身了。暗示“现在还不完全够格，但会长到那个程度”，谦虚又有信心。"
+    },
+    {
+      "term": "stretch assignment",
+      "kind": "chunk",
+      "zh": "略超出现有能力、能逼人成长的任务",
+      "examples": [
+        {
+          "en": "Leading the migration was a stretch assignment for me, and I learned a lot from it.",
+          "zh": "带这次迁移对我来说是个够一够才够得着的任务，我从中学到了很多。"
+        }
+      ],
+      "situation": {
+        "zh": "你觉得手头的工作太熟了，想请经理给你一个有挑战、能让你成长的任务。",
+        "en": "I'm getting comfortable in my current work. Is there a stretch assignment I could take on?"
+      },
+      "note": "stretch 是“拉伸”，指要够一够才够得着。同类说法：stretch goal（有挑战的目标）、It's a stretch for me（对我有点难）。"
+    }
+  ]
+}

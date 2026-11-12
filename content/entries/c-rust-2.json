@@ -1,0 +1,477 @@
+{
+  "layer": "C",
+  "category": "rust",
+  "title": "Rust",
+  "entries": [
+    {
+      "term": "propagate the error",
+      "kind": "chunk",
+      "zh": "把错误向上传播（交给调用方处理）",
+      "examples": [
+        {
+          "en": "We don't handle it here; we just propagate the error up to the caller.",
+          "zh": "我们不在这里处理，只是把错误向上传播给调用方。"
+        },
+        {
+          "en": "The handler propagates the error with some context added, so the logs show where it came from.",
+          "zh": "处理函数在传播错误时会附带一些上下文，这样日志里能看出错误来自哪里。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：这个函数读文件失败的时候，应该就地处理还是交给上层？",
+        "en": "I'd propagate the error to the caller and let it decide, since only the caller knows whether to retry."
+      },
+      "collocations": [
+        "propagate errors up the call stack",
+        "add context to an error",
+        "bubble up"
+      ],
+      "note": "propagate 读 /ˈprɑːpəɡeɪt/。口语里也说 the error bubbles up。"
+    },
+    {
+      "term": "the question mark operator",
+      "kind": "chunk",
+      "zh": "问号运算符（写在表达式后面的 ?）",
+      "examples": [
+        {
+          "en": "The question mark operator returns early if the call fails, so the happy path stays readable.",
+          "zh": "调用失败时问号运算符会提前返回，所以正常路径的代码依然好读。"
+        },
+        {
+          "en": "With the question mark operator, error handling is still explicit but takes one character instead of five lines.",
+          "zh": "有了问号运算符，错误处理依然是显式的，但只占一个字符，而不是五行代码。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：每个调用都返回 Result，层层判断不会让代码很啰嗦吗？",
+        "en": "Not really, because the question mark operator either gives you the Ok value or returns the error to the caller."
+      },
+      "note": "也叫 the try operator。它会通过 From 把错误自动转换成函数返回的错误类型，对 Option 也能用。"
+    },
+    {
+      "term": "unwrap",
+      "kind": "word",
+      "zh": "直接取出里面的值，没有值就崩溃（Option 和 Result 上的方法，u 开头）",
+      "examples": [
+        {
+          "en": "Calling unwrap on user input is asking for a crash in production.",
+          "zh": "对用户输入调 unwrap，等于是在线上等着崩溃。"
+        },
+        {
+          "en": "We only unwrap in tests, where a panic is exactly what we want.",
+          "zh": "我们只在测试里 unwrap，在那里 panic 正是我们想要的。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里对一个可能为 None 的配置项直接取值，你想提醒他：",
+        "en": "This will panic if the key is missing. Could we handle the None case instead of calling unwrap?"
+      },
+      "note": "expect 和它一样，但可以带一条报错信息。生产代码里一般用 ?、match 或 unwrap_or 代替。"
+    },
+    {
+      "term": "panic",
+      "kind": "word",
+      "zh": "（Rust 程序遇到无法恢复的错误时）崩溃，p 开头",
+      "examples": [
+        {
+          "en": "Indexing past the end of a slice will panic instead of reading garbage memory.",
+          "zh": "对切片越界索引会 panic，而不是读到垃圾内存。"
+        },
+        {
+          "en": "A panic in one worker thread doesn't take down the whole process, but we still alert on it.",
+          "zh": "一个工作线程里的 panic 不会让整个进程挂掉，但我们还是会为它报警。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Rust 里什么时候该返回错误，什么时候该让程序直接崩？",
+        "en": "Return a Result for errors the caller can handle, and panic only for bugs, like a broken invariant."
+      },
+      "collocations": [
+        "panic at runtime",
+        "the thread panicked",
+        "catch a panic"
+      ],
+      "note": "既是动词也是名词。panic 用于不可恢复的错误（unrecoverable error），可恢复的错误用 Result。"
+    },
+    {
+      "term": "unwind the stack",
+      "kind": "chunk",
+      "zh": "栈展开（panic 时逐层退栈并清理）",
+      "examples": [
+        {
+          "en": "By default a panic unwinds the stack and runs the destructors on the way out.",
+          "zh": "默认情况下 panic 会展开栈，并在退出的路上执行析构函数。"
+        },
+        {
+          "en": "We set panic to abort in release builds, so the process doesn't unwind the stack at all.",
+          "zh": "我们在 release 构建里把 panic 设成了 abort，所以进程根本不会做栈展开。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：panic 发生的时候，已经打开的文件和连接会怎么样？",
+        "en": "By default Rust unwinds the stack, so each value is dropped and its resources are released on the way up."
+      },
+      "note": "名词是 stack unwinding。另一种策略是 abort：不清理，直接终止进程，二进制更小。持锁时 panic，标准库的 Mutex 会被标记为 poisoned。"
+    },
+    {
+      "term": "smart pointer",
+      "kind": "chunk",
+      "zh": "智能指针",
+      "examples": [
+        {
+          "en": "Box, Rc and Arc are the smart pointers you'll reach for most often.",
+          "zh": "Box、Rc 和 Arc 是你最常用到的几个智能指针。"
+        },
+        {
+          "en": "A smart pointer owns the data it points to and cleans it up when it's dropped.",
+          "zh": "智能指针拥有它指向的数据，并在自己被释放时把数据清理掉。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Box、Rc 这类类型和普通引用有什么区别？",
+        "en": "They're smart pointers: a reference only borrows the data, while a smart pointer owns it and frees it automatically."
+      }
+    },
+    {
+      "term": "put it in a Box",
+      "kind": "chunk",
+      "zh": "把它放进 Box 里（分配到堆上）",
+      "examples": [
+        {
+          "en": "The struct was huge, so we put it in a Box to avoid copying it around on the stack.",
+          "zh": "这个结构体很大，所以我们把它放进 Box 里，避免在栈上来回拷贝。"
+        },
+        {
+          "en": "The type refers to itself, so we had to put it in a Box to give it a known size.",
+          "zh": "这个类型引用了它自己，所以我们只能把它放进 Box 里，让它的大小可以确定。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：定义链表或树这种递归类型时，编译器报错说类型的大小无限，怎么解决？",
+        "en": "Take the recursive field and put it in a Box. A Box is just a pointer, so the type gets a known size."
+      },
+      "note": "Box<T> 是最简单的智能指针：堆上分配，单一所有者。也常作动词和形容词：box the value、a boxed future。"
+    },
+    {
+      "term": "interior mutability",
+      "kind": "chunk",
+      "zh": "内部可变性",
+      "examples": [
+        {
+          "en": "RefCell gives you interior mutability by moving the borrow checks from compile time to runtime.",
+          "zh": "RefCell 把借用检查从编译期挪到运行时，以此提供内部可变性。"
+        },
+        {
+          "en": "We needed interior mutability because the cache is updated through a shared reference.",
+          "zh": "我们需要内部可变性，因为缓存是通过共享引用来更新的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：手里只有不可变引用，却需要修改里面的数据，Rust 允许吗？",
+        "en": "Yes, through interior mutability. Types like RefCell and Mutex let you mutate through a shared reference and enforce the borrowing rules at runtime."
+      },
+      "note": "单线程用 Cell 和 RefCell，多线程用 Mutex、RwLock 和原子类型。RefCell 在运行时发现违反借用规则会 panic。"
+    },
+    {
+      "term": "fearless concurrency",
+      "kind": "chunk",
+      "zh": "无畏并发",
+      "examples": [
+        {
+          "en": "People call it fearless concurrency because the compiler rejects code that shares data unsafely between threads.",
+          "zh": "大家把它叫作无畏并发，因为编译器会拒绝在线程间不安全地共享数据的代码。"
+        },
+        {
+          "en": "Fearless concurrency made it much less scary to parallelize the import job.",
+          "zh": "有了无畏并发，把导入任务改成并行就没那么让人提心吊胆了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：大家常用哪个说法来形容用 Rust 写多线程代码的体验？为什么这么说？",
+        "en": "Fearless concurrency. The type system catches data races at compile time, so you can refactor threaded code without worrying."
+      }
+    },
+    {
+      "term": "data race",
+      "kind": "chunk",
+      "zh": "数据竞争（多个线程无同步地访问同一块内存，且至少有一个在写）",
+      "examples": [
+        {
+          "en": "Safe Rust makes data races impossible, because you can't share mutable data without synchronization.",
+          "zh": "安全的 Rust 让数据竞争不可能发生，因为不做同步就没法共享可变数据。"
+        },
+        {
+          "en": "The old C++ service had a data race on the config map that only showed up under load.",
+          "zh": "旧的 C++ 服务在配置 Map 上有一个数据竞争，只有在高负载下才会暴露。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Rust 能在编译期杜绝所有的并发 bug 吗？",
+        "en": "No. It rules out data races, but you can still write deadlocks and higher-level race conditions."
+      },
+      "note": "和 race condition 不是一回事：data race 特指无同步的并发读写。Rust 只保证没有 data race，不保证没有死锁。"
+    },
+    {
+      "term": "Send and Sync",
+      "kind": "chunk",
+      "zh": "标记类型能否跨线程转移、能否跨线程共享的两个 trait",
+      "examples": [
+        {
+          "en": "Send and Sync are marker traits that the compiler implements automatically for most types.",
+          "zh": "Send 和 Sync 是标记 trait，对大多数类型编译器都会自动实现。"
+        },
+        {
+          "en": "The build failed because the future held an Rc, which is neither Send nor Sync.",
+          "zh": "编译失败了，因为这个 future 里持有一个 Rc，而 Rc 既不是 Send 也不是 Sync。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：编译器怎么知道一个类型能不能安全地交给别的线程？",
+        "en": "Through the Send and Sync traits: Send means a value can be moved to another thread, and Sync means it can be shared by reference between threads."
+      },
+      "note": "T 是 Sync 等价于 &T 是 Send。Rc 两者都不是；Arc<T> 要求 T 同时是 Send 和 Sync。"
+    },
+    {
+      "term": "wrap it in a mutex",
+      "kind": "chunk",
+      "zh": "用互斥锁把它包起来",
+      "examples": [
+        {
+          "en": "We wrapped the counter in a mutex and shared it between the workers through an Arc.",
+          "zh": "我们用互斥锁把计数器包起来，再通过 Arc 在各个 worker 之间共享。"
+        },
+        {
+          "en": "If you wrap it in a mutex, the compiler won't let you touch the data without locking first.",
+          "zh": "如果你用互斥锁把它包起来，不先加锁编译器就不让你碰里面的数据。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：多个线程都要修改同一个 HashMap，在 Rust 里通常怎么做？",
+        "en": "Wrap it in a mutex and put that in an Arc, so each thread has to lock it before touching the map."
+      },
+      "note": "Rust 的 Mutex 把数据包在锁里面，而不是锁和数据分开放。lock() 返回一个 guard，guard 被释放时自动解锁。mutex 读 /ˈmjuːteks/。"
+    },
+    {
+      "term": "message passing",
+      "kind": "chunk",
+      "zh": "消息传递（线程之间不共享内存，靠发消息通信）",
+      "examples": [
+        {
+          "en": "We switched from shared state to message passing, with one thread owning the socket.",
+          "zh": "我们从共享状态改成了消息传递，由一个线程独占这个 socket。"
+        },
+        {
+          "en": "Message passing over channels fits Rust well, because sending a value moves it to the receiver.",
+          "zh": "基于 channel 的消息传递和 Rust 很搭，因为发送一个值就是把它移给接收方。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：除了加锁，线程之间还有什么办法协作？",
+        "en": "Message passing: the threads communicate over channels instead of sharing memory, so there's nothing to lock."
+      },
+      "collocations": [
+        "send it over a channel",
+        "a bounded channel",
+        "sender and receiver"
+      ]
+    },
+    {
+      "term": "async runtime",
+      "kind": "chunk",
+      "zh": "异步运行时",
+      "examples": [
+        {
+          "en": "Rust doesn't ship an async runtime in the standard library, so we use Tokio.",
+          "zh": "Rust 的标准库里不带异步运行时，所以我们用 Tokio。"
+        },
+        {
+          "en": "The async runtime schedules thousands of tasks on a handful of OS threads.",
+          "zh": "异步运行时把成千上万个任务调度到少数几个操作系统线程上。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：写了 async 函数之后，是谁在负责调度和执行它们？",
+        "en": "An async runtime like Tokio. The language only defines futures; the runtime provides the executor, timers and async I/O."
+      },
+      "collocations": [
+        "a multi-threaded runtime",
+        "a work-stealing scheduler",
+        "executor"
+      ]
+    },
+    {
+      "term": "poll a future",
+      "kind": "chunk",
+      "zh": "轮询一个 future（推动它往前执行）",
+      "examples": [
+        {
+          "en": "Futures are lazy in Rust: nothing runs until something polls the future.",
+          "zh": "Rust 里的 future 是惰性的：没有人去轮询它，就什么都不会执行。"
+        },
+        {
+          "en": "The executor polls a future again only after its waker has been called.",
+          "zh": "只有在 waker 被调用之后，执行器才会再次轮询这个 future。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：我调用了一个 async 函数，但里面的代码根本没执行，为什么？",
+        "en": "Calling it only creates the future. Nothing happens until you await it or the runtime polls the future."
+      },
+      "note": "future 表示一个还没完成的异步计算，类似 JavaScript 的 Promise，但 Rust 的是惰性的。"
+    },
+    {
+      "term": "spawn a task",
+      "kind": "chunk",
+      "zh": "启动一个（异步）任务，s 开头",
+      "examples": [
+        {
+          "en": "We spawn a task for each incoming connection instead of creating a thread.",
+          "zh": "每来一个连接我们就启动一个任务，而不是创建一个线程。"
+        },
+        {
+          "en": "With Tokio, if you spawn a task and drop the handle, it keeps running in the background.",
+          "zh": "用 Tokio 时，如果你启动一个任务后把句柄丢掉，它会继续在后台运行。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用 Tokio 写的服务器是怎么同时处理上万个连接的？",
+        "en": "It spawns a task per connection. Tasks are cheap, so the runtime can multiplex thousands of them over a few threads."
+      },
+      "note": "spawn 读 /spɔːn/。线程也用这个词：spawn a thread。"
+    },
+    {
+      "term": "block the executor",
+      "kind": "chunk",
+      "zh": "阻塞执行器（在异步任务里做阻塞操作的后果）",
+      "examples": [
+        {
+          "en": "A synchronous database call inside an async handler blocked the executor and stalled every other task.",
+          "zh": "在 async 处理函数里做了一次同步的数据库调用，把执行器阻塞了，其他任务全都卡住。"
+        },
+        {
+          "en": "CPU-heavy work goes to a separate thread pool so it doesn't block the executor.",
+          "zh": "CPU 密集的工作会放到单独的线程池里，免得阻塞执行器。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：在异步代码里直接调用一个很慢的同步函数，会有什么问题？",
+        "en": "It will block the executor: that thread can't poll any other task until the call returns, so latency spikes for everyone."
+      },
+      "note": "Tokio 里的解决办法是 spawn_blocking。也说 block the runtime。"
+    },
+    {
+      "term": "unsafe block",
+      "kind": "chunk",
+      "zh": "unsafe 代码块",
+      "examples": [
+        {
+          "en": "We keep every unsafe block small and document why it's sound.",
+          "zh": "我们让每个 unsafe 块都尽量小，并写明它为什么是可靠的。"
+        },
+        {
+          "en": "An unsafe block doesn't turn off the borrow checker; it only unlocks a few extra operations.",
+          "zh": "unsafe 块并不会关掉借用检查器，只是解锁了几种额外的操作。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Rust 里想解引用裸指针或者调用 C 函数，要怎么写？这样做意味着什么？",
+        "en": "You do it inside an unsafe block, which means you, not the compiler, are responsible for upholding the safety rules."
+      },
+      "collocations": [
+        "dereference a raw pointer",
+        "a safe wrapper around unsafe code",
+        "audit the unsafe code"
+      ],
+      "note": "讨论 unsafe 时常用 sound / unsound：sound 指不管调用方怎么用，都不会触发未定义行为。"
+    },
+    {
+      "term": "foreign function interface",
+      "kind": "chunk",
+      "zh": "外部函数接口（FFI 的全称）",
+      "examples": [
+        {
+          "en": "We call the C library through Rust's foreign function interface and wrap it in a safe API.",
+          "zh": "我们通过 Rust 的外部函数接口调用这个 C 库，并把它封装成安全的 API。"
+        },
+        {
+          "en": "Crossing the foreign function interface is unsafe, because the compiler can't check the C side.",
+          "zh": "跨越外部函数接口是不安全的，因为编译器检查不了 C 那一侧。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们的 Rust 服务是怎么复用现有的 C 库的？",
+        "en": "Through the foreign function interface. We generate the bindings with bindgen and expose a safe wrapper to the rest of the code."
+      },
+      "note": "缩写 FFI，逐个字母读，口头几乎都说缩写。相关词：bindings（绑定）、the C ABI。"
+    },
+    {
+      "term": "procedural macro",
+      "kind": "chunk",
+      "zh": "过程宏",
+      "examples": [
+        {
+          "en": "Serde's derive is a procedural macro that generates the serialization code at compile time.",
+          "zh": "Serde 的 derive 是一个过程宏，在编译期生成序列化代码。"
+        },
+        {
+          "en": "We wrote a procedural macro to get rid of the boilerplate in our request handlers.",
+          "zh": "我们写了一个过程宏，把请求处理函数里的样板代码消掉了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：在结构体上加一行 #[derive(Serialize)] 就能序列化，背后是怎么实现的？",
+        "en": "It's a procedural macro: it runs at compile time, takes the struct's tokens as input and generates the trait implementation."
+      },
+      "note": "常简称 proc macro。另一类是声明宏（declarative macro），用 macro_rules! 定义。过程宏很方便，但会拖慢编译。"
+    },
+    {
+      "term": "crate",
+      "kind": "word",
+      "zh": "Rust 的包（一个编译单元，也指第三方库），c 开头",
+      "examples": [
+        {
+          "en": "We split the project into several crates so that unrelated code doesn't get rebuilt.",
+          "zh": "我们把项目拆成了几个 crate，这样不相关的代码不会被重新编译。"
+        },
+        {
+          "en": "Before pulling in a new crate, I check how well it's maintained and how many dependencies it brings.",
+          "zh": "引入一个新的 crate 之前，我会看看它维护得怎么样、会带进来多少依赖。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Rust 的依赖管理是怎么做的？",
+        "en": "Cargo handles it. You list each crate you depend on in Cargo.toml, and Cargo downloads and builds them from crates.io."
+      },
+      "collocations": [
+        "pull in a crate",
+        "publish a crate",
+        "a Cargo workspace"
+      ],
+      "note": "crate 读 /kreɪt/。Cargo 是 Rust 的构建工具兼包管理器，crates.io 是官方仓库。"
+    },
+    {
+      "term": "compile times",
+      "kind": "chunk",
+      "zh": "编译耗时（编译要花多长时间，复数）",
+      "examples": [
+        {
+          "en": "Long compile times are the main complaint on our team, especially for release builds.",
+          "zh": "编译耗时太长是我们团队最主要的抱怨，尤其是 release 构建。"
+        },
+        {
+          "en": "We cut compile times by splitting the workspace into smaller crates and caching builds in CI.",
+          "zh": "我们把 workspace 拆成更小的 crate，并在 CI 里缓存构建产物，缩短了编译耗时。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：在生产环境用 Rust，你觉得最大的缺点是什么？",
+        "en": "Compile times. Heavy use of generics and macros makes builds slow, so we rely on incremental builds and cargo check."
+      },
+      "collocations": [
+        "slow compile times",
+        "incremental compilation",
+        "a clean build"
+      ]
+    }
+  ]
+}

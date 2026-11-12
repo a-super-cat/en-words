@@ -1,0 +1,534 @@
+{
+  "layer": "C",
+  "category": "software-types",
+  "title": "软件形态",
+  "entries": [
+    {
+      "term": "single-page application",
+      "kind": "chunk",
+      "zh": "单页应用",
+      "examples": [
+        {
+          "en": "We built the dashboard as a single-page application, so navigation feels instant after the first load.",
+          "zh": "我们把管理后台做成了单页应用，所以首次加载之后页面切换感觉是瞬间完成的。"
+        },
+        {
+          "en": "The downside of a single-page application is a heavier first load and extra work for SEO.",
+          "zh": "单页应用的缺点是首次加载更重，SEO 也要额外花功夫。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：这个后台系统为什么不做成传统的多页面网站？",
+        "en": "It's highly interactive, so a single-page application gave us a smoother experience without full page reloads."
+      },
+      "note": "缩写 SPA，逐个字母读。相对的是 multi-page application（MPA）。"
+    },
+    {
+      "term": "client-side routing",
+      "kind": "chunk",
+      "zh": "客户端路由（前端路由）",
+      "examples": [
+        {
+          "en": "With client-side routing, the URL changes but the browser never does a full page reload.",
+          "zh": "用了客户端路由，URL 会变，但浏览器不会整页刷新。"
+        },
+        {
+          "en": "Client-side routing broke on refresh until we made the server return index.html for every path.",
+          "zh": "客户端路由一刷新就挂，直到我们让服务器对所有路径都返回 index.html 才好。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：线上直接访问 /orders/42 是 404，从首页点进去却是好的，为什么？",
+        "en": "We use client-side routing, so the server doesn't know that path. It needs to fall back to index.html."
+      },
+      "collocations": [
+        "a full page reload",
+        "the History API",
+        "a deep link"
+      ]
+    },
+    {
+      "term": "progressive web app",
+      "kind": "chunk",
+      "zh": "渐进式 Web 应用",
+      "examples": [
+        {
+          "en": "We shipped it as a progressive web app so users can install it without going through an app store.",
+          "zh": "我们把它做成了渐进式 Web 应用，这样用户不经过应用商店也能安装。"
+        },
+        {
+          "en": "A progressive web app can work offline and send notifications, but on iOS it's still more limited than native.",
+          "zh": "渐进式 Web 应用可以离线使用、也能发通知，但在 iOS 上还是比原生应用受限。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：预算不够同时做 iOS 和 Android 客户端，但又想让用户把应用装到手机桌面，有什么方案？",
+        "en": "I'd build a progressive web app: one codebase, installable from the browser, and it can still work offline."
+      },
+      "note": "缩写 PWA。离线能力靠 service worker 实现。"
+    },
+    {
+      "term": "responsive design",
+      "kind": "chunk",
+      "zh": "响应式设计",
+      "examples": [
+        {
+          "en": "We went with responsive design instead of maintaining a separate mobile site.",
+          "zh": "我们选择了响应式设计，而不是单独维护一个移动版网站。"
+        },
+        {
+          "en": "Responsive design gets tricky with data tables, which don't fit on a phone screen.",
+          "zh": "响应式设计遇到数据表格就麻烦了，手机屏幕根本放不下。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：同一个页面要同时照顾手机、平板和桌面，你们是怎么做的？",
+        "en": "We use responsive design: one codebase, with the layout adapting to the screen size through media queries."
+      },
+      "collocations": [
+        "mobile-first",
+        "media query",
+        "breakpoint"
+      ]
+    },
+    {
+      "term": "cross-browser compatibility",
+      "kind": "chunk",
+      "zh": "跨浏览器兼容性",
+      "examples": [
+        {
+          "en": "Cross-browser compatibility is much less painful now, but Safari still catches us out sometimes.",
+          "zh": "跨浏览器兼容性现在没那么折磨人了，不过 Safari 偶尔还是会坑我们一下。"
+        },
+        {
+          "en": "We run the end-to-end tests on three engines to catch cross-browser compatibility issues early.",
+          "zh": "我们在三种浏览器引擎上跑端到端测试，尽早发现跨浏览器兼容性问题。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：和后端服务相比，Web 前端有什么特有的难点？",
+        "en": "You don't control the runtime, so cross-browser compatibility and a huge range of devices are things you always have to test for."
+      }
+    },
+    {
+      "term": "native app",
+      "kind": "chunk",
+      "zh": "原生应用",
+      "examples": [
+        {
+          "en": "We wrote a native app for iOS because we needed tight integration with the camera.",
+          "zh": "iOS 端我们写了原生应用，因为需要和相机深度集成。"
+        },
+        {
+          "en": "A native app feels smoother, but you end up maintaining two codebases.",
+          "zh": "原生应用体验更流畅，但你最后得维护两套代码。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：什么情况下你会坚持用 Swift 和 Kotlin 分别开发，而不是一套代码跑两端？",
+        "en": "When performance or deep platform integration really matters, I'd build a native app for each platform."
+      }
+    },
+    {
+      "term": "cross-platform framework",
+      "kind": "chunk",
+      "zh": "跨平台框架",
+      "examples": [
+        {
+          "en": "We picked a cross-platform framework so one team could ship to both iOS and Android.",
+          "zh": "我们选了一个跨平台框架，这样一个团队就能同时发布 iOS 和 Android 版本。"
+        },
+        {
+          "en": "With a cross-platform framework you share most of the code, but you still need native modules sometimes.",
+          "zh": "用跨平台框架可以共享大部分代码，但有时还是得写原生模块。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：团队只有三个前端，却要同时出 iOS 和 Android 版本，你会怎么选型？",
+        "en": "I'd use a cross-platform framework like React Native or Flutter, so we share one codebase across both platforms."
+      }
+    },
+    {
+      "term": "offline-first",
+      "kind": "chunk",
+      "zh": "离线优先",
+      "examples": [
+        {
+          "en": "The app is offline-first: it writes to a local database and syncs when the network comes back.",
+          "zh": "这个应用是离线优先的：先写本地数据库，等网络恢复再同步。"
+        },
+        {
+          "en": "Going offline-first forced us to think hard about conflict resolution.",
+          "zh": "做离线优先逼着我们认真考虑冲突解决的问题。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：现场巡检人员经常在没信号的地方用你们的应用，你们是怎么设计的？",
+        "en": "We made it offline-first, so every action is saved locally and synced in the background once there's a connection."
+      },
+      "collocations": [
+        "sync in the background",
+        "resolve sync conflicts",
+        "local-first"
+      ]
+    },
+    {
+      "term": "app store review",
+      "kind": "chunk",
+      "zh": "应用商店审核",
+      "examples": [
+        {
+          "en": "We can't hotfix the mobile app the way we do the backend, because every release goes through app store review.",
+          "zh": "移动端没法像后端那样随时热修复，因为每个版本都要过应用商店审核。"
+        },
+        {
+          "en": "The build got rejected in app store review because of how we described the subscription.",
+          "zh": "这个版本在应用商店审核时被拒了，原因是我们对订阅的描述方式有问题。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：移动端发版和 Web 发版最大的区别是什么？",
+        "en": "You can't ship instantly. Each release has to pass app store review, and users update on their own schedule, so old versions stick around."
+      },
+      "collocations": [
+        "submit a build",
+        "get rejected",
+        "a phased release"
+      ]
+    },
+    {
+      "term": "multi-tenant architecture",
+      "kind": "chunk",
+      "zh": "多租户架构",
+      "examples": [
+        {
+          "en": "We run a multi-tenant architecture where all customers share one database, separated by a tenant ID.",
+          "zh": "我们用的是多租户架构，所有客户共用一个数据库，靠租户 ID 区分。"
+        },
+        {
+          "en": "A multi-tenant architecture keeps costs down, but one bad query can hurt every customer.",
+          "zh": "多租户架构能把成本压下来，但一条烂查询就可能影响所有客户。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们的 SaaS 产品是每个客户部署一套，还是大家共用一套？",
+        "en": "We use a multi-tenant architecture: every customer runs on the same deployment, and we isolate their data at the application layer."
+      },
+      "collocations": [
+        "a single-tenant deployment",
+        "tenant ID",
+        "multi-tenancy"
+      ],
+      "note": "名词是 multi-tenancy。相对的是 single-tenant（每个客户独占一套）。"
+    },
+    {
+      "term": "tenant isolation",
+      "kind": "chunk",
+      "zh": "租户隔离",
+      "examples": [
+        {
+          "en": "Tenant isolation is enforced in the database with row-level security, not just in application code.",
+          "zh": "租户隔离是在数据库层用行级安全策略强制保证的，而不只是靠应用代码。"
+        },
+        {
+          "en": "A missing filter in one query broke tenant isolation and exposed another customer's invoices.",
+          "zh": "一条查询漏了过滤条件，破坏了租户隔离，把另一个客户的发票暴露了出来。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：所有客户的数据都在同一张表里，怎么保证 A 公司看不到 B 公司的数据？",
+        "en": "We enforce tenant isolation at the database level with row-level security, so even a buggy query can't cross tenants."
+      },
+      "collocations": [
+        "row-level security",
+        "a database per tenant",
+        "a schema per tenant"
+      ]
+    },
+    {
+      "term": "noisy neighbor",
+      "kind": "chunk",
+      "zh": "吵闹的邻居（一个租户占用过多资源，拖慢其他租户）",
+      "examples": [
+        {
+          "en": "One customer's huge export job became a noisy neighbor and slowed everyone else down.",
+          "zh": "一个客户的大型导出任务成了“吵闹的邻居”，把其他所有人都拖慢了。"
+        },
+        {
+          "en": "We added per-tenant limits to deal with the noisy neighbor problem.",
+          "zh": "我们加了按租户的限额，来解决“吵闹的邻居”问题。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：多租户系统里，一个大客户跑重任务，其他客户都变慢了，这类问题叫什么？你怎么处理？",
+        "en": "That's the noisy neighbor problem. We put per-tenant limits in place and moved the heaviest tenants to dedicated resources."
+      },
+      "note": "英式拼写是 neighbour。"
+    },
+    {
+      "term": "subscription billing",
+      "kind": "chunk",
+      "zh": "订阅计费",
+      "examples": [
+        {
+          "en": "Subscription billing got complicated once we allowed customers to change plans in the middle of a cycle.",
+          "zh": "自从允许客户在计费周期中途更换套餐，订阅计费就变复杂了。"
+        },
+        {
+          "en": "We use Stripe for subscription billing instead of building proration and invoicing ourselves.",
+          "zh": "订阅计费我们用 Stripe，而不是自己去实现按比例折算和开发票。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：做 SaaS 产品时，哪部分业务逻辑比你预想的复杂？",
+        "en": "Subscription billing. Upgrades, downgrades, proration and failed payments all have edge cases that are easy to get wrong."
+      },
+      "collocations": [
+        "billing cycle",
+        "proration",
+        "a failed payment",
+        "upgrade or downgrade a plan"
+      ]
+    },
+    {
+      "term": "white-label",
+      "kind": "chunk",
+      "zh": "白标的（换上客户自己的品牌对外提供）",
+      "examples": [
+        {
+          "en": "We offer a white-label version, so partners can put their own logo and domain on it.",
+          "zh": "我们提供白标版本，合作伙伴可以换上自己的 logo 和域名。"
+        },
+        {
+          "en": "Supporting white-label customers meant making every color, email template and URL configurable.",
+          "zh": "为了支持白标客户，所有颜色、邮件模板和 URL 都得做成可配置的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：有客户想把你们的产品换成他们自己的品牌再卖给下游，你们支持吗？",
+        "en": "Yes, we have a white-label offering: they get their own branding and custom domain on top of our platform."
+      },
+      "note": "也可以作动词：white-label the product。名词是 white-labeling。"
+    },
+    {
+      "term": "pricing tier",
+      "kind": "chunk",
+      "zh": "定价档位（套餐等级）",
+      "examples": [
+        {
+          "en": "Each pricing tier unlocks a different set of features, which we control with entitlements.",
+          "zh": "每个定价档位解锁不同的功能集，我们用权益配置来控制。"
+        },
+        {
+          "en": "Audit logs are only available on the highest pricing tier.",
+          "zh": "审计日志只有最高的定价档位才能用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：免费用户和企业用户能用的功能不一样，这在系统里是怎么实现的？",
+        "en": "Each customer is on a pricing tier, and we check the tier's entitlements before enabling a feature."
+      },
+      "collocations": [
+        "free tier",
+        "enterprise plan",
+        "upgrade to a higher tier"
+      ],
+      "note": "tier 读 /tɪr/。"
+    },
+    {
+      "term": "usage-based pricing",
+      "kind": "chunk",
+      "zh": "按用量计费（用多少付多少）",
+      "examples": [
+        {
+          "en": "We moved from per-seat plans to usage-based pricing, so we had to meter every API call accurately.",
+          "zh": "我们从按席位收费改成了按用量计费，所以必须准确计量每一次 API 调用。"
+        },
+        {
+          "en": "Usage-based pricing means the metering pipeline can never lose or double-count events.",
+          "zh": "按用量计费意味着计量管道绝不能丢事件，也不能重复计数。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们按 API 调用次数收费，技术上最难的地方是什么？",
+        "en": "With usage-based pricing, metering has to be exact, so we count events idempotently and reconcile them before invoicing."
+      },
+      "note": "也叫 pay-as-you-go。相对的是 per-seat pricing（按席位）和 flat-rate pricing（固定价）。"
+    },
+    {
+      "term": "provision a new tenant",
+      "kind": "chunk",
+      "zh": "开通一个新租户（为它准备好所需资源）",
+      "examples": [
+        {
+          "en": "It used to take a day to provision a new tenant; now it's fully automated and takes a minute.",
+          "zh": "以前开通一个新租户要花一天，现在完全自动化了，一分钟搞定。"
+        },
+        {
+          "en": "When we provision a new tenant, we create its schema, seed the default roles and send the invite.",
+          "zh": "开通新租户时，我们会建好它的 schema、写入默认角色，再发出邀请。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个新客户签约之后，到他们能登录使用，中间系统要做哪些事？",
+        "en": "We provision a new tenant automatically: create the workspace, set up the default configuration and invite the admin."
+      },
+      "note": "provision 读 /prəˈvɪʒn/。整个流程也叫 tenant onboarding。"
+    },
+    {
+      "term": "single sign-on",
+      "kind": "chunk",
+      "zh": "单点登录",
+      "examples": [
+        {
+          "en": "Enterprise customers expect single sign-on, so we integrated with their identity providers through SAML.",
+          "zh": "企业客户都要求单点登录，所以我们通过 SAML 对接了他们的身份提供商。"
+        },
+        {
+          "en": "With single sign-on, employees log in with their company account and IT can revoke access in one place.",
+          "zh": "有了单点登录，员工用公司账号登录，IT 也能在一个地方统一收回权限。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：大客户不想让员工在你们系统里再单独注册一套账号密码，怎么办？",
+        "en": "We support single sign-on, so their employees log in through the company's identity provider."
+      },
+      "note": "缩写 SSO。常见协议是 SAML 和 OpenID Connect。"
+    },
+    {
+      "term": "data residency",
+      "kind": "chunk",
+      "zh": "数据驻留（数据必须存放在指定国家或地区）",
+      "examples": [
+        {
+          "en": "Because of data residency requirements, European customers' data has to stay in our EU region.",
+          "zh": "由于数据驻留方面的要求，欧洲客户的数据必须留在我们的欧盟区域。"
+        },
+        {
+          "en": "Data residency is why we can't just run one global database for all tenants.",
+          "zh": "正是因为数据驻留，我们没法给所有租户只跑一个全球数据库。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：有德国客户要求他们的数据不能出欧盟，你们的架构怎么支持？",
+        "en": "We handle data residency by pinning each tenant to a region, so their data is stored and processed only there."
+      },
+      "note": "residency 读 /ˈrezɪdənsi/。相关词：compliance（合规）。"
+    },
+    {
+      "term": "persistent connection",
+      "kind": "chunk",
+      "zh": "长连接（p 开头）",
+      "examples": [
+        {
+          "en": "Each client keeps a persistent connection open, so the server can push updates at any time.",
+          "zh": "每个客户端都保持一条长连接，所以服务器随时可以推送更新。"
+        },
+        {
+          "en": "Holding a million persistent connections is mostly a memory problem, not a CPU problem.",
+          "zh": "维持一百万条长连接，主要是内存问题，而不是 CPU 问题。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：聊天系统和普通的请求-响应式 Web 服务，在架构上最大的不同是什么？",
+        "en": "Every client holds a persistent connection, so the servers are stateful and we have to track which server each user is on."
+      },
+      "note": "也说 long-lived connection。"
+    },
+    {
+      "term": "WebSocket connection",
+      "kind": "chunk",
+      "zh": "WebSocket 连接",
+      "examples": [
+        {
+          "en": "The client opens a WebSocket connection after login and receives price updates over it.",
+          "zh": "客户端登录后会建立一条 WebSocket 连接，并通过它接收价格更新。"
+        },
+        {
+          "en": "If the WebSocket connection drops, the client reconnects with backoff and asks for the messages it missed.",
+          "zh": "如果 WebSocket 连接断了，客户端会退避重连，并请求补发它错过的消息。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：服务端需要主动把数据推给浏览器，而且浏览器也要频繁发消息，用什么方案？",
+        "en": "I'd use a WebSocket connection, since it's bidirectional and stays open, and fall back to long polling if it's blocked."
+      },
+      "collocations": [
+        "bidirectional communication",
+        "long polling",
+        "server-sent events",
+        "reconnect with backoff"
+      ],
+      "note": "只需要服务端单向推送时，可以用更简单的 server-sent events（SSE）。"
+    },
+    {
+      "term": "low latency",
+      "kind": "chunk",
+      "zh": "低延迟",
+      "examples": [
+        {
+          "en": "The trading screen needs low latency, so we push updates instead of polling.",
+          "zh": "交易界面需要低延迟，所以我们用推送而不是轮询。"
+        },
+        {
+          "en": "To get low latency for players worldwide, we run game servers in every major region.",
+          "zh": "为了让全球玩家都有低延迟，我们在每个主要区域都部署了游戏服务器。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：多人协同编辑这种产品，对系统最核心的要求是什么？",
+        "en": "Low latency. Users expect to see each other's changes within a few hundred milliseconds, or the product feels broken."
+      },
+      "note": "作定语时加连字符：a low-latency connection。latency 读 /ˈleɪtənsi/。"
+    },
+    {
+      "term": "presence",
+      "kind": "word",
+      "zh": "在线状态（谁在线、谁正在输入），p 开头",
+      "examples": [
+        {
+          "en": "Presence is harder than it looks, because a dropped connection doesn't always mean the user left.",
+          "zh": "在线状态比看上去难做，因为连接断了并不一定代表用户离开了。"
+        },
+        {
+          "en": "We store presence in Redis with a short expiry and refresh it on every heartbeat.",
+          "zh": "我们把在线状态存在 Redis 里，设置很短的过期时间，每次心跳时刷新。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：聊天应用里好友头像旁边的小绿点，后端是怎么实现的？",
+        "en": "That's presence. Each client sends heartbeats, and we mark the user offline when the heartbeats stop for a while."
+      },
+      "collocations": [
+        "presence indicator",
+        "typing indicator",
+        "show who's online"
+      ]
+    },
+    {
+      "term": "heartbeat",
+      "kind": "word",
+      "zh": "心跳（定期发送、用来确认连接还活着的消息）",
+      "examples": [
+        {
+          "en": "The client sends a heartbeat every thirty seconds so the server knows the connection is still alive.",
+          "zh": "客户端每三十秒发一次心跳，让服务器知道连接还活着。"
+        },
+        {
+          "en": "If we miss three heartbeats in a row, we close the connection and clean up the session.",
+          "zh": "如果连续三次没收到心跳，我们就关闭连接并清理会话。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户手机突然没信号了，连接并没有正常关闭，服务器怎么发现？",
+        "en": "Through heartbeats. If the server doesn't receive a heartbeat within the timeout, it treats the connection as dead."
+      },
+      "collocations": [
+        "send a heartbeat",
+        "miss a heartbeat",
+        "heartbeat interval"
+      ],
+      "note": "WebSocket 协议里对应的是 ping/pong 帧。"
+    }
+  ]
+}

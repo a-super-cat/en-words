@@ -1,0 +1,207 @@
+{
+  "category": "onboarding",
+  "title": "入职",
+  "scenarios": [
+    {
+      "id": "first-day-team-intro",
+      "title": "入职第一天向团队介绍自己",
+      "setting": "入职第一天上午的团队周会，视频会议。经理 Elena 请你做个自我介绍，在场的还有后端的 Kwame 和设计师 Sophie。你要简短地讲背景和接下来要做的事，并自然地接住同事的提问和玩笑。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Elena",
+          "en": "Before we dive into the agenda — we've got a new face today! I've been bragging about you all week, so no pressure. Want to say a quick hello and tell us a bit about yourself?",
+          "zh": "在进入议程之前——今天我们有位新面孔！我已经夸了你一个星期了，所以别有压力。跟大家打个招呼，简单介绍一下自己？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你跟大家打招呼，说很高兴加入。简单介绍自己：你是有八年经验的全栈工程师，最近一份工作是在一家金融科技公司做支付平台。",
+          "en": "Hi everyone, great to be here. I'm a full-stack engineer with eight years of experience. Most recently, I worked on the payments platform at a fintech company.",
+          "chunks": [
+            { "term": "I'm a full-stack engineer with ... years of experience.", "zh": "我是一名有……年经验的全栈工程师。" },
+            { "term": "most recently", "zh": "最近（的一段经历）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Elena",
+          "en": "And you'll be joining the checkout squad, right? Tell them what you'll be working on.",
+          "zh": "你是要加入结算小组，对吧？跟大家说说你要做什么。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说对，你会先从结算页的前端性能入手。你的背景偏前端框架和接口设计，但后端的活你也乐意参与。头几个星期你的主要目标是尽快熟悉情况。",
+          "en": "Right, I'll be starting with frontend performance on checkout. My background is in React and API design, but I'm happy to jump in on backend work too. For the first few weeks, my main goal is to get up to speed.",
+          "chunks": [
+            { "term": "My background is in ...", "zh": "我的背景主要是……" },
+            { "term": "jump in on", "zh": "参与进来、搭把手" },
+            { "term": "get ... up to speed", "zh": "让……尽快熟悉情况、跟上进度" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Kwame",
+          "en": "Welcome! Kwame, backend on checkout. Quick question — what did you use for the API layer at your last place? We're in the middle of a GraphQL versus REST argument, and I need allies.",
+          "zh": "欢迎！我是 Kwame，做结算的后端。问个小问题——你上家公司的接口层用的什么？我们正在吵 GraphQL 还是 REST，我需要盟友。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你开玩笑说第一天你可不站队。你们以前主要用 REST，后来有几个页面换成了 GraphQL。两种都各有取舍，所以你想先听听这场争论的来龙去脉。",
+          "en": "Ha, I'm not picking sides on day one. We were mostly REST, and moved a few screens to GraphQL later. There are trade-offs either way, so I'd love to hear the context behind the debate first.",
+          "chunks": [
+            { "term": "pick sides", "zh": "选边站队" },
+            { "term": "on day one", "zh": "第一天就……" },
+            { "term": "trade-off", "zh": "取舍、权衡" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sophie",
+          "en": "Diplomatic. I like it. I'm Sophie, I do design for checkout. So, outside of work — what do you do for fun? We need to know who we're dealing with.",
+          "zh": "真会说话，我喜欢。我是 Sophie，负责结算的设计。那工作之外——你平时喜欢干什么？我们得知道来的是个什么样的人。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说你经常去徒步，大部分周末都在山里。最近还迷上了手冲咖啡，所以想问问大家，公司附近有没有值得推荐的咖啡店。",
+          "en": "I do a lot of hiking — I'm out on a trail most weekends. I've also been getting into pour-over coffee lately, so if there's a good café near the office — any recommendations?",
+          "chunks": [
+            { "term": "get into", "zh": "开始迷上、对……产生兴趣" },
+            { "term": "pour-over coffee", "zh": "手冲咖啡" },
+            { "term": "Any recommendations?", "zh": "有什么推荐的吗？" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sophie",
+          "en": "Oh, you have no idea what you've just started. Kwame has a spreadsheet for his beans. An actual spreadsheet.",
+          "zh": "哦，你根本不知道你刚才打开了什么话匣子。Kwame 给他的咖啡豆建了一张表格。真的是一张电子表格。"
+        },
+        {
+          "speaker": "them",
+          "name": "Elena",
+          "en": "Okay, okay, before we lose the whole meeting to coffee. Is there anything you need from us this week to get settled?",
+          "zh": "好了好了，别让咖啡把整个会都占了。这周为了安顿下来，你有什么需要我们帮忙的吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说主要两件事：一是把开发环境搭好，二是想和每个人单独聊半小时，了解大家在做什么。你会直接在大家的日历上约时间，时间不合适的话随时可以挪。",
+          "en": "Mainly two things: getting my dev environment set up, and half an hour with each of you to learn what you're working on. I'll put some time on your calendars — feel free to move it if it doesn't suit you.",
+          "chunks": [
+            { "term": "get ... set up", "zh": "把……搭好、配置好" },
+            { "term": "put some time on your calendar", "zh": "在你的日历上约个时间" },
+            { "term": "feel free to ...", "zh": "尽管……、别客气" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Elena",
+          "en": "Love it. Welcome aboard! And Kwame will bring you coffee tomorrow. He just doesn't know it yet.",
+          "zh": "太好了。欢迎加入！还有，明天 Kwame 会给你带咖啡，只是他自己还不知道。"
+        }
+      ]
+    },
+    {
+      "id": "codebase-walkthrough-with-buddy",
+      "title": "请同事带你熟悉代码库和流程",
+      "setting": "入职第三天。你的入职伙伴 Mateus 留了一小时带你过代码库。项目你已经在本地跑起来了，但服务之间的关系、发布流程和第一个任务该做什么，你都还很模糊。Mateus 语速快，习惯满嘴内部缩写。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Mateus",
+          "en": "Hey! So, how are you settling in? You've got the repo running, yeah? Cool. I figured I'd just share my screen and zoom through the main folders. Stop me whenever.",
+          "zh": "嗨！怎么样，适应得还行吗？代码库跑起来了，是吧？好。我想着就直接共享屏幕，快速把主要的目录过一遍。随时可以打断我。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说适应得不错，只是各种工具还在慢慢习惯；项目已经在本地跑起来了。在进入细节之前，你想请他先从整体上讲讲架构，比如一个请求是怎么从前端走到数据库的。",
+          "en": "Pretty well, thanks — I'm still getting used to all the tools. And yes, it's running locally. Before we get into the details, could you walk me through the architecture at a high level — say, how a request gets from the frontend to the database?",
+          "chunks": [
+            { "term": "I'm still getting used to ...", "zh": "我还在适应……" },
+            { "term": "walk me through", "zh": "带我过一遍" },
+            { "term": "at a high level", "zh": "从整体上、不谈细节" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Mateus",
+          "en": "Sure. So the web app hits the BFF, the BFF fans out to orders, pricing and inventory, and anything slow goes through the queue to the workers. Oh, and PCS sits in front of pricing. Easy.",
+          "zh": "行。Web 应用请求 BFF，BFF 再分发给订单、定价和库存，慢的操作都走队列交给 worker。哦对，PCS 挡在定价前面。很简单。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你礼貌地打断他：他刚才说的缩写里有两个你没跟上，请他解释一下分别是什么意思。",
+          "en": "Sorry to interrupt, but you lost me on two of those. What do you mean by BFF and PCS?",
+          "chunks": [
+            { "term": "Sorry to interrupt, but ...", "zh": "抱歉打断一下，……" },
+            { "term": "you lost me", "zh": "我没跟上、没听懂" },
+            { "term": "What do you mean by ...?", "zh": "你说的……是什么意思？" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Mateus",
+          "en": "Ah, sorry, I do that. BFF is backend-for-frontend — the Node layer that shapes data for the UI. PCS is the price calculation service. Honestly, nobody remembers why it's separate.",
+          "zh": "啊，抱歉，我老这样。BFF 是 backend-for-frontend——给界面整理数据的那层 Node 服务。PCS 是价格计算服务。说实话，没人记得它为什么要单独拆出来。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你表示明白了，并复述一遍确认：前端只和那个中间层打交道，其他服务都由它去调用。接着问：如果你要改结算页上的一个字段，通常要动哪几个地方。",
+          "en": "Got it. So if I understand correctly, the frontend only ever talks to the BFF, and the BFF calls everything else. If I wanted to change a field on the checkout page, which parts would I usually have to touch?",
+          "chunks": [
+            { "term": "Got it.", "zh": "明白了。" },
+            { "term": "If I understand correctly, ...", "zh": "如果我没理解错的话，……" },
+            { "term": "touch", "zh": "改动到（某处代码）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Mateus",
+          "en": "Good question. Usually three: the React component, the BFF resolver, and sometimes the API contract, if the field's new. The contract lives in a separate repo, which trips everyone up.",
+          "zh": "问得好。一般是三处：React 组件、BFF 的 resolver，如果是新字段，有时还要改接口契约。契约放在另一个代码库里，这一点人人都会被绊一下。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说知道这一点很有用。然后问发布流程是什么样的：代码合并以后是自动上线，还是得有人手动触发。",
+          "en": "Good to know. And what does the release process look like? Once a PR is merged, does it go out automatically, or does someone have to kick it off?",
+          "chunks": [
+            { "term": "Good to know.", "zh": "知道这个很有用。" },
+            { "term": "What does ... look like?", "zh": "……是什么样的？" },
+            { "term": "go out", "zh": "（版本、改动）发布出去" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Mateus",
+          "en": "Merges to main go to staging automatically. Prod is a button, twice a day, and whoever's on call presses it. Don't worry, you won't be on call for at least a month.",
+          "zh": "合并到主干的会自动发到预发环境。生产环境就是一个按钮，一天两次，谁值班谁按。别担心，至少一个月内不会排你值班。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说那你就放心了。最后问他：有没有适合新人的小任务可以让你领来做，好让你把从开发到上线的整个流程完整走一遍。",
+          "en": "That's a relief. One last thing: is there a good starter task I could pick up? Something small, so I can go through the whole flow from development to production once.",
+          "chunks": [
+            { "term": "That's a relief.", "zh": "那我就放心了。" },
+            { "term": "starter task", "zh": "适合新人上手的入门任务" },
+            { "term": "pick up", "zh": "接手、领（一个任务）来做" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Mateus",
+          "en": "Yep, I tagged a couple for you. There's one about a wrong currency symbol in the order summary — tiny, but it touches all three layers. Perfect first ticket.",
+          "zh": "有，我给你标了几个。有一个是订单摘要里货币符号显示错了——很小，但三层都会碰到。特别适合当第一个任务。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说这个听起来正合适，今天下午就开始做，要是卡住了会发消息找他。最后谢谢他花时间带你，你真的很感激。",
+          "en": "That sounds perfect. I'll get started on it this afternoon and ping you if I get stuck. Thanks for taking the time — I really appreciate it.",
+          "chunks": [
+            { "term": "ping", "zh": "发消息找（某人）" },
+            { "term": "get stuck", "zh": "卡住、做不下去" },
+            { "term": "I really appreciate it.", "zh": "真的很感谢。" }
+          ]
+        }
+      ]
+    }
+  ]
+}

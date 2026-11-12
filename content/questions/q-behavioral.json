@@ -1,0 +1,486 @@
+{
+  "category": "behavioral",
+  "title": "行为题",
+  "questions": [
+    {
+      "id": "disagree-with-colleague",
+      "prompt": "Tell me about a time you disagreed with a colleague on a technical approach. How did you resolve it?",
+      "zh": "讲一次你和同事在技术方案上意见不合的经历。你们是怎么解决的？",
+      "outline": [
+        "Situation: the decision at stake and both positions, described fairly",
+        "Task: why the outcome mattered to you and the project",
+        "Action: listened first, then compared options with data or a prototype",
+        "Result: what was decided and how the working relationship held up",
+        "Reflection: how you approach disagreements now"
+      ],
+      "chunks": [
+        { "term": "see eye to eye", "zh": "看法一致（常用于否定句）" },
+        { "term": "hear ... out", "zh": "耐心听……把话说完" },
+        { "term": "find common ground", "zh": "找到双方的共同点" },
+        { "term": "weigh the pros and cons", "zh": "权衡利弊" },
+        { "term": "disagree and commit", "zh": "保留不同意见，但全力执行决定" }
+      ],
+      "followUps": ["What if you had still disagreed after the decision was made?"]
+    },
+    {
+      "id": "push-back-on-product",
+      "prompt": "Describe a time you pushed back on a product requirement. What happened?",
+      "zh": "讲一次你对产品需求提出反对的经历。后来怎么样了？",
+      "outline": [
+        "Situation: the requirement and why it worried you",
+        "Task: protect the timeline or quality without simply saying no",
+        "Action: explained the cost in plain terms, offered a cheaper alternative",
+        "Result: what shipped and how the product manager reacted"
+      ],
+      "chunks": [
+        { "term": "I pushed back on ... because ...", "zh": "我对……提出了反对，因为……" },
+        { "term": "I have a concern about ...", "zh": "我对……有个顾虑" },
+        { "term": "Another option would be to ...", "zh": "另一个办法是……" },
+        { "term": "cut scope", "zh": "砍范围、砍掉部分需求" },
+        { "term": "The trade-off here is ...", "zh": "这里的取舍是……" }
+      ],
+      "followUps": ["How do you decide when a requirement is worth fighting over?"]
+    },
+    {
+      "id": "disagree-with-manager",
+      "prompt": "Tell me about a time you disagreed with a decision your manager made.",
+      "zh": "讲一次你不同意经理所做决定的经历。",
+      "outline": [
+        "Situation: the decision and why you saw it differently",
+        "Task: raise your concern without undermining your manager",
+        "Action: made your case privately, with evidence, then listened",
+        "Result: whether the decision changed, and how you supported it"
+      ],
+      "chunks": [
+        { "term": "I'm not convinced that ...", "zh": "我还没被说服……（委婉表示怀疑）" },
+        { "term": "make the case for", "zh": "摆出理由论证（某事值得做）" },
+        { "term": "I see your point, but ...", "zh": "我明白你的意思，不过……" },
+        { "term": "disagree and commit", "zh": "保留不同意见，但全力执行决定" },
+        { "term": "in hindsight", "zh": "事后看来" }
+      ]
+    },
+    {
+      "id": "project-that-failed",
+      "prompt": "Tell me about a project that failed or didn't go the way you planned.",
+      "zh": "讲一个失败了、或者没有按你的计划走的项目。",
+      "outline": [
+        "Situation: the project goal and what was at stake",
+        "Task: your part in it; own your share honestly",
+        "Action: what you tried once you saw it going wrong",
+        "Result: the actual outcome, without sugar-coating",
+        "Reflection: the lesson and how you applied it later"
+      ],
+      "chunks": [
+        { "term": "underestimate", "zh": "低估（工作量、复杂度）" },
+        { "term": "It became clear that ...", "zh": "后来情况很明显：……" },
+        { "term": "own up to", "zh": "坦率承认（自己的错误）" },
+        { "term": "The key takeaway was ...", "zh": "最重要的一点收获是……" },
+        { "term": "If I were to do it again, I would ...", "zh": "如果重来一次，我会……" }
+      ],
+      "followUps": ["What were the early warning signs that you missed?"]
+    },
+    {
+      "id": "mistake-in-production",
+      "prompt": "Tell me about a mistake you made that caused a problem in production. How did you handle it?",
+      "zh": "讲一次你犯的错导致线上出问题的经历。你是怎么处理的？",
+      "outline": [
+        "Situation: what you changed and what broke",
+        "Task: limit the damage first, explain later",
+        "Action: rolled back, told the team right away, traced the cause",
+        "Result: impact on users and how long recovery took",
+        "Reflection: the safeguard you added so it cannot recur"
+      ],
+      "chunks": [
+        { "term": "own up to", "zh": "坦率承认（自己的错误）" },
+        { "term": "roll back", "zh": "回滚（版本、发布）" },
+        { "term": "blast radius", "zh": "影响范围（爆炸半径）" },
+        { "term": "root cause", "zh": "根因" },
+        { "term": "make a point of", "zh": "特意坚持去做（某事）" }
+      ],
+      "followUps": ["How did your team react when you told them?"]
+    },
+    {
+      "id": "tight-deadline",
+      "prompt": "Tell me about a time you had to deliver something under a very tight deadline.",
+      "zh": "讲一次你必须在非常紧的期限内交付的经历。",
+      "outline": [
+        "Situation: the deadline, why it was fixed, what was at risk",
+        "Task: what you had to deliver and with whom",
+        "Action: cut scope, reordered the work, kept stakeholders informed",
+        "Result: what shipped on time and what was deferred",
+        "Reflection: what you would plan differently next time"
+      ],
+      "chunks": [
+        { "term": "up against a tight deadline", "zh": "面临很紧的期限" },
+        { "term": "cut scope", "zh": "砍范围、砍掉部分需求" },
+        { "term": "separate the must-haves from the nice-to-haves", "zh": "把必须做的和锦上添花的分开" },
+        { "term": "roll out", "zh": "（分批）推出、上线" },
+        { "term": "wrap up", "zh": "收尾、做完" }
+      ],
+      "followUps": ["Looking back, was the deadline actually necessary?"]
+    },
+    {
+      "id": "missed-deadline",
+      "prompt": "Tell me about a time you realized you weren't going to hit a deadline. What did you do?",
+      "zh": "讲一次你意识到自己赶不上截止日期的经历。你是怎么做的？",
+      "outline": [
+        "Situation: the commitment and when you saw the slip coming",
+        "Task: reset expectations while there was still time to react",
+        "Action: raised it early, with options rather than just bad news",
+        "Result: the new plan and how stakeholders responded",
+        "Reflection: how your estimates changed afterwards"
+      ],
+      "chunks": [
+        { "term": "It's taking longer than expected.", "zh": "这件事比预期花的时间长。" },
+        { "term": "underestimate", "zh": "低估（工作量、复杂度）" },
+        { "term": "flag ... early", "zh": "尽早把（风险、问题）提出来" },
+        { "term": "on track", "zh": "进度正常、按计划推进" },
+        { "term": "I should have it done by ...", "zh": "我应该能在……之前做完" }
+      ]
+    },
+    {
+      "id": "production-incident",
+      "prompt": "Walk me through a serious production incident you were involved in. What was your role?",
+      "zh": "讲一次你参与处理的严重线上事故。你在其中是什么角色？",
+      "outline": [
+        "Situation: what failed, who was affected, how you found out",
+        "Task: your role, such as incident lead or investigator",
+        "Action: mitigated first, communicated status, then found the cause",
+        "Result: time to recovery and customer impact",
+        "Reflection: postmortem findings and the follow-up work"
+      ],
+      "chunks": [
+        { "term": "get paged", "zh": "被告警呼叫（值班时）" },
+        { "term": "declare an incident", "zh": "宣布进入事故状态" },
+        { "term": "outage", "zh": "服务中断" },
+        { "term": "mitigation", "zh": "缓解措施" },
+        { "term": "root cause", "zh": "根因" },
+        { "term": "postmortem", "zh": "事故复盘" }
+      ],
+      "followUps": ["How do you keep a postmortem from turning into blame?"]
+    },
+    {
+      "id": "hardest-bug",
+      "prompt": "Tell me about the hardest bug you've ever had to track down.",
+      "zh": "讲讲你排查过的最难的一个 bug。",
+      "outline": [
+        "Situation: the symptom and why it was hard to reproduce",
+        "Task: why it fell to you and what was at stake",
+        "Action: how you narrowed it down step by step",
+        "Result: the root cause, the fix, and how you verified it",
+        "Reflection: the tooling or tests you added afterwards"
+      ],
+      "chunks": [
+        { "term": "The challenge was that ...", "zh": "难点在于……" },
+        { "term": "The first thing I did was ...", "zh": "我做的第一件事是……" },
+        { "term": "narrow it down", "zh": "逐步缩小（排查）范围" },
+        { "term": "The turning point was ...", "zh": "转折点是……" },
+        { "term": "end up", "zh": "（几经周折）最终……" },
+        { "term": "root cause", "zh": "根因" }
+      ]
+    },
+    {
+      "id": "inherited-legacy-code",
+      "prompt": "Tell me about a time you inherited a codebase in poor shape. How did you approach it?",
+      "zh": "讲一次你接手一个质量很差的代码库的经历。你是怎么着手的？",
+      "outline": [
+        "Situation: what you took over and what made it risky",
+        "Task: keep delivering features while making it safer to change",
+        "Action: added tests around critical paths, refactored incrementally",
+        "Result: fewer incidents or faster delivery, with numbers if possible",
+        "Reflection: why you did not push for a full rewrite"
+      ],
+      "chunks": [
+        { "term": "to give you some context", "zh": "先给你交代一下背景" },
+        { "term": "cover it with unit tests", "zh": "用单元测试把它覆盖到" },
+        { "term": "strangler fig pattern", "zh": "绞杀者模式（逐步替换旧系统）" },
+        { "term": "phase out", "zh": "逐步淘汰（旧系统）" },
+        { "term": "make the case for", "zh": "摆出理由论证（某事值得做）" },
+        { "term": "pay off", "zh": "（前期投入）后来见到回报" }
+      ],
+      "followUps": ["How did you decide what to refactor and what to leave alone?"]
+    },
+    {
+      "id": "ambiguous-requirements",
+      "prompt": "Describe a time you had to deliver something when the requirements were vague or incomplete.",
+      "zh": "讲一次在需求模糊或者不完整的情况下，你仍然要交付的经历。",
+      "outline": [
+        "Situation: what was asked and what was unclear",
+        "Task: turn a fuzzy goal into something you could build",
+        "Action: asked targeted questions, wrote down assumptions, shipped a thin slice",
+        "Result: how early feedback shaped the final version"
+      ],
+      "chunks": [
+        { "term": "Just to make sure I understand, ...", "zh": "我确认一下我理解得对不对，……" },
+        { "term": "Is it safe to assume that ...?", "zh": "我可以放心地假设……吗？" },
+        { "term": "core use cases", "zh": "核心使用场景、核心用例" },
+        { "term": "I'll leave ... out of scope for now.", "zh": "我先把……放在讨论范围之外。" },
+        { "term": "on the same page", "zh": "大家理解一致" }
+      ]
+    },
+    {
+      "id": "persuade-team-new-approach",
+      "prompt": "Tell me about a time you convinced your team to adopt a new technology or way of working.",
+      "zh": "讲一次你说服团队采用一项新技术或新做法的经历。",
+      "outline": [
+        "Situation: the pain point the team had learned to live with",
+        "Task: get skeptical teammates to try something new",
+        "Action: built a small proof of concept, shared results, addressed concerns",
+        "Result: adoption and the measurable improvement",
+        "Reflection: what actually changed people's minds"
+      ],
+      "chunks": [
+        { "term": "make the case for", "zh": "摆出理由论证（某事值得做）" },
+        { "term": "proof of concept", "zh": "概念验证（证明方案可行的小样）" },
+        { "term": "get buy-in from", "zh": "争取到……的认可和支持" },
+        { "term": "on board with", "zh": "赞成、愿意一起推进（某个方案）" },
+        { "term": "roll out", "zh": "（分批）推出、上线" },
+        { "term": "pay off", "zh": "（前期投入）后来见到回报" }
+      ],
+      "followUps": ["Was there anyone you never managed to convince?"]
+    },
+    {
+      "id": "explain-to-non-technical",
+      "prompt": "Tell me about a time you had to explain a complex technical problem to a non-technical stakeholder.",
+      "zh": "讲一次你需要向不懂技术的相关方解释复杂技术问题的经历。",
+      "outline": [
+        "Situation: the technical issue and who needed to understand it",
+        "Task: get a decision from them, not teach them engineering",
+        "Action: dropped the jargon, used an analogy, framed it as business impact",
+        "Result: the decision they made and whether it held up"
+      ],
+      "chunks": [
+        { "term": "at a high level", "zh": "从总体上讲、不涉及细节地说" },
+        { "term": "translate into", "zh": "换算成、转化为（业务结果）" },
+        { "term": "Let me rephrase that.", "zh": "我换个说法。" },
+        { "term": "Let me give you a concrete example.", "zh": "我给你举个具体的例子。" },
+        { "term": "Does that make sense?", "zh": "我这样说清楚吗？" }
+      ]
+    },
+    {
+      "id": "received-critical-feedback",
+      "prompt": "Tell me about a time you received critical feedback. How did you respond?",
+      "zh": "讲一次你收到批评性反馈的经历。你是怎么回应的？",
+      "outline": [
+        "Situation: who gave the feedback and what it was about",
+        "Task: understand it properly instead of defending yourself",
+        "Action: asked for specifics, reflected, changed one concrete habit",
+        "Result: what improved and how you checked back"
+      ],
+      "chunks": [
+        { "term": "hear ... out", "zh": "耐心听……把话说完" },
+        { "term": "Could you give me an example?", "zh": "你能举个例子吗？" },
+        { "term": "That's a good point.", "zh": "这点说得好。" },
+        { "term": "An area I'm working on is ...", "zh": "我正在改进的一个方面是……" },
+        { "term": "make a point of", "zh": "特意坚持去做（某事）" }
+      ],
+      "followUps": ["Was there any part of the feedback you disagreed with?"]
+    },
+    {
+      "id": "give-difficult-feedback",
+      "prompt": "Tell me about a time you had to give difficult feedback to a peer.",
+      "zh": "讲一次你不得不给同级同事提难以开口的反馈的经历。",
+      "outline": [
+        "Situation: the behavior or work that was causing problems",
+        "Task: raise it honestly without damaging the relationship",
+        "Action: spoke privately, used specific examples, asked for their view",
+        "Result: what changed afterwards",
+        "Reflection: what you learned about giving feedback"
+      ],
+      "chunks": [
+        { "term": "Let's take this offline.", "zh": "这个我们会后单聊。" },
+        { "term": "I have a concern about ...", "zh": "我对……有个顾虑" },
+        { "term": "Let me give you a concrete example.", "zh": "我给你举个具体的例子。" },
+        { "term": "hear ... out", "zh": "耐心听……把话说完" },
+        { "term": "follow up with", "zh": "（事后）找……跟进" }
+      ]
+    },
+    {
+      "id": "competing-priorities",
+      "prompt": "Tell me about a time you had several urgent tasks competing for your attention. How did you decide what to do first?",
+      "zh": "讲一次好几件紧急的事同时压过来的经历。你是怎么决定先做哪件的？",
+      "outline": [
+        "Situation: the competing demands and who was waiting on each",
+        "Task: decide the order and manage expectations",
+        "Action: ranked by impact and urgency, delegated, renegotiated one deadline",
+        "Result: what got done and what you knowingly let slip"
+      ],
+      "chunks": [
+        { "term": "prioritize ruthlessly", "zh": "毫不留情地排优先级" },
+        { "term": "It came down to ...", "zh": "归根结底取决于……" },
+        { "term": "delegate", "zh": "把任务放手交给别人做" },
+        { "term": "free up", "zh": "腾出（时间、人手）" },
+        { "term": "Can we push it to ...?", "zh": "能推迟到……吗？" }
+      ]
+    },
+    {
+      "id": "conflicting-stakeholders",
+      "prompt": "Describe a situation where two stakeholders wanted conflicting things from you. How did you handle it?",
+      "zh": "讲一次两个相关方对你提出互相冲突的要求的情况。你是怎么处理的？",
+      "outline": [
+        "Situation: who wanted what, and why both could not win",
+        "Task: reach a decision without picking sides behind anyone's back",
+        "Action: clarified the real goals, got both in one room, proposed options",
+        "Result: the compromise or the escalation, and the outcome"
+      ],
+      "chunks": [
+        { "term": "find common ground", "zh": "找到双方的共同点" },
+        { "term": "on the same page", "zh": "大家理解一致" },
+        { "term": "loop in", "zh": "把（某人）拉进来，让其知情或参与" },
+        { "term": "escalate", "zh": "升级（把问题上报给更合适的人）" },
+        { "term": "The trade-off here is ...", "zh": "这里的取舍是……" }
+      ]
+    },
+    {
+      "id": "learn-new-technology",
+      "prompt": "Tell me about a time you had to pick up an unfamiliar technology quickly to deliver a project.",
+      "zh": "讲一次你为了交付项目必须快速学会一门陌生技术的经历。",
+      "outline": [
+        "Situation: the project and the technology you did not know",
+        "Task: become productive fast enough to hit the date",
+        "Action: learned by building, read the source, asked experts early",
+        "Result: what you delivered and how solid it was",
+        "Reflection: how you learn new things in general"
+      ],
+      "chunks": [
+        { "term": "get ... up to speed", "zh": "让（某人）尽快上手" },
+        { "term": "I haven't used ... in production, but ...", "zh": "我没在生产环境用过……，不过……" },
+        { "term": "The first thing I did was ...", "zh": "我做的第一件事是……" },
+        { "term": "dive deeper into", "zh": "深入钻研、深入展开（某个部分）" },
+        { "term": "good enough for our use case", "zh": "对我们的场景来说已经够用" }
+      ],
+      "followUps": ["How do you decide how deep to go when time is short?"]
+    },
+    {
+      "id": "took-initiative",
+      "prompt": "Tell me about a time you noticed a problem nobody owned and decided to fix it yourself.",
+      "zh": "讲一次你发现一个没人管的问题、并决定自己动手解决的经历。",
+      "outline": [
+        "Situation: the problem everyone complained about but nobody fixed",
+        "Task: nobody asked you; explain why you stepped up",
+        "Action: sized the problem, got agreement, did the work alongside your roadmap",
+        "Result: time saved or failures avoided, ideally with numbers"
+      ],
+      "chunks": [
+        { "term": "take ownership of", "zh": "主动把……的责任担起来" },
+        { "term": "spearhead", "zh": "牵头发起并推动" },
+        { "term": "Who's going to own this?", "zh": "这件事谁来负责？" },
+        { "term": "The biggest win was ...", "zh": "最大的成效是……" },
+        { "term": "free up", "zh": "腾出（时间、人手）" }
+      ]
+    },
+    {
+      "id": "quality-versus-speed",
+      "prompt": "Tell me about a time you had to compromise on quality in order to ship on time.",
+      "zh": "讲一次你为了按时上线而不得不在质量上让步的经历。",
+      "outline": [
+        "Situation: the deadline and the shortcut on the table",
+        "Task: ship without creating a risk you could not contain",
+        "Action: chose which corners to cut, documented the debt, added safeguards",
+        "Result: shipped on time; what happened to the debt afterwards",
+        "Reflection: where you draw the line on shortcuts"
+      ],
+      "chunks": [
+        { "term": "at the cost of", "zh": "以……为代价" },
+        { "term": "as a stopgap", "zh": "作为临时的应急措施" },
+        { "term": "given the constraints", "zh": "考虑到当时的限制条件" },
+        { "term": "open a ticket", "zh": "建一个任务单（记下来以后处理）" },
+        { "term": "circle back", "zh": "回头再来处理、过后再谈" }
+      ],
+      "followUps": ["Did you ever go back and fix it?"]
+    },
+    {
+      "id": "difficult-coworker",
+      "prompt": "Tell me about a time you had to work closely with someone you found difficult to work with.",
+      "zh": "讲一次你必须和一个你觉得很难相处的人紧密合作的经历。",
+      "outline": [
+        "Situation: the working relationship and how it affected delivery",
+        "Task: make the collaboration work; you still had to ship together",
+        "Action: tried to understand their side, agreed on how to work together",
+        "Result: how the work and the relationship turned out",
+        "Reflection: what you learned about your own style"
+      ],
+      "chunks": [
+        { "term": "see eye to eye", "zh": "看法一致（常用于否定句）" },
+        { "term": "So what you're saying is ...", "zh": "所以你的意思是……（复述对方的话）" },
+        { "term": "hop on a call", "zh": "（临时）开个语音或视频聊一下" },
+        { "term": "sync up", "zh": "碰一下、对一下进度" },
+        { "term": "Fair enough.", "zh": "行，说得过去。" }
+      ]
+    },
+    {
+      "id": "decision-with-incomplete-information",
+      "prompt": "Tell me about a time you had to make an important decision without having all the information you wanted.",
+      "zh": "讲一次你在信息不全的情况下必须做出重要决定的经历。",
+      "outline": [
+        "Situation: the decision, the time pressure, what was unknown",
+        "Task: you were the one who had to decide",
+        "Action: listed assumptions, estimated the risk, picked the reversible option",
+        "Result: how it played out and what you adjusted"
+      ],
+      "chunks": [
+        { "term": "given the constraints", "zh": "考虑到当时的限制条件" },
+        { "term": "weigh the pros and cons", "zh": "权衡利弊" },
+        { "term": "ballpark figure", "zh": "大致的数字、粗略的估计值" },
+        { "term": "It came down to ...", "zh": "归根结底取决于……" },
+        { "term": "in hindsight", "zh": "事后看来" }
+      ],
+      "followUps": ["What would have made you delay the decision instead?"]
+    },
+    {
+      "id": "changed-your-mind",
+      "prompt": "Tell me about a time you were convinced you were right and turned out to be wrong.",
+      "zh": "讲一次你坚信自己是对的、结果发现自己错了的经历。",
+      "outline": [
+        "Situation: the position you held and why you were confident",
+        "Task: stay open even though you had argued strongly",
+        "Action: looked at the new evidence, admitted it, switched approach",
+        "Result: the better outcome that followed",
+        "Reflection: how you test your own assumptions now"
+      ],
+      "chunks": [
+        { "term": "It became clear that ...", "zh": "后来情况很明显：……" },
+        { "term": "That's a good point.", "zh": "这点说得好。" },
+        { "term": "own up to", "zh": "坦率承认（自己的错误）" },
+        { "term": "Good call.", "zh": "好主意，听你的。" },
+        { "term": "play devil's advocate", "zh": "故意唱反调（为了检验方案）" }
+      ]
+    },
+    {
+      "id": "say-no-to-request",
+      "prompt": "Tell me about a time you had to say no to a request from a colleague or another team.",
+      "zh": "讲一次你不得不拒绝同事或其他团队的请求的经历。",
+      "outline": [
+        "Situation: the request and why you could not take it on",
+        "Task: decline while keeping the relationship intact",
+        "Action: explained your priorities, offered an alternative or a later date",
+        "Result: how they took it and what happened to the request"
+      ],
+      "chunks": [
+        { "term": "I pushed back on ... because ...", "zh": "我对……提出了反对，因为……" },
+        { "term": "Another option would be to ...", "zh": "另一个办法是……" },
+        { "term": "Let's park that for now.", "zh": "这个先放一放。" },
+        { "term": "I'll get back to you on that.", "zh": "这个我回头答复你。" },
+        { "term": "prioritize ruthlessly", "zh": "毫不留情地排优先级" }
+      ]
+    },
+    {
+      "id": "blocked-by-another-team",
+      "prompt": "Tell me about a time your work was blocked by another team. How did you move things forward?",
+      "zh": "讲一次你的工作被别的团队卡住的经历。你是怎么推动事情往前走的？",
+      "outline": [
+        "Situation: the dependency and why the other team was not delivering",
+        "Task: hit your date without owning their backlog",
+        "Action: understood their constraints, offered help, found a workaround, escalated last",
+        "Result: how you got unblocked and the effect on the timeline"
+      ],
+      "chunks": [
+        { "term": "I'm blocked on ...", "zh": "我被……卡住了" },
+        { "term": "I'm waiting on ...", "zh": "我在等……（别人的结果或答复）" },
+        { "term": "follow up with", "zh": "找……跟进" },
+        { "term": "unblock", "zh": "让（某人）能继续干活、解除阻塞" },
+        { "term": "escalate", "zh": "升级（把问题上报给更合适的人）" }
+      ]
+    }
+  ]
+}

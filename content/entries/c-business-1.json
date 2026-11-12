@@ -1,0 +1,594 @@
+{
+  "layer": "C",
+  "category": "business",
+  "title": "业务场景与难点",
+  "entries": [
+    {
+      "term": "The tricky part was ...",
+      "kind": "sentence",
+      "zh": "棘手的地方在于……（t 开头的形容词）",
+      "examples": [
+        {
+          "en": "The tricky part was keeping inventory consistent across three warehouses.",
+          "zh": "棘手的地方在于让三个仓库的库存保持一致。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：这个项目里最难处理的是哪一块？",
+        "en": "The tricky part was handling refunds for orders that had already been partially shipped."
+      },
+      "note": "比 The difficult part 更口语，暗示“看着简单、做起来有坑”。讲通用难点时用现在时：The tricky part is ..."
+    },
+    {
+      "term": "edge case",
+      "kind": "chunk",
+      "zh": "边界情况（e 开头）",
+      "examples": [
+        {
+          "en": "We missed an edge case where the user's cart was empty at checkout.",
+          "zh": "我们漏掉了一种边界情况：用户结算时购物车是空的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：这个功能测试都过了，为什么上线后还会出 bug？",
+        "en": "There was an edge case we hadn't covered: orders placed exactly at midnight got the wrong date."
+      },
+      "collocations": ["handle an edge case", "cover the edge cases", "miss an edge case"],
+      "note": "指输入或条件处在边界上的情况，是最通用的说法。"
+    },
+    {
+      "term": "corner case",
+      "kind": "chunk",
+      "zh": "很偏的边角情况（c 开头，多个边界条件同时出现）",
+      "examples": [
+        {
+          "en": "It was a corner case that only showed up when a refund and a retry happened together.",
+          "zh": "这是个很偏的边角情况，只有退款和重试同时发生时才会出现。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：那个 bug 为什么测试阶段没发现？你想说它太偏了，要几个条件同时满足才会触发。",
+        "en": "It was a real corner case. The user had to change currency while a payment was still pending."
+      },
+      "note": "和 edge case 常混用。严格说 corner case 更偏，指几个边界条件叠在一起才触发。"
+    },
+    {
+      "term": "hard to reproduce",
+      "kind": "chunk",
+      "zh": "很难复现",
+      "examples": [
+        {
+          "en": "The bug was hard to reproduce because it only happened under heavy load.",
+          "zh": "这个 bug 很难复现，因为只在高负载下才出现。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：那个线上问题为什么查了那么久？",
+        "en": "It was hard to reproduce locally. It only showed up in production, maybe once in ten thousand requests."
+      },
+      "collocations": ["hard to reproduce locally", "reproduce the issue", "reproduce it reliably"],
+      "note": "口语里 reproduce 常缩成 repro：I can't repro it.（我复现不了。）"
+    },
+    {
+      "term": "tightly coupled to",
+      "kind": "chunk",
+      "zh": "和……耦合得很紧（t 开头的副词 + 过去分词 + to）",
+      "examples": [
+        {
+          "en": "The order service was tightly coupled to the old billing database.",
+          "zh": "订单服务和老的计费数据库耦合得很紧。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：那个模块为什么那么难改？",
+        "en": "The pricing logic was tightly coupled to the checkout page, so every small change meant touching both."
+      },
+      "collocations": ["tight coupling between ... and ...", "loosely coupled"],
+      "note": "名词说法是 tight coupling：There was tight coupling between A and B. 反义是 loosely coupled。"
+    },
+    {
+      "term": "track down",
+      "kind": "chunk",
+      "zh": "（费了一番功夫）追查到、找出问题的源头（t 开头的短语动词）",
+      "examples": [
+        {
+          "en": "It took us two days to track down the source of the duplicate orders.",
+          "zh": "我们花了两天才追查到重复订单的源头。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：那个偶发的数据不一致，你们最后是怎么定位的？",
+        "en": "We added more logging and finally tracked it down to a retry in the payment client."
+      },
+      "collocations": ["track down a bug", "track it down to ..."],
+      "note": "代词要放中间：track it down。后面接 to 说明查到了哪里。"
+    },
+    {
+      "term": "It turned out that ...",
+      "kind": "sentence",
+      "zh": "结果发现……（讲排查结果的句型，含 turn 的过去式）",
+      "examples": [
+        {
+          "en": "It turned out that the timestamps were stored in local time, not UTC.",
+          "zh": "结果发现，时间戳存的是本地时间，不是 UTC。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：那最后查出来原因是什么？",
+        "en": "It turned out that two services were using different rounding rules for the same price."
+      },
+      "note": "讲故事时的转折句，表示“查了半天，真相和预想的不一样”。也可以说 It turned out to be a time zone issue."
+    },
+    {
+      "term": "non-trivial",
+      "kind": "word",
+      "zh": "不简单、有相当难度的（否定前缀 + “琐碎的”）",
+      "examples": [
+        {
+          "en": "Migrating ten years of order data without downtime was non-trivial.",
+          "zh": "把十年的订单数据不停机迁过去，可不是件简单的事。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：听起来只是加个字段，为什么排了三周？",
+        "en": "It sounds simple, but the change was non-trivial because five downstream systems read that table."
+      },
+      "note": "工程师的含蓄说法，实际意思往往是“相当难”。反过来，trivial 指“很简单、不值一提”。"
+    },
+    {
+      "term": "hard to get right",
+      "kind": "chunk",
+      "zh": "很难做对、很难做到位（四个词，含 get）",
+      "examples": [
+        {
+          "en": "Time zone handling is surprisingly hard to get right.",
+          "zh": "时区处理出乎意料地难做对。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你觉得退款这块业务难在哪？",
+        "en": "Partial refunds are hard to get right, because tax and discounts have to be split correctly."
+      },
+      "collocations": ["get ... right", "notoriously hard to get right"],
+      "note": "get ... right 表示把某件事做对：It took us three tries to get the rounding right."
+    },
+    {
+      "term": "work around",
+      "kind": "chunk",
+      "zh": "（没法根治，先想办法）绕开问题或限制（w 开头的短语动词）",
+      "examples": [
+        {
+          "en": "We worked around the API limit by batching requests on our side.",
+          "zh": "我们在自己这边把请求合并成批，绕开了接口的调用限制。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：第三方接口不支持你们要的功能，你们是怎么办的？",
+        "en": "We couldn't change their API, so we worked around it by caching the results ourselves."
+      },
+      "note": "名词是一个词 workaround：It's a temporary workaround, not a real fix."
+    },
+    {
+      "term": "place an order",
+      "kind": "chunk",
+      "zh": "下单（p 开头的动词）",
+      "examples": [
+        {
+          "en": "When a user places an order, we reserve the stock before taking payment.",
+          "zh": "用户下单时，我们先预占库存，再扣款。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：讲一下用户点“提交订单”之后，后端发生了什么。",
+        "en": "When a customer places an order, we validate the cart, lock the price, and create a pending order."
+      },
+      "collocations": ["place an order for ...", "order placement"],
+      "note": "说的是用户的动作，不说 make an order。系统这边“创建订单”说 create an order。"
+    },
+    {
+      "term": "checkout flow",
+      "kind": "chunk",
+      "zh": "结算流程（从购物车到支付完成的那一段）",
+      "examples": [
+        {
+          "en": "We redesigned the checkout flow and cut it from five steps to two.",
+          "zh": "我们重新设计了结算流程，从五步减到两步。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你在电商团队主要负责哪部分？你负责的是从购物车到付款成功的那段流程。",
+        "en": "I owned the checkout flow, from the cart page all the way to payment confirmation."
+      },
+      "note": "check out 是动词（两个词），checkout 是名词或形容词（一个词）。"
+    },
+    {
+      "term": "shopping cart",
+      "kind": "chunk",
+      "zh": "购物车",
+      "examples": [
+        {
+          "en": "We store the shopping cart on the server so it syncs across devices.",
+          "zh": "我们把购物车存在服务端，这样可以跨设备同步。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户没登录时加购的商品，登录后怎么处理？",
+        "en": "We merge the anonymous shopping cart into the user's account as soon as they log in."
+      },
+      "collocations": ["add ... to the cart", "abandoned cart", "cart page"],
+      "note": "平时常简称 cart，英式英语多说 basket。加购是 add to cart，加了没买是 abandon the cart。"
+    },
+    {
+      "term": "order lifecycle",
+      "kind": "chunk",
+      "zh": "订单生命周期（从创建到完成的全过程）",
+      "examples": [
+        {
+          "en": "We modeled the order lifecycle as a state machine with explicit transitions.",
+          "zh": "我们把订单生命周期建模成一个状态机，状态流转都是显式定义的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：订单有那么多状态，你们怎么保证不会出现非法的状态跳转？",
+        "en": "We treat the order lifecycle as a state machine, so an order can only move along allowed transitions."
+      },
+      "collocations": ["state machine", "state transition", "move from pending to paid"],
+      "note": "“状态流转”说 state transition，“状态机”说 state machine。"
+    },
+    {
+      "term": "fulfillment",
+      "kind": "word",
+      "zh": "履约（订单付款后拣货、发货、送达的环节）",
+      "examples": [
+        {
+          "en": "Once payment is confirmed, the order moves on to fulfillment.",
+          "zh": "付款确认之后，订单就进入履约环节。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：付款成功之后，订单接下来由哪个环节处理？",
+        "en": "After payment, the order is handed off to fulfillment, which covers picking, packing, and shipping."
+      },
+      "collocations": ["order fulfillment", "fulfillment center", "fulfill an order"],
+      "note": "动词是 fulfill an order。英式拼写是 fulfilment。"
+    },
+    {
+      "term": "deduct inventory",
+      "kind": "chunk",
+      "zh": "扣减库存（d 开头的动词 + i 开头的名词）",
+      "examples": [
+        {
+          "en": "We deduct inventory when the order is paid, not when it's created.",
+          "zh": "我们在订单支付时扣减库存，而不是在创建订单时。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们是下单时扣库存，还是付款时扣？",
+        "en": "We deduct inventory at payment time, and only hold it temporarily when the order is created."
+      },
+      "note": "也常说 decrement the stock（把库存数减掉）。inventory 和 stock 在这里可以互换。"
+    },
+    {
+      "term": "oversell",
+      "kind": "word",
+      "zh": "超卖（一个词，动词）",
+      "examples": [
+        {
+          "en": "A race condition in the stock check caused us to oversell a popular item.",
+          "zh": "库存校验里有个竞态条件，导致一款热门商品超卖了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：秒杀场景下最怕出什么问题？",
+        "en": "The worst case is that we oversell: we accept more orders than we actually have stock for."
+      },
+      "note": "过去式是 oversold。名词用 overselling：We had to prevent overselling."
+    },
+    {
+      "term": "out of stock",
+      "kind": "chunk",
+      "zh": "缺货、没货了（介词短语，三个词）",
+      "examples": [
+        {
+          "en": "The page still showed the item as available, but it was actually out of stock.",
+          "zh": "页面上还显示有货，实际上已经缺货了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：库存缓存和数据库不一致时，用户会遇到什么情况？",
+        "en": "Users could add an item to the cart and only find out it was out of stock at checkout."
+      },
+      "collocations": ["in stock", "go out of stock", "sold out"],
+      "note": "反义是 in stock（有货）。卖光了也说 sold out。"
+    },
+    {
+      "term": "reserve inventory",
+      "kind": "chunk",
+      "zh": "预占库存（r 开头的动词 + i 开头的名词）",
+      "examples": [
+        {
+          "en": "We reserve inventory for fifteen minutes while the user completes payment.",
+          "zh": "用户付款期间，我们把库存预占十五分钟。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户下了单但还没付款，这段时间库存怎么处理？",
+        "en": "We reserve inventory when the order is created, so nobody else can buy it during payment."
+      },
+      "note": "也说 hold the stock、put a hold on the inventory。名词是 an inventory reservation。"
+    },
+    {
+      "term": "release the inventory",
+      "kind": "chunk",
+      "zh": "释放（预占的）库存",
+      "examples": [
+        {
+          "en": "If the payment times out, a background job cancels the order and releases the inventory.",
+          "zh": "如果支付超时，后台任务会取消订单并释放库存。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户下单后一直不付款，占着的库存怎么办？",
+        "en": "We cancel unpaid orders after fifteen minutes and release the inventory back to the pool."
+      },
+      "note": "和 reserve 是一对：预占之后要么确认扣减，要么释放。"
+    },
+    {
+      "term": "payment provider",
+      "kind": "chunk",
+      "zh": "支付渠道、支付服务商（第二个词 pro 开头，字面是“提供方”）",
+      "examples": [
+        {
+          "en": "We integrated with three payment providers to cover different regions.",
+          "zh": "我们对接了三家支付渠道，覆盖不同地区。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们的支付是自己做的，还是接的第三方？",
+        "en": "We don't process cards ourselves. We go through a payment provider and route each payment by region."
+      },
+      "collocations": ["integrate with a payment provider", "payment gateway", "switch providers"],
+      "note": "国内说的“支付渠道”，英文常说 payment provider 或 payment service provider（PSP）。payment gateway 指负责接入的那层网关。直译成 payment channel 对方不一定能懂。"
+    },
+    {
+      "term": "payment webhook",
+      "kind": "chunk",
+      "zh": "支付结果回调（渠道主动通知我们，第二个词 w 开头）",
+      "examples": [
+        {
+          "en": "We treat the payment webhook as the source of truth, not the browser redirect.",
+          "zh": "我们以支付回调为准，而不是以浏览器跳转为准。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户付完款直接关了页面，你们怎么知道支付成功了？",
+        "en": "We rely on the payment webhook from the provider, and we also poll in case it never arrives."
+      },
+      "collocations": ["receive a webhook", "webhook handler", "verify the webhook signature"],
+      "note": "国内说的“回调”，在支付场景里英文多说 webhook。说 callback 对方也能懂，比如 callback URL。"
+    },
+    {
+      "term": "double charge",
+      "kind": "chunk",
+      "zh": "重复扣款（d 开头，两个词）",
+      "examples": [
+        {
+          "en": "A retry bug caused a double charge for about two hundred customers.",
+          "zh": "一个重试的 bug 导致大约两百位用户被重复扣款。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：支付接口超时后直接重试，会有什么风险？",
+        "en": "The risk is a double charge: the first request may have gone through even though it timed out."
+      },
+      "note": "也可以作动词：We double-charged some customers. 或者说 charge the customer twice。"
+    },
+    {
+      "term": "issue a refund",
+      "kind": "chunk",
+      "zh": "发起退款（i 开头的动词）",
+      "examples": [
+        {
+          "en": "Support agents can issue a refund directly from the admin panel.",
+          "zh": "客服可以直接在后台发起退款。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：发现重复扣款之后，你们怎么处理受影响的用户？",
+        "en": "We identified the affected orders with a script and issued a refund for each one within a day."
+      },
+      "collocations": ["full refund", "partial refund", "request a refund", "process a refund"],
+      "note": "全额退款是 full refund，部分退款是 partial refund。refund 也可以直接作动词：refund the customer。"
+    },
+    {
+      "term": "reconcile",
+      "kind": "word",
+      "zh": "对账、核对两边的记录（动词）",
+      "ipa": "/ˈrekənsaɪl/",
+      "examples": [
+        {
+          "en": "Every night we reconcile our orders against the provider's settlement report.",
+          "zh": "每天晚上，我们拿自己的订单和渠道的结算报表对账。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们怎么发现“用户付了钱但订单没更新”这类问题？",
+        "en": "A nightly job reconciles our payment records with the provider's, and flags anything that doesn't match."
+      },
+      "note": "reconcile A with B 或 against B。重音在第一个音节。名词是 reconciliation，它在 React 里是另一个意思（协调）。"
+    },
+    {
+      "term": "discrepancy",
+      "kind": "word",
+      "zh": "（两边数据）对不上的地方、差异（d 开头）",
+      "ipa": "/dɪˈskrepənsi/",
+      "examples": [
+        {
+          "en": "We found a discrepancy of a few cents between our records and the bank's.",
+          "zh": "我们发现自己的记录和银行的记录差了几分钱。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：对账时两边金额不一致，你们怎么处理？",
+        "en": "Any discrepancy goes into a review queue, and someone on the finance team resolves it by hand."
+      },
+      "collocations": ["a discrepancy between ... and ...", "resolve a discrepancy", "investigate a discrepancy"],
+      "note": "比 difference 更正式，专指“本该一致却不一致”。复数是 discrepancies。"
+    },
+    {
+      "term": "ledger",
+      "kind": "word",
+      "zh": "账本、资金流水账（l 开头）",
+      "ipa": "/ˈledʒər/",
+      "examples": [
+        {
+          "en": "Every balance change is recorded as an entry in an append-only ledger.",
+          "zh": "每一笔余额变动，都作为一条记录写进只追加的账本。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们怎么保证用户余额不会算错，出了问题还能查？",
+        "en": "We never update balances in place. Every movement of money is an entry in the ledger."
+      },
+      "collocations": ["ledger entry", "double-entry ledger", "append-only ledger"],
+      "note": "讲资金安全时很常用：余额由流水算出来，而不是直接改。double-entry ledger 是复式记账的账本。"
+    },
+    {
+      "term": "chargeback",
+      "kind": "word",
+      "zh": "拒付（持卡人通过发卡行把钱追回，一个词）",
+      "examples": [
+        {
+          "en": "We lost several chargeback disputes because we couldn't prove delivery.",
+          "zh": "有好几笔拒付争议我们都输了，因为没法证明货已送达。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：做海外信用卡支付，有什么国内业务不太会遇到的问题？",
+        "en": "Chargebacks were a big one. A cardholder can dispute a charge with their bank months after the purchase."
+      },
+      "collocations": ["dispute a chargeback", "chargeback rate"],
+      "note": "和 refund 不同：refund 是商家主动退，chargeback 是持卡人找银行强制追回，商家通常还要付手续费。"
+    },
+    {
+      "term": "fraud detection",
+      "kind": "chunk",
+      "zh": "欺诈识别、（支付）风控（f 开头）",
+      "examples": [
+        {
+          "en": "Our fraud detection flagged the order because the shipping address kept changing.",
+          "zh": "我们的风控系统标记了这笔订单，因为收货地址一直在变。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们怎么防止盗刷？",
+        "en": "We run every payment through fraud detection, which scores it on device, location, and order history."
+      },
+      "collocations": ["fraud prevention", "flag a transaction", "risk score"],
+      "note": "国内说的“风控”，在支付语境里英文多说 fraud detection 或 fraud prevention，负责的团队常叫 the risk team。"
+    },
+    {
+      "term": "compliance requirement",
+      "kind": "chunk",
+      "zh": "合规要求",
+      "examples": [
+        {
+          "en": "The compliance requirements were different in every country we expanded to.",
+          "zh": "我们每进入一个国家，合规要求都不一样。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么你们不自己存用户的银行卡号？",
+        "en": "Mostly because of compliance requirements. Under PCI DSS, storing card numbers puts far more of your system in scope for audits."
+      },
+      "collocations": ["meet compliance requirements", "be compliant with ...", "regulatory compliance"],
+      "note": "形容词是 compliant：be PCI compliant、be compliant with GDPR。讲支付和数据隐私时常用。"
+    },
+    {
+      "term": "flash sale",
+      "kind": "chunk",
+      "zh": "秒杀、限时抢购",
+      "examples": [
+        {
+          "en": "During a flash sale, traffic can jump to fifty times the normal level within seconds.",
+          "zh": "秒杀期间，流量可能在几秒内涨到平时的五十倍。"
+        },
+        {
+          "en": "Before each flash sale, we preload the stock counts into Redis.",
+          "zh": "每次秒杀前，我们会把库存数预热到 Redis 里。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你做过的并发最高的业务场景是什么？",
+        "en": "That would be our flash sales, where thousands of users compete for a few hundred items in the same second."
+      },
+      "note": "英文里没有和“秒杀”完全对应的词，flash sale 最接近，必要时补一句解释规则。"
+    },
+    {
+      "term": "traffic surge",
+      "kind": "chunk",
+      "zh": "流量洪峰、流量激增（第二个词 su 开头，像浪一样涌来）",
+      "examples": [
+        {
+          "en": "We put a queue in front of the order service to absorb the traffic surge.",
+          "zh": "我们在订单服务前面加了一个队列，来承接流量洪峰。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：活动开始那一瞬间，系统最大的压力来自哪里？",
+        "en": "The traffic surge at the start: everyone hits the buy button within the same few seconds."
+      },
+      "collocations": ["a surge in traffic", "absorb the surge", "handle a traffic surge"],
+      "note": "也说 a surge in traffic。surge 强调突然涌来的一大波。"
+    },
+    {
+      "term": "hot item",
+      "kind": "chunk",
+      "zh": "热点商品（两个词，第二个词 i 开头）",
+      "examples": [
+        {
+          "en": "A single hot item can take up most of the traffic during a sale.",
+          "zh": "大促期间，一个热点商品就可能占掉大部分流量。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么秒杀商品的库存不能直接走普通的下单流程？",
+        "en": "Because every request hits the same row. For a hot item, we keep the stock counter in Redis instead."
+      },
+      "note": "也说 hot product、hot SKU。技术上对应的是热点 key（hot key）问题。"
+    },
+    {
+      "term": "purchase limit",
+      "kind": "chunk",
+      "zh": "限购（每人最多买几件的限制）",
+      "examples": [
+        {
+          "en": "We enforce a purchase limit of two items per account during the sale.",
+          "zh": "活动期间，我们限制每个账号最多买两件。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：怎么防止一个人把秒杀商品全抢光？",
+        "en": "We set a purchase limit per user, and we check it on the server, not just in the UI."
+      },
+      "collocations": ["per-user purchase limit", "enforce a purchase limit", "limit of two per customer"]
+    },
+    {
+      "term": "waiting room",
+      "kind": "chunk",
+      "zh": "（高峰期让用户排队等候的）排队页，字面是“等候室”",
+      "examples": [
+        {
+          "en": "We put users in a virtual waiting room and let them in batch by batch.",
+          "zh": "我们把用户放进一个虚拟排队页，再一批一批放进来。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：流量远超系统容量时，你们怎么不让系统被打垮？",
+        "en": "We send users to a waiting room first, and only admit as many as the backend can handle."
+      },
+      "collocations": ["virtual waiting room", "virtual queue", "let users in gradually"],
+      "note": "也叫 virtual waiting room 或 virtual queue，用户看到的是“您正在排队”的页面。"
+    }
+  ]
+}

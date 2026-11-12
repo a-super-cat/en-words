@@ -1,0 +1,429 @@
+{
+  "category": "frontend",
+  "title": "前端深挖",
+  "questions": [
+    {
+      "id": "fe-react-render-cycle",
+      "prompt": "Walk me through what happens between a setState call and the pixels changing on screen.",
+      "zh": "从调用 setState 到屏幕上的像素发生变化，中间都发生了什么？给我讲一遍。",
+      "outline": [
+        "setState schedules an update; React batches updates from the same event",
+        "Render phase: call components, diff the new tree against the old",
+        "Commit phase: apply DOM changes, then run layout effects and effects",
+        "Rendering can be interrupted in concurrent mode; commit is always synchronous",
+        "Finally the browser does layout and paint"
+      ],
+      "chunks": [
+        { "term": "trigger a re-render", "zh": "触发重新渲染" },
+        { "term": "batch state updates", "zh": "批量处理状态更新" },
+        { "term": "render phase", "zh": "渲染阶段" },
+        { "term": "commit phase", "zh": "提交阶段" },
+        { "term": "reconciliation", "zh": "协调（对比新旧树、算出最小变更）" },
+        { "term": "concurrent rendering", "zh": "并发渲染" }
+      ],
+      "followUps": [
+        "Why must components be pure during the render phase?",
+        "What does a transition change about this flow?"
+      ]
+    },
+    {
+      "id": "fe-vue-reactivity",
+      "prompt": "How does Vue 3's reactivity system track dependencies, and why did it move away from the Vue 2 approach?",
+      "zh": "Vue 3 的响应式系统是怎么追踪依赖的？为什么放弃了 Vue 2 的做法？",
+      "outline": [
+        "Vue 3 wraps objects in Proxies; Vue 2 used Object.defineProperty getters and setters",
+        "Reading a property inside an effect tracks it; writing triggers dependent effects",
+        "Proxies also catch added or deleted properties and array index changes",
+        "Caveat: destructuring a reactive object loses reactivity; use refs or toRefs",
+        "Computed values are cached and only recalculated when dependencies change"
+      ],
+      "chunks": [
+        { "term": "reactivity system", "zh": "响应式系统" },
+        { "term": "track dependencies", "zh": "追踪依赖" },
+        { "term": "under the hood", "zh": "在底层、内部实现上" },
+        { "term": "lose reactivity", "zh": "失去响应性" },
+        { "term": "computed property", "zh": "计算属性" }
+      ],
+      "followUps": [
+        "When would you use ref versus reactive?",
+        "How does Vue batch DOM updates after several state changes?"
+      ]
+    },
+    {
+      "id": "fe-rerender-models",
+      "prompt": "React re-renders a whole subtree by default, while Vue tracks which components depend on which state. How does that change the way you optimize each?",
+      "zh": "React 默认重新渲染整棵子树，而 Vue 会追踪哪个组件依赖哪份状态。这个差别怎样影响你对两者的优化思路？",
+      "outline": [
+        "React: a state change re-runs the component and all its children",
+        "So you memoize, keep props referentially stable, and move state down",
+        "Vue: only components that read the changed state re-render",
+        "Vue's pitfalls differ: huge reactive objects, deep watchers, lost reactivity",
+        "Compilers narrow the gap: React Compiler, Vue's static hoisting and patch flags"
+      ],
+      "chunks": [
+        { "term": "unnecessary re-render", "zh": "不必要的重新渲染" },
+        { "term": "referential equality", "zh": "引用相等" },
+        { "term": "virtual DOM", "zh": "虚拟 DOM" },
+        { "term": "fine-grained reactivity", "zh": "细粒度的响应式" },
+        { "term": "out of the box", "zh": "开箱即用、默认就有" }
+      ],
+      "followUps": ["Which model do you find easier to reason about in a large codebase, and why?"]
+    },
+    {
+      "id": "fe-state-placement",
+      "prompt": "How do you decide what state goes in a global store, what stays local, and what belongs in a server-cache library?",
+      "zh": "哪些状态放全局 store、哪些留在组件本地、哪些交给服务端缓存库，你是怎么决定的？",
+      "outline": [
+        "Default to local state; lift it only when siblings need it",
+        "Treat API data as server state: caching and refetching belong to a query library",
+        "Global store only for truly shared client state: session, theme, cross-page flows",
+        "The URL is state too: filters, pagination, selected tab",
+        "Do not store what you can derive"
+      ],
+      "chunks": [
+        { "term": "colocate state", "zh": "状态就近放置" },
+        { "term": "lift state up", "zh": "状态提升" },
+        { "term": "server state", "zh": "服务端状态" },
+        { "term": "global state", "zh": "全局状态" },
+        { "term": "derived state", "zh": "派生状态" },
+        { "term": "duplicated state", "zh": "重复的状态" }
+      ],
+      "followUps": ["What bugs have you seen from copying server data into a client store?"]
+    },
+    {
+      "id": "fe-context-vs-store",
+      "prompt": "When does React Context stop being enough, and what do you reach for instead?",
+      "zh": "React Context 在什么情况下就不够用了？这时候你会换成什么？",
+      "outline": [
+        "Context is dependency injection, not a state manager; fine for rarely changing values",
+        "Every consumer re-renders when the provider value changes; there are no selectors",
+        "Mitigate by splitting contexts or memoizing the provider value",
+        "For frequent updates use a store with selectors: Zustand, Redux Toolkit, Jotai",
+        "Weigh the extra dependency against the size of the app"
+      ],
+      "chunks": [
+        { "term": "context provider", "zh": "Context 的提供者组件" },
+        { "term": "prop drilling", "zh": "属性层层透传" },
+        { "term": "subscribe to a slice of the state", "zh": "只订阅状态的一部分" },
+        { "term": "reducer", "zh": "根据 action 算出下一个状态的纯函数" },
+        { "term": "The trade-off here is ...", "zh": "这里的取舍是……" }
+      ],
+      "followUps": ["How would you migrate a large app off an overgrown Redux store?"]
+    },
+    {
+      "id": "fe-perf-war-story",
+      "prompt": "Tell me about a time you tracked down and fixed a serious front-end performance problem.",
+      "zh": "讲一次你排查并解决严重前端性能问题的经历。",
+      "outline": [
+        "Situation: which metric was bad and how users were affected",
+        "Measure before fixing: field data, profiler, flame chart, not guesswork",
+        "Name the root cause: long task, oversized bundle, re-render storm",
+        "Action: the fix you chose and the trade-off it carried",
+        "Result: before-and-after numbers, plus a guard against regression"
+      ],
+      "chunks": [
+        { "term": "Core Web Vitals", "zh": "核心网页指标" },
+        { "term": "bottleneck", "zh": "瓶颈" },
+        { "term": "root cause", "zh": "根因" },
+        { "term": "It became clear that ...", "zh": "后来情况很明显：……" },
+        { "term": "bring ... down from ... to ...", "zh": "把……从……降到……" },
+        { "term": "The biggest win was ...", "zh": "最大的成效是……" }
+      ],
+      "followUps": [
+        "How did you make sure it didn't regress later?",
+        "What would you have done if that fix hadn't been enough?"
+      ]
+    },
+    {
+      "id": "fe-inp-heavy-interactions",
+      "prompt": "Our INP is poor on a page with heavy interactions. How would you approach improving it?",
+      "zh": "我们有个交互很重的页面，INP 指标很差。你会怎么着手改善？",
+      "outline": [
+        "Use field data to find the slow interactions, then reproduce them in the profiler",
+        "Break the delay down: input delay, processing time, presentation delay",
+        "Split long tasks, yield to the main thread, mark non-urgent updates as transitions",
+        "Move heavy computation to a web worker; virtualize long lists",
+        "Shrink the DOM and avoid layout thrashing inside handlers"
+      ],
+      "chunks": [
+        { "term": "Interaction to Next Paint", "zh": "交互到下一次绘制（INP）" },
+        { "term": "long task", "zh": "长任务" },
+        { "term": "block the main thread", "zh": "阻塞主线程" },
+        { "term": "off the main thread", "zh": "在主线程之外" },
+        { "term": "non-urgent update", "zh": "非紧急更新" },
+        { "term": "layout thrashing", "zh": "布局抖动" }
+      ],
+      "followUps": ["Why can lab data and field data disagree on this metric?"]
+    },
+    {
+      "id": "fe-bundle-bloat",
+      "prompt": "Your JavaScript bundle has doubled over the past year. How do you find out why and bring it back down?",
+      "zh": "过去一年你们的 JavaScript 包体积翻了一倍。你怎么查原因，又怎么把它降回去？",
+      "outline": [
+        "Run a bundle analyzer; look for duplicated and oversized dependencies",
+        "Split by route and lazy-load rarely used features",
+        "Check tree shaking: ESM builds, side-effect flags, barrel files",
+        "Replace heavy libraries; stop shipping polyfills that modern browsers do not need",
+        "Add a size budget in CI so it cannot creep back"
+      ],
+      "chunks": [
+        { "term": "bundle size", "zh": "打包体积" },
+        { "term": "code splitting", "zh": "代码分割" },
+        { "term": "tree shaking", "zh": "摇树优化" },
+        { "term": "dynamic import", "zh": "动态导入" },
+        { "term": "load a component on demand", "zh": "按需加载组件" },
+        { "term": "polyfill", "zh": "给旧浏览器补上缺失 API 的代码" }
+      ],
+      "followUps": ["How do you decide where to put the split points?"]
+    },
+    {
+      "id": "fe-ssr-tradeoffs",
+      "prompt": "When would you choose server-side rendering over a client-rendered SPA, and what does it cost you?",
+      "zh": "什么情况下你会选服务端渲染而不是纯客户端渲染的单页应用？代价是什么？",
+      "outline": [
+        "SSR helps first paint and SEO on public, content-heavy pages",
+        "Costs: server load, hydration work, more complex caching and deployment",
+        "The page can look ready before it is actually interactive",
+        "Alternatives: static generation for stable content, streaming for slow data",
+        "An internal dashboard behind a login rarely needs it"
+      ],
+      "chunks": [
+        { "term": "server-side rendering", "zh": "服务端渲染" },
+        { "term": "static site generation", "zh": "静态站点生成" },
+        { "term": "streaming SSR", "zh": "流式服务端渲染" },
+        { "term": "time to interactive", "zh": "可交互时间" },
+        { "term": "Largest Contentful Paint", "zh": "最大内容绘制（LCP）" },
+        { "term": "above the fold", "zh": "首屏" }
+      ],
+      "followUps": ["How would you cache server-rendered pages that contain personalized content?"]
+    },
+    {
+      "id": "fe-hydration-mismatch",
+      "prompt": "What causes hydration mismatches, and how have you debugged and prevented them?",
+      "zh": "水合不匹配是什么原因造成的？你是怎么排查和预防的？",
+      "outline": [
+        "Server and client produce different output from the same component",
+        "Usual suspects: dates, time zones, random IDs, window checks, browser extensions",
+        "Invalid HTML nesting too, because the browser rewrites the DOM",
+        "Fix: render client-only values after mount, or pass them down from the server",
+        "React recovers by re-rendering on the client up to the nearest Suspense boundary"
+      ],
+      "chunks": [
+        { "term": "hydration mismatch", "zh": "水合不匹配" },
+        { "term": "hydration", "zh": "水合" },
+        { "term": "Suspense boundary", "zh": "Suspense 边界" },
+        { "term": "fall back to ...", "zh": "退而使用……" },
+        { "term": "render it on the client only", "zh": "只在客户端渲染它" }
+      ],
+      "followUps": ["Why is suppressing the warning usually the wrong fix?"]
+    },
+    {
+      "id": "fe-server-components",
+      "prompt": "How do React Server Components change the way you structure an app, compared with classic SSR?",
+      "zh": "和传统的服务端渲染相比，React 服务端组件怎样改变了你组织应用的方式？",
+      "outline": [
+        "Server Components run only on the server and add nothing to the bundle",
+        "Classic SSR still ships and hydrates every component; Server Components are never hydrated",
+        "Fetch data inside the component, next to where it is used",
+        "Push the client boundary down to the interactive leaves",
+        "Constraints: no state or effects, and props crossing the boundary must serialize"
+      ],
+      "chunks": [
+        { "term": "Server Components", "zh": "服务端组件" },
+        { "term": "Client Component", "zh": "客户端组件" },
+        { "term": "serializable props", "zh": "可序列化的 props" },
+        { "term": "ship less JavaScript", "zh": "少往客户端发 JavaScript" },
+        { "term": "selective hydration", "zh": "选择性水合" }
+      ],
+      "followUps": [
+        "What kinds of apps don't benefit much from Server Components?",
+        "How do you handle mutations in that model?"
+      ]
+    },
+    {
+      "id": "fe-vue-composition-api",
+      "prompt": "Why did Vue introduce the Composition API, and how do composables compare with React hooks?",
+      "zh": "Vue 为什么要引入组合式 API？组合式函数和 React 的 hooks 相比怎么样？",
+      "outline": [
+        "The Options API scatters one feature across data, methods, and watchers",
+        "The Composition API groups logic by feature and extracts it into composables",
+        "It replaces mixins: no name clashes, and each value has a clear source",
+        "setup runs once per instance; React hooks re-run on every render",
+        "So no dependency arrays or stale closures, but refs need .value"
+      ],
+      "chunks": [
+        { "term": "Composition API", "zh": "组合式 API" },
+        { "term": "composable", "zh": "组合式函数" },
+        { "term": "reuse stateful logic", "zh": "复用带状态的逻辑" },
+        { "term": "custom hook", "zh": "自定义 Hook" },
+        { "term": "stale closure", "zh": "闭包陷阱（拿到的是旧值）" },
+        { "term": "dependency array", "zh": "依赖数组" }
+      ],
+      "followUps": ["Would you still use the Options API for anything today?"]
+    },
+    {
+      "id": "fe-vue-large-data",
+      "prompt": "A Vue page that holds a large data set feels sluggish. Where do you look?",
+      "zh": "一个持有大量数据的 Vue 页面用起来很卡。你会从哪里查起？",
+      "outline": [
+        "Profile first: Vue devtools timeline and the browser performance panel",
+        "Deep reactivity on big objects is costly; use shallowRef or markRaw",
+        "Virtualize long lists and give v-for stable keys",
+        "Use computed for derived values; avoid deep watchers on large trees",
+        "Keep props stable so child components can skip updates"
+      ],
+      "chunks": [
+        { "term": "list virtualization", "zh": "列表虚拟化" },
+        { "term": "stable key", "zh": "稳定的 key" },
+        { "term": "expensive computation", "zh": "开销大的计算" },
+        { "term": "deep watcher", "zh": "深度侦听器" },
+        { "term": "opt out of deep reactivity", "zh": "不使用深层响应式" }
+      ],
+      "followUps": ["Why is using the array index as a key a problem?"]
+    },
+    {
+      "id": "fe-large-codebase-structure",
+      "prompt": "How would you structure a front-end codebase that fifty engineers across several teams work on?",
+      "zh": "一个由好几个团队、五十名工程师共同开发的前端代码库，你会怎么组织？",
+      "outline": [
+        "Organize by feature or domain, not by file type",
+        "Enforce module boundaries with lint rules and public entry points",
+        "A shared design system and utilities, owned by a platform team",
+        "Monorepo with cached builds, code owners, and CI that tests only affected code",
+        "Agree on conventions for data fetching, state, errors, and testing"
+      ],
+      "chunks": [
+        { "term": "design system", "zh": "设计系统" },
+        { "term": "monorepo", "zh": "单一代码仓库" },
+        { "term": "enforce module boundaries", "zh": "强制约束模块边界" },
+        { "term": "decouple", "zh": "解耦" },
+        { "term": "cross-cutting concern", "zh": "横切关注点" },
+        { "term": "drive alignment across teams", "zh": "推动跨团队达成一致" }
+      ],
+      "followUps": ["How do you keep build and CI times under control as the repo grows?"]
+    },
+    {
+      "id": "fe-micro-frontends",
+      "prompt": "What's your take on micro-frontends? When are they worth it?",
+      "zh": "你怎么看微前端？什么时候才值得上？",
+      "outline": [
+        "They solve an organizational problem: teams that must deploy independently",
+        "Costs: duplicated dependencies, inconsistent UX, harder shared state and routing",
+        "Runtime integration such as Module Federation versus build-time packages",
+        "Shared library versions become a coordination problem",
+        "For one team or a small app, a modular monolith is simpler"
+      ],
+      "chunks": [
+        { "term": "micro-frontend", "zh": "微前端" },
+        { "term": "deploy independently", "zh": "独立部署" },
+        { "term": "not worth the added complexity", "zh": "不值得为此增加复杂度" },
+        { "term": "I'd lean towards ...", "zh": "我倾向于……" },
+        { "term": "bundle size", "zh": "打包体积" }
+      ],
+      "followUps": ["How would you share authentication and a design system across them?"]
+    },
+    {
+      "id": "fe-typescript-team-practice",
+      "prompt": "How have you used TypeScript to actually prevent bugs on a team, beyond just adding type annotations?",
+      "zh": "除了加类型标注之外，你是怎么在团队里用 TypeScript 真正防住 bug 的？",
+      "outline": [
+        "Turn on strict mode and treat any as a review smell",
+        "Model UI and domain states with discriminated unions; make invalid states unrepresentable",
+        "Generate API types from the schema instead of writing them by hand",
+        "Types vanish at runtime, so validate external data at the boundary",
+        "Keep types readable: clever generics hurt maintenance and compile time"
+      ],
+      "chunks": [
+        { "term": "discriminated union", "zh": "可辨识联合" },
+        { "term": "type narrowing", "zh": "类型收窄" },
+        { "term": "catch it at compile time", "zh": "在编译期就发现它" },
+        { "term": "runtime validation", "zh": "运行时校验" },
+        { "term": "API contract", "zh": "接口契约" },
+        { "term": "generics", "zh": "泛型" }
+      ],
+      "followUps": ["Where do you draw the line between type safety and over-engineered types?"]
+    },
+    {
+      "id": "fe-typescript-migration",
+      "prompt": "How would you migrate a large JavaScript codebase to TypeScript without stopping feature work?",
+      "zh": "在不停下功能开发的前提下，你会怎么把一个很大的 JavaScript 代码库迁到 TypeScript？",
+      "outline": [
+        "Go incrementally: allow JavaScript and TypeScript side by side, convert file by file",
+        "Type the shared boundaries first: API layer, utilities, core models",
+        "Start loose, then tighten strictness flags one at a time",
+        "Block new JavaScript files in CI and track progress visibly",
+        "Explain the payoff to the team early to keep momentum"
+      ],
+      "chunks": [
+        { "term": "incremental migration", "zh": "渐进式迁移" },
+        { "term": "big-bang rewrite", "zh": "一次性推倒重写" },
+        { "term": "get buy-in from", "zh": "争取到……的认可和支持" },
+        { "term": "phase out", "zh": "逐步淘汰" },
+        { "term": "pay off", "zh": "（前期投入）见到回报" }
+      ],
+      "followUps": ["How do you deal with third-party libraries that have poor or missing types?"]
+    },
+    {
+      "id": "fe-react-or-vue-new-product",
+      "prompt": "If you were starting a new product today, how would you choose between React and Vue?",
+      "zh": "如果今天要启动一个新产品，你会怎么在 React 和 Vue 之间做选择？",
+      "outline": [
+        "Start from the team: existing skills and the hiring pool",
+        "Ecosystem: React offers more choices; Vue ships an official router and store",
+        "Mental model: explicit re-renders and JSX versus reactive state and templates",
+        "Platform needs: Next.js or Nuxt, server rendering, React Native",
+        "Either works; consistency and team fluency matter more than the framework"
+      ],
+      "chunks": [
+        { "term": "weigh the pros and cons", "zh": "权衡利弊" },
+        { "term": "It came down to ...", "zh": "归根结底取决于……" },
+        { "term": "learning curve", "zh": "学习曲线、上手难度" },
+        { "term": "mature ecosystem", "zh": "成熟的生态" },
+        { "term": "opinionated", "zh": "（框架）有主见的、替你定好做法的" }
+      ],
+      "followUps": ["What would make you change your mind halfway through the project?"]
+    },
+    {
+      "id": "fe-request-waterfalls",
+      "prompt": "How do you avoid request waterfalls and chains of loading spinners in a component-driven app?",
+      "zh": "在组件驱动的应用里，你怎么避免请求瀑布和一连串的加载转圈？",
+      "outline": [
+        "Waterfalls come from nested components fetching only after they render",
+        "Hoist fetching to the route level and start requests in parallel",
+        "Or fetch on the server and stream the slow parts",
+        "Prefetch on hover or route intent; cache and deduplicate requests",
+        "Place Suspense boundaries deliberately so spinners do not cascade"
+      ],
+      "chunks": [
+        { "term": "request waterfall", "zh": "请求瀑布" },
+        { "term": "Suspense boundary", "zh": "Suspense 边界" },
+        { "term": "fallback UI", "zh": "兜底界面" },
+        { "term": "prefetch", "zh": "预取" },
+        { "term": "deduplicate", "zh": "去重" },
+        { "term": "optimistic update", "zh": "乐观更新" }
+      ],
+      "followUps": ["How do you decide what to block on and what to stream in later?"]
+    },
+    {
+      "id": "fe-memoization-judgment",
+      "prompt": "When do useMemo, useCallback, and React.memo actually help, and when are they wasted effort?",
+      "zh": "useMemo、useCallback 和 React.memo 什么时候真的有用，什么时候是白费功夫？",
+      "outline": [
+        "Memoization trades memory and comparison cost for skipped work",
+        "It pays off for expensive computations and for memoized children needing stable props",
+        "One unstable prop defeats React.memo for the whole component",
+        "Fix the structure first: move state down, pass children as props",
+        "Measure with the profiler; React Compiler now automates most of this"
+      ],
+      "chunks": [
+        { "term": "memoization", "zh": "记忆化" },
+        { "term": "shallow comparison", "zh": "浅比较" },
+        { "term": "referential equality", "zh": "引用相等" },
+        { "term": "expensive computation", "zh": "开销大的计算" },
+        { "term": "unnecessary re-render", "zh": "不必要的重新渲染" },
+        { "term": "premature optimization", "zh": "过早优化" }
+      ],
+      "followUps": ["How do you find out which component is re-rendering and why?"]
+    }
+  ]
+}

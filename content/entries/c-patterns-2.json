@@ -1,0 +1,891 @@
+{
+  "layer": "C",
+  "category": "patterns",
+  "title": "设计模式与架构模式",
+  "entries": [
+    {
+      "term": "layered architecture",
+      "kind": "chunk",
+      "zh": "分层架构",
+      "examples": [
+        {
+          "en": "It's a classic layered architecture: controllers call services, and services call repositories.",
+          "zh": "这是典型的分层架构：controller 调 service，service 调 repository。"
+        },
+        {
+          "en": "In a strict layered architecture, a layer can only talk to the one directly below it.",
+          "zh": "在严格的分层架构里，每一层只能和它正下方的那一层打交道。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：简单介绍一下你们后端代码的整体结构。",
+        "en": "We use a layered architecture with three layers: the API layer, the service layer and the data access layer."
+      },
+      "note": "也叫 n-tier architecture，不过 tier 更偏物理部署上的分层，layer 指代码逻辑上的分层。",
+      "collocations": [
+        "a three-layer architecture",
+        "the service layer",
+        "skip a layer"
+      ]
+    },
+    {
+      "term": "business logic",
+      "kind": "chunk",
+      "zh": "业务逻辑",
+      "examples": [
+        {
+          "en": "All the business logic lives in the service layer, so the controllers stay thin.",
+          "zh": "所有业务逻辑都放在 service 层，所以 controller 很薄。"
+        },
+        {
+          "en": "I don't want business logic in stored procedures, because it's hard to test and version.",
+          "zh": "我不希望业务逻辑写在存储过程里，因为那样很难测试，也很难做版本管理。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里把折扣计算写在了前端组件里。你想回复：",
+        "en": "I'd move this to the backend. Business logic like discount rules shouldn't live in a UI component."
+      },
+      "note": "也说 business rules（业务规则）、domain logic（领域逻辑）。logic 不可数：a lot of logic，不说 logics。",
+      "collocations": [
+        "the business logic lives in ...",
+        "business rules",
+        "a thin controller"
+      ]
+    },
+    {
+      "term": "presentation layer",
+      "kind": "chunk",
+      "zh": "表现层（展示层）",
+      "examples": [
+        {
+          "en": "Formatting dates and currencies belongs in the presentation layer, not in the domain objects.",
+          "zh": "日期和货币的格式化应该放在表现层，而不是领域对象里。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：接口返回给前端的字段，要不要在 service 层里就拼好？",
+        "en": "I'd keep that in the presentation layer. The service returns domain objects, and the controller maps them to the response format."
+      },
+      "collocations": [
+        "belong in the presentation layer",
+        "the UI layer",
+        "map to the response format"
+      ]
+    },
+    {
+      "term": "data access layer",
+      "kind": "chunk",
+      "zh": "数据访问层",
+      "examples": [
+        {
+          "en": "Only the data access layer knows about SQL; everything above it works with plain objects.",
+          "zh": "只有数据访问层知道 SQL 的存在，它上面的代码打交道的都是普通对象。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：以后要从 MySQL 迁到别的数据库，哪些代码要改？",
+        "en": "Ideally just the data access layer. Nothing above it issues queries directly."
+      },
+      "note": "缩写 DAL。Java 里常叫 DAO（data access object）层，也有人叫 persistence layer（持久层）。"
+    },
+    {
+      "term": "leak into ...",
+      "kind": "chunk",
+      "zh": "（不该出现的逻辑或细节）渗漏到…里（l 开头的动词短语）",
+      "examples": [
+        {
+          "en": "Over time, business rules leaked into the controllers, and now they're duplicated in three places.",
+          "zh": "时间一长，业务规则渗漏到了 controller 里，现在有三个地方在重复同样的规则。"
+        },
+        {
+          "en": "We don't let database types leak into the API responses.",
+          "zh": "我们不允许数据库的类型渗漏到 API 的响应里。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们的分层架构实际执行下来，遇到过什么问题？",
+        "en": "The layers blurred over time. SQL details started to leak into the service layer, which made it hard to change the schema."
+      }
+    },
+    {
+      "term": "extract a method",
+      "kind": "chunk",
+      "zh": "抽取方法（把一段代码提成独立的方法）",
+      "examples": [
+        {
+          "en": "I extracted a method for the retry loop, so the main function reads top to bottom.",
+          "zh": "我把重试循环抽成了一个方法，这样主函数可以从上到下顺着读。"
+        }
+      ],
+      "situation": {
+        "zh": "同事的函数有一百多行，中间有一段带注释的校验逻辑。你想建议：",
+        "en": "Could we extract a method for the validation block? A good name would make that comment unnecessary."
+      },
+      "note": "重构手法的名字是 Extract Method。同类说法：extract a class、extract an interface；反操作是 inline a method（内联）。函数式语境说 extract a function。"
+    },
+    {
+      "term": "eliminate duplication",
+      "kind": "chunk",
+      "zh": "消除重复（代码）",
+      "examples": [
+        {
+          "en": "I eliminated the duplication by moving the shared parsing code into one function.",
+          "zh": "我把公共的解析代码挪进了一个函数，消除了重复。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你那次重构的主要目标是什么？",
+        "en": "Mainly to eliminate duplication. The same pricing rules were copy-pasted into four services, and they had started to drift apart."
+      },
+      "note": "也说 remove duplication。重复代码叫 duplicated code 或 copy-pasted code；drift apart 指几份拷贝改着改着就不一致了。"
+    },
+    {
+      "term": "God object",
+      "kind": "chunk",
+      "zh": "上帝对象（什么都管的巨型对象）",
+      "examples": [
+        {
+          "en": "The OrderManager turned into a God object that every other module depends on.",
+          "zh": "OrderManager 变成了一个上帝对象，其他每个模块都依赖它。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：那个老项目里最让你头疼的设计问题是什么？",
+        "en": "There was a God object with four thousand lines. It handled orders, payments and emails, so every change risked breaking something unrelated."
+      },
+      "note": "也叫 God class。G 通常大写。",
+      "collocations": [
+        "a God class",
+        "break up a God object"
+      ]
+    },
+    {
+      "term": "spaghetti code",
+      "kind": "chunk",
+      "zh": "意大利面条式代码（纠缠在一起、理不清流程的代码）",
+      "examples": [
+        {
+          "en": "The checkout flow was spaghetti code, with callbacks calling each other in every direction.",
+          "zh": "结账流程就是一坨意大利面条式代码，回调之间到处互相调用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你接手那个模块时，代码是什么状态？",
+        "en": "Honestly, it was spaghetti code. There was no clear flow, and you had to jump through ten files to follow one request."
+      },
+      "note": "spaghetti 读 /spəˈɡeti/。不可数，不说 a spaghetti code。相关说法：a big ball of mud（大泥球，指整个系统看不出任何架构）。",
+      "collocations": [
+        "untangle spaghetti code",
+        "a big ball of mud"
+      ]
+    },
+    {
+      "term": "legacy code",
+      "kind": "chunk",
+      "zh": "遗留代码（老代码）",
+      "examples": [
+        {
+          "en": "Most of my first year was spent working with legacy code that had no tests at all.",
+          "zh": "我第一年大部分时间都在和完全没有测试的遗留代码打交道。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：面对一大块没人敢动的老代码，你第一步做什么？",
+        "en": "With legacy code, I first add tests around the current behavior. Then I can refactor without being afraid of breaking it."
+      },
+      "note": "legacy 读 /ˈleɡəsi/，也可以修饰别的名词：a legacy system、a legacy API。给老代码补的、用来记录现有行为的测试叫 characterization tests。",
+      "collocations": [
+        "a legacy system",
+        "maintain legacy code",
+        "a legacy codebase"
+      ]
+    },
+    {
+      "term": "pull ... out into ...",
+      "kind": "chunk",
+      "zh": "把…抽出来，放进（独立的类或模块，p 开头的口语说法）",
+      "examples": [
+        {
+          "en": "I pulled the notification logic out into its own module, so the order service no longer sends emails.",
+          "zh": "我把通知逻辑抽出来放进了一个独立模块，订单服务不再负责发邮件了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事的服务类里夹着一大段生成 PDF 的代码。你想建议：",
+        "en": "What if we pull the PDF generation out into a separate class? It has nothing to do with the rest of this service."
+      },
+      "note": "比 extract 更口语。同义说法：move ... out into ...、split ... out into ...、factor ... out。"
+    },
+    {
+      "term": "shotgun surgery",
+      "kind": "chunk",
+      "zh": "霰弹式修改（改一个需求要动很多个地方）",
+      "examples": [
+        {
+          "en": "Adding a new currency meant shotgun surgery across twelve files, which told us the design was wrong.",
+          "zh": "加一种新货币要在十二个文件里做霰弹式修改，这说明设计有问题。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你是怎么意识到那块逻辑需要重构的？",
+        "en": "Every small change required shotgun surgery. One new field meant editing the form, the API, three services and two reports."
+      },
+      "note": "Martin Fowler《重构》里的坏味道名字。原因通常是同一个职责散落在很多地方。"
+    },
+    {
+      "term": "hexagonal architecture",
+      "kind": "chunk",
+      "zh": "六边形架构",
+      "examples": [
+        {
+          "en": "We adopted hexagonal architecture so the core logic can be tested without a database or HTTP server.",
+          "zh": "我们采用了六边形架构，这样核心逻辑不需要数据库和 HTTP 服务器就能测试。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们怎么保证核心业务代码不被框架和数据库绑死？",
+        "en": "We follow hexagonal architecture. The domain sits in the middle and talks to the outside world only through interfaces it defines."
+      },
+      "note": "hexagonal 读 /hekˈsæɡənl/，重音在第二个音节。它和 ports and adapters 是同一种架构的两个名字。"
+    },
+    {
+      "term": "ports and adapters",
+      "kind": "chunk",
+      "zh": "端口和适配器",
+      "examples": [
+        {
+          "en": "With ports and adapters, switching from REST to a message queue only meant writing a new adapter.",
+          "zh": "用了端口和适配器，从 REST 换成消息队列只需要写一个新的适配器。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：在六边形架构里，核心业务和数据库之间具体是怎么接起来的？",
+        "en": "Through ports and adapters. The core declares a port, which is just an interface, and the Postgres adapter implements it."
+      },
+      "note": "port 是核心定义的接口，adapter 是外层对接具体技术的实现。adapter 分两类：driving adapter（主动调用核心，如 controller）和 driven adapter（被核心调用，如数据库实现）。"
+    },
+    {
+      "term": "clean architecture",
+      "kind": "chunk",
+      "zh": "整洁架构",
+      "examples": [
+        {
+          "en": "We structured the app along clean architecture lines, with use cases at the center and frameworks at the edges.",
+          "zh": "我们按整洁架构的思路来组织这个应用，用例在中心，框架在边缘。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们的项目目录为什么按用例、实体、基础设施来分，而不是按 controller、service 来分？",
+        "en": "It follows clean architecture. The business rules sit in the inner layers, and things like the web framework and the database are details on the outside."
+      },
+      "note": "Robert C. Martin 提出，和六边形架构、onion architecture（洋葱架构）思路一致：依赖只能由外向内。"
+    },
+    {
+      "term": "point inward",
+      "kind": "chunk",
+      "zh": "（依赖方向）指向内层",
+      "examples": [
+        {
+          "en": "All dependencies point inward, so the domain never imports anything from the infrastructure layer.",
+          "zh": "所有依赖都指向内层，所以领域层从不引用基础设施层的任何东西。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：整洁架构里最核心的一条规则是什么？",
+        "en": "The dependency rule: source code dependencies must point inward, toward the business rules, never toward the framework or the database."
+      },
+      "note": "这条规则叫 the dependency rule。inward 也写作 inwards，反义 outward。内层和外层说 inner layers、outer layers。"
+    },
+    {
+      "term": "framework-agnostic",
+      "kind": "chunk",
+      "zh": "与框架无关的（不绑定某个具体框架）",
+      "examples": [
+        {
+          "en": "The core module is framework-agnostic, so we could move from Express to Fastify in a week.",
+          "zh": "核心模块是与框架无关的，所以我们一周就从 Express 迁到了 Fastify。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们把校验逻辑单独放一个包，为什么不直接用 Web 框架自带的校验机制？",
+        "en": "We wanted it to be framework-agnostic. The same rules run in the API, in background jobs and in the CLI."
+      },
+      "note": "agnostic 读 /æɡˈnɑːstɪk/。-agnostic 可以接各种词：database-agnostic、cloud-agnostic、language-agnostic。",
+      "collocations": [
+        "database-agnostic",
+        "cloud-agnostic",
+        "language-agnostic"
+      ]
+    },
+    {
+      "term": "repository pattern",
+      "kind": "chunk",
+      "zh": "仓储模式",
+      "examples": [
+        {
+          "en": "We use the repository pattern, so the services ask for orders without knowing how they're stored.",
+          "zh": "我们用了仓储模式，所以 service 取订单时不需要知道订单是怎么存的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：业务代码里怎么避免到处都是 SQL 或 ORM 调用？",
+        "en": "We use the repository pattern. Each repository looks like an in-memory collection of domain objects, and the persistence details stay behind it."
+      },
+      "note": "repository 读 /rɪˈpɑːzətɔːri/。和 DAO 的区别：repository 面向领域对象（像一个集合），DAO 面向表。",
+      "collocations": [
+        "a repository interface",
+        "an in-memory repository",
+        "the persistence details"
+      ]
+    },
+    {
+      "term": "unit of work",
+      "kind": "chunk",
+      "zh": "工作单元",
+      "examples": [
+        {
+          "en": "The unit of work tracks every change in the request and commits them in a single transaction.",
+          "zh": "工作单元会记录这次请求里的每一处改动，然后在一个事务里一起提交。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一次请求里改了三个对象，怎么保证要么全部落库、要么全不落？",
+        "en": "We use a unit of work. It collects all the changes made during the request and writes them in one transaction at the end."
+      },
+      "note": "ORM 一般已经内置了：SQLAlchemy 的 Session、JPA 的 EntityManager、EF 的 DbContext 都是 unit of work 的实现。"
+    },
+    {
+      "term": "wrap a third-party API",
+      "kind": "chunk",
+      "zh": "把第三方 API 封装一层",
+      "examples": [
+        {
+          "en": "We wrap the third-party API in our own client, so their breaking changes only affect one file.",
+          "zh": "我们把第三方 API 封装在自己的客户端里，这样对方的不兼容变更只会影响一个文件。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们接了一家外部的地图服务，业务代码里是直接调用它的接口吗？",
+        "en": "No, we wrap the third-party API in a small adapter. The rest of the code only sees our own interface and our own error types."
+      },
+      "note": "third-party 作定语要加连字符。相关说法：vendor lock-in（被供应商绑定）。",
+      "collocations": [
+        "wrap it in an adapter",
+        "vendor lock-in",
+        "translate their errors into ours"
+      ]
+    },
+    {
+      "term": "backend for frontend",
+      "kind": "chunk",
+      "zh": "为前端定制的后端（每种客户端一个专属的后端层）",
+      "examples": [
+        {
+          "en": "We added a backend for frontend that aggregates five service calls into one response for the mobile app.",
+          "zh": "我们加了一层为前端定制的后端，把五个服务调用聚合成一个响应返回给移动端。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：移动端和 Web 端要的数据格式差很多，你们是让一套通用接口去兼容两边吗？",
+        "en": "No, each client has its own backend for frontend. It calls the downstream services and shapes the data for that specific UI."
+      },
+      "note": "缩写 BFF，口头直接念字母。和通用 API 网关的区别：BFF 按客户端类型各建一个，里面有针对那个界面的聚合和裁剪逻辑，通常由对应的前端团队维护。"
+    },
+    {
+      "term": "DTO",
+      "kind": "word",
+      "zh": "数据传输对象（三个字母的缩写）",
+      "examples": [
+        {
+          "en": "The controller maps the entity to a DTO, so we never expose internal fields like the password hash.",
+          "zh": "controller 把实体映射成 DTO，这样密码哈希这类内部字段就不会暴露出去。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么不直接把数据库实体对象返回给前端？",
+        "en": "We return a DTO instead. It keeps the API shape independent of the database schema and avoids leaking internal fields."
+      },
+      "note": "全称 data transfer object，只带数据、没有行为。",
+      "collocations": [
+        "map an entity to a DTO",
+        "a request DTO",
+        "a response DTO"
+      ]
+    },
+    {
+      "term": "MVC",
+      "kind": "word",
+      "zh": "模型-视图-控制器（缩写）",
+      "examples": [
+        {
+          "en": "It's a standard MVC app: the controller handles the request, updates the model and renders a view.",
+          "zh": "这是一个标准的 MVC 应用：controller 处理请求、更新 model，然后渲染 view。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Rails、Laravel 这类传统 Web 框架，是按什么思路组织代码的？",
+        "en": "They follow MVC. The model holds the data and rules, the view renders it, and the controller takes user input and connects the two."
+      },
+      "note": "全称 Model-View-Controller。常被吐槽的问题是 fat controller（臃肿的控制器）：业务逻辑全堆在 controller 里。"
+    },
+    {
+      "term": "MVVM",
+      "kind": "word",
+      "zh": "模型-视图-视图模型（缩写）",
+      "examples": [
+        {
+          "en": "In MVVM, the view binds to the view model, so we write almost no manual DOM or widget code.",
+          "zh": "在 MVVM 里，视图绑定到视图模型上，所以我们几乎不用手写操作 DOM 或控件的代码。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：WPF 和 Vue 这类框架背后的架构思路是什么？和传统的控制器模式有什么不同？",
+        "en": "They build on MVVM. Instead of a controller pushing data into the view, the view binds to a view model and updates automatically."
+      },
+      "note": "全称 Model-View-ViewModel。view model 是“为界面准备好的状态和命令”，它不直接引用 view。Vue 官方的说法是“受 MVVM 启发”，并不严格遵循。"
+    },
+    {
+      "term": "two-way data binding",
+      "kind": "chunk",
+      "zh": "双向数据绑定",
+      "examples": [
+        {
+          "en": "The form uses two-way data binding, so the input and the model stay in sync automatically.",
+          "zh": "这个表单用了双向数据绑定，所以输入框和 model 会自动保持同步。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Vue 的 v-model 做了什么？",
+        "en": "It's two-way data binding: typing in the input updates the state, and changing the state updates the input."
+      },
+      "note": "对应 one-way data binding（单向绑定）。v-model 本质上是“传值加监听事件”的语法糖。"
+    },
+    {
+      "term": "plugin architecture",
+      "kind": "chunk",
+      "zh": "插件架构",
+      "examples": [
+        {
+          "en": "The editor has a plugin architecture, so teams can add features without changing the core.",
+          "zh": "这个编辑器是插件架构，各团队可以加功能而不用改核心代码。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们的构建工具要支持各个团队自定义的步骤，核心代码怎么不被改得乱七八糟？",
+        "en": "We gave it a plugin architecture. The core stays small and stable, and each team ships its custom steps as plugins."
+      },
+      "note": "也叫 microkernel architecture（微内核架构）。plugin 也写作 plug-in；近义词 extension、add-on。",
+      "collocations": [
+        "write a plugin",
+        "a plugin system",
+        "the core and its plugins"
+      ]
+    },
+    {
+      "term": "extension point",
+      "kind": "chunk",
+      "zh": "扩展点",
+      "examples": [
+        {
+          "en": "The framework exposes extension points before and after each build step for custom logic.",
+          "zh": "框架在每个构建步骤的前后都暴露了扩展点，用来插入自定义逻辑。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：第三方开发者想在你们的发布流程里插入自己的检查，怎么做到？",
+        "en": "We provide extension points at each stage of the pipeline. They register a callback there, and we call it at the right time."
+      },
+      "note": "相近说法是 hook（钩子）：hook into the pipeline。",
+      "collocations": [
+        "expose an extension point",
+        "provide an extension point",
+        "hook into the pipeline"
+      ]
+    },
+    {
+      "term": "event-driven architecture",
+      "kind": "chunk",
+      "zh": "事件驱动架构",
+      "examples": [
+        {
+          "en": "We moved to an event-driven architecture so new features can react to orders without touching the order service.",
+          "zh": "我们改成了事件驱动架构，这样新功能可以对订单做出响应，而不用动订单服务。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：新增一个下游功能时，怎么做到不用改上游服务的代码？",
+        "en": "That's the main benefit of an event-driven architecture. The upstream service just emits events, and it doesn't know or care who consumes them."
+      },
+      "note": "缩写 EDA。代价是流程不再直观：很难一眼看出一个事件会触发哪些后续动作，排查问题也更难。",
+      "collocations": [
+        "emit an event",
+        "react to an event",
+        "an event handler"
+      ]
+    },
+    {
+      "term": "CQRS",
+      "kind": "word",
+      "zh": "命令查询职责分离（缩写）",
+      "examples": [
+        {
+          "en": "We introduced CQRS because the read side needed a very different data shape from the write side.",
+          "zh": "我们引入了 CQRS，因为读的一侧需要的数据形状和写的一侧差别很大。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：写入要走复杂的业务校验，查询又要很快地拼出各种列表页，一个模型很难兼顾，怎么办？",
+        "en": "I'd consider CQRS: one model for handling commands, and separate read models optimized for the queries."
+      },
+      "note": "全称 Command Query Responsibility Segregation，口头直接念四个字母。读写模型分开，不一定要分库，也不一定要配合事件溯源。",
+      "collocations": [
+        "the write side",
+        "the read side",
+        "a read model"
+      ]
+    },
+    {
+      "term": "event sourcing",
+      "kind": "chunk",
+      "zh": "事件溯源",
+      "examples": [
+        {
+          "en": "With event sourcing, we store every change as an event instead of overwriting the current state.",
+          "zh": "用了事件溯源，我们把每次变更都存成一个事件，而不是直接覆盖当前状态。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：账户余额这类数据，你们怎么保证每一次变动都可追溯？",
+        "en": "We use event sourcing. The events are the source of truth, and the balance is derived by applying them in order."
+      },
+      "note": "当前状态是从事件推导出来的；为了不用每次都从头算，会定期存 snapshot（快照）。事件只追加、不修改，所以叫 an append-only log。",
+      "collocations": [
+        "an append-only log",
+        "the event store",
+        "take a snapshot"
+      ]
+    },
+    {
+      "term": "replay the events",
+      "kind": "chunk",
+      "zh": "重放事件",
+      "examples": [
+        {
+          "en": "When we found the bug in the projection, we fixed it and replayed the events to rebuild the table.",
+          "zh": "发现投影里的 bug 之后，我们修掉它，然后重放事件把那张表重建了一遍。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：在事件溯源的系统里新增一个报表视图，历史数据从哪来？",
+        "en": "We just replay the events from the beginning into the new read model, so it ends up with the full history."
+      },
+      "note": "replay 也作名词：a full replay。由事件生成的读模型也叫 projection（投影）：rebuild a projection。"
+    },
+    {
+      "term": "pipes and filters",
+      "kind": "chunk",
+      "zh": "管道和过滤器",
+      "examples": [
+        {
+          "en": "The image service is built as pipes and filters: resize, watermark and compress are independent steps.",
+          "zh": "图片服务是按管道和过滤器搭的：缩放、加水印、压缩都是各自独立的步骤。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：数据要依次经过清洗、转换、校验、入库几步，而且步骤经常增减，怎么组织？",
+        "en": "I'd use pipes and filters. Each step is a small filter with the same input and output shape, so we can reorder or add steps freely."
+      },
+      "note": "filter 在这里指“处理步骤”，不只是“过滤”。Unix 的 cat | grep | sort 就是最经典的例子。整条链路叫 a pipeline。"
+    },
+    {
+      "term": "domain-driven design",
+      "kind": "chunk",
+      "zh": "领域驱动设计",
+      "examples": [
+        {
+          "en": "We applied domain-driven design to the pricing module, because that's where the business rules are most complex.",
+          "zh": "我们在定价模块上用了领域驱动设计，因为那里的业务规则最复杂。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们是按什么方法来建模和划分微服务的？",
+        "en": "We used domain-driven design. We worked with the domain experts to model the business first, and the service boundaries followed from that."
+      },
+      "note": "缩写 DDD。分 strategic design（战略设计：划分上下文）和 tactical design（战术设计：聚合、实体、值对象）。domain expert 是“业务专家”。"
+    },
+    {
+      "term": "bounded context",
+      "kind": "chunk",
+      "zh": "限界上下文",
+      "examples": [
+        {
+          "en": "Sales and shipping are separate bounded contexts, so each has its own definition of an order.",
+          "zh": "销售和物流是两个独立的限界上下文，所以它们对“订单”各有各的定义。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：“客户”这个概念在销售系统和客服系统里含义不一样，模型要统一成一个吗？",
+        "en": "No, I'd treat them as two bounded contexts. Each one has its own Customer model, and we translate between them at the boundary."
+      },
+      "note": "一个模型只在它自己的 bounded context 里有效。描述各个上下文之间关系的图叫 context map（上下文映射）。",
+      "collocations": [
+        "within a bounded context",
+        "a context map",
+        "translate at the boundary"
+      ]
+    },
+    {
+      "term": "ubiquitous language",
+      "kind": "chunk",
+      "zh": "通用语言（开发团队和业务方统一使用的一套术语）",
+      "examples": [
+        {
+          "en": "Building a ubiquitous language with the underwriters meant our class names finally matched the words they use.",
+          "zh": "和核保人员一起建立通用语言之后，我们的类名终于和他们平时说的词对上了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：产品说的“订单”和代码里的 Order 经常不是一回事，沟通成本很高，你怎么解决？",
+        "en": "We built a ubiquitous language: one agreed term per concept, used in conversations, documents and the code itself."
+      },
+      "note": "ubiquitous 读 /juːˈbɪkwɪtəs/，意思是“无处不在的”。强调同一套词要同时出现在对话、文档和代码里。"
+    },
+    {
+      "term": "anemic domain model",
+      "kind": "chunk",
+      "zh": "贫血模型",
+      "examples": [
+        {
+          "en": "We had an anemic domain model: entities were just getters and setters, with all the logic in services.",
+          "zh": "我们当时是贫血模型：实体只有 getter 和 setter，逻辑全在 service 里。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们的实体类里只有字段，规则全写在 Service 里，这样有什么问题？",
+        "en": "That's an anemic domain model. The rules get scattered across services, and nothing stops code from putting an object into an invalid state."
+      },
+      "note": "anemic 读 /əˈniːmɪk/（英式拼写 anaemic）。反义是 rich domain model（充血模型）：数据和行为放在一起。"
+    },
+    {
+      "term": "anti-corruption layer",
+      "kind": "chunk",
+      "zh": "防腐层",
+      "examples": [
+        {
+          "en": "We put an anti-corruption layer in front of the legacy ERP, so its odd data model doesn't leak into ours.",
+          "zh": "我们在老 ERP 前面加了一个防腐层，这样它那套奇怪的数据模型就不会渗进我们的模型里。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：新系统要和一个模型很混乱的老系统对接，怎么避免被它的设计带偏？",
+        "en": "I'd add an anti-corruption layer. It translates the old system's concepts into our own model, so our domain code never sees theirs."
+      },
+      "note": "缩写 ACL，注意和 access control list 撞名。它的核心工作是 translate between two models（在两套模型之间做翻译）。"
+    },
+    {
+      "term": "aggregate root",
+      "kind": "chunk",
+      "zh": "聚合根",
+      "examples": [
+        {
+          "en": "Order is the aggregate root, so you can only change an order line by going through the order.",
+          "zh": "Order 是聚合根，所以要改某条订单明细，只能通过订单本身来改。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：外部代码能不能直接改订单里的某一条明细？",
+        "en": "No. The order is the aggregate root, so all changes go through it. That's how it keeps the total and the line items consistent."
+      },
+      "note": "aggregate 作名词读 /ˈæɡrɪɡət/，结尾不读 gate。一个 aggregate（聚合）是一组必须保持一致的对象，是一致性和事务的边界；外部只能持有 aggregate root 的引用。",
+      "collocations": [
+        "go through the aggregate root",
+        "an aggregate boundary",
+        "load the whole aggregate"
+      ]
+    },
+    {
+      "term": "enforce an invariant",
+      "kind": "chunk",
+      "zh": "保证不变量成立（强制执行某条业务约束）",
+      "examples": [
+        {
+          "en": "The Order class enforces the invariant that the total always equals the sum of its line items.",
+          "zh": "Order 类保证了一条不变量：总价永远等于各条明细之和。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：“账户余额不能为负”这条规则，你会放在哪里保证？",
+        "en": "Inside the Account aggregate. It's the only place that can change the balance, so it's the natural place to enforce that invariant."
+      },
+      "note": "invariant 读 /ɪnˈveriənt/，指“任何时候都必须成立的条件”。也说 maintain / protect an invariant；违反是 violate an invariant。"
+    },
+    {
+      "term": "entity",
+      "kind": "word",
+      "zh": "实体（靠唯一标识来区分的领域对象）",
+      "examples": [
+        {
+          "en": "A customer is an entity: it keeps the same identity even if the name and address change.",
+          "zh": "客户是一个实体：就算姓名和地址变了，它的身份标识还是同一个。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：两个用户对象的字段完全相同，它们就是同一个用户吗？",
+        "en": "Not necessarily. A user is an entity, so what matters is the ID, not the attribute values."
+      },
+      "note": "entity 靠 identity（标识）判断相等，value object 靠属性值判断相等。JPA 的 @Entity 是持久化层面的概念，和 DDD 的 entity 不完全等同。"
+    },
+    {
+      "term": "value object",
+      "kind": "chunk",
+      "zh": "值对象",
+      "examples": [
+        {
+          "en": "We model money as a value object, so an amount always travels with its currency.",
+          "zh": "我们把金额建模成值对象，这样数额永远和币种绑在一起。"
+        },
+        {
+          "en": "Value objects are immutable; to change one, you create a new instance.",
+          "zh": "值对象是不可变的，要改就创建一个新实例。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：金额、地址、日期范围这类概念，你会直接用基础类型来表示吗？",
+        "en": "I'd wrap each in a value object. It's immutable, it's compared by value, and it can validate itself on creation."
+      },
+      "note": "到处用裸的 string、int 来表示领域概念，这个坏味道叫 primitive obsession（基本类型偏执）。",
+      "collocations": [
+        "an immutable value object",
+        "compared by value",
+        "primitive obsession"
+      ]
+    },
+    {
+      "term": "domain event",
+      "kind": "chunk",
+      "zh": "领域事件",
+      "examples": [
+        {
+          "en": "When an order is paid, the aggregate raises a domain event that the shipping module listens for.",
+          "zh": "订单支付之后，聚合会发出一个领域事件，物流模块在监听它。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：订单支付成功后要通知库存和积分模块，订单模块需要直接调用它们吗？",
+        "en": "No. The order publishes an OrderPaid domain event, and the other modules react to it on their own."
+      },
+      "note": "用过去式命名，表示“已经发生的业务事实”：OrderPlaced、PaymentFailed。",
+      "collocations": [
+        "raise a domain event",
+        "publish a domain event",
+        "handle a domain event"
+      ]
+    },
+    {
+      "term": "producer-consumer pattern",
+      "kind": "chunk",
+      "zh": "生产者消费者模式",
+      "examples": [
+        {
+          "en": "We used the producer-consumer pattern with a bounded queue between the crawler and the parser threads.",
+          "zh": "我们用了生产者消费者模式，在爬取线程和解析线程之间放了一个有界队列。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：抓取线程比解析线程快得多，两边速度不匹配，怎么协调？",
+        "en": "With the producer-consumer pattern. A bounded queue sits between them, so producers block when it's full instead of exhausting memory."
+      },
+      "note": "关键是中间那个 bounded queue（有界队列），Java 里就是 BlockingQueue。",
+      "collocations": [
+        "a bounded queue",
+        "a blocking queue",
+        "block when the queue is full"
+      ]
+    },
+    {
+      "term": "worker pool",
+      "kind": "chunk",
+      "zh": "工作池（固定数量、从队列里取任务的一组 worker）",
+      "examples": [
+        {
+          "en": "A worker pool of eight goroutines pulls jobs off the channel, which caps our concurrency.",
+          "zh": "一个由八个 goroutine 组成的工作池从 channel 里取任务，这样并发数就有了上限。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：要并发处理一万张图片，你会给每张图片开一个线程吗？",
+        "en": "No, I'd use a worker pool: a fixed number of workers pulling tasks from a shared queue, so we don't overwhelm the machine."
+      },
+      "note": "和 thread pool 思路相同；worker pool 说法更通用，worker 可以是线程、goroutine、进程或协程。",
+      "collocations": [
+        "a pool of workers",
+        "a fixed-size worker pool",
+        "pull tasks from a queue"
+      ]
+    },
+    {
+      "term": "read-write lock",
+      "kind": "chunk",
+      "zh": "读写锁",
+      "examples": [
+        {
+          "en": "The config cache uses a read-write lock, since it's read constantly but updated maybe once an hour.",
+          "zh": "配置缓存用的是读写锁，因为它一直在被读，但大概一小时才更新一次。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一份数据读多写少，用普通互斥锁性能不好，有什么更合适的？",
+        "en": "A read-write lock. Many readers can hold it at the same time, and a writer gets exclusive access."
+      },
+      "note": "也写作 readers-writer lock；Rust 里是 RwLock，Java 里是 ReentrantReadWriteLock。普通互斥锁叫 mutex。要留意 writer starvation（写者饥饿）。",
+      "collocations": [
+        "hold the read lock",
+        "take the write lock",
+        "exclusive access"
+      ]
+    },
+    {
+      "term": "actor model",
+      "kind": "chunk",
+      "zh": "参与者模型（并发模型：各自持有私有状态，只靠收发消息通信）",
+      "examples": [
+        {
+          "en": "We chose the actor model for the game server: each room is an actor that processes messages one by one.",
+          "zh": "游戏服务器我们选了 Actor 模型：每个房间是一个 actor，一条一条地处理消息。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：不想用锁，有没有别的办法来管理并发状态？",
+        "en": "One option is the actor model. Each actor keeps its state private and they communicate only by sending messages, so there's nothing shared to lock."
+      },
+      "note": "国内一般直接叫“Actor 模型”。代表实现：Erlang/Elixir、Akka。每个 actor 有一个 mailbox（邮箱），一次只处理一条消息。",
+      "collocations": [
+        "send a message to an actor",
+        "an actor's mailbox",
+        "message passing"
+      ]
+    },
+    {
+      "term": "event bus",
+      "kind": "chunk",
+      "zh": "事件总线（进程内的发布订阅）",
+      "examples": [
+        {
+          "en": "Modules talk through an in-process event bus, so the cart doesn't need a reference to the analytics code.",
+          "zh": "模块之间通过进程内的事件总线通信，所以购物车不需要引用埋点统计的代码。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：同一个应用里的几个模块需要互相通知，但你不想让它们互相引用，怎么做？",
+        "en": "I'd use an in-process event bus. A module publishes an event, and whoever has subscribed gets called, without either side knowing the other."
+      },
+      "note": "进程内的 event bus 一般是同步调用、不持久化，和 Kafka 这类跨进程的消息系统不是一回事。滥用会让调用关系很难追踪。",
+      "collocations": [
+        "an in-process event bus",
+        "publish to the event bus",
+        "subscribe to an event"
+      ]
+    }
+  ]
+}

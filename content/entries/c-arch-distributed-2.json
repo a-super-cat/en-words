@@ -1,0 +1,684 @@
+{
+  "layer": "C",
+  "category": "arch-distributed",
+  "title": "架构：分布式与扩展性",
+  "entries": [
+    {
+      "term": "distributed transaction",
+      "kind": "chunk",
+      "zh": "分布式事务",
+      "examples": [
+        {
+          "en": "We avoided a distributed transaction by keeping orders and payments in the same database.",
+          "zh": "我们把订单和支付放在同一个库里，避开了分布式事务。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：下单要同时改订单库和库存库，难点在哪？",
+        "en": "That's a distributed transaction: the two writes live in different databases, so one can succeed while the other fails."
+      }
+    },
+    {
+      "term": "two-phase commit",
+      "kind": "chunk",
+      "zh": "两阶段提交",
+      "examples": [
+        {
+          "en": "We ruled out two-phase commit because participants stay blocked if the coordinator crashes after the prepare phase.",
+          "zh": "我们否掉了两阶段提交，因为协调者在准备阶段之后崩溃的话，参与者会一直阻塞。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：要让两个数据库要么都提交、要么都回滚，经典的协议是什么？",
+        "en": "Two-phase commit: a coordinator asks every participant to prepare, and it only tells them to commit if all of them agree."
+      },
+      "note": "缩写 2PC，读作 two P C。两个阶段是 prepare phase 和 commit phase。"
+    },
+    {
+      "term": "saga",
+      "kind": "word",
+      "zh": "把长事务拆成多个本地事务、失败就逐步补偿的模式（s 开头）",
+      "ipa": "/ˈsɑːɡə/",
+      "examples": [
+        {
+          "en": "We modeled checkout as a saga: reserve stock, charge the card, then create the shipment.",
+          "zh": "我们把结账流程建模成一个 Saga：先预留库存，再扣款，最后创建发货单。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：跨三个服务的下单流程，不用两阶段提交怎么保证数据最终一致？",
+        "en": "I'd use a saga: each service commits its own local transaction, and if a later step fails we undo the earlier ones."
+      },
+      "note": "两种组织方式：orchestration（由一个编排者指挥）和 choreography（各服务靠事件接力）。"
+    },
+    {
+      "term": "compensating transaction",
+      "kind": "chunk",
+      "zh": "补偿事务",
+      "examples": [
+        {
+          "en": "If the payment fails, a compensating transaction releases the stock we reserved earlier.",
+          "zh": "如果扣款失败，就由补偿事务把之前预留的库存释放掉。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：流程走到第三步失败了，前两步已经提交了，怎么办？",
+        "en": "We run a compensating transaction for each completed step, for example refunding the charge."
+      },
+      "note": "补偿不是数据库回滚，而是一个语义上相反的新操作，比如退款。也说 compensating action。"
+    },
+    {
+      "term": "outbox pattern",
+      "kind": "chunk",
+      "zh": "发件箱模式",
+      "examples": [
+        {
+          "en": "With the outbox pattern, we write the event in the same transaction as the order.",
+          "zh": "用发件箱模式，我们把事件和订单放在同一个事务里写入。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：订单写库成功了，但发消息失败，数据就不一致了，怎么避免？",
+        "en": "I'd use the outbox pattern: save the event to an outbox table in the same transaction, and have a relay publish it."
+      },
+      "note": "全称 transactional outbox。它解决的是 dual write（同时写库和发消息）不原子的问题。"
+    },
+    {
+      "term": "consensus",
+      "kind": "word",
+      "zh": "共识",
+      "examples": [
+        {
+          "en": "The cluster uses Raft to reach consensus on the order of writes.",
+          "zh": "集群用 Raft 对写入的顺序达成共识。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：几个节点怎么对“谁是主节点”这件事保持一致？",
+        "en": "They run a consensus algorithm like Raft, where a majority of nodes has to agree."
+      },
+      "note": "重音在第二音节：/kənˈsensəs/。常见算法是 Raft 和 Paxos。",
+      "collocations": ["reach consensus on", "consensus algorithm"]
+    },
+    {
+      "term": "leader election",
+      "kind": "chunk",
+      "zh": "选主",
+      "examples": [
+        {
+          "en": "When the leader stops sending heartbeats, the followers trigger a leader election.",
+          "zh": "主节点不再发心跳时，从节点会发起选主。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：主节点挂了，集群怎么决定下一个谁来当主？",
+        "en": "The remaining nodes hold a leader election, and whoever gets a majority of votes becomes the new leader."
+      },
+      "collocations": ["trigger a leader election", "elect a new leader"]
+    },
+    {
+      "term": "split brain",
+      "kind": "chunk",
+      "zh": "脑裂",
+      "examples": [
+        {
+          "en": "A network glitch caused a split brain, with two nodes both accepting writes as leader.",
+          "zh": "一次网络抖动造成了脑裂，两个节点都以主节点的身份接受写入。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：网络断开后，两边各自选出了一个主，这叫什么？有什么后果？",
+        "en": "That's split brain. Both sides accept writes and the data diverges, which is why electing a leader should require a majority."
+      },
+      "note": "作定语时加连字符：a split-brain scenario。"
+    },
+    {
+      "term": "quorum",
+      "kind": "word",
+      "zh": "法定人数",
+      "ipa": "/ˈkwɔːrəm/",
+      "examples": [
+        {
+          "en": "With three nodes, a quorum is two, so we can still write with one node down.",
+          "zh": "三个节点的话，法定人数是两个，所以挂一个节点照样能写。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：五个副本，一次写入要多少个确认才算成功？",
+        "en": "We need a quorum, which is three out of five, so any two quorums overlap."
+      },
+      "note": "常说 W + R > N：写确认数加读确认数大于副本数时，读一定能看到最新的写入。",
+      "collocations": ["reach a quorum", "lose quorum", "quorum write", "quorum read"]
+    },
+    {
+      "term": "network partition",
+      "kind": "chunk",
+      "zh": "网络分区",
+      "examples": [
+        {
+          "en": "During a network partition, the minority side of our cluster rejects writes to stay consistent.",
+          "zh": "发生网络分区时，我们集群里少数派那一侧会拒绝写入，以保证一致性。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：两个机房之间的网络断了，但两边的机器都还活着，这叫什么？",
+        "en": "That's a network partition: the nodes are healthy, but the two sides can't talk to each other."
+      },
+      "note": "这里的 partition 指网络被隔开，和数据分区（data partitioning）不是一回事。"
+    },
+    {
+      "term": "cache penetration",
+      "kind": "chunk",
+      "zh": "缓存穿透",
+      "examples": [
+        {
+          "en": "To stop cache penetration, we cache empty results for IDs that don't exist.",
+          "zh": "为了防止缓存穿透，对不存在的 ID 我们会把空结果也缓存起来。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：有人不停地查不存在的 ID，每次都打到数据库，怎么办？",
+        "en": "That's cache penetration. I'd cache the empty result with a short TTL, or put a Bloom filter in front."
+      },
+      "note": "这是中文社区说法的直译，英语母语者不一定熟。说完最好补一句解释：requests for keys that don't exist always miss the cache and hit the database。"
+    },
+    {
+      "term": "cache stampede",
+      "kind": "chunk",
+      "zh": "缓存击穿（热点键过期，大量请求同时回源）",
+      "examples": [
+        {
+          "en": "When the homepage key expired, we got a cache stampede and the database fell over.",
+          "zh": "首页那个键一过期，就发生了缓存击穿，数据库直接被打垮了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个热点键过期的瞬间，上千个请求同时去查库，怎么防？",
+        "en": "To prevent a cache stampede, I'd use a lock so only one request rebuilds the entry while the others wait."
+      },
+      "note": "中文资料里的直译是 cache breakdown，但英文里更通用的是 cache stampede，也叫 thundering herd 或 dogpile effect。stampede 读 /stæmˈpiːd/。"
+    },
+    {
+      "term": "cache avalanche",
+      "kind": "chunk",
+      "zh": "缓存雪崩",
+      "examples": [
+        {
+          "en": "We add random jitter to TTLs to avoid a cache avalanche when many keys expire together.",
+          "zh": "我们给过期时间加了随机抖动，免得大量键同时过期引发缓存雪崩。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：大批缓存在同一时刻过期，数据库瞬间被打满，怎么预防？",
+        "en": "That's a cache avalanche. I'd stagger the expiry times by adding some random jitter to each TTL."
+      },
+      "note": "同样是直译说法，建议补一句解释：a large number of keys expire at the same time, or the whole cache goes down。"
+    },
+    {
+      "term": "write-through cache",
+      "kind": "chunk",
+      "zh": "直写式缓存（写缓存的同时同步写库）",
+      "examples": [
+        {
+          "en": "With a write-through cache, every write updates the cache and the database together.",
+          "zh": "用直写式缓存的话，每次写入都会同时更新缓存和数据库。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：怎么让缓存里的数据在写入之后始终是最新的？",
+        "en": "I'd use a write-through cache: every write goes to the cache, which synchronously writes it to the database."
+      },
+      "note": "对比 write-behind（也叫 write-back）：先写缓存、异步刷库，更快，但缓存挂了可能丢数据。"
+    },
+    {
+      "term": "warm up the cache",
+      "kind": "chunk",
+      "zh": "预热缓存",
+      "examples": [
+        {
+          "en": "Before the sale, we warm up the cache with the top thousand products.",
+          "zh": "大促开始前，我们会用最热门的一千个商品预热缓存。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：新缓存节点刚上线是空的，怎么避免流量直接压到数据库？",
+        "en": "We warm up the cache first by preloading the hottest keys before sending it real traffic."
+      },
+      "note": "名词说法是 cache warming；空缓存叫 a cold cache。"
+    },
+    {
+      "term": "backpressure",
+      "kind": "word",
+      "zh": "背压",
+      "examples": [
+        {
+          "en": "Without backpressure, the producer kept sending and the consumer ran out of memory.",
+          "zh": "没有背压的时候，生产者一直发，消费者直接内存溢出了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：下游处理不过来，上游还在拼命发，怎么办？",
+        "en": "I'd apply backpressure, so the consumer can signal the producer to slow down instead of buffering forever."
+      },
+      "note": "也写作 back pressure。",
+      "collocations": ["apply backpressure", "propagate backpressure"]
+    },
+    {
+      "term": "smooth out traffic spikes",
+      "kind": "chunk",
+      "zh": "削峰（把流量尖峰抹平，动词短语）",
+      "examples": [
+        {
+          "en": "We use a queue to smooth out traffic spikes so the database sees a steady load.",
+          "zh": "我们用队列来削峰，这样数据库承受的是平稳的负载。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：秒杀开始的那一秒请求量是平时的一百倍，后端怎么撑住？",
+        "en": "I'd put a queue in front to smooth out traffic spikes, and let workers drain it at a rate the database can handle."
+      },
+      "note": "“削峰”直译成 peak shaving 在软件圈很少说。类似说法：absorb a burst、buffer the spike；Azure 文档把这个模式叫 queue-based load leveling。"
+    },
+    {
+      "term": "consumer lag",
+      "kind": "chunk",
+      "zh": "消费延迟（消费者落后了多少消息）",
+      "examples": [
+        {
+          "en": "Consumer lag kept growing overnight because the consumers were slower than the producers.",
+          "zh": "消费延迟一整晚都在涨，因为消费者处理得比生产者发得慢。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：下游的数据怎么比上游晚了半小时？",
+        "en": "Consumer lag is high on that topic. The consumers are about two million messages behind."
+      },
+      "note": "消息积压也说 backlog：work through the backlog。"
+    },
+    {
+      "term": "stream processing",
+      "kind": "chunk",
+      "zh": "流处理",
+      "examples": [
+        {
+          "en": "We moved from nightly batch jobs to stream processing to get results within seconds.",
+          "zh": "我们从每晚的批处理任务换成了流处理，几秒内就能拿到结果。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：要实时统计每分钟的下单量，你会怎么做？",
+        "en": "I'd use stream processing: consume the order events and aggregate them in one-minute windows."
+      },
+      "note": "反义是 batch processing。常见框架有 Flink 和 Kafka Streams。"
+    },
+    {
+      "term": "fan-out",
+      "kind": "chunk",
+      "zh": "扇出（一条消息或请求分发给多个下游）",
+      "examples": [
+        {
+          "en": "We do fan-out on write: each new post is pushed into every follower's timeline.",
+          "zh": "我们在写的时候做扇出：每条新帖子都推到所有粉丝的时间线里。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：设计信息流时，大 V 发一条帖子为什么代价特别高？",
+        "en": "Because of the fan-out: a single post has to be written to millions of followers' timelines."
+      },
+      "note": "动词写成两个词 fan out：fan the event out to subscribers。信息流里常对比 fan-out on write 和 fan-out on read。"
+    },
+    {
+      "term": "back-of-the-envelope estimate",
+      "kind": "chunk",
+      "zh": "粗略估算（“信封背面”的说法，e 开头的名词）",
+      "examples": [
+        {
+          "en": "I did a quick back-of-the-envelope estimate and we need about two terabytes per year.",
+          "zh": "我粗略估算了一下，我们每年大概需要 2 TB。"
+        }
+      ],
+      "situation": {
+        "zh": "系统设计面试刚开始，你想先粗算一下数据量再往下设计，可以怎么说？",
+        "en": "Before going further, let me do a back-of-the-envelope estimate of the daily write volume."
+      },
+      "note": "也说 back-of-the-envelope calculation。强调只求数量级，不求精确。"
+    },
+    {
+      "term": "peak traffic",
+      "kind": "chunk",
+      "zh": "峰值流量",
+      "examples": [
+        {
+          "en": "We size the cluster for peak traffic, which is about five times the daily average.",
+          "zh": "我们按峰值流量来配集群，大概是日均的五倍。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你按平均请求量来算机器数吗？",
+        "en": "No, I'd plan for peak traffic, since the evening peak is several times higher than the average."
+      },
+      "collocations": ["at peak", "peak hours", "off-peak"]
+    },
+    {
+      "term": "order of magnitude",
+      "kind": "chunk",
+      "zh": "数量级",
+      "examples": [
+        {
+          "en": "Moving to batched writes cut our disk I/O by an order of magnitude.",
+          "zh": "改成批量写入之后，我们的磁盘 I/O 降了一个数量级。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你的估算需要精确到个位吗？",
+        "en": "No, I only need the right order of magnitude, like whether it's gigabytes or terabytes."
+      },
+      "note": "an order of magnitude 就是十倍；two orders of magnitude 是一百倍。"
+    },
+    {
+      "term": "capacity planning",
+      "kind": "chunk",
+      "zh": "容量规划",
+      "examples": [
+        {
+          "en": "I owned capacity planning for the storage tier, forecasting growth six months ahead.",
+          "zh": "存储层的容量规划由我负责，要提前六个月预测增长。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们怎么知道明年要多少台机器？",
+        "en": "We do capacity planning every quarter, based on traffic growth and how much headroom we want to keep."
+      },
+      "note": "headroom 指预留的余量：leave 30 percent headroom。"
+    },
+    {
+      "term": "over-provision",
+      "kind": "word",
+      "zh": "超配（资源配得比实际需要多，动词）",
+      "examples": [
+        {
+          "en": "We over-provisioned the cluster for launch day and scaled it back a week later.",
+          "zh": "为了上线当天，我们给集群多配了资源，一周后又缩了回去。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：新实例启动要几分钟，来不及应对突发流量，还有什么办法？",
+        "en": "We can over-provision a little, so there's spare capacity while new instances are starting up."
+      },
+      "note": "provision 是“开通、配置（资源）”：provision a new cluster。反义是 under-provision。"
+    },
+    {
+      "term": "rate limiting",
+      "kind": "chunk",
+      "zh": "限流",
+      "examples": [
+        {
+          "en": "We added rate limiting per API key so one noisy client can't starve the others.",
+          "zh": "我们按 API key 做了限流，这样某个疯狂调用的客户端不会把别人饿死。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：怎么防止某个客户端的脚本把你的接口打爆？",
+        "en": "I'd add rate limiting, say a hundred requests per minute per client, and return 429 beyond that."
+      },
+      "note": "执行限流的组件叫 rate limiter。",
+      "collocations": ["rate limiter", "hit the rate limit", "exceed the rate limit"]
+    },
+    {
+      "term": "throttle",
+      "kind": "word",
+      "zh": "限速（压低请求速率，t 开头的动词）",
+      "ipa": "/ˈθrɑːtl/",
+      "examples": [
+        {
+          "en": "We throttle bulk exports so they don't slow down interactive queries.",
+          "zh": "我们对批量导出做了限速，免得它拖慢交互式查询。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：为什么我的批量脚本跑到一半开始收到 429？",
+        "en": "The API is throttling you. You're sending more requests per second than your plan allows."
+      },
+      "note": "throttle 侧重“压慢速度”，rate limit 侧重“超过上限就拒绝”，日常经常混用。被限流说 get throttled。"
+    },
+    {
+      "term": "token bucket",
+      "kind": "chunk",
+      "zh": "令牌桶",
+      "examples": [
+        {
+          "en": "We went with a token bucket because it allows short bursts but caps the average rate.",
+          "zh": "我们选了令牌桶，因为它允许短时间的突发，同时又能限制住平均速率。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：限流算法你会选哪种？要求能容忍短时突发。",
+        "en": "A token bucket. Tokens refill at a fixed rate, and a request only goes through if there's a token left."
+      },
+      "note": "对比 leaky bucket（漏桶）：出口速率恒定，不允许突发。"
+    },
+    {
+      "term": "sliding window",
+      "kind": "chunk",
+      "zh": "滑动窗口",
+      "examples": [
+        {
+          "en": "We replaced the fixed window with a sliding window to avoid bursts at the boundary.",
+          "zh": "我们把固定窗口换成了滑动窗口，避免在窗口边界出现突发流量。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：按整分钟计数限流，有人在这一分钟的末尾和下一分钟的开头各打满一次，怎么办？",
+        "en": "I'd switch to a sliding window, which counts requests over the last sixty seconds rather than per calendar minute."
+      },
+      "note": "对比 fixed window（固定窗口）。"
+    },
+    {
+      "term": "quota",
+      "kind": "word",
+      "zh": "配额",
+      "ipa": "/ˈkwoʊtə/",
+      "examples": [
+        {
+          "en": "Each tenant gets a daily quota of one million API calls.",
+          "zh": "每个租户每天有一百万次 API 调用的配额。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：多租户系统里怎么防止一个大客户占光所有资源？",
+        "en": "I'd enforce a per-tenant quota, so no single customer can use more than their share."
+      },
+      "collocations": ["enforce a quota", "exceed the quota", "per-tenant quota"]
+    },
+    {
+      "term": "relational database",
+      "kind": "chunk",
+      "zh": "关系型数据库",
+      "examples": [
+        {
+          "en": "We stuck with a relational database because we needed joins and multi-row transactions.",
+          "zh": "我们继续用关系型数据库，因为我们需要 join 和多行事务。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：订单和支付数据你会存在哪种数据库里？",
+        "en": "A relational database like PostgreSQL, because the data is highly structured and we need transactions."
+      },
+      "note": "口头也常直接说 a SQL database，和 NoSQL 相对。SQL 读 /ˈsiːkwəl/ 或逐字母读都行。"
+    },
+    {
+      "term": "key-value store",
+      "kind": "chunk",
+      "zh": "键值存储",
+      "examples": [
+        {
+          "en": "Sessions are simple lookups by ID, so we keep them in a key-value store.",
+          "zh": "会话就是按 ID 查，所以我们把它放在键值存储里。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：短链接服务只需要按短码查长链接，用什么存？",
+        "en": "A key-value store is enough: every read is a single lookup by key, and it scales horizontally."
+      }
+    },
+    {
+      "term": "document database",
+      "kind": "chunk",
+      "zh": "文档数据库",
+      "examples": [
+        {
+          "en": "We used a document database for the product catalog because every category has different attributes.",
+          "zh": "商品目录我们用了文档数据库，因为每个类目的属性都不一样。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：商品的字段因类目而异，而且经常变，你会怎么存？",
+        "en": "I'd consider a document database, since each product can be stored as one JSON document with a flexible schema."
+      },
+      "note": "也说 document store，代表产品是 MongoDB。"
+    },
+    {
+      "term": "ACID guarantees",
+      "kind": "chunk",
+      "zh": "事务的 ACID 保证",
+      "examples": [
+        {
+          "en": "We couldn't give up ACID guarantees for the ledger, so most NoSQL options were off the table.",
+          "zh": "账本这块我们不能放弃 ACID 保证，所以大部分 NoSQL 方案直接排除了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：转账为什么不放在最终一致的存储里？",
+        "en": "A transfer has to debit one account and credit another atomically, so we need ACID guarantees."
+      },
+      "note": "ACID 当一个词读 /ˈæsɪd/，四个字母是 atomicity、consistency、isolation、durability。与之相对的是 BASE。"
+    },
+    {
+      "term": "access pattern",
+      "kind": "chunk",
+      "zh": "访问模式（数据会怎么被读写）",
+      "examples": [
+        {
+          "en": "We designed the schema around our access patterns, not around how the data looks.",
+          "zh": "我们是围绕访问模式来设计表结构的，而不是看数据长什么样。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：选关系型还是 NoSQL，你最先考虑什么？",
+        "en": "I start with the access patterns: which queries we run, how often, and whether we need joins."
+      },
+      "note": "也说 query pattern。给 NoSQL 建模尤其强调先想清楚 access patterns。"
+    },
+    {
+      "term": "add an index on ...",
+      "kind": "chunk",
+      "zh": "给……加索引",
+      "examples": [
+        {
+          "en": "We added an index on the created_at column, and the query dropped to ten milliseconds.",
+          "zh": "我们给 created_at 列加了索引，查询降到了十毫秒。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里问：这个按邮箱查用户的查询很慢，怎么办？你想回复：",
+        "en": "Let's add an index on the email column. Right now it scans the whole table."
+      },
+      "note": "介词用 on：an index on user_id。索引会拖慢写入，别给每一列都加。"
+    },
+    {
+      "term": "composite index",
+      "kind": "chunk",
+      "zh": "联合索引",
+      "examples": [
+        {
+          "en": "We created a composite index on tenant ID and created_at to speed up that query.",
+          "zh": "我们在租户 ID 和 created_at 上建了联合索引，来加快那条查询。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：查询同时按租户过滤、按时间排序，索引怎么建？",
+        "en": "I'd create a composite index with the tenant ID first and the timestamp second, because column order matters."
+      },
+      "note": "也叫 multi-column index。列的顺序很重要，遵循最左前缀（leftmost prefix）规则。"
+    },
+    {
+      "term": "full table scan",
+      "kind": "chunk",
+      "zh": "全表扫描",
+      "examples": [
+        {
+          "en": "The query plan showed a full table scan because the filter column wasn't indexed.",
+          "zh": "执行计划显示是全表扫描，因为过滤用的那一列没有建索引。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：这条查询在一千万行的表上跑了八秒，你猜原因是什么？",
+        "en": "Most likely it's doing a full table scan. I'd run EXPLAIN to confirm and then add the missing index."
+      }
+    },
+    {
+      "term": "denormalize",
+      "kind": "word",
+      "zh": "反范式化（动词）",
+      "examples": [
+        {
+          "en": "We denormalized the author name into the posts table to avoid a join on every read.",
+          "zh": "我们把作者名冗余到了帖子表里，省得每次读都要 join。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：列表页每次都要连四张表，太慢了，怎么优化？",
+        "en": "I'd denormalize the data: copy the fields we need into one table, and accept that writes get more complex."
+      },
+      "note": "名词是 denormalization。代价是数据冗余，更新时要保证多处同步。"
+    },
+    {
+      "term": "materialized view",
+      "kind": "chunk",
+      "zh": "物化视图",
+      "examples": [
+        {
+          "en": "The dashboard reads from a materialized view that we refresh every five minutes.",
+          "zh": "看板读的是一张物化视图，我们每五分钟刷新一次。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个聚合查询要跑三十秒，但结果允许有几分钟延迟，怎么办？",
+        "en": "I'd precompute it as a materialized view and refresh it on a schedule."
+      }
+    },
+    {
+      "term": "CDN",
+      "kind": "word",
+      "zh": "内容分发网络（三字母缩写）",
+      "examples": [
+        {
+          "en": "We serve images and scripts from a CDN, so users download them from a nearby edge server.",
+          "zh": "我们的图片和脚本都走 CDN，用户从就近的边缘节点下载。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：海外用户打开页面很慢，静态资源该怎么优化？",
+        "en": "I'd put the static assets behind a CDN, so they're cached at edge locations close to the users."
+      },
+      "note": "逐字母读，全称 content delivery network。静态资源叫 static assets。",
+      "collocations": ["serve assets from a CDN", "put ... behind a CDN", "purge the CDN cache", "edge location"]
+    },
+    {
+      "term": "origin server",
+      "kind": "chunk",
+      "zh": "源站",
+      "examples": [
+        {
+          "en": "On a cache miss, the edge node fetches the file from the origin server.",
+          "zh": "缓存没命中时，边缘节点会回源站拉取这个文件。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：边缘节点上没有这个文件时会发生什么？",
+        "en": "It goes back to the origin server, fetches the file, and caches it for the next request."
+      },
+      "note": "常简称 the origin：requests fall back to the origin。"
+    }
+  ]
+}

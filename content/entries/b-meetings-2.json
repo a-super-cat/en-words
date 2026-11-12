@@ -1,0 +1,605 @@
+{
+  "layer": "B",
+  "category": "meetings",
+  "title": "会议与讨论",
+  "entries": [
+    {
+      "term": "Why don't we ...?",
+      "kind": "sentence",
+      "zh": "要不我们……？（W 开头，提建议）",
+      "examples": [
+        {
+          "en": "Why don't we start with a small prototype and see how it goes?",
+          "zh": "要不我们先做个小原型，看看效果？"
+        }
+      ],
+      "situation": {
+        "zh": "大家争论了半天哪个库更快，你提议直接跑个基准测试。",
+        "en": "Why don't we just run a quick benchmark and compare?"
+      },
+      "note": "是提建议，不是真的在问“为什么不”。比 What if we 更有倾向性。"
+    },
+    {
+      "term": "I'd lean towards ...",
+      "kind": "sentence",
+      "zh": "我倾向于……（l 开头的动词）",
+      "examples": [
+        {
+          "en": "I'd lean towards the second option because it's easier to roll back.",
+          "zh": "我倾向于第二个方案，因为更容易回滚。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问你：两个方案里你更想选哪个？你更偏向自研，但并不坚持。",
+        "en": "I'd lean towards building it ourselves, but I'm open to either."
+      },
+      "note": "表示有偏好但不坚持。美式多写 toward，英式多写 towards。"
+    },
+    {
+      "term": "It might be worth ...",
+      "kind": "sentence",
+      "zh": "也许值得……（做某事）",
+      "examples": [
+        {
+          "en": "It might be worth adding a dashboard before we roll this out.",
+          "zh": "上线之前也许值得先加个监控面板。"
+        }
+      ],
+      "situation": {
+        "zh": "讨论新功能时，你建议先问问客服团队用户都在抱怨什么。",
+        "en": "It might be worth checking with the support team first."
+      },
+      "note": "worth 后面接动名词（-ing）。非常委婉的建议。"
+    },
+    {
+      "term": "play devil's advocate",
+      "kind": "chunk",
+      "zh": "故意唱反调（为了检验方案）",
+      "examples": [
+        {
+          "en": "Let me play devil's advocate for a second: what if the vendor shuts down?",
+          "zh": "我故意唱个反调：万一供应商倒闭了怎么办？"
+        }
+      ],
+      "situation": {
+        "zh": "大家一致同意迁移到新框架，你想故意提出反面意见，看看方案是否站得住。",
+        "en": "Just to play devil's advocate, what do we lose if we stay on the current framework?"
+      },
+      "note": "先声明自己是在唱反调，这样提出反对意见不会显得针对人。"
+    },
+    {
+      "term": "I don't feel strongly either way.",
+      "kind": "sentence",
+      "zh": "我两边都行，没有特别的倾向。",
+      "examples": [
+        {
+          "en": "I don't feel strongly either way, so I'm happy to go with your approach.",
+          "zh": "我两边都行，所以用你的方案我没意见。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你：变量命名用哪种风格？你觉得都可以。",
+        "en": "I don't feel strongly either way. Let's go with whatever the team already uses."
+      },
+      "note": "反过来，I feel strongly about this 表示这一点你很坚持。"
+    },
+    {
+      "term": "action item",
+      "kind": "chunk",
+      "zh": "（会议定下来的）待办事项",
+      "examples": [
+        {
+          "en": "Let's go over the action items before we end the meeting.",
+          "zh": "结束会议前我们过一遍待办事项。"
+        }
+      ],
+      "situation": {
+        "zh": "会议快结束了，你想确认：你这边的待办是更新文档和联系安全团队。",
+        "en": "So my action items are to update the docs and reach out to the security team."
+      },
+      "note": "每个 action item 通常要有负责人（owner）和截止时间。"
+    },
+    {
+      "term": "To recap, ...",
+      "kind": "sentence",
+      "zh": "总结一下，……（r 开头）",
+      "examples": [
+        {
+          "en": "To recap, we're going with option two and shipping it behind a flag.",
+          "zh": "总结一下，我们选方案二，加开关上线。"
+        }
+      ],
+      "situation": {
+        "zh": "会议最后你来总结结论：先修登录 bug，重构推到下个迭代。",
+        "en": "To recap, we'll fix the login bug first and move the refactor to the next sprint."
+      },
+      "note": "recap 是 recapitulate 的缩写，口语和邮件都常用。也可以说 To sum up, ..."
+    },
+    {
+      "term": "on the same page",
+      "kind": "chunk",
+      "zh": "大家理解一致（国内常说“对齐”）",
+      "examples": [
+        {
+          "en": "I want to make sure we're all on the same page before we start coding.",
+          "zh": "开始写代码前，我想确认大家理解一致。"
+        }
+      ],
+      "situation": {
+        "zh": "跨团队会议结束前，你想确认两边对接口格式的理解是一致的。",
+        "en": "Before we go, are we on the same page about the API format?"
+      },
+      "note": "“对齐一下”最自然的口语说法。aligned 也常用：Are we aligned on this?"
+    },
+    {
+      "term": "Who's going to own this?",
+      "kind": "sentence",
+      "zh": "这件事谁来负责？（o 开头的动词）",
+      "examples": [
+        {
+          "en": "We keep talking about the flaky tests, but who's going to own this?",
+          "zh": "不稳定的测试我们说了很多次了，但这件事到底谁来负责？"
+        }
+      ],
+      "situation": {
+        "zh": "会上大家都同意要写一份迁移文档，但没人认领，你想问清楚负责人。",
+        "en": "We all agree we need a migration doc. Who's going to own this?"
+      },
+      "note": "own 表示对结果负责到底，不只是动手做。负责人叫 owner。"
+    },
+    {
+      "term": "follow up with",
+      "kind": "chunk",
+      "zh": "（会后）找……跟进",
+      "examples": [
+        {
+          "en": "I'll follow up with the infra team about the quota increase.",
+          "zh": "配额扩容的事，我会后去找基础设施团队跟进。"
+        }
+      ],
+      "situation": {
+        "zh": "会上有个问题需要法务确认，你主动说会后去问。",
+        "en": "I'll follow up with legal and let everyone know what they say."
+      },
+      "collocations": ["follow up with someone", "follow up on something"],
+      "note": "follow up with 接人，follow up on 接事情。"
+    },
+    {
+      "term": "I'll get back to you on that.",
+      "kind": "sentence",
+      "zh": "这个我回头答复你。",
+      "examples": [
+        {
+          "en": "I don't have the numbers with me. I'll get back to you on that.",
+          "zh": "数据我手头没有，这个我回头答复你。"
+        }
+      ],
+      "situation": {
+        "zh": "会上经理问你上个月的接口错误率，你记不清，想会后查了再答复。",
+        "en": "I'd have to check. I'll get back to you on that by end of day."
+      },
+      "note": "当场答不上来时的标准说法，比硬猜一个答案专业。最好带上答复的时间。"
+    },
+    {
+      "term": "I can take that.",
+      "kind": "sentence",
+      "zh": "这个我来做。（认领任务）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I can take that. I already know that part of the codebase.",
+          "zh": "这个我来做，那部分代码我本来就熟。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问：谁能去查一下昨晚构建变慢的原因？你想主动认领。",
+        "en": "I can take that. I'll look into it this afternoon."
+      },
+      "note": "也可以说 I'll take that one."
+    },
+    {
+      "term": "loop in",
+      "kind": "chunk",
+      "zh": "把（某人）拉进来，让其知情或参与（l 开头）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Let's loop in the security team before we finalize the design.",
+          "zh": "设计定稿之前，我们把安全团队拉进来吧。"
+        }
+      ],
+      "situation": {
+        "zh": "会上发现这个改动会影响数据团队，你想说会后把他们也拉进讨论。",
+        "en": "This affects the data team too. I'll loop them in after the meeting."
+      },
+      "note": "宾语是代词时放中间：loop them in。邮件里抄送某人时也说 Looping in Sam."
+    },
+    {
+      "term": "I'll send out a summary after this.",
+      "kind": "sentence",
+      "zh": "会后我发一份总结。",
+      "examples": [
+        {
+          "en": "I'll send out a summary after this so everyone has the decisions in writing.",
+          "zh": "会后我发一份总结，让大家都有书面的结论。"
+        }
+      ],
+      "situation": {
+        "zh": "会议结束时，你想告诉大家你会把结论和负责人整理出来发到群里。",
+        "en": "I'll send out a summary after this with the decisions and owners."
+      },
+      "note": "send out 表示发给一群人。会议纪要叫 meeting notes，较正式的叫 minutes。"
+    },
+    {
+      "term": "circle back",
+      "kind": "chunk",
+      "zh": "回头再谈、过后再来讨论（c 开头）",
+      "examples": [
+        {
+          "en": "Let's circle back on this once we have the benchmark results.",
+          "zh": "等基准测试结果出来，我们再回头讨论这个。"
+        }
+      ],
+      "situation": {
+        "zh": "会上有个问题现在缺数据定不下来，你提议下周再讨论。",
+        "en": "We don't have the data yet. Let's circle back next week."
+      },
+      "note": "职场套话，有人嫌它“官腔”，但确实天天听到。circle back on 接话题，circle back with 接人。"
+    },
+    {
+      "term": "get sidetracked",
+      "kind": "chunk",
+      "zh": "跑题、被岔开",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I think we're getting sidetracked. Can we go back to the agenda?",
+          "zh": "我觉得我们跑题了，能回到议程上吗？"
+        }
+      ],
+      "situation": {
+        "zh": "评审会上大家开始争论代码风格，你想把讨论拉回到架构问题。",
+        "en": "We're getting sidetracked. Let's get back to the architecture question."
+      },
+      "note": "主语用 we 不用 you，不针对个人。"
+    },
+    {
+      "term": "Let's take this offline.",
+      "kind": "sentence",
+      "zh": "这个我们会后单聊。",
+      "examples": [
+        {
+          "en": "This only affects the two of us, so let's take this offline.",
+          "zh": "这事只跟我们俩有关，我们会后单聊吧。"
+        }
+      ],
+      "situation": {
+        "zh": "站会上你和同事开始深入讨论一个 bug 的细节，其他人都在等，你想提议会后再说。",
+        "en": "Let's take this offline. I'll ping you after standup."
+      },
+      "note": "offline 在这里不是“断网”，是“不在这个会上谈”。站会上极其常用。"
+    },
+    {
+      "term": "We're running out of time.",
+      "kind": "sentence",
+      "zh": "我们时间快不够了。",
+      "examples": [
+        {
+          "en": "We're running out of time, so let's skip to the last item.",
+          "zh": "时间快不够了，我们直接跳到最后一项吧。"
+        }
+      ],
+      "situation": {
+        "zh": "会议还剩五分钟，还有两个议题没讲，你想提醒大家。",
+        "en": "We're running out of time. Can we cover the last two items quickly?"
+      },
+      "note": "也说 We're running short on time."
+    },
+    {
+      "term": "Let's park that for now.",
+      "kind": "sentence",
+      "zh": "这个先放一放。（p 开头的动词）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Let's park that for now and come back to it if we have time.",
+          "zh": "这个先放一放，有时间再回来说。"
+        }
+      ],
+      "situation": {
+        "zh": "讨论中有人提出一个很好但和今天主题无关的想法，你想先搁置。",
+        "en": "That's a good idea, but let's park that for now and focus on the release."
+      },
+      "note": "park 像停车一样“先停在这儿”。先夸一句再搁置，对方不会觉得被否定。"
+    },
+    {
+      "term": "Let's move on to ...",
+      "kind": "sentence",
+      "zh": "我们进入……（下一个议题）",
+      "examples": [
+        {
+          "en": "If there are no more questions, let's move on to the next topic.",
+          "zh": "如果没有别的问题，我们进入下一个议题。"
+        }
+      ],
+      "situation": {
+        "zh": "你主持会议，第一个议题已经讨论完了，想进入发布计划。",
+        "en": "OK, let's move on to the release plan."
+      }
+    },
+    {
+      "term": "You're on mute.",
+      "kind": "sentence",
+      "zh": "你静音了。",
+      "examples": [
+        {
+          "en": "I think you're on mute. We can't hear you.",
+          "zh": "你好像静音了，我们听不到你说话。"
+        }
+      ],
+      "situation": {
+        "zh": "线上会议里同事嘴在动，但没有声音。",
+        "en": "Hey, you're on mute."
+      },
+      "note": "自己忘了开麦时说 Sorry, I was on mute."
+    },
+    {
+      "term": "Can you see my screen?",
+      "kind": "sentence",
+      "zh": "你们能看到我的屏幕吗？",
+      "examples": [
+        {
+          "en": "Can you see my screen? I just started sharing.",
+          "zh": "你们能看到我的屏幕吗？我刚开始共享。"
+        }
+      ],
+      "situation": {
+        "zh": "你刚点了共享屏幕，想确认大家看得到。",
+        "en": "Can you see my screen? You should be seeing the dashboard."
+      }
+    },
+    {
+      "term": "You're breaking up.",
+      "kind": "sentence",
+      "zh": "你的声音断断续续的。",
+      "examples": [
+        {
+          "en": "You're breaking up. Could you try turning off your video?",
+          "zh": "你的声音断断续续的，要不要试试把视频关掉？"
+        }
+      ],
+      "situation": {
+        "zh": "同事在线上会议里讲话，声音一卡一卡的，你听不清。",
+        "en": "Sorry, you're breaking up. I only caught half of that."
+      },
+      "note": "break up 指声音因为网络不好而断续。画面卡住不动用 frozen。"
+    },
+    {
+      "term": "Can you hear me OK?",
+      "kind": "sentence",
+      "zh": "你们听我说话清楚吗？",
+      "examples": [
+        {
+          "en": "Can you hear me OK? I'm using a new headset.",
+          "zh": "你们听我说话清楚吗？我换了个新耳机。"
+        }
+      ],
+      "situation": {
+        "zh": "你刚进线上会议，不确定麦克风是否正常。",
+        "en": "Hi everyone. Can you hear me OK?"
+      }
+    },
+    {
+      "term": "share my screen",
+      "kind": "chunk",
+      "zh": "共享我的屏幕",
+      "examples": [
+        {
+          "en": "Let me share my screen so I can walk you through the diagram.",
+          "zh": "我共享一下屏幕，带大家过一遍这张图。"
+        }
+      ],
+      "situation": {
+        "zh": "你想给大家看报错日志，需要先共享屏幕，请大家稍等。",
+        "en": "Give me a second, let me share my screen."
+      },
+      "note": "停止共享是 stop sharing。"
+    },
+    {
+      "term": "I think you're frozen.",
+      "kind": "sentence",
+      "zh": "你好像卡住了。（画面不动了）",
+      "examples": [
+        {
+          "en": "I think you're frozen. We lost you about a minute ago.",
+          "zh": "你好像卡住了，大概一分钟前就断了。"
+        }
+      ],
+      "situation": {
+        "zh": "线上会议里同事的画面停住不动，也没声音了。",
+        "en": "Sam, I think you're frozen. Can you hear us?"
+      }
+    },
+    {
+      "term": "drop it in the chat",
+      "kind": "chunk",
+      "zh": "把它发到聊天框里（d 开头的动词）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Could you drop it in the chat so everyone has the link?",
+          "zh": "你能把它发到聊天框里吗？这样大家都有链接。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在会上提到一篇设计文档，你想请他把链接发到会议聊天里。",
+        "en": "Could you drop it in the chat? I'd like to read it after the call."
+      },
+      "note": "drop 是 post、paste 的口语说法。"
+    },
+    {
+      "term": "drop off",
+      "kind": "chunk",
+      "zh": "（中途）退出线上会议",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I have to drop off in five minutes for another meeting.",
+          "zh": "我五分钟后得退出，还有另一个会。"
+        }
+      ],
+      "situation": {
+        "zh": "线上会议开到一半，你必须提前离开去开另一个会。",
+        "en": "Sorry, I need to drop off now. I'll catch up on the notes later."
+      },
+      "note": "也可以只说 I have to drop."
+    },
+    {
+      "term": "hard stop",
+      "kind": "chunk",
+      "zh": "到点必须结束（不能拖堂）",
+      "examples": [
+        {
+          "en": "I have a hard stop at three, so let's start with the most important item.",
+          "zh": "我三点必须走，所以我们先说最重要的那项。"
+        }
+      ],
+      "situation": {
+        "zh": "会议开始时你想提前说明：你十一点整有别的安排，必须准时离开。",
+        "en": "Just a heads-up, I have a hard stop at eleven."
+      },
+      "collocations": ["have a hard stop at ..."]
+    },
+    {
+      "term": "run over",
+      "kind": "chunk",
+      "zh": "（会议）超时、拖堂",
+      "examples": [
+        {
+          "en": "Sorry I'm late. My last meeting ran over.",
+          "zh": "抱歉我来晚了，上一个会拖堂了。"
+        }
+      ],
+      "situation": {
+        "zh": "你迟到了几分钟才进线上会议，原因是前一个会议没按时结束。",
+        "en": "Sorry, everyone. My previous call ran over."
+      },
+      "note": "过去式 ran over。也说 run long。"
+    },
+    {
+      "term": "Does ... work for you?",
+      "kind": "sentence",
+      "zh": "……（这个时间）你方便吗？",
+      "examples": [
+        {
+          "en": "Does Thursday at two work for you?",
+          "zh": "周四下午两点你方便吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你想约同事明天上午十点过一遍设计，问他行不行。",
+        "en": "Does ten tomorrow morning work for you?"
+      },
+      "note": "回答可以说 That works. 或 Sorry, that doesn't work for me."
+    },
+    {
+      "term": "hop on a call",
+      "kind": "chunk",
+      "zh": "（临时）开个语音或视频聊一下",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "This is getting hard to explain in chat. Can we hop on a call?",
+          "zh": "这个打字说不清楚，我们开个语音聊一下？"
+        }
+      ],
+      "situation": {
+        "zh": "你和同事在聊天里来回讨论了二十条消息还没说清，你想直接通话。",
+        "en": "It might be faster to talk. Do you have five minutes to hop on a call?"
+      },
+      "note": "hop on 也可以换成 jump on。指临时、简短的通话。"
+    },
+    {
+      "term": "sync up",
+      "kind": "chunk",
+      "zh": "碰一下、对一下进度",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Let's sync up on Friday to see where we are with the migration.",
+          "zh": "我们周五碰一下，看看迁移进展到哪了。"
+        }
+      ],
+      "situation": {
+        "zh": "你和另一个团队的同事各自做了一半，你想约个时间对一下进度。",
+        "en": "Can we sync up tomorrow to make sure our parts fit together?"
+      },
+      "note": "名词用法：a quick sync（简短的碰头）。"
+    },
+    {
+      "term": "send a calendar invite",
+      "kind": "chunk",
+      "zh": "发一个日历邀请",
+      "examples": [
+        {
+          "en": "I'll send a calendar invite for Tuesday at ten.",
+          "zh": "我发一个周二十点的日历邀请。"
+        }
+      ],
+      "situation": {
+        "zh": "你和同事口头约好了周三下午开会，你想说你来发会议邀请。",
+        "en": "Great, I'll send a calendar invite for Wednesday afternoon."
+      },
+      "note": "invite 在这里是名词，重音在第一个音节。口语常只说 send an invite。"
+    },
+    {
+      "term": "Something came up.",
+      "kind": "sentence",
+      "zh": "我临时有事。",
+      "examples": [
+        {
+          "en": "Something came up. Can we move our one-on-one to tomorrow?",
+          "zh": "我临时有事，我们的一对一能改到明天吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你和同事约了下午三点讨论，但突然有紧急的事要处理，想改期。",
+        "en": "Sorry, something came up. Could we reschedule for tomorrow?"
+      },
+      "note": "不用解释具体是什么事，对方一般不会追问。"
+    },
+    {
+      "term": "Can we push it to ...?",
+      "kind": "sentence",
+      "zh": "能推迟到……吗？",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I'm not going to be ready by Monday. Can we push it to Wednesday?",
+          "zh": "周一我准备不好，能推迟到周三吗？"
+        }
+      ],
+      "situation": {
+        "zh": "评审会定在今天下午，但你的文档还没写完，想改到周五。",
+        "en": "My doc isn't ready yet. Can we push it to Friday?"
+      },
+      "note": "push 指往后推；往前提是 move it up。"
+    },
+    {
+      "term": "I have a conflict at ...",
+      "kind": "sentence",
+      "zh": "我……（那个时间）有别的安排，撞了",
+      "examples": [
+        {
+          "en": "I have a conflict at two. Could we do three instead?",
+          "zh": "我两点有别的安排，能改成三点吗？"
+        }
+      ],
+      "situation": {
+        "zh": "同事约你周四上午十点开会，但你那个时间已经有会了。",
+        "en": "I have a conflict at ten on Thursday. Is the afternoon OK?"
+      },
+      "note": "conflict 在这里指日程冲突，不是和人起冲突。"
+    }
+  ]
+}

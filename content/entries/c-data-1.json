@@ -1,0 +1,663 @@
+{
+  "layer": "C",
+  "category": "data",
+  "title": "数据存储与数据库",
+  "entries": [
+    {
+      "term": "slow query",
+      "kind": "chunk",
+      "zh": "慢查询",
+      "examples": [
+        {
+          "en": "I tracked the timeouts down to a slow query that was missing an index.",
+          "zh": "我把超时的原因追到了一条慢查询上，它少了个索引。"
+        },
+        {
+          "en": "We turned on the slow query log and found three statements taking over a second.",
+          "zh": "我们打开了慢查询日志，发现有三条语句耗时超过一秒。"
+        }
+      ],
+      "situation": {
+        "zh": "站会上你想说：昨晚接口超时，是因为订单表上有一条 SQL 跑得特别慢，你今天来修。",
+        "en": "Last night's timeouts came from a slow query on the orders table. I'll fix it today."
+      },
+      "note": "query 读 /ˈkwɪri/。慢查询日志是 slow query log。",
+      "collocations": ["slow query log", "track down a slow query", "optimize a slow query"]
+    },
+    {
+      "term": "execution plan",
+      "kind": "chunk",
+      "zh": "执行计划（e 开头）",
+      "examples": [
+        {
+          "en": "I checked the execution plan and saw it was scanning the whole table instead of using the index.",
+          "zh": "我看了执行计划，发现它在扫整张表，没有用索引。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一条 SQL 很慢，你怎么知道数据库实际是怎么执行它的？",
+        "en": "I'd run EXPLAIN and read the execution plan to see which indexes it uses and how many rows it scans."
+      },
+      "note": "也说 query plan。EXPLAIN 只给出预估的计划；EXPLAIN ANALYZE 会真的执行语句并给出实际耗时。",
+      "collocations": ["read the execution plan", "run EXPLAIN on a query"]
+    },
+    {
+      "term": "query optimizer",
+      "kind": "chunk",
+      "zh": "查询优化器",
+      "examples": [
+        {
+          "en": "The query optimizer picked the wrong index because the table statistics were out of date.",
+          "zh": "查询优化器选错了索引，因为表的统计信息过期了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：同一条 SQL，数据量变了之后执行方式也跟着变了，为什么？",
+        "en": "The query optimizer chooses a plan based on statistics, so when the data distribution changes, the plan can change too."
+      },
+      "note": "口头常简称 the optimizer；PostgreSQL 文档里叫 query planner。统计信息是 table statistics。"
+    },
+    {
+      "term": "hit the index",
+      "kind": "chunk",
+      "zh": "（查询）走索引、命中索引（动词短语，h 开头）",
+      "examples": [
+        {
+          "en": "After I rewrote the filter, the query finally hit the index and ran in five milliseconds.",
+          "zh": "我改写了过滤条件之后，这条查询总算走上了索引，五毫秒就跑完了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里问：你怎么确认这条新查询不会全表扫？你想回复：",
+        "en": "I ran EXPLAIN on staging and confirmed it hits the index on user_id."
+      },
+      "note": "偏口语；更中性的说法是 use the index。没走索引：the query doesn't hit the index。"
+    },
+    {
+      "term": "ignore the index",
+      "kind": "chunk",
+      "zh": "（优化器）放着索引不用，也就是“索引失效”（动词短语，i 开头）",
+      "examples": [
+        {
+          "en": "The optimizer ignored the index because we wrapped the column in a function.",
+          "zh": "优化器没走索引，因为我们在那一列外面套了个函数。"
+        },
+        {
+          "en": "With a leading wildcard in the LIKE pattern, MySQL ignores the index and scans every row.",
+          "zh": "LIKE 的模式以通配符开头时，MySQL 会放弃索引，逐行扫描。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：明明建了索引，查询为什么还是全表扫描？举个常见原因。",
+        "en": "A common cause is an implicit type conversion, like comparing a string column to a number, which makes the database ignore the index."
+      },
+      "note": "“索引失效”在英文里没有固定术语，一般说 the index isn't used 或 the optimizer ignores the index。常见原因：对列用函数、隐式类型转换、LIKE 以 % 开头。"
+    },
+    {
+      "term": "covering index",
+      "kind": "chunk",
+      "zh": "覆盖索引",
+      "examples": [
+        {
+          "en": "We turned it into a covering index, so the query never touches the table itself.",
+          "zh": "我们把它改成了覆盖索引，这样查询完全不用回表。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：查询已经走了索引，但还要回表取两个字段，怎么再快一点？",
+        "en": "I'd add those two columns to the index to make it a covering index, so the query is answered from the index alone."
+      },
+      "note": "“回表”在英文里没有固定说法，可以说 an extra lookup into the table。PostgreSQL 里只读索引就能返回结果的扫描叫 index-only scan。"
+    },
+    {
+      "term": "leftmost prefix",
+      "kind": "chunk",
+      "zh": "最左前缀",
+      "examples": [
+        {
+          "en": "The index is on tenant ID and status, so a filter on status alone doesn't match the leftmost prefix.",
+          "zh": "索引建在租户 ID 和状态上，所以只按状态过滤不满足最左前缀。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：联合索引是 (a, b, c)，查询条件只有 b 和 c，能用上这个索引吗？",
+        "en": "Generally no. The query has to use a leftmost prefix of the index, so it needs a condition on a first."
+      },
+      "note": "常说 the leftmost prefix rule。prefix 读 /ˈpriːfɪks/。"
+    },
+    {
+      "term": "selectivity",
+      "kind": "word",
+      "zh": "（索引或过滤条件的）选择性、区分度",
+      "examples": [
+        {
+          "en": "An index on the status column has poor selectivity because there are only three distinct values.",
+          "zh": "状态列上的索引选择性很差，因为它总共只有三个不同的值。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么给性别这种字段单独建索引通常没用？",
+        "en": "Because of its low selectivity: each value matches about half the table, so the optimizer would rather scan it."
+      },
+      "note": "形容词是 selective。相关的词是 cardinality（一列里不同值的个数）。",
+      "collocations": ["high selectivity", "low selectivity", "a highly selective index"]
+    },
+    {
+      "term": "clustered index",
+      "kind": "chunk",
+      "zh": "聚簇索引",
+      "examples": [
+        {
+          "en": "In InnoDB the primary key is the clustered index, so the rows are stored in key order.",
+          "zh": "在 InnoDB 里主键就是聚簇索引，所以行数据是按主键顺序存放的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：InnoDB 里按主键查，为什么比按普通索引查少一步？",
+        "en": "The primary key is the clustered index, so its leaf nodes hold the full rows and there's no second lookup."
+      },
+      "note": "一张表只能有一个聚簇索引。PostgreSQL 的表是堆表（heap table），索引和行数据分开存。"
+    },
+    {
+      "term": "secondary index",
+      "kind": "chunk",
+      "zh": "二级索引（主键以外的索引）",
+      "examples": [
+        {
+          "en": "Every secondary index slows down writes, so we dropped the ones nobody was using.",
+          "zh": "每个二级索引都会拖慢写入，所以我们把没人用的那些删掉了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：InnoDB 里按非主键的索引查一行，内部要走几步？",
+        "en": "Two. It finds the primary key in the secondary index, then looks up the full row in the clustered index."
+      },
+      "note": "删索引说 drop an index，没人用的索引叫 unused index。"
+    },
+    {
+      "term": "wrap ... in a transaction",
+      "kind": "chunk",
+      "zh": "把……包在一个事务里",
+      "examples": [
+        {
+          "en": "We wrap the two updates in a transaction so they either both succeed or both fail.",
+          "zh": "我们把这两条更新包在一个事务里，要么都成功，要么都失败。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里先扣库存、再写订单，中间没有任何保护。你想评论：",
+        "en": "Could we wrap these two writes in a transaction? If the second one fails, the stock is already gone."
+      },
+      "collocations": ["begin a transaction", "commit a transaction", "within a single transaction"]
+    },
+    {
+      "term": "isolation level",
+      "kind": "chunk",
+      "zh": "（事务的）隔离级别",
+      "examples": [
+        {
+          "en": "We raised the isolation level for the billing job to avoid reading inconsistent totals.",
+          "zh": "我们把计费任务的隔离级别调高了，免得读到前后不一致的合计。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：并发事务之间能互相看到多少，是由什么决定的？",
+        "en": "That's controlled by the isolation level. A stricter level prevents more anomalies but costs more concurrency."
+      },
+      "note": "四个标准级别从弱到强：read uncommitted、read committed、repeatable read、serializable。并发异常统称 anomaly。",
+      "collocations": ["set the isolation level", "the default isolation level"]
+    },
+    {
+      "term": "read committed",
+      "kind": "chunk",
+      "zh": "读已提交（隔离级别）",
+      "examples": [
+        {
+          "en": "PostgreSQL defaults to read committed, so each statement sees data committed before it started.",
+          "zh": "PostgreSQL 默认是读已提交，所以每条语句看到的都是它开始之前已经提交的数据。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：同一个事务里连续查两次同一行，结果不一样，这在哪个隔离级别下是正常的？",
+        "en": "That's normal under read committed, because each statement takes a fresh snapshot."
+      },
+      "note": "PostgreSQL、Oracle、SQL Server 默认都是这个级别。"
+    },
+    {
+      "term": "repeatable read",
+      "kind": "chunk",
+      "zh": "可重复读（隔离级别）",
+      "examples": [
+        {
+          "en": "MySQL's default is repeatable read, so the whole transaction reads from one consistent snapshot.",
+          "zh": "MySQL 默认是可重复读，所以整个事务读的都是同一个一致性快照。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：跑一个对账报表，要求事务里多次查询看到的数据前后一致，隔离级别选哪个？",
+        "en": "I'd use repeatable read, so every query in the transaction sees the same snapshot."
+      },
+      "note": "InnoDB 的默认级别。很多数据库里它实际上是用快照隔离（snapshot isolation）实现的。"
+    },
+    {
+      "term": "serializable",
+      "kind": "word",
+      "zh": "串行化（最严格的隔离级别，形容词）",
+      "ipa": "/ˈsɪriəlaɪzəbl/",
+      "examples": [
+        {
+          "en": "We run the transfer under serializable isolation and retry when the database aborts a transaction.",
+          "zh": "转账我们跑在串行化隔离级别下，数据库中止事务时就重试。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：哪个隔离级别能保证并发执行的结果和一个一个排队执行完全一样？代价是什么？",
+        "en": "Serializable. It's the strictest level, but more transactions get aborted, so the application has to retry."
+      },
+      "note": "搭配：serializable isolation、at the serializable level。事务因冲突被中止叫 serialization failure。"
+    },
+    {
+      "term": "dirty read",
+      "kind": "chunk",
+      "zh": "脏读",
+      "examples": [
+        {
+          "en": "Read committed is enough to rule out dirty reads, which is all this report needs.",
+          "zh": "读已提交就足以排除脏读，这个报表只需要做到这一点。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个事务读到了另一个事务还没提交、后来又回滚了的数据，这叫什么？",
+        "en": "That's a dirty read. It can only happen at the read uncommitted level."
+      }
+    },
+    {
+      "term": "non-repeatable read",
+      "kind": "chunk",
+      "zh": "不可重复读",
+      "examples": [
+        {
+          "en": "We hit a non-repeatable read: the balance changed between two queries in the same transaction.",
+          "zh": "我们碰到了不可重复读：同一个事务里的两次查询之间，余额变了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：同一个事务里两次读同一行，第二次读到了别人刚提交的修改，这是哪种异常？",
+        "en": "A non-repeatable read. The repeatable read level prevents it by reading from a snapshot."
+      }
+    },
+    {
+      "term": "phantom read",
+      "kind": "chunk",
+      "zh": "幻读",
+      "examples": [
+        {
+          "en": "We saw a phantom read: the second count included rows another transaction had just inserted.",
+          "zh": "我们遇到了幻读：第二次统计把另一个事务刚插入的行也算进去了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：同一个事务里按范围查两次，第二次多出来几行，这叫什么？InnoDB 怎么防？",
+        "en": "That's a phantom read. In InnoDB, snapshot reads avoid it, and locking reads take next-key locks on the range."
+      },
+      "note": "phantom 读 /ˈfæntəm/，ph 发 f。和不可重复读的区别：幻读是多了或少了行，不可重复读是同一行的值变了。"
+    },
+    {
+      "term": "lost update",
+      "kind": "chunk",
+      "zh": "丢失更新（两个事务先读后写，后写的覆盖了先写的）",
+      "examples": [
+        {
+          "en": "Two requests read the same counter and wrote it back, so we had a lost update.",
+          "zh": "两个请求读了同一个计数器再写回去，结果出现了丢失更新。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：两个人同时编辑同一条记录，后保存的把先保存的覆盖了，怎么避免？",
+        "en": "That's a lost update. I'd either lock the row with SELECT FOR UPDATE or add a version check."
+      }
+    },
+    {
+      "term": "MVCC",
+      "kind": "word",
+      "zh": "多版本并发控制（四字母缩写）",
+      "examples": [
+        {
+          "en": "Thanks to MVCC, readers don't block writers and writers don't block readers.",
+          "zh": "有了多版本并发控制，读不阻塞写，写也不阻塞读。"
+        },
+        {
+          "en": "Under MVCC, a transaction left open for hours keeps old row versions from being cleaned up.",
+          "zh": "在多版本并发控制下，一个开了几小时的事务会让旧的行版本一直清理不掉。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个大查询正在跑，为什么不会挡住别的事务更新同一批行？",
+        "en": "Because of MVCC: the query reads an older version of each row, so it doesn't need to lock them."
+      },
+      "note": "逐字母读，全称 multi-version concurrency control。每个事务读的是自己的快照（snapshot）。"
+    },
+    {
+      "term": "row-level lock",
+      "kind": "chunk",
+      "zh": "行级锁",
+      "examples": [
+        {
+          "en": "The update only takes a row-level lock, so other users can still modify different rows.",
+          "zh": "这条更新只加行级锁，其他用户照样能改别的行。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：两个事务同时更新同一张表里不同的行，会互相阻塞吗？",
+        "en": "Normally not. InnoDB uses row-level locks, so they only block each other if they touch the same row."
+      },
+      "note": "也说 row lock。InnoDB 的行锁加在索引记录上，更新条件没走索引时，会把扫描到的行全部锁住。",
+      "collocations": ["take a row-level lock", "hold a lock on the row", "SELECT ... FOR UPDATE"]
+    },
+    {
+      "term": "table lock",
+      "kind": "chunk",
+      "zh": "表锁",
+      "examples": [
+        {
+          "en": "That ALTER statement took a table lock and blocked every write for ten minutes.",
+          "zh": "那条 ALTER 语句加了表锁，把所有写入堵了十分钟。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：为什么昨晚加字段的时候，整个下单接口都卡住了？",
+        "en": "The schema change held a table lock, so every insert had to wait until it finished."
+      },
+      "note": "也说 table-level lock。“锁表”说 lock the table。"
+    },
+    {
+      "term": "gap lock",
+      "kind": "chunk",
+      "zh": "间隙锁",
+      "examples": [
+        {
+          "en": "The range update took a gap lock, which blocked inserts into that range.",
+          "zh": "那条范围更新加了间隙锁，把往这个区间里的插入都堵住了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：InnoDB 在可重复读下，为什么一条范围更新会挡住别人往这个范围里插数据？",
+        "en": "Because it takes gap locks on the range, so nobody can insert a row into the gap until it commits."
+      },
+      "note": "间隙锁加上行锁合称 next-key lock。它是 InnoDB 在可重复读级别防幻读的手段，也是死锁的常见来源。"
+    },
+    {
+      "term": "deadlock detection",
+      "kind": "chunk",
+      "zh": "死锁检测",
+      "examples": [
+        {
+          "en": "We rely on the database's deadlock detection, which rolls back one transaction, and we retry it.",
+          "zh": "我们依赖数据库的死锁检测，它会回滚其中一个事务，我们再重试。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：两个事务互相等对方的锁，数据库会一直卡在那里吗？",
+        "en": "No. Deadlock detection finds the cycle and aborts one transaction as the victim, so the other can proceed."
+      },
+      "note": "被选中回滚的事务叫 deadlock victim。预防死锁的常用办法是按固定顺序加锁：acquire locks in a consistent order。"
+    },
+    {
+      "term": "long-running transaction",
+      "kind": "chunk",
+      "zh": "长事务",
+      "examples": [
+        {
+          "en": "A long-running transaction was holding locks and blocking the checkout flow.",
+          "zh": "有个长事务一直占着锁，把结账流程堵住了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么不建议在事务里调用外部 HTTP 接口？",
+        "en": "It turns it into a long-running transaction that holds locks and a connection while waiting on the network."
+      },
+      "note": "也说 long transaction。等锁超时是 lock wait timeout。"
+    },
+    {
+      "term": "join ... on ...",
+      "kind": "chunk",
+      "zh": "按……把（两张表）连起来（联表，动词句型）",
+      "examples": [
+        {
+          "en": "We join orders with users on user ID to show the customer name.",
+          "zh": "我们按用户 ID 把订单表和用户表连起来，好显示客户名。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：订单列表要显示商品名，但商品名在另一张表里，怎么查？",
+        "en": "I'd join the orders table with the products table on product ID, in a single query."
+      },
+      "note": "两张表之间用 with 或 to 都行：join A to B。名词也是 join：a three-table join。常见类型有 inner join 和 left join。"
+    },
+    {
+      "term": "subquery",
+      "kind": "word",
+      "zh": "子查询",
+      "examples": [
+        {
+          "en": "I rewrote the subquery as a join and the query went from two seconds to fifty milliseconds.",
+          "zh": "我把子查询改写成了 join，查询从两秒降到了五十毫秒。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里的 SQL 对外层的每一行都要再执行一次内层的 SELECT。你想评论：",
+        "en": "This correlated subquery runs once per row. Could we rewrite it as a join?"
+      },
+      "note": "correlated subquery（关联子查询）引用了外层查询的列，容易变成逐行执行。"
+    },
+    {
+      "term": "round trip",
+      "kind": "chunk",
+      "zh": "（应用和数据库之间的）一次往返",
+      "examples": [
+        {
+          "en": "Each round trip to the database costs about a millisecond, so two hundred of them add up.",
+          "zh": "每次和数据库的往返大约要一毫秒，两百次加起来就很可观了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：这个接口在循环里每次都查一次库，单条查询明明很快，为什么整体很慢？",
+        "en": "Each query is a separate round trip over the network, so the latency is dominated by the number of calls."
+      },
+      "collocations": ["a round trip to the database", "cut down on round trips", "network round trip"]
+    },
+    {
+      "term": "batch the queries",
+      "kind": "chunk",
+      "zh": "把多条查询合并成一批",
+      "examples": [
+        {
+          "en": "We batch the queries into one IN clause instead of looking up each ID separately.",
+          "zh": "我们把这些查询合并成一条 IN 查询，而不是一个 ID 查一次。"
+        }
+      ],
+      "situation": {
+        "zh": "同事的代码在循环里按 ID 一条一条查商品。你想在 PR 里建议：",
+        "en": "Could we batch the queries here? Collect the IDs first and fetch them all with a single IN query."
+      },
+      "note": "名词用法：in batches of 500（每批 500 条）。IN 列表太长也会慢，要控制每批的大小。"
+    },
+    {
+      "term": "bulk insert",
+      "kind": "chunk",
+      "zh": "批量插入",
+      "examples": [
+        {
+          "en": "Switching to bulk inserts cut the import time from an hour to three minutes.",
+          "zh": "改成批量插入之后，导入时间从一小时降到了三分钟。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：要往表里导入一百万行，逐行 INSERT 太慢，怎么办？",
+        "en": "I'd use bulk inserts, a few thousand rows per statement, and commit once per batch."
+      },
+      "note": "也可以当动词：bulk-insert the rows。同类说法：bulk update、bulk load。"
+    },
+    {
+      "term": "offset pagination",
+      "kind": "chunk",
+      "zh": "偏移量分页（LIMIT 加偏移量那种）",
+      "examples": [
+        {
+          "en": "Offset pagination was fine for the first few pages but got slower the deeper users went.",
+          "zh": "偏移量分页在前几页没问题，但用户翻得越深就越慢。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：最简单的分页怎么实现？有什么问题？",
+        "en": "Offset pagination with LIMIT and OFFSET. It's simple, but the database still reads and discards all the skipped rows."
+      },
+      "note": "也说 offset-based pagination。"
+    },
+    {
+      "term": "deep pagination",
+      "kind": "chunk",
+      "zh": "深翻页",
+      "examples": [
+        {
+          "en": "Deep pagination was killing us: page ten thousand had to skip two hundred thousand rows.",
+          "zh": "深翻页把我们拖垮了：第一万页要先跳过二十万行。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：为什么列表翻到很后面的页会超时，前几页却很快？",
+        "en": "That's the deep pagination problem. The database has to scan and throw away every row before the offset."
+      },
+      "note": "也说 deep paging。Elasticsearch 也有同样的问题，对应的解法是 search_after。"
+    },
+    {
+      "term": "keyset pagination",
+      "kind": "chunk",
+      "zh": "键集分页（从上一页最后一条的排序键往后取）",
+      "examples": [
+        {
+          "en": "We switched to keyset pagination, so each page starts right after the last ID we returned.",
+          "zh": "我们换成了键集分页，每一页都从上次返回的最后一个 ID 之后开始取。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：不用偏移量，怎么让第一万页和第一页一样快？",
+        "en": "I'd use keyset pagination: filter on id greater than the last one seen, so the index jumps straight there."
+      },
+      "note": "也叫 seek method。API 设计里更常听到的是 cursor-based pagination（游标分页）。缺点是不能直接跳到任意一页。"
+    },
+    {
+      "term": "tie-breaker",
+      "kind": "chunk",
+      "zh": "（排序值相同时）用来决定先后的附加排序列",
+      "examples": [
+        {
+          "en": "We sort by created_at and use the ID as a tie-breaker, so the order is stable.",
+          "zh": "我们按 created_at 排序，时间相同时再用 ID 决定先后，这样顺序是稳定的。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：按创建时间分页，为什么有的记录会在两页里重复出现？",
+        "en": "Several rows share the same timestamp, so we need a tie-breaker, like the ID, in the ORDER BY."
+      },
+      "note": "也写作 tiebreaker。"
+    },
+    {
+      "term": "result set",
+      "kind": "chunk",
+      "zh": "结果集",
+      "examples": [
+        {
+          "en": "The query returned a huge result set and the service ran out of memory loading it.",
+          "zh": "这条查询返回了一个巨大的结果集，服务在加载它的时候内存溢出了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事的导出接口一次把整张表查出来放进内存。你想在 PR 里评论：",
+        "en": "This loads the whole result set into memory. Could we stream it, or fetch it in pages?"
+      },
+      "collocations": ["limit the result set", "a large result set", "stream the result set"]
+    },
+    {
+      "term": "third normal form",
+      "kind": "chunk",
+      "zh": "第三范式",
+      "examples": [
+        {
+          "en": "We keep the core tables in third normal form and denormalize only where reads are slow.",
+          "zh": "核心表我们保持第三范式，只在读得慢的地方做反范式化。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你设计表结构时，默认会规范化到什么程度？",
+        "en": "I start from third normal form, so each fact is stored once, and relax it when a query needs it."
+      },
+      "note": "缩写 3NF。动词是 normalize，形容词是 normalized：a normalized schema。"
+    },
+    {
+      "term": "foreign key",
+      "kind": "chunk",
+      "zh": "外键",
+      "examples": [
+        {
+          "en": "We added a foreign key from orders to users so we can't end up with orphaned rows.",
+          "zh": "我们在订单表上加了一个指向用户表的外键，这样就不会出现孤儿数据。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们怎么保证订单表里的用户 ID 一定对应一个真实存在的用户？",
+        "en": "With a foreign key constraint. The database rejects any order that points to a missing user."
+      },
+      "note": "如果团队不用物理外键，可以说：we enforce referential integrity in the application instead。孤儿数据是 orphaned rows。",
+      "collocations": ["foreign key constraint", "referential integrity"]
+    },
+    {
+      "term": "surrogate key",
+      "kind": "chunk",
+      "zh": "代理键（和业务无关的主键）",
+      "examples": [
+        {
+          "en": "We use a surrogate key because business identifiers like email can change.",
+          "zh": "我们用代理键，因为邮箱这类业务标识是会变的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户表为什么不直接拿手机号当主键？",
+        "en": "Phone numbers change and get reused, so I'd use a surrogate key and put a unique constraint on the phone number."
+      },
+      "note": "反义是 natural key（自然键，拿业务字段当主键）。surrogate 读 /ˈsɜːrəɡət/。"
+    },
+    {
+      "term": "auto-increment ID",
+      "kind": "chunk",
+      "zh": "自增 ID",
+      "examples": [
+        {
+          "en": "Auto-increment IDs are compact and index-friendly, but they leak how many orders we have.",
+          "zh": "自增 ID 紧凑、对索引友好，但会暴露我们有多少订单。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：分库之后，主键还能继续用数据库自己生成的递增数字吗？",
+        "en": "Not directly, because auto-increment IDs from different shards would collide. I'd use a distributed ID generator like Snowflake."
+      },
+      "note": "也说 auto-incrementing primary key。PostgreSQL 里对应的是 serial 或 identity column。"
+    },
+    {
+      "term": "UUID",
+      "kind": "word",
+      "zh": "通用唯一标识符（四字母缩写）",
+      "examples": [
+        {
+          "en": "Random UUIDs as primary keys caused page splits, so we moved to time-ordered ones.",
+          "zh": "用随机 UUID 当主键导致了页分裂，所以我们换成了按时间有序的那种。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：主键要在客户端生成，而且不同机器之间不能冲突，用什么？",
+        "en": "A UUID. I'd pick version 7, which is time-ordered, so inserts stay roughly sequential in the index."
+      },
+      "note": "逐字母读。随机的 v4 写入位置分散，容易造成页分裂（page split）；v7 以时间戳开头，对 B+ 树更友好。"
+    }
+  ]
+}

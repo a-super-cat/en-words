@@ -1,0 +1,526 @@
+{
+  "category": "system-design",
+  "title": "系统设计",
+  "questions": [
+    {
+      "id": "url-shortener",
+      "prompt": "How would you design a URL shortening service like Bitly?",
+      "zh": "你会怎么设计一个类似 Bitly 的短链接服务？",
+      "outline": [
+        "Clarify: custom aliases, link expiry, analytics, read-to-write ratio",
+        "Estimate: new links per day, redirects per second, storage over five years",
+        "Core design: counter plus base62 keys, key-value store, cache in front",
+        "Bottlenecks: hot links, key generator as a single point of failure",
+        "Trade-offs: 301 versus 302 redirects, real-time analytics versus redirect latency"
+      ],
+      "chunks": [
+        { "term": "read-heavy workload", "zh": "读多写少的负载" },
+        { "term": "key-value store", "zh": "键值存储" },
+        { "term": "cache-aside", "zh": "旁路缓存（模式）" },
+        { "term": "TTL", "zh": "存活时间（缓存过期时间）" },
+        { "term": "back-of-the-envelope estimate", "zh": "粗略估算" },
+        { "term": "single point of failure", "zh": "单点故障" }
+      ],
+      "followUps": [
+        "How would you handle a link that suddenly goes viral?",
+        "How do you stop people from guessing or scraping short links?"
+      ]
+    },
+    {
+      "id": "news-feed",
+      "prompt": "Design the home timeline for a social network like Twitter.",
+      "zh": "设计一个类似 Twitter 的社交网络的首页信息流。",
+      "outline": [
+        "Clarify: follow model, chronological or ranked, media, how fresh the feed must be",
+        "Estimate: daily active users, posts per second, average followers per user",
+        "Core design: fan-out on write into a cached feed per user",
+        "Bottlenecks: celebrity accounts; switch to fan-out on read for them",
+        "Trade-offs: freshness versus cost; eventual consistency is acceptable here"
+      ],
+      "chunks": [
+        { "term": "fan-out", "zh": "扇出（一条消息分发给多个下游）" },
+        { "term": "eventual consistency", "zh": "最终一致性" },
+        { "term": "message queue", "zh": "消息队列" },
+        { "term": "hot partition", "zh": "热点分区" },
+        { "term": "The bottleneck here would be ...", "zh": "这里的瓶颈会是……" }
+      ],
+      "followUps": ["How would you add ranking without hurting latency?"]
+    },
+    {
+      "id": "chat-system",
+      "prompt": "Design a real-time chat application like WhatsApp or Slack.",
+      "zh": "设计一个类似 WhatsApp 或 Slack 的实时聊天应用。",
+      "outline": [
+        "Clarify: one-to-one or group chat, receipts, history, offline delivery",
+        "Estimate: concurrent connections, messages per second, storage per year",
+        "Core design: WebSocket gateways, message queue, storage partitioned by conversation",
+        "Bottlenecks: stateful connections, very large groups, reconnect storms after an outage",
+        "Trade-offs: per-conversation ordering instead of global ordering; deduplicate on the client"
+      ],
+      "chunks": [
+        { "term": "at-least-once delivery", "zh": "至少一次投递" },
+        { "term": "out of order", "zh": "乱序（到达）" },
+        { "term": "acknowledge", "zh": "确认（消息已收到或已处理）" },
+        { "term": "pub/sub", "zh": "发布订阅" },
+        { "term": "fan-out", "zh": "扇出（一条消息分发给多个下游）" }
+      ],
+      "followUps": [
+        "How would you show online presence at this scale?",
+        "How would you support end-to-end encryption?"
+      ]
+    },
+    {
+      "id": "rate-limiter",
+      "prompt": "Design a distributed rate limiter for a public API.",
+      "zh": "为一个公开 API 设计一个分布式限流器。",
+      "outline": [
+        "Clarify: limit per user, IP, or API key; hard or soft limits",
+        "Estimate: requests per second, number of keys, latency budget per check",
+        "Core design: token bucket counters in Redis, enforced at the gateway",
+        "Bottlenecks: a counter lookup on every request, races between gateway nodes",
+        "Trade-offs: accuracy versus latency; fail open or closed when Redis is down"
+      ],
+      "chunks": [
+        { "term": "rate limiting", "zh": "限流" },
+        { "term": "token bucket", "zh": "令牌桶" },
+        { "term": "sliding window", "zh": "滑动窗口" },
+        { "term": "throttle", "zh": "限速（压低请求速率）" },
+        { "term": "API gateway", "zh": "API 网关" },
+        { "term": "fail open", "zh": "故障时放行（限流器挂了就不拦请求）" }
+      ],
+      "followUps": ["How do you keep the counters accurate across multiple regions?"]
+    },
+    {
+      "id": "notification-system",
+      "prompt": "Design a notification system that delivers push notifications, emails, and SMS.",
+      "zh": "设计一个能发送推送、邮件和短信的通知系统。",
+      "outline": [
+        "Clarify: channels, volume, urgency levels, user preferences, delivery guarantees",
+        "Estimate: notifications per day, burst size during campaigns",
+        "Core design: one queue per channel, workers calling third-party providers",
+        "Bottlenecks: provider rate limits and outages, duplicate sends on retry",
+        "Trade-offs: priority lanes for urgent messages, deduplication versus delivery speed"
+      ],
+      "chunks": [
+        { "term": "decouple", "zh": "解耦" },
+        { "term": "message queue", "zh": "消息队列" },
+        { "term": "deduplicate", "zh": "去重" },
+        { "term": "consumer lag", "zh": "消费延迟（消费者落后了多少消息）" },
+        { "term": "fall back to ...", "zh": "退而使用……（备用方案）" }
+      ],
+      "followUps": ["How do you make sure a user never gets the same notification twice?"]
+    },
+    {
+      "id": "flash-sale",
+      "prompt": "Design a flash sale system where limited stock sells out within seconds.",
+      "zh": "设计一个秒杀系统，有限的库存会在几秒内卖完。",
+      "outline": [
+        "Clarify: stock size, per-user limit, payment window, fairness requirements",
+        "Estimate: peak requests per second compared with items actually available",
+        "Core design: reject early at the edge, reserve stock in Redis, queue orders",
+        "Bottlenecks: hot inventory key, overselling, bots, the order database",
+        "Trade-offs: strict stock accuracy versus throughput; what users see under load"
+      ],
+      "chunks": [
+        { "term": "peak traffic", "zh": "峰值流量" },
+        { "term": "smooth out traffic spikes", "zh": "削峰（把流量尖峰抹平）" },
+        { "term": "atomic operation", "zh": "原子操作" },
+        { "term": "oversell", "zh": "超卖" },
+        { "term": "idempotent", "zh": "幂等的" },
+        { "term": "degrade gracefully", "zh": "优雅降级" }
+      ],
+      "followUps": ["What happens to reserved stock when a user doesn't pay in time?"]
+    },
+    {
+      "id": "search-autocomplete",
+      "prompt": "Design the autocomplete suggestions for a search box used by millions of people.",
+      "zh": "为一个有几百万人使用的搜索框设计自动补全建议。",
+      "outline": [
+        "Clarify: number of suggestions, personalization, languages, freshness of trending terms",
+        "Estimate: one request per keystroke, queries per second, dictionary size",
+        "Core design: prefix index with precomputed top results, cached aggressively",
+        "Bottlenecks: latency per keystroke, updating popularity without a full rebuild",
+        "Trade-offs: freshness versus cost; debounce and cache on the client"
+      ],
+      "chunks": [
+        { "term": "p99 latency", "zh": "99 分位延迟" },
+        { "term": "debounce the input", "zh": "给输入做防抖" },
+        { "term": "read-heavy workload", "zh": "读多写少的负载" },
+        { "term": "stream processing", "zh": "流处理" },
+        { "term": "good enough for our use case", "zh": "对我们的场景来说已经够用" }
+      ],
+      "followUps": ["How would you filter out offensive suggestions?"]
+    },
+    {
+      "id": "file-storage",
+      "prompt": "Design a file storage and sync service like Dropbox or Google Drive.",
+      "zh": "设计一个类似 Dropbox 或 Google Drive 的文件存储和同步服务。",
+      "outline": [
+        "Clarify: file size limits, sharing, version history, sync across devices",
+        "Estimate: total storage, upload bandwidth, metadata operations per second",
+        "Core design: chunked uploads to object storage, separate metadata service",
+        "Bottlenecks: large uploads on bad networks, sync conflicts, metadata growth",
+        "Trade-offs: deduplication versus privacy, last-write-wins versus keeping both copies"
+      ],
+      "chunks": [
+        { "term": "deduplicate", "zh": "去重" },
+        { "term": "replication factor", "zh": "副本因子（每份数据存几份）" },
+        { "term": "encryption at rest", "zh": "静态加密（存储时加密）" },
+        { "term": "CDN", "zh": "内容分发网络" },
+        { "term": "access pattern", "zh": "访问模式（数据会怎么被读写）" }
+      ],
+      "followUps": ["Two devices edit the same file offline. What happens when they reconnect?"]
+    },
+    {
+      "id": "payment-system",
+      "prompt": "Design the payment processing system for an e-commerce platform.",
+      "zh": "为一个电商平台设计支付处理系统。",
+      "outline": [
+        "Clarify: payment methods, external providers, refunds, reconciliation, compliance",
+        "Estimate: modest transactions per second; correctness matters far more than scale",
+        "Core design: payment state machine, idempotent APIs, ledger, provider webhooks",
+        "Bottlenecks: provider timeouts, double charges, state drifting between systems",
+        "Trade-offs: consistency over availability; synchronous versus asynchronous confirmation"
+      ],
+      "chunks": [
+        { "term": "idempotency key", "zh": "幂等键" },
+        { "term": "strong consistency", "zh": "强一致性" },
+        { "term": "ACID guarantees", "zh": "事务的 ACID 保证" },
+        { "term": "exactly-once delivery", "zh": "恰好一次投递" },
+        { "term": "set a timeout", "zh": "设置超时" },
+        { "term": "audit log", "zh": "审计日志" }
+      ],
+      "followUps": ["The provider times out and you don't know whether the charge went through. What do you do?"]
+    },
+    {
+      "id": "job-scheduler",
+      "prompt": "Design a distributed job scheduler that can run millions of scheduled tasks a day.",
+      "zh": "设计一个每天能运行几百万个定时任务的分布式任务调度系统。",
+      "outline": [
+        "Clarify: one-off or recurring, timing precision, job duration, retry policy",
+        "Estimate: jobs per day, how many fall due in the same second",
+        "Core design: durable job store, time-bucketed polling, queue, worker pool",
+        "Bottlenecks: scheduler failover, duplicate execution, stuck or long-running jobs",
+        "Trade-offs: at-least-once execution means jobs must be idempotent"
+      ],
+      "chunks": [
+        { "term": "leader election", "zh": "选主" },
+        { "term": "fail over", "zh": "故障转移" },
+        { "term": "at-least-once delivery", "zh": "至少一次投递" },
+        { "term": "idempotent", "zh": "幂等的" },
+        { "term": "dead-letter queue", "zh": "死信队列" }
+      ],
+      "followUps": ["A worker dies halfway through a job. How does the system find out and recover?"]
+    },
+    {
+      "id": "video-streaming",
+      "prompt": "Design a video streaming platform like YouTube.",
+      "zh": "设计一个类似 YouTube 的视频流媒体平台。",
+      "outline": [
+        "Clarify: upload and playback, live or on demand, supported devices",
+        "Estimate: uploads per day, storage growth, peak concurrent viewers, bandwidth",
+        "Core design: upload service, transcoding pipeline, object storage, CDN delivery",
+        "Bottlenecks: transcoding backlog, CDN cost, popular videos, metadata reads",
+        "Trade-offs: adaptive bitrate versus storage cost; transcode up front or on demand"
+      ],
+      "chunks": [
+        { "term": "CDN", "zh": "内容分发网络" },
+        { "term": "origin server", "zh": "源站" },
+        { "term": "auto-scaling", "zh": "自动扩缩容" },
+        { "term": "decouple", "zh": "解耦" },
+        { "term": "order of magnitude", "zh": "数量级" }
+      ]
+    },
+    {
+      "id": "collaborative-editor",
+      "prompt": "Design a collaborative document editor like Google Docs, where several people edit at once.",
+      "zh": "设计一个类似 Google Docs 的协作文档编辑器，多个人可以同时编辑。",
+      "outline": [
+        "Clarify: concurrent editors per document, offline editing, comments, version history",
+        "Estimate: active documents, edits per second per document, document size",
+        "Core design: WebSocket sessions, operation log, operational transformation or CRDTs",
+        "Bottlenecks: conflict resolution, very active documents, growing operation history",
+        "Trade-offs: OT needs a central server; CRDTs cost more memory"
+      ],
+      "chunks": [
+        { "term": "conflict resolution", "zh": "冲突解决" },
+        { "term": "out of order", "zh": "乱序（到达）" },
+        { "term": "optimistic update", "zh": "乐观更新（先改界面，再等服务端确认）" },
+        { "term": "eventual consistency", "zh": "最终一致性" },
+        { "term": "pub/sub", "zh": "发布订阅" }
+      ],
+      "followUps": ["How would you show other people's cursors without flooding the server?"]
+    },
+    {
+      "id": "metrics-platform",
+      "prompt": "Design a metrics and alerting platform that monitors thousands of services.",
+      "zh": "设计一个监控几千个服务的指标和告警平台。",
+      "outline": [
+        "Clarify: metric types, retention, query patterns, how fast alerts must fire",
+        "Estimate: data points per second, number of time series, storage per day",
+        "Core design: agents, ingestion queue, time-series store, query and alerting layers",
+        "Bottlenecks: label explosion, slow dashboard queries, ingestion spikes during incidents",
+        "Trade-offs: downsample old data, sample versus keep everything, alert noise"
+      ],
+      "chunks": [
+        { "term": "emit metrics", "zh": "上报指标" },
+        { "term": "high cardinality", "zh": "高基数（标签取值太多）" },
+        { "term": "sampling rate", "zh": "采样率" },
+        { "term": "backpressure", "zh": "背压" },
+        { "term": "threshold", "zh": "阈值" },
+        { "term": "alert fatigue", "zh": "告警疲劳" }
+      ],
+      "followUps": ["How does the monitoring system stay up when everything else is down?"]
+    },
+    {
+      "id": "webhook-delivery",
+      "prompt": "Design a webhook delivery system that notifies customers' servers when events happen.",
+      "zh": "设计一个 webhook 投递系统，在事件发生时通知客户的服务器。",
+      "outline": [
+        "Clarify: delivery guarantee, ordering, payload size, retry window, security",
+        "Estimate: events per second, number of endpoints, share of slow or failing ones",
+        "Core design: persist events, queue per endpoint, workers sending signed requests",
+        "Bottlenecks: one slow customer blocking others, retry floods after an outage",
+        "Trade-offs: at-least-once means customers must deduplicate; ordering is best effort"
+      ],
+      "chunks": [
+        { "term": "retry with exponential backoff", "zh": "带指数退避的重试" },
+        { "term": "add jitter", "zh": "加随机抖动（让重试时间错开）" },
+        { "term": "circuit breaker", "zh": "熔断器" },
+        { "term": "dead-letter queue", "zh": "死信队列" },
+        { "term": "retry storm", "zh": "重试风暴" }
+      ],
+      "followUps": ["How can a customer verify that a webhook really came from you?"]
+    },
+    {
+      "id": "monolith-to-microservices",
+      "prompt": "Your company's monolith is slowing teams down. How would you break it up into services?",
+      "zh": "公司的单体应用拖慢了各个团队。你会怎么把它拆成服务？",
+      "outline": [
+        "Clarify: what hurts today: deploys, scaling, or team ownership",
+        "Scale: number of teams, release frequency, how coupled the data is",
+        "Core approach: find service boundaries, extract one piece at a time",
+        "Bottlenecks: shared database, distributed transactions, more operational overhead",
+        "Trade-offs: a well-structured monolith may be enough; say so"
+      ],
+      "chunks": [
+        { "term": "break up the monolith", "zh": "拆分单体应用" },
+        { "term": "strangler fig pattern", "zh": "绞杀者模式（逐步替换旧系统）" },
+        { "term": "service boundary", "zh": "服务边界" },
+        { "term": "API contract", "zh": "接口契约" },
+        { "term": "distributed transaction", "zh": "分布式事务" },
+        { "term": "not worth the added complexity", "zh": "不值得为此增加复杂度" }
+      ],
+      "followUps": ["Which piece would you extract first, and why?"]
+    },
+    {
+      "id": "add-caching-layer",
+      "prompt": "A service is struggling under read load. How would you add a caching layer to it?",
+      "zh": "一个服务在读压力下撑不住了。你会怎么给它加一层缓存？",
+      "outline": [
+        "Clarify: which queries are slow, how stale the data may be",
+        "Scale: read-to-write ratio, hot keys, data size, current latency",
+        "Core design: cache-aside with a TTL, invalidate on write",
+        "Bottlenecks: stampede on hot keys, cold cache after a deploy, memory limits",
+        "Trade-offs: staleness versus load; maybe fix the slow queries first"
+      ],
+      "chunks": [
+        { "term": "cache-aside", "zh": "旁路缓存（模式）" },
+        { "term": "cache invalidation", "zh": "缓存失效（主动让缓存作废）" },
+        { "term": "cache stampede", "zh": "缓存击穿（热点键过期，大量请求同时回源）" },
+        { "term": "stale read", "zh": "过期读（读到了旧数据）" },
+        { "term": "eviction policy", "zh": "（缓存）淘汰策略" },
+        { "term": "warm up the cache", "zh": "预热缓存" }
+      ],
+      "followUps": ["The database write succeeds but the cache invalidation fails. What then?"]
+    },
+    {
+      "id": "zero-downtime-db-migration",
+      "prompt": "How would you migrate a large production database to a new schema or datastore with zero downtime?",
+      "zh": "你会怎么在不停机的情况下，把一个很大的生产数据库迁移到新的表结构或新的存储上？",
+      "outline": [
+        "Clarify: data size, write rate, acceptable risk, rollback requirements",
+        "Estimate: how long the backfill takes and the extra load it adds",
+        "Core design: dual writes, backfill, verify, switch reads, then switch writes",
+        "Bottlenecks: keeping both sides consistent, long backfills, replication lag",
+        "Trade-offs: a slow phased cutover versus a risky big-bang switch"
+      ],
+      "chunks": [
+        { "term": "zero-downtime migration", "zh": "零停机迁移" },
+        { "term": "dual write", "zh": "双写（新旧两边同时写）" },
+        { "term": "backfill", "zh": "回填（历史数据）" },
+        { "term": "backward compatible", "zh": "向后兼容的" },
+        { "term": "feature flag", "zh": "功能开关" },
+        { "term": "roll back", "zh": "回滚" }
+      ],
+      "followUps": ["How do you verify that the old and new stores hold the same data?"]
+    },
+    {
+      "id": "scale-the-database",
+      "prompt": "Your primary database has become the bottleneck. What options do you have, and in what order would you try them?",
+      "zh": "主数据库成了瓶颈。你有哪些办法？会按什么顺序去尝试？",
+      "outline": [
+        "Clarify: read or write bottleneck, slow queries or raw volume",
+        "Scale: query patterns, table sizes, growth rate, connection usage",
+        "Core path: indexes and query fixes, caching, read replicas, then sharding",
+        "Bottlenecks: replication lag on replicas, cross-shard queries, resharding later",
+        "Trade-offs: each step adds operational complexity; exhaust the cheap options first"
+      ],
+      "chunks": [
+        { "term": "add an index on ...", "zh": "给……加索引" },
+        { "term": "scale vertically", "zh": "垂直扩展" },
+        { "term": "read replica", "zh": "只读副本" },
+        { "term": "replication lag", "zh": "复制延迟" },
+        { "term": "sharding", "zh": "分片" },
+        { "term": "shard key", "zh": "分片键" }
+      ],
+      "followUps": ["How would you choose the shard key?"]
+    },
+    {
+      "id": "unreliable-dependencies",
+      "prompt": "A critical service depends on several unreliable downstream services. How would you keep it available?",
+      "zh": "一个关键服务依赖好几个不稳定的下游服务。你会怎么保证它的可用性？",
+      "outline": [
+        "Clarify: which dependencies are critical and which are optional",
+        "Scale: failure rates, latency distribution, what the SLO requires",
+        "Core design: timeouts, bounded retries, circuit breakers, fallbacks, isolation",
+        "Bottlenecks: retries amplifying load, thread pools exhausted by slow calls",
+        "Trade-offs: serving degraded or stale data versus returning errors"
+      ],
+      "chunks": [
+        { "term": "set a timeout", "zh": "设置超时" },
+        { "term": "circuit breaker", "zh": "熔断器" },
+        { "term": "cascading failure", "zh": "级联故障" },
+        { "term": "bulkhead", "zh": "舱壁隔离" },
+        { "term": "degrade gracefully", "zh": "优雅降级" },
+        { "term": "fall back to ...", "zh": "退而使用……（备用方案）" }
+      ],
+      "followUps": ["How would you test that these protections actually work?"]
+    },
+    {
+      "id": "go-multi-region",
+      "prompt": "How would you take a system that runs in a single region and make it multi-region?",
+      "zh": "一个只部署在单个区域的系统，你会怎么把它做成多区域部署？",
+      "outline": [
+        "Clarify: the goal: lower latency, disaster recovery, or data residency",
+        "Estimate: traffic per region, data volume, tolerable data loss and downtime",
+        "Core design: active-passive first, replicate data, route traffic by region",
+        "Bottlenecks: cross-region replication lag, write conflicts, failover that was never tested",
+        "Trade-offs: active-active cuts latency but forces you to handle conflicts"
+      ],
+      "chunks": [
+        { "term": "disaster recovery", "zh": "灾难恢复（容灾）" },
+        { "term": "fail over", "zh": "故障转移" },
+        { "term": "synchronous replication", "zh": "同步复制" },
+        { "term": "split brain", "zh": "脑裂" },
+        { "term": "network partition", "zh": "网络分区" },
+        { "term": "CAP theorem", "zh": "CAP 定理" }
+      ],
+      "followUps": ["How often would you rehearse a regional failover, and how?"]
+    },
+    {
+      "id": "breaking-api-change",
+      "prompt": "You need to make a breaking change to a public API that many clients depend on. How do you design and roll it out?",
+      "zh": "你要对一个很多客户端都在用的公开 API 做不兼容的改动。你会怎么设计、怎么上线？",
+      "outline": [
+        "Clarify: who the clients are and how fast they can upgrade",
+        "Scale: usage per endpoint and per client version",
+        "Core design: new version alongside the old, compatibility layer, migration guide",
+        "Bottlenecks: clients that never upgrade, maintaining two code paths",
+        "Trade-offs: deprecation timeline versus customer pain; commit to a sunset date"
+      ],
+      "chunks": [
+        { "term": "version the API", "zh": "给接口做版本管理" },
+        { "term": "backward compatible", "zh": "向后兼容的" },
+        { "term": "deprecate", "zh": "弃用（标记为不推荐使用）" },
+        { "term": "API contract", "zh": "接口契约" },
+        { "term": "phase out", "zh": "逐步淘汰（旧版本）" },
+        { "term": "roll out", "zh": "（分批）推出、上线" }
+      ],
+      "followUps": ["What do you do about a large customer who refuses to migrate?"]
+    },
+    {
+      "id": "slow-dashboard",
+      "prompt": "Users complain that a key dashboard page takes ten seconds to load. How would you investigate and fix it?",
+      "zh": "用户抱怨一个重要的仪表盘页面要十秒才能加载出来。你会怎么排查和解决？",
+      "outline": [
+        "Clarify: slow for everyone or only some users, and since when",
+        "Scale: data volume behind the page, number of requests it makes",
+        "Core approach: measure each layer first, then parallelize, precompute, cache",
+        "Bottlenecks: chatty APIs, heavy aggregation queries, oversized bundles",
+        "Trade-offs: precomputed data is fast but stale; agree on a target"
+      ],
+      "chunks": [
+        { "term": "distributed tracing", "zh": "分布式链路追踪" },
+        { "term": "request waterfall", "zh": "请求瀑布（请求一个等一个，串行发出）" },
+        { "term": "N+1 query problem", "zh": "N+1 查询问题" },
+        { "term": "full table scan", "zh": "全表扫描" },
+        { "term": "materialized view", "zh": "物化视图" },
+        { "term": "The bottleneck here would be ...", "zh": "这里的瓶颈会是……" }
+      ],
+      "followUps": ["How would you make sure it doesn't quietly get slow again?"]
+    },
+    {
+      "id": "multi-tenant-saas",
+      "prompt": "Design the backend for a multi-tenant SaaS product. How do you isolate tenants' data and performance?",
+      "zh": "为一个多租户 SaaS 产品设计后端。你怎么隔离各个租户的数据和性能？",
+      "outline": [
+        "Clarify: number of tenants, size skew, compliance and isolation requirements",
+        "Estimate: data per tenant, the largest tenant compared with the median",
+        "Core design: shared schema with a tenant ID, or a database per tenant",
+        "Bottlenecks: noisy neighbors, one huge tenant, migrations across many databases",
+        "Trade-offs: isolation versus cost and operational effort; hybrid for big customers"
+      ],
+      "chunks": [
+        { "term": "noisy neighbor", "zh": "吵闹的邻居（某个租户占用过多资源，拖累其他租户）" },
+        { "term": "quota", "zh": "配额" },
+        { "term": "blast radius", "zh": "影响范围（爆炸半径）" },
+        { "term": "role-based access control", "zh": "基于角色的访问控制" },
+        { "term": "least privilege", "zh": "最小权限" }
+      ],
+      "followUps": ["How do you guarantee one tenant can never read another tenant's data?"]
+    },
+    {
+      "id": "auth-system",
+      "prompt": "Design authentication and authorization for a product with web and mobile clients and multiple backend services.",
+      "zh": "为一个有 Web 端、移动端和多个后端服务的产品设计认证和授权。",
+      "outline": [
+        "Clarify: login methods, single sign-on, session length, permission model",
+        "Estimate: logins and token validations per second, number of services",
+        "Core design: central identity service, short-lived access tokens, refresh tokens",
+        "Bottlenecks: token validation on every request, revoking tokens quickly",
+        "Trade-offs: stateless tokens versus server-side sessions, convenience versus security"
+      ],
+      "chunks": [
+        { "term": "authentication", "zh": "认证（确认你是谁）" },
+        { "term": "authorization", "zh": "授权（确认你能做什么）" },
+        { "term": "OAuth", "zh": "开放授权协议" },
+        { "term": "access token", "zh": "访问令牌" },
+        { "term": "refresh token", "zh": "刷新令牌" },
+        { "term": "revoke", "zh": "吊销（令牌、权限）" }
+      ],
+      "followUps": ["A user's token is stolen. How quickly can you cut off access, and how?"]
+    },
+    {
+      "id": "cross-service-consistency",
+      "prompt": "An order flow spans the order, inventory, and payment services. How do you keep the data consistent when one step fails?",
+      "zh": "一个下单流程跨了订单、库存和支付三个服务。其中一步失败时，你怎么保证数据一致？",
+      "outline": [
+        "Clarify: which steps must be atomic, how long inconsistency is tolerable",
+        "Estimate: order volume, failure rate of each step, peak load",
+        "Core design: saga with compensating steps, events published through an outbox",
+        "Bottlenecks: partial failures, duplicate or out-of-order events, stuck sagas",
+        "Trade-offs: eventual consistency versus the coupling and latency of two-phase commit"
+      ],
+      "chunks": [
+        { "term": "saga", "zh": "把长事务拆成多个本地事务、失败就逐步补偿的模式" },
+        { "term": "compensating transaction", "zh": "补偿事务" },
+        { "term": "outbox pattern", "zh": "发件箱模式" },
+        { "term": "two-phase commit", "zh": "两阶段提交" },
+        { "term": "partial failure", "zh": "部分失败" },
+        { "term": "eventual consistency", "zh": "最终一致性" }
+      ],
+      "followUps": ["Would you use orchestration or choreography for the saga, and why?"]
+    }
+  ]
+}

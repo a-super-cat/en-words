@@ -1,0 +1,442 @@
+{
+  "layer": "B",
+  "category": "code-review",
+  "title": "Code Review 与协作",
+  "entries": [
+    {
+      "term": "Good catch!",
+      "kind": "sentence",
+      "zh": "发现得好！（谢谢对方指出问题）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Good catch! I forgot to handle the empty case.",
+          "zh": "发现得好！我忘了处理为空的情况。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里指出你有一处循环边界多算了一次，你想回复感谢。",
+        "en": "Good catch! Fixed in the latest commit."
+      },
+      "note": "catch 在这里是名词，指“发现的问题”。也说 Nice catch!"
+    },
+    {
+      "term": "address the comments",
+      "kind": "chunk",
+      "zh": "处理评审意见（a 开头的动词）",
+      "examples": [
+        {
+          "en": "I've addressed all the comments except the one about naming.",
+          "zh": "除了命名那条，其他评审意见我都处理了。"
+        }
+      ],
+      "situation": {
+        "zh": "你改完代码推了新提交，想告诉评审人意见都已处理。",
+        "en": "I've pushed a new commit to address the comments."
+      },
+      "collocations": ["address the feedback", "address a concern"],
+      "note": "address 是“处理、回应”，不一定是照改，解释清楚也算。"
+    },
+    {
+      "term": "Good call.",
+      "kind": "sentence",
+      "zh": "好主意，听你的。（夸对方的建议或判断）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Good call. I've switched it to an enum.",
+          "zh": "好主意，我已经改成枚举了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事建议你把魔法数字提成常量，你觉得建议很好并且已经改了。",
+        "en": "Good call. I've pulled it out into a constant."
+      },
+      "note": "call 指“判断、决定”。Good catch 夸对方发现了问题，Good call 夸对方的建议或决定。"
+    },
+    {
+      "term": "Will do.",
+      "kind": "sentence",
+      "zh": "好，我会办。（两个词的简短答应）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Will do. I'll add the docs before I merge.",
+          "zh": "好的，合并之前我把文档补上。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里说：合并前记得更新变更日志。你想简短地答应。",
+        "en": "Will do. Thanks for the reminder."
+      },
+      "note": "省略了主语 I。只用于答应别人让你做的事。"
+    },
+    {
+      "term": "take another look",
+      "kind": "chunk",
+      "zh": "再看一遍（请对方重新评审）",
+      "examples": [
+        {
+          "en": "I've reworked the retry logic. Could you take another look?",
+          "zh": "重试逻辑我重写了，你能再看一遍吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你根据评审意见做了比较大的改动，想请评审人重新过一遍。",
+        "en": "I've made the changes we discussed. Could you take another look when you have time?"
+      }
+    },
+    {
+      "term": "The reason I did it this way is ...",
+      "kind": "sentence",
+      "zh": "我这么做的原因是……",
+      "examples": [
+        {
+          "en": "The reason I did it this way is that the old API doesn't support pagination.",
+          "zh": "我这么做的原因是老接口不支持分页。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你为什么不直接调用现有的服务，而是自己查库。你想解释是因为那个服务返回的是缓存数据。",
+        "en": "The reason I did it this way is that the service returns cached data, which can be stale."
+      },
+      "note": "解释而不是辩解：先讲原因，再问对方是否仍然觉得该改。"
+    },
+    {
+      "term": "I'm hesitant to ...",
+      "kind": "sentence",
+      "zh": "我不太想……（有顾虑，h 开头的形容词）",
+      "ipa": "/ˈhezɪtənt/",
+      "examples": [
+        {
+          "en": "I'm hesitant to change the public API in this PR.",
+          "zh": "我不太想在这个 PR 里改公开接口。"
+        }
+      ],
+      "situation": {
+        "zh": "评审人建议你顺便把整个模块重构了，你担心改动太大容易出问题。",
+        "en": "I'm hesitant to refactor the whole module here. It would make the diff much harder to review."
+      },
+      "note": "比 I don't want to 委婉，暗示你有具体的顾虑，后面最好把理由说出来。"
+    },
+    {
+      "term": "keep this PR focused",
+      "kind": "chunk",
+      "zh": "让这个 PR 只做一件事（f 开头的形容词）",
+      "examples": [
+        {
+          "en": "I agree it needs fixing, but I'd rather keep this PR focused on the bug fix.",
+          "zh": "我同意那个需要修，但我想让这个 PR 只做修 bug 这一件事。"
+        }
+      ],
+      "situation": {
+        "zh": "评审人要你把旁边的老代码也一起改了，你觉得那不属于这次改动。",
+        "en": "I'd rather keep this PR focused. Can I do the cleanup separately?"
+      },
+      "note": "委婉地拒绝“顺便也改一下”。I'd rather 表示偏好，比 I won't 软得多。"
+    },
+    {
+      "term": "follow-up PR",
+      "kind": "chunk",
+      "zh": "后续再提的 PR",
+      "examples": [
+        {
+          "en": "I'll handle the renaming in a follow-up PR to keep this one small.",
+          "zh": "重命名我放到后续的 PR 里做，这个 PR 保持小一点。"
+        }
+      ],
+      "situation": {
+        "zh": "评审人建议补充集成测试，你同意，但想单独再提一次来做。",
+        "en": "Good idea. I'll add the integration tests in a follow-up PR."
+      },
+      "note": "也可以只说 I'll do that in a follow-up.。说了就要做，最好同时建个任务单。"
+    },
+    {
+      "term": "open a ticket",
+      "kind": "chunk",
+      "zh": "建一个任务单（记下来以后处理）",
+      "examples": [
+        {
+          "en": "I'll open a ticket for the cleanup so we don't forget.",
+          "zh": "清理的事我建个任务单，免得忘了。"
+        }
+      ],
+      "situation": {
+        "zh": "评审人指出一个存在已久的性能问题，你想说会记录下来以后处理。",
+        "en": "That's been there for a while. I'll open a ticket to track it."
+      },
+      "note": "也说 file a ticket、create an issue。"
+    },
+    {
+      "term": "LGTM",
+      "kind": "word",
+      "zh": "看起来没问题（评审通过的四字母缩写）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "LGTM. Thanks for adding the tests.",
+          "zh": "看起来没问题，谢谢你补了测试。"
+        }
+      ],
+      "situation": {
+        "zh": "你看完同事的 PR，没有任何意见，想留一句最简短的通过评论。",
+        "en": "LGTM! Nice and simple."
+      },
+      "note": "Looks good to me 的缩写，主要用于书面；口头一般说全称。"
+    },
+    {
+      "term": "Approved with a few minor comments.",
+      "kind": "sentence",
+      "zh": "通过了，有几个小意见。",
+      "examples": [
+        {
+          "en": "Approved with a few minor comments. None of them are blocking.",
+          "zh": "通过了，有几个小意见，都不阻塞合并。"
+        }
+      ],
+      "situation": {
+        "zh": "你觉得同事的 PR 可以合，但留了几条无关紧要的建议，想说明一下。",
+        "en": "Approved with a few minor comments. Feel free to merge after you take a look."
+      },
+      "note": "表示信任作者：意见看着办，不需要再回来找你批。"
+    },
+    {
+      "term": "Ship it!",
+      "kind": "sentence",
+      "zh": "发吧！（s 开头，随意的放行说法）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "All my comments are resolved. Ship it!",
+          "zh": "我的意见都解决了，发吧！"
+        }
+      ],
+      "situation": {
+        "zh": "同事改完了你提的最后一个问题，问你还有没有别的意见，你很满意。",
+        "en": "Nope, looks great. Ship it!"
+      },
+      "note": "很随意的赞许说法，带点兴奋。"
+    },
+    {
+      "term": "good to go",
+      "kind": "chunk",
+      "zh": "可以了、准备就绪（g 开头）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Once CI passes, this is good to go.",
+          "zh": "CI 一过，这个就可以了。"
+        }
+      ],
+      "situation": {
+        "zh": "作者问你：我改完了，现在可以合了吗？你检查后觉得没问题。",
+        "en": "Yep, you're good to go."
+      }
+    },
+    {
+      "term": "Feel free to merge once ...",
+      "kind": "sentence",
+      "zh": "……之后你直接合就行",
+      "examples": [
+        {
+          "en": "Feel free to merge once the typo is fixed. I don't need to see it again.",
+          "zh": "把那个拼写错误改了你直接合就行，不用再给我看了。"
+        }
+      ],
+      "situation": {
+        "zh": "你已经批准了 PR，只剩 CI 还在跑，你想告诉作者不用再等你。",
+        "en": "Feel free to merge once CI is green."
+      }
+    },
+    {
+      "term": "This PR adds ...",
+      "kind": "sentence",
+      "zh": "这个 PR 新增了……（PR 描述的开头）",
+      "examples": [
+        {
+          "en": "This PR adds rate limiting to the public API endpoints.",
+          "zh": "这个 PR 给公开的 API 接口新增了限流。"
+        }
+      ],
+      "situation": {
+        "zh": "你在写 PR 描述的第一句话，这次改动是给导出功能加了进度条。",
+        "en": "This PR adds a progress bar to the export feature."
+      },
+      "note": "PR 描述用一般现在时。adds 可以换成 fixes、removes、updates、refactors。"
+    },
+    {
+      "term": "For context, ...",
+      "kind": "sentence",
+      "zh": "补充一下背景，……",
+      "examples": [
+        {
+          "en": "For context, we saw a spike in timeouts after last week's release.",
+          "zh": "补充一下背景，上周发版之后我们看到超时数突然升高。"
+        }
+      ],
+      "situation": {
+        "zh": "你在 PR 描述里想先交代为什么要做这个改动：老的库已经停止维护了。",
+        "en": "For context, the old library is no longer maintained."
+      },
+      "note": "用来解释“为什么”。评审人最需要的往往是背景，而不是改了哪些行。"
+    },
+    {
+      "term": "I tested this by ...",
+      "kind": "sentence",
+      "zh": "我是通过……来测试的",
+      "examples": [
+        {
+          "en": "I tested this by running the migration against a copy of production data.",
+          "zh": "我是通过拿一份生产数据的副本跑迁移来测试的。"
+        }
+      ],
+      "situation": {
+        "zh": "评审人问：这个改动你怎么验证的？你是在预发环境手动触发了一次任务。",
+        "en": "I tested this by triggering the job manually in staging."
+      },
+      "note": "by 后面接动名词。"
+    },
+    {
+      "term": "no functional changes",
+      "kind": "chunk",
+      "zh": "没有功能上的改动（纯重构时说）",
+      "examples": [
+        {
+          "en": "This is a pure refactor, so there should be no functional changes.",
+          "zh": "这是纯重构，所以应该没有功能上的改动。"
+        }
+      ],
+      "situation": {
+        "zh": "你的 PR 只是移动了文件、改了名字，想在描述里告诉评审人行为没变。",
+        "en": "This only moves files around. No functional changes."
+      },
+      "note": "告诉评审人行为不变，可以把注意力放在结构上。"
+    },
+    {
+      "term": "while I was at it",
+      "kind": "chunk",
+      "zh": "顺手、趁着改这块的时候",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "While I was at it, I also removed a couple of unused imports.",
+          "zh": "我顺手把几个没用的 import 也删了。"
+        }
+      ],
+      "situation": {
+        "zh": "你的 PR 主要是修 bug，但也顺便改了几处拼写错误，想在描述里说明。",
+        "en": "I also fixed a few typos while I was at it."
+      }
+    },
+    {
+      "term": "resolve the merge conflicts",
+      "kind": "chunk",
+      "zh": "解决合并冲突",
+      "examples": [
+        {
+          "en": "I need to resolve the merge conflicts before this can go in.",
+          "zh": "我得先解决合并冲突，这个才能合进去。"
+        }
+      ],
+      "situation": {
+        "zh": "评审人说你的 PR 显示无法自动合并，你想回复说你马上处理。",
+        "en": "Thanks, I'll resolve the merge conflicts right now."
+      },
+      "collocations": ["run into merge conflicts", "fix the conflicts"]
+    },
+    {
+      "term": "rebase onto",
+      "kind": "chunk",
+      "zh": "变基到……之上",
+      "examples": [
+        {
+          "en": "Could you rebase onto main? Your branch is missing the latest fixes.",
+          "zh": "你能变基到 main 上吗？你的分支缺了最新的修复。"
+        }
+      ],
+      "situation": {
+        "zh": "你想告诉评审人：你已经把分支更新到最新的主干上了，CI 也重新跑过了。",
+        "en": "I've rebased onto the latest main, and CI is green again."
+      },
+      "note": "介词常用 onto 或 on top of。"
+    },
+    {
+      "term": "split this into smaller PRs",
+      "kind": "chunk",
+      "zh": "把这个拆成几个小 PR",
+      "examples": [
+        {
+          "en": "This is hard to review. Could you split this into smaller PRs?",
+          "zh": "这个不好评审，你能把它拆成几个小 PR 吗？"
+        }
+      ],
+      "situation": {
+        "zh": "同事提了一个两千行的改动，里面混着重构和新功能，你想建议他拆开。",
+        "en": "Could you split this into smaller PRs? Maybe one for the refactor and one for the feature."
+      },
+      "note": "也说 break this up。大 PR 难评审，这是很正当的要求，不用不好意思提。"
+    },
+    {
+      "term": "revert the commit",
+      "kind": "chunk",
+      "zh": "回滚那个提交（git 用语，r 开头）",
+      "examples": [
+        {
+          "en": "The build broke on main, so I'm going to revert the commit for now.",
+          "zh": "main 上构建挂了，所以我先回滚那个提交。"
+        }
+      ],
+      "situation": {
+        "zh": "你昨天合的改动导致别人的测试全挂，你想说你先撤掉，查清楚再重新提。",
+        "en": "Sorry about that. I'll revert the commit and reopen the PR once I've found the cause."
+      },
+      "note": "git revert 是新生成一个反向提交，不会改写历史。"
+    },
+    {
+      "term": "Let's get this merged and iterate.",
+      "kind": "sentence",
+      "zh": "先合进去，再慢慢改进。",
+      "examples": [
+        {
+          "en": "It's not perfect, but let's get this merged and iterate.",
+          "zh": "虽然不完美，但先合进去，再慢慢改进吧。"
+        }
+      ],
+      "situation": {
+        "zh": "PR 已经来回评审了一周，剩下的都是小问题，你想提议先合并，后面再优化。",
+        "en": "We've been going back and forth for a week. Let's get this merged and iterate."
+      },
+      "note": "iterate 指小步迭代改进。适合剩余问题不影响正确性的时候说。"
+    },
+    {
+      "term": "squash the commits",
+      "kind": "chunk",
+      "zh": "把多个提交压成一个",
+      "examples": [
+        {
+          "en": "Could you squash the commits before merging? The history is a bit noisy.",
+          "zh": "合并前你能把提交压成一个吗？提交历史有点乱。"
+        }
+      ],
+      "situation": {
+        "zh": "你的 PR 里有十几个“修一下”之类的提交，评审人让你整理，你答应合并前处理。",
+        "en": "Sure, I'll squash the commits before I merge."
+      }
+    },
+    {
+      "term": "out of date with main",
+      "kind": "chunk",
+      "zh": "（分支）落后于主干",
+      "examples": [
+        {
+          "en": "Your branch is out of date with main, so the CI results may not be accurate.",
+          "zh": "你的分支落后于主干了，所以 CI 结果可能不准。"
+        }
+      ],
+      "situation": {
+        "zh": "同事的 PR 开了两周，主干已经变了很多，你想提醒他先更新分支。",
+        "en": "This branch is out of date with main. Could you update it before I review?"
+      }
+    }
+  ]
+}

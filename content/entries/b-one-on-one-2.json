@@ -1,0 +1,421 @@
+{
+  "layer": "B",
+  "category": "one-on-one",
+  "title": "1:1、反馈与职业发展",
+  "entries": [
+    {
+      "term": "performance review",
+      "kind": "chunk",
+      "zh": "绩效评估（两个词，第二个词 r 开头）",
+      "examples": [
+        {
+          "en": "My performance review is next month, so I'm collecting examples of my work.",
+          "zh": "我下个月做绩效评估，所以在整理自己的工作案例。"
+        }
+      ],
+      "situation": {
+        "zh": "你想问经理：今年的绩效评估什么时候开始，需要你提前准备什么。",
+        "en": "When does the performance review cycle start, and what should I prepare?"
+      },
+      "collocations": ["performance review cycle", "annual review", "self-review"],
+      "note": "口语里常简称 review 或 perf review。review cycle 指一轮评估周期，self-review 是自评。"
+    },
+    {
+      "term": "What would it take to get to the next level?",
+      "kind": "sentence",
+      "zh": "要怎样才能升到下一级？",
+      "examples": [
+        {
+          "en": "I've been a senior engineer for two years. What would it take to get to the next level?",
+          "zh": "我做高级工程师两年了。要怎样才能升到下一级？"
+        }
+      ],
+      "situation": {
+        "zh": "1:1 上你想直接问经理：你离晋升还差什么。",
+        "en": "What would it take to get to the next level? I'd like to know where the gaps are."
+      },
+      "note": "问晋升最得体的说法：不说“我该升了”，而是问标准和差距。level 指职级。"
+    },
+    {
+      "term": "put ... up for promotion",
+      "kind": "chunk",
+      "zh": "提名……晋升",
+      "examples": [
+        {
+          "en": "My manager is going to put me up for promotion in the next cycle.",
+          "zh": "我经理准备在下一轮提名我晋升。"
+        }
+      ],
+      "situation": {
+        "zh": "你想问经理：这一轮他会不会帮你提晋升。",
+        "en": "Do you think you could put me up for promotion this cycle?"
+      },
+      "collocations": ["be up for promotion", "get promoted to ..."],
+      "note": "晋升通常由经理提名。be up for promotion 指在候选之列，get promoted 才是真的升了。"
+    },
+    {
+      "term": "exceed expectations",
+      "kind": "chunk",
+      "zh": "超出预期（绩效评级用语，e 开头的动词）",
+      "register": "formal",
+      "examples": [
+        {
+          "en": "I got an \"exceeds expectations\" rating this year, mostly because of the migration project.",
+          "zh": "我今年的评级是“超出预期”，主要是因为迁移项目。"
+        }
+      ],
+      "situation": {
+        "zh": "你给下属做绩效反馈，想告诉他：这半年他的表现一直高于这个职级的要求。",
+        "en": "You've consistently exceeded expectations for your level this half."
+      },
+      "note": "绩效评级的固定说法，常见三档：below / meets / exceeds expectations。注意 meets expectations 是“合格”，不是批评。"
+    },
+    {
+      "term": "get more visibility",
+      "kind": "chunk",
+      "zh": "获得更多曝光、让更多人看到你的工作",
+      "examples": [
+        {
+          "en": "Presenting at the all-hands would help me get more visibility outside our team.",
+          "zh": "在全员大会上做分享，能让团队以外更多的人看到我的工作。"
+        }
+      ],
+      "situation": {
+        "zh": "你做了很多幕后的基础设施工作，但别的团队不知道。你想跟经理商量怎么让成果被更多人看到。",
+        "en": "A lot of my work is behind the scenes. How can I get more visibility for it?"
+      },
+      "collocations": ["high-visibility project", "give someone visibility into ..."],
+      "note": "visibility 指你的工作被上级和其他团队看见的程度，晋升时很重要。另一个意思是“知情”：give me visibility into the plan。"
+    },
+    {
+      "term": "compensation",
+      "kind": "word",
+      "zh": "薪酬（工资、奖金、股票的总称，c 开头）",
+      "register": "formal",
+      "examples": [
+        {
+          "en": "I'd like to talk about my compensation, given how much my scope has grown.",
+          "zh": "考虑到我负责的范围扩大了很多，我想聊聊我的薪酬。"
+        }
+      ],
+      "situation": {
+        "zh": "你升职后工资一直没调。你想在 1:1 上正式提出来谈。",
+        "en": "I'd like to set aside some time to discuss my compensation."
+      },
+      "collocations": ["total compensation", "compensation package", "base salary"],
+      "note": "比 salary 范围大，也更正式，口语简称 comp。total compensation（总包）包括 base salary、bonus 和 equity。"
+    },
+    {
+      "term": "Is there any flexibility on ...?",
+      "kind": "sentence",
+      "zh": "……还有商量的余地吗？（f 开头的名词）",
+      "examples": [
+        {
+          "en": "Thank you for the offer. Is there any flexibility on the base salary?",
+          "zh": "谢谢你们的 offer。基本工资还有商量的余地吗？"
+        }
+      ],
+      "situation": {
+        "zh": "HR 给了你 offer，但入职日期比你希望的早。你想问能不能调整。",
+        "en": "Is there any flexibility on the start date? I need to give four weeks' notice."
+      },
+      "note": "谈 offer 的标准问法。不说 Can you pay more?，给对方留了台阶。on 后面接具体项目：salary、equity、start date。"
+    },
+    {
+      "term": "in line with the market",
+      "kind": "chunk",
+      "zh": "和市场水平相符",
+      "register": "formal",
+      "examples": [
+        {
+          "en": "I want to make sure my salary is in line with the market for this level.",
+          "zh": "我想确认我的工资和这个职级的市场水平相符。"
+        }
+      ],
+      "situation": {
+        "zh": "你查了同级别的薪资数据，发现自己偏低。你想跟经理客观地提出来。",
+        "en": "From what I've seen, my pay isn't quite in line with the market for senior engineers."
+      },
+      "note": "谈加薪时拿市场数据说话，而不是“我觉得我值更多”。in line with 是“和……一致”。market rate 指市场价。"
+    },
+    {
+      "term": "I was hoping for something closer to ...",
+      "kind": "sentence",
+      "zh": "我期望的数字更接近……（委婉还价）",
+      "examples": [
+        {
+          "en": "I appreciate the offer, but I was hoping for something closer to 150K.",
+          "zh": "很感谢这个 offer，不过我期望的数字更接近 15 万。"
+        }
+      ],
+      "situation": {
+        "zh": "招聘方报的年薪比你预期低一成。你想礼貌地报出你的数字。",
+        "en": "Thanks for sharing the number. I was hoping for something closer to 180K."
+      },
+      "note": "过去进行时 was hoping 比 I want 委婉很多，是还价的常用句式。后面直接接数字。"
+    },
+    {
+      "term": "I'd like some time to think it over.",
+      "kind": "sentence",
+      "zh": "我想花点时间仔细考虑一下。（最后一个词 o 开头）",
+      "examples": [
+        {
+          "en": "Thank you, this is exciting. I'd like some time to think it over.",
+          "zh": "谢谢，这让我很兴奋。我想花点时间仔细考虑一下。"
+        }
+      ],
+      "situation": {
+        "zh": "HR 在电话里口头给了 offer，希望你当场答复。你想礼貌地争取几天时间。",
+        "en": "I really appreciate it. I'd like some time to think it over. Could I get back to you by Friday?"
+      },
+      "note": "不必当场答应或拒绝。think it over 是“仔细考虑”，比 think about it 郑重。给出明确的答复日期显得专业。"
+    },
+    {
+      "term": "I'd suggest starting with ...",
+      "kind": "sentence",
+      "zh": "我建议先从……入手",
+      "examples": [
+        {
+          "en": "I'd suggest starting with the read path, since it's simpler than the write path.",
+          "zh": "我建议先从读路径入手，因为它比写路径简单。"
+        }
+      ],
+      "situation": {
+        "zh": "新人接手一个大模块，不知道从哪看起。你建议他先读集成测试。",
+        "en": "I'd suggest starting with the integration tests. They show how everything fits together."
+      },
+      "note": "给方向但不下命令。I'd suggest 比 You should 柔和，对方仍有自己判断的空间。suggest 后面接 -ing，不接 to do。"
+    },
+    {
+      "term": "I trust your judgment.",
+      "kind": "sentence",
+      "zh": "我相信你的判断。（放手让对方决定）",
+      "examples": [
+        {
+          "en": "You know this codebase better than I do, so I trust your judgment.",
+          "zh": "这套代码你比我熟，所以我相信你的判断。"
+        }
+      ],
+      "situation": {
+        "zh": "下属来问你该用哪个库，两个都行，你想让他自己定。",
+        "en": "Either one works. I trust your judgment on this."
+      },
+      "note": "放权时最有分量的一句话。美式拼写 judgment，英式常写 judgement。类似说法：It's your call.（你说了算。）"
+    },
+    {
+      "term": "You've got this.",
+      "kind": "sentence",
+      "zh": "你没问题的。/ 你能搞定。（鼓励，g 开头的动词）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "You've got this. You've done harder migrations than this one.",
+          "zh": "你没问题的，比这更难的迁移你都做过。"
+        }
+      ],
+      "situation": {
+        "zh": "下属第一次要在全公司面前做演示，很紧张。上台前你想鼓励他。",
+        "en": "You've got this. You know the material better than anyone."
+      },
+      "note": "口语里的打气话，只用于关系比较近的同事。正式一点说 I have full confidence in you."
+    },
+    {
+      "term": "This has come up a few times.",
+      "kind": "sentence",
+      "zh": "这个问题已经出现好几次了。（指出反复发生的问题）",
+      "examples": [
+        {
+          "en": "This has come up a few times now, so I want us to talk about it.",
+          "zh": "这个问题已经出现好几次了，所以我想我们得聊一聊。"
+        }
+      ],
+      "situation": {
+        "zh": "下属第三次没跑测试就合并代码，把主干搞挂了。你要严肃地指出这不是偶然。",
+        "en": "This has come up a few times. Can we talk about what's getting in the way?"
+      },
+      "note": "come up 是“出现、发生”。说的是事情反复出现，不说 You always ...，对事不对人，但分量已经不轻。"
+    },
+    {
+      "term": "I need you to ...",
+      "kind": "sentence",
+      "zh": "我需要你……（明确提要求，语气较硬）",
+      "examples": [
+        {
+          "en": "I need you to let me know as soon as a deadline is at risk.",
+          "zh": "一旦某个截止日期有风险，我需要你第一时间告诉我。"
+        }
+      ],
+      "situation": {
+        "zh": "下属几次延期都是最后一天才说。你要明确地提出要求：以后至少提前两天预警。",
+        "en": "Going forward, I need you to flag delays at least two days ahead."
+      },
+      "note": "语气强，是上级对下级提明确期望时用的，不留商量余地。平时请同事帮忙不要用，改用 Could you ...?"
+    },
+    {
+      "term": "burned out",
+      "kind": "chunk",
+      "zh": "（长期高压后）身心俱疲、倦怠",
+      "examples": [
+        {
+          "en": "After three months of on-call every other week, I'm starting to feel burned out.",
+          "zh": "连续三个月隔周值班之后，我开始觉得身心俱疲了。"
+        }
+      ],
+      "situation": {
+        "zh": "你连续加班赶了两个版本，现在对工作提不起劲。你想在 1:1 上跟经理坦白。",
+        "en": "To be honest, I'm feeling pretty burned out after the last two releases."
+      },
+      "collocations": ["feel burned out", "on the verge of burnout"],
+      "note": "字面是“烧尽了”，名词是 burnout。比 tired 严重得多，指长期透支，说出来经理通常会认真对待。英式也拼 burnt out。"
+    },
+    {
+      "term": "overwhelmed",
+      "kind": "word",
+      "zh": "（事情太多）应付不过来、不堪重负，o 开头",
+      "examples": [
+        {
+          "en": "I'm a bit overwhelmed with all the requests coming in from different teams.",
+          "zh": "各个团队提过来的需求太多，我有点应付不过来。"
+        }
+      ],
+      "situation": {
+        "zh": "你刚接手一个新系统，同时还要处理线上问题和招聘面试。你想告诉经理你快撑不住了。",
+        "en": "I'm feeling overwhelmed right now. There's just too much coming at me at once."
+      },
+      "note": "指被事情“淹没”的感觉，是眼下的状态；burned out 是长期透支的结果。加 a bit 可以减轻语气。"
+    },
+    {
+      "term": "This pace isn't sustainable.",
+      "kind": "sentence",
+      "zh": "这个节奏撑不下去。（s 开头的形容词）",
+      "examples": [
+        {
+          "en": "We've shipped every week for two months. This pace isn't sustainable.",
+          "zh": "我们连着两个月每周都发版，这个节奏撑不下去。"
+        }
+      ],
+      "situation": {
+        "zh": "团队连续三个迭代都在加班赶进度。你想在 1:1 上提醒经理这样下去不行。",
+        "en": "This pace isn't sustainable. People are going to start making mistakes or leaving."
+      },
+      "note": "sustainable 是“可持续的”。说的是节奏有问题，不是抱怨自己累，经理更容易接受。"
+    },
+    {
+      "term": "take ... off my plate",
+      "kind": "chunk",
+      "zh": "把……从我手头拿走（减轻工作量）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Could someone take the release notes off my plate this week?",
+          "zh": "这周能不能有人把发布说明这件事从我手头接走？"
+        }
+      ],
+      "situation": {
+        "zh": "你手上的事太多了，想请经理把代码评审值班这件事暂时转给别人。",
+        "en": "Would it be possible to take the review rotation off my plate for a while?"
+      },
+      "note": "和 have a lot on my plate 是同一个比喻：盘子太满，拿走一些。请求调整工作量时很自然。"
+    },
+    {
+      "term": "take some time off",
+      "kind": "chunk",
+      "zh": "休几天假",
+      "examples": [
+        {
+          "en": "I'm planning to take some time off after the launch to recharge.",
+          "zh": "上线之后我打算休几天假，充充电。"
+        }
+      ],
+      "situation": {
+        "zh": "你最近状态很差，想跟经理说你需要休息一周。",
+        "en": "I think I need to take some time off. Would the week after next work?"
+      },
+      "collocations": ["take a day off", "take a week off"],
+      "note": "time off 泛指不上班的时间。不用解释原因，说 I need to recharge 就够了。"
+    },
+    {
+      "term": "give a shout-out to",
+      "kind": "chunk",
+      "zh": "公开点名表扬（某人）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I want to give a shout-out to Priya for fixing the flaky tests.",
+          "zh": "我想公开表扬一下 Priya，她把那些不稳定的测试修好了。"
+        }
+      ],
+      "situation": {
+        "zh": "周会上你想当众感谢 Leo：他周末加班把数据修复了。",
+        "en": "Before we start, I want to give a shout-out to Leo for fixing the data over the weekend."
+      },
+      "note": "shout-out 字面是“喊一嗓子”，指当众点名感谢。口语里常省成 Shout-out to Leo for ..."
+    },
+    {
+      "term": "Kudos to ...",
+      "kind": "sentence",
+      "zh": "为……点赞、向……致敬（K 开头）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Kudos to the infra team for a smooth migration with zero downtime.",
+          "zh": "为基础设施团队点赞，这次迁移很顺利，零停机。"
+        }
+      ],
+      "situation": {
+        "zh": "上线很成功，你想在团队群里夸一下负责发布的 Ana。",
+        "en": "Kudos to Ana for running such a clean release!"
+      },
+      "note": "kudos 来自希腊语，意思是“荣誉、赞扬”。它看着像复数，其实是不可数名词，没有 a kudo 的说法。多用于书面和群聊。"
+    },
+    {
+      "term": "I couldn't have done it without ...",
+      "kind": "sentence",
+      "zh": "没有……我做不成这件事",
+      "examples": [
+        {
+          "en": "I couldn't have done it without Wei's help on the database side.",
+          "zh": "数据库这边没有 Wei 帮忙，我做不成这件事。"
+        }
+      ],
+      "situation": {
+        "zh": "经理在会上表扬你把性能优化做成了。你想把一部分功劳归给帮你做压测的 Sam。",
+        "en": "Thanks, but I couldn't have done it without Sam. He ran all the load tests."
+      },
+      "note": "被表扬时把功劳分给帮过你的人，是英文职场很看重的习惯。"
+    },
+    {
+      "term": "go above and beyond",
+      "kind": "chunk",
+      "zh": "做得远超本分、格外尽心",
+      "examples": [
+        {
+          "en": "She went above and beyond to help the new hires get set up.",
+          "zh": "为了帮新同事把环境搭好，她做的远远超出了本分。"
+        }
+      ],
+      "situation": {
+        "zh": "你写绩效评语，想说 Tom 在事故期间主动熬夜帮别的团队排查，做的远超职责要求。",
+        "en": "Tom went above and beyond during the incident, helping another team debug overnight."
+      },
+      "note": "夸人很有分量，常出现在绩效评语和感谢信里。完整说法是 above and beyond the call of duty（超出职责的要求）。"
+    },
+    {
+      "term": "give ... credit for",
+      "kind": "chunk",
+      "zh": "把……的功劳归于（某人）",
+      "examples": [
+        {
+          "en": "I want to give Mei credit for the idea. I just implemented it.",
+          "zh": "这个主意的功劳要归 Mei，我只是把它实现了。"
+        }
+      ],
+      "situation": {
+        "zh": "大家以为缓存方案是你想出来的，其实是实习生提的。你想在会上说清楚。",
+        "en": "I have to give our intern credit for this. The caching idea was hers."
+      },
+      "collocations": ["take credit for", "credit goes to ..."],
+      "note": "credit 是“功劳”。反过来，take credit for 是把功劳揽到自己身上，常带贬义。"
+    }
+  ]
+}

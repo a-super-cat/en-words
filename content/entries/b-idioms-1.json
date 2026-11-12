@@ -1,0 +1,672 @@
+{
+  "layer": "B",
+  "category": "idioms",
+  "title": "职场缩写与习语",
+  "entries": [
+    {
+      "term": "ASAP",
+      "kind": "word",
+      "zh": "尽快（四字母缩写）",
+      "examples": [
+        {
+          "en": "Can you review this ASAP? It's blocking the release.",
+          "zh": "你能尽快看一下这个吗？它卡着发版呢。"
+        }
+      ],
+      "situation": {
+        "zh": "线上有个配置错了，你在群里请同事尽快把它改回去。",
+        "en": "The timeout config is wrong in prod. Can someone fix it ASAP?"
+      },
+      "note": "as soon as possible 的缩写。可以逐个字母念，也可以念成一个词 /ˈeɪsæp/。对上级或不熟的人用会显得在催，可以改说 when you get a chance。"
+    },
+    {
+      "term": "EOD",
+      "kind": "word",
+      "zh": "今天下班前（三字母缩写）",
+      "examples": [
+        {
+          "en": "I'll have the fix ready by EOD, and I'll ping you once it's merged.",
+          "zh": "今天下班前我把修复做好，合并了就告诉你。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在聊天里问你什么时候能给他评审意见，你打算今天下班前给。",
+        "en": "I'm in meetings until four, but I'll get to it by EOD."
+      },
+      "note": "end of day 的缩写，一般指当天下班前。跨时区时要说清是谁的 EOD，例如 EOD Pacific。类似的还有 EOW（本周结束前）。"
+    },
+    {
+      "term": "ETA",
+      "kind": "word",
+      "zh": "预计完成时间（三字母缩写）",
+      "examples": [
+        {
+          "en": "Do we have an ETA for the fix? The customer is asking for an update.",
+          "zh": "修复有预计完成时间吗？客户在问进展。"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理在群里问搜索功能什么时候能上。你想回复：预计周四。",
+        "en": "ETA is Thursday, assuming QA doesn't find anything major."
+      },
+      "note": "estimated time of arrival 的缩写，原本指交通工具的预计到达时间，职场里借来指“预计什么时候好”。常问：What's the ETA on ...?"
+    },
+    {
+      "term": "FYI",
+      "kind": "word",
+      "zh": "供你参考、知会一声（三字母缩写）",
+      "examples": [
+        {
+          "en": "FYI, the staging database will be down for maintenance tonight.",
+          "zh": "知会一声，今晚预发环境的数据库要停机维护。"
+        }
+      ],
+      "situation": {
+        "zh": "你改了一个公共配置，不需要别人做什么，只想在群里告知大家。",
+        "en": "FYI, I bumped the default timeout to 10 seconds. No action needed."
+      },
+      "note": "for your information 的缩写，表示“只是告知，不需要你做什么”。也能当名词：Just an FYI. 转发邮件时只写一个 FYI 会显得冷淡。"
+    },
+    {
+      "term": "TBD",
+      "kind": "word",
+      "zh": "待定（三字母缩写）",
+      "examples": [
+        {
+          "en": "The launch date is still TBD until legal signs off.",
+          "zh": "法务签字之前，上线日期还是待定。"
+        }
+      ],
+      "situation": {
+        "zh": "你在写项目计划，第二期由谁负责还没定。同事问起，你回答。",
+        "en": "The owner for phase two is TBD. We'll decide after the planning meeting."
+      },
+      "note": "to be determined（也有人说 to be decided）的缩写，文档和表格里用来占位。类似的 TBA 是“待公布”，指已经定了但还没宣布。"
+    },
+    {
+      "term": "TL;DR",
+      "kind": "word",
+      "zh": "太长不看版、一句话总结（带分号的缩写）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "TL;DR: the outage was caused by an expired certificate.",
+          "zh": "一句话总结：这次故障是证书过期导致的。"
+        }
+      ],
+      "situation": {
+        "zh": "你写了一篇很长的调研文档，想在最开头用一句话给出结论：建议继续用现有的队列。",
+        "en": "TL;DR: I recommend we stick with the existing queue."
+      },
+      "note": "too long; didn't read 的缩写，原是网友嫌帖子太长的吐槽，现在用在长文开头给出摘要。也能当名词：What's the TL;DR?"
+    },
+    {
+      "term": "AFAIK",
+      "kind": "word",
+      "zh": "据我所知（五字母缩写）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "AFAIK, nobody is using the v1 endpoint anymore.",
+          "zh": "据我所知，已经没人在用 v1 接口了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在聊天里问这个开关能不能删。你印象中没有服务再读它，但不敢打包票。",
+        "en": "AFAIK it's safe to delete, but let me double-check the logs."
+      },
+      "note": "as far as I know 的缩写，只用于书面。表示“我知道的是这样，但可能不全”，给自己留了余地。"
+    },
+    {
+      "term": "IMO",
+      "kind": "word",
+      "zh": "在我看来（三字母缩写）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "IMO, we should fix the flaky tests before adding new features.",
+          "zh": "在我看来，应该先把不稳定的测试修好，再加新功能。"
+        }
+      ],
+      "situation": {
+        "zh": "群里在讨论要不要自己写一个日期库。你觉得不值得。",
+        "en": "IMO it's not worth building our own. The existing library is good enough."
+      },
+      "note": "in my opinion 的缩写。IMHO 多了一个 humble（“恕我直言”），语气更谦虚。口头不念缩写，说 I think 或 in my opinion。"
+    },
+    {
+      "term": "IIRC",
+      "kind": "word",
+      "zh": "如果我没记错的话（四字母缩写）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "IIRC, we disabled that feature flag back in March.",
+          "zh": "如果我没记错的话，那个功能开关我们三月份就关了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问旧的导出任务为什么下线了。你隐约记得是因为它太占内存。",
+        "en": "IIRC, we turned it off because it was using too much memory."
+      },
+      "note": "if I recall correctly（或 if I remember correctly）的缩写，只用于书面。表示是凭记忆说的，可能有出入。"
+    },
+    {
+      "term": "YMMV",
+      "kind": "word",
+      "zh": "效果因人而异、仅供参考（四字母缩写）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Upgrading cut our build time in half, but YMMV.",
+          "zh": "升级之后我们的构建时间减半了，不过效果因人而异。"
+        }
+      ],
+      "situation": {
+        "zh": "你在群里推荐一个编辑器插件，在你机器上很好用，但不保证别人也一样。",
+        "en": "This plugin made my editor much faster, but YMMV depending on your setup."
+      },
+      "note": "your mileage may vary 的缩写，来自美国汽车广告里的免责声明：实际油耗因人而异。意思是“我的经验是这样，你的情况可能不同”。"
+    },
+    {
+      "term": "OOO",
+      "kind": "word",
+      "zh": "不在岗、休假或外出中（三个相同字母的缩写）",
+      "examples": [
+        {
+          "en": "I'll be OOO next Monday and Tuesday, so please ping Raj for anything urgent.",
+          "zh": "我下周一、周二不在，有急事请找 Raj。"
+        }
+      ],
+      "situation": {
+        "zh": "你这周四、周五请假，想提前在团队频道里说一声。",
+        "en": "Heads-up: I'll be OOO this Thursday and Friday, back on Monday."
+      },
+      "note": "out of office 的缩写，源自邮件的自动回复。请假、出差、外出都能用。书面用缩写，口头一般说全称。"
+    },
+    {
+      "term": "WFH",
+      "kind": "word",
+      "zh": "在家办公（三字母缩写）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I'm WFH tomorrow because the plumber is coming.",
+          "zh": "我明天在家办公，因为水管工要来。"
+        }
+      ],
+      "situation": {
+        "zh": "你今天不去办公室，想在群里告诉大家你在线，有事可以直接找你。",
+        "en": "WFH today. I'm online, so feel free to message me."
+      },
+      "note": "work from home / working from home 的缩写。可以当动词用（I'm WFH tomorrow），也可以当定语（a WFH day）。"
+    },
+    {
+      "term": "PTO",
+      "kind": "word",
+      "zh": "带薪休假（三字母缩写）",
+      "examples": [
+        {
+          "en": "I'm taking PTO next week, so I'll hand over my tickets on Friday.",
+          "zh": "我下周休带薪假，所以周五会把手上的任务交接出去。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你圣诞前后在不在。你打算把今年剩下的假休掉。",
+        "en": "I'm using the rest of my PTO, so I'll be out from the 20th."
+      },
+      "collocations": ["take PTO", "on PTO", "PTO balance"],
+      "note": "paid time off 的缩写，美国公司的说法，很多公司把年假和病假合在一起算。英国公司更常说 annual leave。"
+    },
+    {
+      "term": "BRB",
+      "kind": "word",
+      "zh": "马上回来（聊天用的三字母缩写）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "BRB, grabbing a coffee before the next meeting.",
+          "zh": "马上回来，下个会之前我去拿杯咖啡。"
+        }
+      ],
+      "situation": {
+        "zh": "你正和同事在聊天里一起排查问题，需要离开两分钟去接个电话。",
+        "en": "BRB, I need to take a quick call."
+      },
+      "note": "be right back 的缩写，只用于聊天，离开几分钟时用。回来后说一声 back 就行。"
+    },
+    {
+      "term": "AFK",
+      "kind": "word",
+      "zh": "人不在电脑前（三字母缩写）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I'll be AFK for about an hour for lunch.",
+          "zh": "我去吃午饭，大概一小时不在电脑前。"
+        }
+      ],
+      "situation": {
+        "zh": "你要去接孩子，半小时内看不了消息，想在团队频道里说一声。",
+        "en": "AFK for 30 minutes for school pickup. Call me if anything is urgent."
+      },
+      "note": "away from keyboard 的缩写，来自早期的网络聊天室和游戏。和 OOO 的区别：AFK 是离开一会儿，OOO 是整天不在。"
+    },
+    {
+      "term": "WIP",
+      "kind": "word",
+      "zh": "还没做完、进行中（三字母缩写）",
+      "examples": [
+        {
+          "en": "This PR is still WIP, so please don't merge it yet.",
+          "zh": "这个 PR 还没做完，请先别合并。"
+        }
+      ],
+      "situation": {
+        "zh": "你想让同事提前看看思路，但代码还没写完。你在 PR 说明里注明这一点。",
+        "en": "This is a WIP. I'd just like early feedback on the overall approach."
+      },
+      "note": "work in progress 的缩写。PR 标题前加 WIP 表示“先别合并”。可以念成一个词 /wɪp/，也可以逐个字母念。看板里的 WIP limit 指同时进行的任务数上限。"
+    },
+    {
+      "term": "RFC",
+      "kind": "word",
+      "zh": "征求意见稿（三字母缩写）",
+      "examples": [
+        {
+          "en": "I wrote an RFC for the new auth flow. Comments are open until Friday.",
+          "zh": "我给新的认证流程写了一份征求意见稿，周五前都可以提意见。"
+        }
+      ],
+      "situation": {
+        "zh": "你想对全公司的日志格式做一次大改，打算先写一份文档让各团队提意见。",
+        "en": "I'll write up an RFC and share it with all the backend teams first."
+      },
+      "note": "request for comments 的缩写，源自互联网标准文档（例如定义 HTTP/1.1 的 RFC 2616）。很多公司借来指技术提案，写出来就是为了让大家挑毛病。"
+    },
+    {
+      "term": "POC",
+      "kind": "word",
+      "zh": "概念验证（三字母缩写，指验证可行性的小原型）",
+      "examples": [
+        {
+          "en": "I built a quick POC to see if the library can handle our data volume.",
+          "zh": "我做了一个简单的概念验证，看这个库扛不扛得住我们的数据量。"
+        }
+      ],
+      "situation": {
+        "zh": "团队在争论新的搜索引擎够不够快。你提议先花两天做个小原型验证一下。",
+        "en": "Let's do a two-day POC before we commit to it."
+      },
+      "note": "proof of concept 的缩写，目的是验证“行不行”，代码用完通常就扔。在别的语境里 POC 也指 point of contact（对接人），要看上下文。"
+    },
+    {
+      "term": "MVP",
+      "kind": "word",
+      "zh": "最小可行产品（三字母缩写）",
+      "examples": [
+        {
+          "en": "For the MVP, we only support email login. Social login comes later.",
+          "zh": "最小可行产品阶段我们只支持邮箱登录，第三方登录以后再加。"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理想在第一版里塞很多功能。你想说第一版只做最核心的下单流程。",
+        "en": "Let's keep the MVP to the core checkout flow and add the rest after launch."
+      },
+      "note": "minimum viable product 的缩写，因《精益创业》一书而流行：用最少的功能验证用户是否需要。和 POC 的区别：POC 验证技术上行不行，MVP 是真给用户用的。"
+    },
+    {
+      "term": "DRI",
+      "kind": "word",
+      "zh": "直接负责人（三字母缩写，指对一件事负总责的那一个人）",
+      "examples": [
+        {
+          "en": "Who's the DRI for the billing migration?",
+          "zh": "账单迁移的直接负责人是谁？"
+        }
+      ],
+      "situation": {
+        "zh": "一个跨团队项目里，大家都以为别人在跟进。你想提议明确指定一个人负总责。",
+        "en": "We need a single DRI for this, or it'll keep falling through the cracks."
+      },
+      "note": "directly responsible individual 的缩写，出自苹果公司的管理做法：每件事只有一个人负总责。在美国科技公司里很常见。"
+    },
+    {
+      "term": "touch base",
+      "kind": "chunk",
+      "zh": "简单碰个头、通个气（t 开头）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Let's touch base on Thursday to see where we are with the rollout.",
+          "zh": "我们周四碰个头，看看灰度放量进行到哪了。"
+        }
+      ],
+      "situation": {
+        "zh": "你和另一个团队的负责人各自忙了两周，想约个十五分钟对一下进展。",
+        "en": "Do you have fifteen minutes this week to touch base on the integration?"
+      },
+      "note": "一般认为来自棒球：跑垒员要踩一下垒包。指简短地联系一下、对对情况，不是正式开会。touch base with 接人，touch base on 接话题。"
+    },
+    {
+      "term": "bandwidth",
+      "kind": "word",
+      "zh": "（处理更多事情的）精力、余力，借用网络术语",
+      "examples": [
+        {
+          "en": "I don't have the bandwidth to take on another project this quarter.",
+          "zh": "这个季度我没有余力再接一个项目了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事请你帮忙评审一份很长的设计文档，但你这周排满了。",
+        "en": "I don't have the bandwidth this week. Could it wait until Monday?"
+      },
+      "collocations": ["have the bandwidth to ...", "limited bandwidth"],
+      "note": "字面是“带宽”，引申为一个人还能再处理多少事。比 I'm too busy 委婉：说的是容量不够，不是不愿意。"
+    },
+    {
+      "term": "on my radar",
+      "kind": "chunk",
+      "zh": "我已经留意到了、在我的关注范围内",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "The memory leak is on my radar, but I haven't had time to dig into it.",
+          "zh": "那个内存泄漏我已经留意到了，只是还没时间深入查。"
+        }
+      ],
+      "situation": {
+        "zh": "同事提醒你有个依赖库下个月停止维护。你想说你知道这事，已经在计划里了。",
+        "en": "Thanks, it's on my radar. I'm planning to upgrade next sprint."
+      },
+      "collocations": ["on someone's radar", "fall off the radar", "under the radar"],
+      "note": "字面是“在我的雷达上”。表示知道这事并在留意，但不代表马上处理。反过来，fall off the radar 是“被忘了”。"
+    },
+    {
+      "term": "in the weeds",
+      "kind": "chunk",
+      "zh": "陷在细节里（字面：在杂草丛里）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "We're getting in the weeds here. Can we go back to the main question?",
+          "zh": "我们陷到细节里去了，能不能回到主要问题上？"
+        }
+      ],
+      "situation": {
+        "zh": "架构评审会上大家开始争论某个字段叫什么名字，你想把讨论拉回到整体设计。",
+        "en": "I think we're in the weeds. Let's settle the overall design first."
+      },
+      "note": "字面是走进杂草丛、看不见路，指陷进细枝末节。也可以是中性的：get into the weeds 表示“深入细节”，有时正是需要的。"
+    },
+    {
+      "term": "put ... on the back burner",
+      "kind": "chunk",
+      "zh": "把……暂时搁置、往后放（和炉灶有关）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "We put the redesign on the back burner to focus on performance.",
+          "zh": "我们把改版暂时搁置了，先集中精力做性能。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问重构计划怎么样了。你想说因为要赶合规需求，重构只能先放一放。",
+        "en": "We had to put the refactor on the back burner because of the compliance deadline."
+      },
+      "note": "字面是“放到后排炉头上”：灶台后排火小，放不急着做的菜。指暂时降低优先级，不是取消。"
+    },
+    {
+      "term": "low-hanging fruit",
+      "kind": "chunk",
+      "zh": "投入小、见效快的事（字面：挂得低的果子）",
+      "examples": [
+        {
+          "en": "Let's start with the low-hanging fruit, like adding an index to that table.",
+          "zh": "我们先做最容易见效的，比如给那张表加个索引。"
+        }
+      ],
+      "situation": {
+        "zh": "页面加载很慢，要优化的地方很多。你提议先做最省事又见效的，比如压缩图片。",
+        "en": "Compressing the images is low-hanging fruit. We can do it today."
+      },
+      "note": "字面是挂得低的果子，伸手就能摘到。fruit 在这里不可数，不说 fruits，前面也不加 a。"
+    },
+    {
+      "term": "quick win",
+      "kind": "chunk",
+      "zh": "很快就能拿下的小成果（两个词，q 和 w 开头）",
+      "examples": [
+        {
+          "en": "Enabling gzip was a quick win that cut our response size by 70 percent.",
+          "zh": "开启 gzip 是个很快就拿下的小成果，响应体积减少了七成。"
+        }
+      ],
+      "situation": {
+        "zh": "新项目刚启动，你想建议先做一件一周内就能见效的事来建立信心。",
+        "en": "Let's find a quick win in the first week to build some momentum."
+      },
+      "note": "指短时间内就能做成、看得见效果的事。和 low-hanging fruit 接近，但 quick win 强调“先赢一小把”，常用来鼓舞士气。"
+    },
+    {
+      "term": "move the needle",
+      "kind": "chunk",
+      "zh": "带来看得见的改变（字面：让指针动起来）",
+      "examples": [
+        {
+          "en": "Tweaking the button color won't move the needle on conversion.",
+          "zh": "调按钮颜色对转化率起不到什么看得见的作用。"
+        }
+      ],
+      "situation": {
+        "zh": "团队花了很多时间做小优化，但核心指标没变。你想说应该做真正有影响的事。",
+        "en": "We need to focus on work that actually moves the needle on retention."
+      },
+      "note": "字面是让仪表盘的指针动起来，指对关键指标产生明显影响。常用否定：It won't move the needle."
+    },
+    {
+      "term": "boil the ocean",
+      "kind": "chunk",
+      "zh": "想一口气做完所有事、摊子铺得太大（字面：把海水煮开）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Let's not boil the ocean. We can start with one service and expand later.",
+          "zh": "我们别把摊子铺得太大，可以先从一个服务做起，以后再扩展。"
+        }
+      ],
+      "situation": {
+        "zh": "同事提议一次性把所有老接口都重写。你觉得范围太大，想劝他缩小。",
+        "en": "Rewriting every endpoint at once is boiling the ocean. Let's pick the top five."
+      },
+      "note": "字面是“把大海煮开”，不可能做到。批评计划的范围大得不现实，多用在否定句里：Let's not boil the ocean."
+    },
+    {
+      "term": "table stakes",
+      "kind": "chunk",
+      "zh": "入场的基本条件、标配（来自扑克）",
+      "examples": [
+        {
+          "en": "Single sign-on is table stakes for enterprise customers these days.",
+          "zh": "如今对企业客户来说，单点登录是标配。"
+        }
+      ],
+      "situation": {
+        "zh": "有人问要不要把“支持 HTTPS”写进产品亮点。你觉得这是最基本的要求，算不上亮点。",
+        "en": "HTTPS is table stakes. I wouldn't list it as a selling point."
+      },
+      "note": "借自扑克用语，职场里引申为“上桌至少要押的筹码”：没有就没资格参与竞争，有了也不加分。"
+    },
+    {
+      "term": "bikeshedding",
+      "kind": "word",
+      "zh": "在无关紧要的小事上争论不休（和自行车棚有关）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "We spent half the meeting bikeshedding over the name of the config file.",
+          "zh": "我们半场会都在为配置文件叫什么名字争论不休。"
+        }
+      ],
+      "situation": {
+        "zh": "设计评审开了四十分钟，大家还在争论变量的命名风格。你想提醒大家这不重要。",
+        "en": "I think we're bikeshedding. Can we move on to the data model?"
+      },
+      "note": "来自帕金森琐碎定律：委员会审核电站很快就通过，却为自行车棚刷什么颜色吵半天，因为车棚人人都懂。动词是 bikeshed。"
+    },
+    {
+      "term": "yak shaving",
+      "kind": "chunk",
+      "zh": "为了做一件事，不得不先做一连串不相干的琐事（和牦牛有关）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I wanted to fix one test, but after hours of yak shaving I'm still upgrading Node.",
+          "zh": "我本来只想修一个测试，结果折腾了几小时一连串的琐事，现在还在升级 Node。"
+        }
+      ],
+      "situation": {
+        "zh": "站会上你解释昨天为什么没进展：想跑测试要先修构建，修构建又要先升级依赖。",
+        "en": "Yesterday was mostly yak shaving. I had to fix the build before I could even run the tests."
+      },
+      "note": "字面是“给牦牛剃毛”，出自 MIT 的黑客圈：为了完成 A 得先做 B，做 B 又得先做 C，最后发现自己在干一件毫不相干的事。"
+    },
+    {
+      "term": "rubber duck",
+      "kind": "chunk",
+      "zh": "橡皮鸭（调试时把问题讲给它听的对象）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Can I use you as a rubber duck? I just need to talk through this bug.",
+          "zh": "我能拿你当橡皮鸭吗？我只是需要把这个 bug 讲一遍。"
+        }
+      ],
+      "situation": {
+        "zh": "你卡在一个 bug 上，不需要同事帮你解决，只想对着他把思路讲一遍。",
+        "en": "Do you have five minutes to be my rubber duck? I think saying it out loud will help."
+      },
+      "collocations": ["rubber duck debugging"],
+      "note": "出自《程序员修炼之道》：把代码逐行讲给桌上的橡皮鸭听，讲着讲着自己就发现问题了。这种方法叫 rubber duck debugging。"
+    },
+    {
+      "term": "dogfooding",
+      "kind": "word",
+      "zh": "公司内部先用自家的产品（和狗粮有关）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "We've been dogfooding the new editor for a month, and it caught a lot of bugs.",
+          "zh": "新编辑器我们内部先用了一个月，发现了不少 bug。"
+        }
+      ],
+      "situation": {
+        "zh": "新版工具要对外发布了。你建议团队自己先用两周再发。",
+        "en": "Let's spend two weeks dogfooding it before we release it to customers."
+      },
+      "note": "来自 eat your own dog food（吃自家的狗粮）：自己做的产品自己先用。动词是 dogfood，例如 We dogfood all our APIs."
+    },
+    {
+      "term": "bus factor",
+      "kind": "chunk",
+      "zh": "巴士系数（少了几个关键成员，项目就会停摆）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "The bus factor for the billing system is one, which really worries me.",
+          "zh": "账单系统的巴士系数是一，这让我很担心。"
+        }
+      ],
+      "situation": {
+        "zh": "只有一位同事懂部署脚本，他下个月要休长假。你想在会上提出这个风险。",
+        "en": "Our bus factor on the deploy scripts is one. We should get someone else trained before he leaves."
+      },
+      "note": "字面：团队里多少人被公交车撞了，项目就做不下去。数字越小风险越大，等于一就是只有一个人懂。说法带点黑色幽默。"
+    },
+    {
+      "term": "drink from the firehose",
+      "kind": "chunk",
+      "zh": "短时间内被海量信息淹没（字面：对着消防水带喝水）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "My first month felt like drinking from the firehose, but it gets easier.",
+          "zh": "我入职第一个月感觉信息多得吞不下，不过后面会轻松起来。"
+        }
+      ],
+      "situation": {
+        "zh": "新同事入职第一周，文档、系统、会议一起涌来。你想安慰他：一开始信息量大得吓人是正常的。",
+        "en": "The first few weeks are like drinking from the firehose. Nobody expects you to know everything yet."
+      },
+      "note": "字面是对着消防水带喝水：水量太大，根本喝不过来。多用来形容新人入职或接手新领域时的信息过载。也拼作 fire hose。"
+    },
+    {
+      "term": "go down a rabbit hole",
+      "kind": "chunk",
+      "zh": "一头钻进去出不来（越查越深、偏离了原本的目标，和兔子有关）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I went down a rabbit hole reading the kernel source and lost the whole afternoon.",
+          "zh": "我一头钻进去读内核源码，一下午就没了。"
+        }
+      ],
+      "situation": {
+        "zh": "站会上你解释昨天为什么没做完：为了查一个警告，一路追到了第三方库的源码里。",
+        "en": "I went down a rabbit hole chasing a warning in a third-party library."
+      },
+      "note": "出自《爱丽丝梦游仙境》：爱丽丝掉进兔子洞，越掉越深。指被一个问题越带越远。也可以说 That's a rabbit hole.（那是个无底洞。）"
+    },
+    {
+      "term": "reinvent the wheel",
+      "kind": "chunk",
+      "zh": "重复造轮子",
+      "examples": [
+        {
+          "en": "There's no need to reinvent the wheel. The standard library already does this.",
+          "zh": "没必要重复造轮子，标准库已经有这个功能了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事打算自己写一个重试库。你想提醒他公司内部已经有现成的。",
+        "en": "Let's not reinvent the wheel. The platform team already maintains a retry library."
+      },
+      "note": "字面是“重新发明轮子”，和中文的“造轮子”完全对应。多用在否定句里。"
+    },
+    {
+      "term": "silver bullet",
+      "kind": "chunk",
+      "zh": "一劳永逸的万能解法（字面：银子弹）",
+      "examples": [
+        {
+          "en": "Microservices aren't a silver bullet. They solve some problems and create others.",
+          "zh": "微服务不是万能解法，它解决了一些问题，也带来另一些问题。"
+        }
+      ],
+      "situation": {
+        "zh": "有人觉得上了缓存，性能问题就全解决了。你想提醒大家没这么简单。",
+        "en": "Caching will help, but it's not a silver bullet. We still need to fix the slow queries."
+      },
+      "note": "传说只有银子弹能杀死狼人。软件界因 Fred Brooks 的文章 No Silver Bullet（《没有银弹》）而流行。多用否定：There's no silver bullet."
+    },
+    {
+      "term": "north star",
+      "kind": "chunk",
+      "zh": "指引方向的长期目标（字面：北极星）",
+      "examples": [
+        {
+          "en": "Our north star is getting checkout time under two seconds.",
+          "zh": "我们的长期目标是把结账耗时压到两秒以内。"
+        }
+      ],
+      "situation": {
+        "zh": "团队在争论先做哪个功能。你想提醒大家用“让新用户五分钟内上手”这个长期目标来判断。",
+        "en": "Let's go back to our north star: getting a new user up and running in five minutes."
+      },
+      "collocations": ["north star metric"],
+      "note": "字面是北极星，航海时靠它辨别方向。指团队长期不变的目标。north star metric 是衡量这个目标的核心指标。"
+    }
+  ]
+}

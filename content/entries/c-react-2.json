@@ -1,0 +1,512 @@
+{
+  "layer": "C",
+  "category": "react",
+  "title": "React",
+  "entries": [
+    {
+      "term": "memoization",
+      "kind": "word",
+      "zh": "记忆化（缓存计算结果，输入不变就复用）",
+      "examples": [
+        {
+          "en": "We added memoization to the chart data transform, and each keystroke went from 80 milliseconds to under five.",
+          "zh": "我们给图表的数据转换加了记忆化，每次按键的耗时从 80 毫秒降到了 5 毫秒以内。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：useMemo、useCallback、React.memo 背后是同一种什么思路？",
+        "en": "They're all memoization: cache a result and reuse it as long as the inputs haven't changed."
+      },
+      "collocations": ["memoize the component", "memoize the callback"],
+      "note": "注意不是 memorization，中间没有 r。动词是 memoize。React Compiler 可以自动做这件事，手写 useMemo 的场景会越来越少。"
+    },
+    {
+      "term": "unnecessary re-render",
+      "kind": "chunk",
+      "zh": "不必要的重新渲染",
+      "examples": [
+        {
+          "en": "The profiler showed unnecessary re-renders in every table row whenever the header's sort state changed.",
+          "zh": "profiler 显示，每次表头的排序状态一变，所有行都出现了不必要的重新渲染。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：React 应用变慢，你一般先查什么？",
+        "en": "I open the React Profiler and look for unnecessary re-renders, meaning components that re-render with exactly the same props."
+      },
+      "note": "也叫 wasted render。先测量再优化，重新渲染本身通常很便宜。"
+    },
+    {
+      "term": "referential equality",
+      "kind": "chunk",
+      "zh": "引用相等（指向同一个对象）",
+      "examples": [
+        {
+          "en": "The memo didn't help because we passed an inline object, which breaks referential equality on every render.",
+          "zh": "memo 没起作用，因为我们传了一个内联对象，每次渲染引用都不相等。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：子组件已经用 React.memo 包了，为什么父组件一更新它还是跟着渲染？",
+        "en": "Probably a prop loses referential equality, like a callback recreated on every render. Wrapping it in useCallback keeps it stable."
+      },
+      "note": "相关说法：a stable reference、referentially stable。"
+    },
+    {
+      "term": "shallow comparison",
+      "kind": "chunk",
+      "zh": "浅比较",
+      "examples": [
+        {
+          "en": "We got bitten by the shallow comparison in React.memo: a mutated nested object kept the same reference.",
+          "zh": "我们被 React.memo 的浅比较坑过：嵌套对象被原地修改了，引用却没变。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：React 怎么判断一个被 memo 包裹的组件要不要重新渲染？",
+        "en": "It does a shallow comparison of the old and new props, checking each one with Object.is rather than comparing deeply."
+      },
+      "note": "get bitten by 是口语，“被……坑了”。"
+    },
+    {
+      "term": "expensive computation",
+      "kind": "chunk",
+      "zh": "开销大的计算",
+      "examples": [
+        {
+          "en": "Sorting ten thousand rows is an expensive computation, so we wrapped it in useMemo.",
+          "zh": "给一万行排序是个开销很大的计算，所以我们用 useMemo 包了起来。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：useMemo 应该到处用吗？",
+        "en": "No. I use it for an expensive computation or to keep a reference stable, and I measure first."
+      },
+      "note": "也说 expensive calculation。expensive 的反义是 cheap。"
+    },
+    {
+      "term": "list virtualization",
+      "kind": "chunk",
+      "zh": "列表虚拟化（只渲染可视区域的行）",
+      "examples": [
+        {
+          "en": "With list virtualization we render about thirty rows instead of fifty thousand, and scrolling is smooth again.",
+          "zh": "用了列表虚拟化之后，我们只渲染三十行左右而不是五万行，滚动又流畅了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个页面要展示几万条数据，不能分页，你怎么保证不卡？",
+        "en": "I'd use list virtualization, so only the rows in the viewport plus a small buffer are actually in the DOM."
+      },
+      "collocations": ["a virtualized list", "virtualize the table"],
+      "note": "也叫 windowing。常用库有 TanStack Virtual、react-window。"
+    },
+    {
+      "term": "load a component on demand",
+      "kind": "chunk",
+      "zh": "按需加载组件",
+      "examples": [
+        {
+          "en": "The rich text editor is huge, so we load the component on demand when the user clicks Edit.",
+          "zh": "富文本编辑器体积很大，所以我们等用户点“编辑”时再按需加载这个组件。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：某个弹窗里的图表库很大，但大多数用户根本不会打开它，怎么优化？",
+        "en": "I'd load that component on demand with React.lazy and wrap it in Suspense, so it stays out of the initial bundle."
+      },
+      "note": "React.lazy 接收一个返回动态 import 的函数，要配合 Suspense 使用。"
+    },
+    {
+      "term": "Suspense boundary",
+      "kind": "chunk",
+      "zh": "Suspense 边界",
+      "examples": [
+        {
+          "en": "We put a Suspense boundary around each widget so a slow one doesn't hold up the rest of the page.",
+          "zh": "我们给每个小组件各包了一层 Suspense 边界，这样慢的那个不会拖住页面其他部分。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：页面上有一块数据特别慢，怎么让其他部分先显示出来？",
+        "en": "Wrap the slow part in its own Suspense boundary. The rest renders right away while that part shows a fallback."
+      },
+      "note": "Suspense 的重音在第二个音节。边界放得越细，加载状态越局部。"
+    },
+    {
+      "term": "fallback UI",
+      "kind": "chunk",
+      "zh": "兜底界面（加载中或出错时显示的替代内容）",
+      "examples": [
+        {
+          "en": "The fallback UI is a skeleton that matches the final layout, so nothing jumps when the data arrives.",
+          "zh": "兜底界面是一个和最终布局一致的骨架屏，数据回来时页面不会跳动。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：按需加载的组件还没下载完时，用户看到的是什么？",
+        "en": "Whatever fallback UI the nearest Suspense boundary provides, usually a spinner or a skeleton."
+      }
+    },
+    {
+      "term": "request waterfall",
+      "kind": "chunk",
+      "zh": "请求瀑布（请求一个等一个，串行发出）",
+      "examples": [
+        {
+          "en": "Each nested component fetched its own data on mount, which created a request waterfall three levels deep.",
+          "zh": "每层嵌套组件都在挂载时请求自己的数据，结果形成了三层深的请求瀑布。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：父组件拿到数据后才渲染子组件，子组件再发请求，这样有什么问题？",
+        "en": "It creates a request waterfall. The requests run one after another when they could run in parallel, so I'd hoist them up."
+      },
+      "note": "修法：把请求提到上层并行发出，或者在路由层提前发起。"
+    },
+    {
+      "term": "server-side rendering",
+      "kind": "chunk",
+      "zh": "服务端渲染",
+      "examples": [
+        {
+          "en": "We adopted server-side rendering for the product pages because search engines and slow phones both needed real HTML.",
+          "zh": "商品页我们上了服务端渲染，因为搜索引擎和低端手机都需要拿到真正的 HTML。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们的 React 应用为什么不是纯客户端渲染？",
+        "en": "We use server-side rendering so users see content before the JavaScript loads, which helped both SEO and first paint."
+      },
+      "note": "缩写 SSR，口头两种都常说。相对的是 client-side rendering（CSR）。"
+    },
+    {
+      "term": "hydration",
+      "kind": "word",
+      "zh": "水合（让服务端输出的 HTML 变得可交互）",
+      "ipa": "/haɪˈdreɪʃn/",
+      "examples": [
+        {
+          "en": "The page looked ready, but buttons didn't respond until hydration finished about two seconds later.",
+          "zh": "页面看起来已经好了，但按钮要等大约两秒后水合完成才有反应。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：服务端返回了 HTML 之后，浏览器里的 React 还要做什么？",
+        "en": "Hydration. React attaches event handlers to the existing HTML and takes over, instead of rebuilding the DOM from scratch."
+      },
+      "note": "动词是 hydrate。水合完成之前，页面看得见但点不动。"
+    },
+    {
+      "term": "hydration mismatch",
+      "kind": "chunk",
+      "zh": "水合不匹配（服务端和客户端渲染结果不一致）",
+      "examples": [
+        {
+          "en": "We got a hydration mismatch because the server formatted the date in UTC and the browser used local time.",
+          "zh": "我们遇到了水合不匹配：服务端按 UTC 格式化日期，浏览器用的却是本地时间。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：控制台警告说服务端的 HTML 和客户端渲染的对不上，一般是什么原因？",
+        "en": "A hydration mismatch usually comes from something that differs between server and client, like dates, random IDs, or reading window during render."
+      },
+      "note": "常见修法：只在浏览器里才有的值放到 effect 里再设置；需要唯一 ID 时用 useId。"
+    },
+    {
+      "term": "Server Components",
+      "kind": "chunk",
+      "zh": "服务端组件（不进客户端包的 React 组件）",
+      "examples": [
+        {
+          "en": "We render the article body with Server Components, so the Markdown parser never ships to the browser.",
+          "zh": "文章正文我们用服务端组件渲染，这样 Markdown 解析器就不会被发到浏览器。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：React 19 里那种可以直接在组件里 await 数据库查询的组件是什么？",
+        "en": "Those are Server Components. They run only on the server or at build time, can be async, and never reach the client bundle."
+      },
+      "note": "它不能用 state 和 effect，需要交互的部分要拆成 Client Component。它和 SSR 不是一回事：SSR 是把组件预渲染成 HTML。"
+    },
+    {
+      "term": "streaming SSR",
+      "kind": "chunk",
+      "zh": "流式服务端渲染（HTML 分块陆续发给浏览器）",
+      "examples": [
+        {
+          "en": "With streaming SSR the shell arrives immediately, and the slow recommendations section streams in when it's ready.",
+          "zh": "用了流式服务端渲染，页面骨架马上就到，慢的推荐模块等准备好了再流式补上。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：服务端渲染时有个接口特别慢，整个页面都要等它吗？",
+        "en": "Not with streaming SSR. React sends the HTML shell first and streams each Suspense boundary's content as its data resolves."
+      }
+    },
+    {
+      "term": "Client Component",
+      "kind": "chunk",
+      "zh": "客户端组件（带交互、代码会发到浏览器的 React 组件）",
+      "examples": [
+        {
+          "en": "Only the Add to Cart button is a Client Component; the rest of the page stays on the server.",
+          "zh": "只有“加入购物车”按钮是客户端组件，页面其余部分都留在服务端。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：在 Next.js 的 App Router 里，一个组件要用 useState，需要做什么？",
+        "en": "Mark it as a Client Component by adding the 'use client' directive at the top of the file."
+      },
+      "note": "名字容易误导：Client Component 在服务端也会被预渲染成 HTML，然后在浏览器里水合。"
+    },
+    {
+      "term": "selective hydration",
+      "kind": "chunk",
+      "zh": "选择性水合（各部分独立水合，优先用户正在操作的那块）",
+      "examples": [
+        {
+          "en": "Thanks to selective hydration, the nav bar became interactive before the heavy comments section had even loaded.",
+          "zh": "得益于选择性水合，导航栏在很重的评论区还没加载完之前就可以交互了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：React 18 之后，水合一定要等整页的 JavaScript 都加载完才开始吗？",
+        "en": "No. With selective hydration, each Suspense boundary hydrates independently, and React prioritizes the part the user is interacting with."
+      }
+    },
+    {
+      "term": "static site generation",
+      "kind": "chunk",
+      "zh": "静态站点生成（构建时就生成好 HTML）",
+      "examples": [
+        {
+          "en": "The docs rarely change, so we use static site generation and serve the HTML straight from the CDN.",
+          "zh": "文档很少变动，所以我们用静态站点生成，HTML 直接从 CDN 返回。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：博客这类内容不常变的页面，每次请求都在服务端渲染一遍划算吗？",
+        "en": "Not really. I'd use static site generation: build the HTML once at deploy time and cache it at the edge."
+      },
+      "note": "缩写 SSG。和 SSR 的区别在于 HTML 是构建时生成，还是每次请求时生成。"
+    },
+    {
+      "term": "serializable props",
+      "kind": "chunk",
+      "zh": "可序列化的 props",
+      "examples": [
+        {
+          "en": "We can only pass serializable props from a Server Component to a Client Component, so no class instances.",
+          "zh": "从服务端组件传给客户端组件的只能是可序列化的 props，所以类的实例不行。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：为什么把一个普通的回调函数从服务端组件传给客户端组件会报错？",
+        "en": "Because only serializable props can cross the server-client boundary, and an ordinary function isn't serializable."
+      },
+      "note": "例外：用 'use server' 标记的 Server Function 可以作为 prop 传给客户端组件。"
+    },
+    {
+      "term": "ship less JavaScript",
+      "kind": "chunk",
+      "zh": "少往客户端发 JavaScript",
+      "examples": [
+        {
+          "en": "Moving the data formatting to the server let us ship less JavaScript, about forty kilobytes less per page.",
+          "zh": "把数据格式化挪到服务端之后，我们发给客户端的 JavaScript 变少了，每个页面少了大约 40 KB。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Server Components 对性能最直接的好处是什么？",
+        "en": "You ship less JavaScript. Components that only render on the server add nothing to the bundle the browser has to parse."
+      },
+      "note": "ship 在这里指“把代码发给用户”，是前端性能讨论里的高频动词。"
+    },
+    {
+      "term": "composition over inheritance",
+      "kind": "chunk",
+      "zh": "组合优于继承",
+      "examples": [
+        {
+          "en": "We follow composition over inheritance: a Dialog takes its content as children instead of being subclassed.",
+          "zh": "我们遵循组合优于继承：Dialog 通过 children 接收内容，而不是让别人去继承它。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：React 里怎么基于一个通用组件做出几个特化版本？用继承吗？",
+        "en": "No, React favors composition over inheritance. I'd wrap the generic component and pass the specific parts in as props or children."
+      }
+    },
+    {
+      "term": "render prop",
+      "kind": "chunk",
+      "zh": "渲染属性（传一个函数进去，由它决定渲染什么）",
+      "examples": [
+        {
+          "en": "The list component takes a render prop for each row, so callers decide what a row looks like.",
+          "zh": "列表组件接收一个 render prop 来渲染每一行，长什么样由调用方决定。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：在 Hooks 出现之前，除了高阶组件，还有什么办法在组件之间共享逻辑？",
+        "en": "The render prop pattern: a component calls a function you pass in and lets you render whatever you want with its data."
+      }
+    },
+    {
+      "term": "higher-order component",
+      "kind": "chunk",
+      "zh": "高阶组件",
+      "examples": [
+        {
+          "en": "Our old auth check was a higher-order component that wrapped every page; we've since replaced it with a hook.",
+          "zh": "我们以前的登录校验是一个高阶组件，包在每个页面外面，后来换成了 Hook。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：老代码里那种 withRouter、connect 的写法是什么模式？",
+        "en": "That's a higher-order component: a function that takes a component and returns a new one with extra props or behavior."
+      },
+      "note": "缩写 HOC，按三个字母读。现在大多被 Hooks 取代了。"
+    },
+    {
+      "term": "compound components",
+      "kind": "chunk",
+      "zh": "复合组件（如 Tabs 和 Tab 配套使用、内部共享状态）",
+      "examples": [
+        {
+          "en": "We built Tabs as compound components, so the parent shares the active tab with its children through context.",
+          "zh": "我们把 Tabs 做成了复合组件，父组件通过 context 把当前选中的 tab 共享给子组件。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个下拉选择组件的配置项越加越多，props 已经二十几个了，你会怎么重新设计？",
+        "en": "I'd switch to compound components, like Select with Select.Option, so callers compose the pieces instead of passing a giant config."
+      }
+    },
+    {
+      "term": "headless component",
+      "kind": "chunk",
+      "zh": "无头组件（只提供逻辑和可访问性，不带样式）",
+      "examples": [
+        {
+          "en": "We use headless components for dropdowns and dialogs and apply our own design system on top.",
+          "zh": "下拉和弹窗我们用的是无头组件，样式再套我们自己的设计系统。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们想完全自定义组件外观，又不想自己处理焦点管理和键盘导航，怎么选型？",
+        "en": "I'd pick a headless component library like Radix or React Aria. It handles behavior and accessibility and leaves the styling to us."
+      }
+    },
+    {
+      "term": "error boundary",
+      "kind": "chunk",
+      "zh": "错误边界",
+      "examples": [
+        {
+          "en": "We wrapped each dashboard widget in an error boundary, so one crash doesn't take down the whole page.",
+          "zh": "我们给每个看板小组件都包了错误边界，一个崩了不会拖垮整个页面。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：某个组件渲染时抛了异常，怎么避免整个应用白屏？",
+        "en": "Wrap it in an error boundary. It catches errors thrown during rendering below it and shows a fallback instead."
+      },
+      "note": "它捕获不到事件处理函数和异步代码里的错误。目前仍然只能用 class 组件来写，所以一般直接用 react-error-boundary 这个库。"
+    },
+    {
+      "term": "component test",
+      "kind": "chunk",
+      "zh": "组件测试",
+      "examples": [
+        {
+          "en": "Our component tests render the form, type into it like a user would, and assert on what's on screen.",
+          "zh": "我们的组件测试会渲染表单、像用户一样输入，然后断言屏幕上显示的内容。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：前端你们主要写哪一层的测试？",
+        "en": "Mostly component tests with React Testing Library, plus a few end-to-end tests for the critical flows."
+      }
+    },
+    {
+      "term": "test implementation details",
+      "kind": "chunk",
+      "zh": "测试实现细节（而不是用户能看到的行为）",
+      "examples": [
+        {
+          "en": "Those tests broke on every refactor because they tested implementation details like internal state and method names.",
+          "zh": "那些测试一重构就挂，因为测的是内部 state、方法名这类实现细节。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 的测试里直接断言了组件内部的 state 值，你想回复：",
+        "en": "I'd avoid testing implementation details here. Let's assert on what the user sees, so the test survives a refactor."
+      }
+    },
+    {
+      "term": "snapshot test",
+      "kind": "chunk",
+      "zh": "快照测试",
+      "examples": [
+        {
+          "en": "We deleted most snapshot tests because people just updated them without reading the diff.",
+          "zh": "我们删掉了大部分快照测试，因为大家都是不看 diff 直接更新。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：把组件渲染结果整个存成文件、下次对比有没有变，这种测试你怎么看？",
+        "en": "A snapshot test is cheap to write but brittle. It fails on any markup change and rarely tells you whether behavior is broken."
+      },
+      "note": "brittle 形容测试“脆”，稍微一改就挂。"
+    },
+    {
+      "term": "render it in isolation",
+      "kind": "chunk",
+      "zh": "单独渲染它（不依赖整个应用）",
+      "examples": [
+        {
+          "en": "Because the component gets everything through props, we can render it in isolation in tests and Storybook.",
+          "zh": "这个组件所有东西都从 props 进来，所以在测试和 Storybook 里都能单独渲染它。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：什么样的组件算好测？",
+        "en": "One you can render in isolation: it takes data through props and doesn't reach into global stores or the network directly."
+      }
+    },
+    {
+      "term": "declarative UI",
+      "kind": "chunk",
+      "zh": "声明式 UI",
+      "examples": [
+        {
+          "en": "I prefer declarative UI: I describe what each state looks like and React handles the DOM updates.",
+          "zh": "我更喜欢声明式 UI：我只描述每个状态下界面长什么样，DOM 更新交给 React。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：和 jQuery 那种一步步操作 DOM 的写法相比，React 的思路有什么不同？",
+        "en": "React gives you declarative UI. You say what the screen should look like for the current state, not how to mutate the DOM."
+      },
+      "note": "declarative 的反义词是 imperative（命令式的）。"
+    },
+    {
+      "term": "one-way data flow",
+      "kind": "chunk",
+      "zh": "单向数据流",
+      "examples": [
+        {
+          "en": "With one-way data flow, I can trace any bug upward to the component that owns the state.",
+          "zh": "有了单向数据流，任何 bug 我都能顺着往上找到持有这份状态的组件。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：子组件想改父组件的数据，在 React 里是怎么做的？",
+        "en": "React has one-way data flow: data goes down as props, and the child calls a callback from the parent to request a change."
+      },
+      "note": "也说 unidirectional data flow，更书面。"
+    }
+  ]
+}

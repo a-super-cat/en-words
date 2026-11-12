@@ -1,0 +1,806 @@
+{
+  "layer": "C",
+  "category": "java",
+  "title": "Java 与 JVM",
+  "entries": [
+    {
+      "term": "allocate on the heap",
+      "kind": "chunk",
+      "zh": "在堆上分配",
+      "examples": [
+        {
+          "en": "That buffer is allocated on the heap for every request, which puts a lot of pressure on the GC.",
+          "zh": "每个请求都会在堆上分配一次那个缓冲区，给 GC 带来很大压力。"
+        },
+        {
+          "en": "Anything you create with new is allocated on the heap, unless escape analysis optimizes it away.",
+          "zh": "用 new 创建的东西都在堆上分配，除非逃逸分析把它优化掉。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Java 里的对象存在哪里？线程之间共享吗？",
+        "en": "Objects are allocated on the heap, which is shared by all threads, while each thread has its own stack."
+      },
+      "collocations": ["heap allocation", "reduce allocations", "allocation rate"]
+    },
+    {
+      "term": "live on the stack",
+      "kind": "chunk",
+      "zh": "（局部变量）存在栈上，动词 l 开头",
+      "examples": [
+        {
+          "en": "Local variables live on the stack, so they're gone as soon as the method returns.",
+          "zh": "局部变量存在栈上，方法一返回就没了。"
+        },
+        {
+          "en": "Only the reference lives on the stack; the object itself is on the heap.",
+          "zh": "栈上只有引用，对象本身在堆里。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：方法里的局部变量存在哪里？会被其他线程看到吗？",
+        "en": "Local variables live on the stack, and each thread has its own stack, so they are never shared."
+      },
+      "note": "每个线程有自己的栈；递归太深会抛 StackOverflowError。"
+    },
+    {
+      "term": "young generation",
+      "kind": "chunk",
+      "zh": "新生代",
+      "examples": [
+        {
+          "en": "Most of our objects die in the young generation, so minor GCs are cheap.",
+          "zh": "我们大部分对象在新生代就被回收了，所以 Minor GC 开销很小。"
+        },
+        {
+          "en": "We made the young generation bigger so fewer objects got promoted too early.",
+          "zh": "我们把新生代调大了，这样过早晋升的对象就少了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：新创建的对象一开始放在堆的哪个区域？",
+        "en": "New objects are allocated in the young generation, mostly in Eden."
+      },
+      "collocations": ["young gen", "minor GC", "Eden space", "survivor space"]
+    },
+    {
+      "term": "get promoted to the old generation",
+      "kind": "chunk",
+      "zh": "晋升到老年代",
+      "examples": [
+        {
+          "en": "Our cached objects quickly got promoted to the old generation and stayed there for hours.",
+          "zh": "我们缓存的对象很快就晋升到老年代，一待就是几个小时。"
+        },
+        {
+          "en": "Objects that survive enough minor GCs get promoted to the old generation.",
+          "zh": "熬过足够多次 Minor GC 的对象会晋升到老年代。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：长期存活的对象在堆里最后会去哪里？",
+        "en": "Objects that survive several minor GCs get promoted to the old generation."
+      },
+      "note": "old generation 也叫 old gen 或 tenured generation。"
+    },
+    {
+      "term": "short-lived objects",
+      "kind": "chunk",
+      "zh": "短命对象（很快就变成垃圾的对象）",
+      "examples": [
+        {
+          "en": "The service creates millions of short-lived objects per second, but the young GC handles them well.",
+          "zh": "这个服务每秒创建几百万个短命对象，不过 Young GC 处理得很好。"
+        },
+        {
+          "en": "Short-lived objects are cheap in Java because allocation is basically a pointer bump.",
+          "zh": "短命对象在 Java 里很便宜，因为分配基本上就是移动一下指针。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：分代回收为什么有效？",
+        "en": "It works because most of what we allocate is short-lived objects, so collecting only the young generation reclaims most of the garbage."
+      },
+      "note": "反义是 long-lived objects。"
+    },
+    {
+      "term": "garbage collector",
+      "kind": "chunk",
+      "zh": "垃圾回收器",
+      "examples": [
+        {
+          "en": "We switched the garbage collector from G1 to ZGC because we cared more about pause times than throughput.",
+          "zh": "我们把垃圾回收器从 G1 换成了 ZGC，因为比起吞吐量我们更在意停顿时间。"
+        },
+        {
+          "en": "G1 has been the default garbage collector since Java 9.",
+          "zh": "从 Java 9 开始，G1 就是默认的垃圾回收器。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们线上用的是哪种 GC？为什么？",
+        "en": "We use G1, the default garbage collector, because it gives us predictable pauses on a large heap."
+      },
+      "collocations": ["choose a garbage collector", "the garbage collector kicks in", "a low-pause collector"],
+      "note": "口语里常直接说 the GC 或 the collector。"
+    },
+    {
+      "term": "GC pause",
+      "kind": "chunk",
+      "zh": "GC 停顿",
+      "examples": [
+        {
+          "en": "We saw latency spikes every few minutes, and they lined up with long GC pauses.",
+          "zh": "我们每隔几分钟就看到一次延迟尖刺，时间点正好和长时间的 GC 停顿对得上。"
+        },
+        {
+          "en": "A two-second GC pause is enough to make health checks fail.",
+          "zh": "一次两秒的 GC 停顿就足以让健康检查失败。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：P99 延迟偶尔飙高，你首先会怀疑什么？",
+        "en": "I'd check the GC logs first, because long GC pauses often show up as latency spikes."
+      },
+      "collocations": ["long GC pauses", "reduce GC pause times", "pause time goal"]
+    },
+    {
+      "term": "stop-the-world pause",
+      "kind": "chunk",
+      "zh": "全局停顿（所有应用线程都被暂停，s 开头）",
+      "examples": [
+        {
+          "en": "During a stop-the-world pause, every application thread is frozen, so no request makes progress.",
+          "zh": "全局停顿期间，所有应用线程都被冻结，任何请求都推进不了。"
+        },
+        {
+          "en": "ZGC does most of its work concurrently, so its stop-the-world pauses are tiny.",
+          "zh": "ZGC 的大部分工作是并发做的，所以它的全局停顿非常短。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：垃圾回收的整个过程中，应用线程都得停着吗？",
+        "en": "Not for the whole cycle. Modern collectors do most of the work concurrently and only need short stop-the-world pauses."
+      },
+      "note": "常缩写成 STW。"
+    },
+    {
+      "term": "full GC",
+      "kind": "chunk",
+      "zh": "全堆回收（连老年代一起回收的那种 GC，f 开头）",
+      "examples": [
+        {
+          "en": "The old generation kept filling up, so we were hitting a full GC every ten minutes.",
+          "zh": "老年代一直被填满，所以我们每十分钟就来一次 Full GC。"
+        },
+        {
+          "en": "With G1, a full GC is a fallback, so seeing one usually means something is wrong.",
+          "zh": "对 G1 来说，Full GC 是兜底手段，所以一旦出现通常说明有问题。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：线上每隔几分钟就卡顿几秒，GC 日志里你会重点找什么？",
+        "en": "I'd look for full GCs, because a full GC collects the entire heap and can pause the application for seconds."
+      },
+      "collocations": ["trigger a full GC", "frequent full GCs"]
+    },
+    {
+      "term": "eligible for garbage collection",
+      "kind": "chunk",
+      "zh": "可以被垃圾回收（符合回收条件）",
+      "examples": [
+        {
+          "en": "Once nothing references the session, it becomes eligible for garbage collection.",
+          "zh": "一旦没有任何地方引用这个会话，它就可以被垃圾回收了。"
+        },
+        {
+          "en": "Setting the field to null doesn't free memory; it just makes the object eligible for garbage collection.",
+          "zh": "把字段设成 null 并不会释放内存，只是让这个对象可以被垃圾回收。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：JVM 怎么判断一个对象可以回收？",
+        "en": "An object is eligible for garbage collection when it's no longer reachable from any GC root."
+      },
+      "note": "eligible 读 /ˈelɪdʒəbl/，重音在第一个音节。"
+    },
+    {
+      "term": "memory leak",
+      "kind": "chunk",
+      "zh": "内存泄漏",
+      "examples": [
+        {
+          "en": "We tracked down a memory leak caused by a static map that was never cleared.",
+          "zh": "我们查出了一个内存泄漏，原因是一个静态 Map 从来没清理过。"
+        },
+        {
+          "en": "Heap usage after each GC kept climbing, which is a classic sign of a memory leak.",
+          "zh": "每次 GC 之后的堆占用还在持续上涨，这是内存泄漏的典型迹象。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Java 有垃圾回收，为什么内存还是会越用越多、最后崩掉？",
+        "en": "You can still have a memory leak if objects stay reachable, for example through a static collection that keeps growing."
+      },
+      "collocations": ["track down a memory leak", "cause a memory leak", "leak memory"]
+    },
+    {
+      "term": "take a heap dump",
+      "kind": "chunk",
+      "zh": "抓一份堆转储",
+      "examples": [
+        {
+          "en": "I took a heap dump while memory was high and opened it in Eclipse MAT.",
+          "zh": "我在内存占用高的时候抓了一份堆转储，用 Eclipse MAT 打开分析。"
+        },
+        {
+          "en": "We set the JVM to take a heap dump automatically on OutOfMemoryError.",
+          "zh": "我们让 JVM 在发生 OutOfMemoryError 时自动抓一份堆转储。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：怀疑有内存泄漏时，你怎么确认是哪些对象占着内存？",
+        "en": "I'd take a heap dump and look at which objects retain the most memory."
+      },
+      "collocations": ["analyze a heap dump", "capture a heap dump"]
+    },
+    {
+      "term": "hold a reference to",
+      "kind": "chunk",
+      "zh": "持有对……的引用",
+      "examples": [
+        {
+          "en": "The registry still held a reference to every closed session, so none of them could be collected.",
+          "zh": "注册表还持有每个已关闭会话的引用，所以它们一个都回收不掉。"
+        },
+        {
+          "en": "A ThreadLocal can hold a reference to an object long after the request is done.",
+          "zh": "请求早就结束了，ThreadLocal 还可能一直持有某个对象的引用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：这些对象明明已经不用了，为什么 GC 收不掉？",
+        "en": "Because something still holds a reference to them, so they're still reachable."
+      }
+    },
+    {
+      "term": "run out of heap space",
+      "kind": "chunk",
+      "zh": "堆空间用光了（动词短语）",
+      "examples": [
+        {
+          "en": "The export job loaded the whole table into memory and ran out of heap space.",
+          "zh": "导出任务把整张表都加载进内存，结果堆空间用光了。"
+        },
+        {
+          "en": "We kept running out of heap space until we started streaming the results instead.",
+          "zh": "我们一直堆空间不够用，直到改成流式读取结果才好。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：导出大报表的时候服务为什么挂了？",
+        "en": "It ran out of heap space because it loaded every row into memory at once."
+      },
+      "note": "对应的报错是 OutOfMemoryError: Java heap space。口语里也说 run out of memory 或 hit an OOM。"
+    },
+    {
+      "term": "GC tuning",
+      "kind": "chunk",
+      "zh": "GC 调优",
+      "examples": [
+        {
+          "en": "We did some GC tuning, but the real fix was allocating less in the hot path.",
+          "zh": "我们做了一些 GC 调优，但真正解决问题的是在热点路径上少分配对象。"
+        },
+        {
+          "en": "Most GC tuning starts with setting the heap size and a pause time goal.",
+          "zh": "GC 调优大多从设置堆大小和停顿时间目标开始。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你调过 JVM 参数吗？具体做了什么？",
+        "en": "Yes, I did some GC tuning on our order service, mainly the heap size and the pause time goal."
+      },
+      "collocations": ["do some GC tuning", "set the max heap size", "tune the heap size"]
+    },
+    {
+      "term": "thread pool",
+      "kind": "chunk",
+      "zh": "线程池",
+      "examples": [
+        {
+          "en": "We run the report jobs on a separate thread pool so they can't starve the API.",
+          "zh": "我们把报表任务放到单独的线程池里跑，这样它们不会把 API 的线程占光。"
+        },
+        {
+          "en": "The thread pool was exhausted because every worker was waiting on a slow downstream call.",
+          "zh": "线程池被耗尽了，因为每个工作线程都在等一个很慢的下游调用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么不给每个请求都新建一个线程？",
+        "en": "Creating threads is expensive, so we reuse them through a thread pool and cap how many run at once."
+      },
+      "collocations": ["size a thread pool", "exhaust the thread pool", "a fixed-size thread pool"]
+    },
+    {
+      "term": "thread-safe",
+      "kind": "chunk",
+      "zh": "线程安全的",
+      "examples": [
+        {
+          "en": "SimpleDateFormat isn't thread-safe, so sharing one instance across requests gave us corrupted dates.",
+          "zh": "SimpleDateFormat 不是线程安全的，所以多个请求共用一个实例时，我们拿到了错乱的日期。"
+        },
+        {
+          "en": "The class is thread-safe because all of its state is immutable.",
+          "zh": "这个类是线程安全的，因为它的所有状态都不可变。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里把一个 HashMap 放进单例当共享字段，你想提醒他：",
+        "en": "HashMap isn't thread-safe, so we should use a ConcurrentHashMap here."
+      },
+      "note": "名词是 thread safety。"
+    },
+    {
+      "term": "race condition",
+      "kind": "chunk",
+      "zh": "竞态条件",
+      "examples": [
+        {
+          "en": "Two requests updated the same balance at once, and that race condition cost us real money.",
+          "zh": "两个请求同时更新同一个余额，这个竞态条件让我们亏了真金白银。"
+        },
+        {
+          "en": "The test only fails once in a hundred runs, which smells like a race condition.",
+          "zh": "这个测试跑一百次才失败一次，很像是竞态条件。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：这个 bug 为什么只在高并发下偶尔出现？",
+        "en": "It was a race condition: two threads read the counter before either of them wrote it back."
+      },
+      "collocations": ["hit a race condition", "fix a race condition", "a subtle race condition"]
+    },
+    {
+      "term": "deadlock",
+      "kind": "word",
+      "zh": "死锁",
+      "examples": [
+        {
+          "en": "The two threads took the locks in opposite order and ended up in a deadlock.",
+          "zh": "两个线程以相反的顺序拿锁，最后死锁了。"
+        },
+        {
+          "en": "We avoid deadlocks by always acquiring locks in the same order.",
+          "zh": "我们始终按同一顺序获取锁，以此避免死锁。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：服务完全卡住，CPU 却很低，两个线程都在等对方手里的锁，这是什么问题？",
+        "en": "That's a deadlock. Each thread is holding a lock the other one needs."
+      },
+      "collocations": ["end up in a deadlock", "avoid deadlocks", "detect a deadlock"],
+      "note": "也可以作动词：The two threads deadlocked."
+    },
+    {
+      "term": "shared mutable state",
+      "kind": "chunk",
+      "zh": "共享可变状态",
+      "examples": [
+        {
+          "en": "Most of our concurrency bugs came from shared mutable state, so we made the handlers stateless.",
+          "zh": "我们大部分并发 bug 都出在共享可变状态上，所以我们把处理器改成了无状态的。"
+        },
+        {
+          "en": "If you can't avoid shared mutable state, guard it with a lock.",
+          "zh": "如果避不开共享可变状态，就用锁把它保护起来。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：写并发代码时，你最想避免的是什么？",
+        "en": "Shared mutable state. If threads don't share anything mutable, you don't need locks at all."
+      },
+      "note": "mutable 读 /ˈmjuːtəbl/。"
+    },
+    {
+      "term": "acquire a lock",
+      "kind": "chunk",
+      "zh": "获取锁",
+      "examples": [
+        {
+          "en": "Each thread has to acquire a lock on the queue before it can touch it.",
+          "zh": "每个线程必须先获取这个队列的锁，才能操作它。"
+        },
+        {
+          "en": "We acquire the lock with a timeout so a stuck thread can't block everyone forever.",
+          "zh": "我们获取锁时带超时，这样卡住的线程不会永远堵住所有人。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：两个线程同时调用同一个对象的同步方法，会怎样？",
+        "en": "Only one of them can acquire the lock; the other one blocks until it's released."
+      },
+      "collocations": ["release the lock", "hold the lock", "wait for the lock"],
+      "note": "反义是 release a lock；口语里也说 take / grab a lock。"
+    },
+    {
+      "term": "lock contention",
+      "kind": "chunk",
+      "zh": "锁竞争",
+      "examples": [
+        {
+          "en": "Under load, lock contention on that one map became our main bottleneck.",
+          "zh": "高负载下，那一个 Map 上的锁竞争成了我们的主要瓶颈。"
+        },
+        {
+          "en": "We reduced lock contention by splitting the single lock into one lock per account.",
+          "zh": "我们把一把大锁拆成每个账户一把锁，降低了锁竞争。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：加了更多线程，吞吐量反而没上去，可能是什么原因？",
+        "en": "Probably lock contention. The threads spend most of their time waiting for the same lock."
+      },
+      "collocations": ["reduce lock contention", "heavy lock contention", "a contended lock"]
+    },
+    {
+      "term": "synchronized block",
+      "kind": "chunk",
+      "zh": "同步代码块",
+      "examples": [
+        {
+          "en": "I wrapped the update in a synchronized block so only one thread runs it at a time.",
+          "zh": "我把这段更新包在同步代码块里，这样同一时间只有一个线程执行它。"
+        },
+        {
+          "en": "Keep the synchronized block as small as possible, and never do I/O inside it.",
+          "zh": "同步代码块要尽量小，而且绝对不要在里面做 I/O。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：整个方法都加锁太重了，能不能只锁关键的那几行？",
+        "en": "Yes, use a synchronized block around just those lines instead of locking the whole method."
+      },
+      "note": "synchronized 读 /ˈsɪŋkrənaɪzd/。整个方法加锁叫 synchronized method。"
+    },
+    {
+      "term": "critical section",
+      "kind": "chunk",
+      "zh": "临界区",
+      "examples": [
+        {
+          "en": "The critical section was doing a network call, so every other thread piled up behind it.",
+          "zh": "临界区里做了一次网络调用，所以其他线程全都堵在它后面。"
+        },
+        {
+          "en": "We shrank the critical section to just the counter update.",
+          "zh": "我们把临界区缩小到只剩更新计数器那一步。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：怎么减少线程等锁的时间？",
+        "en": "Keep the critical section short, so each thread holds the lock for as little time as possible."
+      }
+    },
+    {
+      "term": "reentrant lock",
+      "kind": "chunk",
+      "zh": "可重入锁",
+      "examples": [
+        {
+          "en": "We used a reentrant lock instead of synchronized because we needed tryLock with a timeout.",
+          "zh": "我们用可重入锁而不是 synchronized，因为需要带超时的 tryLock。"
+        },
+        {
+          "en": "With a reentrant lock, the thread that already holds it can acquire it again without deadlocking.",
+          "zh": "用可重入锁的话，已经持有锁的线程可以再次获取它，不会死锁。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个同步方法调用同一对象的另一个同步方法，会不会把自己锁死？",
+        "en": "No, because the intrinsic lock is a reentrant lock: the thread that holds it can acquire it again."
+      },
+      "note": "reentrant 读 /riːˈentrənt/。Java 里对应的类是 ReentrantLock。"
+    },
+    {
+      "term": "volatile field",
+      "kind": "chunk",
+      "zh": "用 volatile 修饰的字段",
+      "examples": [
+        {
+          "en": "The shutdown flag is a volatile field, so the worker thread sees the change right away.",
+          "zh": "停机标志是一个 volatile 字段，所以工作线程能马上看到变化。"
+        },
+        {
+          "en": "A volatile field gives you visibility, but count++ on it still isn't atomic.",
+          "zh": "volatile 字段能保证可见性，但对它做 count++ 仍然不是原子的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个线程改了布尔标志，另一个线程的循环却一直不退出，怎么修？",
+        "en": "Make the flag a volatile field, so every read sees the latest write from the other thread."
+      },
+      "collocations": ["declare a field volatile", "mark it as volatile"],
+      "note": "volatile 美式读 /ˈvɑːlətl/。它只保证可见性和有序性，不保证复合操作的原子性。"
+    },
+    {
+      "term": "atomic operation",
+      "kind": "chunk",
+      "zh": "原子操作",
+      "examples": [
+        {
+          "en": "Incrementing a counter looks like one step, but it isn't an atomic operation.",
+          "zh": "给计数器加一看起来是一步，但它并不是原子操作。"
+        },
+        {
+          "en": "We switched to AtomicLong so the increment is a single atomic operation.",
+          "zh": "我们换成了 AtomicLong，这样自增就是一个原子操作。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：多线程下 count++ 为什么会丢更新？",
+        "en": "Because count++ is not an atomic operation: it's a read, an add and a write, and another thread can get in between."
+      }
+    },
+    {
+      "term": "compare-and-swap",
+      "kind": "chunk",
+      "zh": "比较并交换（CAS 的全称）",
+      "examples": [
+        {
+          "en": "AtomicInteger uses compare-and-swap under the hood, so it doesn't need a lock.",
+          "zh": "AtomicInteger 底层用的是比较并交换，所以不需要加锁。"
+        },
+        {
+          "en": "If the compare-and-swap fails, we just read the new value and retry.",
+          "zh": "如果比较并交换失败，我们就读一下新值再重试。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：原子类不加锁，是怎么保证更新不丢的？",
+        "en": "They use compare-and-swap: the update only succeeds if the value hasn't changed since we read it."
+      },
+      "note": "缩写 CAS，逐个字母读。Java API 里的方法名是 compareAndSet。"
+    },
+    {
+      "term": "check-then-act",
+      "kind": "chunk",
+      "zh": "先检查再执行（一种典型的竞态写法）",
+      "examples": [
+        {
+          "en": "Calling containsKey and then put is a check-then-act sequence, and it isn't thread-safe.",
+          "zh": "先调 containsKey 再调 put 是典型的“先检查再执行”，不是线程安全的。"
+        },
+        {
+          "en": "We replaced the check-then-act code with a single call to computeIfAbsent.",
+          "zh": "我们把“先检查再执行”的代码换成了一次 computeIfAbsent 调用。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里先判断 key 不存在、再往 ConcurrentHashMap 里放，你想指出问题：",
+        "en": "This is a check-then-act race: another thread can insert the key between the check and the put."
+      }
+    },
+    {
+      "term": "see a stale value",
+      "kind": "chunk",
+      "zh": "读到过期的值",
+      "examples": [
+        {
+          "en": "Without volatile, the other thread might see a stale value and never exit the loop.",
+          "zh": "不加 volatile 的话，另一个线程可能读到过期的值，永远退不出循环。"
+        },
+        {
+          "en": "The reader thread kept seeing a stale value because reads and writes weren't guarded by the same lock.",
+          "zh": "读线程一直读到过期的值，因为读和写没有用同一把锁保护。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：如果只给 setter 加锁，getter 不加，会有什么问题？",
+        "en": "A thread calling the getter could see a stale value, because nothing guarantees it sees the latest write."
+      }
+    },
+    {
+      "term": "dependency injection",
+      "kind": "chunk",
+      "zh": "依赖注入",
+      "examples": [
+        {
+          "en": "With dependency injection, the service doesn't create its own repository; the container hands it in.",
+          "zh": "用了依赖注入，服务不用自己创建 repository，由容器传进来。"
+        },
+        {
+          "en": "Dependency injection made the code much easier to test, because we can pass in fakes.",
+          "zh": "依赖注入让代码好测多了，因为我们可以传入假对象。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Spring 最核心的思想是什么？它解决了什么问题？",
+        "en": "Dependency injection. Objects declare what they need, and the container wires them together, which keeps them loosely coupled."
+      },
+      "collocations": ["dependency injection container", "inject a dependency", "wire beans together"],
+      "note": "缩写 DI。相关说法：inversion of control（控制反转，IoC）。"
+    },
+    {
+      "term": "constructor injection",
+      "kind": "chunk",
+      "zh": "构造器注入",
+      "examples": [
+        {
+          "en": "We prefer constructor injection because the dependencies can be final and are never null.",
+          "zh": "我们更倾向于构造器注入，因为依赖可以声明成 final，而且不会是 null。"
+        },
+        {
+          "en": "With constructor injection, you can build the object in a test without starting Spring.",
+          "zh": "用构造器注入的话，测试里不用启动 Spring 就能把对象 new 出来。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里给字段加了 @Autowired，你想建议更好的写法：",
+        "en": "Could we use constructor injection instead? It makes the dependencies explicit and easier to test."
+      },
+      "note": "另外两种是 field injection（字段注入）和 setter injection。"
+    },
+    {
+      "term": "bean lifecycle",
+      "kind": "chunk",
+      "zh": "bean 的生命周期",
+      "examples": [
+        {
+          "en": "We hook into the bean lifecycle to load the pricing rules right after the bean is initialized.",
+          "zh": "我们利用 bean 的生命周期回调，在 bean 初始化完成后马上加载定价规则。"
+        },
+        {
+          "en": "Spring manages the whole bean lifecycle, from instantiation to destruction.",
+          "zh": "Spring 管理 bean 的整个生命周期，从实例化到销毁。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：@PostConstruct 标注的方法是在什么时候执行的？",
+        "en": "It's part of the bean lifecycle: Spring calls it after the dependencies are injected, before the bean is put into service."
+      },
+      "collocations": ["bean lifecycle callback", "singleton bean", "bean scope"]
+    },
+    {
+      "term": "application context",
+      "kind": "chunk",
+      "zh": "应用上下文（Spring 的容器）",
+      "examples": [
+        {
+          "en": "The integration tests are slow because many of them start their own application context.",
+          "zh": "集成测试很慢，因为很多测试都要各自启动一个应用上下文。"
+        },
+        {
+          "en": "The bean wasn't in the application context because its package wasn't being scanned.",
+          "zh": "这个 bean 不在应用上下文里，因为它所在的包没有被扫描到。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：启动时报 NoSuchBeanDefinitionException 是什么意思？",
+        "en": "It means Spring couldn't find a bean of that type in the application context."
+      }
+    },
+    {
+      "term": "auto-configuration",
+      "kind": "chunk",
+      "zh": "自动配置",
+      "examples": [
+        {
+          "en": "Spring Boot's auto-configuration set up the data source as soon as we added the JDBC starter.",
+          "zh": "我们一加上 JDBC starter，Spring Boot 的自动配置就把数据源配好了。"
+        },
+        {
+          "en": "The auto-configuration backs off as soon as you define your own bean of that type.",
+          "zh": "只要你自己定义了那个类型的 bean，自动配置就会让位。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Spring Boot 为什么几乎不用写配置就能跑起来？",
+        "en": "Because of auto-configuration: it looks at what's on the classpath and configures sensible default beans for you."
+      }
+    },
+    {
+      "term": "declarative transactions",
+      "kind": "chunk",
+      "zh": "声明式事务",
+      "examples": [
+        {
+          "en": "We use declarative transactions, so the service methods are just annotated with @Transactional.",
+          "zh": "我们用声明式事务，所以服务方法上只要加 @Transactional 注解就行。"
+        },
+        {
+          "en": "Declarative transactions keep the commit and rollback logic out of the business code.",
+          "zh": "声明式事务让提交和回滚的逻辑不用混在业务代码里。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们的代码里是手动开启和提交事务的吗？",
+        "en": "No, we use declarative transactions. We annotate the service method, and Spring opens and commits the transaction around it."
+      },
+      "note": "declarative 读 /dɪˈklærətɪv/。相对的是 programmatic transactions（编程式事务）。"
+    },
+    {
+      "term": "transaction propagation",
+      "kind": "chunk",
+      "zh": "事务传播（行为）",
+      "examples": [
+        {
+          "en": "We changed the transaction propagation to REQUIRES_NEW so the audit log commits even if the order fails.",
+          "zh": "我们把事务传播改成了 REQUIRES_NEW，这样即使订单失败，审计日志也能提交。"
+        },
+        {
+          "en": "The default transaction propagation is REQUIRED, which joins the caller's transaction if there is one.",
+          "zh": "默认的事务传播是 REQUIRED，如果调用方已经有事务，就加入它。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个带事务的方法调用另一个带事务的方法，里面那个会新开事务吗？",
+        "en": "That depends on the transaction propagation. With the default, REQUIRED, the inner method joins the existing transaction."
+      },
+      "note": "propagation 读 /ˌprɑːpəˈɡeɪʃn/。"
+    },
+    {
+      "term": "roll back the transaction",
+      "kind": "chunk",
+      "zh": "回滚事务",
+      "examples": [
+        {
+          "en": "By default, Spring only rolls back the transaction on unchecked exceptions, which surprised the whole team.",
+          "zh": "默认情况下，Spring 只在非受检异常时回滚事务，这让整个团队都很意外。"
+        },
+        {
+          "en": "If the payment call fails, we roll back the transaction so no half-written order is left behind.",
+          "zh": "如果支付调用失败，我们就回滚事务，不留下写了一半的订单。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：方法抛了一个受检异常，数据却还是提交了，为什么？",
+        "en": "Spring doesn't roll back the transaction on checked exceptions unless you set rollbackFor."
+      },
+      "collocations": ["commit the transaction", "mark the transaction as rollback-only"],
+      "note": "动词分开写 roll back，名词连写 rollback。"
+    },
+    {
+      "term": "cross-cutting concern",
+      "kind": "chunk",
+      "zh": "横切关注点",
+      "examples": [
+        {
+          "en": "Logging and metrics are cross-cutting concerns, so we handle them in one aspect instead of every method.",
+          "zh": "日志和监控指标属于横切关注点，所以我们在一个切面里统一处理，而不是每个方法都写一遍。"
+        },
+        {
+          "en": "Authorization is a cross-cutting concern that we didn't want scattered across the controllers.",
+          "zh": "鉴权是横切关注点，我们不想让它散落在各个 controller 里。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：AOP 适合用来解决哪类问题？",
+        "en": "It's a good fit for cross-cutting concerns like logging, security and transactions, which would otherwise be duplicated everywhere."
+      },
+      "note": "AOP 全称 aspect-oriented programming，aspect 是“切面”。"
+    },
+    {
+      "term": "bypass the proxy",
+      "kind": "chunk",
+      "zh": "绕过代理",
+      "examples": [
+        {
+          "en": "The method called another method on this, which bypassed the proxy, so @Transactional did nothing.",
+          "zh": "这个方法通过 this 调了另一个方法，绕过了代理，所以 @Transactional 没生效。"
+        },
+        {
+          "en": "A call from inside the same class bypasses the proxy, so none of the advice runs.",
+          "zh": "同一个类内部的调用会绕过代理，所以切面逻辑一个都不会执行。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：我明明加了 @Transactional，为什么在同一个类里调用这个方法时事务不生效？",
+        "en": "Because a call on this bypasses the proxy, and Spring applies the transaction in the proxy."
+      },
+      "note": "这种情况叫 self-invocation（自调用）。"
+    }
+  ]
+}

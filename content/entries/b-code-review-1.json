@@ -1,0 +1,454 @@
+{
+  "layer": "B",
+  "category": "code-review",
+  "title": "Code Review 与协作",
+  "entries": [
+    {
+      "term": "Could you take a look at ...?",
+      "kind": "sentence",
+      "zh": "你能看一下……吗？（请人评审）",
+      "examples": [
+        {
+          "en": "Could you take a look at my PR when you have a minute?",
+          "zh": "你有空的时候能看一下我的 PR 吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你刚提了一个修复登录问题的 PR，想在群里请同事 Alex 评审。",
+        "en": "Hey Alex, could you take a look at my login fix?"
+      }
+    },
+    {
+      "term": "when you get a chance",
+      "kind": "chunk",
+      "zh": "等你有空的时候（表示不催）",
+      "examples": [
+        {
+          "en": "Could you review the config change when you get a chance?",
+          "zh": "等你有空的时候，能评审一下那个配置改动吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你想请同事评审一个不着急的重构 PR，不想给他压力。",
+        "en": "I've opened a small refactoring PR. Please review it when you get a chance."
+      },
+      "note": "表示不急。如果其实很急，就别用这句，直接说明截止时间。"
+    },
+    {
+      "term": "PTAL",
+      "kind": "word",
+      "zh": "请看一下（评审常用的四字母缩写）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I've fixed everything you pointed out. PTAL.",
+          "zh": "你指出的问题我都改了，请看一下。"
+        }
+      ],
+      "situation": {
+        "zh": "你按评审意见改完了代码，想在 PR 里留一句简短的话请对方再看。",
+        "en": "Updated the error handling as suggested. PTAL."
+      },
+      "note": "Please take a look 的缩写，只用于书面（PR 评论、聊天），不会念出来。"
+    },
+    {
+      "term": "ready for review",
+      "kind": "chunk",
+      "zh": "可以评审了（PR 的状态）",
+      "examples": [
+        {
+          "en": "The PR is ready for review now that the tests are passing.",
+          "zh": "测试都过了，这个 PR 可以评审了。"
+        }
+      ],
+      "situation": {
+        "zh": "你的 PR 之前是草稿状态，现在改完了，想告诉团队可以开始看了。",
+        "en": "The checkout PR is ready for review now."
+      }
+    },
+    {
+      "term": "a second pair of eyes",
+      "kind": "chunk",
+      "zh": "再找个人帮忙看看（用身体部位的比喻说法）",
+      "examples": [
+        {
+          "en": "This touches the billing code, so I'd like a second pair of eyes on it.",
+          "zh": "这个改动涉及计费代码，所以我想再找个人帮忙看看。"
+        }
+      ],
+      "situation": {
+        "zh": "你改了一段并发相关的代码，自己不太放心，想请资深同事也过一眼。",
+        "en": "The locking logic is tricky. Could I get a second pair of eyes on it?"
+      },
+      "note": "也说 another pair of eyes 或 another set of eyes。"
+    },
+    {
+      "term": "No rush.",
+      "kind": "sentence",
+      "zh": "不着急。",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "No rush. Any time this week is fine.",
+          "zh": "不着急，这周之内都行。"
+        }
+      ],
+      "situation": {
+        "zh": "你请同事评审一个文档改动，想表明这件事不急。",
+        "en": "Could you review my docs PR? No rush."
+      }
+    },
+    {
+      "term": "gentle ping",
+      "kind": "chunk",
+      "zh": "轻轻催一下（友好的提醒）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Gentle ping on this PR. It's been open for three days.",
+          "zh": "轻轻催一下这个 PR，已经开了三天了。"
+        }
+      ],
+      "situation": {
+        "zh": "你的 PR 等了两天没人看，你想在群里礼貌地提醒一下。",
+        "en": "Gentle ping on my PR from Monday. It still needs one approval."
+      },
+      "note": "ping 是“戳一下、提醒一下”。也说 friendly reminder。"
+    },
+    {
+      "term": "Any chance you could ...?",
+      "kind": "sentence",
+      "zh": "你有没有可能……？（客气地请求或催促）",
+      "examples": [
+        {
+          "en": "Any chance you could review this today? We want it in tomorrow's release.",
+          "zh": "你今天有没有可能看一下这个？我们想赶明天的发版。"
+        }
+      ],
+      "situation": {
+        "zh": "你的 PR 需要赶在今晚代码冻结前合并，想请同事下午抽空评审。",
+        "en": "Any chance you could review my PR this afternoon? The code freeze is tonight."
+      },
+      "note": "省略了开头的 Is there。给对方留了拒绝的余地，所以不显得强硬。"
+    },
+    {
+      "term": "Have you had a chance to ...?",
+      "kind": "sentence",
+      "zh": "你有空……了吗？（委婉地问进展）",
+      "examples": [
+        {
+          "en": "Have you had a chance to look at my PR yet?",
+          "zh": "你有空看我的 PR 了吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你昨天请同事评审数据库迁移的 PR，今天想委婉地问他看了没有。",
+        "en": "Have you had a chance to review the migration PR?"
+      },
+      "note": "比 Did you review my PR? 委婉，默认对方只是没空。"
+    },
+    {
+      "term": "unblock",
+      "kind": "word",
+      "zh": "让（某人）能继续干活、解除阻塞",
+      "examples": [
+        {
+          "en": "Could you approve this today? It would unblock the mobile team.",
+          "zh": "你今天能批一下吗？这样移动端团队就能继续了。"
+        }
+      ],
+      "situation": {
+        "zh": "你催评审时想说明原因：这个 PR 合了，测试同事才能开始测。",
+        "en": "Merging this will unblock QA, so I'd appreciate a quick review."
+      },
+      "note": "催评审时给出理由，比单纯催有效得多。"
+    },
+    {
+      "term": "nit",
+      "kind": "word",
+      "zh": "小毛病（评审意见的前缀，三个字母，可改可不改）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Nit: I'd rename this variable to something more descriptive.",
+          "zh": "小毛病：我会把这个变量改成更能说明含义的名字。"
+        }
+      ],
+      "situation": {
+        "zh": "你评审时发现一处多余的空行，想留一条不重要的意见。",
+        "en": "Nit: there's an extra blank line here."
+      },
+      "note": "来自 nitpick（挑小毛病）。写在评论开头，告诉作者这条不影响合并。"
+    },
+    {
+      "term": "Feel free to ignore this.",
+      "kind": "sentence",
+      "zh": "这条你可以不管。",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Feel free to ignore this, but I find early returns easier to read.",
+          "zh": "这条你可以不管，不过我觉得提前返回更好读。"
+        }
+      ],
+      "situation": {
+        "zh": "你对一个函数的写法有点个人看法，但不想让作者觉得必须改。",
+        "en": "I'd probably inline this function. Feel free to ignore this, though."
+      }
+    },
+    {
+      "term": "non-blocking",
+      "kind": "word",
+      "zh": "不阻塞合并的（评审意见）",
+      "examples": [
+        {
+          "en": "This is non-blocking, but we should add a comment explaining the retry logic.",
+          "zh": "这条不阻塞合并，不过我们应该加个注释解释重试逻辑。"
+        }
+      ],
+      "situation": {
+        "zh": "你提了一条改进建议，但想说明作者不改也可以合并。",
+        "en": "This is a non-blocking comment. You can merge without it."
+      },
+      "note": "反义是 blocking。有些团队直接在评论开头写 Non-blocking:。"
+    },
+    {
+      "term": "Up to you.",
+      "kind": "sentence",
+      "zh": "你决定。/ 看你。",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "We could also use a map here. Up to you.",
+          "zh": "这里也可以用 map。你决定。"
+        }
+      ],
+      "situation": {
+        "zh": "你建议把一个长函数拆开，但觉得不拆也行，想把决定权交给作者。",
+        "en": "It might read better as two functions, but it's up to you."
+      }
+    },
+    {
+      "term": "personal preference",
+      "kind": "chunk",
+      "zh": "个人偏好",
+      "examples": [
+        {
+          "en": "This is just personal preference, but I'd put the constants at the top.",
+          "zh": "这只是个人偏好，不过我会把常量放在最上面。"
+        }
+      ],
+      "situation": {
+        "zh": "你更喜欢另一种命名风格，但团队规范并没有规定，你想说明这只是你的习惯。",
+        "en": "I'd name it differently, but that's just personal preference."
+      }
+    },
+    {
+      "term": "What do you think about ...?",
+      "kind": "sentence",
+      "zh": "你觉得……怎么样？（征求看法）",
+      "examples": [
+        {
+          "en": "What do you think about moving this logic into the service layer?",
+          "zh": "你觉得把这段逻辑挪到 service 层怎么样？"
+        }
+      ],
+      "situation": {
+        "zh": "你觉得 PR 里的校验逻辑应该抽成一个公共函数，想用商量的口气提出来。",
+        "en": "What do you think about extracting the validation into a shared helper?"
+      },
+      "note": "注意开头是 What，不是 How。介词用 about 或 of 都可以。"
+    },
+    {
+      "term": "Would it make sense to ...?",
+      "kind": "sentence",
+      "zh": "……是不是更合理？（用疑问句提建议）",
+      "examples": [
+        {
+          "en": "Would it make sense to add an index on this column?",
+          "zh": "给这一列加个索引是不是更合理？"
+        }
+      ],
+      "situation": {
+        "zh": "你看到 PR 里把配置写死在代码里，想委婉地建议放到配置文件。",
+        "en": "Would it make sense to move these values into the config file?"
+      },
+      "note": "用疑问句提建议，给作者留了说“不”的空间。"
+    },
+    {
+      "term": "I wonder if ...",
+      "kind": "sentence",
+      "zh": "我在想是不是……（委婉提意见）",
+      "examples": [
+        {
+          "en": "I wonder if we could reuse the existing parser here.",
+          "zh": "我在想这里是不是可以复用现有的解析器。"
+        }
+      ],
+      "situation": {
+        "zh": "你觉得 PR 里新写的重试逻辑和已有的工具函数重复了，想委婉地指出。",
+        "en": "I wonder if we could use the retry helper we already have."
+      },
+      "note": "后面常接 we could / it would。比直接说 You should 委婉得多。"
+    },
+    {
+      "term": "Any reason not to ...?",
+      "kind": "sentence",
+      "zh": "有什么原因不……吗？",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Any reason not to use the built-in date library here?",
+          "zh": "这里有什么原因不用内置的日期库吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你看到作者自己手写了深拷贝，想问他为什么不用现成的工具函数。",
+        "en": "Any reason not to use the existing helper for deep copies?"
+      },
+      "note": "是真诚地问原因，默认作者可能有你不知道的理由。"
+    },
+    {
+      "term": "What happens if ...?",
+      "kind": "sentence",
+      "zh": "如果……会怎么样？（追问边界情况）",
+      "examples": [
+        {
+          "en": "What happens if the user list is empty?",
+          "zh": "如果用户列表是空的会怎么样？"
+        }
+      ],
+      "situation": {
+        "zh": "你评审时怀疑代码没处理请求超时的情况，想用提问的方式指出。",
+        "en": "What happens if the request times out here?"
+      },
+      "note": "指出潜在 bug 最常用的委婉方式：不说“你这儿有 bug”，而是问“这种情况会怎样”。"
+    },
+    {
+      "term": "request changes",
+      "kind": "chunk",
+      "zh": "（评审结论）要求修改",
+      "examples": [
+        {
+          "en": "I had to request changes because the migration isn't reversible.",
+          "zh": "我只能要求修改，因为这个迁移没法回退。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你：我的 PR 你为什么没批？你解释说因为缺少权限校验，所以选了“要求修改”。",
+        "en": "I requested changes because the endpoint is missing an authorization check."
+      },
+      "note": "GitHub 提交评审时的三个选项：Comment、Approve、Request changes。"
+    },
+    {
+      "term": "I think this will break ...",
+      "kind": "sentence",
+      "zh": "我觉得这会把……弄坏",
+      "examples": [
+        {
+          "en": "I think this will break the mobile app, since it still sends the old field.",
+          "zh": "我觉得这会把移动端弄坏，因为它还在发旧字段。"
+        }
+      ],
+      "situation": {
+        "zh": "你发现 PR 改了接口返回的字段名，而老版本客户端还依赖旧名字。",
+        "en": "I think this will break older clients that still read the old field name."
+      },
+      "note": "加 I think 是礼貌，不代表你不确定。"
+    },
+    {
+      "term": "I don't think we can merge this as is.",
+      "kind": "sentence",
+      "zh": "我觉得照现在这样不能合。",
+      "examples": [
+        {
+          "en": "I don't think we can merge this as is. The tests don't cover the new path.",
+          "zh": "我觉得照现在这样不能合，测试没覆盖到新的分支。"
+        }
+      ],
+      "situation": {
+        "zh": "PR 里把密钥明文写进了代码，你必须明确告诉作者现在这样不能合并。",
+        "en": "I don't think we can merge this as is. The API key shouldn't be in the code."
+      },
+      "note": "as is 意思是“保持现状、不做修改”。这是明确但不失礼的拒绝。"
+    },
+    {
+      "term": "Can you add a test for ...?",
+      "kind": "sentence",
+      "zh": "能给……加个测试吗？",
+      "examples": [
+        {
+          "en": "Can you add a test for the case where the token has expired?",
+          "zh": "能给 token 过期的情况加个测试吗？"
+        }
+      ],
+      "situation": {
+        "zh": "PR 修了一个空指针 bug，但没有对应的测试，你想请作者补上。",
+        "en": "Can you add a test for the null case so this doesn't regress?"
+      }
+    },
+    {
+      "term": "must-fix",
+      "kind": "word",
+      "zh": "（合并前）必须改的问题",
+      "examples": [
+        {
+          "en": "The SQL injection issue is a must-fix before we merge.",
+          "zh": "那个 SQL 注入问题是合并前必须改的。"
+        }
+      ],
+      "situation": {
+        "zh": "你留了十条评审意见，想告诉作者其中只有两条是必须处理的。",
+        "en": "Only the first two comments are must-fix. The rest are suggestions."
+      },
+      "note": "可作名词，也可作形容词（a must-fix issue）。意见多的时候，说清哪些必须改是对作者的体贴。"
+    },
+    {
+      "term": "Nice work on ...",
+      "kind": "sentence",
+      "zh": "……做得不错",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Nice work on the error handling. It's much easier to follow now.",
+          "zh": "错误处理做得不错，现在好懂多了。"
+        }
+      ],
+      "situation": {
+        "zh": "你评审完同事的 PR，觉得测试写得特别全面，想夸一句。",
+        "en": "Nice work on the tests. They cover every case I could think of."
+      },
+      "note": "评审不只是挑毛病，英文团队很看重具体的正面反馈。"
+    },
+    {
+      "term": "This is much cleaner.",
+      "kind": "sentence",
+      "zh": "这样清爽多了。（夸重构后的代码）",
+      "examples": [
+        {
+          "en": "This is much cleaner than the nested callbacks we had before.",
+          "zh": "这比我们之前那堆嵌套回调清爽多了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事把一个 300 行的函数拆成了几个小函数，你看完想表示肯定。",
+        "en": "This is much cleaner. Thanks for splitting it up."
+      }
+    },
+    {
+      "term": "Thanks for taking care of ...",
+      "kind": "sentence",
+      "zh": "谢谢你把……处理了",
+      "examples": [
+        {
+          "en": "Thanks for taking care of the flaky test while you were in there.",
+          "zh": "谢谢你顺手把那个不稳定的测试也处理了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事的 PR 顺带清理了一批没人管的废弃代码，你想表示感谢。",
+        "en": "Thanks for taking care of the dead code. That's been bothering me for months."
+      }
+    }
+  ]
+}

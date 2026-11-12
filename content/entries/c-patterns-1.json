@@ -1,0 +1,995 @@
+{
+  "layer": "C",
+  "category": "patterns",
+  "title": "设计模式与架构模式",
+  "entries": [
+    {
+      "term": "tightly coupled",
+      "kind": "chunk",
+      "zh": "紧耦合的（形容词）",
+      "examples": [
+        {
+          "en": "The billing module was tightly coupled to the order schema, so every schema change broke it.",
+          "zh": "计费模块和订单表结构是紧耦合的，所以表结构一改它就挂。"
+        },
+        {
+          "en": "These two classes are so tightly coupled that you can't test one without the other.",
+          "zh": "这两个类耦合得太紧了，没法脱离其中一个去单独测另一个。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：那个老系统为什么这么难改？",
+        "en": "Everything was tightly coupled. A small change in one module would break three others."
+      },
+      "note": "介词用 to：tightly coupled to the database。名词说法是 tight coupling：We wanted to avoid tight coupling between the two modules.",
+      "collocations": [
+        "tightly coupled to the database",
+        "tight coupling",
+        "reduce coupling"
+      ]
+    },
+    {
+      "term": "loosely coupled",
+      "kind": "chunk",
+      "zh": "松耦合的（形容词）",
+      "examples": [
+        {
+          "en": "We keep the modules loosely coupled, so each team can ship without waiting on the others.",
+          "zh": "我们让各个模块保持松耦合，这样每个团队都可以独立发布，不用等别人。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你理想中的模块划分是什么样的？",
+        "en": "I want modules that are loosely coupled, so I can change one without having to touch the rest."
+      },
+      "note": "名词说法是 loose coupling。loosely 读 /ˈluːsli/，s 是清音，不要读成 lose 的 /z/。",
+      "collocations": [
+        "loosely coupled components",
+        "loose coupling",
+        "keep them loosely coupled"
+      ]
+    },
+    {
+      "term": "high cohesion",
+      "kind": "chunk",
+      "zh": "高内聚（名词）",
+      "examples": [
+        {
+          "en": "We aim for high cohesion: everything related to pricing lives in one module.",
+          "zh": "我们追求高内聚：和定价有关的东西都放在同一个模块里。"
+        },
+        {
+          "en": "That utils class has low cohesion; it's just a bag of unrelated helper functions.",
+          "zh": "那个 utils 类内聚性很低，就是一堆互不相干的工具函数。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你怎么判断一个类的职责划分得好不好？",
+        "en": "I look for high cohesion. If the methods in a class all work on the same data, that's a good sign."
+      },
+      "note": "cohesion 读 /koʊˈhiːʒn/。形容词 cohesive：a cohesive module。常和 low coupling 连着说：high cohesion, low coupling。",
+      "collocations": [
+        "high cohesion, low coupling",
+        "a cohesive module",
+        "low cohesion"
+      ]
+    },
+    {
+      "term": "separation of concerns",
+      "kind": "chunk",
+      "zh": "关注点分离",
+      "examples": [
+        {
+          "en": "For better separation of concerns, we moved the validation out of the controller into its own layer.",
+          "zh": "为了更好地做到关注点分离，我们把校验逻辑从 controller 里挪出来，单独放了一层。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里把 SQL 查询直接写进了页面的事件处理函数。你想回复：",
+        "en": "Could we move the query into the repository? I'd like to keep a clear separation of concerns here."
+      },
+      "note": "concern 在这里指“各自负责的事”，不是“担忧”。反面说法：mix concerns（把不同职责混在一起）。",
+      "collocations": [
+        "a clear separation of concerns",
+        "mix concerns",
+        "separate the concerns"
+      ]
+    },
+    {
+      "term": "ripple through",
+      "kind": "chunk",
+      "zh": "（改动）一路波及到（很多地方，r 开头的动词短语）",
+      "examples": [
+        {
+          "en": "Because of the tight coupling, one small change rippled through half the codebase.",
+          "zh": "因为耦合太紧，一个小改动就波及了半个代码库。"
+        },
+        {
+          "en": "If we rename this field, the change will ripple through every service that reads it.",
+          "zh": "如果我们给这个字段改名，这个改动会波及每一个读它的服务。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么你坚持要在这两个模块之间加一层接口？",
+        "en": "Without it, any change to the storage format would ripple through all the callers."
+      },
+      "note": "名词说法是 ripple effect（连锁反应）：The change had a ripple effect across the system."
+    },
+    {
+      "term": "program to an interface",
+      "kind": "chunk",
+      "zh": "面向接口编程（动词短语）",
+      "examples": [
+        {
+          "en": "We program to an interface, so the service doesn't care which payment provider is behind it.",
+          "zh": "我们面向接口编程，所以服务不关心背后接的是哪家支付渠道。"
+        },
+        {
+          "en": "Because we program to an interface, replacing the real client with a fake in tests is trivial.",
+          "zh": "因为我们是面向接口编程的，测试里把真实客户端换成假的非常容易。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你的业务代码怎么做到不依赖某一家具体的短信服务商？",
+        "en": "We program to an interface. The business code only sees a MessageSender, and each provider has its own implementation."
+      },
+      "note": "完整说法是 program to an interface, not an implementation。这里的 interface 是广义的“抽象”，不一定是语言里的 interface 关键字。"
+    },
+    {
+      "term": "put ... behind an interface",
+      "kind": "chunk",
+      "zh": "把…藏到一个接口后面",
+      "examples": [
+        {
+          "en": "We put the email provider behind an interface, which made it easy to mock in tests.",
+          "zh": "我们把邮件服务商藏到了一个接口后面，这样测试里很容易 mock。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里到处直接调用某个云厂商的 SDK。你想建议：",
+        "en": "Could we put the SDK behind an interface? That way we're not tied to this vendor all over the codebase."
+      },
+      "collocations": [
+        "hide it behind an interface",
+        "sit behind an interface",
+        "behind an abstraction"
+      ]
+    },
+    {
+      "term": "swap out the implementation",
+      "kind": "chunk",
+      "zh": "把具体实现换掉（s 开头的短语动词）",
+      "examples": [
+        {
+          "en": "Because the cache sits behind an interface, we can swap out the implementation without touching the callers.",
+          "zh": "因为缓存藏在接口后面，我们可以把实现换掉，而不用动调用方。"
+        },
+        {
+          "en": "In tests we swap out the real implementation for an in-memory one.",
+          "zh": "在测试里，我们把真实的实现换成一个内存版的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：如果将来要把 Redis 换成别的缓存，改动大吗？",
+        "en": "Not really. The callers only know the interface, so we can swap out the implementation in one place."
+      },
+      "note": "swap out A for B 表示“把 A 换成 B”；反过来说 swap in a new implementation（换上新的实现）。",
+      "collocations": [
+        "swap out A for B",
+        "swap in a fake",
+        "a drop-in replacement"
+      ]
+    },
+    {
+      "term": "hide the implementation details",
+      "kind": "chunk",
+      "zh": "隐藏实现细节",
+      "examples": [
+        {
+          "en": "The client library hides the implementation details, so callers never deal with retries or pagination.",
+          "zh": "这个客户端库隐藏了实现细节，调用方完全不用操心重试和分页。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你设计一个模块的对外接口时，最在意什么？",
+        "en": "I try to hide the implementation details. Callers should know what the module does, not how it does it."
+      },
+      "note": "反义动词是 expose：We don't want to expose the internals. 实现细节也可以说 internals。",
+      "collocations": [
+        "expose the internals",
+        "an implementation detail",
+        "a public API"
+      ]
+    },
+    {
+      "term": "leaky abstraction",
+      "kind": "chunk",
+      "zh": "抽象泄漏（没藏住底层细节的抽象）",
+      "examples": [
+        {
+          "en": "The ORM is a leaky abstraction: you still need to understand the SQL it generates.",
+          "zh": "ORM 是一层会泄漏的抽象：你还是得搞懂它生成的 SQL。"
+        },
+        {
+          "en": "It turned out to be a leaky abstraction, because callers had to handle provider-specific error codes.",
+          "zh": "结果这是个抽象泄漏，因为调用方还得处理各家服务商特有的错误码。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们封装了一层统一的存储接口，用下来有什么问题？",
+        "en": "It was a leaky abstraction. Callers still had to know which backend they were talking to in order to tune performance."
+      },
+      "note": "动词说法：The abstraction leaks.（这层抽象漏了。）"
+    },
+    {
+      "term": "single responsibility principle",
+      "kind": "chunk",
+      "zh": "单一职责原则",
+      "examples": [
+        {
+          "en": "This class parses, validates and saves the file, which goes against the single responsibility principle.",
+          "zh": "这个类又解析、又校验、又保存文件，违背了单一职责原则。"
+        },
+        {
+          "en": "Following the single responsibility principle, we split report generation from report delivery.",
+          "zh": "按照单一职责原则，我们把报表的生成和发送拆开了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：SOLID 里的 S 指什么？你怎么理解？",
+        "en": "It's the single responsibility principle: a class should have only one reason to change."
+      },
+      "note": "缩写 SRP。“违反某原则”说 violate / go against / break the principle。",
+      "collocations": [
+        "follow the single responsibility principle",
+        "violate the single responsibility principle"
+      ]
+    },
+    {
+      "term": "open-closed principle",
+      "kind": "chunk",
+      "zh": "开闭原则",
+      "examples": [
+        {
+          "en": "Thanks to the open-closed principle, adding a new discount type means adding a class, not editing one.",
+          "zh": "得益于开闭原则，新增一种折扣类型只需要加一个类，而不用改已有的类。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：SOLID 里的 O 指什么？",
+        "en": "The open-closed principle: code should be open for extension but closed for modification, so new behavior doesn't mean editing tested code."
+      },
+      "note": "完整表述：open for extension, closed for modification（对扩展开放，对修改关闭）。也写作 open/closed principle，缩写 OCP。"
+    },
+    {
+      "term": "Liskov substitution principle",
+      "kind": "chunk",
+      "zh": "里氏替换原则",
+      "examples": [
+        {
+          "en": "A read-only list that throws on add breaks the Liskov substitution principle.",
+          "zh": "一个调 add 就抛异常的只读列表，违反了里氏替换原则。"
+        },
+        {
+          "en": "The Liskov substitution principle says a subclass should work anywhere its parent is expected.",
+          "zh": "里氏替换原则说的是：凡是用到父类的地方，换成子类也应该能正常工作。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：SOLID 里的 L 指什么？举个违反它的例子。",
+        "en": "The Liskov substitution principle. The classic violation is a Square that extends Rectangle and breaks code that sets width and height separately."
+      },
+      "note": "Liskov 读 /ˈlɪskɑːv/。口头常简称 Liskov 或 LSP。"
+    },
+    {
+      "term": "interface segregation principle",
+      "kind": "chunk",
+      "zh": "接口隔离原则",
+      "examples": [
+        {
+          "en": "We applied the interface segregation principle and split the huge interface into three small ones.",
+          "zh": "我们按接口隔离原则，把那个巨大的接口拆成了三个小接口。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：SOLID 里的 I 指什么？",
+        "en": "The interface segregation principle: clients shouldn't be forced to depend on methods they don't use."
+      },
+      "note": "segregation 读 /ˌseɡrɪˈɡeɪʃn/。缩写 ISP。"
+    },
+    {
+      "term": "dependency inversion principle",
+      "kind": "chunk",
+      "zh": "依赖倒置原则",
+      "examples": [
+        {
+          "en": "Following the dependency inversion principle, the domain defines the interface and the database layer implements it.",
+          "zh": "按照依赖倒置原则，接口由领域层定义，数据库层去实现它。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：SOLID 里的 D 指什么？它和依赖注入是一回事吗？",
+        "en": "It's the dependency inversion principle: high-level code depends on abstractions, not on low-level details. Dependency injection is just one way to achieve it."
+      },
+      "note": "缩写 DIP。它是设计原则；dependency injection 是实现手段，inversion of control（控制反转）是更宽泛的概念，三者不要混为一谈。"
+    },
+    {
+      "term": "depend on abstractions",
+      "kind": "chunk",
+      "zh": "依赖抽象（而不是具体实现）",
+      "examples": [
+        {
+          "en": "Our use cases depend on abstractions, so they don't know whether data comes from Postgres or an API.",
+          "zh": "我们的用例依赖的是抽象，所以它们不知道数据来自 Postgres 还是某个 API。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：业务逻辑里怎么避免直接依赖数据库驱动？",
+        "en": "The business logic should depend on abstractions. It talks to a repository interface, and the concrete driver is plugged in from outside."
+      },
+      "note": "完整说法：depend on abstractions, not concretions。concrete 是“具体的”：a concrete class、a concrete implementation。",
+      "collocations": [
+        "depend on abstractions, not concretions",
+        "a concrete class",
+        "a concrete implementation"
+      ]
+    },
+    {
+      "term": "without touching existing code",
+      "kind": "chunk",
+      "zh": "不用动现有代码（就能加新功能）",
+      "examples": [
+        {
+          "en": "With this design, we can add a new export format without touching existing code.",
+          "zh": "这样设计之后，新增一种导出格式不用动现有代码。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你把导出逻辑拆成一个个处理器类，好处是什么？",
+        "en": "We can support a new file type just by adding a handler, without touching existing code."
+      },
+      "note": "这是解释开闭原则最口语化的说法。更正式一点：without modifying the existing code。"
+    },
+    {
+      "term": "one reason to change",
+      "kind": "chunk",
+      "zh": "只有一个引起它变化的原因（单一职责的口头说法）",
+      "examples": [
+        {
+          "en": "A class should have only one reason to change, and this one has at least three.",
+          "zh": "一个类应该只有一个引起它变化的原因，而这个类至少有三个。"
+        }
+      ],
+      "situation": {
+        "zh": "同事的一个类既管报表的计算，又管报表的排版。你想在评审里指出：",
+        "en": "This class has more than one reason to change: the calculation rules and the layout. I'd split it in two."
+      }
+    },
+    {
+      "term": "fat interface",
+      "kind": "chunk",
+      "zh": "臃肿的接口（方法太多，实现方大半用不上）",
+      "examples": [
+        {
+          "en": "It's a fat interface, so most implementations just throw on the methods they don't support.",
+          "zh": "这是个臃肿的接口，所以大多数实现类碰到自己不支持的方法就直接抛异常。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你为什么把原来那个有二十个方法的接口拆了？",
+        "en": "It was a fat interface. Every implementer had to stub out methods it didn't need, so I split it by client."
+      },
+      "note": "对应接口隔离原则。反义可以说 a narrow interface 或 a focused interface。stub out 是“写个空实现应付一下”。"
+    },
+    {
+      "term": "break the contract",
+      "kind": "chunk",
+      "zh": "破坏约定（子类或实现类没有遵守接口承诺的行为）",
+      "examples": [
+        {
+          "en": "The subclass breaks the contract of the base class by returning null where callers expect a list.",
+          "zh": "这个子类破坏了基类的约定：调用方期望拿到列表的地方，它返回了 null。"
+        }
+      ],
+      "situation": {
+        "zh": "同事写了个子类，重写的方法会抛出父类从来不抛的异常。你想在评审里说：",
+        "en": "I think this breaks the contract of the base class. Callers that work with the parent type won't expect this exception."
+      },
+      "note": "contract 指接口对调用方承诺的行为。反义：honor the contract（遵守约定）。",
+      "collocations": [
+        "honor the contract",
+        "the contract of the interface"
+      ]
+    },
+    {
+      "term": "over-engineer",
+      "kind": "word",
+      "zh": "过度设计（动词）",
+      "examples": [
+        {
+          "en": "I think we over-engineered this; a simple function would have done the job.",
+          "zh": "我觉得我们这里过度设计了，一个简单的函数就够用了。"
+        },
+        {
+          "en": "Let's not over-engineer it. We only have two cases today.",
+          "zh": "别过度设计了，我们现在只有两种情况。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：讲一个你事后觉得设计得不好的例子。",
+        "en": "I over-engineered a config system early on. I built a plugin mechanism for use cases that never showed up."
+      },
+      "note": "名词 over-engineering；形容词 over-engineered：an over-engineered solution。",
+      "collocations": [
+        "an over-engineered solution",
+        "avoid over-engineering"
+      ]
+    },
+    {
+      "term": "YAGNI",
+      "kind": "word",
+      "zh": "“你不会需要它”原则（缩写，Y 开头）",
+      "examples": [
+        {
+          "en": "I'd apply YAGNI here and skip the multi-tenant support until a customer actually asks for it.",
+          "zh": "这里我会按“你不会需要它”原则来，多租户支持先不做，等真有客户提了再说。"
+        }
+      ],
+      "situation": {
+        "zh": "同事提议现在就为将来可能支持的多种数据库做一层抽象。你想委婉地反对：",
+        "en": "I'd say YAGNI. We only use Postgres today, so let's add the abstraction when we really need it."
+      },
+      "note": "读 /ˈjæɡni/，全称 You Aren't Gonna Need It。口头可以直接当理由用：That feels like YAGNI to me."
+    },
+    {
+      "term": "DRY",
+      "kind": "word",
+      "zh": "“不要重复自己”原则（缩写）",
+      "examples": [
+        {
+          "en": "To keep things DRY, I moved the shared validation into one helper.",
+          "zh": "为了不重复，我把公共的校验逻辑挪进了一个辅助函数。"
+        },
+        {
+          "en": "DRY is about not duplicating knowledge, not about merging every piece of code that looks similar.",
+          "zh": "DRY 说的是同一份知识不要写两遍，而不是把所有长得像的代码都合并掉。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：两段代码看起来一模一样，你一定会把它们合并吗？",
+        "en": "Not always. DRY is about duplicated knowledge. If the two pieces change for different reasons, I'd leave them separate."
+      },
+      "note": "当作单词 dry 来读，全称 Don't Repeat Yourself。可以当形容词用：keep the code DRY。"
+    },
+    {
+      "term": "premature abstraction",
+      "kind": "chunk",
+      "zh": "过早抽象",
+      "examples": [
+        {
+          "en": "That base class was a premature abstraction; we only ever had one subclass.",
+          "zh": "那个基类是过早抽象，我们从头到尾只有过一个子类。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你为什么宁可先容忍一点重复代码？",
+        "en": "Because a premature abstraction is harder to undo than duplication. I'd rather wait until the pattern is clear."
+      },
+      "note": "premature 读 /ˌpriːməˈtʃʊr/。同样构词的常见说法：premature optimization（过早优化）。"
+    },
+    {
+      "term": "rule of three",
+      "kind": "chunk",
+      "zh": "三次法则（重复到第三次再抽象）",
+      "examples": [
+        {
+          "en": "I follow the rule of three: I only extract an abstraction once I see the same code three times.",
+          "zh": "我遵循三次法则：同样的代码出现了三次，我才把它抽象出来。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你：这段逻辑才出现第二次，要不要现在就抽成公共方法？",
+        "en": "I'd wait. By the rule of three, we extract it when it shows up a third time."
+      }
+    },
+    {
+      "term": "inheritance hierarchy",
+      "kind": "chunk",
+      "zh": "继承层次（继承体系）",
+      "examples": [
+        {
+          "en": "We ended up with a five-level inheritance hierarchy that nobody could reason about.",
+          "zh": "我们最后搞出了一个五层的继承体系，谁也理不清。"
+        },
+        {
+          "en": "I'd flatten the inheritance hierarchy and use composition for the shared behavior.",
+          "zh": "我会把继承层次压平，公共行为改用组合来实现。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你为什么说那套基于继承的设计很脆弱？",
+        "en": "The inheritance hierarchy was too deep. Changing a base class could break subclasses four levels down."
+      },
+      "note": "hierarchy 读 /ˈhaɪərɑːrki/。相关说法：the fragile base class problem（脆弱基类问题）。",
+      "collocations": [
+        "a deep inheritance hierarchy",
+        "flatten the hierarchy",
+        "inherit from a base class"
+      ]
+    },
+    {
+      "term": "is-a relationship",
+      "kind": "chunk",
+      "zh": "“是一个”关系（适合用继承来表达的关系）",
+      "examples": [
+        {
+          "en": "Inheritance only makes sense for a true is-a relationship, and a stack is not really a list.",
+          "zh": "只有真正的“是一个”关系才适合用继承，而栈其实并不是一种列表。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：什么时候该用继承，什么时候该用组合？",
+        "en": "I use inheritance only when there's a genuine is-a relationship. If it's really a has-a relationship, I go with composition."
+      },
+      "note": "对应的是 has-a relationship（“有一个”关系，用组合来表达）。"
+    },
+    {
+      "term": "delegate to ...",
+      "kind": "chunk",
+      "zh": "（对象）把工作转交给…去做（d 开头，带介词）",
+      "examples": [
+        {
+          "en": "Instead of inheriting from the logger, the service just delegates to it.",
+          "zh": "这个服务没有去继承 logger，而是直接把工作委托给它。"
+        },
+        {
+          "en": "The controller delegates to a service class for all the business rules.",
+          "zh": "所有业务规则，controller 都委托给一个 service 类去处理。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：不用继承的话，你怎么复用另一个类的功能？",
+        "en": "I hold a reference to that object and delegate to it. That's composition, and it keeps the two classes independent."
+      },
+      "note": "名词 delegation（委托）。作动词时 delegate 结尾读 /ɡeɪt/。"
+    },
+    {
+      "term": "mix and match",
+      "kind": "chunk",
+      "zh": "自由搭配组合",
+      "examples": [
+        {
+          "en": "With small composable pieces, we can mix and match behaviors instead of creating a subclass for every combination.",
+          "zh": "有了这些可组合的小部件，我们可以自由搭配各种行为，而不用为每种组合都建一个子类。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用组合代替继承，给你们带来的最大好处是什么？",
+        "en": "Flexibility. We can mix and match retry, caching and logging behaviors without a class explosion."
+      },
+      "note": "相关说法：class explosion（类爆炸，子类数量随组合失控）；composable（可组合的）。"
+    },
+    {
+      "term": "polymorphism",
+      "kind": "word",
+      "zh": "多态",
+      "ipa": "/ˌpɑːliˈmɔːrfɪzəm/",
+      "examples": [
+        {
+          "en": "We rely on polymorphism here: each shape knows how to draw itself, so there's no type check.",
+          "zh": "这里我们靠的是多态：每个图形自己知道怎么画，所以不需要判断类型。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：那一大段按类型判断的 if-else，你是怎么去掉的？",
+        "en": "I replaced it with polymorphism. Each payment type implements the same interface and handles its own logic."
+      },
+      "note": "形容词 polymorphic：a polymorphic call。",
+      "collocations": [
+        "replace conditionals with polymorphism",
+        "a polymorphic call"
+      ]
+    },
+    {
+      "term": "factory method",
+      "kind": "chunk",
+      "zh": "工厂方法",
+      "examples": [
+        {
+          "en": "We added a factory method that picks the right parser based on the file extension.",
+          "zh": "我们加了一个工厂方法，根据文件扩展名选出合适的解析器。"
+        },
+        {
+          "en": "A static factory method can have a meaningful name, which a constructor can't.",
+          "zh": "静态工厂方法可以起一个有意义的名字，构造函数做不到这一点。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：调用方怎么拿到合适的解析器对象？直接 new 吗？",
+        "en": "No, they call a factory method. It decides which concrete class to create, so callers only depend on the interface."
+      },
+      "note": "口头上 factory 常泛指“负责创建对象的东西”。GoF 里 Factory Method 和 Abstract Factory（抽象工厂）是两个不同的模式。",
+      "collocations": [
+        "a static factory method",
+        "an abstract factory",
+        "a factory class"
+      ]
+    },
+    {
+      "term": "encapsulate the creation logic",
+      "kind": "chunk",
+      "zh": "封装创建逻辑",
+      "examples": [
+        {
+          "en": "The factory encapsulates the creation logic, so callers don't need to know which class they get.",
+          "zh": "工厂封装了创建逻辑，所以调用方不需要知道拿到的是哪个类。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：这里为什么要引入一个工厂，而不是让调用方自己构造对象？",
+        "en": "To encapsulate the creation logic. Building the client involves config and credentials, and I didn't want that repeated everywhere."
+      },
+      "note": "encapsulate 读 /ɪnˈkæpsəleɪt/，名词 encapsulation（封装）。另一个常用说法：encapsulate what varies（把会变的部分封装起来）。"
+    },
+    {
+      "term": "builder pattern",
+      "kind": "chunk",
+      "zh": "建造者模式",
+      "examples": [
+        {
+          "en": "The request object has a dozen optional fields, so we used the builder pattern.",
+          "zh": "这个请求对象有十几个可选字段，所以我们用了建造者模式。"
+        },
+        {
+          "en": "With the builder pattern, the object is validated once in build() and stays immutable afterwards.",
+          "zh": "用了建造者模式，对象在 build() 里统一校验一次，之后就不可变了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个对象有十几个可选参数，构造函数怎么设计？",
+        "en": "I'd use the builder pattern. It avoids a constructor with ten parameters and makes the call site readable."
+      },
+      "note": "它要解决的问题叫 telescoping constructors（重叠构造函数：一堆参数个数不同的构造函数）。",
+      "collocations": [
+        "a fluent builder",
+        "optional parameters",
+        "the call site"
+      ]
+    },
+    {
+      "term": "singleton",
+      "kind": "word",
+      "zh": "单例",
+      "ipa": "/ˈsɪŋɡltən/",
+      "examples": [
+        {
+          "en": "The config loader is a singleton, so every module sees the same settings.",
+          "zh": "配置加载器是单例，所以每个模块看到的都是同一份配置。"
+        },
+        {
+          "en": "We avoid singletons where we can, because hidden global state makes tests depend on each other.",
+          "zh": "我们能不用单例就不用，因为隐藏的全局状态会让测试之间互相影响。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你对“全局只有一个实例”这种模式怎么看？有什么坑？",
+        "en": "A singleton is fine for something truly shared, like a connection pool. But it's basically global state, so it makes unit testing harder."
+      },
+      "note": "可以说 the singleton pattern，也可以直接把对象叫 a singleton。Spring 的 bean 默认就是 singleton scope。",
+      "collocations": [
+        "a singleton instance",
+        "the singleton pattern",
+        "lazily initialized"
+      ]
+    },
+    {
+      "term": "method chaining",
+      "kind": "chunk",
+      "zh": "链式调用",
+      "examples": [
+        {
+          "en": "The query builder supports method chaining, so a whole query reads like one sentence.",
+          "zh": "这个查询构建器支持链式调用，一整条查询读起来像一句话。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你设计的这个构建器 API，调用起来是什么样的？",
+        "en": "It uses method chaining. Each setter returns the builder itself, so you can configure everything in one expression."
+      },
+      "note": "用链式调用设计出来的 API 叫 fluent interface 或 fluent API。动词说法：chain the calls together。"
+    },
+    {
+      "term": "adapter pattern",
+      "kind": "chunk",
+      "zh": "适配器模式",
+      "examples": [
+        {
+          "en": "We used the adapter pattern to make the legacy billing client fit our new payment interface.",
+          "zh": "我们用适配器模式，让老的计费客户端能对上新的支付接口。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：老模块的接口和新系统期望的不一样，又不能改老模块，怎么办？",
+        "en": "I'd use the adapter pattern: write a small class that implements the new interface and translates each call to the old one."
+      },
+      "note": "adapter 的重点是“转换接口”，不增加新功能，这是它和 decorator、proxy 的区别。",
+      "collocations": [
+        "write an adapter for ...",
+        "adapt A to B",
+        "an incompatible interface"
+      ]
+    },
+    {
+      "term": "decorator pattern",
+      "kind": "chunk",
+      "zh": "装饰器模式",
+      "examples": [
+        {
+          "en": "We added caching with the decorator pattern, so the original repository class stayed untouched.",
+          "zh": "我们用装饰器模式加上了缓存，原来的 repository 类一行没动。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：想给一个已有的类加上日志和重试，但不想改它，也不想用继承，怎么做？",
+        "en": "I'd use the decorator pattern. Each decorator wraps the original object, implements the same interface and adds one behavior."
+      },
+      "note": "decorator 和被包装的对象实现同一个接口，所以可以一层套一层。Python 的 @decorator 语法思路相近，但不是同一个东西。",
+      "collocations": [
+        "wrap it in a decorator",
+        "stack decorators",
+        "add behavior without modifying the class"
+      ]
+    },
+    {
+      "term": "proxy pattern",
+      "kind": "chunk",
+      "zh": "代理模式",
+      "examples": [
+        {
+          "en": "We used the proxy pattern to load the large image only when it's first accessed.",
+          "zh": "我们用代理模式，让大图只在第一次被访问时才加载。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：有一种模式和装饰器在结构上几乎一样，都是包一层、实现同一个接口。它们的区别在哪？",
+        "en": "It's about intent. The proxy pattern controls access to the object, like lazy loading or permission checks, while a decorator adds behavior."
+      },
+      "note": "常见种类：virtual proxy（延迟加载）、protection proxy（权限控制）、remote proxy（远程对象在本地的代表）。",
+      "collocations": [
+        "a dynamic proxy",
+        "control access to the object",
+        "stand in for the real object"
+      ]
+    },
+    {
+      "term": "facade",
+      "kind": "word",
+      "zh": "门面（外观模式里的那个对象，f 开头）",
+      "ipa": "/fəˈsɑːd/",
+      "examples": [
+        {
+          "en": "We put a facade in front of the three legacy APIs, so clients only call one simple interface.",
+          "zh": "我们在三个老 API 前面放了一个门面，客户端只需要调一个简单的接口。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：下单要依次调库存、支付、物流三个子系统，调用方每次都要自己写一遍吗？",
+        "en": "No, I'd add a facade. It exposes one placeOrder method and coordinates the three subsystems behind it."
+      },
+      "note": "注意读音：c 读 /s/，重音在第二个音节。facade 的目的是“简化”，给一组复杂的子系统提供一个统一入口。",
+      "collocations": [
+        "put a facade in front of ...",
+        "the facade pattern",
+        "a simplified interface"
+      ]
+    },
+    {
+      "term": "thin wrapper",
+      "kind": "chunk",
+      "zh": "薄薄的一层封装",
+      "examples": [
+        {
+          "en": "Our HTTP client is just a thin wrapper around fetch that adds auth headers and retries.",
+          "zh": "我们的 HTTP 客户端只是对 fetch 薄薄地包了一层，加上了鉴权请求头和重试。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们自己封装的那个对象存储客户端，里面做了很多事情吗？",
+        "en": "Not at all. It's a thin wrapper around the vendor SDK, mainly so we have one place to add logging and timeouts."
+      },
+      "note": "介词用 around：a wrapper around the SDK。动词是 wrap：wrap the SDK in our own class。"
+    },
+    {
+      "term": "strategy pattern",
+      "kind": "chunk",
+      "zh": "策略模式",
+      "examples": [
+        {
+          "en": "We used the strategy pattern so each country can plug in its own tax calculation.",
+          "zh": "我们用了策略模式，这样每个国家都可以接入自己的税费算法。"
+        },
+        {
+          "en": "With the strategy pattern, the algorithm becomes an object you can pass around and swap.",
+          "zh": "用了策略模式，算法就变成了一个可以传来传去、随时替换的对象。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：不同会员等级的折扣算法不一样，而且以后还会加，你怎么设计？",
+        "en": "I'd use the strategy pattern: one interface for the discount calculation and one class per membership level, chosen at checkout."
+      },
+      "note": "在函数是一等公民的语言里，直接传一个函数进去就是最轻量的 strategy。",
+      "collocations": [
+        "plug in a different strategy",
+        "interchangeable algorithms",
+        "select a strategy"
+      ]
+    },
+    {
+      "term": "at runtime",
+      "kind": "chunk",
+      "zh": "在运行时（而不是编译时）",
+      "examples": [
+        {
+          "en": "The strategy is chosen at runtime based on the user's region, not hard-coded.",
+          "zh": "用哪个策略是在运行时根据用户所在地区决定的，不是写死的。"
+        },
+        {
+          "en": "Plugins are discovered and loaded at runtime, so we don't need to rebuild the app.",
+          "zh": "插件是在运行时发现并加载的，所以我们不用重新构建应用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：具体用哪种压缩算法，是写死在代码里的吗？",
+        "en": "No, it's picked at runtime from the config, so we can change it without redeploying."
+      },
+      "note": "对应 at compile time（在编译时）。hard-coded 是“写死的”。"
+    },
+    {
+      "term": "observer pattern",
+      "kind": "chunk",
+      "zh": "观察者模式",
+      "examples": [
+        {
+          "en": "The UI uses the observer pattern: views register with the model and get notified when it changes.",
+          "zh": "界面用的是观察者模式：视图向模型注册，模型一变就会收到通知。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：数据模型变了之后，多个界面组件怎么同步更新，又不让模型反过来依赖界面？",
+        "en": "With the observer pattern. The model keeps a list of observers and notifies them on every change, without knowing what they are."
+      },
+      "note": "被观察的一方叫 subject，观察的一方叫 observer。口头更常说 listener（监听器）。",
+      "collocations": [
+        "register a listener",
+        "notify the observers",
+        "unsubscribe"
+      ]
+    },
+    {
+      "term": "command pattern",
+      "kind": "chunk",
+      "zh": "命令模式",
+      "examples": [
+        {
+          "en": "Undo and redo are built on the command pattern: every edit is an object with execute and undo.",
+          "zh": "撤销和重做是基于命令模式实现的：每次编辑都是一个带 execute 和 undo 方法的对象。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：编辑器里的撤销功能，你会怎么设计？",
+        "en": "I'd use the command pattern. Each user action becomes a command object that knows how to undo itself, and we keep them on a stack."
+      },
+      "note": "核心是“把一次操作封装成对象”，所以操作可以排队、记录、撤销、重放。",
+      "collocations": [
+        "a command object",
+        "queue up commands",
+        "support undo and redo"
+      ]
+    },
+    {
+      "term": "template method",
+      "kind": "chunk",
+      "zh": "模板方法",
+      "examples": [
+        {
+          "en": "The base importer uses a template method: it fixes the overall steps and subclasses fill in the parsing.",
+          "zh": "导入器基类用了模板方法：整体步骤由它定死，解析那一步交给子类来填。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：几种报表的生成流程都一样，只有其中一两步不同，怎么复用？",
+        "en": "A template method works well. The base class defines the skeleton of the algorithm, and each report overrides only the steps that differ."
+      },
+      "note": "留给子类重写的步骤常叫 hook method。它靠继承实现；想用组合达到类似效果，就用 strategy。",
+      "collocations": [
+        "define the skeleton of the algorithm",
+        "override a step",
+        "a hook method"
+      ]
+    },
+    {
+      "term": "state machine",
+      "kind": "chunk",
+      "zh": "状态机",
+      "examples": [
+        {
+          "en": "We modeled the order lifecycle as a state machine, which got rid of a lot of boolean flags.",
+          "zh": "我们把订单的生命周期建模成了状态机，去掉了一大堆布尔标志位。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：订单有待支付、已支付、已发货、已取消这些状态，流转逻辑怎么管？",
+        "en": "I'd model it as a state machine with an explicit table of allowed transitions, so an order can never jump from cancelled to shipped."
+      },
+      "note": "全称 finite state machine，缩写 FSM。GoF 里对应的是 state pattern（状态模式）：每个状态一个类。",
+      "collocations": [
+        "model it as a state machine",
+        "a finite state machine",
+        "the state pattern"
+      ]
+    },
+    {
+      "term": "state transition",
+      "kind": "chunk",
+      "zh": "状态流转（状态转换）",
+      "examples": [
+        {
+          "en": "Every state transition is validated and logged, so we can see how an order got stuck.",
+          "zh": "每一次状态流转都会校验并记日志，所以我们能看出订单是怎么卡住的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：怎么防止一张已退款的订单又被标成已发货？",
+        "en": "Each state transition goes through one function that checks whether the move is allowed and rejects invalid ones."
+      },
+      "note": "transition 也可以作动词：transition from pending to paid。",
+      "collocations": [
+        "an invalid state transition",
+        "transition from A to B",
+        "trigger a transition"
+      ]
+    },
+    {
+      "term": "chain of responsibility",
+      "kind": "chunk",
+      "zh": "责任链",
+      "examples": [
+        {
+          "en": "Request validation is a chain of responsibility: each handler either rejects the request or passes it along.",
+          "zh": "请求校验是一条责任链：每个处理器要么拒掉请求，要么把它往后传。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个审批请求要依次经过组长、经理、总监，谁能批就停在谁那儿，怎么设计？",
+        "en": "That's a classic chain of responsibility. Each approver handles the request if it can, and otherwise passes it to the next one in the chain."
+      },
+      "note": "short-circuit 指“提前终止，不再往后传”：The auth handler short-circuits the chain.",
+      "collocations": [
+        "pass the request along the chain",
+        "the next handler",
+        "short-circuit the chain"
+      ]
+    },
+    {
+      "term": "nested conditionals",
+      "kind": "chunk",
+      "zh": "层层嵌套的条件判断",
+      "examples": [
+        {
+          "en": "The pricing function was full of nested conditionals, so I replaced them with a lookup table.",
+          "zh": "定价函数里全是层层嵌套的条件判断，所以我用一张查找表把它们替换掉了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事的函数里 if 套 if 套了五层。你想在评审里建议：",
+        "en": "These nested conditionals are hard to follow. Could we use early returns to flatten them?"
+      },
+      "note": "常见解法：early return 或 guard clause（卫语句）、lookup table（查找表）、polymorphism（多态）。",
+      "collocations": [
+        "flatten nested conditionals",
+        "a guard clause",
+        "an early return"
+      ]
+    }
+  ]
+}

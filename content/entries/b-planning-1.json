@@ -1,0 +1,494 @@
+{
+  "layer": "B",
+  "category": "planning",
+  "title": "排期、承诺与求助",
+  "entries": [
+    {
+      "term": "It should take about ...",
+      "kind": "sentence",
+      "zh": "这大概要花……（时间，It should 开头）",
+      "examples": [
+        {
+          "en": "It should take about three days, including tests.",
+          "zh": "大概要花三天，包括写测试。"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理问：给列表页加个导出按钮要多久？你估计两天左右。",
+        "en": "It should take about two days."
+      },
+      "note": "should 表示有把握的估计，但不是承诺。更随意可以说 It's probably a two-day job."
+    },
+    {
+      "term": "rough estimate",
+      "kind": "chunk",
+      "zh": "粗略的估计（r 开头的形容词）",
+      "examples": [
+        {
+          "en": "I can give you a rough estimate now and a firmer one after the spike.",
+          "zh": "我现在可以给个粗略的估计，等技术预研做完再给更准的。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问新报表功能要做多久，你还没细看需求，只能先给个大概的数。",
+        "en": "My rough estimate is two weeks, but I haven't looked at the details yet."
+      },
+      "collocations": ["give a rough estimate", "a rough estimate of two weeks"],
+      "note": "和 ballpark figure 意思接近；rough estimate 更中性，书面口头都能用。"
+    },
+    {
+      "term": "give or take",
+      "kind": "chunk",
+      "zh": "上下浮动、左右（三个词，放在数字后面）",
+      "examples": [
+        {
+          "en": "The migration will take two weeks, give or take a couple of days.",
+          "zh": "迁移要两周，上下浮动两三天。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问接口联调要多久，你估计五天，可能多一天或少一天。",
+        "en": "About five days, give or take a day."
+      },
+      "note": "放在估计值后面，表示有误差。也可以单独收尾：About a week, give or take."
+    },
+    {
+      "term": "at the earliest",
+      "kind": "chunk",
+      "zh": "最早（也要到某个时间）",
+      "examples": [
+        {
+          "en": "We can start on it next Wednesday at the earliest.",
+          "zh": "我们最早也要下周三才能开始做。"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理问新需求什么时候能排上，你们这个迭代已经满了，最快也得下个迭代。",
+        "en": "We could start on it next sprint at the earliest."
+      },
+      "note": "反义是 at the latest（最晚）。两个都放在时间后面。"
+    },
+    {
+      "term": "leave some buffer",
+      "kind": "chunk",
+      "zh": "留点余量（b 开头的名词）",
+      "examples": [
+        {
+          "en": "I'd leave some buffer for testing, since the payment flow is easy to break.",
+          "zh": "我会给测试留点余量，因为支付流程很容易出问题。"
+        }
+      ],
+      "situation": {
+        "zh": "你估计开发要四天，但想跟经理说报一周，好留出时间应对意外。",
+        "en": "The work itself is four days, but I'd leave some buffer and say a week."
+      },
+      "collocations": ["leave some buffer for", "build in some buffer", "add a buffer"],
+      "note": "buffer 在这里指时间余量。也说 build in some buffer。"
+    },
+    {
+      "term": "It's hard to say until ...",
+      "kind": "sentence",
+      "zh": "在……之前很难说（现在估不出来）",
+      "examples": [
+        {
+          "en": "It's hard to say until I've seen how the legacy code handles refunds.",
+          "zh": "在看过老代码怎么处理退款之前，很难说。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问修那个偶现的 bug 要多久，你还没能复现，没法估。",
+        "en": "It's hard to say until I can reproduce it."
+      },
+      "note": "诚实地说估不出来，同时给出条件。最好再接一句什么时候能给出估计。"
+    },
+    {
+      "term": "I'd need to look into it before I can give you a date.",
+      "kind": "sentence",
+      "zh": "我得先调查一下，才能给你日期。",
+      "examples": [
+        {
+          "en": "I'd need to look into it before I can give you a date. I'll know more by Thursday.",
+          "zh": "我得先调查一下，才能给你日期。周四前我会更清楚。"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理在群里问：对接第三方支付什么时候能上？你还没看过对方的文档。",
+        "en": "I'd need to look into it before I can give you a date. I haven't read their API docs yet."
+      },
+      "note": "比随口报一个数靠谱。look into 是“调查、了解一下”。"
+    },
+    {
+      "term": "Best case ..., worst case ...",
+      "kind": "sentence",
+      "zh": "顺利的话……，最坏的情况……（给一个估时范围）",
+      "examples": [
+        {
+          "en": "Best case it's three days, worst case it's two weeks if we have to rewrite the parser.",
+          "zh": "顺利的话三天，最坏的情况要两周，如果解析器得重写的话。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问升级数据库版本要多久。没有不兼容的地方就一天，有的话可能要一周。",
+        "en": "Best case it's a day, worst case it's a week if we hit compatibility issues."
+      },
+      "note": "给范围比给单个数字更诚实。口语里常省掉动词：Best case, a day."
+    },
+    {
+      "term": "Don't hold me to that.",
+      "kind": "sentence",
+      "zh": "别拿这个当承诺。（h 开头的动词）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I think it's about a week, but don't hold me to that.",
+          "zh": "我觉得大概一周，不过别拿这个当承诺。"
+        }
+      ],
+      "situation": {
+        "zh": "同事随口问你重构大概要多久，你报了个数，但想说明这只是凭感觉。",
+        "en": "Maybe three or four days? Don't hold me to that, though."
+      },
+      "note": "hold someone to something 是“要求某人兑现”。只适合非正式场合；对经理或客户要给更认真的估计。"
+    },
+    {
+      "term": "I'm aiming for ...",
+      "kind": "sentence",
+      "zh": "我的目标是……（时间，a 开头的动词）",
+      "examples": [
+        {
+          "en": "I'm aiming for Friday, but it depends on how the review goes.",
+          "zh": "我的目标是周五，不过要看评审顺不顺利。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问你那个功能打算什么时候提测，你计划下周一，但不想把话说死。",
+        "en": "I'm aiming for next Monday."
+      },
+      "note": "说的是目标，不是保证，比 I will finish by 留了余地。也说 I'm targeting ...。"
+    },
+    {
+      "term": "When do you need this by?",
+      "kind": "sentence",
+      "zh": "你最晚什么时候要？",
+      "examples": [
+        {
+          "en": "Sure, I can do that. When do you need this by?",
+          "zh": "行，我可以做。你最晚什么时候要？"
+        }
+      ],
+      "situation": {
+        "zh": "同事请你帮忙导一份用户数据，你想先问清楚截止时间。",
+        "en": "No problem. When do you need this by?"
+      },
+      "note": "接活之前先问期限。句尾的 by 不能丢，意思是“在……之前”。"
+    },
+    {
+      "term": "I'll get it to you by ...",
+      "kind": "sentence",
+      "zh": "我会在……之前给你（get 作动词）",
+      "examples": [
+        {
+          "en": "I'll get it to you by Thursday morning.",
+          "zh": "我周四上午之前给你。"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理要一份接口变更清单，你打算明天中午前发给她。",
+        "en": "I'll get it to you by noon tomorrow."
+      },
+      "note": "用 I'll 是明确的承诺；没把握就说 I should be able to get it to you by ...。"
+    },
+    {
+      "term": "by end of day",
+      "kind": "chunk",
+      "zh": "今天下班前（不用缩写）",
+      "examples": [
+        {
+          "en": "I'll send you the draft by end of day.",
+          "zh": "我今天下班前把初稿发给你。"
+        }
+      ],
+      "situation": {
+        "zh": "同事上午问你要测试报告，你答应今天之内给。",
+        "en": "You'll have the report by end of day today."
+      },
+      "collocations": ["by end of day today", "by end of day tomorrow", "by end of week"],
+      "note": "职场里通常不加 the。跨时区时最好说清是谁的下班时间：by end of day Pacific time。"
+    },
+    {
+      "term": "first thing tomorrow",
+      "kind": "chunk",
+      "zh": "明天一早（上班第一件事）",
+      "examples": [
+        {
+          "en": "I'm about to log off, but I'll look at it first thing tomorrow.",
+          "zh": "我马上要下线了，明天一早就看。"
+        }
+      ],
+      "situation": {
+        "zh": "快下班时同事请你看一个报错，你今天来不及了，答应明天一上班就处理。",
+        "en": "I can't get to it today, but I'll do it first thing tomorrow."
+      },
+      "note": "也说 first thing in the morning、first thing Monday。"
+    },
+    {
+      "term": "I'll keep you posted.",
+      "kind": "sentence",
+      "zh": "有进展我随时告诉你。（p 开头的分词）",
+      "examples": [
+        {
+          "en": "The fix is in review now. I'll keep you posted.",
+          "zh": "修复正在评审，有进展我随时告诉你。"
+        }
+      ],
+      "situation": {
+        "zh": "经理关心线上数据修复的进度，你现在还没结果，答应有消息就同步。",
+        "en": "Nothing new yet, but I'll keep you posted."
+      },
+      "note": "也说 I'll keep you updated. 说了就要真的同步，不然会失信。"
+    },
+    {
+      "term": "I can't promise anything, but ...",
+      "kind": "sentence",
+      "zh": "我不敢保证，不过……",
+      "examples": [
+        {
+          "en": "I can't promise anything, but I'll try to get it into this release.",
+          "zh": "我不敢保证，不过我会尽量让它赶上这次发版。"
+        }
+      ],
+      "situation": {
+        "zh": "销售同事问能不能周五前修好客户报的问题，你没把握，但愿意尽力。",
+        "en": "I can't promise anything, but I'll do my best to have a fix by Friday."
+      },
+      "note": "先降低预期，再表态会努力。更随意的说法是 No promises, but ..."
+    },
+    {
+      "term": "I can't commit to ... yet.",
+      "kind": "sentence",
+      "zh": "我现在还不能承诺……（c 开头的动词）",
+      "examples": [
+        {
+          "en": "I can't commit to a date yet. We're still waiting on the security review.",
+          "zh": "我现在还不能承诺日期，我们还在等安全评审。"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理想让你确认月底上线，但依赖的接口还没定，你不能答应。",
+        "en": "I can't commit to the end of the month yet. The API contract isn't final."
+      },
+      "note": "commit to 是正式承诺。这句是明确但专业的“不答应”，后面要说明原因。"
+    },
+    {
+      "term": "It depends on whether ...",
+      "kind": "sentence",
+      "zh": "这要看是否……",
+      "examples": [
+        {
+          "en": "It depends on whether the vendor fixes their sandbox this week.",
+          "zh": "这要看供应商这周能不能修好他们的沙箱环境。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问周三能不能上线，你觉得取决于测试今天能不能测完。",
+        "en": "It depends on whether QA finishes testing today."
+      },
+      "note": "后面接从句；接名词时说 It depends on the review. 注意介词是 on，不是 of。"
+    },
+    {
+      "term": "assuming nothing else comes up",
+      "kind": "chunk",
+      "zh": "前提是没有别的事插进来（a 开头的分词）",
+      "examples": [
+        {
+          "en": "I can finish it this week, assuming nothing else comes up.",
+          "zh": "我这周能做完，前提是没有别的事插进来。"
+        }
+      ],
+      "situation": {
+        "zh": "你答应周四交付，但你这周在值班，想加一个前提条件。",
+        "en": "Thursday should work, assuming nothing else comes up while I'm on call."
+      },
+      "note": "给承诺加前提。assuming 后面可以换成别的条件：assuming the API is ready。"
+    },
+    {
+      "term": "set expectations",
+      "kind": "chunk",
+      "zh": "事先把预期说清楚",
+      "examples": [
+        {
+          "en": "I want to set expectations early: the first version won't support bulk import.",
+          "zh": "我想早点把预期说清楚：第一版不支持批量导入。"
+        }
+      ],
+      "situation": {
+        "zh": "你跟经理说：应该提前告诉客户，这次升级会有十分钟的停机。",
+        "en": "We should set expectations with the customer about the ten minutes of downtime."
+      },
+      "collocations": ["set expectations with", "manage expectations", "set clear expectations"],
+      "note": "set expectations 是事先讲清楚；manage expectations 侧重不让对方期望过高。"
+    },
+    {
+      "term": "behind schedule",
+      "kind": "chunk",
+      "zh": "进度落后",
+      "examples": [
+        {
+          "en": "We're about a week behind schedule because of the auth rewrite.",
+          "zh": "因为重写鉴权模块，我们的进度落后了大约一周。"
+        }
+      ],
+      "situation": {
+        "zh": "周会上经理问项目进展，你们比计划晚了三天。",
+        "en": "We're about three days behind schedule."
+      },
+      "collocations": ["a week behind schedule", "ahead of schedule", "on schedule"],
+      "note": "反义是 ahead of schedule（比计划快）。说落后时最好带上落后多少和原因。"
+    },
+    {
+      "term": "We're not going to make the deadline.",
+      "kind": "sentence",
+      "zh": "我们赶不上截止日期了。",
+      "examples": [
+        {
+          "en": "At this rate, we're not going to make the deadline.",
+          "zh": "照这个速度，我们赶不上截止日期了。"
+        }
+      ],
+      "situation": {
+        "zh": "离交付还有两天，还剩三个大 bug 没修，你必须如实告诉经理。",
+        "en": "I have to be honest: we're not going to make the deadline."
+      },
+      "note": "make 在这里是“赶上”。坏消息要早说，并且马上接上你的建议。"
+    },
+    {
+      "term": "slip",
+      "kind": "word",
+      "zh": "（日期）延后、跳票（s 开头，四个字母）",
+      "examples": [
+        {
+          "en": "The launch slipped by a week because the vendor API wasn't ready.",
+          "zh": "因为供应商的接口没准备好，上线延后了一周。"
+        }
+      ],
+      "situation": {
+        "zh": "你想提醒经理：如果设计稿周三还不到，发布日期就要往后拖了。",
+        "en": "If we don't get the designs by Wednesday, the release date will slip."
+      },
+      "collocations": ["slip by a week", "the date slipped", "slip to next quarter"],
+      "note": "主语通常是日期或项目，不是人。比 be delayed 口语。"
+    },
+    {
+      "term": "I'm going to need a few more days on ...",
+      "kind": "sentence",
+      "zh": "……我还需要多几天时间",
+      "examples": [
+        {
+          "en": "I'm going to need a few more days on the search ticket.",
+          "zh": "搜索那个任务我还需要多几天时间。"
+        }
+      ],
+      "situation": {
+        "zh": "站会后你私下告诉经理：报表导出比想的复杂，周三交不了，得到周五。",
+        "en": "I'm going to need a few more days on the report export. Friday is more realistic."
+      },
+      "note": "直接说需要更多时间，不绕弯子。接上新的日期和原因会更专业。"
+    },
+    {
+      "term": "at risk",
+      "kind": "chunk",
+      "zh": "（交付日期）有风险、可能保不住",
+      "examples": [
+        {
+          "en": "The March release is at risk unless we get another backend engineer.",
+          "zh": "除非再来一个后端，否则三月的发版有风险。"
+        }
+      ],
+      "situation": {
+        "zh": "写状态更新时你想说：因为依赖方延期，月底上线可能保不住。",
+        "en": "The end-of-month launch is at risk because the dependency is late."
+      },
+      "note": "状态汇报常用的三档：on track、at risk、off track。at risk 表示还没延期，但需要关注。"
+    },
+    {
+      "term": "It's going to be tight.",
+      "kind": "sentence",
+      "zh": "时间会很紧。",
+      "examples": [
+        {
+          "en": "We can probably do it in two weeks, but it's going to be tight.",
+          "zh": "两周大概能做完，但时间会很紧。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问月底前能不能做完，你觉得勉强可以，但没有任何余量。",
+        "en": "It's doable, but it's going to be tight."
+      },
+      "note": "tight 指时间或资源没有余量。a tight deadline、a tight schedule 也常用。"
+    },
+    {
+      "term": "Realistically, ...",
+      "kind": "sentence",
+      "zh": "实际一点说，……（R 开头的副词）",
+      "examples": [
+        {
+          "en": "Realistically, we're looking at the end of next month.",
+          "zh": "实际一点说，得到下个月底了。"
+        }
+      ],
+      "situation": {
+        "zh": "计划上写的是两周，但你知道还要联调和修 bug，想给经理一个更靠谱的时间。",
+        "en": "Realistically, it's going to take three weeks."
+      },
+      "note": "用来把过于乐观的预期拉回来。we're looking at ... 是“估计要……”的口语说法。"
+    },
+    {
+      "term": "I wanted to flag that ...",
+      "kind": "sentence",
+      "zh": "我想提醒一下，……（f 开头的动词，提前示警）",
+      "examples": [
+        {
+          "en": "I wanted to flag that the staging database is almost out of disk space.",
+          "zh": "我想提醒一下，预发环境的数据库快没磁盘空间了。"
+        }
+      ],
+      "situation": {
+        "zh": "你发现依赖的 SDK 下个月就停止维护了，想提前告诉团队。",
+        "en": "I wanted to flag that the SDK we depend on reaches end of life next month."
+      },
+      "note": "flag 作动词是“标出来让大家注意”。用 wanted 比 want 更委婉，并不表示过去。"
+    },
+    {
+      "term": "What can we drop to hit the deadline?",
+      "kind": "sentence",
+      "zh": "要赶上截止日期，我们能砍掉什么？",
+      "examples": [
+        {
+          "en": "We're a week behind. What can we drop to hit the deadline?",
+          "zh": "我们落后一周了。要赶上截止日期，能砍掉什么？"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理坚持月底必须上线，你想和她商量去掉哪些功能。",
+        "en": "If the end of the month is fixed, what can we drop to hit the deadline?"
+      },
+      "note": "hit the deadline 是“赶上截止日期”。把问题从“能不能做完”转成“做哪些”，是谈范围的常用问法。"
+    },
+    {
+      "term": "descope",
+      "kind": "word",
+      "zh": "把……移出本次范围（de 开头的动词）",
+      "examples": [
+        {
+          "en": "We descoped the export feature to keep the launch date.",
+          "zh": "为了保住上线日期，我们把导出功能移出了这次的范围。"
+        }
+      ],
+      "situation": {
+        "zh": "你建议经理：多语言支持这期先不做，留到下一期。",
+        "en": "I suggest we descope multi-language support and do it in the next phase."
+      },
+      "note": "项目管理里的常用词，和 cut scope 意思接近，但宾语是具体的功能。"
+    }
+  ]
+}

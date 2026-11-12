@@ -1,0 +1,705 @@
+{
+  "layer": "C",
+  "category": "business",
+  "title": "业务场景与难点",
+  "entries": [
+    {
+      "term": "legacy system",
+      "kind": "chunk",
+      "zh": "遗留系统、老系统（l 开头的形容词）",
+      "ipa": "/ˈleɡəsi ˈsɪstəm/",
+      "examples": [
+        {
+          "en": "Most of the business rules lived in a legacy system that nobody fully understood.",
+          "zh": "大部分业务规则都在一套没人完全搞懂的老系统里。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们为什么不直接在原来的系统上加新功能？",
+        "en": "It was a fifteen-year-old legacy system with no tests, so every change was risky."
+      },
+      "collocations": [
+        "legacy code",
+        "legacy codebase",
+        "inherit a legacy system"
+      ],
+      "note": "legacy 作形容词，暗示“老、难改，但还在用”。也说 legacy code、legacy codebase。"
+    },
+    {
+      "term": "technical debt",
+      "kind": "chunk",
+      "zh": "技术债",
+      "ipa": "/ˈteknɪkl det/",
+      "examples": [
+        {
+          "en": "We set aside one sprint per quarter to pay down technical debt.",
+          "zh": "我们每个季度留出一个迭代来还技术债。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：业务一直催功能，你们怎么处理积累下来的历史问题？",
+        "en": "I tracked the technical debt in a shared list and tied each item to the incidents it had caused."
+      },
+      "collocations": [
+        "pay down technical debt",
+        "take on technical debt",
+        "accumulate technical debt"
+      ],
+      "note": "口语常简称 tech debt。还债用 pay down 或 pay off，欠债用 take on 或 accumulate。debt 里的 b 不发音。"
+    },
+    {
+      "term": "rewrite from scratch",
+      "kind": "chunk",
+      "zh": "从零重写、推倒重来（含 s 开头的名词）",
+      "examples": [
+        {
+          "en": "We decided not to rewrite it from scratch because the old code encoded years of fixes.",
+          "zh": "我们决定不推倒重写，因为老代码里沉淀了多年的修补。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：面对一个很烂的老系统，你倾向于重写还是重构？",
+        "en": "I'm cautious about rewriting from scratch. You usually underestimate how much behavior the old system has."
+      },
+      "collocations": [
+        "a big-bang rewrite",
+        "build ... from scratch",
+        "start from scratch"
+      ],
+      "note": "from scratch 表示“从零开始”。一次性的大重写也叫 a big-bang rewrite，通常带贬义。"
+    },
+    {
+      "term": "refactor incrementally",
+      "kind": "chunk",
+      "zh": "渐进式重构、一点一点地重构（动词 + i 开头的副词）",
+      "examples": [
+        {
+          "en": "We chose to refactor incrementally, one module at a time, behind the same interface.",
+          "zh": "我们选择渐进式重构，一次改一个模块，对外接口保持不变。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们没有停下业务来重写，那老代码是怎么改善的？",
+        "en": "We refactored incrementally: each time we touched a module for a feature, we cleaned it up first."
+      },
+      "collocations": [
+        "incremental refactoring",
+        "refactor ... in small steps"
+      ],
+      "note": "重构（refactor）不改变外部行为，重写（rewrite）是另起炉灶。副词也可以换成 gradually。"
+    },
+    {
+      "term": "migration path",
+      "kind": "chunk",
+      "zh": "迁移路径（从旧方案过渡到新方案的步骤）",
+      "examples": [
+        {
+          "en": "We gave each client team a clear migration path from the old API to the new one.",
+          "zh": "我们给每个调用方团队都提供了从旧接口迁到新接口的清晰路径。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：新系统设计得很好，但几十个调用方怎么迁过来？",
+        "en": "We designed the migration path first: old and new ran side by side, and teams moved over one by one."
+      },
+      "collocations": [
+        "a clear migration path",
+        "a smooth migration path",
+        "migrate off the old system"
+      ]
+    },
+    {
+      "term": "dual write",
+      "kind": "chunk",
+      "zh": "双写（同时写新旧两套系统）",
+      "examples": [
+        {
+          "en": "During the migration, we did dual writes to both the old and the new database.",
+          "zh": "迁移期间，我们对新旧两个数据库做双写。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：数据迁移期间，新旧两边的数据怎么保持同步？",
+        "en": "We used dual writes: every change went to both systems, and we compared the results before switching reads."
+      },
+      "collocations": [
+        "dual-write period",
+        "do dual writes",
+        "turn off dual writes"
+      ],
+      "note": "作形容词时加连字符：a dual-write period。风险是两边写入不一致，所以要配合数据比对。"
+    },
+    {
+      "term": "shift traffic",
+      "kind": "chunk",
+      "zh": "把流量（逐步）切过去（s 开头的动词）",
+      "examples": [
+        {
+          "en": "We shifted traffic to the new service gradually, starting with one percent.",
+          "zh": "我们把流量逐步切到新服务，从百分之一开始。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：新老系统都在跑，你们是怎么把线上流量切过去的？",
+        "en": "We shifted traffic in stages, from one percent to ten to fifty, and watched the error rate at each step."
+      },
+      "collocations": [
+        "shift traffic gradually",
+        "shift ... percent of traffic to ...",
+        "shift traffic back"
+      ],
+      "note": "“灰度切流”可以说 shift traffic gradually。也说 route a percentage of traffic to the new system。"
+    },
+    {
+      "term": "cut over",
+      "kind": "chunk",
+      "zh": "（在某个时间点正式）切换到新系统（c 开头的短语动词，两个词）",
+      "examples": [
+        {
+          "en": "We cut over to the new billing system on a Sunday night, when traffic was lowest.",
+          "zh": "我们选在周日晚上流量最低的时候，切换到新的计费系统。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：最终把所有流量切到新系统那一步，你们是怎么安排的？",
+        "en": "We cut over region by region, and kept the old system on standby for two weeks."
+      },
+      "collocations": [
+        "cut over to ...",
+        "the cutover",
+        "cutover plan"
+      ],
+      "note": "名词写成一个词 cutover：The cutover went smoothly. 指从旧到新的那个切换时刻。"
+    },
+    {
+      "term": "feature parity",
+      "kind": "chunk",
+      "zh": "功能对齐（新系统具备旧系统的全部功能），第二个词 p 开头",
+      "ipa": "/ˈfiːtʃər ˈpærəti/",
+      "examples": [
+        {
+          "en": "The new system didn't reach feature parity with the old one for almost a year.",
+          "zh": "新系统花了将近一年，才在功能上追平老系统。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：重写项目为什么比预期多花了这么久？",
+        "en": "We underestimated feature parity. The old system had dozens of small behaviors nobody had documented."
+      },
+      "collocations": [
+        "reach feature parity with ...",
+        "achieve feature parity"
+      ],
+      "note": "parity 的意思是“对等”。常用搭配是 reach / achieve feature parity with ..."
+    },
+    {
+      "term": "decommission",
+      "kind": "word",
+      "zh": "（正式）下线、停用旧系统或旧服务器（d 开头的动词）",
+      "ipa": "/ˌdiːkəˈmɪʃn/",
+      "examples": [
+        {
+          "en": "We finally decommissioned the old order system six months after the migration.",
+          "zh": "迁移完成六个月后，我们终于把老订单系统下线了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：流量都切走之后，老系统是马上关掉的吗？",
+        "en": "No, we kept it read-only for a quarter, and decommissioned it once nobody had queried it for a month."
+      },
+      "note": "指彻底关停并回收资源。口语也说 shut down、turn off、retire；sunset 多用于对外的产品或接口。"
+    },
+    {
+      "term": "changing requirements",
+      "kind": "chunk",
+      "zh": "不断变化的需求（c 开头的 -ing 形容词 + 复数名词）",
+      "examples": [
+        {
+          "en": "We kept the design flexible because we were dealing with changing requirements.",
+          "zh": "我们把设计做得比较灵活，因为需求一直在变。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：产品方向经常调整，你怎么避免做出来的东西白费？",
+        "en": "With changing requirements, I build the smallest thing that works and avoid committing to details too early."
+      },
+      "collocations": [
+        "deal with changing requirements",
+        "a change in requirements",
+        "last-minute changes"
+      ],
+      "note": "单次的需求变更说 a requirement change 或 a change in requirements。也可以说 The requirements kept changing."
+    },
+    {
+      "term": "scope creep",
+      "kind": "chunk",
+      "zh": "范围蔓延（项目进行中需求不断悄悄加码）",
+      "examples": [
+        {
+          "en": "The project slipped by a month, mostly because of scope creep.",
+          "zh": "项目延期了一个月，主要是因为需求范围不断膨胀。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：项目做到一半，业务方不断往里加东西，你怎么处理？",
+        "en": "I stopped the scope creep by writing down what was in the first release and pushing the rest to later."
+      },
+      "note": "creep 是“悄悄爬”的意思，带贬义：没人正式决定扩大范围，但它就是越来越大。"
+    },
+    {
+      "term": "minimum viable product",
+      "kind": "chunk",
+      "zh": "最小可行产品（全称，三个词）",
+      "examples": [
+        {
+          "en": "We shipped a minimum viable product in six weeks to test the idea with real users.",
+          "zh": "我们用六周上线了一个最小可行产品，拿真实用户来验证想法。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个全新的业务，你们第一版是怎么定范围的？",
+        "en": "We started with a minimum viable product: one payment method, one country, and no admin UI."
+      },
+      "note": "平时几乎都说缩写 MVP，三个字母分开读。"
+    },
+    {
+      "term": "iterate on",
+      "kind": "chunk",
+      "zh": "（在现有版本上）反复迭代改进（i 开头的动词 + on）",
+      "ipa": "/ˈɪtəreɪt ɑːn/",
+      "examples": [
+        {
+          "en": "We launched a basic version and iterated on it based on what users actually did.",
+          "zh": "我们先上了一个基础版，再根据用户的实际行为迭代。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：第一版功能很粗糙，后来是怎么变好的？",
+        "en": "We iterated on it every two weeks, using support tickets and usage data to decide what to fix next."
+      },
+      "note": "iterate on 后面接要改进的东西。名词 iteration 也可以指一个迭代周期。"
+    },
+    {
+      "term": "gather user feedback",
+      "kind": "chunk",
+      "zh": "收集用户反馈（g 开头的动词）",
+      "examples": [
+        {
+          "en": "We gathered user feedback through interviews before we built the second version.",
+          "zh": "做第二版之前，我们通过访谈收集了用户反馈。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们怎么知道用户真正想要什么？",
+        "en": "We gathered user feedback from support tickets and customer calls, and the same three complaints kept coming up."
+      },
+      "collocations": [
+        "collect feedback",
+        "act on feedback",
+        "a piece of feedback"
+      ],
+      "note": "feedback 不可数，不说 feedbacks 或 a feedback，要说 some feedback 或 a piece of feedback。动词也可以用 collect。"
+    },
+    {
+      "term": "run an A/B test",
+      "kind": "chunk",
+      "zh": "做 A/B 测试（r 开头的动词）",
+      "examples": [
+        {
+          "en": "We ran an A/B test on the new checkout page before releasing it to everyone.",
+          "zh": "新结算页全量之前，我们先做了一次 A/B 测试。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们怎么判断新设计是不是真的比旧的好？",
+        "en": "We ran an A/B test for two weeks, with half of the users on each version."
+      },
+      "collocations": [
+        "A/B test ... against ...",
+        "run an experiment",
+        "variant"
+      ],
+      "note": "也叫 split test 或 experiment。参与对比的每个版本叫 variant。"
+    },
+    {
+      "term": "control group",
+      "kind": "chunk",
+      "zh": "对照组（实验里不做改动的那一组）",
+      "examples": [
+        {
+          "en": "The control group saw the old page, and the other group saw the new one.",
+          "zh": "对照组看到的是旧页面，另一组看到的是新页面。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你说新推荐算法提升了点击率，是和什么比的？",
+        "en": "Compared with the control group, which kept the old algorithm over the same two weeks."
+      },
+      "collocations": [
+        "treatment group",
+        "compared with the control group"
+      ],
+      "note": "做了改动的那一组叫 treatment group 或 test group。"
+    },
+    {
+      "term": "statistically significant",
+      "kind": "chunk",
+      "zh": "统计上显著的（副词 + 形容词）",
+      "ipa": "/stəˈtɪstɪkli sɪɡˈnɪfɪkənt/",
+      "examples": [
+        {
+          "en": "The difference looked good, but it wasn't statistically significant yet.",
+          "zh": "差异看起来不错，但在统计上还不显著。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：实验跑了三天，数据已经更好了，为什么不直接全量？",
+        "en": "The sample was too small, so the result wasn't statistically significant. We let it run for two more weeks."
+      },
+      "note": "名词是 statistical significance：reach statistical significance（达到统计显著）。"
+    },
+    {
+      "term": "conversion rate",
+      "kind": "chunk",
+      "zh": "转化率",
+      "examples": [
+        {
+          "en": "The new flow improved the checkout conversion rate from 62 to 68 percent.",
+          "zh": "新流程把结算转化率从 62% 提高到了 68%。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：这次改版，你们用什么指标衡量成功？",
+        "en": "Our main metric was the conversion rate: the share of users who started checkout and actually paid."
+      },
+      "collocations": [
+        "improve the conversion rate",
+        "retention rate",
+        "churn rate",
+        "click-through rate"
+      ],
+      "note": "动词是 convert：Only 3% of visitors convert. 相关指标：retention rate 留存率，churn rate 流失率，click-through rate 点击率。"
+    },
+    {
+      "term": "measure the impact",
+      "kind": "chunk",
+      "zh": "衡量（改动带来的）实际效果（m 开头的动词 + i 开头的名词）",
+      "examples": [
+        {
+          "en": "We added tracking before launch so we could measure the impact afterwards.",
+          "zh": "我们在上线前就加了埋点，这样上线后才能衡量效果。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：功能上线之后，你们怎么知道它到底有没有用？",
+        "en": "We measured the impact by comparing order completion in the four weeks before and after the launch."
+      },
+      "collocations": [
+        "measure the impact of ... on ...",
+        "have an impact on",
+        "add tracking"
+      ],
+      "note": "impact 后面接 on：measure the impact on revenue。“埋点”可以说 tracking 或 instrumentation。"
+    },
+    {
+      "term": "permission model",
+      "kind": "chunk",
+      "zh": "权限模型",
+      "examples": [
+        {
+          "en": "Our permission model was based on roles, resources, and actions.",
+          "zh": "我们的权限模型建立在角色、资源和操作这三者之上。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：企业客户的组织结构各不相同，你们的权限是怎么设计的？",
+        "en": "We redesigned the permission model so customers could define their own roles instead of using fixed ones."
+      },
+      "collocations": [
+        "grant a permission",
+        "check permissions",
+        "fine-grained permissions"
+      ],
+      "note": "permission 是具体的一项权限，可数：grant a permission。access 是访问权，不可数：have access to the report。"
+    },
+    {
+      "term": "assign a role to",
+      "kind": "chunk",
+      "zh": "给（用户）分配角色（a 开头的动词）",
+      "examples": [
+        {
+          "en": "Admins can assign a role to each user at the project level.",
+          "zh": "管理员可以在项目级别给每个用户分配角色。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：同一个用户在不同项目里权限不同，这个怎么支持？",
+        "en": "We assign a role to the user per project, so the same person can be an admin in one and a viewer in another."
+      },
+      "collocations": [
+        "assign users to a role",
+        "custom role",
+        "role assignment"
+      ],
+      "note": "常见的角色名：admin、editor、viewer、owner。也说 assign users to a role。"
+    },
+    {
+      "term": "approval workflow",
+      "kind": "chunk",
+      "zh": "审批流（第二个词 w 开头）",
+      "examples": [
+        {
+          "en": "We built a configurable approval workflow for purchase orders above a certain amount.",
+          "zh": "我们为超过一定金额的采购单做了一套可配置的审批流。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你做过的企业软件里，哪块业务逻辑最复杂？",
+        "en": "The approval workflow. Each customer wanted different steps, different approvers, and different rules for skipping levels."
+      },
+      "collocations": [
+        "submit ... for approval",
+        "pending approval",
+        "multi-step approval"
+      ],
+      "note": "审批人是 approver，提交审批是 submit for approval，待审批是 pending approval，驳回是 reject。"
+    },
+    {
+      "term": "multi-tenant",
+      "kind": "word",
+      "zh": "多租户的（形容词，带连字符）",
+      "ipa": "/ˌmʌlti ˈtenənt/",
+      "examples": [
+        {
+          "en": "It's a multi-tenant system, so every query has to be scoped to the customer's account.",
+          "zh": "这是个多租户系统，所以每条查询都必须限定在该客户的账号范围内。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们的 SaaS 产品，不同客户的数据是怎么隔离的？",
+        "en": "It's multi-tenant with a shared database, and every table has a tenant ID that we filter on."
+      },
+      "collocations": [
+        "multi-tenant architecture",
+        "tenant isolation",
+        "single-tenant"
+      ],
+      "note": "租户是 tenant，租户隔离是 tenant isolation。每个客户独立部署一套叫 single-tenant。名词是 multi-tenancy。"
+    },
+    {
+      "term": "generate a report",
+      "kind": "chunk",
+      "zh": "生成报表（g 开头的动词）",
+      "examples": [
+        {
+          "en": "It took twenty minutes to generate a report for our largest customers.",
+          "zh": "给最大的那几个客户生成一份报表要二十分钟。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：报表查询把线上数据库拖慢了，你们怎么解决的？",
+        "en": "We moved it off the main database. Now we generate reports from a read replica in a background job."
+      },
+      "collocations": [
+        "scheduled report",
+        "ad hoc report",
+        "monthly report"
+      ],
+      "note": "定时报表是 scheduled report，临时拉的报表是 ad hoc report，报表功能统称 reporting。"
+    },
+    {
+      "term": "internationalization",
+      "kind": "word",
+      "zh": "国际化（让产品能支持多语言、多地区的工程工作，全称）",
+      "ipa": "/ˌɪntərˌnæʃnələˈzeɪʃn/",
+      "examples": [
+        {
+          "en": "We added internationalization late, so we had to pull hard-coded strings out of every page.",
+          "zh": "我们国际化做得晚，结果不得不把每个页面里写死的文案都抽出来。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：产品要进入日本和德国市场，前端最大的工作量是什么？",
+        "en": "Internationalization: extracting all the text, handling plurals and date formats, and making layouts work with longer strings."
+      },
+      "collocations": [
+        "i18n",
+        "localization",
+        "translation file",
+        "locale"
+      ],
+      "note": "常缩写成 i18n（首尾字母之间有 18 个字母）。它是让产品“能够”适配各地；localization（l10n）是针对某个地区做具体的翻译和适配。"
+    },
+    {
+      "term": "daylight saving time",
+      "kind": "chunk",
+      "zh": "夏令时（三个词）",
+      "examples": [
+        {
+          "en": "The scheduled job ran twice because of daylight saving time.",
+          "zh": "因为夏令时，那个定时任务跑了两次。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：时区处理里，你踩过什么坑？",
+        "en": "Daylight saving time. Once a year a local hour doesn't exist, and once a year it happens twice."
+      },
+      "collocations": [
+        "store timestamps in UTC",
+        "convert to local time",
+        "time zone offset"
+      ],
+      "note": "标准写法是 saving，不带 s，口语里很多人说 savings。缩写 DST。通用做法：存 UTC，展示时再转成用户的本地时间。"
+    },
+    {
+      "term": "bulk import",
+      "kind": "chunk",
+      "zh": "批量导入（b 开头）",
+      "examples": [
+        {
+          "en": "The bulk import had to handle files with over a million rows.",
+          "zh": "批量导入要能处理超过一百万行的文件。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：客户要一次性导入几十万条历史数据，你们怎么做的？",
+        "en": "We built a bulk import that runs in the background, validates each row, and returns a file of the rows that failed."
+      },
+      "collocations": [
+        "bulk update",
+        "bulk delete",
+        "import in bulk"
+      ],
+      "note": "bulk 表示“大批量的”：bulk update、bulk delete、in bulk。"
+    },
+    {
+      "term": "CSV export",
+      "kind": "chunk",
+      "zh": "导出 CSV 文件的功能（名词短语，两个词）",
+      "examples": [
+        {
+          "en": "The CSV export timed out for large accounts, so we made it asynchronous.",
+          "zh": "大客户的 CSV 导出会超时，所以我们把它改成了异步。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户点“导出”要等好几分钟，你们怎么改进的？",
+        "en": "We turned the CSV export into a background job and emailed the user a download link when it was ready."
+      },
+      "collocations": [
+        "export ... to CSV",
+        "export ... as a CSV file",
+        "download link"
+      ],
+      "note": "动词说法：export the data to CSV。CSV 三个字母分开读。"
+    },
+    {
+      "term": "news feed",
+      "kind": "chunk",
+      "zh": "信息流（社交产品首页不断刷新的内容列表）",
+      "examples": [
+        {
+          "en": "We precomputed each user's news feed so the home page would load quickly.",
+          "zh": "我们预先算好每个用户的信息流，这样首页加载才快。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户打开首页看到的内容列表，是实时算的还是提前算好的？",
+        "en": "For most users we build the news feed ahead of time, and we only compute it on read for very active accounts."
+      },
+      "collocations": [
+        "home feed",
+        "timeline",
+        "rank the feed"
+      ],
+      "note": "也简称 feed，或叫 timeline（时间线）。"
+    },
+    {
+      "term": "personalized recommendations",
+      "kind": "chunk",
+      "zh": "个性化推荐（复数）",
+      "examples": [
+        {
+          "en": "Personalized recommendations drove about a third of our orders.",
+          "zh": "个性化推荐带来了我们大约三分之一的订单。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：新用户没有任何行为数据，首页给他推什么？",
+        "en": "We can't show personalized recommendations yet, so we show what's popular in their region instead."
+      },
+      "collocations": [
+        "recommendation system",
+        "the cold start problem",
+        "based on browsing history"
+      ],
+      "note": "新用户没数据的问题叫 the cold start problem（冷启动问题）。推荐系统是 recommendation system 或 recommender。"
+    },
+    {
+      "term": "push notification",
+      "kind": "chunk",
+      "zh": "推送通知（发到手机通知栏的那种）",
+      "examples": [
+        {
+          "en": "We batch push notifications so users don't get ten alerts in a minute.",
+          "zh": "我们把推送通知合并发送，免得用户一分钟收到十条提醒。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：通知发得太多，用户直接把通知权限关了，你们怎么办？",
+        "en": "We let users choose which push notifications they get, and we cap how many we send per day."
+      },
+      "collocations": [
+        "send a push notification",
+        "in-app notification",
+        "notification settings",
+        "opt out of notifications"
+      ],
+      "note": "应用内的通知叫 in-app notification，邮件通知叫 email notification。"
+    },
+    {
+      "term": "unread count",
+      "kind": "chunk",
+      "zh": "未读数（图标上显示的未读消息条数）",
+      "examples": [
+        {
+          "en": "The unread count on the app icon was often out of sync with the inbox.",
+          "zh": "应用图标上的未读数经常和收件箱里的对不上。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：消息的已读未读状态，在多端之间怎么保持一致？",
+        "en": "We keep the unread count on the server and push updates to every device when a message is marked as read."
+      },
+      "collocations": [
+        "mark as read",
+        "mark all as read",
+        "read receipt",
+        "badge"
+      ],
+      "note": "标为已读是 mark as read，已读回执是 read receipt，图标上的角标叫 badge。"
+    },
+    {
+      "term": "content moderation",
+      "kind": "chunk",
+      "zh": "内容审核（m 开头）",
+      "examples": [
+        {
+          "en": "We combined automated filters with human review for content moderation.",
+          "zh": "内容审核方面，我们把自动过滤和人工复审结合起来。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户发的帖子和图片，公开之前要不要过一遍检查？",
+        "en": "Yes. Content moderation runs before a post goes public, and anything borderline goes to a human reviewer."
+      },
+      "collocations": [
+        "human review",
+        "flag a post",
+        "take down",
+        "moderator"
+      ],
+      "note": "审核员是 moderator，举报内容是 report 或 flag a post，下架是 take down。不要说 content audit，那是“盘点内容”的意思。"
+    }
+  ]
+}

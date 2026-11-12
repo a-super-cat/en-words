@@ -1,0 +1,567 @@
+{
+  "layer": "C",
+  "category": "engineering",
+  "title": "工程实践",
+  "entries": [
+    {
+      "term": "retrospective",
+      "kind": "word",
+      "zh": "回顾会（迭代结束时开，r 开头）",
+      "ipa": "/ˌretrəˈspektɪv/",
+      "examples": [
+        {
+          "en": "In the last retrospective, we agreed to limit how many tickets are in progress at once.",
+          "zh": "上次回顾会上，我们约定要限制同时进行中的任务数量。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：团队流程上的问题，你们一般在什么场合提出来？",
+        "en": "We hold a retrospective at the end of every sprint and pick one or two things to improve."
+      },
+      "note": "口头常简称 retro：Let's bring it up at the retro.",
+      "collocations": [
+        "hold a retrospective",
+        "bring it up at the retro",
+        "a sprint retro"
+      ]
+    },
+    {
+      "term": "definition of done",
+      "kind": "chunk",
+      "zh": "完成的定义（团队对“做完”的统一标准）",
+      "examples": [
+        {
+          "en": "Our definition of done includes tests, documentation, and a deploy to staging.",
+          "zh": "我们对“完成”的定义包括测试、文档，以及部署到预发环境。"
+        }
+      ],
+      "situation": {
+        "zh": "同事说任务做完了，但其实只是代码写完，还没测也没上线。你想提议：",
+        "en": "Let's agree on a definition of done, so that a finished ticket means tested and deployed, not just coded."
+      },
+      "note": "常缩写成 DoD。",
+      "collocations": [
+        "meet the definition of done",
+        "agree on a definition of done"
+      ]
+    },
+    {
+      "term": "deliver on time",
+      "kind": "chunk",
+      "zh": "按时交付（d 开头的动词）",
+      "examples": [
+        {
+          "en": "We delivered on time by cutting two features that weren't essential for launch.",
+          "zh": "我们砍掉了两个对上线不是必需的功能，从而按时交付了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：讲一次工期很紧的项目，结果怎么样？",
+        "en": "We managed to deliver on time, mainly because we agreed on the must-haves early and protected them."
+      },
+      "note": "反义：miss the deadline；延期说 slip：The release slipped by two weeks.",
+      "collocations": [
+        "deliver on time and within budget",
+        "miss the deadline",
+        "slip by a week"
+      ]
+    },
+    {
+      "term": "milestone",
+      "kind": "word",
+      "zh": "里程碑",
+      "examples": [
+        {
+          "en": "The first milestone is a working prototype that the sales team can demo.",
+          "zh": "第一个里程碑是一个可以让销售团队演示的可用原型。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问：这个半年的项目，你打算怎么让大家看得到进展？",
+        "en": "I'd break it into monthly milestones, each with something we can actually demo."
+      },
+      "note": "达成里程碑说 hit / reach a milestone。",
+      "collocations": [
+        "hit a milestone",
+        "miss a milestone",
+        "a major milestone"
+      ]
+    },
+    {
+      "term": "pair programming",
+      "kind": "chunk",
+      "zh": "结对编程",
+      "examples": [
+        {
+          "en": "We use pair programming for tricky changes and for introducing new teammates to unfamiliar code.",
+          "zh": "遇到棘手的改动，或者要带新同事熟悉陌生的代码时，我们会用结对编程。"
+        }
+      ],
+      "situation": {
+        "zh": "新同事卡在一个并发 bug 上两天了。你想主动提出：",
+        "en": "Want to do some pair programming on it this afternoon? Two heads might crack it faster."
+      },
+      "note": "动词说 pair：Let's pair on this. / I paired with Anna on the fix.",
+      "collocations": [
+        "pair on a task",
+        "pair with someone",
+        "a pairing session"
+      ]
+    },
+    {
+      "term": "knowledge sharing",
+      "kind": "chunk",
+      "zh": "知识共享",
+      "examples": [
+        {
+          "en": "We run a short knowledge sharing session every other Friday, and anyone can present.",
+          "zh": "我们每隔一周的周五办一次简短的知识分享会，谁都可以讲。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你怎么避免某块系统只有一个人懂？",
+        "en": "I push for knowledge sharing: rotating who works on what, writing things down, and giving short internal talks."
+      },
+      "note": "动词搭配：share knowledge across the team。作定语时常加连字符：a knowledge-sharing session。",
+      "collocations": [
+        "a knowledge-sharing session",
+        "share knowledge",
+        "an internal tech talk"
+      ]
+    },
+    {
+      "term": "onboarding",
+      "kind": "word",
+      "zh": "新人入职上手（名词，o 开头）",
+      "examples": [
+        {
+          "en": "Onboarding used to take a month, so we wrote a guide and automated the local setup.",
+          "zh": "以前新人上手要一个月，所以我们写了一份指南，并把本地环境搭建自动化了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：新人加入你们团队，多久能提交第一个改动？",
+        "en": "We've put a lot of work into onboarding. Most new hires ship a small change in their first week."
+      },
+      "note": "动词是 onboard：onboard a new hire。也用于客户和系统接入：onboard a new customer。",
+      "collocations": [
+        "an onboarding guide",
+        "onboard a new hire",
+        "an onboarding buddy"
+      ]
+    },
+    {
+      "term": "design review",
+      "kind": "chunk",
+      "zh": "技术方案评审",
+      "examples": [
+        {
+          "en": "We hold a design review for anything that touches more than one service.",
+          "zh": "只要改动涉及不止一个服务，我们就会开技术方案评审。"
+        }
+      ],
+      "situation": {
+        "zh": "同事打算直接开始写一个要改三个服务的大功能。你想建议：",
+        "en": "Before you start coding, let's do a design review. It's cheaper to catch problems on paper."
+      },
+      "note": "和 code review 的区别：design review 在动手写代码之前评审方案。",
+      "collocations": [
+        "hold a design review",
+        "go through a design review"
+      ]
+    },
+    {
+      "term": "cross-team dependency",
+      "kind": "chunk",
+      "zh": "跨团队依赖",
+      "examples": [
+        {
+          "en": "The biggest risk to the schedule is a cross-team dependency on the platform team's new API.",
+          "zh": "进度上最大的风险是一个跨团队依赖：我们要等平台团队的新接口。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问：这个项目有什么是你自己控制不了的？",
+        "en": "There's one cross-team dependency. We need the data team to expose a new endpoint before we can integrate."
+      },
+      "note": "“依赖某个团队”说 depend on / have a dependency on the platform team。",
+      "collocations": [
+        "have a dependency on another team",
+        "manage dependencies",
+        "an external dependency"
+      ]
+    },
+    {
+      "term": "test pyramid",
+      "kind": "chunk",
+      "zh": "测试金字塔",
+      "examples": [
+        {
+          "en": "We follow the test pyramid: lots of fast unit tests and only a few slow UI tests.",
+          "zh": "我们遵循测试金字塔：大量跑得快的单元测试，只有少量跑得慢的 UI 测试。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：单元测试、集成测试、端到端测试，你们各写多少？",
+        "en": "We follow the test pyramid. Most of our tests are unit tests, with fewer integration tests and just a handful of end-to-end ones."
+      },
+      "note": "pyramid 读 /ˈpɪrəmɪd/，重音在第一个音节。也叫 testing pyramid。",
+      "collocations": [
+        "follow the test pyramid",
+        "the base of the pyramid"
+      ]
+    },
+    {
+      "term": "test-driven development",
+      "kind": "chunk",
+      "zh": "测试驱动开发",
+      "examples": [
+        {
+          "en": "I use test-driven development for tricky logic, where writing the test first clarifies the requirements.",
+          "zh": "遇到复杂的逻辑我会用测试驱动开发，先写测试能把需求理清楚。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你是先写代码还是先写测试？",
+        "en": "It depends. For well-defined logic I like test-driven development: write a failing test, make it pass, then clean up."
+      },
+      "note": "缩写 TDD。流程常说成 red, green, refactor：先写一个失败的测试，让它通过，再重构。",
+      "collocations": [
+        "practice TDD",
+        "write a failing test first",
+        "red, green, refactor"
+      ]
+    },
+    {
+      "term": "test suite",
+      "kind": "chunk",
+      "zh": "测试套件（一整套测试）",
+      "examples": [
+        {
+          "en": "The full test suite takes twenty minutes, so I only run the relevant tests locally.",
+          "zh": "整套测试跑完要二十分钟，所以我在本地只跑相关的那部分。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：你这个改动动了公共模块，怎么确认没影响别的地方？",
+        "en": "I ran the whole test suite, not just the tests for my module, and everything passed."
+      },
+      "note": "suite 读 /swiːt/，和 sweet 同音，不要读成 suit /suːt/。",
+      "collocations": [
+        "run the test suite",
+        "a slow test suite",
+        "a test case"
+      ]
+    },
+    {
+      "term": "happy path",
+      "kind": "chunk",
+      "zh": "正常流程（一切顺利、不出错的那条路径，h 开头）",
+      "examples": [
+        {
+          "en": "So far I've only tested the happy path, so error handling still needs work.",
+          "zh": "目前我只测了正常流程，错误处理还得再做。"
+        }
+      ],
+      "situation": {
+        "zh": "站会上你想说：功能主流程已经通了，但各种异常情况还没处理。",
+        "en": "The happy path works end to end. Today I'm handling the failure cases, like timeouts and invalid input."
+      },
+      "note": "对应的异常流程可以说 the unhappy path 或 error cases。",
+      "collocations": [
+        "test the happy path",
+        "the unhappy path",
+        "error cases"
+      ]
+    },
+    {
+      "term": "deployment frequency",
+      "kind": "chunk",
+      "zh": "部署频率",
+      "examples": [
+        {
+          "en": "Our deployment frequency went from once a month to several times a day.",
+          "zh": "我们的部署频率从一个月一次提高到了一天好几次。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你怎么衡量团队的交付效率有没有提升？",
+        "en": "I look at deployment frequency and lead time for changes. If both improve without more incidents, we're getting better."
+      },
+      "note": "它是 DORA 四项指标之一，另外三项是 lead time for changes、change failure rate 和恢复服务所需的时间。",
+      "collocations": [
+        "increase deployment frequency",
+        "lead time for changes",
+        "change failure rate"
+      ]
+    },
+    {
+      "term": "bump the version",
+      "kind": "chunk",
+      "zh": "升版本号（动词短语，b 开头）",
+      "examples": [
+        {
+          "en": "Remember to bump the version in package.json before you publish the library.",
+          "zh": "发布这个库之前，记得把 package.json 里的版本号升一下。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里给公共库加了一个新方法，但版本号没动。你想提醒：",
+        "en": "Could you bump the version as well? This adds a feature, so it should be a minor bump."
+      },
+      "note": "bump 也作名词：a version bump。升级依赖也用它：bump React to 19。",
+      "collocations": [
+        "a version bump",
+        "bump a dependency",
+        "bump the minor version"
+      ]
+    },
+    {
+      "term": "release candidate",
+      "kind": "chunk",
+      "zh": "候选发布版本",
+      "examples": [
+        {
+          "en": "We deploy each release candidate to staging and let QA test it for two days.",
+          "zh": "每个候选发布版本我们都会部署到预发环境，让 QA 测两天。"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理问：下周要发的那个版本，现在能试用了吗？",
+        "en": "Yes, the first release candidate is on staging. If nothing serious comes up, that's the build we'll ship."
+      },
+      "note": "缩写 RC，版本号常写成 2.0.0-rc.1。",
+      "collocations": [
+        "cut a release candidate",
+        "promote the release candidate"
+      ]
+    },
+    {
+      "term": "hotfix",
+      "kind": "word",
+      "zh": "紧急修复（针对线上问题单独发的补丁，一个词）",
+      "examples": [
+        {
+          "en": "We shipped a hotfix within an hour, then did the proper fix the following week.",
+          "zh": "我们一小时内发了一个紧急修复，然后在下一周做了正式的修复。"
+        }
+      ],
+      "situation": {
+        "zh": "线上发现一个会导致重复扣款的 bug，下次正常发版在三天后。你想说：",
+        "en": "This can't wait for the next release. I'll prepare a hotfix and get it reviewed right away."
+      },
+      "note": "hotfix 不等正常的发版节奏，通常直接从线上版本拉分支来修。",
+      "collocations": [
+        "ship a hotfix",
+        "a hotfix branch",
+        "deploy a hotfix"
+      ]
+    },
+    {
+      "term": "dev environment",
+      "kind": "chunk",
+      "zh": "开发环境（第一个词用口语缩写）",
+      "examples": [
+        {
+          "en": "Setting up the dev environment used to take a full day; now it's one command.",
+          "zh": "以前搭开发环境要花一整天，现在一条命令就行了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：这个实验性的改动，我先部署到哪里试一下比较合适？",
+        "en": "Try it in the dev environment first. Nobody depends on it, so it's fine if something breaks."
+      },
+      "note": "dev 是 development 的口语缩写。既可以指自己机器上的 local dev environment，也可以指团队共用的开发环境。",
+      "collocations": [
+        "a local dev environment",
+        "set up the dev environment",
+        "dev, staging, and production"
+      ]
+    },
+    {
+      "term": "smoke test",
+      "kind": "chunk",
+      "zh": "冒烟测试",
+      "examples": [
+        {
+          "en": "After each deploy, a smoke test checks that login and checkout still work.",
+          "zh": "每次部署之后，会有一个冒烟测试检查登录和结账是否还正常。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：发布完成之后，你们怎么快速确认没有把核心功能搞坏？",
+        "en": "We run a smoke test right after the deploy. It hits the critical endpoints and fails loudly if anything is off."
+      },
+      "note": "冒烟测试只验证最核心的功能能不能跑，求快不求全。",
+      "collocations": [
+        "run a smoke test",
+        "pass the smoke tests"
+      ]
+    },
+    {
+      "term": "load test",
+      "kind": "chunk",
+      "zh": "压测（按预期流量施压，l 开头）",
+      "examples": [
+        {
+          "en": "We ran a load test at three times our peak traffic before the sale.",
+          "zh": "大促之前，我们按峰值流量的三倍做了一次压测。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你怎么知道系统能扛住大促的流量？",
+        "en": "We ran a load test that replayed production traffic at five times the normal rate and watched where it started to degrade."
+      },
+      "note": "load test 验证预期负载下的表现；stress test 是一直加压到系统撑不住，看极限在哪。也作动词：load-test the service。",
+      "collocations": [
+        "run a load test",
+        "a stress test",
+        "under load"
+      ]
+    },
+    {
+      "term": "test double",
+      "kind": "chunk",
+      "zh": "测试替身（替代真实依赖的各种对象的统称）",
+      "examples": [
+        {
+          "en": "We replace the email service with a test double so the tests don't send real emails.",
+          "zh": "我们用测试替身替换了邮件服务，这样测试就不会真的发邮件。"
+        }
+      ],
+      "situation": {
+        "zh": "新同事问：桩、模拟对象、伪实现，这些东西有没有一个统称？",
+        "en": "Yes, they're all kinds of test double: anything that stands in for a real dependency in a test."
+      },
+      "note": "double 来自 stunt double（替身演员）。stub、mock、fake、spy 都是 test double 的具体种类。",
+      "collocations": [
+        "replace it with a test double",
+        "stand in for a real dependency"
+      ]
+    },
+    {
+      "term": "stub",
+      "kind": "word",
+      "zh": "桩（只返回预设结果的测试替身，s 开头）",
+      "examples": [
+        {
+          "en": "I used a stub that always returns the same exchange rate, so the test is deterministic.",
+          "zh": "我用了一个永远返回同一个汇率的桩，这样测试结果就是确定的。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：测试里要调天气接口，但它的返回每次都不一样，怎么办？",
+        "en": "Replace it with a stub that returns a fixed response, so the test doesn't depend on the real API."
+      },
+      "note": "stub 只管返回预设值；mock 还会验证“有没有被调用、怎么调用的”。动词：stub out the API call。",
+      "collocations": [
+        "stub out a call",
+        "a stubbed response",
+        "a canned response"
+      ]
+    },
+    {
+      "term": "fake",
+      "kind": "word",
+      "zh": "伪实现（能真正工作的简化版测试替身，f 开头）",
+      "examples": [
+        {
+          "en": "We test against an in-memory fake of the repository instead of a real database.",
+          "zh": "我们用仓储层的一个内存版伪实现来测试，而不是连真实的数据库。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：每个用例都要手写一堆预设返回值，太啰嗦了，有更省事的办法吗？",
+        "en": "You could write a fake, like an in-memory version of the store. It behaves like the real thing, so the tests stay simple."
+      },
+      "note": "fake 有真实可用的逻辑（比如内存版的存储），只是不适合用在生产环境；stub 只返回写死的值。",
+      "collocations": [
+        "an in-memory fake",
+        "a fake implementation"
+      ]
+    },
+    {
+      "term": "design doc",
+      "kind": "chunk",
+      "zh": "技术方案文档（两个词，第二个词用口语缩写）",
+      "examples": [
+        {
+          "en": "I wrote a design doc comparing three approaches and shared it for comments before coding.",
+          "zh": "写代码之前，我写了一份技术方案文档对比三种做法，并发出来征求意见。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：做一个比较大的功能之前，你一般先做什么？",
+        "en": "I start with a short design doc that covers the problem, the options, and the trade-offs, then get feedback from the team."
+      },
+      "note": "也叫 tech spec 或 RFC（request for comments）。",
+      "collocations": [
+        "write a design doc",
+        "circulate a design doc",
+        "a tech spec"
+      ]
+    },
+    {
+      "term": "ramp up",
+      "kind": "chunk",
+      "zh": "（新人）逐步上手、进入状态，r 开头的短语动词",
+      "examples": [
+        {
+          "en": "It took me about a month to ramp up on the codebase when I joined.",
+          "zh": "我刚加入的时候，花了大约一个月才把代码库摸熟。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：如果加入我们，你要多久才能独立干活？",
+        "en": "I usually ramp up quickly. I'd expect to ship small changes in the first two weeks and own a feature within two months."
+      },
+      "note": "ramp up on + 要熟悉的东西。它也表示“逐步加大”：ramp up traffic、ramp up hiring。名词是 ramp-up：ramp-up time。",
+      "collocations": [
+        "ramp up on the codebase",
+        "ramp-up time",
+        "ramp up quickly"
+      ]
+    },
+    {
+      "term": "code ownership",
+      "kind": "chunk",
+      "zh": "代码归属（哪块代码由谁负责）",
+      "examples": [
+        {
+          "en": "Clear code ownership means every service has a team that reviews changes and answers questions.",
+          "zh": "代码归属清晰，意味着每个服务都有一个团队负责评审改动、回答问题。"
+        }
+      ],
+      "situation": {
+        "zh": "有个公共模块出了 bug，三个团队都说不归自己管。你想指出真正的问题：",
+        "en": "The real issue is code ownership. Nobody owns that module, so nobody reviews changes to it."
+      },
+      "note": "GitHub 里用 CODEOWNERS 文件指定各目录的负责人。",
+      "collocations": [
+        "clear code ownership",
+        "a CODEOWNERS file",
+        "shared ownership"
+      ]
+    },
+    {
+      "term": "knowledge silo",
+      "kind": "chunk",
+      "zh": "知识孤岛",
+      "examples": [
+        {
+          "en": "Each team had its own deployment scripts, which created knowledge silos across the department.",
+          "zh": "每个团队都有自己的一套部署脚本，结果在整个部门里形成了知识孤岛。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：团队按模块分工很细，有什么坏处？",
+        "en": "You get knowledge silos. Each person only knows their own corner, so reviews get shallow and vacations become risky."
+      },
+      "note": "silo 读 /ˈsaɪloʊ/。“打破孤岛”说 break down silos。",
+      "collocations": [
+        "break down silos",
+        "work in silos"
+      ]
+    }
+  ]
+}

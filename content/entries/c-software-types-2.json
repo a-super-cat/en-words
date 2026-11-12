@@ -1,0 +1,483 @@
+{
+  "layer": "C",
+  "category": "software-types",
+  "title": "软件形态",
+  "entries": [
+    {
+      "term": "data pipeline",
+      "kind": "chunk",
+      "zh": "数据管道",
+      "examples": [
+        {
+          "en": "The data pipeline pulls orders from the production database and loads them into the warehouse every hour.",
+          "zh": "这条数据管道每小时从生产库拉取订单，加载到数仓里。"
+        },
+        {
+          "en": "When a data pipeline fails silently, nobody notices until the dashboard numbers look wrong.",
+          "zh": "数据管道悄悄失败时，没人会发现，直到看板上的数字看起来不对。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：和在线服务相比，做数据类系统的难点在哪里？",
+        "en": "A data pipeline rarely crashes loudly. It produces wrong or late data, so you need checks on data quality, not just uptime."
+      },
+      "collocations": [
+        "build a data pipeline",
+        "a data quality check",
+        "upstream and downstream"
+      ]
+    },
+    {
+      "term": "batch job",
+      "kind": "chunk",
+      "zh": "批处理任务",
+      "examples": [
+        {
+          "en": "A nightly batch job recalculates the recommendations for every user.",
+          "zh": "每天夜里有一个批处理任务为所有用户重新计算推荐结果。"
+        },
+        {
+          "en": "The batch job was taking nine hours, so a failure meant no fresh data the next morning.",
+          "zh": "这个批处理任务要跑九个小时，一旦失败，第二天早上就没有新数据。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：报表数据不需要实时，一天更新一次就够，你会怎么设计？",
+        "en": "I'd run a nightly batch job. It's simpler and cheaper than streaming, and a day of delay is acceptable here."
+      },
+      "collocations": [
+        "batch processing",
+        "a nightly job",
+        "rerun the job"
+      ],
+      "note": "批处理是 batch processing，和它相对的是流处理。"
+    },
+    {
+      "term": "ETL",
+      "kind": "word",
+      "zh": "抽取、转换、加载（三个字母的缩写）",
+      "examples": [
+        {
+          "en": "Our ETL runs every night and loads cleaned order data into the warehouse.",
+          "zh": "我们的 ETL 每天夜里跑一次，把清洗过的订单数据加载进数仓。"
+        },
+        {
+          "en": "We moved from ETL to ELT, loading the raw data first and transforming it inside the warehouse.",
+          "zh": "我们从 ETL 转向了 ELT：先加载原始数据，再在数仓里做转换。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：业务库的数据是怎么变成分析师可以查的报表数据的？",
+        "en": "Through an ETL process: we extract the data from the source systems, transform it into a clean schema and load it into the warehouse."
+      },
+      "note": "全称 extract, transform, load，逐个字母读。先加载后转换的做法叫 ELT。"
+    },
+    {
+      "term": "data lake",
+      "kind": "chunk",
+      "zh": "数据湖",
+      "examples": [
+        {
+          "en": "We dump the raw events into a data lake on S3 and decide how to use them later.",
+          "zh": "我们把原始事件直接倒进 S3 上的数据湖，之后再决定怎么用。"
+        },
+        {
+          "en": "Without a catalog, a data lake quickly turns into a swamp where nobody can find anything.",
+          "zh": "没有元数据目录的话，数据湖很快就会变成谁也找不到东西的沼泽。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：日志、点击流这类原始的、格式不固定的数据，你们存在哪里？",
+        "en": "In a data lake. It's cheap object storage that holds raw data in any format, and we only apply a schema when we read it."
+      },
+      "note": "数据湖存原始数据，读的时候才套 schema（schema-on-read）；数仓存的是建好模的数据。"
+    },
+    {
+      "term": "installer",
+      "kind": "word",
+      "zh": "安装程序（安装包）",
+      "examples": [
+        {
+          "en": "We build a separate installer for Windows, macOS and Linux in CI.",
+          "zh": "我们在 CI 里为 Windows、macOS 和 Linux 分别构建安装程序。"
+        },
+        {
+          "en": "The Electron installer is over a hundred megabytes because it bundles Chromium and Node.js.",
+          "zh": "Electron 的安装包有一百多兆，因为它把 Chromium 和 Node.js 都打包进去了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：桌面应用和 Web 应用在交付方式上有什么不同？",
+        "en": "You have to ship an installer for each operating system, and you can't assume users are on the latest version."
+      },
+      "collocations": [
+        "build an installer",
+        "package the app",
+        "installer size"
+      ]
+    },
+    {
+      "term": "auto-update",
+      "kind": "chunk",
+      "zh": "自动更新",
+      "examples": [
+        {
+          "en": "The desktop app checks for a new version on startup and installs it through auto-update.",
+          "zh": "桌面应用启动时检查新版本，并通过自动更新完成安装。"
+        },
+        {
+          "en": "A bug in auto-update is the worst kind, because you can't push a fix to clients that can't update.",
+          "zh": "自动更新里的 bug 是最要命的，因为客户端更新不了，你也就没法把修复推给它们。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：桌面客户端装在用户电脑上，怎么保证大家都用上新版本？",
+        "en": "We built auto-update into the app: it downloads the new version in the background and applies it on the next restart."
+      },
+      "note": "也可以作动词：the app auto-updates。"
+    },
+    {
+      "term": "code signing",
+      "kind": "chunk",
+      "zh": "代码签名",
+      "examples": [
+        {
+          "en": "Without code signing, Windows and macOS warn users that the app comes from an unknown developer.",
+          "zh": "没有代码签名的话，Windows 和 macOS 会警告用户这个应用来自未知开发者。"
+        },
+        {
+          "en": "We do the code signing in CI, and the certificate never leaves the build server.",
+          "zh": "代码签名是在 CI 里做的，证书从不离开构建服务器。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户下载你们的桌面应用，系统弹出“无法验证开发者”的警告，怎么解决？",
+        "en": "We need code signing: sign the installer with our developer certificate, and on macOS also get it notarized by Apple."
+      },
+      "collocations": [
+        "sign the binary",
+        "a signing certificate",
+        "notarize the app"
+      ]
+    },
+    {
+      "term": "memory footprint",
+      "kind": "chunk",
+      "zh": "内存占用（f 开头）",
+      "examples": [
+        {
+          "en": "Electron's memory footprint is large, because every app runs its own copy of Chromium.",
+          "zh": "Electron 的内存占用很大，因为每个应用都跑着一份自己的 Chromium。"
+        },
+        {
+          "en": "We reduced the memory footprint by loading large documents lazily instead of keeping them all open.",
+          "zh": "我们改成按需加载大文档，而不是全部一直打开，降低了内存占用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用 Web 技术做桌面应用，用户最常抱怨的是什么？",
+        "en": "The memory footprint. An Electron app can use hundreds of megabytes even when it's idle."
+      },
+      "collocations": [
+        "a small memory footprint",
+        "reduce the memory footprint",
+        "binary size"
+      ]
+    },
+    {
+      "term": "system webview",
+      "kind": "chunk",
+      "zh": "系统自带的 WebView（不随应用打包浏览器内核）",
+      "examples": [
+        {
+          "en": "Tauri renders the UI in the system webview, so the binary is only a few megabytes.",
+          "zh": "Tauri 用系统自带的 WebView 渲染界面，所以二进制只有几兆。"
+        },
+        {
+          "en": "Relying on the system webview means the app can behave differently on Windows, macOS and Linux.",
+          "zh": "依赖系统 WebView 意味着应用在 Windows、macOS 和 Linux 上的表现可能不一样。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Tauri 打出来的包为什么比 Electron 小那么多？",
+        "en": "It doesn't bundle a browser. It uses the system webview, and the backend is a small Rust binary."
+      },
+      "note": "Windows 上是 WebView2，macOS 上是 WKWebView，Linux 上是 WebKitGTK。代价是要处理各平台渲染引擎的差异。"
+    },
+    {
+      "term": "command-line tool",
+      "kind": "chunk",
+      "zh": "命令行工具",
+      "examples": [
+        {
+          "en": "I wrote a small command-line tool that sets up a local environment in one step.",
+          "zh": "我写了一个小的命令行工具，一步就能把本地环境搭好。"
+        },
+        {
+          "en": "A good command-line tool has sensible defaults and prints errors that tell you what to do next.",
+          "zh": "好的命令行工具有合理的默认值，报错信息还会告诉你下一步该怎么做。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们的平台除了网页控制台，还给开发者提供了什么使用方式？",
+        "en": "We ship a command-line tool, so developers can script deployments and run them from CI."
+      },
+      "collocations": [
+        "flags and arguments",
+        "a subcommand",
+        "pipe the output into another command"
+      ],
+      "note": "缩写 CLI，逐个字母读。"
+    },
+    {
+      "term": "exit code",
+      "kind": "chunk",
+      "zh": "退出码",
+      "examples": [
+        {
+          "en": "The script returns a non-zero exit code on failure, so the CI job fails as well.",
+          "zh": "脚本失败时返回非零退出码，所以 CI 任务也会跟着失败。"
+        },
+        {
+          "en": "The tool printed an error but still returned exit code zero, so nobody noticed the failed deploy.",
+          "zh": "这个工具打印了错误，却还是返回退出码 0，所以没人发现部署失败了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：我的检查脚本明明报错了，为什么流水线还是绿的？",
+        "en": "It probably returns exit code zero. CI only looks at the exit code, not at what the script prints."
+      },
+      "note": "0 表示成功，非 0 表示失败。也说 exit status。"
+    },
+    {
+      "term": "ship an SDK",
+      "kind": "chunk",
+      "zh": "（对外）发布一个 SDK",
+      "examples": [
+        {
+          "en": "We ship an SDK for each major language so customers don't have to call the REST API by hand.",
+          "zh": "我们为每种主流语言都发布了 SDK，这样客户不用手写 REST API 调用。"
+        },
+        {
+          "en": "Once you ship an SDK, you can't control which version your customers are running.",
+          "zh": "SDK 一旦发出去，你就控制不了客户跑的是哪个版本了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：怎么让第三方开发者更容易接入你们的开放平台？",
+        "en": "We ship an SDK in the most popular languages, generated from the API spec, with retries and authentication built in."
+      },
+      "note": "SDK 全称 software development kit，逐个字母读。也说 client library。"
+    },
+    {
+      "term": "developer experience",
+      "kind": "chunk",
+      "zh": "开发者体验",
+      "examples": [
+        {
+          "en": "We treat developer experience as a feature: clear errors, good docs and a five-minute quick start.",
+          "zh": "我们把开发者体验当成一项功能来做：清晰的报错、好的文档，还有五分钟就能跑通的快速上手。"
+        },
+        {
+          "en": "Bad developer experience was the top reason teams gave for not adopting our internal platform.",
+          "zh": "开发者体验差，是各团队不愿意用我们内部平台时给出的头号理由。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：做给工程师用的产品，和做给普通用户用的产品，侧重点有什么不同？",
+        "en": "Developer experience is everything: how fast someone gets to a first working call, and how helpful the error messages are."
+      },
+      "note": "缩写 DX。"
+    },
+    {
+      "term": "browser extension",
+      "kind": "chunk",
+      "zh": "浏览器扩展（浏览器插件）",
+      "examples": [
+        {
+          "en": "Our browser extension injects a content script into the page to read the selected text.",
+          "zh": "我们的浏览器扩展会往页面里注入一个内容脚本，用来读取选中的文字。"
+        },
+        {
+          "en": "Every browser extension update goes through store review, and asking for new permissions scares users off.",
+          "zh": "浏览器扩展每次更新都要过商店审核，而且申请新权限会把用户吓跑。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：想在用户浏览任意网站时提供划词翻译，该做成什么形态的产品？",
+        "en": "A browser extension, because it can run a content script on any page the user allows."
+      },
+      "collocations": [
+        "content script",
+        "request permissions",
+        "extension store"
+      ],
+      "note": "Chrome 叫 extension，Firefox 叫 add-on。"
+    },
+    {
+      "term": "deprecation warning",
+      "kind": "chunk",
+      "zh": "弃用警告",
+      "examples": [
+        {
+          "en": "We added a deprecation warning two releases before removing the old function.",
+          "zh": "我们在删掉旧函数之前的两个版本就加上了弃用警告。"
+        },
+        {
+          "en": "The deprecation warning tells users exactly which function to call instead.",
+          "zh": "弃用警告会明确告诉用户应该改调哪个函数。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：库里有个旧接口想下掉，但很多人还在用，怎么平稳过渡？",
+        "en": "First we ship a deprecation warning that points to the replacement, and we only remove the old API in the next major version."
+      },
+      "note": "deprecation 读 /ˌdeprəˈkeɪʃn/。给用户留出的过渡时间叫 deprecation period。"
+    },
+    {
+      "term": "release cadence",
+      "kind": "chunk",
+      "zh": "发版节奏",
+      "examples": [
+        {
+          "en": "We moved to a six-week release cadence, so contributors know when their change will ship.",
+          "zh": "我们改成了六周一次的发版节奏，这样贡献者知道自己的改动什么时候能发出去。"
+        },
+        {
+          "en": "A predictable release cadence matters more to our users than getting features a week earlier.",
+          "zh": "对我们的用户来说，可预期的发版节奏比早一周拿到新功能更重要。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们的开源库多久发一次版本？是怎么定的？",
+        "en": "We have a fixed release cadence: a minor version every six weeks, and patch releases whenever there's a critical fix."
+      },
+      "note": "cadence 读 /ˈkeɪdns/。也说 release schedule。"
+    },
+    {
+      "term": "changelog",
+      "kind": "word",
+      "zh": "更新日志（记录每个版本改了什么）",
+      "examples": [
+        {
+          "en": "I always read the changelog before upgrading a major dependency.",
+          "zh": "升级重要的依赖之前，我一定会先读更新日志。"
+        },
+        {
+          "en": "We generate the changelog from commit messages, then edit it by hand so it's readable.",
+          "zh": "我们根据 commit 信息生成更新日志，再手工润色，让它读得下去。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：库的使用者怎么知道新版本里改了什么、有没有需要注意的地方？",
+        "en": "We keep a changelog in the repo, and every release lists the new features, fixes and any breaking changes."
+      },
+      "note": "发版时写给用户看的说明也叫 release notes。"
+    },
+    {
+      "term": "firmware",
+      "kind": "word",
+      "zh": "固件",
+      "examples": [
+        {
+          "en": "A bug in the firmware is expensive, because the devices are already in customers' homes.",
+          "zh": "固件里的 bug 代价很高，因为设备已经在客户家里了。"
+        },
+        {
+          "en": "We write the firmware in Rust and test most of the logic on a laptop before flashing a board.",
+          "zh": "我们用 Rust 写固件，大部分逻辑先在笔记本上测好，再烧到板子上。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：做硬件设备上的软件，和做后端服务最大的区别是什么？",
+        "en": "You can't just redeploy. Once the firmware ships on a device, fixing a bug means updating thousands of devices in the field."
+      },
+      "collocations": [
+        "flash the firmware",
+        "a firmware update",
+        "devices in the field"
+      ]
+    },
+    {
+      "term": "resource-constrained",
+      "kind": "chunk",
+      "zh": "资源受限的",
+      "examples": [
+        {
+          "en": "The sensor is a resource-constrained device with 64 kilobytes of RAM, so we can't allocate freely.",
+          "zh": "这个传感器是资源受限的设备，只有 64 KB 内存，所以我们不能随意分配内存。"
+        },
+        {
+          "en": "On resource-constrained hardware, even a JSON parser can be too big to fit.",
+          "zh": "在资源受限的硬件上，连一个 JSON 解析器都可能大到放不下。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么这个设备上不直接跑 Linux 加 Node.js？",
+        "en": "It's a resource-constrained device: a tiny chip running on a battery, with no room for an operating system like Linux."
+      },
+      "note": "constrained 读 /kənˈstreɪnd/。"
+    },
+    {
+      "term": "microcontroller",
+      "kind": "word",
+      "zh": "微控制器（单片机）",
+      "examples": [
+        {
+          "en": "The firmware runs on a microcontroller with no operating system, just a main loop and interrupts.",
+          "zh": "固件跑在一个没有操作系统的微控制器上，只有一个主循环加中断。"
+        },
+        {
+          "en": "We picked a microcontroller with built-in Wi-Fi to keep the board simple.",
+          "zh": "我们选了一款自带 Wi-Fi 的微控制器，让电路板保持简单。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：智能门锁这种设备里，跑代码的是什么样的芯片？",
+        "en": "A microcontroller: a small, cheap chip with the CPU, memory and peripherals all in one package."
+      },
+      "note": "缩写 MCU。没有操作系统、直接跑在硬件上叫 bare metal。"
+    },
+    {
+      "term": "over-the-air update",
+      "kind": "chunk",
+      "zh": "空中升级（设备通过网络远程更新，OTA 的全称）",
+      "examples": [
+        {
+          "en": "We can fix bugs after launch because the devices support over-the-air updates.",
+          "zh": "产品上市后我们还能修 bug，因为设备支持空中升级。"
+        },
+        {
+          "en": "Every over-the-air update is signed, and the device verifies the signature before installing it.",
+          "zh": "每次空中升级的包都带签名，设备会先验证签名再安装。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：设备已经卖出去几万台了，发现固件有 bug，怎么修？",
+        "en": "We push an over-the-air update. Devices download the new firmware in the background and switch to it on the next reboot."
+      },
+      "note": "缩写 OTA，逐个字母读。通常分批推送，并保留旧固件以便回退。"
+    },
+    {
+      "term": "brick the device",
+      "kind": "chunk",
+      "zh": "把设备变成砖（升级失败后彻底无法启动）",
+      "examples": [
+        {
+          "en": "If power is lost in the middle of an update, we could brick the device.",
+          "zh": "如果升级到一半断电，我们就可能把设备变成砖。"
+        },
+        {
+          "en": "We keep two firmware slots so a bad update can't brick the device; it just boots the old one.",
+          "zh": "我们保留两个固件分区，这样一次失败的升级不会把设备变砖，它只会从旧分区启动。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：远程升级固件时，你最担心的是什么？怎么防范？",
+        "en": "That a failed update could brick the device. So we use A/B partitions and roll back automatically if the new firmware doesn't boot."
+      },
+      "register": "casual",
+      "note": "口语说法。两个分区轮流升级的方案叫 A/B partitions。"
+    }
+  ]
+}

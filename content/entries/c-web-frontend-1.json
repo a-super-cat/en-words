@@ -1,0 +1,643 @@
+{
+  "layer": "C",
+  "category": "web-frontend",
+  "title": "浏览器与前端性能",
+  "entries": [
+    {
+      "term": "Core Web Vitals",
+      "kind": "chunk",
+      "zh": "核心网页指标（Google 定义的三项用户体验指标）",
+      "examples": [
+        {
+          "en": "We track Core Web Vitals from real users, not just lab runs, and alert when the 75th percentile regresses.",
+          "zh": "我们采集的是真实用户的核心网页指标，不只是实验室数据，75 分位一旦变差就报警。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们用什么指标衡量页面的用户体验？",
+        "en": "Core Web Vitals: LCP for loading, INP for responsiveness, and CLS for visual stability, all measured at the 75th percentile."
+      },
+      "note": "Vitals 读 /ˈvaɪtlz/。真实用户数据叫 field data，实验室数据叫 lab data。"
+    },
+    {
+      "term": "Largest Contentful Paint",
+      "kind": "chunk",
+      "zh": "最大内容绘制（衡量加载速度的指标）",
+      "examples": [
+        {
+          "en": "Our Largest Contentful Paint dropped from four seconds to under two after we preloaded the hero image.",
+          "zh": "预加载首屏大图之后，我们的最大内容绘制时间从 4 秒降到了 2 秒以内。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：哪个指标最能反映用户觉得页面主要内容已经加载出来了？",
+        "en": "Largest Contentful Paint. It marks when the biggest image or text block in the viewport is rendered, and under 2.5 seconds is good."
+      },
+      "note": "口头几乎都说缩写 LCP。hero image 指首屏的大图。"
+    },
+    {
+      "term": "Interaction to Next Paint",
+      "kind": "chunk",
+      "zh": "交互到下一次绘制（衡量交互响应速度的指标）",
+      "examples": [
+        {
+          "en": "Our Interaction to Next Paint was poor because a click handler ran 300 milliseconds of synchronous work.",
+          "zh": "我们的交互到下一次绘制这项指标很差，因为有个点击处理函数里同步跑了 300 毫秒的活。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：现在用哪个指标衡量页面对点击和输入的响应速度？",
+        "en": "Interaction to Next Paint. It replaced First Input Delay in 2024 and looks at the latency of interactions across the whole visit."
+      },
+      "note": "缩写 INP，200 毫秒以内算好。它看的是整个访问过程中最慢的交互，而不只是第一次。"
+    },
+    {
+      "term": "Cumulative Layout Shift",
+      "kind": "chunk",
+      "zh": "累积布局偏移（衡量视觉稳定性的指标）",
+      "examples": [
+        {
+          "en": "We fixed our Cumulative Layout Shift by reserving space for ads and setting width and height on images.",
+          "zh": "我们通过给广告位预留空间、给图片写上宽高，解决了累积布局偏移的问题。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户正要点按钮，页面突然往下一跳，结果点到了广告。这对应哪个指标？",
+        "en": "That's Cumulative Layout Shift. It scores how much visible content moves unexpectedly, and you want it below 0.1."
+      },
+      "note": "缩写 CLS。单次跳动叫 a layout shift。cumulative 读 /ˈkjuːmjələtɪv/。"
+    },
+    {
+      "term": "time to interactive",
+      "kind": "chunk",
+      "zh": "可交互时间",
+      "examples": [
+        {
+          "en": "The page painted fast, but time to interactive was six seconds because of one huge JavaScript bundle.",
+          "zh": "页面画得很快，但可交互时间要 6 秒，因为有一个巨大的 JavaScript 包。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：页面看起来加载完了，但点什么都没反应，你会看哪个指标？",
+        "en": "I'd look at time to interactive and total blocking time, which tell you how long the main thread stays busy after first paint."
+      },
+      "note": "缩写 TTI。Lighthouse 10 已经移除了它，现在更常看 TBT 和 INP，但面试里还是会聊到。"
+    },
+    {
+      "term": "reflow",
+      "kind": "word",
+      "zh": "回流（浏览器重新计算布局），r 开头",
+      "examples": [
+        {
+          "en": "Changing the sidebar width caused a reflow of the whole page, so we animated transform instead.",
+          "zh": "改侧边栏的宽度会让整个页面回流，所以我们改成了对 transform 做动画。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：修改元素的宽高和修改它的颜色，对浏览器来说代价有什么不同？",
+        "en": "Changing size triggers a reflow, because the browser has to recalculate layout, and that's far more expensive than a repaint."
+      },
+      "collocations": ["trigger a reflow", "force a synchronous reflow"],
+      "note": "Chrome 的开发者工具里把它叫 layout，指的是同一件事。"
+    },
+    {
+      "term": "repaint",
+      "kind": "word",
+      "zh": "重绘",
+      "examples": [
+        {
+          "en": "The hover effect only changes a color, so it costs us a repaint but no layout work.",
+          "zh": "这个悬停效果只改了颜色，所以只会重绘，不需要重新计算布局。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：只改了一个元素的背景色，浏览器需要重新走哪些步骤？",
+        "en": "Just a repaint and compositing. The geometry didn't change, so the browser can skip layout entirely."
+      }
+    },
+    {
+      "term": "compositor layer",
+      "kind": "chunk",
+      "zh": "合成层",
+      "examples": [
+        {
+          "en": "We promoted the drawer to its own compositor layer, so the slide animation no longer triggers paint.",
+          "zh": "我们把抽屉提升成了独立的合成层，滑动动画就不再触发重绘了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么用 transform 和 opacity 做动画比改 top、left 流畅？",
+        "en": "They can run on a compositor layer, so they skip layout and paint and keep going even when the main thread is busy."
+      },
+      "collocations": ["promote it to its own layer", "run on the compositor thread"],
+      "note": "will-change: transform 可以提前提升图层，但图层太多会吃内存。"
+    },
+    {
+      "term": "layout thrashing",
+      "kind": "chunk",
+      "zh": "布局抖动（循环里交替读写布局，反复强制回流）",
+      "examples": [
+        {
+          "en": "The loop read offsetHeight and then set a style on each item, which caused layout thrashing.",
+          "zh": "那个循环里每一项都先读 offsetHeight 再改样式，造成了布局抖动。"
+        }
+      ],
+      "situation": {
+        "zh": "同事的代码在循环里一边读元素高度一边改样式，页面很卡，你想解释原因：",
+        "en": "This is layout thrashing. Every read after a write forces a synchronous layout, so let's batch all the reads first, then the writes."
+      },
+      "note": "thrash 原意是“剧烈折腾”。也说 forced synchronous layout。"
+    },
+    {
+      "term": "critical rendering path",
+      "kind": "chunk",
+      "zh": "关键渲染路径",
+      "examples": [
+        {
+          "en": "We inlined the above-the-fold CSS to shorten the critical rendering path and got first paint under a second.",
+          "zh": "我们把首屏 CSS 内联进去，缩短了关键渲染路径，首次绘制压到了 1 秒以内。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：从拿到 HTML 到屏幕上出现像素，浏览器要经过哪些步骤？",
+        "en": "That's the critical rendering path: build the DOM and CSSOM, combine them into a render tree, then layout, paint, and composite."
+      }
+    },
+    {
+      "term": "event loop",
+      "kind": "chunk",
+      "zh": "事件循环",
+      "examples": [
+        {
+          "en": "A long JSON parse was hogging the event loop, so clicks sat in the queue for half a second.",
+          "zh": "一次很长的 JSON 解析占住了事件循环，点击事件在队列里等了半秒。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：JavaScript 是单线程的，那它是怎么处理定时器和网络回调的？",
+        "en": "Through the event loop. It takes one task from the queue, runs it to completion, drains the microtasks, and then lets the browser render."
+      },
+      "note": "hog 是口语，“霸占”的意思。"
+    },
+    {
+      "term": "microtask",
+      "kind": "word",
+      "zh": "微任务",
+      "examples": [
+        {
+          "en": "Promise callbacks run as microtasks, so they fired before the setTimeout we had scheduled earlier.",
+          "zh": "Promise 的回调是微任务，所以它们比我们更早安排的 setTimeout 先执行。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Promise.then 的回调和 setTimeout 0 的回调，哪个先执行？为什么？",
+        "en": "The promise callback, because it's a microtask. The microtask queue is drained right after the current task, before the next task starts."
+      },
+      "note": "不停地往微任务队列里加任务会卡住渲染，因为浏览器要等队列清空才能绘制。"
+    },
+    {
+      "term": "macrotask",
+      "kind": "word",
+      "zh": "宏任务",
+      "examples": [
+        {
+          "en": "We split the work into macrotasks with setTimeout so the browser could paint between chunks.",
+          "zh": "我们用 setTimeout 把工作拆成多个宏任务，这样浏览器可以在每一段之间绘制。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：setTimeout 回调、用户点击、网络回调这些，在事件循环里属于哪一类任务？",
+        "en": "Each one is a macrotask. The event loop runs one per turn and then empties the microtask queue before picking the next."
+      },
+      "note": "规范里其实只叫 task，macrotask 是为了和 microtask 区分的通俗说法。"
+    },
+    {
+      "term": "block the main thread",
+      "kind": "chunk",
+      "zh": "阻塞主线程",
+      "examples": [
+        {
+          "en": "Parsing that CSV blocked the main thread for two seconds, and the page froze while it ran.",
+          "zh": "解析那个 CSV 把主线程阻塞了两秒，这期间页面完全卡住。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么一段同步的大计算会让页面连滚动和点击都没反应？",
+        "en": "Because it blocks the main thread, and the same thread handles input, layout, and painting. Nothing else can run until it finishes."
+      }
+    },
+    {
+      "term": "long task",
+      "kind": "chunk",
+      "zh": "长任务（在主线程上连续执行超过 50 毫秒）",
+      "examples": [
+        {
+          "en": "The performance trace showed a 400-millisecond long task right after the route change.",
+          "zh": "性能录制里可以看到，路由切换后紧跟着一个 400 毫秒的长任务。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：INP 不达标，你怎么定位是哪段代码的问题？",
+        "en": "I record a trace and look for long tasks around the interaction, then break them up or yield to the main thread."
+      },
+      "collocations": ["break up long tasks", "yield to the main thread"]
+    },
+    {
+      "term": "debounce the input",
+      "kind": "chunk",
+      "zh": "给输入做防抖",
+      "examples": [
+        {
+          "en": "We debounce the search input by 300 milliseconds so we only hit the API once the user stops typing.",
+          "zh": "我们给搜索框的输入做了 300 毫秒的防抖，用户停止输入后才请求接口。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：搜索框每敲一个字就发一次请求，怎么优化？",
+        "en": "I'd debounce the input, so the request only fires after the user has paused typing for a few hundred milliseconds."
+      },
+      "note": "debounce 读 /diːˈbaʊns/。意思是等事件停下来一段时间后再执行一次。"
+    },
+    {
+      "term": "throttle the handler",
+      "kind": "chunk",
+      "zh": "给事件处理函数做节流",
+      "examples": [
+        {
+          "en": "We throttle the scroll handler so it runs at most once every 100 milliseconds.",
+          "zh": "我们给滚动事件的处理函数做了节流，最多每 100 毫秒执行一次。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：滚动时要持续上报位置，但不想每个滚动事件都处理，用防抖合适吗？",
+        "en": "I'd throttle the handler instead. Debouncing would wait until scrolling stops, but a throttled handler still runs at a steady rate."
+      },
+      "note": "throttle 读 /ˈθrɑːtl/。防抖是等停下来再执行一次；节流是持续触发时按固定间隔执行。"
+    },
+    {
+      "term": "heap snapshot",
+      "kind": "chunk",
+      "zh": "堆快照",
+      "examples": [
+        {
+          "en": "We compared two heap snapshots and found the memory leak: a global listener was holding on to old components.",
+          "zh": "我们对比了两份堆快照，找到了内存泄漏的原因：一个全局监听一直引用着旧组件。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：单页应用开久了越来越卡，标签页占用的内存一直涨，你怎么排查？",
+        "en": "It sounds like a memory leak. I'd take a heap snapshot before and after an action and compare what's still being retained."
+      },
+      "collocations": ["take a heap snapshot", "compare two snapshots", "track down a leak"],
+      "note": "前端常见的泄漏来源：没移除的事件监听、没清掉的定时器、闭包和全局缓存。"
+    },
+    {
+      "term": "detached DOM node",
+      "kind": "chunk",
+      "zh": "游离的 DOM 节点（已从页面移除但仍被引用）",
+      "examples": [
+        {
+          "en": "The heap snapshot showed thousands of detached DOM nodes still held by a cache we never cleared.",
+          "zh": "堆快照里有几千个游离的 DOM 节点，被一个我们从没清理过的缓存引用着。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：元素明明已经从页面上删掉了，为什么内存没降下来？",
+        "en": "It's probably a detached DOM node. Some JavaScript still holds a reference to it, so the garbage collector can't free it."
+      }
+    },
+    {
+      "term": "off the main thread",
+      "kind": "chunk",
+      "zh": "在主线程之外（执行）",
+      "examples": [
+        {
+          "en": "We moved the image processing off the main thread into a Web Worker, and the UI stayed smooth.",
+          "zh": "我们把图片处理从主线程挪到了 Web Worker 里，界面就一直很流畅。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：前端要对一个 50 MB 的文件算哈希，怎么做才不卡界面？",
+        "en": "I'd do it off the main thread in a Web Worker and post the result back when it's done."
+      },
+      "collocations": ["move work off the main thread", "run it in a Web Worker"]
+    },
+    {
+      "term": "code splitting",
+      "kind": "chunk",
+      "zh": "代码分割",
+      "examples": [
+        {
+          "en": "After adding route-level code splitting, the initial download shrank from 1.2 megabytes to about 300 kilobytes.",
+          "zh": "加了路由级的代码分割之后，首次下载的体积从 1.2 MB 降到了 300 KB 左右。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：单页应用所有页面的代码都打在一个文件里，首屏很慢，怎么办？",
+        "en": "I'd start with code splitting by route, so users only download the code for the page they're actually visiting."
+      },
+      "collocations": ["route-level code splitting", "split the bundle into chunks"]
+    },
+    {
+      "term": "tree shaking",
+      "kind": "chunk",
+      "zh": "摇树优化（打包时删掉没用到的导出）",
+      "examples": [
+        {
+          "en": "Tree shaking didn't work on that library because it only ships CommonJS, so we pulled in the whole thing.",
+          "zh": "那个库只提供 CommonJS 版本，摇树优化不起作用，结果我们把整个库都打进来了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：只用了工具库里的一个函数，打包工具怎么做到不把整个库都打进去？",
+        "en": "With tree shaking. The bundler analyzes the static ES module imports and drops exports that nothing uses."
+      },
+      "note": "依赖 ES Module 的静态结构。有副作用的模块删不掉，所以库会在 package.json 里声明 sideEffects。动词是 tree-shake。"
+    },
+    {
+      "term": "bundle size",
+      "kind": "chunk",
+      "zh": "打包体积",
+      "examples": [
+        {
+          "en": "We cut the bundle size by a third just by replacing Moment with a smaller date library.",
+          "zh": "光是把 Moment 换成一个更小的日期库，我们的打包体积就减少了三分之一。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里引入了一个很大的依赖，只为了用其中一个函数，你想回复：",
+        "en": "This adds about 70 kilobytes to the bundle size. Could we import just that function or write it ourselves?"
+      },
+      "collocations": ["reduce the bundle size", "analyze the bundle", "a performance budget"]
+    },
+    {
+      "term": "dynamic import",
+      "kind": "chunk",
+      "zh": "动态导入（运行时才加载模块）",
+      "examples": [
+        {
+          "en": "We load the PDF library with a dynamic import, so it's only fetched when someone clicks Export.",
+          "zh": "PDF 库我们用动态导入来加载，只有用户点“导出”时才会去下载。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：打包工具是根据什么把代码拆成多个文件的？",
+        "en": "Mainly dynamic imports. Each import() call returns a promise and becomes a split point where the bundler creates a separate chunk."
+      }
+    },
+    {
+      "term": "minify",
+      "kind": "word",
+      "zh": "压缩代码（去掉空白、缩短变量名），m 开头",
+      "examples": [
+        {
+          "en": "We forgot to minify the CSS in that build, and the stylesheet was three times its usual size.",
+          "zh": "那次构建忘了压缩 CSS，样式文件是平时的三倍大。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：生产环境的 JavaScript 在上线前一般会做哪些处理来减小体积？",
+        "en": "We minify it to strip whitespace and shorten names, and then the server compresses it with gzip or Brotli."
+      },
+      "note": "minify 改的是代码本身；compress 指 gzip、Brotli 这类传输压缩。中文都叫“压缩”，英文要分清。"
+    },
+    {
+      "term": "lazy-load images",
+      "kind": "chunk",
+      "zh": "懒加载图片",
+      "examples": [
+        {
+          "en": "We lazy-load images below the fold, which cut the initial page weight in half.",
+          "zh": "首屏以下的图片我们都做了懒加载，初始页面体积减少了一半。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个商品列表页有上百张图片，怎么避免一打开就全部下载？",
+        "en": "I'd lazy-load the images, so they're only fetched as they approach the viewport. The native loading attribute handles most cases."
+      },
+      "note": "lazy-load 是动词，名词是 lazy loading。不要懒加载 LCP 图片，会拖慢首屏。"
+    },
+    {
+      "term": "preload",
+      "kind": "word",
+      "zh": "预加载（提前请求当前页面马上要用的资源）",
+      "examples": [
+        {
+          "en": "We preload the main font so the text doesn't flash when the stylesheet finally asks for it.",
+          "zh": "我们预加载了主字体，这样等样式表真正用到它时文字就不会闪一下。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：首屏大图是在 CSS 里引用的，浏览器很晚才发现它，怎么让它早点开始下载？",
+        "en": "I'd preload it with a link tag in the head, so the browser fetches it at high priority before it even parses the CSS."
+      }
+    },
+    {
+      "term": "prefetch",
+      "kind": "word",
+      "zh": "预取（提前拿下一个页面可能用到的资源）",
+      "examples": [
+        {
+          "en": "We prefetch the checkout bundle when the user hovers over the cart, so the next page feels instant.",
+          "zh": "用户鼠标移到购物车上时，我们就预取结算页的包，下一个页面几乎秒开。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：怎么让用户点击链接后的页面跳转感觉更快？",
+        "en": "Prefetch the next route's code and data at low priority, for example when the link scrolls into view or gets hovered."
+      },
+      "note": "preload 是当前页面马上要用，优先级高；prefetch 是为之后的跳转做准备，优先级低。"
+    },
+    {
+      "term": "above the fold",
+      "kind": "chunk",
+      "zh": "首屏（不用滚动就能看到的区域）",
+      "examples": [
+        {
+          "en": "Everything above the fold is server-rendered, and the rest loads as the user scrolls down.",
+          "zh": "首屏的内容全部由服务端渲染，其余部分等用户往下滚动时再加载。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：做加载优化时，你怎么决定哪些资源优先加载？",
+        "en": "I prioritize what's above the fold: the critical CSS, the hero image, and the fonts for the first screen."
+      },
+      "note": "来自报纸“折痕以上”的说法。反义是 below the fold。"
+    },
+    {
+      "term": "render-blocking resource",
+      "kind": "chunk",
+      "zh": "阻塞渲染的资源",
+      "examples": [
+        {
+          "en": "A third-party script in the head was a render-blocking resource, so we added defer and first paint improved by a second.",
+          "zh": "head 里有个第三方脚本是阻塞渲染的资源，我们加上 defer 之后，首次绘制快了一秒。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Lighthouse 提示有资源拖慢了首次绘制，通常指的是哪些？",
+        "en": "Usually render-blocking resources: stylesheets in the head and synchronous scripts. I'd inline critical CSS and defer the scripts."
+      }
+    },
+    {
+      "term": "HTTP caching",
+      "kind": "chunk",
+      "zh": "HTTP 缓存",
+      "examples": [
+        {
+          "en": "We rely on HTTP caching for static assets: hashed files are cached for a year, and HTML is always revalidated.",
+          "zh": "静态资源我们靠 HTTP 缓存：带哈希的文件缓存一年，HTML 每次都重新验证。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：怎么让回访用户不用重新下载没变过的 JS 和 CSS？",
+        "en": "With HTTP caching. I set a long max-age in Cache-Control for fingerprinted files and use ETags to revalidate everything else."
+      },
+      "collocations": ["set the Cache-Control header", "revalidate with an ETag", "serve it from cache"],
+      "note": "cache 读 /kæʃ/，和 cash 同音。"
+    },
+    {
+      "term": "cache busting",
+      "kind": "chunk",
+      "zh": "让旧缓存失效（通过改文件名或 URL）",
+      "examples": [
+        {
+          "en": "We do cache busting with a content hash in the file name, so every deploy gets fresh URLs.",
+          "zh": "我们在文件名里加内容哈希来让旧缓存失效，每次发布资源的 URL 都是新的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：静态文件缓存了一年，发了新版本后用户怎么拿到新文件？",
+        "en": "Through cache busting. The file name includes a hash of its content, so a new build produces a new URL that isn't cached yet."
+      },
+      "note": "动词说 bust the cache。和服务端的 cache invalidation 不同，这里是换 URL 绕开旧缓存。"
+    },
+    {
+      "term": "service worker",
+      "kind": "chunk",
+      "zh": "能拦截网络请求、支持离线的浏览器后台脚本",
+      "examples": [
+        {
+          "en": "Our service worker caches the app shell, so the app still opens when the user is offline.",
+          "zh": "我们的 service worker 缓存了应用外壳，所以用户离线时应用照样能打开。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Web 应用怎么做到断网了还能打开、还能看到上次的数据？",
+        "en": "Register a service worker. It sits between the page and the network, intercepts requests, and can answer them from a cache."
+      },
+      "note": "只在 HTTPS（或 localhost）下可用，运行在独立线程里，不能直接访问 DOM。"
+    },
+    {
+      "term": "cross-origin request",
+      "kind": "chunk",
+      "zh": "跨域请求",
+      "examples": [
+        {
+          "en": "The front end runs on a different subdomain, so every API call is a cross-origin request.",
+          "zh": "前端部署在另一个子域名上，所以每次调接口都是跨域请求。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：本地页面跑在 3000 端口，接口在 8080 端口，为什么浏览器把请求拦了？",
+        "en": "Different ports mean different origins, so that's a cross-origin request. The API has to send the right CORS headers to allow it."
+      },
+      "note": "origin 是协议、域名、端口三者的组合。CORS 全称 Cross-Origin Resource Sharing，是浏览器的限制，要由服务端通过响应头（如 Access-Control-Allow-Origin）放行。"
+    },
+    {
+      "term": "preflight request",
+      "kind": "chunk",
+      "zh": "预检请求",
+      "examples": [
+        {
+          "en": "Every POST with a JSON body triggered a preflight request, so we cached it with Access-Control-Max-Age.",
+          "zh": "每个带 JSON 请求体的 POST 都会触发一次预检请求，所以我们用 Access-Control-Max-Age 把它缓存了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：为什么网络面板里每个接口调用前面都多了一个 OPTIONS 请求？",
+        "en": "That's the preflight request. The browser asks the server whether the real cross-origin request is allowed before sending it."
+      }
+    },
+    {
+      "term": "semantic HTML",
+      "kind": "chunk",
+      "zh": "语义化 HTML",
+      "examples": [
+        {
+          "en": "We replaced the clickable divs with semantic HTML, and keyboard support came almost for free.",
+          "zh": "我们把那些可点击的 div 换成了语义化标签，键盘支持几乎是白送的。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里用 div 加 onClick 做了一个按钮，你想回复：",
+        "en": "Let's use semantic HTML here. A real button element gives us focus, keyboard handling, and the right role for free."
+      }
+    },
+    {
+      "term": "keyboard accessible",
+      "kind": "chunk",
+      "zh": "可以用键盘操作的",
+      "examples": [
+        {
+          "en": "The dropdown wasn't keyboard accessible: you couldn't open it with Enter or move through options with arrow keys.",
+          "zh": "那个下拉框不支持键盘操作：按回车打不开，方向键也没法在选项间移动。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你自己写一个弹窗组件时，在无障碍方面会检查什么？",
+        "en": "First that it's keyboard accessible: focus moves into the dialog, Tab stays trapped inside, and Escape closes it."
+      },
+      "collocations": ["focus management", "tab order", "a focus trap"],
+      "note": "名词是 keyboard accessibility。accessibility 常缩写成 a11y。"
+    },
+    {
+      "term": "screen reader",
+      "kind": "chunk",
+      "zh": "读屏软件",
+      "examples": [
+        {
+          "en": "The icon-only buttons had no labels, so a screen reader user couldn't tell delete from edit.",
+          "zh": "那些纯图标按钮没有标签，用读屏软件的用户根本分不清哪个是删除、哪个是编辑。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你怎么验证页面对视障用户是可用的？",
+        "en": "I run automated checks first, then go through the main flows with a screen reader like VoiceOver or NVDA."
+      }
+    },
+    {
+      "term": "progressive enhancement",
+      "kind": "chunk",
+      "zh": "渐进增强",
+      "examples": [
+        {
+          "en": "We built the form with progressive enhancement, so it still submits if the JavaScript fails to load.",
+          "zh": "这个表单我们是按渐进增强做的，就算 JavaScript 加载失败也照样能提交。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：有些用户的浏览器很旧或者网络很差，脚本可能加载不出来，你怎么设计页面？",
+        "en": "I'd use progressive enhancement: start with HTML that works on its own, then layer on CSS and JavaScript for capable browsers."
+      },
+      "note": "相对的思路是 graceful degradation（优雅降级）：先按最新浏览器做，再给旧环境兜底。"
+    },
+    {
+      "term": "polyfill",
+      "kind": "word",
+      "zh": "给旧浏览器补上缺失 API 的代码，p 开头",
+      "ipa": "/ˈpɑːlifɪl/",
+      "examples": [
+        {
+          "en": "We only load the polyfill for browsers that lack the API, so modern browsers don't pay for it.",
+          "zh": "我们只给缺这个 API 的浏览器加载 polyfill，现代浏览器不用为它多花流量。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：想用一个新的浏览器 API，但还要支持几个旧版本浏览器，怎么办？",
+        "en": "I'd add a polyfill for it and load it conditionally, based on feature detection rather than user-agent sniffing."
+      },
+      "note": "polyfill 补的是缺失的 API；新语法要靠 transpile（比如用 Babel）转译，两者不是一回事。"
+    }
+  ]
+}

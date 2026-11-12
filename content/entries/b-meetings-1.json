@@ -1,0 +1,618 @@
+{
+  "layer": "B",
+  "category": "meetings",
+  "title": "会议与讨论",
+  "entries": [
+    {
+      "term": "I'm blocked on ...",
+      "kind": "sentence",
+      "zh": "我被……卡住了（b 开头，指被外部依赖挡住）",
+      "examples": [
+        {
+          "en": "I'm blocked on the API change, so I can't finish the frontend part yet.",
+          "zh": "我被接口改动卡住了，前端这部分还做不完。"
+        }
+      ],
+      "situation": {
+        "zh": "站会上你想说：你在等后端的接口文档，没有它没法继续。",
+        "en": "I'm blocked on the API docs from the backend team. I can't move forward without them."
+      },
+      "note": "blocked 指被外部依赖挡住；如果是自己想不出来、搞不定，用 I'm stuck on ...。"
+    },
+    {
+      "term": "no blockers",
+      "kind": "chunk",
+      "zh": "没有阻塞项（站会用语）",
+      "examples": [
+        {
+          "en": "I finished the login page yesterday, and I have no blockers today.",
+          "zh": "登录页我昨天做完了，今天没有阻塞项。"
+        }
+      ],
+      "situation": {
+        "zh": "站会上你汇报完进度，想补一句：目前没有任何东西卡住你。",
+        "en": "That's my update. No blockers on my side."
+      },
+      "note": "站会的固定说法。blocker 指挡住你继续干活的问题。"
+    },
+    {
+      "term": "wrap up",
+      "kind": "chunk",
+      "zh": "收尾、做完（w 开头的短语动词）",
+      "examples": [
+        {
+          "en": "I wrapped up the migration script yesterday, and I'll open a PR this morning.",
+          "zh": "迁移脚本我昨天收尾了，今天上午提 PR。"
+        }
+      ],
+      "situation": {
+        "zh": "站会上你想说：今天上午把搜索功能的收尾工作做完，下午开始新任务。",
+        "en": "I'll wrap up the search feature this morning and start on the next task after lunch."
+      },
+      "note": "也用于结束会议：Let's wrap up.（我们收个尾吧。）"
+    },
+    {
+      "term": "pick up",
+      "kind": "chunk",
+      "zh": "接手、领（一个任务）来做，p 开头的短语动词",
+      "examples": [
+        {
+          "en": "Today I'm going to pick up the caching ticket from the backlog.",
+          "zh": "今天我打算从 backlog 里领缓存那个任务。"
+        }
+      ],
+      "situation": {
+        "zh": "站会上你手头的活做完了，想说：接下来你去做看板上优先级最高的那个 bug。",
+        "en": "I'm done with my ticket, so I'll pick up the top-priority bug on the board."
+      },
+      "collocations": ["pick up a ticket", "pick up where someone left off"],
+      "note": "pick up a ticket 指主动领一个还没人做的任务。"
+    },
+    {
+      "term": "on track",
+      "kind": "chunk",
+      "zh": "进度正常、按计划推进",
+      "examples": [
+        {
+          "en": "We're on track to finish the refactor by the end of the sprint.",
+          "zh": "我们进度正常，这个迭代结束前能把重构做完。"
+        }
+      ],
+      "situation": {
+        "zh": "站会上经理问：你那个功能周五能交付吗？你想说进度没问题。",
+        "en": "Yes, I'm on track to deliver it by Friday."
+      },
+      "collocations": ["on track to ...", "on track for ...", "keep something on track"],
+      "note": "反义：behind schedule（进度落后）。"
+    },
+    {
+      "term": "I'm still working on ...",
+      "kind": "sentence",
+      "zh": "我还在做……",
+      "examples": [
+        {
+          "en": "I'm still working on the payment integration, and it should be done tomorrow.",
+          "zh": "我还在做支付对接，明天应该能做完。"
+        }
+      ],
+      "situation": {
+        "zh": "站会上你想说：昨天那个导出功能还没做完，今天继续。",
+        "en": "I'm still working on the export feature. I'll keep going on that today."
+      }
+    },
+    {
+      "term": "I'm waiting on ...",
+      "kind": "sentence",
+      "zh": "我在等……（别人的结果或答复）",
+      "examples": [
+        {
+          "en": "I'm waiting on the design team for the final mockups.",
+          "zh": "我在等设计组给最终的设计稿。"
+        }
+      ],
+      "situation": {
+        "zh": "站会上你想说：部署脚本写好了，现在就等运维给你开权限。",
+        "en": "The deploy script is ready. I'm waiting on the ops team to grant me access."
+      },
+      "note": "wait on 强调要等对方给出结果你才能继续，职场口语里很常见；说 wait for 也对。"
+    },
+    {
+      "term": "It's taking longer than expected.",
+      "kind": "sentence",
+      "zh": "这件事比预期花的时间长。",
+      "examples": [
+        {
+          "en": "The data migration is taking longer than expected because of some dirty records.",
+          "zh": "数据迁移比预期花的时间长，因为有一些脏数据。"
+        }
+      ],
+      "situation": {
+        "zh": "站会上你想说明：升级依赖这件事没按时做完，比你预想的费时间。",
+        "en": "I'm still on the dependency upgrade. It's taking longer than expected."
+      },
+      "note": "承认进度慢的中性说法，后面最好接原因和新的预计时间。"
+    },
+    {
+      "term": "I should have it done by ...",
+      "kind": "sentence",
+      "zh": "我应该能在……之前做完",
+      "examples": [
+        {
+          "en": "I should have it done by Wednesday if nothing else comes up.",
+          "zh": "如果没有别的事插进来，我应该能在周三前做完。"
+        }
+      ],
+      "situation": {
+        "zh": "站会上同事问：那个接口你什么时候能给我？你估计明天下班前。",
+        "en": "I should have it done by end of day tomorrow."
+      },
+      "note": "should 表示有把握但不打包票，比 I will finish 留了余地。end of day 常缩写成 EOD。"
+    },
+    {
+      "term": "carry over",
+      "kind": "chunk",
+      "zh": "（没做完的任务）顺延到下个迭代",
+      "examples": [
+        {
+          "en": "We didn't finish the search ticket, so it'll carry over to the next sprint.",
+          "zh": "搜索那个任务没做完，会顺延到下个迭代。"
+        }
+      ],
+      "situation": {
+        "zh": "迭代结束时你想说：还剩两个任务没做完，要挪到下个迭代。",
+        "en": "Two tickets will carry over to the next sprint."
+      }
+    },
+    {
+      "term": "Sorry, I didn't catch that.",
+      "kind": "sentence",
+      "zh": "抱歉，我没听清。",
+      "examples": [
+        {
+          "en": "Sorry, I didn't catch that. The audio cut out for a second.",
+          "zh": "抱歉，我没听清，刚才声音断了一下。"
+        }
+      ],
+      "situation": {
+        "zh": "会上同事说得很快，你没听清最后一句。",
+        "en": "Sorry, I didn't catch that. Could you repeat the last part?"
+      },
+      "note": "catch 在这里是“听清”。比 What? 或 Pardon? 自然得多。"
+    },
+    {
+      "term": "Could you say that again?",
+      "kind": "sentence",
+      "zh": "你能再说一遍吗？",
+      "examples": [
+        {
+          "en": "Could you say that again? I missed the name of the service.",
+          "zh": "你能再说一遍吗？我没听到那个服务的名字。"
+        }
+      ],
+      "situation": {
+        "zh": "线上会议里对方报了一个数字，你没记下来，想请他重复。",
+        "en": "Could you say that again? I didn't get the number."
+      },
+      "note": "更口语的说法是 Say that again?；正式一点用 Could you repeat that?"
+    },
+    {
+      "term": "Could you say more about ...?",
+      "kind": "sentence",
+      "zh": "你能再多讲讲……吗？（口语说法，不用 e 开头的那个动词）",
+      "examples": [
+        {
+          "en": "Could you say more about why we need a separate service for this?",
+          "zh": "你能再多讲讲为什么这个要单独拆一个服务吗？"
+        }
+      ],
+      "situation": {
+        "zh": "同事说新方案“风险比较大”，但没说具体是什么风险，你想请他详细说。",
+        "en": "Could you say more about the risks you mentioned?"
+      },
+      "note": "请对方展开讲的口语说法，比 elaborate 随和，开会时更常听到。"
+    },
+    {
+      "term": "What do you mean by ...?",
+      "kind": "sentence",
+      "zh": "你说的……是什么意思？",
+      "examples": [
+        {
+          "en": "What do you mean by \"eventually\"? Are we talking days or weeks?",
+          "zh": "你说的“最终”是什么意思？是几天还是几周？"
+        }
+      ],
+      "situation": {
+        "zh": "同事说这个接口“不太稳定”，你想弄清楚他具体指什么。",
+        "en": "What do you mean by \"unstable\"? Is it timing out or returning errors?"
+      },
+      "note": "语气比较直接。单说 What do you mean? 容易像在质问，带上 by ... 把问题问具体就自然了。"
+    },
+    {
+      "term": "Could you give me an example?",
+      "kind": "sentence",
+      "zh": "你能举个例子吗？",
+      "examples": [
+        {
+          "en": "I'm not sure I follow. Could you give me an example?",
+          "zh": "我没太跟上，你能举个例子吗？"
+        }
+      ],
+      "situation": {
+        "zh": "同事说有些请求会绕过缓存，你想让他说一个具体的情况。",
+        "en": "Could you give me an example of a request that skips the cache?"
+      }
+    },
+    {
+      "term": "Just to confirm, ...",
+      "kind": "sentence",
+      "zh": "确认一下，……（核对一个具体的事实）",
+      "examples": [
+        {
+          "en": "Just to confirm, we're keeping the old endpoint for now?",
+          "zh": "确认一下，旧接口我们暂时保留，是吧？"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理讲完需求，你想复述一遍核对：导出只支持 CSV，不做 Excel。",
+        "en": "Just to confirm, we only need CSV export, not Excel?"
+      },
+      "note": "confirm 是核对一个具体事实；clarify 是把含糊的地方说清楚。"
+    },
+    {
+      "term": "So what you're saying is ...",
+      "kind": "sentence",
+      "zh": "所以你的意思是……（复述对方的话）",
+      "examples": [
+        {
+          "en": "So what you're saying is we can't ship until the security review is done.",
+          "zh": "所以你的意思是，安全评审没做完之前我们不能上线。"
+        }
+      ],
+      "situation": {
+        "zh": "同事绕了一大圈解释，你想用一句话概括他的意思：问题出在客户端，不是服务端。",
+        "en": "So what you're saying is the bug is on the client side, not the server."
+      },
+      "note": "用来复述并确认。注意语调要平，说得太重会像在质问。"
+    },
+    {
+      "term": "If I understand correctly, ...",
+      "kind": "sentence",
+      "zh": "如果我没理解错的话，……（If 开头）",
+      "examples": [
+        {
+          "en": "If I understand correctly, the batch job runs once a day at midnight.",
+          "zh": "如果我没理解错的话，这个批处理任务每天半夜跑一次。"
+        }
+      ],
+      "situation": {
+        "zh": "你读了设计文档后在会上确认：新服务只读数据库，不写。",
+        "en": "If I understand correctly, the new service only reads from the database and never writes."
+      },
+      "note": "比 Just to confirm 略正式，书面里也常用。"
+    },
+    {
+      "term": "Does that make sense?",
+      "kind": "sentence",
+      "zh": "我这样说清楚吗？（讲完后确认对方听懂了）",
+      "examples": [
+        {
+          "en": "We cache the result for five minutes, then refresh it in the background. Does that make sense?",
+          "zh": "结果我们缓存五分钟，然后在后台刷新。我这样说清楚吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你在白板上讲完了方案，想确认大家都听明白了。",
+        "en": "That's the overall design. Does that make sense?"
+      },
+      "note": "比 Do you understand? 好得多，后者像在质疑对方的理解力。"
+    },
+    {
+      "term": "Just to clarify, ...",
+      "kind": "sentence",
+      "zh": "澄清一下，……",
+      "examples": [
+        {
+          "en": "Just to clarify, I'm not saying we should rewrite it, only that we should add tests.",
+          "zh": "澄清一下，我不是说要重写，只是说应该补测试。"
+        }
+      ],
+      "situation": {
+        "zh": "你发现同事误会了你的意思：你说的截止日期是代码写完，不是上线。",
+        "en": "Just to clarify, the deadline is for code complete, not for the release."
+      },
+      "note": "既可以澄清自己的话，也可以用来向对方确认：Just to clarify, do you mean ...?"
+    },
+    {
+      "term": "Sorry to interrupt, but ...",
+      "kind": "sentence",
+      "zh": "抱歉打断一下，……",
+      "examples": [
+        {
+          "en": "Sorry to interrupt, but I think we're looking at the wrong dashboard.",
+          "zh": "抱歉打断一下，我觉得我们看错监控面板了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事正在讲方案，你发现他引用的数据是上个月的，想礼貌地打断。",
+        "en": "Sorry to interrupt, but those numbers are from last month."
+      }
+    },
+    {
+      "term": "Can I jump in here?",
+      "kind": "sentence",
+      "zh": "我能插一句吗？（j 开头的动词）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Can I jump in here? I worked on that module last year.",
+          "zh": "我能插一句吗？那个模块我去年做过。"
+        }
+      ],
+      "situation": {
+        "zh": "两个同事在讨论一个你很熟的老系统，你想加入讨论。",
+        "en": "Can I jump in here? I have some context on that system."
+      },
+      "note": "线上会议里也常说 Can I jump in real quick?"
+    },
+    {
+      "term": "Just to add to that, ...",
+      "kind": "sentence",
+      "zh": "我接着补充一点，……",
+      "examples": [
+        {
+          "en": "Just to add to that, we also need to update the client SDK.",
+          "zh": "我接着补充一点，客户端 SDK 也得更新。"
+        }
+      ],
+      "situation": {
+        "zh": "同事讲完了数据库这边的改动，你想接着他的话补充：缓存也要一起失效。",
+        "en": "Just to add to that, we'll also need to invalidate the cache."
+      },
+      "note": "接别人的话往下说，表示认同并补充，不是反驳。"
+    },
+    {
+      "term": "Go ahead.",
+      "kind": "sentence",
+      "zh": "你先说。/ 请讲。",
+      "examples": [
+        {
+          "en": "Sorry, I didn't mean to talk over you. Go ahead.",
+          "zh": "抱歉，我不是故意抢话，你先说。"
+        }
+      ],
+      "situation": {
+        "zh": "线上会议里你和同事同时开口，你想让对方先说。",
+        "en": "Oh, sorry. Go ahead."
+      },
+      "note": "两个人同时开口时最常用的一句。也用来回应 Can I ask a question?"
+    },
+    {
+      "term": "Let me just finish this thought.",
+      "kind": "sentence",
+      "zh": "让我先把这点说完。",
+      "examples": [
+        {
+          "en": "Hold on, let me just finish this thought, and then I'd love to hear yours.",
+          "zh": "稍等，让我先把这点说完，然后很想听听你的想法。"
+        }
+      ],
+      "situation": {
+        "zh": "你正讲到关键处被同事打断，你想礼貌地先把话说完。",
+        "en": "Sorry, let me just finish this thought. It'll take ten seconds."
+      },
+      "note": "被打断时用。加 just 和 sorry 语气会软很多；只说 Let me finish. 比较硬。"
+    },
+    {
+      "term": "That makes sense.",
+      "kind": "sentence",
+      "zh": "有道理。（m 开头的动词）",
+      "examples": [
+        {
+          "en": "That makes sense. Let's go with the simpler approach for now.",
+          "zh": "有道理。那我们先用简单的方案。"
+        }
+      ],
+      "situation": {
+        "zh": "同事解释了为什么要先做数据迁移再发版，你觉得他说得对。",
+        "en": "That makes sense. I hadn't thought about the migration order."
+      },
+      "note": "最常用的表示认同或“我听懂了”的说法。"
+    },
+    {
+      "term": "on board with",
+      "kind": "chunk",
+      "zh": "赞成、愿意一起推进（某个方案），on 开头",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I'm on board with the plan, as long as we keep the rollout gradual.",
+          "zh": "我赞成这个计划，只要我们保持灰度放量。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问大家对分两期交付的方案有没有意见，你表示支持。",
+        "en": "I'm on board with splitting it into two phases."
+      },
+      "note": "get everyone on board 指争取到所有人的支持。"
+    },
+    {
+      "term": "That's a good point.",
+      "kind": "sentence",
+      "zh": "这点说得好。",
+      "examples": [
+        {
+          "en": "That's a good point. We should check how it behaves under load.",
+          "zh": "这点说得好，我们应该看看它在高负载下的表现。"
+        }
+      ],
+      "situation": {
+        "zh": "同事提醒说新方案没有考虑时区问题，你觉得提醒得对。",
+        "en": "That's a good point. I didn't think about time zones."
+      },
+      "note": "常缩成 Good point."
+    },
+    {
+      "term": "I'm with ... on this.",
+      "kind": "sentence",
+      "zh": "这件事我站……（某人）这边。",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I'm with Maria on this. We should fix the flaky tests first.",
+          "zh": "这件事我站 Maria 这边，应该先修那些不稳定的测试。"
+        }
+      ],
+      "situation": {
+        "zh": "两位同事意见不一，你想表态支持 Sam 提出的先做性能测试。",
+        "en": "I'm with Sam on this. Let's run the performance tests first."
+      }
+    },
+    {
+      "term": "Sounds good to me.",
+      "kind": "sentence",
+      "zh": "我觉得可以。（S 开头）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Sounds good to me. I'll update the ticket after the meeting.",
+          "zh": "我觉得可以，会后我更新一下任务单。"
+        }
+      ],
+      "situation": {
+        "zh": "同事提议周四一起过一遍设计文档，你觉得没问题。",
+        "en": "Sounds good to me. Thursday is fine."
+      },
+      "note": "更短可以说 Sounds good.；Works for me. 意思接近。"
+    },
+    {
+      "term": "I see your point, but ...",
+      "kind": "sentence",
+      "zh": "我明白你的意思，不过……",
+      "examples": [
+        {
+          "en": "I see your point, but I think the extra complexity isn't worth it.",
+          "zh": "我明白你的意思，不过我觉得增加这些复杂度不值得。"
+        }
+      ],
+      "situation": {
+        "zh": "同事主张现在就引入消息队列，你理解他的理由，但觉得目前的流量用不上。",
+        "en": "I see your point, but I don't think we need a message queue at our current traffic."
+      },
+      "note": "先认可再转折，是委婉反对的标准开头。"
+    },
+    {
+      "term": "I'm not sure about that.",
+      "kind": "sentence",
+      "zh": "这个我不太确定。（委婉表示不同意）",
+      "examples": [
+        {
+          "en": "I'm not sure about that. The last time we tried it, latency went up.",
+          "zh": "这个我不太确定。上次我们试的时候延迟变高了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事说把超时调到 30 秒就能解决问题，你有点怀疑。",
+        "en": "I'm not sure about that. A longer timeout might just hide the problem."
+      },
+      "note": "英文团队里很少直接说 You're wrong，这句已经是明确的不同意，后面要接理由。"
+    },
+    {
+      "term": "I have a concern about ...",
+      "kind": "sentence",
+      "zh": "我对……有个顾虑",
+      "examples": [
+        {
+          "en": "I have a concern about the timeline. Two weeks feels tight.",
+          "zh": "我对时间安排有个顾虑，两周感觉很紧。"
+        }
+      ],
+      "situation": {
+        "zh": "评审方案时，你担心新方案会让数据库连接数不够用。",
+        "en": "I have a concern about the number of database connections this will use."
+      },
+      "collocations": ["raise a concern", "address a concern"],
+      "note": "比 I'm worried 更正式，像是在提一个需要大家回应的问题。"
+    },
+    {
+      "term": "I'm not convinced that ...",
+      "kind": "sentence",
+      "zh": "我还没被说服……（c 开头的形容词，委婉表示怀疑）",
+      "examples": [
+        {
+          "en": "I'm not convinced that adding more servers will fix the latency.",
+          "zh": "加机器就能解决延迟问题，这点我还没被说服。"
+        }
+      ],
+      "situation": {
+        "zh": "同事认为换一个框架就能解决性能问题，你觉得证据不足。",
+        "en": "I'm not convinced that switching frameworks will fix the performance issue."
+      },
+      "note": "比 I disagree 委婉，潜台词是“给我看证据，我可以改主意”。"
+    },
+    {
+      "term": "Fair enough.",
+      "kind": "sentence",
+      "zh": "行，说得过去。（接受对方的解释）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Fair enough. If the client needs it this week, let's do the quick fix.",
+          "zh": "行，说得过去。客户这周就要的话，那就先做快速修复。"
+        }
+      ],
+      "situation": {
+        "zh": "你质疑为什么不写测试，同事解释这只是个一次性脚本，你接受了。",
+        "en": "Fair enough. It's a one-off script anyway."
+      },
+      "note": "意思是“你说的站得住脚，我不争了”，不一定代表完全同意。"
+    },
+    {
+      "term": "What if we ...?",
+      "kind": "sentence",
+      "zh": "如果我们……呢？（提建议）",
+      "examples": [
+        {
+          "en": "What if we cache the response on the client instead?",
+          "zh": "如果我们改成在客户端缓存响应呢？"
+        }
+      ],
+      "situation": {
+        "zh": "大家在讨论怎么减少数据库压力，你想提议加一个只读副本。",
+        "en": "What if we add a read replica?"
+      },
+      "note": "提建议最轻的说法，听起来像在一起想办法，不像下结论。"
+    },
+    {
+      "term": "Have we considered ...?",
+      "kind": "sentence",
+      "zh": "我们有没有考虑过……？",
+      "examples": [
+        {
+          "en": "Have we considered using the existing queue instead of adding a new one?",
+          "zh": "我们有没有考虑过用现有的队列，而不是再加一个？"
+        }
+      ],
+      "situation": {
+        "zh": "团队打算自己写一个限流组件，你想提醒大家网关可能自带这个功能。",
+        "en": "Have we considered using the rate limiter that's built into the gateway?"
+      },
+      "note": "用 we 不用 you，避免听起来像在质问对方。"
+    },
+    {
+      "term": "Another option would be to ...",
+      "kind": "sentence",
+      "zh": "另一个办法是……",
+      "examples": [
+        {
+          "en": "Another option would be to run the job at night when traffic is low.",
+          "zh": "另一个办法是在夜里流量低的时候跑这个任务。"
+        }
+      ],
+      "situation": {
+        "zh": "同事提议升级机器配置，你想提出一个备选：先优化那条慢查询。",
+        "en": "Another option would be to optimize the slow query first."
+      },
+      "note": "would be 比 is 更委婉，表示只是提出来供大家考虑。"
+    }
+  ]
+}

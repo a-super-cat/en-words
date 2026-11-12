@@ -1,0 +1,399 @@
+{
+  "category": "incident",
+  "title": "事故处理和复盘",
+  "scenarios": [
+    {
+      "id": "checkout-errors-war-room",
+      "title": "线上告警时在语音频道里协同排查",
+      "setting": "周三下午三点，结算接口的错误率突然飙升，正在值班的你被呼叫进了事故语音频道。事故指挥是 SRE 的 Aisha，数据库同事是 Lars。二十分钟前你们团队刚发过一个新版本。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Aisha",
+          "en": "Okay, thanks for jumping on. Quick status: checkout errors are at twelve percent and climbing, started about ten minutes ago. I'll take point on this. What are you seeing on your side?",
+          "zh": "好，谢谢你这么快上线。先说现状：结算的错误率到了百分之十二，还在涨，大约十分钟前开始的。这次由我来牵头。你那边看到什么了？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说你刚被呼叫，正在查。错误几乎全是结算服务调用库存服务时超时。你提醒大家一句：你们团队大约二十分钟前刚发布了一个新版本。",
+          "en": "I just got paged and I'm looking into it now. Almost all the errors are timeouts from checkout calling the inventory service. Just a heads-up, we rolled out a new version about twenty minutes ago.",
+          "chunks": [
+            { "term": "get paged", "zh": "（值班时）被呼叫" },
+            { "term": "I'm looking into it.", "zh": "我正在查。" },
+            { "term": "Just a heads-up, ...", "zh": "提醒一下，……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Lars",
+          "en": "Lars here, database side. Something's off with the inventory DB — connection counts are about three times normal. Something is hammering it.",
+          "zh": "我是 Lars，数据库这边。库存库有点不对劲——连接数大概是平时的三倍。有什么东西在猛打它。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说这对得上：你们的新版本在那个调用上加了重试逻辑，你最可能的猜测是出现了重试风暴。原因还没完全确定，但你建议先回滚止血，之后再深挖。",
+          "en": "That fits. Our release added retry logic on that call, so my best guess is a retry storm. We haven't pinned down the cause yet, but I'd suggest we roll back first and dig into it afterwards.",
+          "chunks": [
+            { "term": "My best guess is ...", "zh": "我最可能的猜测是……" },
+            { "term": "retry storm", "zh": "重试风暴" },
+            { "term": "We haven't pinned down the cause yet.", "zh": "我们还没确定原因。" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Aisha",
+          "en": "How long does a rollback take? And is it safe — any schema changes in that release?",
+          "zh": "回滚要多久？安全吗——那个版本里有没有改表结构？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你回答：大约五分钟，这次没有改表结构，所以是安全的。你现在就开始回滚，开始和完成的时候都会在频道里通报一声。",
+          "en": "About five minutes, and there were no schema changes, so it's safe. I'm kicking it off now. I'll call it out here when it starts and when it's done.",
+          "chunks": [
+            { "term": "kick off", "zh": "启动、开始（一个操作）" },
+            { "term": "call out", "zh": "明确说出来、通报" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Aisha",
+          "en": "Do it. Lars, keep an eye on those connections. I'll handle comms and update the status page.",
+          "zh": "动手吧。Lars，盯着那些连接数。我来负责对外沟通，更新状态页。"
+        },
+        {
+          "speaker": "them",
+          "name": "Lars",
+          "en": "Uh, bad news — connections are still climbing. We're at ninety percent of the pool. If it maxes out, orders and search go down too.",
+          "zh": "呃，坏消息——连接数还在涨，已经到连接池的百分之九十了。要是打满，订单和搜索也会跟着挂。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说回滚还要三分钟，最坏的情况是在那之前连接池就被打满。为了控制影响面，你可以现在就用紧急开关把重试关掉。",
+          "en": "The rollback needs another three minutes. Worst case, the pool maxes out before then. To limit the blast radius, I can turn off the retries with the kill switch right now.",
+          "chunks": [
+            { "term": "worst case", "zh": "最坏的情况" },
+            { "term": "blast radius", "zh": "影响面、波及范围" },
+            { "term": "kill switch", "zh": "紧急开关" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Aisha",
+          "en": "Yes, go. Flip it.",
+          "zh": "可以，快。关掉它。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你通报：开关已经关了，回滚也完成了。系统出现恢复的迹象，错误率回到了百分之一以下。你建议再盯十五分钟，然后再宣布问题解决。",
+          "en": "Done — the switch is off and the rollback is complete. We're seeing signs of recovery: the error rate is back under one percent. I'd keep an eye on it for another fifteen minutes before we call it resolved.",
+          "chunks": [
+            { "term": "We're seeing signs of recovery.", "zh": "我们看到了恢复的迹象。" },
+            { "term": "keep an eye on", "zh": "盯着、留意" },
+            { "term": "call it resolved", "zh": "宣布问题已解决" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Lars",
+          "en": "Confirmed on my side, connections are draining. Nice work, both of you.",
+          "zh": "我这边确认了，连接数在往下掉。你们俩干得漂亮。"
+        }
+      ]
+    },
+    {
+      "id": "payment-delay-stakeholder-update",
+      "title": "向业务方同步故障进展",
+      "setting": "下午两点五十分，支付回调已经延迟了四十分钟，部分订单显示“未支付”。技术上原因已经找到，正在恢复。客服负责人 Rachel 不懂技术，打电话来要一个明确的说法好回复客户。你要讲清楚影响、现状和下一步，但不能乱承诺时间。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Rachel",
+          "en": "Hi, sorry to chase, but my team's getting slammed with tickets. Customers say they paid and the order still shows unpaid. What is going on? In plain English, please.",
+          "zh": "嗨，不好意思来催，但我们团队快被工单淹没了。客户说他们付了钱，订单还显示未支付。到底怎么回事？请用大白话说。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你用非技术的话讲清楚目前掌握的情况：从两点十分左右开始，支付成功的确认通知到达系统有延迟。钱是付成功了的，钱和订单都没丢，只是订单状态更新得慢。",
+          "en": "Sure. Here's what we know so far. Since about ten past two, payment confirmations have been reaching our system late. The payments themselves went through — no money or orders are lost, the status is just slow to update.",
+          "chunks": [
+            { "term": "Here's what we know so far.", "zh": "这是我们目前掌握的情况。" },
+            { "term": "go through", "zh": "（付款、请求）成功完成" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rachel",
+          "en": "Okay, that's a relief. How many customers are we talking about? I need a number for my director.",
+          "zh": "好，那我松了口气。大概涉及多少客户？我得给我们总监报个数。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说明影响范围：只涉及过去四十分钟内下的订单，大约一千两百个。你说明这只是粗略估计，准确数字现在还没有，稍后再告诉她。",
+          "en": "The impact is limited to orders placed in the last forty minutes — around twelve hundred. That's a rough estimate; I don't have the exact number yet, so I'll get back to you on that.",
+          "chunks": [
+            { "term": "The impact is limited to ...", "zh": "影响范围仅限于……" },
+            { "term": "rough estimate", "zh": "粗略的估计" },
+            { "term": "I'll get back to you on that.", "zh": "这个我稍后答复你。" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rachel",
+          "en": "Fine. And when will it be fixed? Can I tell people ten minutes?",
+          "zh": "行。那什么时候能修好？我能跟客户说十分钟吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你不想给一个保证不了的时间。你说现在还没有确切的恢复时间：原因已经找到，积压的通知正在处理，按目前的速度大约半小时能清完，但你还不能承诺一个具体时间。",
+          "en": "We don't have an ETA yet. We've found the cause, and we're working through the backlog now. At the current pace it should clear in about thirty minutes, but I can't commit to a time yet.",
+          "chunks": [
+            { "term": "We don't have an ETA yet.", "zh": "我们还没有预计的恢复时间。" },
+            { "term": "backlog", "zh": "积压（待处理的东西）" },
+            { "term": "I can't commit to ... yet.", "zh": "我现在还不能承诺……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rachel",
+          "en": "Hmm. That's not what I wanted to hear, honestly. So what do I tell them? They think we took their money and ran.",
+          "zh": "嗯。说实话，这不是我想听到的。那我跟他们怎么说？他们觉得我们收了钱就跑了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你建议她这样回复客户：付款已经收到，订单会在一小时之内自动更新。最关键的一点是让客户不要重新付款，否则会造成重复扣款。",
+          "en": "I'd tell them this: your payment has been received, and your order will update automatically within the hour. The key thing is that they shouldn't pay again — that would result in duplicate charges.",
+          "chunks": [
+            { "term": "within the hour", "zh": "一小时之内" },
+            { "term": "result in", "zh": "导致、造成" },
+            { "term": "duplicate charge", "zh": "重复扣款" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rachel",
+          "en": "Got it — received, automatic, don't pay again. Can you put that in writing so I can paste it to the team?",
+          "zh": "明白了——已收到、自动更新、别重复付。你能把这段写下来吗？我好贴给团队。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说可以，挂了电话就把这段话发到聊天里。另外十五分钟后你会再同步一次进展，哪怕没有任何变化也会说一声。",
+          "en": "Yes, I'll drop it in the chat right after this call. And I'll post another update in fifteen minutes, even if nothing has changed.",
+          "chunks": [
+            { "term": "drop it in the chat", "zh": "把它发到聊天里" },
+            { "term": "I'll post another update in ... minutes.", "zh": "我……分钟后再同步一次进展。" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rachel",
+          "en": "That works. Thanks for being straight with me — it's so much easier when I know what I can actually say.",
+          "zh": "可以。谢谢你跟我说实话——知道哪些话能说，我这边就好办多了。"
+        }
+      ]
+    },
+    {
+      "id": "on-call-handoff-queue-lag",
+      "title": "把问题交接给下一个值班的人",
+      "setting": "上海时间晚上七点，你值了一天班。订单事件队列消费变慢的问题只做了临时处理，还没根治。下一班是在都柏林的 Ciaran，他刚上线。你要在十分钟的通话里把现状、做过的事和要注意的点交代清楚。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Ciaran",
+          "en": "Hiya. So, I've had a scroll through the channel, and it looks like you've had a day of it. What am I walking into?",
+          "zh": "嗨。我翻了一下频道，看来你这一天够呛。我接手的是个什么局面？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你先讲现状：系统目前稳定，临时措施管用，但问题没有真正修好。订单事件队列的消费者从中午开始跟不上，你把它们扩容了，作为权宜之计。",
+          "en": "Here's where things stand. Things are stable and the mitigation is holding, but it's not a real fix. The consumers on the order-events queue started falling behind around noon, so I scaled them up as a stopgap.",
+          "chunks": [
+            { "term": "Here's where things stand.", "zh": "目前的情况是这样的。" },
+            { "term": "mitigation", "zh": "缓解措施（先止血，不一定根治）" },
+            { "term": "as a stopgap", "zh": "作为权宜之计" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ciaran",
+          "en": "Right. And do we know why they're slow? Is it us, or is it the database again?",
+          "zh": "好。那知道为什么慢了吗？是我们自己的问题，还是又是数据库？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说现在下结论还太早。据你了解，和今天下午发出去的一个序列化改动有关，因为单条消息的处理时间翻倍了。不过数据库你已经排除了。",
+          "en": "It's too early to say. My understanding is that it's related to a serialization change that went out this afternoon — processing time per message has doubled. I've ruled out the database, though.",
+          "chunks": [
+            { "term": "It's too early to say.", "zh": "现在下结论还太早。" },
+            { "term": "My understanding is that ...", "zh": "据我了解，……" },
+            { "term": "rule out", "zh": "排除（某种可能）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ciaran",
+          "en": "Okay. So say the lag shoots up again in a couple of hours. What do I actually do? Is there a runbook, or am I winging it?",
+          "zh": "好。假如过几个小时延迟又飙上去了，我具体该怎么办？有操作手册吗，还是我得自己看着办？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你告诉他有操作手册，链接在交接文档里。如果消费延迟超过五分钟，就再扩一次消费者；十五分钟内还不见好，就直接把那个序列化改动回滚，不用等你。",
+          "en": "There's a runbook, linked in the handoff doc. If the consumer lag goes above five minutes, scale the consumers up again. If that doesn't help within fifteen minutes, roll back the serialization change — don't wait for me.",
+          "chunks": [
+            { "term": "runbook", "zh": "操作手册（故障处理步骤）" },
+            { "term": "consumer lag", "zh": "消费延迟、消费积压" },
+            { "term": "roll back", "zh": "回滚" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ciaran",
+          "en": "Grand. And who owns that change? I don't want to roll back somebody's work and wake up to an angry message.",
+          "zh": "好嘞。那个改动是谁的？我可不想把别人的东西回滚了，一觉醒来收到一条火冒三丈的消息。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说那是 Nadia 的改动。你已经把她拉进来了，她知道情况，真到了那一步，回滚她没意见。",
+          "en": "It's Nadia's change. I've already pulled her in, so she has the full context, and she's fine with a rollback if it comes to that.",
+          "chunks": [
+            { "term": "pull in", "zh": "把（某人）拉进来一起处理" },
+            { "term": "be fine with", "zh": "对……没意见、可以接受" },
+            { "term": "if it comes to that", "zh": "如果真到了那一步" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ciaran",
+          "en": "Perfect. Anything else that might bite me? Anything flaky you've just been ignoring?",
+          "zh": "很好。还有什么可能坑到我的吗？有没有什么时好时坏、你一直没理的东西？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你提醒他一件事：磁盘使用率的告警今天响了两次，都是误报，可以不管。除此之外没别的了。你还会再待半个小时，有问题可以找你。",
+          "en": "One thing: the disk usage alert fired twice today, and both were false alarms, so you can ignore it. Other than that, nothing. I'll be around for another half hour if you have questions.",
+          "chunks": [
+            { "term": "false alarm", "zh": "误报" },
+            { "term": "fire", "zh": "（告警）触发" },
+            { "term": "be around", "zh": "人还在、找得到" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ciaran",
+          "en": "Lovely, that's a proper handover. Go and get some dinner — I've got it from here.",
+          "zh": "太好了，这才叫像样的交接。去吃晚饭吧——接下来交给我。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你谢谢他，说你试过的所有办法都记在文档里了。你现在正式把班交给他，祝他这一班平安无事。",
+          "en": "Thanks, Ciaran. Everything I've tried is written down in the doc. I'm handing off now — hope you have a quiet shift.",
+          "chunks": [
+            { "term": "hand off", "zh": "交接、移交" },
+            { "term": "a quiet shift", "zh": "平安无事的一班" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "login-outage-postmortem",
+      "title": "复盘会上讲时间线和改进项",
+      "setting": "上周五登录故障过去四天后，团队开无指责复盘会。主持人是工程经理 Fatima；Owen 是当时执行配置变更的同事，看起来有点紧张。你是事故报告的作者，要讲时间线、根因和改进项，重点放在系统和流程上，不针对个人。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Fatima",
+          "en": "Okay, let's get started. Reminder that this is a blameless postmortem — we're here to fix the system, not to point fingers. Can you take us through the timeline?",
+          "zh": "好，我们开始吧。提醒一下，这是无指责复盘——我们是来修系统的，不是来追究谁的。你能带我们过一遍时间线吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你开始讲时间线：周五下午两点零五分一个配置变更上线，两点十二分登录开始失败，两点二十分值班的人被呼叫，三点零一分恢复。前后影响了大约五十分钟。",
+          "en": "Sure, let me walk you through it. At 2:05 on Friday, a config change went out. Logins started failing at 2:12, the engineer on call got paged at 2:20, and we recovered at 3:01. So roughly fifty minutes of impact.",
+          "chunks": [
+            { "term": "Let me walk you through ...", "zh": "我带你们过一遍……" },
+            { "term": "on call", "zh": "值班（待命处理线上问题）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Owen",
+          "en": "Um, I should say — that config change was mine. I pushed it without waiting for the second approval. So, yeah. That one's on me.",
+          "zh": "呃，我得说一下——那个配置变更是我做的。我没等第二个人审批就推上去了。所以，嗯，这个算我的。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你谢谢他主动说出来，但把话题从个人拉回系统：这次复盘不是为了追究谁的责任。流水线允许配置变更在没有第二人审批的情况下上线，问题就是这样漏过去的，换了谁都可能这么做。",
+          "en": "Thanks for saying that, Owen, but this isn't about assigning blame. The pipeline let a config change ship without a second approval — that's how it slipped through. Any of us could have done the same thing.",
+          "chunks": [
+            { "term": "This isn't about assigning blame.", "zh": "这不是为了追究谁的责任。" },
+            { "term": "slip through", "zh": "（问题）漏过去、没被拦住" },
+            { "term": "Any of us could have ...", "zh": "我们谁都有可能……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Fatima",
+          "en": "Agreed. So what was the actual root cause? Was it just the missing review?",
+          "zh": "同意。那真正的根因是什么？只是因为少了一道审批吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你解释根因：连接池上限被设得太低，认证服务在流量高峰时把连接用光了。缺少审批只是促成因素之一；更大的问题是配置变更不走灰度发布，一下子就推到了所有机器上。",
+          "en": "The root cause was a connection pool limit set too low, so the auth service ran out of connections at peak traffic. The missing review was a contributing factor, but the bigger issue is that config changes skip the canary release and hit every host at once.",
+          "chunks": [
+            { "term": "root cause", "zh": "根本原因" },
+            { "term": "contributing factor", "zh": "促成因素（不是唯一原因）" },
+            { "term": "canary release", "zh": "灰度发布、金丝雀发布" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Fatima",
+          "en": "And why did it take eight minutes to page anyone? That feels slow for login.",
+          "zh": "那为什么过了八分钟才呼叫到人？对登录来说这有点慢。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说这是第二个发现：告警的阈值定得太高，错误率超过百分之二十才触发。事后来看，像登录这样的关键路径，超过百分之五就应该告警。",
+          "en": "That's the second finding. The alert threshold was too high — it only fired once errors went above twenty percent. In hindsight, for a critical path like login, we should alert on anything above five percent.",
+          "chunks": [
+            { "term": "threshold", "zh": "阈值" },
+            { "term": "in hindsight", "zh": "事后来看" },
+            { "term": "alert on ...", "zh": "针对……设置告警" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Owen",
+          "en": "For what it's worth, I'd add one more thing. The rollback took ages because I couldn't find the right command. The runbook was way out of date.",
+          "zh": "不知道有没有用，我再补充一点。回滚花了很久，因为我找不到正确的命令。操作手册早就过时了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说这一点很好，会加进报告。然后你提出避免再次发生的三个改进项：配置变更强制审批并先灰度；调低登录告警的阈值；更新操作手册。最后问这几项由谁来负责。",
+          "en": "Good point, I'll add that. To prevent this from happening again, I'd propose three action items: enforce review and a canary step for config changes, lower the login alert threshold, and update the runbook. Who's going to own these?",
+          "chunks": [
+            { "term": "To prevent this from happening again, ...", "zh": "为了避免再次发生，……" },
+            { "term": "action item", "zh": "待办事项、改进项" },
+            { "term": "Who's going to own this?", "zh": "这件事谁来负责？" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Fatima",
+          "en": "I'll take the pipeline one to the platform team. And Owen's already nodding at the runbook. That leaves the alert threshold.",
+          "zh": "流水线那一项我去找平台组。操作手册 Owen 已经在点头了。那就剩告警阈值了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你认领告警阈值这一项，说周四前应该能改完。会后你会发一份总结，写明每一项的负责人和截止日期。",
+          "en": "I can take that. I should have it done by Thursday. I'll send out a summary after this, with owners and due dates.",
+          "chunks": [
+            { "term": "I can take that.", "zh": "这个我来。" },
+            { "term": "I should have it done by ...", "zh": "我应该能在……之前做完。" },
+            { "term": "I'll send out a summary after this.", "zh": "会后我发一份总结。" }
+          ]
+        }
+      ]
+    }
+  ]
+}

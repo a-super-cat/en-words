@@ -1,0 +1,776 @@
+{
+  "layer": "C",
+  "category": "interview",
+  "title": "面试表达",
+  "entries": [
+    {
+      "term": "The bottleneck here would be ...",
+      "kind": "sentence",
+      "zh": "这里的瓶颈会是……",
+      "examples": [
+        {
+          "en": "The bottleneck here would be the database, since every request writes to it.",
+          "zh": "这里的瓶颈会是数据库，因为每个请求都要写它。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：流量涨十倍的话，你这个设计哪里最先出问题？",
+        "en": "The bottleneck here would be the single write node, so that's the first thing I'd address."
+      },
+      "note": "主动指出自己设计的弱点是资深的表现，不用等面试官来问。"
+    },
+    {
+      "term": "dive deeper into",
+      "kind": "chunk",
+      "zh": "深入展开讲（某个部分），d 开头的动词",
+      "examples": [
+        {
+          "en": "I can dive deeper into the storage layer if that's useful.",
+          "zh": "如果有需要，我可以深入讲讲存储层。"
+        }
+      ],
+      "situation": {
+        "zh": "讲完总体设计后，你想问面试官要不要细讲某个组件：",
+        "en": "Would you like me to dive deeper into how the feed is generated, or move on to scaling?"
+      },
+      "note": "名词说法是 deep dive：do a deep dive into ...。"
+    },
+    {
+      "term": "One way to address that is ...",
+      "kind": "sentence",
+      "zh": "解决这个问题的一种办法是……（a 开头的动词）",
+      "examples": [
+        {
+          "en": "One way to address that is to put a queue in front of the workers.",
+          "zh": "解决这个问题的一种办法是在 worker 前面加一个队列。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官指出：你的设计在流量突增时会把下游打垮。你想给出对策：",
+        "en": "Good point. One way to address that is to add rate limiting at the gateway."
+      },
+      "note": "说 one way 暗示还有其他办法，方便接着讲取舍。address 在这里是“处理、应对”。"
+    },
+    {
+      "term": "That's where ... comes in.",
+      "kind": "sentence",
+      "zh": "这时候就轮到……发挥作用了。",
+      "examples": [
+        {
+          "en": "We can't query the main database for every search, and that's where the index comes in.",
+          "zh": "不可能每次搜索都查主库，这时候就轮到索引发挥作用了。"
+        }
+      ],
+      "situation": {
+        "zh": "你刚说完热门数据的读取压力很大，想自然地引出缓存层：",
+        "en": "Reads are heavily skewed toward a few popular items, and that's where the cache comes in."
+      }
+    },
+    {
+      "term": "Is there a particular area you'd like me to focus on?",
+      "kind": "sentence",
+      "zh": "有没有哪一块你希望我重点讲？",
+      "examples": [
+        {
+          "en": "I've covered the overall flow. Is there a particular area you'd like me to focus on?",
+          "zh": "整体流程我讲完了。有没有哪一块你希望我重点讲？"
+        }
+      ],
+      "situation": {
+        "zh": "系统设计面试还剩二十分钟，你想让面试官决定接下来深入哪里：",
+        "en": "We have about twenty minutes left. Is there a particular area you'd like me to focus on?"
+      }
+    },
+    {
+      "term": "underestimate",
+      "kind": "word",
+      "zh": "低估（工作量、复杂度）",
+      "examples": [
+        {
+          "en": "I underestimated how long the data migration would take.",
+          "zh": "我低估了数据迁移要花的时间。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：讲一个你没能按时交付的项目，原因是什么？",
+        "en": "Honestly, I underestimated the complexity of the legacy code, and we slipped by three weeks."
+      },
+      "note": "反义词 overestimate。讲失败经历时直接说 I underestimated ...，比找借口显得成熟。"
+    },
+    {
+      "term": "own up to",
+      "kind": "chunk",
+      "zh": "坦率承认（自己的错误），三个词，o 开头",
+      "examples": [
+        {
+          "en": "I owned up to the mistake right away and wrote the postmortem myself.",
+          "zh": "我马上承认了这个错误，并且亲自写了故障复盘。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你造成过线上事故吗？当时怎么处理的？",
+        "en": "Yes, I once dropped an index in production. I owned up to it immediately and led the recovery."
+      },
+      "note": "近义：admit。own up to 更口语，带有“主动担责”的意味。"
+    },
+    {
+      "term": "The key takeaway was ...",
+      "kind": "sentence",
+      "zh": "最重要的一点收获是……（t 开头的名词）",
+      "examples": [
+        {
+          "en": "The key takeaway was that we needed a rollback plan for every schema change.",
+          "zh": "最重要的收获是：每次表结构变更都要有回滚方案。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：那次事故之后，你学到了什么？",
+        "en": "The key takeaway was that a migration has to be tested against production-sized data, not a small sample."
+      }
+    },
+    {
+      "term": "If I were to do it again, I would ...",
+      "kind": "sentence",
+      "zh": "如果重来一次，我会……",
+      "examples": [
+        {
+          "en": "If I were to do it again, I would involve the security team much earlier.",
+          "zh": "如果重来一次，我会早得多就让安全团队参与进来。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：那个项目有什么是你现在会换一种做法的？",
+        "en": "If I were to do it again, I would ship a smaller version first and get feedback sooner."
+      },
+      "note": "虚拟语气：if I were to ...，主句用 would。"
+    },
+    {
+      "term": "make a point of",
+      "kind": "chunk",
+      "zh": "特意坚持去做（某事），m 开头的动词短语",
+      "examples": [
+        {
+          "en": "Since then, I've made a point of writing down every assumption in the design doc.",
+          "zh": "从那以后，我都特意把每一个假设写进设计文档。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：这次教训有没有改变你后来的工作方式？",
+        "en": "Definitely. I now make a point of testing the rollback, not just the rollout."
+      },
+      "note": "后面接动名词：make a point of doing。适合用来收尾，说明教训已经变成了习惯。"
+    },
+    {
+      "term": "up against a tight deadline",
+      "kind": "chunk",
+      "zh": "面临很紧的期限（u 开头的介词短语）",
+      "examples": [
+        {
+          "en": "We were up against a tight deadline because of a contract with a large customer.",
+          "zh": "因为和一个大客户的合同，我们当时面临很紧的期限。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：讲一次你在时间压力下交付的经历。",
+        "en": "Last year we were up against a tight deadline: six weeks to launch a feature that normally takes three months."
+      },
+      "note": "be up against 表示“面对（困难、强敌）”。"
+    },
+    {
+      "term": "cut scope",
+      "kind": "chunk",
+      "zh": "砍范围、砍掉部分需求",
+      "examples": [
+        {
+          "en": "We couldn't move the date, so we cut scope and shipped without bulk import.",
+          "zh": "日期动不了，所以我们砍了范围，先不带批量导入就上线了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：时间不够的时候，你是加班还是有别的办法？",
+        "en": "My first move is to cut scope. I'd rather ship less on time than everything late."
+      },
+      "note": "相关说法：scope creep（需求蔓延）。"
+    },
+    {
+      "term": "prioritize ruthlessly",
+      "kind": "chunk",
+      "zh": "毫不留情地排优先级",
+      "examples": [
+        {
+          "en": "With only three engineers, we had to prioritize ruthlessly.",
+          "zh": "只有三个工程师，我们必须毫不留情地排优先级。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：手上同时有很多紧急的事，你怎么处理？",
+        "en": "I prioritize ruthlessly. I ask what breaks if we don't do it this week, and drop everything else."
+      }
+    },
+    {
+      "term": "separate the must-haves from the nice-to-haves",
+      "kind": "chunk",
+      "zh": "把必须做的和锦上添花的分开",
+      "examples": [
+        {
+          "en": "I sat down with the product manager to separate the must-haves from the nice-to-haves.",
+          "zh": "我和产品经理坐下来，把必须做的和锦上添花的需求分开。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：需求太多做不完，你怎么和产品沟通？",
+        "en": "I work with them to separate the must-haves from the nice-to-haves, and we agree on what ships first."
+      }
+    },
+    {
+      "term": "flag ... early",
+      "kind": "chunk",
+      "zh": "尽早把（风险、问题）提出来，f 开头的动词",
+      "examples": [
+        {
+          "en": "I flagged the risk early, so nobody was surprised when we needed another week.",
+          "zh": "我很早就把这个风险提了出来，所以后来需要多一周时没人感到意外。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：发现项目可能延期时，你会怎么做？",
+        "en": "I flag it early. Telling people two weeks ahead is very different from telling them the day before."
+      }
+    },
+    {
+      "term": "mentor junior engineers",
+      "kind": "chunk",
+      "zh": "指导初级工程师、带新人",
+      "examples": [
+        {
+          "en": "Besides my own work, I mentor two junior engineers on the team.",
+          "zh": "除了自己的工作，我还带团队里两个初级工程师。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你有带人的经验吗？",
+        "en": "Yes, I've mentored junior engineers for about four years, mostly through pairing and regular one-on-ones."
+      },
+      "note": "mentor 既是名词也是动词，被带的人叫 mentee。"
+    },
+    {
+      "term": "get ... up to speed",
+      "kind": "chunk",
+      "zh": "让（新人）尽快上手",
+      "examples": [
+        {
+          "en": "I wrote an onboarding guide to get new hires up to speed in their first week.",
+          "zh": "我写了一份入职指南，让新人在第一周就能上手。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：新同事加入团队，你一般怎么帮他们？",
+        "en": "I give them a small, real task on day one. That gets them up to speed faster than reading docs."
+      }
+    },
+    {
+      "term": "set ... up for success",
+      "kind": "chunk",
+      "zh": "为（某人）创造成功的条件",
+      "examples": [
+        {
+          "en": "My job as a senior engineer is to set the rest of the team up for success.",
+          "zh": "作为高级工程师，我的工作是为团队其他人创造成功的条件。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：把一个重要任务交给新人时，你会做什么准备？",
+        "en": "I try to set them up for success: a clear goal, a small first milestone, and someone to ask."
+      }
+    },
+    {
+      "term": "lead by example",
+      "kind": "chunk",
+      "zh": "以身作则",
+      "examples": [
+        {
+          "en": "I try to lead by example, so I write tests for everything I ship.",
+          "zh": "我尽量以身作则，所以我上线的每样东西都写测试。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你怎么让团队重视文档？",
+        "en": "Mostly I lead by example. If my own designs come with clear docs, others tend to follow."
+      }
+    },
+    {
+      "term": "delegate",
+      "kind": "word",
+      "zh": "把任务放手交给别人做（d 开头的动词）",
+      "ipa": "/ˈdelɪɡeɪt/",
+      "examples": [
+        {
+          "en": "I had to learn to delegate instead of fixing every problem myself.",
+          "zh": "我得学会放手把事情交给别人，而不是每个问题都自己修。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：从只管自己写代码到带团队，你最大的转变是什么？",
+        "en": "Learning to delegate. I now hand over whole problems, not just tasks, and stay available for questions."
+      }
+    },
+    {
+      "term": "get buy-in from",
+      "kind": "chunk",
+      "zh": "争取到……的认可和支持（含 b 开头的名词）",
+      "examples": [
+        {
+          "en": "Before writing any code, I got buy-in from the three teams that would be affected.",
+          "zh": "在写代码之前，我先争取到了三个受影响团队的认可。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：推一个影响多个团队的改动，你第一步做什么？",
+        "en": "I get buy-in from the key people one by one before the big meeting, so there are no surprises."
+      }
+    },
+    {
+      "term": "drive alignment across teams",
+      "kind": "chunk",
+      "zh": "推动跨团队达成一致",
+      "examples": [
+        {
+          "en": "A big part of my role was to drive alignment across teams on the API contract.",
+          "zh": "我的工作有很大一部分是推动各团队在 API 约定上达成一致。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：高级工程师和中级工程师，你觉得区别在哪？",
+        "en": "For me, it's the ability to drive alignment across teams, not just to deliver within your own."
+      }
+    },
+    {
+      "term": "make the case for",
+      "kind": "chunk",
+      "zh": "摆出理由论证（某事值得做）",
+      "examples": [
+        {
+          "en": "I made the case for the rewrite by showing how much time we lost to incidents.",
+          "zh": "我用我们在故障上损失的时间做论据，论证了重写的必要性。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你是怎么说服管理层给技术改造排期的？",
+        "en": "I made the case for it with data: forty percent of our sprint was going to bug fixes."
+      },
+      "note": "也说 make a case for。面试里最好带上你用了什么数据或证据。"
+    },
+    {
+      "term": "influence without authority",
+      "kind": "chunk",
+      "zh": "没有职权也能影响别人",
+      "examples": [
+        {
+          "en": "As a staff engineer, most of what I do is influence without authority.",
+          "zh": "作为 Staff 工程师，我做的大部分事情都是在没有职权的情况下影响别人。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：其他团队不向你汇报，你怎么让他们配合？",
+        "en": "It's influence without authority. I show them how the change helps their own goals, and I do the hard parts myself."
+      }
+    },
+    {
+      "term": "set the technical direction",
+      "kind": "chunk",
+      "zh": "确定技术方向",
+      "examples": [
+        {
+          "en": "I helped set the technical direction for our frontend platform for the next two years.",
+          "zh": "我参与确定了我们前端平台未来两年的技术方向。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你在团队的技术规划里起什么作用？",
+        "en": "I set the technical direction for the payments area, and I write the roadmap with my manager."
+      }
+    },
+    {
+      "term": "It came down to ...",
+      "kind": "sentence",
+      "zh": "归根结底取决于……（c 开头的动词）",
+      "examples": [
+        {
+          "en": "In the end, it came down to which option the team could operate with confidence.",
+          "zh": "最后，归根结底取决于哪个方案团队能有把握地运维。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：两个方案看起来差不多，你们最后凭什么定的？",
+        "en": "It came down to operational cost. One of them needed a dedicated person to run it."
+      }
+    },
+    {
+      "term": "weigh the pros and cons",
+      "kind": "chunk",
+      "zh": "权衡利弊",
+      "examples": [
+        {
+          "en": "We weighed the pros and cons of building it ourselves versus buying a managed service.",
+          "zh": "我们权衡了自研和购买托管服务的利弊。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：选型的时候，你一般怎么做决定？",
+        "en": "I write a short doc to weigh the pros and cons of each option, then get feedback from the team."
+      }
+    },
+    {
+      "term": "decide against",
+      "kind": "chunk",
+      "zh": "决定不采用（两个词，d 开头）",
+      "examples": [
+        {
+          "en": "We decided against a full rewrite because we couldn't freeze features for six months.",
+          "zh": "我们决定不做完全重写，因为不可能冻结功能半年。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们考虑过用 Kubernetes 吗？",
+        "en": "We did, but we decided against it. For a team of four, the operational overhead wasn't justified."
+      }
+    },
+    {
+      "term": "not worth the added complexity",
+      "kind": "chunk",
+      "zh": "不值得为此增加复杂度",
+      "examples": [
+        {
+          "en": "Sharding would have helped, but it was not worth the added complexity at our scale.",
+          "zh": "分库分表会有帮助，但以我们的规模，不值得为此增加复杂度。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么不引入事件溯源？",
+        "en": "We looked at it, but it wasn't worth the added complexity for a simple CRUD workflow."
+      }
+    },
+    {
+      "term": "good enough for our use case",
+      "kind": "chunk",
+      "zh": "对我们的场景来说已经够用",
+      "examples": [
+        {
+          "en": "Eventual consistency was good enough for our use case, so we kept things simple.",
+          "zh": "最终一致性对我们的场景来说已经够用，所以我们就保持简单。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么不用更强的一致性保证？",
+        "en": "A few seconds of delay was good enough for our use case, and it made the system much cheaper to run."
+      }
+    },
+    {
+      "term": "as a stopgap",
+      "kind": "chunk",
+      "zh": "作为临时的应急措施（s 开头的名词）",
+      "examples": [
+        {
+          "en": "As a stopgap, we doubled the instance size while we worked on the real fix.",
+          "zh": "作为临时措施，我们先把实例规格翻倍，同时去做真正的修复。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：发现容量不够时，你们马上做了什么？",
+        "en": "We added a cache in front of it as a stopgap, and then redesigned the query path over the next quarter."
+      },
+      "note": "近义：as a temporary fix。stopgap 强调“先顶一阵”。"
+    },
+    {
+      "term": "phase out",
+      "kind": "chunk",
+      "zh": "逐步淘汰（旧系统），p 开头",
+      "examples": [
+        {
+          "en": "We phased out the old API over six months to give clients time to migrate.",
+          "zh": "我们用六个月逐步淘汰了旧 API，给客户端留出迁移时间。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：新系统上线后，旧系统是怎么处理的？",
+        "en": "We ran both in parallel, then phased out the old one once traffic was fully moved over."
+      },
+      "note": "反义：phase in（逐步引入）。"
+    },
+    {
+      "term": "pay off",
+      "kind": "chunk",
+      "zh": "（前期投入）后来见到回报",
+      "examples": [
+        {
+          "en": "The investment in automated tests paid off during the next big refactor.",
+          "zh": "在自动化测试上的投入，在下一次大重构时见到了回报。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：花一个季度做基础设施，值得吗？",
+        "en": "It really paid off. The following year we shipped twice as many features with the same team."
+      },
+      "note": "过去式是 paid off，不是 payed。名词是 payoff。"
+    },
+    {
+      "term": "The biggest win was ...",
+      "kind": "sentence",
+      "zh": "最大的成效是……（w 开头的名词）",
+      "examples": [
+        {
+          "en": "The biggest win was that on-call pages dropped from thirty a week to five.",
+          "zh": "最大的成效是值班告警从每周三十次降到了五次。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：这次重构带来的最大好处是什么？",
+        "en": "The biggest win was developer speed. A change that used to take a week now takes a day."
+      }
+    },
+    {
+      "term": "free up",
+      "kind": "chunk",
+      "zh": "腾出（时间、人手）",
+      "examples": [
+        {
+          "en": "Automating the release process freed up about ten engineering hours a week.",
+          "zh": "发布流程自动化之后，每周腾出了大约十个小时的工程师时间。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：把运维工作交给平台团队之后，有什么变化？",
+        "en": "It freed up two engineers, who then moved on to the new search feature."
+      }
+    },
+    {
+      "term": "Does that answer your question?",
+      "kind": "sentence",
+      "zh": "这样回答了你的问题吗？",
+      "examples": [
+        {
+          "en": "So that's how we handled the migration. Does that answer your question?",
+          "zh": "我们就是这样完成迁移的。这样回答了你的问题吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你回答了一个比较宽泛的问题，不确定讲的是不是面试官想听的：",
+        "en": "Does that answer your question, or would you like me to go into more detail on the technical side?"
+      }
+    },
+    {
+      "term": "Let me rephrase that.",
+      "kind": "sentence",
+      "zh": "我换个说法。",
+      "examples": [
+        {
+          "en": "Sorry, that wasn't very clear. Let me rephrase that.",
+          "zh": "抱歉，刚才说得不太清楚，我换个说法。"
+        }
+      ],
+      "situation": {
+        "zh": "你说到一半发现自己表达得很乱，想重新组织一下：",
+        "en": "Let me rephrase that. What I mean is that the cache was hiding the real problem."
+      }
+    },
+    {
+      "term": "I haven't used ... in production, but ...",
+      "kind": "sentence",
+      "zh": "我没在生产环境用过……，不过……",
+      "examples": [
+        {
+          "en": "I haven't used Kafka in production, but I've built similar pipelines with RabbitMQ.",
+          "zh": "我没在生产环境用过 Kafka，不过我用 RabbitMQ 搭过类似的管道。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你用过 Rust 做后端服务吗？你只在个人项目里写过：",
+        "en": "I haven't used Rust in production, but I've written a few side projects in it and I know the ownership model well."
+      },
+      "note": "不会就直说，再接上相关经验。硬撑比承认不会扣分多得多。"
+    },
+    {
+      "term": "My understanding is that ...",
+      "kind": "sentence",
+      "zh": "据我的理解，……",
+      "examples": [
+        {
+          "en": "My understanding is that it uses a write-ahead log, but I haven't looked at the internals.",
+          "zh": "据我的理解，它用的是预写日志，不过我没看过内部实现。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问了一个你不太确定的底层细节，你想给出答案但留有余地：",
+        "en": "I'm not completely sure, but my understanding is that the leader handles all the writes."
+      }
+    },
+    {
+      "term": "Let me take a step back.",
+      "kind": "sentence",
+      "zh": "我先退一步（回到全局来看）。",
+      "examples": [
+        {
+          "en": "Let me take a step back and look at what we're actually trying to solve.",
+          "zh": "我先退一步，看看我们到底要解决什么问题。"
+        }
+      ],
+      "situation": {
+        "zh": "系统设计讲到一半，你发现自己陷进了细节，想回到整体思路：",
+        "en": "Actually, let me take a step back. I think I'm optimizing the wrong part of the system."
+      }
+    },
+    {
+      "term": "What drew me to this role is ...",
+      "kind": "sentence",
+      "zh": "这个岗位吸引我的地方是……（d 开头的动词）",
+      "examples": [
+        {
+          "en": "What drew me to this role is the scale of the data you work with.",
+          "zh": "这个岗位吸引我的地方，是你们处理的数据规模。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你为什么想来我们公司？",
+        "en": "What drew me to this role is the chance to work on developer tools, which I've cared about for years."
+      },
+      "note": "draw 的过去式是 drew。"
+    },
+    {
+      "term": "be a good fit for",
+      "kind": "chunk",
+      "zh": "和……很契合、很适合（含 f 开头的名词）",
+      "examples": [
+        {
+          "en": "I think I'd be a good fit for this team because I've solved very similar problems.",
+          "zh": "我觉得我和这个团队很契合，因为我解决过非常类似的问题。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你觉得自己为什么适合这个职位？",
+        "en": "I believe I'm a good fit for the role: you need someone who can own the backend, and that's what I've done for five years."
+      }
+    },
+    {
+      "term": "play to my strengths",
+      "kind": "chunk",
+      "zh": "发挥我的长处",
+      "examples": [
+        {
+          "en": "This position plays to my strengths in debugging and performance work.",
+          "zh": "这个职位能发挥我在排查问题和性能优化上的长处。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你理想的工作内容是什么样的？",
+        "en": "Something that plays to my strengths: taking a messy system and making it reliable."
+      }
+    },
+    {
+      "term": "An area I'm working on is ...",
+      "kind": "sentence",
+      "zh": "我正在改进的一个方面是……（回答“你的缺点”）",
+      "examples": [
+        {
+          "en": "An area I'm working on is giving feedback earlier instead of waiting for the review.",
+          "zh": "我正在改进的一个方面，是更早给出反馈，而不是等到评审的时候。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你觉得自己有什么不足？",
+        "en": "An area I'm working on is public speaking. I've started presenting at our monthly tech talks to get better."
+      },
+      "note": "比 my weakness is ... 更积极。说完缺点一定要接上你正在怎么改。"
+    },
+    {
+      "term": "hit a ceiling",
+      "kind": "chunk",
+      "zh": "遇到天花板、没有上升空间了",
+      "examples": [
+        {
+          "en": "After four years on the same product, I felt I had hit a ceiling.",
+          "zh": "在同一个产品上做了四年，我觉得自己遇到了天花板。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你在现在的公司做得不错，为什么想走？",
+        "en": "I've hit a ceiling in terms of technical scope. The system is stable, and there isn't much left to design."
+      }
+    },
+    {
+      "term": "What does a typical day look like on your team?",
+      "kind": "sentence",
+      "zh": "你们团队典型的一天是什么样的？",
+      "examples": [
+        {
+          "en": "I'm curious, what does a typical day look like on your team?",
+          "zh": "我挺好奇的，你们团队典型的一天是什么样的？"
+        }
+      ],
+      "situation": {
+        "zh": "面试官说：你有什么想问我的吗？你想了解团队的日常工作节奏：",
+        "en": "Yes, a few. First, what does a typical day look like on your team?"
+      },
+      "note": "一定要准备问题。说“没有问题”会显得你对这份工作兴趣不大。"
+    },
+    {
+      "term": "What does success look like in this role?",
+      "kind": "sentence",
+      "zh": "这个岗位怎样才算做得成功？",
+      "examples": [
+        {
+          "en": "What does success look like in this role after the first six months?",
+          "zh": "入职六个月后，这个岗位怎样算做得成功？"
+        }
+      ],
+      "situation": {
+        "zh": "轮到你提问，你想知道公司对这个职位的期望：",
+        "en": "What does success look like in this role, say, a year from now?"
+      }
+    },
+    {
+      "term": "What are the biggest challenges the team is facing right now?",
+      "kind": "sentence",
+      "zh": "团队目前面临的最大挑战是什么？",
+      "examples": [
+        {
+          "en": "From your point of view, what are the biggest challenges the team is facing right now?",
+          "zh": "在你看来，团队目前面临的最大挑战是什么？"
+        }
+      ],
+      "situation": {
+        "zh": "轮到你提问，你想了解团队现在最头疼的问题：",
+        "en": "I'd love to know: what are the biggest challenges the team is facing right now?"
+      }
+    },
+    {
+      "term": "How are technical decisions made on the team?",
+      "kind": "sentence",
+      "zh": "团队里的技术决策是怎么做出来的？",
+      "examples": [
+        {
+          "en": "How are technical decisions made on the team? Is there a design review process?",
+          "zh": "团队里的技术决策是怎么做出来的？有设计评审流程吗？"
+        }
+      ],
+      "situation": {
+        "zh": "轮到你提问，你想了解工程师在技术选型上有多大话语权：",
+        "en": "How are technical decisions made on the team, and how much say do individual engineers have?"
+      }
+    },
+    {
+      "term": "What are the next steps in the process?",
+      "kind": "sentence",
+      "zh": "接下来的流程是怎样的？",
+      "examples": [
+        {
+          "en": "Thanks for your time today. What are the next steps in the process?",
+          "zh": "谢谢你今天抽时间。接下来的流程是怎样的？"
+        }
+      ],
+      "situation": {
+        "zh": "面试快结束了，你想知道后面还有几轮、什么时候有结果：",
+        "en": "Before we wrap up, what are the next steps in the process, and when should I expect to hear back?"
+      }
+    }
+  ]
+}

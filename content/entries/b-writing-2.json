@@ -1,0 +1,495 @@
+{
+  "layer": "B",
+  "category": "writing",
+  "title": "书面沟通：消息、邮件与 PR 描述",
+  "entries": [
+    {
+      "term": "Let me know if you have any questions.",
+      "kind": "sentence",
+      "zh": "有问题随时告诉我。",
+      "examples": [
+        {
+          "en": "I've shared the doc with you. Let me know if you have any questions.",
+          "zh": "文档我共享给你了，有问题随时告诉我。"
+        }
+      ],
+      "situation": {
+        "zh": "你给新同事发了一份环境搭建指南，结尾想说有不清楚的可以找你。",
+        "en": "That should be everything you need. Let me know if you have any questions."
+      },
+      "note": "邮件和消息最常见的结尾。熟人之间常缩成 LMK if you have questions."
+    },
+    {
+      "term": "Feel free to ping me.",
+      "kind": "sentence",
+      "zh": "随时戳我。（p 开头的动词，在聊天工具上找人）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Feel free to ping me if the script gives you any trouble.",
+          "zh": "脚本要是有什么问题，随时戳我。"
+        }
+      ],
+      "situation": {
+        "zh": "你把值班交接文档发给同事，告诉他晚上遇到搞不定的可以在 Slack 上找你。",
+        "en": "Feel free to ping me if anything looks off tonight."
+      },
+      "note": "ping 指在聊天工具上发消息找人。邮件里更常写 Feel free to reach out."
+    },
+    {
+      "term": "Thanks in advance.",
+      "kind": "sentence",
+      "zh": "先谢了。",
+      "examples": [
+        {
+          "en": "Could you review the doc by Friday? Thanks in advance.",
+          "zh": "你能周五前看一下文档吗？先谢了。"
+        }
+      ],
+      "situation": {
+        "zh": "你在邮件里请别的团队帮忙开通测试环境的权限，结尾提前道谢。",
+        "en": "Please let me know if you need anything else from me. Thanks in advance!"
+      },
+      "note": "放在请求之后。有人觉得它默认了对方会答应；对上级或客户，用 I'd really appreciate your help 更稳妥。"
+    },
+    {
+      "term": "Looking forward to hearing from you.",
+      "kind": "sentence",
+      "zh": "期待你的回复。",
+      "register": "formal",
+      "examples": [
+        {
+          "en": "We'd love to set up a call next week. Looking forward to hearing from you.",
+          "zh": "我们很希望下周能约个电话，期待你的回复。"
+        }
+      ],
+      "situation": {
+        "zh": "你给外部供应商的技术支持写邮件，询问接口限流的细节，想用得体的方式结尾。",
+        "en": "Looking forward to hearing from you."
+      },
+      "note": "对外邮件的正式结尾，内部聊天不用。注意 to 后面是 hearing，不是 hear。"
+    },
+    {
+      "term": "Much appreciated.",
+      "kind": "sentence",
+      "zh": "非常感谢。（两个词，a 开头的分词）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Thanks for turning that around so quickly. Much appreciated.",
+          "zh": "谢谢你这么快就搞定了，非常感谢。"
+        }
+      ],
+      "situation": {
+        "zh": "运维同事十分钟就帮你恢复了误删的配置，你回消息道谢。",
+        "en": "That was fast. Much appreciated!"
+      },
+      "note": "简短的书面道谢，比 Thanks 分量重一点。完整说法是 It's much appreciated."
+    },
+    {
+      "term": "Would you mind ...?",
+      "kind": "sentence",
+      "zh": "你介意……吗？（后接动词 -ing）",
+      "examples": [
+        {
+          "en": "Would you mind sharing the query you used?",
+          "zh": "你介意把你用的查询语句发一下吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你想请同事把会议录屏的链接发到频道里。",
+        "en": "Would you mind posting the recording link in the channel?"
+      },
+      "note": "后面接动名词。同意时回答 Not at all 或 Sure；回答 Yes 反而表示介意。"
+    },
+    {
+      "term": "I was wondering if you could ...",
+      "kind": "sentence",
+      "zh": "不知道你能不能……（过去进行时开头，很客气的请求）",
+      "examples": [
+        {
+          "en": "I was wondering if you could review the proposal before Thursday's meeting.",
+          "zh": "不知道你能不能在周四开会前看一下这份提案。"
+        }
+      ],
+      "situation": {
+        "zh": "你想请另一个团队的资深工程师抽空给你们的架构设计提意见，你们并不熟。",
+        "en": "I was wondering if you could give us some feedback on our design doc."
+      },
+      "note": "比 Could you ...? 更客气，适合对不熟的人，或请对方帮比较大的忙。对熟人用会显得见外。"
+    },
+    {
+      "term": "It would be great if you could ...",
+      "kind": "sentence",
+      "zh": "如果你能……就太好了",
+      "examples": [
+        {
+          "en": "It would be great if you could send me the logs before noon.",
+          "zh": "如果你能在中午前把日志发我就太好了。"
+        }
+      ],
+      "situation": {
+        "zh": "你请测试同事在今天下班前验证一下修复，但不想说得像命令。",
+        "en": "It would be great if you could verify the fix by end of day."
+      },
+      "note": "把请求说成愿望，语气软，但对方明白这是一个请求。"
+    },
+    {
+      "term": "Correct me if I'm wrong, but ...",
+      "kind": "sentence",
+      "zh": "如果我说错了请纠正，不过……",
+      "examples": [
+        {
+          "en": "Correct me if I'm wrong, but I thought this endpoint was deprecated.",
+          "zh": "如果我说错了请纠正，不过我以为这个接口已经废弃了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在文档里写新服务要直连主库，你记得规范是必须走连接代理，想委婉指出。",
+        "en": "Correct me if I'm wrong, but I think all services have to go through the connection proxy."
+      },
+      "note": "提出不同看法前先给自己留余地。即使你很确定，这样说也让对方更容易接受。"
+    },
+    {
+      "term": "Apologies for the confusion.",
+      "kind": "sentence",
+      "zh": "抱歉造成了误解。（A 开头的复数名词）",
+      "examples": [
+        {
+          "en": "Apologies for the confusion. The correct date is the 14th, not the 15th.",
+          "zh": "抱歉造成了误解，正确的日期是 14 号，不是 15 号。"
+        }
+      ],
+      "situation": {
+        "zh": "你上一封邮件里把预发环境的地址写错了，害得同事连错了环境，你发消息更正。",
+        "en": "Apologies for the confusion. I pasted the wrong URL in my last email."
+      },
+      "note": "更正自己的书面错误时用。Apologies 比 Sorry 略正式；口语一点说 Sorry for the confusion."
+    },
+    {
+      "term": "This fixes a bug where ...",
+      "kind": "sentence",
+      "zh": "这修复了一个……的 bug（用 where 引出现象）",
+      "examples": [
+        {
+          "en": "This fixes a bug where users were logged out after refreshing the page.",
+          "zh": "这修复了一个用户刷新页面后被登出的 bug。"
+        }
+      ],
+      "situation": {
+        "zh": "你在写 PR 描述的第一句：修的问题是导出的 CSV 里中文会乱码。",
+        "en": "This fixes a bug where Chinese characters were garbled in the CSV export."
+      },
+      "note": "修 bug 类 PR 的标准第一句。where 后面描述出错的现象，通常用过去时。"
+    },
+    {
+      "term": "The motivation for this change is ...",
+      "kind": "sentence",
+      "zh": "做这个改动的动机是……",
+      "examples": [
+        {
+          "en": "The motivation for this change is to cut our cold start time.",
+          "zh": "做这个改动的动机是缩短冷启动时间。"
+        }
+      ],
+      "situation": {
+        "zh": "你在 PR 描述里解释为什么要把配置从环境变量挪到配置中心：为了不重启就能改配置。",
+        "en": "The motivation for this change is to let us update config without restarting the service."
+      },
+      "note": "很多 PR 模板有 Motivation 一节。评审人最想知道的是“为什么改”，而不只是“改了什么”。"
+    },
+    {
+      "term": "Previously, ... Now, ...",
+      "kind": "sentence",
+      "zh": "之前……，现在……（P 开头的副词，描述行为变化）",
+      "examples": [
+        {
+          "en": "Previously, we retried forever. Now, we give up after three attempts.",
+          "zh": "之前我们会无限重试，现在三次之后就放弃。"
+        }
+      ],
+      "situation": {
+        "zh": "你在 PR 描述里说明行为变化：原来每次请求都查数据库，改完后结果会缓存五分钟。",
+        "en": "Previously, every request hit the database. Now, results are cached for five minutes."
+      },
+      "note": "描述行为变化的固定结构，让评审人一眼看出前后区别。"
+    },
+    {
+      "term": "Note to reviewers: ...",
+      "kind": "sentence",
+      "zh": "给评审人的说明：……",
+      "examples": [
+        {
+          "en": "Note to reviewers: most of the diff is generated code, so focus on the schema file.",
+          "zh": "给评审人的说明：diff 大部分是生成的代码，重点看 schema 文件就行。"
+        }
+      ],
+      "situation": {
+        "zh": "你的 PR 里有一个文件只是整体移动了位置，想提醒评审的同事不用逐行看。",
+        "en": "Note to reviewers: utils.ts was only moved, not changed."
+      },
+      "note": "帮评审人把注意力放在该看的地方，是写 PR 描述的好习惯。"
+    },
+    {
+      "term": "best reviewed commit by commit",
+      "kind": "chunk",
+      "zh": "最好一个提交一个提交地看（PR 描述用语）",
+      "examples": [
+        {
+          "en": "This PR is best reviewed commit by commit, since the first one is a pure rename.",
+          "zh": "这个 PR 最好一个提交一个提交地看，因为第一个提交只是重命名。"
+        }
+      ],
+      "situation": {
+        "zh": "你的 PR 很大，但每个提交都是独立的一步，你想建议评审人按提交的顺序来看。",
+        "en": "It's a big diff, but it's best reviewed commit by commit."
+      },
+      "note": "前提是提交历史整理得干净，每个提交只做一件事。"
+    },
+    {
+      "term": "To test this locally, ...",
+      "kind": "sentence",
+      "zh": "要在本地测试这个改动，……",
+      "examples": [
+        {
+          "en": "To test this locally, run the seed script and log in as the admin user.",
+          "zh": "要在本地测试这个改动，先跑一下 seed 脚本，再用管理员账号登录。"
+        }
+      ],
+      "situation": {
+        "zh": "你在 PR 描述里写测试方法：需要先把功能开关的环境变量设成 true。",
+        "en": "To test this locally, set FEATURE_EXPORT=true and restart the server."
+      },
+      "note": "写在 PR 的 Testing 或 How to test 一节，方便评审人自己验证。"
+    },
+    {
+      "term": "The main risk is ...",
+      "kind": "sentence",
+      "zh": "主要风险是……",
+      "examples": [
+        {
+          "en": "The main risk is that old clients may still send the removed field.",
+          "zh": "主要风险是老客户端可能还会发那个已删除的字段。"
+        }
+      ],
+      "situation": {
+        "zh": "你在 PR 描述的风险一节里说明：这个迁移在大表上可能跑很久，期间会锁表。",
+        "en": "The main risk is that the migration could lock the orders table for several minutes."
+      },
+      "note": "主动写出风险会让评审人更信任你。后面最好接上缓解办法。"
+    },
+    {
+      "term": "This is a breaking change.",
+      "kind": "sentence",
+      "zh": "这是一个不兼容的改动。（b 开头的形容词）",
+      "examples": [
+        {
+          "en": "This is a breaking change, so we need to release a new major version.",
+          "zh": "这是一个不兼容的改动，所以要发一个新的主版本。"
+        }
+      ],
+      "situation": {
+        "zh": "你的 PR 删掉了接口响应里的一个字段，必须在描述里提醒调用方。",
+        "en": "This is a breaking change. Clients that read the legacy field will need to update."
+      },
+      "note": "指会让现有调用方出错的改动。Conventional Commits 规范里用 BREAKING CHANGE: 标注。"
+    },
+    {
+      "term": "The rollback plan is to ...",
+      "kind": "sentence",
+      "zh": "回滚方案是……",
+      "examples": [
+        {
+          "en": "The rollback plan is to turn off the feature flag and redeploy the previous image.",
+          "zh": "回滚方案是关掉功能开关，然后重新部署上一个镜像。"
+        }
+      ],
+      "situation": {
+        "zh": "你在 PR 描述里说明万一出问题怎么办：这个数据库迁移是可逆的，执行 down 脚本就行。",
+        "en": "The rollback plan is to run the down migration, which restores the old column."
+      },
+      "note": "名词 rollback 写成一个词，动词 roll back 分开写。"
+    },
+    {
+      "term": "bump ... to ...",
+      "kind": "chunk",
+      "zh": "把（依赖的版本）升到……（b 开头，提交说明常用）",
+      "examples": [
+        {
+          "en": "I bumped the SDK to 3.2 to pick up the security fix.",
+          "zh": "我把 SDK 升到了 3.2，为了拿到那个安全修复。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你那个只改了一行 package.json 的提交是干什么的，你说只是升级了 TypeScript 的版本。",
+        "en": "It just bumps TypeScript to 5.4."
+      },
+      "collocations": [
+        "bump the version",
+        "bump a dependency",
+        "version bump"
+      ],
+      "note": "提交说明习惯用祈使句、动词原形开头：Bump axios to 1.7，不写 Bumped 或 Bumps。"
+    },
+    {
+      "term": "go live",
+      "kind": "chunk",
+      "zh": "正式上线（两个词，l 开头的形容词）",
+      "examples": [
+        {
+          "en": "The new checkout flow went live on Tuesday with no issues.",
+          "zh": "新的结账流程周二正式上线了，没出问题。"
+        }
+      ],
+      "situation": {
+        "zh": "你写周报的“已完成”部分：搜索改版本周三上线了。",
+        "en": "The search redesign went live on Wednesday."
+      },
+      "note": "这里的 live 是形容词，读 /laɪv/，不读 /lɪv/。也可以作表语：The feature is live now."
+    },
+    {
+      "term": "in progress",
+      "kind": "chunk",
+      "zh": "进行中（状态更新用语）",
+      "examples": [
+        {
+          "en": "The API work is done, and the frontend is still in progress.",
+          "zh": "接口做完了，前端还在进行中。"
+        }
+      ],
+      "situation": {
+        "zh": "你写周报时要列出还没做完的事：数据回填正在做，预计周四完成。",
+        "en": "The data backfill is in progress and should finish by Thursday."
+      },
+      "collocations": [
+        "work in progress",
+        "still in progress"
+      ],
+      "note": "周报常见的三栏：Done、In progress、Blocked。"
+    },
+    {
+      "term": "pending approval",
+      "kind": "chunk",
+      "zh": "等待审批中（p 开头的形容词）",
+      "examples": [
+        {
+          "en": "The production access request is still pending approval from security.",
+          "zh": "生产环境的权限申请还在等安全团队审批。"
+        }
+      ],
+      "situation": {
+        "zh": "你写周报的“受阻”部分：云资源的预算申请还没批下来，所以压测没法开始。",
+        "en": "Load testing hasn't started because the budget request is pending approval."
+      },
+      "collocations": [
+        "pending review",
+        "pending a decision",
+        "pending approval from"
+      ],
+      "note": "pending 表示“悬而未决、等待中”。也可作介词：pending the security review（在安全评审完成之前）。"
+    },
+    {
+      "term": "up next",
+      "kind": "chunk",
+      "zh": "接下来要做的（周报里列下一步）",
+      "examples": [
+        {
+          "en": "Up next is the notification service, which I'll start on Monday.",
+          "zh": "接下来要做的是通知服务，我周一开始。"
+        }
+      ],
+      "situation": {
+        "zh": "你写周报的最后一部分：下周要做的是给导出功能加权限校验。",
+        "en": "Up next: adding permission checks to the export feature."
+      },
+      "note": "周报里常直接当小标题用：Up next: ...。意思同 Next up。"
+    },
+    {
+      "term": "I'll be out of office from ... to ...",
+      "kind": "sentence",
+      "zh": "我从……到……不在（休假通知的固定说法）",
+      "examples": [
+        {
+          "en": "I'll be out of office from Monday to Wednesday next week.",
+          "zh": "我下周一到周三不在。"
+        }
+      ],
+      "situation": {
+        "zh": "你 12 月 23 号到 1 月 2 号休年假，想提前在团队频道里说一声。",
+        "en": "I'll be out of office from December 23 to January 2."
+      },
+      "note": "缩写 OOO，常写在日历和聊天状态里。也说 out of the office。"
+    },
+    {
+      "term": "take ... off",
+      "kind": "chunk",
+      "zh": "请（某天）假、休息（某天）",
+      "examples": [
+        {
+          "en": "I'd like to take Friday off, so I'll hand over the on-call shift on Thursday.",
+          "zh": "我周五想请假，所以周四会把值班交接掉。"
+        }
+      ],
+      "situation": {
+        "zh": "你明天要去办签证，想告诉经理你明天请一天假。",
+        "en": "I need to take tomorrow off for a visa appointment."
+      },
+      "collocations": [
+        "take a day off",
+        "take the afternoon off",
+        "take a sick day"
+      ],
+      "note": "很多英文团队里请假更像“告知”而不是“申请”：说清楚哪天不在、工作怎么安排就行。"
+    },
+    {
+      "term": "For anything urgent, please contact ...",
+      "kind": "sentence",
+      "zh": "有急事请联系……（自动回复的固定说法）",
+      "register": "formal",
+      "examples": [
+        {
+          "en": "For anything urgent, please contact Chen, who's looking after the payments work.",
+          "zh": "有急事请联系 Chen，支付这块的工作由他代管。"
+        }
+      ],
+      "situation": {
+        "zh": "你在设置休假的邮件自动回复，想告诉来信的人紧急情况可以找你的同事 Lena。",
+        "en": "I'm away until July 8. For anything urgent, please contact Lena."
+      },
+      "note": "自动回复三要素：哪天回来、能不能看消息、急事找谁。"
+    },
+    {
+      "term": "cover for",
+      "kind": "chunk",
+      "zh": "替（某人）顶班、代管工作（c 开头的动词）",
+      "examples": [
+        {
+          "en": "Maria is covering for me while I'm away, so send her any urgent requests.",
+          "zh": "我不在的时候 Maria 替我顶班，有急事发给她。"
+        }
+      ],
+      "situation": {
+        "zh": "你下周休假，想问同事 Tom 能不能帮你盯一下你负责的发版。",
+        "en": "Could you cover for me on the release next week?"
+      },
+      "note": "指临时接手某人的工作。值班换班也用 cover：Can you cover my on-call shift?"
+    },
+    {
+      "term": "I'm signing off for the day.",
+      "kind": "sentence",
+      "zh": "我今天下线了。（s 开头的短语动词）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I'm signing off for the day. I'll continue with this tomorrow morning.",
+          "zh": "我今天下线了，这个明天上午接着弄。"
+        }
+      ],
+      "situation": {
+        "zh": "你和海外同事跨时区协作，你这边该下班了，想在频道里说一声，让他们知道你暂时不回消息。",
+        "en": "I'm signing off for the day. Leave me a message and I'll reply in the morning."
+      },
+      "note": "远程和跨时区团队里的日常用语。注意 sign off 是下线，sign off on 是批准，意思完全不同。"
+    }
+  ]
+}

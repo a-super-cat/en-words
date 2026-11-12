@@ -1,0 +1,355 @@
+{
+  "category": "standup",
+  "title": "站会",
+  "scenarios": [
+    {
+      "id": "standup-blocked-on-platform-team",
+      "title": "被别的团队卡住",
+      "setting": "周三早上的线上站会。你在把通知服务迁到新的消息队列上，但平台团队一直没给你开预发环境的队列权限。主持站会的是经理 Hannah，她认识平台团队的 Nikhil。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Hannah",
+          "en": "Alright, let's get going. I've got a hard stop at quarter past, so short updates, please. Do you want to kick us off?",
+          "zh": "好，咱们开始吧。我十五分必须走，所以大家说短一点。你先来？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说昨天把通知服务的消费者代码写完了，但还没法在预发环境上测：平台团队到现在没给你开新队列的权限，你被他们卡住了。",
+          "en": "Sure. Yesterday I wrapped up the consumer code for the notification service, but I can't test it on staging yet. I'm blocked on the platform team, who still haven't given me access to the new queue.",
+          "chunks": [
+            { "term": "wrap up", "zh": "收尾、做完" },
+            { "term": "I'm blocked on ...", "zh": "我被……卡住了" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Hannah",
+          "en": "Hmm. Did you raise that with them properly, or was it just a Slack message?",
+          "zh": "嗯。你是正式提给他们的，还是只在 Slack 上说了一声？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说上周四就提了工单，到现在没人接。周一你还在他们的频道里催过一次，也没有回音。",
+          "en": "I opened a ticket last Thursday, and nobody's picked it up so far. I also pinged their channel on Monday, but nothing yet.",
+          "chunks": [
+            { "term": "open a ticket", "zh": "提工单" },
+            { "term": "pick up", "zh": "接手、认领" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Hannah",
+          "en": "Okay, that's not great. So how much does this hurt us? Like, if it drags on till Friday, are we still fine for the release?",
+          "zh": "这可不太妙。那对我们影响有多大？比如拖到周五，还赶得上发版吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说明天之前拿到权限的话，进度还正常；再晚，联调测试就只能顺延到下个迭代了。",
+          "en": "If I get access by tomorrow, we're still on track. Any later than that, and the integration testing will have to carry over to the next sprint.",
+          "chunks": [
+            { "term": "on track", "zh": "按计划进行" },
+            { "term": "carry over", "zh": "顺延到下一个迭代" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Hannah",
+          "en": "Right. I know Nikhil over there, so I can nudge him. Is there anything you can do in the meantime, or are you just stuck?",
+          "zh": "明白。我认识他们那边的 Nikhil，可以去催一下。这期间你有别的能做吗，还是只能干等？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说不会干等：可以先用本地的模拟队列把重试逻辑测掉。不过想请她帮忙把 Nikhil 拉进那个工单里。",
+          "en": "I'm not completely stuck. I can test the retry logic against a local mock queue for now. But it would really help if you could loop Nikhil in on that ticket.",
+          "chunks": [
+            { "term": "loop in", "zh": "把……拉进来、让……知情" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Hannah",
+          "en": "Yep, I'll message him right after this. Can you send me the ticket link?",
+          "zh": "行，开完会我就给他发消息。你把工单链接发我一下？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你答应马上把链接发到会议聊天里，并说拿到权限后会告诉大家。除此之外没有别的阻塞。",
+          "en": "Will do, I'll drop it in the chat right now. And I'll let everyone know once I have access. Other than that, no blockers.",
+          "chunks": [
+            { "term": "Will do.", "zh": "好的，我会办" },
+            { "term": "drop it in the chat", "zh": "发到聊天框里" },
+            { "term": "no blockers", "zh": "没有阻塞" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Hannah",
+          "en": "Perfect, thanks. Okay, who's next? Mateo?",
+          "zh": "好，谢谢。下一个谁？Mateo？"
+        }
+      ]
+    },
+    {
+      "id": "standup-behind-schedule",
+      "title": "进度落后要说明",
+      "setting": "周四的站会，下周一要给客户演示。你负责的报表导出功能比计划慢了，因为旧数据里有很多脏数据要兼容。技术负责人 Dmitri 说话很直接，产品经理 Chloe 也在。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Dmitri",
+          "en": "Okay, the export feature. The board says it's still in progress, and we demo on Monday. Where are we really?",
+          "zh": "好，说说导出功能。看板上还是进行中，可我们周一就要演示了。实际到哪一步了？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你坦白说比预想的慢：导出本身已经做完，但你还在处理旧数据，它们比大家以为的乱得多。",
+          "en": "To be honest, it's taking longer than expected. The export itself is done, but I'm still working on the legacy data, which turned out to be much messier than we thought.",
+          "chunks": [
+            { "term": "It's taking longer than expected.", "zh": "比预期花的时间长" },
+            { "term": "I'm still working on ...", "zh": "我还在做……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dmitri",
+          "en": "Messier how? You estimated three days for this. What changed?",
+          "zh": "怎么个乱法？你当初估的是三天。哪里变了？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你承认是自己低估了，责任在你。然后举个具体例子：大约百分之十五的旧记录没有时区，直接导出的话日期是错的。",
+          "en": "I underestimated it, and that's on me. Let me give you a concrete example. About fifteen percent of the old records have no time zone, so the dates come out wrong if we export them as is.",
+          "chunks": [
+            { "term": "underestimate", "zh": "低估" },
+            { "term": "Let me give you a concrete example.", "zh": "我举个具体的例子" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Chloe",
+          "en": "Sorry, can I jump in? Does that mean customers would see wrong dates in the file? Because that's kind of a big deal for our finance users.",
+          "zh": "不好意思，我插一句。意思是客户会在文件里看到错的日期？这对财务用户来说可不是小事。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说正是这样，所以你不想带着这个问题上线。实际一点估计，你周一下班前能做完，也就是赶不上演示。",
+          "en": "Exactly, and that's why I don't want to ship it as is. Realistically, I should have it done by end of day Monday, which means it misses the demo.",
+          "chunks": [
+            { "term": "I should have it done by ...", "zh": "我应该能在……之前做完" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dmitri",
+          "en": "Monday evening is no good. Is there any version of this we can show on Monday morning?",
+          "zh": "周一晚上不行。有没有哪个版本是周一早上能拿出来演示的？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你提出折中办法：演示时只导出今年的数据，这部分是干净的，现在就能用；旧记录下周另提一个 PR 来修。",
+          "en": "What if we limit the demo to this year's data? That part is clean and works today. Then I'd fix the legacy records in a follow-up PR next week.",
+          "chunks": [
+            { "term": "What if we ...?", "zh": "如果我们……怎么样？" },
+            { "term": "follow-up PR", "zh": "后续的 PR" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Chloe",
+          "en": "I can live with that for the demo, as long as we're upfront that the older data is coming later.",
+          "zh": "演示的话我能接受，只要我们事先讲明旧数据后面才支持。"
+        },
+        {
+          "speaker": "them",
+          "name": "Dmitri",
+          "en": "Fine. But next time, tell me on day one, not day four, yeah?",
+          "zh": "行。不过下次第一天就告诉我，别等到第四天，好吧？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你接受批评：确实应该一发现就说，下次会的。你今天会把看板更新好，让它反映真实的剩余工作。",
+          "en": "Fair enough. I should have flagged it early, and I will next time. I'll update the board today so it shows what's actually left.",
+          "chunks": [
+            { "term": "Fair enough.", "zh": "有道理、说得对" },
+            { "term": "flag ... early", "zh": "尽早把……提出来" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dmitri",
+          "en": "Good. Okay, moving on.",
+          "zh": "好。那下一个。"
+        }
+      ]
+    },
+    {
+      "id": "standup-volunteer-search-timeouts",
+      "title": "主动认领任务",
+      "setting": "周一站会快结束时。线上的搜索接口周末又超时了几次，一直没人负责排查，熟悉搜索模块的 Kwame 周三起休假。你手头的工作今天能做完，想主动接下来。主持人是 Priya。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Priya",
+          "en": "One more thing before we wrap up. The search timeouts are back, we had three alerts over the weekend. Kwame, you're out from Wednesday, right?",
+          "zh": "散会前还有一件事。搜索超时又出现了，周末报了三次警。Kwame，你周三开始休假对吧？"
+        },
+        {
+          "speaker": "them",
+          "name": "Kwame",
+          "en": "Yeah, sorry, bad timing. I can look at it today and tomorrow, but honestly, I won't get to the bottom of it before I leave.",
+          "zh": "对，不好意思，时间不凑巧。我今明两天能看看，但说实话，走之前查不到底。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你主动提出接手：你手上的权限页面今天下午就能做完，明天起就有空了。",
+          "en": "I can take that. The permissions page should be good to go by this afternoon, so that frees me up from tomorrow.",
+          "chunks": [
+            { "term": "I can take that.", "zh": "这个我来" },
+            { "term": "free up", "zh": "腾出（时间、人手）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Priya",
+          "en": "Oh, nice. Have you touched the search service before, though? It's a bit of a maze in there.",
+          "zh": "哦，太好了。不过你以前碰过搜索服务吗？那里面有点像迷宫。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你老实说碰得不多，只在做筛选功能时读过一部分。所以想趁 Kwame 还在，今天请他带你尽快熟悉起来。",
+          "en": "Not much, to be honest. I've only read parts of it, back when I built the filters. So I'd like Kwame to get me up to speed today, while he's still around.",
+          "chunks": [
+            { "term": "get ... up to speed", "zh": "让……尽快了解情况、上手" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Kwame",
+          "en": "Sure, happy to. I've got some notes and a dashboard I can show you. Does two o'clock work for you?",
+          "zh": "没问题。我有些笔记，还有个监控面板可以给你看。两点你方便吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说两点你有别的安排，问能不能改到三点。还请他提前把笔记发你，你先读一遍。",
+          "en": "Actually, I have a conflict at two. Can we push it to three? And if you send me your notes beforehand, I'll read them first.",
+          "chunks": [
+            { "term": "I have a conflict at ...", "zh": "我……点有别的安排" },
+            { "term": "Can we push it to ...?", "zh": "能不能推迟到……？" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Kwame",
+          "en": "Three's fine. I'll send the notes over right after standup.",
+          "zh": "三点可以。站会一结束我就把笔记发你。"
+        },
+        {
+          "speaker": "them",
+          "name": "Priya",
+          "en": "Great. And just so I know what to tell support, when do you think we'll have an answer?",
+          "zh": "好。另外我得知道怎么回复客服：你觉得什么时候能有结论？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说还没仔细看，现在不好说。你周三之前给她答复；如果发现问题比看上去大，会马上告诉她。",
+          "en": "It's hard to say before I've looked at it properly. I'll get back to you on that by Wednesday. And if it turns out to be bigger than it looks, I'll let you know right away.",
+          "chunks": [
+            { "term": "I'll get back to you on that.", "zh": "这个我回头答复你" },
+            { "term": "turn out to be", "zh": "结果是、原来是" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Priya",
+          "en": "That works. Thanks for stepping up, I appreciate it. Okay, that's everyone, have a good one.",
+          "zh": "可以。谢谢你主动站出来。好，都说完了，大家忙去吧。"
+        }
+      ]
+    },
+    {
+      "id": "standup-pull-back-on-track",
+      "title": "把跑题的站会拉回来",
+      "setting": "周二站会，原定十五分钟，已经过去十分钟。Luca 和 Aisha 为要不要换掉日志库争了起来，还有四个人没讲进度。经理今天请假，由你代为主持。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Luca",
+          "en": "...and that's exactly why I keep saying we should drop the old logging library. It's slow, the API is ugly, nobody likes it.",
+          "zh": "……所以我才一直说该把旧的日志库换掉。又慢，接口又难用，没人喜欢。"
+        },
+        {
+          "speaker": "them",
+          "name": "Aisha",
+          "en": "Sorry, but that's not fair. It's not slow if you configure it properly. And we've been through this, like, three times already.",
+          "zh": "抱歉，这么说不公平。配置对了它并不慢。而且这事我们都讨论过三回了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你礼貌地打断两人：这个话题值得讨论，但现在跑题了，还有四个人的进度没讲。",
+          "en": "Sorry to interrupt, but I think we're getting sidetracked. It's a discussion worth having, but we still have four updates to get through.",
+          "chunks": [
+            { "term": "Sorry to interrupt, but ...", "zh": "抱歉打断一下，不过……" },
+            { "term": "get sidetracked", "zh": "跑题、被带偏" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Luca",
+          "en": "Sure, sure, but it's kind of relevant to my update. Just give me one minute, I only want to show the benchmark.",
+          "zh": "行行，可这跟我要讲的进度有关系。就给我一分钟，我只想给大家看一下压测数据。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你表示理解但坚持：时间快不够了，这事会后再谈。你这周约半小时，你们三个人聊，让他到时候带上压测数据。",
+          "en": "I hear you, but we're running out of time. Let's take this offline. I'll set up half an hour for the three of us this week, and you can bring the benchmark then.",
+          "chunks": [
+            { "term": "We're running out of time.", "zh": "我们时间快不够了" },
+            { "term": "Let's take this offline.", "zh": "这个我们会后单独聊" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Aisha",
+          "en": "Fine by me. Thursday's best, I'm out on Friday.",
+          "zh": "我没意见。最好周四，我周五不在。"
+        },
+        {
+          "speaker": "them",
+          "name": "Luca",
+          "en": "Okay, okay, Thursday. But I do want a decision this time, not another round of let's think about it.",
+          "zh": "好吧好吧，周四。不过这次我要一个结论，别又是“再想想”。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你答应他周四一定定下来，会后你发会议邀请。然后把话题转回进度，请 Aisha 先讲。",
+          "en": "Agreed, we'll leave Thursday with a decision, and I'll send a calendar invite after this. Now, let's move on to the updates. Aisha, do you want to go first?",
+          "chunks": [
+            { "term": "send a calendar invite", "zh": "发日历邀请" },
+            { "term": "Let's move on to ...", "zh": "我们接着说……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Aisha",
+          "en": "Sure. Yesterday I finished the audit log migration, and today I'm writing the rollback script. No blockers, but I'll need a review on it this afternoon.",
+          "zh": "好。昨天我做完了审计日志的迁移，今天写回滚脚本。没有阻塞，不过下午需要有人帮我评审一下。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你答应午饭后帮她看，让她把链接发你。然后问 Luca：先不说日志库，他今天手上在做什么。",
+          "en": "Sure, send me the link and I'll take a look after lunch. Luca, logging aside, what's on your plate today?",
+          "chunks": [
+            { "term": "on your plate", "zh": "你手头要做的事" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Luca",
+          "en": "Ha, fair. I'm still on the payment retry bug, should be done by tomorrow. And thanks for keeping us honest.",
+          "zh": "哈，行吧。我还在修支付重试那个 bug，明天应该能好。也谢谢你管住我们。"
+        }
+      ]
+    }
+  ]
+}

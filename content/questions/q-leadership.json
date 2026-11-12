@@ -1,0 +1,203 @@
+{
+  "category": "leadership",
+  "title": "带人和推动",
+  "questions": [
+    {
+      "id": "onboard-and-mentor",
+      "prompt": "How do you onboard and mentor a new engineer who joins your team?",
+      "zh": "团队来了新工程师，你怎么带他上手、指导他？",
+      "outline": [
+        "First weeks: environment, a small real task, a clear contact person",
+        "Pair on reviews and design; explain the why behind decisions",
+        "Increase scope gradually until they own something end to end",
+        "Regular check-ins: ask what is unclear, give specific feedback",
+        "Give one concrete example of someone you helped grow"
+      ],
+      "chunks": [
+        { "term": "mentor junior engineers", "zh": "指导初级工程师、带新人" },
+        { "term": "get ... up to speed", "zh": "让（新人）尽快上手" },
+        { "term": "set ... up for success", "zh": "为（某人）创造成功的条件" },
+        { "term": "own ... end to end", "zh": "从头到尾全权负责……" },
+        { "term": "lead by example", "zh": "以身作则" }
+      ],
+      "followUps": ["How do you mentor someone who is more experienced than you in some areas?"]
+    },
+    {
+      "id": "what-to-delegate",
+      "prompt": "As a senior engineer, how do you decide what to delegate and what to do yourself?",
+      "zh": "作为高级工程师，你怎么决定哪些事交给别人、哪些事自己做？",
+      "outline": [
+        "Principle: delegate to grow people, not just to offload work",
+        "Keep the riskiest or most ambiguous pieces until they are clearer",
+        "Hand over outcomes and context, not step-by-step instructions",
+        "Stay available and review, but resist taking it back",
+        "Example: something you handed off and how it went"
+      ],
+      "chunks": [
+        { "term": "delegate", "zh": "把任务放手交给别人做" },
+        { "term": "free up", "zh": "腾出（时间、人手）" },
+        { "term": "take ownership of", "zh": "主动把……的责任担起来" },
+        { "term": "Who's going to own this?", "zh": "这件事谁来负责？" },
+        { "term": "set ... up for success", "zh": "为（某人）创造成功的条件" }
+      ],
+      "followUps": ["What do you do when the delegated work comes back below your standard?"]
+    },
+    {
+      "id": "major-technical-decision",
+      "prompt": "Walk me through how you made a major technical decision, for example choosing between two architectures.",
+      "zh": "讲讲你是怎么做一个重大技术决策的，比如在两种架构之间做选择。",
+      "outline": [
+        "Situation: the decision, the options, and what was at stake",
+        "Task: you owned the recommendation",
+        "Action: defined criteria, prototyped, wrote a design doc, gathered feedback",
+        "Result: the choice, the reasoning, and how it held up",
+        "Reflection: what you would weigh differently today"
+      ],
+      "chunks": [
+        { "term": "weigh the pros and cons", "zh": "权衡利弊" },
+        { "term": "We opted for ... over ... because ...", "zh": "我们选了……而不是……，因为……" },
+        { "term": "decide against", "zh": "决定不采用" },
+        { "term": "It came down to ...", "zh": "归根结底取决于……" },
+        { "term": "set the technical direction", "zh": "确定技术方向" }
+      ],
+      "followUps": ["How did you handle the people who preferred the other option?"]
+    },
+    {
+      "id": "cross-team-alignment",
+      "prompt": "Tell me about a time you had to get several teams to agree on a technical change.",
+      "zh": "讲一次你需要让好几个团队对一项技术改动达成一致的经历。",
+      "outline": [
+        "Situation: the change and why each team cared differently",
+        "Task: reach one agreed plan without formal authority",
+        "Action: met teams one by one, wrote a proposal, resolved objections",
+        "Result: the agreement, the rollout, and the timeline",
+        "Reflection: what you would do earlier next time"
+      ],
+      "chunks": [
+        { "term": "drive alignment across teams", "zh": "推动跨团队达成一致" },
+        { "term": "get buy-in from", "zh": "争取到……的认可和支持" },
+        { "term": "loop in", "zh": "把（某人）拉进来，让其知情或参与" },
+        { "term": "API contract", "zh": "接口契约" },
+        { "term": "on the same page", "zh": "大家理解一致" },
+        { "term": "I'll send out a summary after this.", "zh": "会后我发一份总结。" }
+      ],
+      "followUps": ["What did you do about the team that was least willing to change?"]
+    },
+    {
+      "id": "underperforming-teammate",
+      "prompt": "How have you handled a team member who wasn't performing at the level the team needed?",
+      "zh": "团队里有人的表现达不到要求时，你是怎么处理的？",
+      "outline": [
+        "Situation: what you observed, with facts rather than impressions",
+        "Task: your role as lead, mentor, or peer",
+        "Action: private conversation, found the cause, agreed on clear expectations",
+        "Result: improvement, or the point where you involved the manager",
+        "Reflection: what you learned about addressing issues early"
+      ],
+      "chunks": [
+        { "term": "Let me give you a concrete example.", "zh": "我给你举个具体的例子。" },
+        { "term": "hear ... out", "zh": "耐心听……把话说完" },
+        { "term": "set ... up for success", "zh": "为（某人）创造成功的条件" },
+        { "term": "follow up with", "zh": "（事后）找……跟进" },
+        { "term": "escalate", "zh": "升级（把问题上报给更合适的人）" }
+      ]
+    },
+    {
+      "id": "tech-debt-versus-features",
+      "prompt": "How do you balance paying down technical debt against delivering new features?",
+      "zh": "你怎么在还技术债和交付新功能之间做平衡？",
+      "outline": [
+        "Principle: debt matters when it slows delivery or causes incidents",
+        "Make it visible: quantify the cost in time, bugs, or risk",
+        "Attach debt work to upcoming features instead of big rewrites",
+        "Negotiate a steady budget with product, not one-off cleanups",
+        "Example: a debt item you got prioritized and what it returned"
+      ],
+      "chunks": [
+        { "term": "pay down technical debt", "zh": "偿还技术债" },
+        { "term": "make the case for", "zh": "摆出理由论证（某事值得做）" },
+        { "term": "translate into", "zh": "换算成、转化为（业务结果）" },
+        { "term": "pay off", "zh": "（前期投入）后来见到回报" },
+        { "term": "The trade-off here is ...", "zh": "这里的取舍是……" },
+        { "term": "get buy-in from", "zh": "争取到……的认可和支持" }
+      ],
+      "followUps": ["How do you explain technical debt to a product manager who only cares about features?"]
+    },
+    {
+      "id": "influence-without-authority",
+      "prompt": "Tell me about a time you had to influence people who didn't report to you.",
+      "zh": "讲一次你需要影响那些不向你汇报的人的经历。",
+      "outline": [
+        "Situation: what you needed from them and why they had no obligation",
+        "Task: change their priorities or behavior without authority",
+        "Action: understood their incentives, showed the benefit, made it easy",
+        "Result: what they did and the impact"
+      ],
+      "chunks": [
+        { "term": "influence without authority", "zh": "没有职权也能影响别人" },
+        { "term": "make the case for", "zh": "摆出理由论证（某事值得做）" },
+        { "term": "on board with", "zh": "赞成、愿意一起推进（某个方案）" },
+        { "term": "find common ground", "zh": "找到双方的共同点" },
+        { "term": "lead by example", "zh": "以身作则" }
+      ]
+    },
+    {
+      "id": "raise-quality-bar",
+      "prompt": "How do you raise the quality bar on a team without slowing delivery down?",
+      "zh": "你怎么在不拖慢交付的前提下提高团队的质量标准？",
+      "outline": [
+        "Start from real pain: incidents, slow reviews, flaky tests",
+        "Automate checks so standards do not depend on reviewers' energy",
+        "Model it yourself in your own code and reviews",
+        "Separate blocking issues from preferences in code review",
+        "Measure the effect: fewer incidents, faster lead time"
+      ],
+      "chunks": [
+        { "term": "lead by example", "zh": "以身作则" },
+        { "term": "must-fix", "zh": "（合并前）必须改的问题" },
+        { "term": "non-blocking", "zh": "不阻塞合并的（评审意见）" },
+        { "term": "postmortem", "zh": "事故复盘" },
+        { "term": "canary release", "zh": "灰度发布（金丝雀发布）" }
+      ]
+    },
+    {
+      "id": "led-project-end-to-end",
+      "prompt": "Tell me about a project you led from start to finish. How did you keep it on track?",
+      "zh": "讲一个你从头带到尾的项目。你是怎么保证它按计划推进的？",
+      "outline": [
+        "Situation: the goal, team size, timeline, and stakeholders",
+        "Task: you were accountable for delivery, not only the code",
+        "Action: broke it into milestones, surfaced risks early, adjusted scope",
+        "Result: what was delivered compared with the original plan",
+        "Reflection: what you would change about how you ran it"
+      ],
+      "chunks": [
+        { "term": "lead the effort to ...", "zh": "牵头推进……这项工作" },
+        { "term": "own ... end to end", "zh": "从头到尾全权负责……" },
+        { "term": "on track", "zh": "进度正常、按计划推进" },
+        { "term": "flag ... early", "zh": "尽早把（风险、问题）提出来" },
+        { "term": "action item", "zh": "（会议定下来的）待办事项" }
+      ],
+      "followUps": ["What was the biggest risk to the project, and how did you manage it?"]
+    },
+    {
+      "id": "unpopular-decision",
+      "prompt": "Tell me about a time you had to make a technical decision that was unpopular with your team.",
+      "zh": "讲一次你不得不做一个团队不喜欢的技术决定的经历。",
+      "outline": [
+        "Situation: the decision and why people disliked it",
+        "Task: decide anyway and keep the team with you",
+        "Action: listened to objections, explained the reasoning, owned the call",
+        "Result: how it turned out and how the team felt later",
+        "Reflection: whether you would decide the same way again"
+      ],
+      "chunks": [
+        { "term": "The reason I did it this way is ...", "zh": "我这么做的原因是……" },
+        { "term": "hear ... out", "zh": "耐心听……把话说完" },
+        { "term": "disagree and commit", "zh": "保留不同意见，但全力执行决定" },
+        { "term": "given the constraints", "zh": "考虑到当时的限制条件" },
+        { "term": "in hindsight", "zh": "事后看来" }
+      ]
+    }
+  ]
+}

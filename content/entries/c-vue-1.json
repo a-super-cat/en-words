@@ -1,0 +1,420 @@
+{
+  "layer": "C",
+  "category": "vue",
+  "title": "Vue",
+  "entries": [
+    {
+      "term": "reactivity system",
+      "kind": "chunk",
+      "zh": "响应式系统",
+      "examples": [
+        {
+          "en": "Once I understood how the reactivity system works, most of our 'why didn't it update' bugs became easy to explain.",
+          "zh": "搞懂响应式系统的工作方式之后，我们那些“为什么没更新”的 bug 大多都很好解释了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Vue 是怎么知道数据变了、该更新哪些组件的？",
+        "en": "Through its reactivity system. It tracks which state each component reads during render and re-renders only the components that depend on what changed."
+      },
+      "collocations": ["Vue's reactivity system", "how reactivity works"],
+      "note": "reactivity 是名词“响应性”，形容词是 reactive。"
+    },
+    {
+      "term": "reactive state",
+      "kind": "chunk",
+      "zh": "响应式状态（变了会自动更新界面的数据）",
+      "examples": [
+        {
+          "en": "We keep the form in reactive state, so the template updates as soon as any field changes.",
+          "zh": "我们把表单放在响应式状态里，任何字段一变，模板就跟着更新。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：在 setup 里用 let 声明一个普通变量，改了它界面为什么不更新？",
+        "en": "Because a plain variable isn't reactive state. Vue can't detect the change unless the value is created with ref or reactive."
+      },
+      "collocations": ["declare reactive state", "a plain variable"]
+    },
+    {
+      "term": "track dependencies",
+      "kind": "chunk",
+      "zh": "追踪依赖（也叫依赖收集）",
+      "examples": [
+        {
+          "en": "Vue tracks dependencies at runtime, so I don't have to list them by hand like in a React effect.",
+          "zh": "Vue 在运行时追踪依赖，所以我不用像写 React effect 那样手动把依赖一个个列出来。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：计算属性是怎么知道自己依赖了哪些数据的？",
+        "en": "Vue tracks dependencies while the getter runs: every reactive property it reads is recorded, and changing any of them invalidates the cached value."
+      },
+      "collocations": ["dependency tracking", "track and trigger"],
+      "note": "名词说法是 dependency tracking。对应的另一半是 trigger：数据被修改时，通知依赖它的 effect 重新执行。"
+    },
+    {
+      "term": "intercept property access",
+      "kind": "chunk",
+      "zh": "拦截属性访问（Proxy 做的事）",
+      "examples": [
+        {
+          "en": "Vue 3 uses a Proxy to intercept property access, so it can even detect properties added after creation.",
+          "zh": "Vue 3 用 Proxy 拦截属性访问，所以连后来新增的属性也能侦测到。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Vue 3 的响应式和 Vue 2 的 Object.defineProperty 相比，底层有什么不同？",
+        "en": "Vue 3 wraps the object in a Proxy to intercept property access and mutation, so new properties and array indexes are reactive without Vue.set."
+      },
+      "note": "读取时走 get 陷阱做依赖追踪，写入时走 set 陷阱触发更新。“陷阱”的英文是 trap。"
+    },
+    {
+      "term": "under the hood",
+      "kind": "chunk",
+      "zh": "在底层、内部实现上（习语，u 开头）",
+      "examples": [
+        {
+          "en": "Under the hood, a ref is just an object with a value property that tracks reads and triggers updates.",
+          "zh": "在底层，ref 就是一个带 value 属性的对象，读的时候追踪依赖，写的时候触发更新。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：v-model 用起来很简单，它内部到底做了什么？",
+        "en": "Under the hood, it's just a prop plus an event: the child receives modelValue and emits update:modelValue when the value changes."
+      },
+      "note": "面试里解释原理时的高频开场。近义说法是 behind the scenes。"
+    },
+    {
+      "term": "wrap it in a ref",
+      "kind": "chunk",
+      "zh": "用 ref 把它包起来",
+      "examples": [
+        {
+          "en": "A plain number can't be tracked on its own, so we wrap it in a ref.",
+          "zh": "普通的数字本身没法被追踪，所以我们用 ref 把它包起来。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么基本类型的值要通过 .value 来读写？",
+        "en": "JavaScript can't intercept access to a plain primitive, so we wrap it in a ref, and reads and writes go through .value."
+      },
+      "collocations": ["access it through .value", "a ref holding an object"],
+      "note": "ref 可以装任何类型的值；装对象时，内部会用 reactive 把它变成深层响应式。"
+    },
+    {
+      "term": "ref unwrapping",
+      "kind": "chunk",
+      "zh": "ref 自动解包（不用写 .value）",
+      "examples": [
+        {
+          "en": "Ref unwrapping only applies to top-level refs in the template, which tripped up a few people on our team.",
+          "zh": "ref 自动解包只对模板里的顶层 ref 生效，我们组里好几个人都在这上面栽过。"
+        }
+      ],
+      "situation": {
+        "zh": "新同事问：为什么模板里直接写 count 就行，script 里却要写 count.value？",
+        "en": "That's ref unwrapping. The template unwraps top-level refs for you, but in script you still go through .value."
+      },
+      "note": "ref 作为 reactive 对象的属性时也会自动解包；但放在响应式数组或 Map 里不会。动词是 unwrap。"
+    },
+    {
+      "term": "lose reactivity",
+      "kind": "chunk",
+      "zh": "失去响应性",
+      "examples": [
+        {
+          "en": "We destructured the reactive object and it lost reactivity, so the template stopped updating.",
+          "zh": "我们把 reactive 对象解构了，结果它失去了响应性，模板就不更新了。"
+        },
+        {
+          "en": "Destructuring a Pinia store loses reactivity too, which is why we use storeToRefs for state and getters.",
+          "zh": "直接解构 Pinia 的 store 也会失去响应性，所以 state 和 getter 我们用 storeToRefs 来取。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：把 reactive 对象的属性赋值给一个局部变量，再改原对象，这个变量为什么不跟着变？",
+        "en": "Because the variable holds a plain copy of the value. Once a primitive is pulled out of the proxy, it loses reactivity."
+      },
+      "collocations": ["lose the reactivity connection", "keep reactivity"],
+      "note": "常见场景：解构 reactive 对象、把属性值传进函数、给 reactive 变量整体重新赋值。用 toRefs 或 toRef 可以保持连接。"
+    },
+    {
+      "term": "destructure props",
+      "kind": "chunk",
+      "zh": "解构 props",
+      "examples": [
+        {
+          "en": "Since Vue 3.5 we can destructure props in script setup without losing reactivity.",
+          "zh": "从 Vue 3.5 开始，在 script setup 里解构 props 不会再丢响应性。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里把解构出来的 prop 直接传给了 watch，你想回复：",
+        "en": "When you destructure props, you need to pass a getter to watch, like () => id. Passing id directly gives it a plain value."
+      },
+      "note": "3.5 起编译器会把解构出来的变量改写成 props.x，所以保持响应性；3.4 及更早版本解构会丢响应性，要用 toRefs。传给 watch 或组合式函数时要包成 getter。"
+    },
+    {
+      "term": "deeply reactive",
+      "kind": "chunk",
+      "zh": "深层响应式的（嵌套对象也能被追踪）",
+      "examples": [
+        {
+          "en": "The list had ten thousand rows, and making it deeply reactive was a noticeable cost, so we switched to shallowRef.",
+          "zh": "那个列表有一万行，把它做成深层响应式开销很明显，所以我们换成了 shallowRef。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：直接改 ref 里嵌套对象的某个属性，界面会更新吗？",
+        "en": "Yes. Refs are deeply reactive by default, so mutating a nested property or pushing to a nested array is detected."
+      },
+      "note": "名词说法是 deep reactivity。不需要深层追踪时用 shallowRef 或 shallowReactive：shallowRef 只有 .value 被整体替换才触发更新。"
+    },
+    {
+      "term": "computed property",
+      "kind": "chunk",
+      "zh": "计算属性",
+      "examples": [
+        {
+          "en": "We turned the filtered list into a computed property, so it's only recalculated when the list or the keyword changes.",
+          "zh": "我们把过滤后的列表改成了计算属性，只有列表或关键词变了才会重新算。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：同样是算出一个值给模板用，写成 methods 里的方法和另一种写法有什么区别？",
+        "en": "A computed property is cached and only re-runs when its reactive dependencies change, while a method runs again on every render."
+      },
+      "collocations": ["a computed getter", "a writable computed"],
+      "note": "口头常简称 a computed。getter 里不要有副作用，也不要修改其他状态。"
+    },
+    {
+      "term": "re-evaluate",
+      "kind": "word",
+      "zh": "重新求值（计算属性在依赖变化后才做的事）",
+      "examples": [
+        {
+          "en": "The computed doesn't re-evaluate on every render, only when one of its dependencies has changed.",
+          "zh": "这个计算属性不会每次渲染都重新求值，只有它的某个依赖变了才会。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：计算属性里用了 Date.now()，为什么拿到的时间一直不变？",
+        "en": "Date.now() isn't a reactive dependency, so the computed never re-evaluates. It keeps returning the cached value."
+      },
+      "note": "计算属性还是惰性的（lazily evaluated）：没人读它就不会计算。近义词 recompute。"
+    },
+    {
+      "term": "watcher",
+      "kind": "word",
+      "zh": "侦听器",
+      "examples": [
+        {
+          "en": "I added a watcher on the route params so the page refetches when the user ID changes.",
+          "zh": "我给路由参数加了一个侦听器，用户 ID 一变页面就重新请求数据。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：什么时候该用 watch，而不是计算属性？",
+        "en": "I use a watcher when a state change needs a side effect, like fetching data. For derived values I use computed."
+      },
+      "collocations": ["set up a watcher", "watch a getter", "an eager watcher"],
+      "note": "watch 默认是懒执行的，数据变了才跑回调；watchEffect 会立即执行一次，并自动追踪回调里同步读到的依赖。"
+    },
+    {
+      "term": "deep watcher",
+      "kind": "chunk",
+      "zh": "深度侦听器（嵌套属性变了也触发）",
+      "examples": [
+        {
+          "en": "A deep watcher on that large form object was slow, so we watched the two fields we cared about.",
+          "zh": "对那个很大的表单对象做深度侦听很慢，所以我们只侦听了关心的那两个字段。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：侦听一个返回对象的 getter，改了对象里的嵌套属性，回调为什么没触发？",
+        "en": "A getter is only watched shallowly. You need a deep watcher, so pass deep: true, or watch the specific nested property."
+      },
+      "note": "直接把 reactive 对象传给 watch 时默认就是深度侦听。深度侦听要遍历整个对象，数据量大时要小心。"
+    },
+    {
+      "term": "cancel the stale request",
+      "kind": "chunk",
+      "zh": "取消过期的请求（参数又变了，旧的作废）",
+      "examples": [
+        {
+          "en": "When the ID changes mid-flight, we cancel the stale request in the watcher's cleanup callback.",
+          "zh": "请求还没回来 ID 就变了的话，我们在侦听器的清理回调里把过期的请求取消掉。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户快速切换标签，前一个接口比后一个晚返回，页面显示了错的数据，你怎么处理？",
+        "en": "I'd cancel the stale request with an AbortController inside the watcher's cleanup, so only the latest response is applied."
+      },
+      "note": "清理回调是 watch 回调的第三个参数 onCleanup，3.5 起也可以用 onWatcherCleanup。这类先后顺序错乱的问题叫 race condition。"
+    },
+    {
+      "term": "Composition API",
+      "kind": "chunk",
+      "zh": "组合式 API",
+      "examples": [
+        {
+          "en": "We migrated to the Composition API mainly so we could group related logic together and reuse it.",
+          "zh": "我们迁到组合式 API，主要是为了把相关的逻辑放在一起，并且能复用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Vue 3 推荐的写法相比 Vue 2 的写法，最大的好处是什么？",
+        "en": "With the Composition API, code is organized by feature instead of by option type, and logic is easy to extract and reuse."
+      },
+      "note": "它不是函数式编程：底层还是可变的响应式状态。官方推荐配合 <script setup> 使用。"
+    },
+    {
+      "term": "Options API",
+      "kind": "chunk",
+      "zh": "选项式 API",
+      "examples": [
+        {
+          "en": "Most of our legacy components still use the Options API, and we only rewrite them when we touch them.",
+          "zh": "我们大部分老组件还在用选项式 API，只有改到它们的时候才顺手重写。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：把逻辑按 data、methods、computed 分开写，组件变大以后会有什么问题？",
+        "en": "With the Options API, one feature ends up scattered across data, methods, and watch, so you keep jumping around a large file."
+      },
+      "note": "两种 API 可以在同一个项目里共存，选项式 API 没有被废弃，它本身是在组合式 API 之上实现的。"
+    },
+    {
+      "term": "composable",
+      "kind": "word",
+      "zh": "组合式函数",
+      "ipa": "/kəmˈpoʊzəbl/",
+      "examples": [
+        {
+          "en": "We extracted the pagination logic into a composable called usePagination and shared it across three list pages.",
+          "zh": "我们把分页逻辑抽成了一个叫 usePagination 的组合式函数，三个列表页共用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：几个组件里都有监听窗口大小的逻辑，在 Vue 3 里你怎么复用？",
+        "en": "I'd write a composable, something like useWindowSize, that sets up the listener, cleans it up on unmount, and returns refs."
+      },
+      "collocations": ["extract it into a composable", "return refs from a composable"],
+      "note": "按惯例以 use 开头。每次调用都会创建一份独立的状态；想共享状态，就把 ref 声明在函数外面。相当于 React 的自定义 Hook。"
+    },
+    {
+      "term": "reuse stateful logic",
+      "kind": "chunk",
+      "zh": "复用有状态的逻辑",
+      "examples": [
+        {
+          "en": "Composables let us reuse stateful logic without the naming conflicts we used to get from mixins.",
+          "zh": "有了组合式函数，我们可以复用有状态的逻辑，又不会像以前用混入那样出现命名冲突。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个纯工具函数和一个组合式函数，区别在哪里？",
+        "en": "A utility function is stateless. A composable lets you reuse stateful logic: it holds refs and can register lifecycle hooks."
+      },
+      "note": "stateful 是“有状态的”，反义词 stateless。"
+    },
+    {
+      "term": "mixin",
+      "kind": "word",
+      "zh": "混入（Vue 2 时代的逻辑复用方式）",
+      "examples": [
+        {
+          "en": "We replaced the old mixins with composables because nobody could tell where a property came from.",
+          "zh": "我们把老的混入换成了组合式函数，因为谁也说不清某个属性到底是从哪儿来的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Vue 2 里常用的那种逻辑复用方式有什么缺点，为什么 Vue 3 不再推荐？",
+        "en": "Mixins have three problems: unclear property sources, naming collisions, and implicit coupling between mixins. Composables solve all three."
+      },
+      "note": "Vue 3 仍然支持，但官方不再推荐用于新代码。"
+    },
+    {
+      "term": "lifecycle hook",
+      "kind": "chunk",
+      "zh": "生命周期钩子",
+      "examples": [
+        {
+          "en": "We start the polling in the onMounted lifecycle hook and stop it when the component is unmounted.",
+          "zh": "我们在 onMounted 这个生命周期钩子里开始轮询，组件卸载时停掉。"
+        }
+      ],
+      "situation": {
+        "zh": "同事把 onMounted 写在了 setTimeout 的回调里，结果没生效，你想解释：",
+        "en": "Lifecycle hooks have to be registered synchronously during setup, otherwise Vue doesn't know which component instance they belong to."
+      },
+      "collocations": ["register a lifecycle hook", "the onMounted hook"],
+      "note": "常用的有 onMounted、onUpdated、onUnmounted。setup 本身的执行时机相当于 Vue 2 的 beforeCreate 和 created。"
+    },
+    {
+      "term": "mount",
+      "kind": "word",
+      "zh": "挂载（组件创建好并插入页面）",
+      "examples": [
+        {
+          "en": "The chart library needs a real DOM node, so we initialize it after the component mounts.",
+          "zh": "图表库需要一个真实的 DOM 节点，所以我们等组件挂载之后再初始化它。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么在 setup 里直接读模板引用，拿到的是 null？",
+        "en": "Because setup runs before the component mounts. The element only exists after mounting, so I'd read it in onMounted."
+      },
+      "note": "既可以说 the component mounts，也可以说 the component is mounted。应用入口是 app.mount('#app')。"
+    },
+    {
+      "term": "template ref",
+      "kind": "chunk",
+      "zh": "模板引用（拿到 DOM 元素或子组件实例）",
+      "examples": [
+        {
+          "en": "I used a template ref to focus the input as soon as the dialog opens.",
+          "zh": "我用模板引用在弹窗一打开时就让输入框获得焦点。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：在 Vue 里需要直接操作某个 DOM 元素，比如测量它的宽度，你怎么拿到它？",
+        "en": "With a template ref. I put a ref attribute on the element and read it after mount, when it's no longer null."
+      },
+      "note": "3.5 起推荐用 useTemplateRef('name')。引用子组件时，<script setup> 组件默认不对外暴露任何东西，要用 defineExpose。"
+    },
+    {
+      "term": "tear down",
+      "kind": "chunk",
+      "zh": "清理、拆除（定时器、监听器、第三方实例；t 开头的短语动词）",
+      "examples": [
+        {
+          "en": "We tear down the map instance in onBeforeUnmount, otherwise it keeps holding on to the DOM.",
+          "zh": "我们在 onBeforeUnmount 里把地图实例销毁掉，不然它会一直占着 DOM。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：组件里手动加了全局事件监听和定时器，离开页面时要注意什么？",
+        "en": "You have to tear them down in onUnmounted. Vue only stops its own watchers and effects automatically."
+      },
+      "note": "名词是 teardown（一个词）。近义词 clean up、dispose。"
+    },
+    {
+      "term": "wait for the next tick",
+      "kind": "chunk",
+      "zh": "等到下一个 tick（DOM 更新完成之后）",
+      "examples": [
+        {
+          "en": "After adding the message, we wait for the next tick and then scroll the list to the bottom.",
+          "zh": "加完消息之后，我们等到下一个 tick，再把列表滚到底部。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：改完状态马上去读 DOM，拿到的为什么还是旧内容？",
+        "en": "Vue batches DOM updates asynchronously. You have to wait for the next tick, with await nextTick(), before reading the DOM."
+      },
+      "note": "Vue 会把同一个 tick 里的多次状态修改合并成一次 DOM 更新。nextTick 返回 Promise，也可以传回调。"
+    }
+  ]
+}

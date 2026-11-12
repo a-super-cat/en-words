@@ -1,0 +1,539 @@
+{
+  "layer": "C",
+  "category": "react",
+  "title": "React",
+  "entries": [
+    {
+      "term": "trigger a re-render",
+      "kind": "chunk",
+      "zh": "触发重新渲染",
+      "examples": [
+        {
+          "en": "Updating that context value triggered a re-render of every consumer, so we split the context in two.",
+          "zh": "更新那个 context 的值会让所有消费方重新渲染，所以我们把它拆成了两个。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：改 ref 里的值和调用 setState 有什么区别？",
+        "en": "Calling setState triggers a re-render, while mutating a ref doesn't, so the UI won't reflect the new value."
+      },
+      "collocations": ["cause a re-render", "re-render the whole subtree", "skip a re-render"],
+      "note": "re-render 既是动词也是名词。口头也常说 cause a re-render。"
+    },
+    {
+      "term": "virtual DOM",
+      "kind": "chunk",
+      "zh": "虚拟 DOM",
+      "examples": [
+        {
+          "en": "I'd explain the virtual DOM as a lightweight description of the UI that React diffs before touching the real DOM.",
+          "zh": "我会把虚拟 DOM 解释成对 UI 的一份轻量描述，React 先对它做 diff，再去动真实 DOM。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：React 为什么不直接操作真实的页面节点？",
+        "en": "React keeps a virtual DOM in memory, diffs it against the previous one, and applies only the minimal changes."
+      },
+      "note": "React 官方文档现在很少用这个词，更常说 React elements 和 render tree，但面试里仍然常问。"
+    },
+    {
+      "term": "reconciliation",
+      "kind": "word",
+      "zh": "协调（React 对比新旧树、算出最小变更的过程）",
+      "ipa": "/ˌrekənsɪliˈeɪʃn/",
+      "examples": [
+        {
+          "en": "The bug came from reconciliation: React reused the old input because the element type and position hadn't changed.",
+          "zh": "这个 bug 出在协调上：元素类型和位置都没变，React 就复用了旧的输入框。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：状态更新之后，React 是怎么决定要改哪些 DOM 的？",
+        "en": "It runs reconciliation: it diffs the new element tree against the old one and updates only the nodes that differ."
+      },
+      "note": "动词是 reconcile。React 的 diff 是启发式的：元素类型不同就重建整棵子树，同级节点靠 key 匹配。"
+    },
+    {
+      "term": "stable key",
+      "kind": "chunk",
+      "zh": "稳定的 key（列表项）",
+      "examples": [
+        {
+          "en": "We switched from array indexes to stable keys, and the inputs stopped losing their state after a reorder.",
+          "zh": "我们把数组下标换成了稳定的 key，重新排序后输入框就不再丢状态了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：渲染列表时，为什么不建议用数组下标来标识每一项？",
+        "en": "Indexes shift when items are inserted or reordered, so React needs a stable key, like a database ID, to match items correctly."
+      },
+      "collocations": ["use the ID as the key", "a unique key", "reset state with a key"],
+      "note": "key 只需要在兄弟节点之间唯一。改变 key 会让组件重新挂载，可以用来重置状态。"
+    },
+    {
+      "term": "batch state updates",
+      "kind": "chunk",
+      "zh": "批量处理状态更新",
+      "examples": [
+        {
+          "en": "React 18 batches state updates everywhere, even inside promises and timeouts, so we got one render instead of three.",
+          "zh": "React 18 在任何地方都会批量处理状态更新，包括 promise 和定时器里，所以我们只渲染了一次而不是三次。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：在一个点击事件里连续调用三次 setState，组件会渲染几次？",
+        "en": "Just once. React batches state updates within the same event and re-renders after the handler finishes."
+      },
+      "note": "React 18 起叫 automatic batching。想强制同步刷新可以用 flushSync，但很少需要。"
+    },
+    {
+      "term": "render phase",
+      "kind": "chunk",
+      "zh": "渲染阶段（React 调用组件、计算变更）",
+      "examples": [
+        {
+          "en": "We had a bug because we mutated a variable during the render phase, which React may run more than once.",
+          "zh": "我们出过一个 bug：在渲染阶段改了一个变量，而这个阶段 React 可能会执行不止一次。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么组件函数体里不能直接发请求或者改外部变量？",
+        "en": "Because the render phase has to be pure. React can pause it, restart it, or run it twice in Strict Mode."
+      }
+    },
+    {
+      "term": "commit phase",
+      "kind": "chunk",
+      "zh": "提交阶段（React 把变更应用到 DOM）",
+      "examples": [
+        {
+          "en": "Layout effects run synchronously in the commit phase, so I only use them when I need to measure the DOM.",
+          "zh": "layout effect 在提交阶段同步执行，所以我只在需要测量 DOM 时才用它。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：React 算出差异之后，是在哪一步真正修改页面的？",
+        "en": "In the commit phase. React applies all the changes to the DOM in one synchronous pass that can't be interrupted."
+      },
+      "note": "render phase 可以被打断，commit phase 不可以。"
+    },
+    {
+      "term": "concurrent rendering",
+      "kind": "chunk",
+      "zh": "并发渲染",
+      "examples": [
+        {
+          "en": "With concurrent rendering, React can pause a large update and handle a keystroke first, so typing stays responsive.",
+          "zh": "有了并发渲染，React 可以暂停一次大更新、先处理键盘输入，所以打字不会卡。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：React 18 在渲染机制上最大的变化是什么？",
+        "en": "Concurrent rendering. Rendering became interruptible, so React can prioritize urgent updates over less important ones."
+      },
+      "note": "它不是一个全局开关，用到 startTransition、useDeferredValue、Suspense 这些特性时才会生效。"
+    },
+    {
+      "term": "non-urgent update",
+      "kind": "chunk",
+      "zh": "非紧急更新（可以被打断的那种）",
+      "examples": [
+        {
+          "en": "We marked the search results as a non-urgent update with startTransition, so the input never lags behind.",
+          "zh": "我们用 startTransition 把搜索结果标成非紧急更新，输入框就不会跟不上了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：输入框一打字，下面的大列表跟着过滤，页面就卡，你怎么处理？",
+        "en": "I'd keep the input update urgent and wrap the list filtering in a transition, so React treats it as a non-urgent update."
+      },
+      "collocations": ["mark an update as non-urgent", "wrap it in a transition"],
+      "note": "React 把这类更新叫 transition。"
+    },
+    {
+      "term": "unmount",
+      "kind": "word",
+      "zh": "卸载（组件从页面上移除）",
+      "examples": [
+        {
+          "en": "The request was still in flight when the component unmounted, so we aborted it in the cleanup.",
+          "zh": "组件卸载的时候请求还没回来，所以我们在清理函数里把它取消了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：弹窗关闭后，它内部的状态为什么没了？",
+        "en": "Because closing it unmounts the component, and React throws away its state. Opening it again mounts a fresh instance."
+      },
+      "note": "反义词是 mount（挂载）。remount 指卸载后重新挂载。"
+    },
+    {
+      "term": "dependency array",
+      "kind": "chunk",
+      "zh": "依赖数组",
+      "examples": [
+        {
+          "en": "I forgot to add userId to the dependency array, so the effect kept using the old value.",
+          "zh": "我忘了把 userId 加进依赖数组，结果 effect 一直在用旧值。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里给 useEffect 传了空数组，但里面用到了 props，你想回复：",
+        "en": "This effect reads props.id, so it should be in the dependency array. Otherwise it won't re-run when the ID changes."
+      },
+      "collocations": ["an empty dependency array", "add it to the dependency array", "omit the dependency array"],
+      "note": "口头也常简称 deps。"
+    },
+    {
+      "term": "stale closure",
+      "kind": "chunk",
+      "zh": "闭包陷阱（回调里拿到的是旧值）",
+      "examples": [
+        {
+          "en": "We hit a stale closure: the interval callback always saw the initial count instead of the latest one.",
+          "zh": "我们踩了闭包陷阱：定时器回调拿到的一直是最初的 count，而不是最新的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：定时器回调里读到的 state 一直是初始值，可能是什么原因？",
+        "en": "That's a stale closure. The callback captured the state from the render where it was created and never sees later values."
+      },
+      "note": "stale 意思是“过期的”。常见修法：补全依赖、用函数式更新 setCount(c => c + 1)，或者把最新值放进 ref。"
+    },
+    {
+      "term": "side effect",
+      "kind": "chunk",
+      "zh": "副作用",
+      "examples": [
+        {
+          "en": "Subscribing to the WebSocket is a side effect, so it belongs in useEffect, not in the component body.",
+          "zh": "订阅 WebSocket 是副作用，应该放在 useEffect 里，而不是组件函数体里。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：哪些逻辑不应该直接写在组件函数体里？",
+        "en": "Anything with a side effect, like subscriptions, timers, or touching the DOM. Rendering itself should stay pure."
+      }
+    },
+    {
+      "term": "cleanup function",
+      "kind": "chunk",
+      "zh": "清理函数（effect 返回的那个）",
+      "examples": [
+        {
+          "en": "We forgot to return a cleanup function, so every re-render added another event listener.",
+          "zh": "我们忘了返回清理函数，结果每次重新渲染都多挂一个事件监听。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：useEffect 里订阅了事件，怎么保证不会重复订阅？",
+        "en": "Return a cleanup function that unsubscribes. React runs it before the effect re-runs and when the component unmounts."
+      },
+      "collocations": ["return a cleanup function", "clean up the subscription"],
+      "note": "动词短语是 clean up（两个词），名词和形容词是 cleanup（一个词）。"
+    },
+    {
+      "term": "custom hook",
+      "kind": "chunk",
+      "zh": "自定义 Hook",
+      "examples": [
+        {
+          "en": "We extracted the pagination logic into a custom hook so three different tables could share it.",
+          "zh": "我们把分页逻辑抽成了一个自定义 Hook，三个表格都能复用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：几个组件里有一模一样的数据请求和加载状态逻辑，你怎么复用？",
+        "en": "I'd extract it into a custom hook, something like useFetch, that returns the data, the loading flag, and the error."
+      },
+      "collocations": ["extract it into a custom hook", "write a custom hook"],
+      "note": "自定义 Hook 复用的是逻辑，不是状态：每次调用都有自己独立的 state。"
+    },
+    {
+      "term": "store it in a ref",
+      "kind": "chunk",
+      "zh": "把它存在 ref 里（改了不触发渲染）",
+      "examples": [
+        {
+          "en": "We need the timer ID later but never render it, so we store it in a ref.",
+          "zh": "定时器 ID 后面要用，但不参与渲染，所以我们把它存在 ref 里。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：有个值要跨渲染保留，但变了不需要更新界面，放哪儿合适？",
+        "en": "I'd store it in a ref. It persists across renders, and changing it doesn't trigger a re-render."
+      },
+      "note": "不要在渲染过程中读写 ref.current。React 19 里函数组件可以直接把 ref 当作 prop 接收，不再需要 forwardRef。"
+    },
+    {
+      "term": "rules of Hooks",
+      "kind": "chunk",
+      "zh": "Hooks 的使用规则（只在顶层调用等）",
+      "examples": [
+        {
+          "en": "Calling useState inside that if statement breaks the rules of Hooks, and the linter caught it right away.",
+          "zh": "在那个 if 里调用 useState 违反了 Hooks 的使用规则，linter 当场就报了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为什么不能在条件语句或循环里调用 useState？",
+        "en": "It breaks the rules of Hooks. React relies on the call order being the same on every render to match state to each Hook."
+      },
+      "note": "两条：只在顶层调用；只在函数组件或自定义 Hook 里调用。React 19 的 use 是例外，可以写在条件和循环里。"
+    },
+    {
+      "term": "infinite render loop",
+      "kind": "chunk",
+      "zh": "无限渲染循环",
+      "examples": [
+        {
+          "en": "Setting state in an effect that depended on a new object every render gave us an infinite render loop.",
+          "zh": "effect 里更新了 state，而它依赖的对象每次渲染都是新的，于是就无限渲染循环了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事说页面一打开浏览器就卡死，控制台报更新次数超限，你看了代码想说：",
+        "en": "This is an infinite render loop. The effect sets state, which re-renders, which creates a new array and fires the effect again."
+      },
+      "note": "React 的报错原文是 Too many re-renders 或 Maximum update depth exceeded。"
+    },
+    {
+      "term": "Strict Mode",
+      "kind": "chunk",
+      "zh": "严格模式（React 开发环境的检查工具）",
+      "examples": [
+        {
+          "en": "Strict Mode runs every effect twice in development, which is how we found the missing cleanup.",
+          "zh": "严格模式在开发环境会把每个 effect 跑两遍，我们就是这样发现漏写了清理逻辑。"
+        }
+      ],
+      "situation": {
+        "zh": "新同事问：为什么本地开发时接口被请求了两次，线上却只有一次？",
+        "en": "That's Strict Mode. In development it mounts, unmounts, and remounts each component to surface effects without proper cleanup."
+      },
+      "note": "只在开发环境生效，生产构建里没有这些额外的执行。"
+    },
+    {
+      "term": "escape hatch",
+      "kind": "chunk",
+      "zh": "逃生舱（跳出 React 常规数据流的手段）",
+      "examples": [
+        {
+          "en": "I treat refs and effects as escape hatches and only reach for them when props and state aren't enough.",
+          "zh": "我把 ref 和 effect 当作逃生舱，只有 props 和 state 不够用时才用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你怎么看待在组件里直接操作 DOM？",
+        "en": "It's an escape hatch. It's fine for things like focus or measuring, but I wouldn't use it to drive what the UI shows."
+      },
+      "note": "React 官方文档的说法。reach for 是“动用、求助于”的口语表达。"
+    },
+    {
+      "term": "lift state up",
+      "kind": "chunk",
+      "zh": "状态提升",
+      "examples": [
+        {
+          "en": "Both panels needed the selected ID, so we lifted the state up to their closest common parent.",
+          "zh": "两个面板都要用选中的 ID，所以我们把状态提升到了最近的公共父组件。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：两个兄弟组件需要共享同一份数据，最直接的做法是什么？",
+        "en": "Lift the state up to their common parent and pass it down as props, along with a callback to update it."
+      },
+      "note": "名词说法是 lifting state up。"
+    },
+    {
+      "term": "prop drilling",
+      "kind": "chunk",
+      "zh": "属性层层透传（中间组件只负责转手）",
+      "examples": [
+        {
+          "en": "We were prop drilling the user object through five layers, so we moved it into context.",
+          "zh": "user 对象被层层透传了五层，所以我们把它放进了 context。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：什么情况下你会考虑用 Context，而不是一层层传 props？",
+        "en": "When prop drilling gets painful, meaning several intermediate components pass a prop along without using it themselves."
+      },
+      "note": "解决办法不只有 context，也可以用组合：把子组件作为 children 直接传下去。"
+    },
+    {
+      "term": "controlled component",
+      "kind": "chunk",
+      "zh": "受控组件",
+      "examples": [
+        {
+          "en": "We made the input a controlled component so we could validate and format the value on every keystroke.",
+          "zh": "我们把输入框做成受控组件，这样每次按键都能校验和格式化。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：表单输入的值由 React state 驱动，这种写法叫什么，有什么好处？",
+        "en": "That's a controlled component. State is the single source of truth, so validation and conditional logic are straightforward."
+      }
+    },
+    {
+      "term": "uncontrolled component",
+      "kind": "chunk",
+      "zh": "非受控组件",
+      "examples": [
+        {
+          "en": "For a simple login form I'd use uncontrolled components and just read the values on submit.",
+          "zh": "简单的登录表单我会用非受控组件，提交时再读值就行。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：文件上传的 input 在 React 里有什么特殊之处？",
+        "en": "It's always an uncontrolled component, because its value is read-only. You read the files from the DOM through a ref."
+      },
+      "note": "值由 DOM 自己保存，用 ref 或 FormData 读取。初始值用 defaultValue。"
+    },
+    {
+      "term": "duplicated state",
+      "kind": "chunk",
+      "zh": "重复的状态（同一份数据存了两处）",
+      "examples": [
+        {
+          "en": "The selected item lived in both the list and the detail panel, and that duplicated state kept drifting apart.",
+          "zh": "选中项在列表和详情面板里各存了一份，这份重复的状态老是对不上。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里把选中的对象整个存进了 state，而列表数据里已经有它了，你想回复：",
+        "en": "This is duplicated state. Let's store only the selected ID and look the item up from the list during render."
+      },
+      "note": "修法通常是只存 ID，或者提升状态后只留一份。drift apart 指两份数据逐渐不一致。"
+    },
+    {
+      "term": "derived state",
+      "kind": "chunk",
+      "zh": "派生状态（能从已有数据算出来的）",
+      "examples": [
+        {
+          "en": "The filtered list is derived state, so we compute it during render instead of syncing it with an effect.",
+          "zh": "过滤后的列表是派生状态，所以我们在渲染时直接算，而不是用 effect 去同步。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里用 useEffect 加 setState 来计算购物车总价，你想回复：",
+        "en": "The total is derived state. We can calculate it from the items during render and drop both the effect and the extra state."
+      },
+      "note": "动词说 derive it from props or state。计算很贵时再用 useMemo 包一层。"
+    },
+    {
+      "term": "global state",
+      "kind": "chunk",
+      "zh": "全局状态",
+      "examples": [
+        {
+          "en": "We keep global state small: just the current user and the theme, and everything else stays local.",
+          "zh": "我们的全局状态很少：只有当前用户和主题，其余都留在组件本地。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们项目里哪些数据会放进 Redux 或 Zustand 这类 store？",
+        "en": "Only true global state, like auth and feature flags. Form state and UI toggles stay inside the components that own them."
+      },
+      "collocations": ["a global store", "local state", "client state"]
+    },
+    {
+      "term": "server state",
+      "kind": "chunk",
+      "zh": "服务端状态（来自接口、需要缓存和同步的数据）",
+      "examples": [
+        {
+          "en": "We moved server state out of Redux into TanStack Query and deleted most of our loading and caching code.",
+          "zh": "我们把服务端状态从 Redux 挪到了 TanStack Query，删掉了大部分加载和缓存相关的代码。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：接口返回的数据和纯前端的界面状态，你会用同一套方案管理吗？",
+        "en": "No. Server state is really a cache of remote data, so I use a query library that handles caching, refetching, and invalidation."
+      },
+      "note": "相对的是 client state。常和 refetch、invalidate、stale 一起出现。"
+    },
+    {
+      "term": "colocate state",
+      "kind": "chunk",
+      "zh": "状态就近放置（放在用到它的组件附近）",
+      "examples": [
+        {
+          "en": "We colocated the modal's state with the modal itself, so opening it no longer re-rendered the whole page.",
+          "zh": "我们把弹窗的状态放回弹窗自己里面，打开它就不会再让整个页面重新渲染了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：状态应该放在组件树的哪一层，你的原则是什么？",
+        "en": "I colocate state as close as possible to where it's used, and only lift it up when another component really needs it."
+      },
+      "note": "也写作 co-locate。和状态提升方向相反：能放低就放低。"
+    },
+    {
+      "term": "context provider",
+      "kind": "chunk",
+      "zh": "Context 的提供者组件",
+      "examples": [
+        {
+          "en": "Every consumer re-rendered because the context provider got a new object as its value on each render.",
+          "zh": "所有消费方都重新渲染了，因为 context provider 的 value 每次渲染都是一个新对象。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用 Context 传主题，怎么让页面的某个局部使用不同的主题？",
+        "en": "Wrap that section in another context provider with a different value. Components read from the nearest one above them."
+      },
+      "note": "provider 的 value 一变，所有读取它的组件都会重新渲染，memo 也拦不住。React 19 可以直接把 <ThemeContext> 当 provider 用，不必再写 .Provider。"
+    },
+    {
+      "term": "immutable update",
+      "kind": "chunk",
+      "zh": "不可变更新（不改原对象，生成新对象）",
+      "examples": [
+        {
+          "en": "We do immutable updates with the spread operator, because mutating the array in place won't trigger a re-render.",
+          "zh": "我们用展开运算符做不可变更新，因为原地修改数组不会触发重新渲染。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：往 state 里的数组 push 了一项，界面却没更新，为什么？",
+        "en": "React compares references, and push keeps the same array. You need an immutable update: create a new array with the item added."
+      },
+      "note": "反面是 mutate in place（原地修改）。嵌套很深时常用 Immer。"
+    },
+    {
+      "term": "optimistic update",
+      "kind": "chunk",
+      "zh": "乐观更新（先改界面，再等接口返回）",
+      "examples": [
+        {
+          "en": "We do an optimistic update on the like button and roll it back if the request fails.",
+          "zh": "点赞按钮我们做了乐观更新，请求失败再回滚。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户点了收藏，接口要 500 毫秒才返回，怎么让界面感觉更快？",
+        "en": "I'd do an optimistic update: show the new state immediately, then revert it and show an error if the server rejects it."
+      },
+      "note": "React 19 提供了 useOptimistic 专门做这件事。"
+    },
+    {
+      "term": "reducer",
+      "kind": "word",
+      "zh": "根据 action 算出下一个状态的纯函数",
+      "examples": [
+        {
+          "en": "The form had a dozen related fields, so we replaced the useState calls with a single reducer.",
+          "zh": "表单有十几个互相关联的字段，所以我们把一堆 useState 换成了一个 reducer。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个组件里有很多互相关联的状态，更新逻辑散落各处，你怎么整理？",
+        "en": "I'd move the update logic into a reducer, so every state transition is in one place and easy to test."
+      },
+      "note": "reducer 必须是纯函数：不改原来的 state，返回新的 state。"
+    }
+  ]
+}

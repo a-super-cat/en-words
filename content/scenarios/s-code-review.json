@@ -1,0 +1,381 @@
+{
+  "category": "code-review",
+  "title": "Code Review 讨论",
+  "scenarios": [
+    {
+      "id": "cr-explain-comments-on-call",
+      "title": "当面解释你的评审意见",
+      "setting": "你昨天给新同事 Emeka 的 PR 留了十四条评论。他有点不安，约你语音过一遍。你想让他明白哪些必须改、哪些只是建议，同时别打击他的积极性。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Emeka",
+          "en": "Hey, thanks for hopping on. So, um, I saw you left quite a few comments on my PR, fourteen, I think. I wasn't sure where to start, to be honest.",
+          "zh": "嗨，谢谢你抽空上线。那个，我看到你在我的 PR 上留了不少评论，好像有十四条。说实话，我不知道该从哪儿改起。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你先让他放心，并夸他测试写得好。十四条看着多，其实大部分是小毛病，真正必须改的只有两条。",
+          "en": "No worries, and first of all, nice work on the tests. I know fourteen looks like a lot, but most of them are nits. There are really only two must-fix items.",
+          "chunks": [
+            { "term": "Nice work on ...", "zh": "……做得不错" },
+            { "term": "nit", "zh": "无关紧要的小问题" },
+            { "term": "must-fix", "zh": "必须修改的问题" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Emeka",
+          "en": "Okay, that's a relief. Which two?",
+          "zh": "那我就松了口气。是哪两条？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你讲第一条：更新余额的地方是先读出来再写回去，没有加锁。请他想想两个请求同时进来会怎样：这是并发竞争，其中一次更新会丢。",
+          "en": "The first one is the balance update, where you read the value and then write it back without a lock. What happens if two requests come in at the same time? That's a race condition, and one of the updates gets lost.",
+          "chunks": [
+            { "term": "What happens if ...?", "zh": "如果……会怎么样？" },
+            { "term": "race condition", "zh": "竞态条件" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Emeka",
+          "en": "Oh. Right. I tested it locally and it was fine, so I never thought about it.",
+          "zh": "哦，对。我在本地测过没问题，就没往这上面想。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说这种问题在本地很难碰到，可以理解。请他给并发的情况补一个测试，并告诉他订单模块里有现成的处理方式可以参考。",
+          "en": "It's really hard to hit locally, so that's understandable. Can you add a test for the concurrent case? I can point you to how we handle it in the orders module.",
+          "chunks": [
+            { "term": "Can you add a test for ...?", "zh": "能给……加个测试吗？" },
+            { "term": "point you to", "zh": "给你指一个可以参考的地方" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Emeka",
+          "en": "Yeah, that'd help. And the second one?",
+          "zh": "好，那会很有帮助。第二条呢？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你讲第二条是错误处理：现在原始的异常信息会直接返回给客户端，可能暴露内部细节。换作是你，会把它记到日志里，对外只返回通用的错误。",
+          "en": "The second one is the error handling. Right now the raw exception message goes back to the client, which can leak internal details. I'd log it and return a generic error instead.",
+          "chunks": [
+            { "term": "leak internal details", "zh": "泄露内部细节" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Emeka",
+          "en": "Got it. And the other twelve? Like the one about variable names, do I have to change those?",
+          "zh": "明白。那另外十二条呢？比如变量命名那条，也必须改吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说那些都不卡合并，改不改由他定。命名那条纯粹是你个人的喜好。",
+          "en": "Those are all non-blocking, so it's up to you. The naming one is just personal preference.",
+          "chunks": [
+            { "term": "non-blocking", "zh": "不阻塞合并的" },
+            { "term": "Up to you.", "zh": "你决定" },
+            { "term": "personal preference", "zh": "个人偏好" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Emeka",
+          "en": "Okay, cool. I'll fix the two big ones today and go through the rest. Should I ping you when it's ready?",
+          "zh": "好的。那两条大的我今天改掉，其余的再过一遍。改好了叫你？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说好，改完叫你，你今天就会再看一遍。你也表示以后会把评论的轻重标清楚，让他一眼看出哪些卡合并。",
+          "en": "Yes, please do, and I'll take another look today. And next time I'll label my comments more clearly, so you can tell at a glance what's blocking.",
+          "chunks": [
+            { "term": "take another look", "zh": "再看一遍" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cr-author-pushes-back",
+      "title": "作者不接受你的意见",
+      "setting": "你评审 Sven 的 PR 时，要求他把一个三百行的函数拆开并补上测试。Sven 资历很深，回复说没必要，于是你约他语音聊。你的底线是测试必须补，拆不拆函数可以让步。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Sven",
+          "en": "So, I read your comments, and honestly, I think you're overdoing it. The function works, it's been running in my branch for two weeks.",
+          "zh": "你的评论我看了。说实话，我觉得你有点小题大做。这个函数没问题，在我的分支上跑了两个星期了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你表示愿意先听他把想法说完。同时讲清楚：你不是怀疑它能不能跑，你担心的是半年后别人要改它的时候会怎么样。",
+          "en": "I'd like to hear you out. To be clear, I'm not questioning that it works. My concern is what happens when someone else has to change it in six months.",
+          "chunks": [
+            { "term": "hear ... out", "zh": "听……把话说完" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sven",
+          "en": "Someone else can read. It's three hundred lines, not three thousand. And if I split it into ten little functions, you just jump around the file all day.",
+          "zh": "别人又不是不识字。才三百行，又不是三千行。真拆成十个小函数，读的人就得在文件里跳来跳去。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你承认拆得太碎确实不好，拆不拆你其实无所谓。你真正在意的是测试：里面有六个分支，却一个测试都没有。",
+          "en": "That's a fair point about over-splitting, and I don't feel strongly either way on that. What I do feel strongly about is the tests. There are six branches in there and not a single test.",
+          "chunks": [
+            { "term": "I don't feel strongly either way.", "zh": "我两边都行、没有强烈倾向" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sven",
+          "en": "I tested it by hand. All six.",
+          "zh": "我手动测过了。六个分支都测了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说你相信他，但手动测试保护不了下一个改这段代码的人。然后明确表态：没有测试，这个 PR 照现在的样子不能合。",
+          "en": "I believe you. But a manual test doesn't protect the next person who touches this code. Without tests, I don't think we can merge this as is.",
+          "chunks": [
+            { "term": "I don't think we can merge this as is.", "zh": "我觉得照现在这样不能合并" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sven",
+          "en": "Come on. The release is Thursday. Writing tests for all of that is a day of work, easy.",
+          "zh": "拜托，周四就发版了。把这些全补上测试，少说也得一天。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你提出各退一步：现在只测最容易出错的两个分支，也就是退款和部分发货，其余的记个工单以后补。你还可以陪他一起写其中一个。",
+          "en": "Then let's find common ground. What if we only cover the two riskiest branches now, refunds and partial shipments, and open a ticket for the rest? I can even write one of them with you.",
+          "chunks": [
+            { "term": "find common ground", "zh": "找到双方都能接受的点" },
+            { "term": "open a ticket", "zh": "提工单" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sven",
+          "en": "Hmm. Two tests. And you drop the split?",
+          "zh": "嗯。两个测试。那拆函数那条你就不提了？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你同意撤回拆函数那条评论。告诉他把两个测试加上后叫你，你马上批准，这样周四之前肯定能合。",
+          "en": "Yes, I'll withdraw that comment. Add the two tests, ping me, and I'll approve it straight away, so you're good to go well before Thursday.",
+          "chunks": [
+            { "term": "good to go", "zh": "可以了、准备就绪" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sven",
+          "en": "Fine. You're stubborn, you know that? But okay, I'll have them up by tomorrow noon.",
+          "zh": "行吧。你可真够固执的，知道吗？不过行。明天中午之前我提上来。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你笑着说就当这是夸你，并感谢他愿意各让一步。明天下午你会留出时间来评审。",
+          "en": "I'll take that as a compliment. Thanks for meeting me halfway, Sven. I'll keep some time free tomorrow afternoon to review it.",
+          "chunks": [
+            { "term": "meet ... halfway", "zh": "和……各让一步、折中" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cr-big-rework-requested",
+      "title": "你的 PR 被要求大改",
+      "setting": "你花了一周写的权限重构 PR 有一千两百行。评审人 Fatima 是这个模块的负责人，她约你语音，说方向有问题，需要大改。你有点意外，想弄清她的理由，也想尽量保住已经做好的部分。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Fatima",
+          "en": "Thanks for making time. I'll be straight with you: I've gone through the PR twice, and I don't think I can approve it in its current shape. I know that's not what you wanted to hear.",
+          "zh": "谢谢你抽时间。我就直说了：这个 PR 我看了两遍，照现在的样子我没法批准。我知道你不想听到这个。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你承认有点意外，但宁可现在就知道。请她讲得具体一些：问题出在整体思路上，还是实现上？",
+          "en": "I'll admit that's a surprise, but I'd rather hear it now than later. Could you say more about what's wrong? Is it the overall approach, or the implementation?",
+          "chunks": [
+            { "term": "Could you say more about ...?", "zh": "关于……能再多说一些吗？" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Fatima",
+          "en": "The approach, mostly. You've moved the permission checks into the frontend route guards and thinned out the backend ones. For me, that's backwards, because the server has to be the source of truth.",
+          "zh": "主要是思路。你把权限检查挪到了前端的路由守卫里，后端的反而削薄了。在我看来这是弄反了，服务端才应该是唯一可信的依据。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你先复述确认：她的意思是后端的检查必须完整保留，前端的只是为了体验。再解释你当初这样做的原因：同一套规则写了两份，已经出现不一致了。",
+          "en": "So what you're saying is the backend checks have to stay complete, and the frontend ones are only for user experience. The reason I did it this way is that we had the same rules written twice, and they'd already drifted apart.",
+          "chunks": [
+            { "term": "So what you're saying is ...", "zh": "所以你的意思是……" },
+            { "term": "The reason I did it this way is ...", "zh": "我这么做的原因是……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Fatima",
+          "en": "And that's a real problem, I'm not dismissing it. But the fix can't be removing the server side. Anyone with curl can skip your route guards.",
+          "zh": "那确实是个问题，我没有不当回事。但解决办法不能是把服务端这层去掉。随便谁用 curl 就能绕过你的路由守卫。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你承认她是对的，这一点你漏掉了。然后提出新思路，问她是否合理：规则只在后端定义，前端去取当前用户的权限，再决定显示什么。",
+          "en": "You're right, I missed that. Would it make sense to define the rules only on the backend, and have the frontend fetch the user's permissions to decide what to show?",
+          "chunks": [
+            { "term": "Would it make sense to ...?", "zh": "……是不是更合理？" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Fatima",
+          "en": "Yes, that's much closer to what I had in mind. But it's a big rewrite of what you've got, I realize that.",
+          "zh": "对，这就跟我想的接近多了。不过这等于把你现有的东西大改一遍，这我明白。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说不想把一千两百行全扔掉，问能不能拆成几个小 PR：数据模型和迁移脚本没有争议，可以先合；检查逻辑你另外重做。",
+          "en": "I'd rather not throw away all twelve hundred lines. Could I split this into smaller PRs? The data model and the migration aren't controversial, so those could go in first, and I'd redo the checks separately.",
+          "chunks": [
+            { "term": "split this into smaller PRs", "zh": "把这个拆成几个小 PR" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Fatima",
+          "en": "That works. Honestly, twelve hundred lines was hard to review anyway. Smaller pieces would've surfaced this on day two.",
+          "zh": "可以。说实话，一千两百行本来就很难评审。要是拆小了提，第二天就能发现这个问题。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说吸取教训了：现在回头看，动手之前应该先写个简短的设计说明给她过目。问她这周有没有二十分钟，在你重写之前先对一下新方案。",
+          "en": "Lesson learned. In hindsight, I should have run a short design note by you before writing any code. Do you have twenty minutes this week to sync up on the new approach before I start?",
+          "chunks": [
+            { "term": "in hindsight", "zh": "事后看来、回头看" },
+            { "term": "sync up", "zh": "碰一下、对齐进展" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Fatima",
+          "en": "Sure, tomorrow at ten? And for what it's worth, the migration part is really solid.",
+          "zh": "行，明天十点？另外说一句，迁移那部分写得确实很扎实。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说十点可以，并感谢她直言不讳。数据模型那个 PR，你今天下班前就能准备好给她评审。",
+          "en": "Ten works for me. And thanks for being direct about it. I'll have the data model PR ready for review by end of day.",
+          "chunks": [
+            { "term": "ready for review", "zh": "可以评审了" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cr-chase-stale-review",
+      "title": "催一个拖了几天的评审",
+      "setting": "你周一提了一个修复导出 bug 的 PR，有客户在等，但指定的评审人 Marta 四天都没看。你趁她日历上有空档，给她打了个语音电话。Marta 这周在忙上线，人很客气，但明显很累。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Marta",
+          "en": "Hey! Sorry, I'm in the middle of, like, five things. What's up?",
+          "zh": "嗨！不好意思，我手上同时有五件事。怎么了？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说不会占用她太久。你想问她有没有空看过你那个修导出 bug 的 PR，是周一提的。",
+          "en": "I'll keep it short. Have you had a chance to look at my PR for the export bug? I opened it on Monday.",
+          "chunks": [
+            { "term": "Have you had a chance to ...?", "zh": "你有空……了吗？" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marta",
+          "en": "Ugh, no, I'm so sorry, it's been sitting in my tabs since Tuesday. This launch is eating me alive. Is it urgent?",
+          "zh": "哎，还没有，真对不起。它从周二起就一直开在我的标签页里。这次上线快把我榨干了。很急吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说知道她忙得不可开交，你也不愿意催。但有两个客户在等这个修复，客服天天来问；没有评审你合不了，她看一下你这边就能动了。",
+          "en": "I know you're swamped, and I hate to chase. But two customers are waiting on this fix, and support asks me about it every day. I can't merge without a review, so it would really unblock me.",
+          "chunks": [
+            { "term": "swamped", "zh": "忙得不可开交" },
+            { "term": "unblock", "zh": "解除阻塞、让……能继续" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marta",
+          "en": "Okay, yeah, that's fair. How big is it? If it's five hundred lines, I'm honestly not gonna get to it before Friday.",
+          "zh": "嗯，也对。改动有多大？要是五百行，说实话我周五之前排不上。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说很小，大概四十行加一个测试。补充一下背景：导出时格式化日期没有按用户的地区设置来。你估计十分钟就能看完。",
+          "en": "It's small, about forty lines plus a test. For context, the export ignored the user's locale when formatting dates. I'd say it's a ten-minute review.",
+          "chunks": [
+            { "term": "For context, ...", "zh": "补充一下背景，……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marta",
+          "en": "Ten minutes I can do. But not right now, I've got the launch checklist until three. After three?",
+          "zh": "十分钟我挤得出来。但现在不行，三点之前我得过上线检查清单。三点以后？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说三点以后可以，并谢谢她。也给她留个余地：要是今天实在排不开，告诉你一声，你去找别人看；顺便问她这块代码交给谁看她放心。",
+          "en": "After three works, thanks. And if your day falls apart, just tell me, and I'll loop in someone else. Is there anyone you'd trust with that part of the code?",
+          "chunks": [
+            { "term": "loop in", "zh": "把……拉进来" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marta",
+          "en": "No, no, I'll do it. I wrote half of that export code, so it should be me. If I haven't looked by four, ping me again, I mean it.",
+          "zh": "不用不用，我来看。那段导出代码有一半是我写的，应该由我来。四点我还没看的话，你再叫我一次，我是说真的。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说一言为定，四点你会轻轻提醒她一下。如果她看完有意见，你今天就改，这样明天早上能发出去。",
+          "en": "Deal, you'll get a gentle ping at four. And if anything comes up, I'll address the comments today, so we can ship it tomorrow morning.",
+          "chunks": [
+            { "term": "gentle ping", "zh": "温和的提醒" },
+            { "term": "address the comments", "zh": "处理评审意见" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marta",
+          "en": "Perfect. And sorry again for sitting on it. Next time, just call me on day two, don't wait four days.",
+          "zh": "好。再说声抱歉，压了这么久。下次第二天就直接打给我，别等四天。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说完全没关系，下次就照她说的办。最后祝她上线顺利。",
+          "en": "No problem at all, and I'll take you up on that. Good luck with the launch!",
+          "chunks": [
+            { "term": "take you up on that", "zh": "那我就照你说的办、接受你的提议" }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,411 @@
+{
+  "layer": "C",
+  "category": "vue",
+  "title": "Vue",
+  "entries": [
+    {
+      "term": "single-file component",
+      "kind": "chunk",
+      "zh": "单文件组件",
+      "examples": [
+        {
+          "en": "I like single-file components because the template, logic, and styles for one feature live in one place.",
+          "zh": "我喜欢单文件组件，因为一个功能的模板、逻辑和样式都放在一个地方。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：.vue 文件浏览器并不认识，它是怎么跑起来的？",
+        "en": "A single-file component is compiled at build time: the template becomes a render function and the styles are extracted into CSS."
+      },
+      "note": "缩写 SFC，按三个字母读。Vite 项目里通过 @vitejs/plugin-vue 来编译。"
+    },
+    {
+      "term": "scoped styles",
+      "kind": "chunk",
+      "zh": "作用域样式（只对当前组件生效）",
+      "examples": [
+        {
+          "en": "We use scoped styles everywhere, so a class name in one component can't leak into another.",
+          "zh": "我们全部用作用域样式，一个组件里的类名不会影响到别的组件。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：给 style 标签加上那个属性之后，样式是怎么做到只影响当前组件的？",
+        "en": "With scoped styles, Vue adds a unique data attribute to the component's elements and rewrites the selectors to match it."
+      },
+      "note": "想影响子组件内部的元素，用 :deep() 选择器。子组件的根元素会同时受父子两边的作用域样式影响。"
+    },
+    {
+      "term": "render function",
+      "kind": "chunk",
+      "zh": "渲染函数",
+      "examples": [
+        {
+          "en": "For that highly dynamic table we wrote a render function instead of fighting with the template.",
+          "zh": "那个高度动态的表格，我们直接写了渲染函数，没有再跟模板较劲。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Vue 的模板最终会变成什么？",
+        "en": "The compiler turns the template into a render function, which returns virtual DOM nodes that Vue then diffs and patches."
+      },
+      "note": "手写时用 h() 或 JSX。绝大多数情况推荐用模板，因为编译器能对模板做静态分析和优化。"
+    },
+    {
+      "term": "compile-time optimization",
+      "kind": "chunk",
+      "zh": "编译时优化",
+      "examples": [
+        {
+          "en": "Thanks to compile-time optimizations, Vue skips the static parts of a template and only diffs the dynamic bindings.",
+          "zh": "得益于编译时优化，Vue 会跳过模板里的静态部分，只对动态绑定做 diff。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：同样用虚拟 DOM，Vue 3 是怎么减少 diff 开销的？",
+        "en": "Through compile-time optimizations. The compiler marks dynamic nodes with patch flags, so the runtime only checks what can actually change."
+      },
+      "note": "Vue 把这种设计叫 compiler-informed virtual DOM。patch flag 标出节点上哪些东西是动态的（文本、class、props）。"
+    },
+    {
+      "term": "static hoisting",
+      "kind": "chunk",
+      "zh": "静态提升（静态节点只创建一次）",
+      "examples": [
+        {
+          "en": "The header never changes, so with static hoisting its vnodes are created once and reused on every render.",
+          "zh": "页头从来不变，有了静态提升，它的 vnode 只创建一次，之后每次渲染都复用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：模板里大段不会变的内容，每次重新渲染都要重新创建虚拟节点吗？",
+        "en": "No. With static hoisting, the compiler makes sure static vnodes are created only once and reused, and the diff skips them entirely."
+      },
+      "note": "hoist 意思是“提升”，和 JavaScript 的变量提升是同一个词。连续的大段静态内容还会被直接序列化成 HTML 字符串。"
+    },
+    {
+      "term": "two-way binding",
+      "kind": "chunk",
+      "zh": "双向绑定",
+      "examples": [
+        {
+          "en": "We use two-way binding on the form fields, so the state and the inputs always stay in sync.",
+          "zh": "表单字段我们用双向绑定，状态和输入框始终保持同步。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：自定义组件上怎么支持 v-model？",
+        "en": "For two-way binding on a component, I'd use defineModel, which declares the modelValue prop and the update:modelValue event for me."
+      },
+      "collocations": ["two-way data binding", "bind the value"],
+      "note": "defineModel 是 3.4 起稳定的宏。一个组件可以有多个 v-model，例如 v-model:title。"
+    },
+    {
+      "term": "syntactic sugar",
+      "kind": "chunk",
+      "zh": "语法糖",
+      "ipa": "/sɪnˈtæktɪk ˈʃʊɡər/",
+      "examples": [
+        {
+          "en": "v-model is just syntactic sugar for passing a value prop and listening to an update event.",
+          "zh": "v-model 只是语法糖，本质上就是传一个 value prop 再监听一个 update 事件。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：script setup 和普通的 setup() 函数是两套不同的机制吗？",
+        "en": "No, script setup is syntactic sugar. The compiler turns it into a regular setup function and exposes the top-level bindings to the template."
+      },
+      "note": "syntactic 的重音在第二个音节。口头也说 it's just sugar for ...。"
+    },
+    {
+      "term": "declare props",
+      "kind": "chunk",
+      "zh": "声明 props",
+      "examples": [
+        {
+          "en": "We declare props with a TypeScript interface, so the editor catches a wrong prop type right away.",
+          "zh": "我们用 TypeScript 接口来声明 props，传错类型编辑器当场就能发现。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：父组件传了一个属性，子组件里却读不到，它反而出现在了根元素上，为什么？",
+        "en": "The child has to declare props explicitly. Anything it doesn't declare is treated as a fallthrough attribute and lands on the root element."
+      },
+      "note": "<script setup> 里用 defineProps。没声明的属性叫 fallthrough attributes，可以通过 $attrs 或 useAttrs() 拿到。"
+    },
+    {
+      "term": "emit an event",
+      "kind": "chunk",
+      "zh": "触发一个事件（子组件通知父组件）",
+      "examples": [
+        {
+          "en": "The child doesn't change the value itself; it emits an event and lets the parent decide.",
+          "zh": "子组件自己不改这个值，而是触发一个事件，让父组件来决定。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：子组件想修改父组件传下来的数据，正确的做法是什么？",
+        "en": "The child should emit an event with the new value, and the parent updates its own state in the handler."
+      },
+      "collocations": ["emit an update event", "listen for the event"],
+      "note": "用 defineEmits 声明。组件事件不会冒泡，只有直接父组件能监听到。"
+    },
+    {
+      "term": "mutate a prop",
+      "kind": "chunk",
+      "zh": "直接修改 prop（不该做的事）",
+      "examples": [
+        {
+          "en": "Someone mutated a prop inside the child, and it took us a while to find where the state had changed.",
+          "zh": "有人在子组件里直接改了 prop，我们花了好一阵才找到状态是在哪儿被改的。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里给传进来的对象的属性直接赋值，没有报警告，但你觉得不妥，想回复：",
+        "en": "This mutates a prop. It works because objects are passed by reference, but it makes the data flow hard to trace. Let's emit an event instead."
+      },
+      "note": "props 是只读的，直接给 prop 赋值 Vue 会警告；但修改对象或数组 prop 的内部不会警告，更容易漏掉。"
+    },
+    {
+      "term": "named slot",
+      "kind": "chunk",
+      "zh": "具名插槽",
+      "examples": [
+        {
+          "en": "We gave the card component named slots for the header and footer, so each page can customize them.",
+          "zh": "我们给卡片组件加了页头和页脚两个具名插槽，每个页面都可以自己定制。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个弹窗组件要让使用方分别自定义标题区和底部按钮区，你怎么设计？",
+        "en": "I'd expose named slots, say header and footer, and keep the default slot for the body."
+      },
+      "note": "父组件里写 <template #header>。没有名字的那个叫 default slot。"
+    },
+    {
+      "term": "scoped slot",
+      "kind": "chunk",
+      "zh": "作用域插槽（子组件把数据传给插槽内容）",
+      "examples": [
+        {
+          "en": "The table uses a scoped slot to pass each row to the parent, which decides how to render the cell.",
+          "zh": "表格用作用域插槽把每一行数据传给父组件，由父组件决定单元格怎么渲染。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：列表组件负责请求数据和分页，但每一项长什么样要由使用方决定，怎么实现？",
+        "en": "With a scoped slot. The list passes each item as slot props, and the parent provides the markup for it."
+      },
+      "note": "插槽内容默认只能访问父组件的数据；作用域插槽让它也能拿到子组件传出来的 slot props。作用类似 React 的 render prop。"
+    },
+    {
+      "term": "fallback content",
+      "kind": "chunk",
+      "zh": "插槽的默认内容（父组件没传时显示）",
+      "examples": [
+        {
+          "en": "The button's slot has fallback content, so it shows Submit when the parent doesn't pass anything.",
+          "zh": "按钮的插槽有默认内容，父组件什么都不传时就显示 Submit。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：使用方没有给插槽传任何内容时，怎么让组件显示一段默认文案？",
+        "en": "Put fallback content between the slot tags. It's rendered only when the parent provides nothing for that slot."
+      }
+    },
+    {
+      "term": "teleport it to the body",
+      "kind": "chunk",
+      "zh": "把它传送到 body 下（渲染到组件树之外的 DOM 位置）",
+      "examples": [
+        {
+          "en": "The modal was clipped by a parent with overflow hidden, so we teleported it to the body.",
+          "zh": "弹窗被一个设了 overflow hidden 的父元素裁掉了，所以我们把它传送到了 body 下。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：弹窗组件写在很深的层级里，结果被祖先元素的 z-index 和 transform 影响了，怎么解决？",
+        "en": "I'd teleport it to the body. It still belongs to the same component tree logically, so props, events, and injection keep working."
+      },
+      "note": "内置组件写作 <Teleport to=\"body\">。只改变 DOM 位置，不改变组件的逻辑父子关系。React 里对应的是 portal。"
+    },
+    {
+      "term": "provide and inject",
+      "kind": "chunk",
+      "zh": "提供与注入（Vue 跨层级传值的一对 API）",
+      "examples": [
+        {
+          "en": "We use provide and inject to pass the form context down, so nested fields don't need extra props.",
+          "zh": "我们用 provide 和 inject 把表单上下文传下去，嵌套的字段就不用多传 props 了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：祖先组件的数据要给很深的后代用，中间几层都不关心，Vue 里怎么避免一层层传？",
+        "en": "I'd use provide and inject: the ancestor provides the value, and any descendant injects it directly, however deep it is."
+      },
+      "note": "想保持响应性，就提供 ref 或 reactive 对象。修改最好收在提供方，把修改函数一起提供出去。TypeScript 里用 InjectionKey 给 key 加类型。作用类似 React 的 Context。"
+    },
+    {
+      "term": "store",
+      "kind": "word",
+      "zh": "状态仓库（Pinia / Redux 里集中放共享状态的地方）",
+      "examples": [
+        {
+          "en": "We keep the cart in a Pinia store, so the header badge and the checkout page read the same data.",
+          "zh": "购物车放在 Pinia 的 store 里，页头的角标和结算页读的是同一份数据。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Pinia 和 Vuex 相比，主要的区别是什么？",
+        "en": "Pinia has no mutations, each store is a flat module you import where you need it, and the TypeScript inference is much better."
+      },
+      "collocations": ["define a store", "read from the store", "split the store by feature"],
+      "note": "Pinia 的 store 由 state、getters、actions 组成，没有 mutations，也不需要嵌套模块。"
+    },
+    {
+      "term": "setup store",
+      "kind": "chunk",
+      "zh": "用函数写法定义的 Pinia 仓库（和组合式 API 一个风格）",
+      "examples": [
+        {
+          "en": "We write every new module as a setup store, so we can use watchers and composables inside it.",
+          "zh": "新模块我们都写成 setup store，这样里面可以直接用侦听器和组合式函数。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Pinia 定义仓库有两种写法，你们用哪一种，为什么？",
+        "en": "We use setup stores. Refs become state, computeds become getters, and functions become actions, so it reads just like a component's setup."
+      },
+      "note": "另一种写法叫 option store。setup store 必须把所有 state 都 return 出来，否则 devtools 和 SSR 会出问题。"
+    },
+    {
+      "term": "navigation guard",
+      "kind": "chunk",
+      "zh": "导航守卫",
+      "examples": [
+        {
+          "en": "We check the auth token in a global navigation guard and redirect to the login page if it's missing.",
+          "zh": "我们在全局导航守卫里检查登录凭证，没有就重定向到登录页。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：有些页面必须登录后才能访问，在 Vue Router 里怎么实现？",
+        "en": "I'd mark those routes with a meta field and check it in a global navigation guard, returning the login route when the user isn't authenticated."
+      },
+      "note": "分全局（beforeEach）、路由独享（beforeEnter）和组件内三种。Vue Router 4 里返回 false 取消导航，返回路由地址表示重定向，不必再调用 next。"
+    },
+    {
+      "term": "lazy-load routes",
+      "kind": "chunk",
+      "zh": "路由懒加载",
+      "examples": [
+        {
+          "en": "We lazy-load routes with dynamic imports, so the admin pages aren't in the initial bundle.",
+          "zh": "我们用动态 import 做路由懒加载，后台管理的页面就不会打进首屏的包里。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：单页应用页面越来越多，首屏加载越来越慢，路由层面能做什么？",
+        "en": "I'd lazy-load routes: each route's component becomes a function that returns a dynamic import, so its code is fetched on first visit."
+      },
+      "note": "写法是 component: () => import('./views/Admin.vue')。打包器会把每个懒加载的路由拆成单独的 chunk。"
+    },
+    {
+      "term": "cache the component instance",
+      "kind": "chunk",
+      "zh": "缓存组件实例（切走时不销毁）",
+      "examples": [
+        {
+          "en": "We wrap the list page in KeepAlive to cache the component instance, so the filters and loaded data survive navigation.",
+          "zh": "我们用 KeepAlive 包住列表页来缓存组件实例，这样切走再回来，筛选条件和已加载的数据都还在。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：从列表页进详情页再返回，列表的状态全丢了，Vue 里有什么内置的办法？",
+        "en": "Wrap the route view in KeepAlive to cache the component instance. Instead of being unmounted, the page is deactivated and later reactivated."
+      },
+      "note": "被缓存的组件切走时不会触发 onUnmounted，而是触发 onDeactivated，切回来触发 onActivated。用 include、exclude、max 控制缓存范围，避免占用太多内存。"
+    },
+    {
+      "term": "setup runs only once",
+      "kind": "chunk",
+      "zh": "setup 只执行一次（和 React 组件函数的区别）",
+      "examples": [
+        {
+          "en": "In Vue, setup runs only once per component instance, so I never worry about stale closures there.",
+          "zh": "在 Vue 里，每个组件实例的 setup 只执行一次，所以我不用担心闭包拿到旧值的问题。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Vue 的组合式 API 和 React Hooks 看起来很像，最本质的区别是什么？",
+        "en": "In Vue, setup runs only once, and reactivity handles the updates. In React, the whole component function re-runs on every render."
+      },
+      "note": "所以 Vue 里没有依赖数组，也不要求调用顺序固定。"
+    },
+    {
+      "term": "mutable state",
+      "kind": "chunk",
+      "zh": "可变状态（可以直接改的那种）",
+      "examples": [
+        {
+          "en": "Vue embraces mutable state: I just push to the array and the list updates.",
+          "zh": "Vue 接受可变状态：我直接往数组里 push，列表就更新了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：更新状态这件事，Vue 和 React 的思路有什么不同？",
+        "en": "Vue is built on mutable state: you change the object directly and the proxy notices. React expects a new immutable value through a setter."
+      },
+      "note": "反义是 immutable state。这里是中性说法，不像后端并发里的 shared mutable state 带贬义。"
+    },
+    {
+      "term": "mental model",
+      "kind": "chunk",
+      "zh": "心智模型",
+      "examples": [
+        {
+          "en": "The mental model is different: in Vue I think about which state changed, not which component re-rendered.",
+          "zh": "两边的心智模型不一样：在 Vue 里我想的是哪个状态变了，而不是哪个组件重新渲染了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你同时用过 Vue 和 React，带新人上手时哪个更容易讲明白？",
+        "en": "Vue's mental model is simpler for beginners: state is reactive, you mutate it, and the view follows. React needs more upfront explanation."
+      },
+      "collocations": ["a simpler mental model", "build a mental model"],
+      "note": "指脑子里对系统如何运作的理解。比较两个框架时非常常用。"
+    },
+    {
+      "term": "out of the box",
+      "kind": "chunk",
+      "zh": "开箱即用（不用额外配置或手动优化）",
+      "examples": [
+        {
+          "en": "Vue only re-renders the components that depend on the changed state out of the box, without any manual memoization.",
+          "zh": "Vue 开箱即用就只重新渲染依赖了那份状态的组件，不需要手动做缓存优化。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：性能优化方面，用 Vue 和用 React 的日常体验有什么差别？",
+        "en": "Vue gives you precise updates out of the box, while in React you often reach for memo and useCallback, or rely on the React Compiler."
+      },
+      "note": "作定语时加连字符：an out-of-the-box solution。"
+    },
+    {
+      "term": "Coming from React, ...",
+      "kind": "sentence",
+      "zh": "从 React 转过来的话，……（句型）",
+      "examples": [
+        {
+          "en": "Coming from React, the hardest thing for me was remembering to write .value in script.",
+          "zh": "从 React 转过来，对我来说最不习惯的就是在 script 里要记得写 .value。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你之前主要写 React，上手 Vue 3 时感觉怎么样？",
+        "en": "Coming from React, composables felt familiar because they look like hooks, but I had to unlearn dependency arrays."
+      },
+      "note": "come from 表示技术背景，可以换成任何技术：Coming from Java, ...。unlearn 是“改掉旧习惯”。"
+    }
+  ]
+}

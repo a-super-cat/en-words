@@ -1,0 +1,222 @@
+{
+  "category": "data",
+  "title": "数据库",
+  "questions": [
+    {
+      "id": "data-slow-query-diagnosis",
+      "prompt": "A query that used to be fast is now slow in production. How do you diagnose it?",
+      "zh": "一条以前很快的查询现在在线上变慢了。你怎么诊断？",
+      "outline": [
+        "Find it in the slow query log or database monitoring, with real parameters",
+        "Read the execution plan: scans, join order, estimated versus actual rows",
+        "Ask what changed: data volume, stale statistics, a new code path",
+        "Fix options: add or adjust an index, rewrite the query, refresh statistics",
+        "Verify on production-like data, then watch it after release"
+      ],
+      "chunks": [
+        { "term": "slow query", "zh": "慢查询" },
+        { "term": "execution plan", "zh": "执行计划" },
+        { "term": "full table scan", "zh": "全表扫描" },
+        { "term": "ignore the index", "zh": "（优化器）放着索引不用，也就是“索引失效”" },
+        { "term": "query optimizer", "zh": "查询优化器" },
+        { "term": "add an index on ...", "zh": "给……加索引" }
+      ],
+      "followUps": [
+        "Why might the optimizer choose a full scan even though an index exists?",
+        "How do you add an index to a huge table safely?"
+      ]
+    },
+    {
+      "id": "data-index-design",
+      "prompt": "How do you decide which indexes to create, and what's the cost of having too many?",
+      "zh": "该建哪些索引，你是怎么决定的？索引建得太多有什么代价？",
+      "outline": [
+        "Start from real query patterns: filters, joins, sort order",
+        "Composite index column order: equality columns first, then range or sort",
+        "A covering index answers the query without going back to the table",
+        "A low-selectivity column on its own rarely helps",
+        "Every index slows writes and takes space; drop the unused ones"
+      ],
+      "chunks": [
+        { "term": "composite index", "zh": "联合索引" },
+        { "term": "covering index", "zh": "覆盖索引" },
+        { "term": "leftmost prefix", "zh": "最左前缀" },
+        { "term": "selectivity", "zh": "（索引或过滤条件的）选择性、区分度" },
+        { "term": "access pattern", "zh": "访问模式" },
+        { "term": "secondary index", "zh": "二级索引" }
+      ],
+      "followUps": ["How do you find indexes that nobody uses?"]
+    },
+    {
+      "id": "data-isolation-levels",
+      "prompt": "Explain the practical differences between transaction isolation levels. Which anomalies have actually bitten you?",
+      "zh": "讲讲各个事务隔离级别在实际使用中的区别。哪些异常现象真的坑过你？",
+      "outline": [
+        "Read committed: no dirty reads, but non-repeatable reads are possible",
+        "Repeatable read or snapshot: a stable view, but write skew can remain",
+        "Serializable: safest, at the price of more aborts or blocking",
+        "Defaults differ: PostgreSQL uses read committed, MySQL InnoDB repeatable read",
+        "Real bugs: lost updates and check-then-act races; fix with locks or constraints"
+      ],
+      "chunks": [
+        { "term": "isolation level", "zh": "（事务的）隔离级别" },
+        { "term": "read committed", "zh": "读已提交" },
+        { "term": "repeatable read", "zh": "可重复读" },
+        { "term": "serializable", "zh": "串行化（最严格的隔离级别）" },
+        { "term": "phantom read", "zh": "幻读" },
+        { "term": "MVCC", "zh": "多版本并发控制" }
+      ],
+      "followUps": ["Why don't most systems simply run everything at serializable?"]
+    },
+    {
+      "id": "data-concurrent-edits",
+      "prompt": "Two users edit the same record at the same time. How do you stop one from silently overwriting the other?",
+      "zh": "两个用户同时编辑同一条记录。你怎么防止其中一个悄悄覆盖掉另一个的修改？",
+      "outline": [
+        "Name the problem: a lost update",
+        "Optimistic: version column, update only if the version matches, else report conflict",
+        "Pessimistic: select for update holds a row lock for the transaction",
+        "Optimistic suits rare conflicts; pessimistic suits heavy contention and short transactions",
+        "For human edits, show the conflict instead of retrying blindly"
+      ],
+      "chunks": [
+        { "term": "lost update", "zh": "丢失更新" },
+        { "term": "optimistic locking", "zh": "乐观锁" },
+        { "term": "pessimistic locking", "zh": "悲观锁" },
+        { "term": "version column", "zh": "版本号字段" },
+        { "term": "row-level lock", "zh": "行级锁" },
+        { "term": "lock contention", "zh": "锁竞争" }
+      ],
+      "followUps": ["How would you handle this if the edit takes the user ten minutes?"]
+    },
+    {
+      "id": "data-relational-vs-nosql",
+      "prompt": "How do you choose between a relational database and a NoSQL store for a new system?",
+      "zh": "一个新系统该用关系型数据库还是 NoSQL，你怎么选？",
+      "outline": [
+        "Start from access patterns, consistency needs, and expected scale",
+        "Relational: flexible queries, joins, transactions; a safe default",
+        "Document or key-value: simple lookups, flexible schema, easier horizontal scaling",
+        "NoSQL moves work into the application: joins, constraints, consistency",
+        "Many systems use both, each for what it does best"
+      ],
+      "chunks": [
+        { "term": "relational database", "zh": "关系型数据库" },
+        { "term": "document database", "zh": "文档数据库" },
+        { "term": "key-value store", "zh": "键值存储" },
+        { "term": "ACID guarantees", "zh": "事务的 ACID 保证" },
+        { "term": "schemaless", "zh": "没有固定表结构的" },
+        { "term": "denormalize", "zh": "反范式化" }
+      ],
+      "followUps": ["Tell me about a time the data model turned out to be wrong for the queries you needed."]
+    },
+    {
+      "id": "data-before-sharding",
+      "prompt": "Your main table has outgrown a single database server. What do you try before sharding, and what changes once you shard?",
+      "zh": "你们的主表已经大到单台数据库服务器撑不住了。分库分表之前你会先试什么？分了之后又会有哪些变化？",
+      "outline": [
+        "First: optimize queries, add replicas, cache, archive old data, partition the table",
+        "Sharding costs: cross-shard queries, transactions, and operational complexity",
+        "Choose a shard key that spreads load and matches the main queries",
+        "Plan for resharding: consistent hashing, or a directory of logical shards",
+        "Consider a distributed SQL database before hand-rolling it"
+      ],
+      "chunks": [
+        { "term": "sharding", "zh": "分片" },
+        { "term": "shard key", "zh": "分片键" },
+        { "term": "hot partition", "zh": "热点分区" },
+        { "term": "table partitioning", "zh": "表分区" },
+        { "term": "archive", "zh": "归档" },
+        { "term": "read replica", "zh": "只读副本" }
+      ],
+      "followUps": [
+        "How do you generate unique IDs across shards?",
+        "How would you run a query that has to span every shard?"
+      ]
+    },
+    {
+      "id": "data-cache-db-consistency",
+      "prompt": "How do you keep a cache and the database consistent, and what inconsistencies do you accept?",
+      "zh": "你怎么保持缓存和数据库一致？哪些不一致是你可以接受的？",
+      "outline": [
+        "Cache-aside: read the cache, on a miss load from the database and populate",
+        "On write: update the database first, then delete the cache key",
+        "Races can still leave stale data, so always set a TTL",
+        "Stronger options: a delayed second delete, or invalidating from the change log",
+        "Decide per data type how stale is acceptable"
+      ],
+      "chunks": [
+        { "term": "cache-aside", "zh": "旁路缓存" },
+        { "term": "cache invalidation", "zh": "缓存失效" },
+        { "term": "TTL", "zh": "存活时间（缓存过期时间）" },
+        { "term": "stale read", "zh": "过期读（读到了旧数据）" },
+        { "term": "write-through cache", "zh": "直写式缓存" },
+        { "term": "cache stampede", "zh": "缓存击穿" }
+      ],
+      "followUps": ["Why delete the cache entry instead of updating it in place?"]
+    },
+    {
+      "id": "data-schema-change-live",
+      "prompt": "How do you change the schema of a large, busy table without downtime?",
+      "zh": "一张数据量大、读写又很繁忙的表，你怎么在不停机的情况下改它的表结构？",
+      "outline": [
+        "Expand and contract: add the new shape, migrate, then remove the old",
+        "Every step must work with both old and new application versions",
+        "Backfill in small throttled batches while watching replication lag",
+        "Know which changes lock the table; use online schema change tools",
+        "Verify the data before dropping anything; keep a way back"
+      ],
+      "chunks": [
+        { "term": "online schema change", "zh": "在线表结构变更" },
+        { "term": "zero-downtime migration", "zh": "零停机迁移" },
+        { "term": "backfill", "zh": "回填（历史数据）" },
+        { "term": "nullable column", "zh": "可为空的列" },
+        { "term": "migration script", "zh": "迁移脚本" },
+        { "term": "replication lag", "zh": "复制延迟" }
+      ],
+      "followUps": ["How would you rename a column that the running application still reads?"]
+    },
+    {
+      "id": "data-replica-lag-stale-reads",
+      "prompt": "You've added read replicas, and now users sometimes don't see their own changes. What's going on, and what do you do about it?",
+      "zh": "你们加了只读副本之后，用户有时看不到自己刚做的修改。这是怎么回事？你怎么处理？",
+      "outline": [
+        "Replication is asynchronous, so replicas lag behind the primary",
+        "Send a user's reads to the primary for a short time after they write",
+        "Or record the write position and wait until the replica has caught up",
+        "Monitor the lag and take badly lagging replicas out of rotation",
+        "Synchronous replication fixes it, at the cost of slower writes"
+      ],
+      "chunks": [
+        { "term": "replication lag", "zh": "复制延迟" },
+        { "term": "read-your-writes consistency", "zh": "读己之写一致性" },
+        { "term": "leader-follower replication", "zh": "主从复制" },
+        { "term": "synchronous replication", "zh": "同步复制" },
+        { "term": "eventual consistency", "zh": "最终一致性" },
+        { "term": "at the cost of", "zh": "以……为代价" }
+      ],
+      "followUps": ["What tends to cause replication lag to spike in the first place?"]
+    },
+    {
+      "id": "data-connection-pool-exhaustion",
+      "prompt": "Under load, your service starts timing out while waiting for a database connection. How do you investigate and fix it?",
+      "zh": "一上负载，你的服务就在等待数据库连接时超时。你怎么排查和解决？",
+      "outline": [
+        "The pool is exhausted: every connection is busy or has leaked",
+        "Look for slow queries, long transactions, and connections never returned",
+        "Do not make remote calls while holding a transaction open",
+        "Size the pool from what the database can handle; bigger is often worse",
+        "Total connections are pool size times instances; consider a connection proxy"
+      ],
+      "chunks": [
+        { "term": "run out of connections", "zh": "连接数打满" },
+        { "term": "connection pool", "zh": "连接池" },
+        { "term": "connection leak", "zh": "连接泄漏" },
+        { "term": "long-running transaction", "zh": "长事务" },
+        { "term": "set a timeout", "zh": "设置超时" },
+        { "term": "bottleneck", "zh": "瓶颈" }
+      ],
+      "followUps": ["Why can a larger connection pool make throughput worse?"]
+    }
+  ]
+}

@@ -1,0 +1,646 @@
+{
+  "layer": "C",
+  "category": "data",
+  "title": "数据存储与数据库",
+  "entries": [
+    {
+      "term": "online schema change",
+      "kind": "chunk",
+      "zh": "在线表结构变更",
+      "examples": [
+        {
+          "en": "We ran an online schema change with gh-ost, so the table stayed writable the whole time.",
+          "zh": "我们用 gh-ost 做了在线表结构变更，整个过程表一直可写。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：给一张五亿行的表加字段，怎么做到不锁表？",
+        "en": "I'd do an online schema change: build a shadow copy of the table, keep it in sync, and swap it in."
+      },
+      "note": "也说 online DDL。常用工具：gh-ost、pt-online-schema-change。schema 读 /ˈskiːmə/。"
+    },
+    {
+      "term": "migration script",
+      "kind": "chunk",
+      "zh": "迁移脚本",
+      "examples": [
+        {
+          "en": "Every schema change goes through a migration script that's reviewed and checked into the repo.",
+          "zh": "每次表结构变更都要走迁移脚本，经过评审并提交到仓库里。"
+        }
+      ],
+      "situation": {
+        "zh": "同事直接在生产库上手动执行了 ALTER。你想提醒他按流程来：",
+        "en": "Could you put that in a migration script? Otherwise staging and production will drift apart."
+      },
+      "note": "常用工具：Flyway、Liquibase、Alembic。migration 既指表结构迁移，也指数据迁移（data migration）。",
+      "collocations": [
+        "write a migration script",
+        "run the migration",
+        "roll back a migration"
+      ]
+    },
+    {
+      "term": "nullable column",
+      "kind": "chunk",
+      "zh": "可为空的列",
+      "examples": [
+        {
+          "en": "We add the field as a nullable column first, backfill it, then make it required.",
+          "zh": "我们先把字段加成可为空的列，回填数据，再改成必填。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：给大表加一个必填字段，怎么分步上线才安全？",
+        "en": "First add it as a nullable column, deploy code that writes it, backfill old rows, and only then add the NOT NULL constraint."
+      },
+      "note": "这种“先扩后收”的做法叫 expand and contract。"
+    },
+    {
+      "term": "dual-write",
+      "kind": "chunk",
+      "zh": "双写（迁移期间新旧两边同时写，动词）",
+      "examples": [
+        {
+          "en": "During the migration we dual-write to the old and new tables and compare the results.",
+          "zh": "迁移期间我们对新旧两张表双写，并比对结果。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：把数据从旧库迁到新库，迁移过程中新产生的写入怎么办？",
+        "en": "We dual-write: every write goes to both databases until the new one is verified, then we switch reads over."
+      },
+      "note": "名词是 dual writes。两边的写入不是原子的，可能不一致，所以要配合数据比对。"
+    },
+    {
+      "term": "soft delete",
+      "kind": "chunk",
+      "zh": "软删除",
+      "examples": [
+        {
+          "en": "We use soft deletes, so a row is only marked with a deleted_at timestamp.",
+          "zh": "我们用软删除，一行数据只是打上 deleted_at 时间戳。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户误删了数据要能恢复，表该怎么设计？",
+        "en": "I'd use a soft delete: set a deleted_at column instead of removing the row, and filter it out in queries."
+      },
+      "note": "可以当动词：soft-delete a row。反义是 hard delete。注意唯一索引要把已删除的行考虑进去。"
+    },
+    {
+      "term": "cold data",
+      "kind": "chunk",
+      "zh": "冷数据（很少被访问的旧数据）",
+      "examples": [
+        {
+          "en": "We moved cold data to cheaper storage and kept only the last ninety days in MySQL.",
+          "zh": "我们把冷数据挪到了更便宜的存储上，MySQL 里只留最近九十天的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：订单表越来越大，但九成查询只看最近三个月，怎么优化？",
+        "en": "I'd separate hot data from cold data: keep recent orders in the main table and move the rest elsewhere."
+      },
+      "note": "反义是 hot data。“冷热分离”可以说 separate hot and cold data；分层存储叫 tiered storage。"
+    },
+    {
+      "term": "archive",
+      "kind": "word",
+      "zh": "归档（动词）",
+      "ipa": "/ˈɑːrkaɪv/",
+      "examples": [
+        {
+          "en": "We archive orders older than two years into a separate table every night.",
+          "zh": "我们每晚把两年以前的订单归档到另一张表里。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：三年前的日志表还留在主库里干什么？你建议挪走：",
+        "en": "Nobody queries it anymore. Let's archive it to object storage and drop it from the primary."
+      },
+      "note": "ch 发 k 的音。名词也是 archive：an archive table。"
+    },
+    {
+      "term": "retention policy",
+      "kind": "chunk",
+      "zh": "（数据）保留策略",
+      "examples": [
+        {
+          "en": "Our retention policy is ninety days for logs and seven years for financial records.",
+          "zh": "我们的保留策略是日志留九十天，财务记录留七年。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：事件表每天新增一亿行，磁盘迟早会满，怎么办？",
+        "en": "I'd define a retention policy, say thirty days, and have a job delete or archive anything older."
+      },
+      "note": "保留期是 retention period。按策略清掉过期数据说 purge：purge rows older than 30 days。"
+    },
+    {
+      "term": "table partitioning",
+      "kind": "chunk",
+      "zh": "表分区（在单个库内把一张大表按范围拆成多个分区）",
+      "examples": [
+        {
+          "en": "With table partitioning by month, deleting old data is just dropping a partition.",
+          "zh": "按月做表分区之后，删旧数据只需要删掉一个分区。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：日志表要按月清理，用 DELETE 删几千万行又慢又容易锁表，有更好的办法吗？",
+        "en": "I'd use table partitioning by month, so removing a month of data means dropping one partition."
+      },
+      "note": "和分库分表的区别：分区还在同一个数据库实例里。查询只扫相关的分区叫 partition pruning。"
+    },
+    {
+      "term": "restore from a backup",
+      "kind": "chunk",
+      "zh": "从备份恢复",
+      "examples": [
+        {
+          "en": "Someone dropped the wrong table, so we had to restore from a backup.",
+          "zh": "有人删错了表，我们只好从备份恢复。"
+        },
+        {
+          "en": "We practice restoring from a backup every quarter, because an untested backup isn't a backup.",
+          "zh": "我们每个季度演练一次从备份恢复，因为没演练过的备份等于没有备份。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们怎么确认数据库的备份真的能用？",
+        "en": "We restore from a backup into a scratch environment every month and run checks against it."
+      },
+      "collocations": [
+        "take a backup",
+        "full backup",
+        "incremental backup",
+        "nightly backup"
+      ]
+    },
+    {
+      "term": "point-in-time recovery",
+      "kind": "chunk",
+      "zh": "时间点恢复（恢复到任意指定时刻）",
+      "examples": [
+        {
+          "en": "With point-in-time recovery we rolled the database back to one minute before the bad deploy.",
+          "zh": "靠时间点恢复，我们把数据库恢复到了那次有问题的发布前一分钟。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：下午三点有人误执行了一条没带 WHERE 的 UPDATE，而备份是凌晨做的，怎么办？",
+        "en": "With point-in-time recovery: restore the nightly backup, then replay the logs up to just before three."
+      },
+      "note": "缩写 PITR。原理是全量备份加上重放日志（MySQL 的 binlog、PostgreSQL 的 WAL）。"
+    },
+    {
+      "term": "run out of connections",
+      "kind": "chunk",
+      "zh": "连接数打满（连接用光了）",
+      "examples": [
+        {
+          "en": "The database ran out of connections because every pod opened its own pool of fifty.",
+          "zh": "数据库的连接数被打满了，因为每个 pod 都开了一个五十连接的池子。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：为什么新扩出来的实例一启动，数据库就开始拒绝连接？",
+        "en": "The database has run out of connections. Each instance holds its own pool, so scaling out pushed us past the limit."
+      },
+      "note": "也说 hit the connection limit。MySQL 的报错是 Too many connections。常见解法是在中间加一层连接池代理，比如 PgBouncer、ProxySQL。"
+    },
+    {
+      "term": "promote a replica",
+      "kind": "chunk",
+      "zh": "把从库提升为主库",
+      "examples": [
+        {
+          "en": "When the primary died, we promoted a replica and were back in under a minute.",
+          "zh": "主库挂掉之后，我们把一个从库提升为主库，不到一分钟就恢复了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：主库所在的机器彻底坏了，你们怎么恢复写入？",
+        "en": "We promote a replica to primary and repoint the application at it."
+      },
+      "note": "完整搭配是 promote ... to primary。旧主库修好后作为从库重新加入：rejoin as a replica。"
+    },
+    {
+      "term": "reconcile the data",
+      "kind": "chunk",
+      "zh": "核对（两边的）数据并把差异对平（r 开头的动词短语）",
+      "examples": [
+        {
+          "en": "After the failover we reconciled the data between the old primary and the new one.",
+          "zh": "主从切换之后，我们核对了旧主库和新主库之间的数据。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：主库宕机时有几笔写入还没同步到从库，切换之后怎么处理？",
+        "en": "We reconcile the data: diff the old primary against the new one and replay or fix the missing writes by hand."
+      },
+      "note": "reconcile 读 /ˈrekənsaɪl/，名词是 reconciliation（财务上的“对账”也是这个词）。只比对不修复可以说 run a consistency check。"
+    },
+    {
+      "term": "B+ tree",
+      "kind": "chunk",
+      "zh": "B+ 树",
+      "examples": [
+        {
+          "en": "InnoDB stores its indexes as B+ trees, so range scans just walk the leaf nodes.",
+          "zh": "InnoDB 的索引是 B+ 树，所以范围扫描只要顺着叶子节点走就行。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：MySQL 的索引为什么适合做范围查询？",
+        "en": "Because it's a B+ tree: all the rows are in the leaf nodes, and the leaves are linked in sorted order."
+      },
+      "note": "读作 B plus tree。日常经常直接说 B-tree，读作 B tree，中间的横线不读。"
+    },
+    {
+      "term": "LSM tree",
+      "kind": "chunk",
+      "zh": "LSM 树（日志结构合并树）",
+      "examples": [
+        {
+          "en": "RocksDB uses an LSM tree, which turns random writes into sequential ones.",
+          "zh": "RocksDB 用的是 LSM 树，它把随机写变成了顺序写。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：写入量特别大的场景，为什么很多存储引擎不用 B+ 树？",
+        "en": "They use an LSM tree instead: writes go to memory first and are flushed to disk as sorted files, which is much cheaper."
+      },
+      "note": "LSM 逐字母读，全称 log-structured merge-tree。内存里的部分叫 memtable，磁盘上的文件叫 SSTable，后台合并文件叫 compaction。代价是一次读可能要查多个文件。"
+    },
+    {
+      "term": "write-ahead log",
+      "kind": "chunk",
+      "zh": "预写日志",
+      "examples": [
+        {
+          "en": "We didn't lose anything in the crash because every commit was already in the write-ahead log.",
+          "zh": "那次崩溃我们什么都没丢，因为每次提交都已经写进了预写日志。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：数据库刚提交完事务就断电了，数据页还没写到磁盘，为什么数据不会丢？",
+        "en": "Because the change was written to the write-ahead log first, and the database replays it on restart."
+      },
+      "note": "缩写 WAL，当一个词读，和 wall 同音。MySQL InnoDB 里对应的是 redo log。"
+    },
+    {
+      "term": "flush to disk",
+      "kind": "chunk",
+      "zh": "刷盘（把内存里的数据写到磁盘）",
+      "examples": [
+        {
+          "en": "We flush to disk on every commit, which is slower but means we never lose acknowledged writes.",
+          "zh": "我们每次提交都刷盘，慢一些，但已确认的写入绝不会丢。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：为了提高写入性能，把日志改成每秒落一次盘，有什么风险？",
+        "en": "If the machine crashes, we lose up to a second of commits, because they hadn't been flushed to disk yet."
+      },
+      "note": "底层的系统调用是 fsync。及物用法：flush the log to disk、flush dirty pages。"
+    },
+    {
+      "term": "checkpoint",
+      "kind": "word",
+      "zh": "检查点",
+      "examples": [
+        {
+          "en": "Write latency spiked every few minutes, and it lined up with the database's checkpoints.",
+          "zh": "写入延迟每隔几分钟就飙一次，时间正好和数据库的检查点对上。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：预写日志一直在追加，重启恢复时难道要从头重放吗？",
+        "en": "No. Recovery starts from the last checkpoint, because everything before it is already in the data files."
+      },
+      "note": "做检查点时会把脏页（dirty pages）刷到数据文件里。崩溃恢复是 crash recovery。"
+    },
+    {
+      "term": "sorted set",
+      "kind": "chunk",
+      "zh": "有序集合（Redis 的数据结构）",
+      "examples": [
+        {
+          "en": "We keep the leaderboard in a Redis sorted set, with the score as the ranking key.",
+          "zh": "排行榜我们放在 Redis 的有序集合里，用分数来排名。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：实时排行榜要支持更新分数和取前一百名，用 Redis 的哪种结构？",
+        "en": "A sorted set. Updating a score is logarithmic, and reading the top hundred is a simple range query."
+      },
+      "note": "相关命令以 Z 开头（ZADD、ZRANGE）。其他常用结构：string、hash、list、set、stream。"
+    },
+    {
+      "term": "RDB snapshot",
+      "kind": "chunk",
+      "zh": "RDB 快照（Redis 某一时刻的全量持久化文件）",
+      "examples": [
+        {
+          "en": "Redis forks a child process to write the RDB snapshot, so memory usage can spike.",
+          "zh": "Redis 会 fork 一个子进程来写 RDB 快照，所以内存占用可能会突然升高。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Redis 重启后数据是怎么恢复的？只靠定时全量落盘有什么问题？",
+        "en": "It loads the latest RDB snapshot. The downside is that we lose every write made since that snapshot was taken."
+      },
+      "note": "RDB 逐字母读。两次快照之间的写入会丢，所以常和 AOF 一起开。"
+    },
+    {
+      "term": "append-only file",
+      "kind": "chunk",
+      "zh": "仅追加文件（Redis 逐条记录写命令的持久化方式）",
+      "examples": [
+        {
+          "en": "We enabled the append-only file with fsync every second to limit data loss.",
+          "zh": "我们开了 AOF，每秒 fsync 一次，把数据丢失控制在一秒左右。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：想让 Redis 宕机时最多只丢一秒左右的数据，持久化怎么配？",
+        "en": "Turn on the append-only file and fsync it every second, so Redis logs each write command and replays them on restart."
+      },
+      "note": "缩写 AOF。文件会越写越大，Redis 会定期重写来压缩它（AOF rewrite）。"
+    },
+    {
+      "term": "key expiration",
+      "kind": "chunk",
+      "zh": "键过期（机制，名词）",
+      "examples": [
+        {
+          "en": "We rely on key expiration to clean up sessions, so we never delete them by hand.",
+          "zh": "会话我们靠键过期来清理，从来不手动删。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Redis 里一个键到期了，内存是立刻释放的吗？",
+        "en": "Not necessarily. Key expiration is lazy on access, plus a background task that samples and deletes expired keys."
+      },
+      "note": "动词是 expire：the key expires after ten minutes。Redis 文档把这两种方式叫 passive 和 active expiration，对应中文说的惰性删除和定期删除。"
+    },
+    {
+      "term": "hit the memory limit",
+      "kind": "chunk",
+      "zh": "内存达到上限（h 开头的动词短语）",
+      "examples": [
+        {
+          "en": "When Redis hit the memory limit, it started evicting keys we still needed.",
+          "zh": "Redis 的内存达到上限之后，开始淘汰我们还要用的键。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Redis 配成了不淘汰任何键，内存用满之后会发生什么？",
+        "en": "Once it hits the memory limit, writes fail with an out-of-memory error, while reads still work."
+      },
+      "note": "Redis 里这个上限由 maxmemory 配置，“不淘汰”对应的策略名是 noeviction。淘汰键说 evict keys。"
+    },
+    {
+      "term": "schemaless",
+      "kind": "word",
+      "zh": "没有固定表结构的（NoSQL 的特点，形容词）",
+      "ipa": "/ˈskiːmələs/",
+      "examples": [
+        {
+          "en": "MongoDB is schemaless, so the application code has to cope with documents in different shapes.",
+          "zh": "MongoDB 没有固定的表结构，所以应用代码得自己处理各种形状的文档。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：文档库不用提前定义字段，这是纯优点吗？",
+        "en": "Not really. Being schemaless just moves the schema into the application, so we still validate documents on write."
+      },
+      "note": "ch 发 k。也写作 schema-less；更准确的说法是 flexible schema 或 schema-on-read。"
+    },
+    {
+      "term": "embedded document",
+      "kind": "chunk",
+      "zh": "内嵌文档（文档库里嵌在父文档中的子文档）",
+      "examples": [
+        {
+          "en": "We store the line items as embedded documents, so one read returns the whole order.",
+          "zh": "我们把订单明细存成内嵌文档，这样读一次就能拿到整张订单。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：在 MongoDB 里，订单和它的明细是放在一起，还是分成两个集合？",
+        "en": "I'd keep the items as embedded documents, since they're always read with the order and the list is small."
+      },
+      "note": "另一种做法是 reference（只存 ID，引用另一个集合）。动词是 embed：embed the items in the order。"
+    },
+    {
+      "term": "wide-column store",
+      "kind": "chunk",
+      "zh": "宽列存储（Cassandra、HBase 这一类）",
+      "examples": [
+        {
+          "en": "We picked a wide-column store for the event log because it handles huge write volumes.",
+          "zh": "事件日志我们选了宽列存储，因为它能扛住巨大的写入量。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：每天几十亿条写入、按设备 ID 加时间范围查询，你会选哪类数据库？",
+        "en": "A wide-column store like Cassandra: writes are cheap, and rows are sorted by time within each partition."
+      },
+      "note": "也叫 wide-column database。别和列式存储（columnar storage）混淆，那是分析型数据库的存储方式。"
+    },
+    {
+      "term": "graph database",
+      "kind": "chunk",
+      "zh": "图数据库",
+      "examples": [
+        {
+          "en": "We tried a graph database for friend-of-friend queries, which were painful to write in SQL.",
+          "zh": "我们试过用图数据库做“好友的好友”这类查询，这种查询用 SQL 写很痛苦。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：要查两个用户之间最短的关系链，关系型数据库要连很多层表，有更合适的存储吗？",
+        "en": "A graph database like Neo4j fits better, because traversing relationships is what it's built for."
+      },
+      "note": "节点是 node（也叫 vertex），关系是 edge 或 relationship；多跳查询说 multi-hop traversal。"
+    },
+    {
+      "term": "time-series database",
+      "kind": "chunk",
+      "zh": "时序数据库",
+      "examples": [
+        {
+          "en": "We store metrics in a time-series database, which compresses them far better than PostgreSQL did.",
+          "zh": "指标数据我们存在时序数据库里，压缩效果比原来用 PostgreSQL 好得多。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：几万台机器每十秒上报一次 CPU 指标，这些数据存哪儿？",
+        "en": "In a time-series database like Prometheus or InfluxDB, since the data is append-only and queried by time range."
+      },
+      "note": "书面常缩成 TSDB。降低旧数据的精度叫 downsampling。"
+    },
+    {
+      "term": "full-text search",
+      "kind": "chunk",
+      "zh": "全文检索",
+      "examples": [
+        {
+          "en": "We moved full-text search out of MySQL and into Elasticsearch once LIKE queries got too slow.",
+          "zh": "LIKE 查询慢得受不了之后，我们把全文检索从 MySQL 挪到了 Elasticsearch。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用户要按关键词搜商品标题和描述，直接在数据库里模糊匹配行不行？",
+        "en": "Not at scale. I'd use a dedicated full-text search engine and sync the data into it."
+      }
+    },
+    {
+      "term": "inverted index",
+      "kind": "chunk",
+      "zh": "倒排索引",
+      "examples": [
+        {
+          "en": "Search is fast because we look terms up in an inverted index instead of scanning documents.",
+          "zh": "搜索之所以快，是因为我们是在倒排索引里查词，而不是去扫文档。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：搜索引擎为什么能在几亿篇文档里毫秒级找到包含某个词的文档？",
+        "en": "It uses an inverted index, which maps each term to the list of documents that contain it."
+      },
+      "note": "每个词对应的那个文档列表叫 posting list。"
+    },
+    {
+      "term": "tokenizer",
+      "kind": "word",
+      "zh": "分词器",
+      "examples": [
+        {
+          "en": "We switched to a Chinese tokenizer, and search relevance improved right away.",
+          "zh": "我们换了一个中文分词器，搜索的相关性马上就好了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：为什么搜“手机”会出来一堆不相干的结果？",
+        "en": "The default tokenizer splits Chinese text into single characters, so it matches any document containing either character."
+      },
+      "note": "分词这个动作是 tokenization，切出来的词是 token。Elasticsearch 里 tokenizer 是 analyzer 的一部分。"
+    },
+    {
+      "term": "relevance score",
+      "kind": "chunk",
+      "zh": "相关性得分",
+      "examples": [
+        {
+          "en": "We boost the title field so that title matches get a higher relevance score.",
+          "zh": "我们给标题字段加了权重，这样标题命中的结果相关性得分更高。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：搜索结果默认是按什么排序的？",
+        "en": "By relevance score. Elasticsearch uses BM25, which considers term frequency and how rare the term is."
+      },
+      "note": "按相关性排序说 rank by relevance，名词是 relevance ranking。给某个字段加权说 boost。"
+    },
+    {
+      "term": "reindex",
+      "kind": "word",
+      "zh": "重建索引（把数据重新写入搜索索引，动词）",
+      "examples": [
+        {
+          "en": "Changing the mapping meant we had to reindex all forty million documents.",
+          "zh": "改映射意味着我们得把四千万篇文档全部重建索引。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Elasticsearch 里已有字段的类型定错了，能直接改吗？",
+        "en": "No. We have to create a new index with the right mapping and reindex the data into it."
+      },
+      "note": "配合别名（alias）可以不停机切换：reindex into a new index, then switch the alias。"
+    },
+    {
+      "term": "OLTP",
+      "kind": "word",
+      "zh": "联机事务处理（四字母缩写）",
+      "examples": [
+        {
+          "en": "Our OLTP database handles short transactions, so we keep heavy reports away from it.",
+          "zh": "我们的 OLTP 库处理的是短事务，所以重型报表不放在它上面跑。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：下单、支付这种每次只读写几行、但并发很高的负载，属于哪一类？",
+        "en": "That's an OLTP workload: lots of small transactions that each touch a few rows."
+      },
+      "note": "逐字母读，全称 online transaction processing。"
+    },
+    {
+      "term": "OLAP",
+      "kind": "word",
+      "zh": "联机分析处理（四字母缩写）",
+      "examples": [
+        {
+          "en": "We run OLAP queries on a separate cluster so they never slow down the production database.",
+          "zh": "我们在单独的集群上跑 OLAP 查询，这样它们绝不会拖慢生产库。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：扫几亿行做聚合的报表查询，和线上交易查询有什么本质不同？",
+        "en": "Those are OLAP queries: they scan a lot of rows but only a few columns, so they need a different storage layout."
+      },
+      "note": "一般当一个词读 /ˈoʊlæp/，全称 online analytical processing。"
+    },
+    {
+      "term": "columnar storage",
+      "kind": "chunk",
+      "zh": "列式存储",
+      "examples": [
+        {
+          "en": "With columnar storage, the query only reads the three columns it needs, not the whole row.",
+          "zh": "用列式存储的话，查询只读它需要的那三列，而不是整行。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：分析型数据库的聚合查询为什么比 MySQL 快那么多？",
+        "en": "Mainly columnar storage: values of the same column are stored together, so they compress well and scans skip unused columns."
+      },
+      "note": "columnar 读 /kəˈlʌmnər/。也说 column-oriented storage，对应 row-oriented。代表：ClickHouse、Parquet 文件格式。"
+    },
+    {
+      "term": "data warehouse",
+      "kind": "chunk",
+      "zh": "数据仓库",
+      "examples": [
+        {
+          "en": "We load order data into the data warehouse every hour for the analytics team.",
+          "zh": "我们每小时把订单数据导入数据仓库，给分析团队用。"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理想直接连生产库跑复杂报表。你想建议他换个地方查：",
+        "en": "Please run that against the data warehouse instead. It has the same data, an hour behind, and won't affect production."
+      },
+      "note": "把数据抽取、转换、加载进去的流程叫 ETL pipeline。代表产品：Snowflake、BigQuery、Redshift。"
+    },
+    {
+      "term": "pre-aggregate",
+      "kind": "word",
+      "zh": "预聚合（提前把汇总结果算好，动词）",
+      "examples": [
+        {
+          "en": "We pre-aggregate page views by hour, so the dashboard doesn't scan the raw events.",
+          "zh": "我们按小时对浏览量做预聚合，这样看板就不用去扫原始事件了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：看板要展示过去一年每天的订单数，每次都从明细表现算太慢，怎么办？",
+        "en": "I'd pre-aggregate the daily counts into a summary table and have the dashboard read from that."
+      },
+      "note": "存放结果的表叫 summary table 或 rollup table。"
+    }
+  ]
+}

@@ -1,0 +1,711 @@
+{
+  "layer": "C",
+  "category": "arch-reliability",
+  "title": "架构：可靠性、安全与可观测性",
+  "entries": [
+    {
+      "term": "API contract",
+      "kind": "chunk",
+      "zh": "接口契约",
+      "examples": [
+        {
+          "en": "We treat the API contract as a promise, so any breaking change needs a new version.",
+          "zh": "我们把接口契约当成一种承诺，任何破坏性变更都要出新版本。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：两个团队并行开发，怎么避免联调时才发现接口对不上？",
+        "en": "We agree on the API contract up front, and both sides build against it."
+      },
+      "note": "用测试来保证调用方和提供方都遵守契约，叫 contract testing。",
+      "collocations": ["agree on the API contract", "break the contract", "contract testing"]
+    },
+    {
+      "term": "version the API",
+      "kind": "chunk",
+      "zh": "给接口做版本管理（动词短语）",
+      "examples": [
+        {
+          "en": "We version the API in the URL path, so v1 clients are unaffected when we ship v2.",
+          "zh": "我们在 URL 路径里给接口做版本管理，所以上线 v2 时 v1 的客户端不受影响。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：接口需要做不兼容的改动，但老客户端还在用，怎么办？",
+        "en": "We version the API. The old version keeps running until clients have migrated to the new one."
+      },
+      "note": "名词说法是 API versioning。",
+      "collocations": ["API versioning", "bump the version", "support two versions side by side"]
+    },
+    {
+      "term": "break up the monolith",
+      "kind": "chunk",
+      "zh": "拆分单体应用（动词短语）",
+      "examples": [
+        {
+          "en": "We decided to break up the monolith because deployments had become slow and risky.",
+          "zh": "我们决定拆分单体应用，因为部署已经变得又慢又有风险。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你在上家公司做过的最大的架构改造是什么？",
+        "en": "I led the effort to break up the monolith, starting with the billing module."
+      },
+      "note": "monolith 读 /ˈmɑːnəlɪθ/，重音在第一个音节。形容词 monolithic：a monolithic application。",
+      "collocations": ["extract a service from the monolith", "a monolithic application", "split the monolith into services"]
+    },
+    {
+      "term": "strangler fig pattern",
+      "kind": "chunk",
+      "zh": "绞杀者模式",
+      "examples": [
+        {
+          "en": "We used the strangler fig pattern, routing one endpoint at a time to the new service.",
+          "zh": "我们用了绞杀者模式，一次把一个接口的流量切到新服务。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：老系统不能停，你怎么一步步把它替换掉？",
+        "en": "I'd apply the strangler fig pattern: put a proxy in front, then move functionality over piece by piece until the old system can be retired."
+      },
+      "note": "也常简称 strangler pattern。",
+      "collocations": ["apply the strangler fig pattern", "retire the old system"]
+    },
+    {
+      "term": "service boundary",
+      "kind": "chunk",
+      "zh": "服务边界",
+      "examples": [
+        {
+          "en": "We drew the service boundaries around business domains instead of technical layers.",
+          "zh": "我们按业务领域而不是技术分层来划分服务边界。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：拆微服务的时候，最难的是什么？",
+        "en": "Getting the service boundaries right. If two services always change together, the boundary is in the wrong place."
+      },
+      "collocations": ["draw service boundaries", "a clear service boundary", "cross a service boundary"]
+    },
+    {
+      "term": "zero-downtime migration",
+      "kind": "chunk",
+      "zh": "零停机迁移",
+      "examples": [
+        {
+          "en": "We pulled off a zero-downtime migration by running both databases in parallel for two weeks.",
+          "zh": "我们让两个数据库并行跑了两周，实现了零停机迁移。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：换数据库的时候，业务停了多久？",
+        "en": "It was a zero-downtime migration. We copied the data in the background and cut over one service at a time."
+      },
+      "note": "切换那一下叫 cutover，动词是 cut over。",
+      "collocations": ["a zero-downtime deployment", "cut over to the new system"]
+    },
+    {
+      "term": "backfill",
+      "kind": "word",
+      "zh": "回填（历史数据）",
+      "examples": [
+        {
+          "en": "After adding the new column, we ran a script to backfill it for existing rows.",
+          "zh": "加了新列之后，我们跑了个脚本为已有的行回填数据。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：新字段上线了，但老数据这一列都是空的，怎么办？",
+        "en": "I'll backfill the old records in batches overnight so we don't overload the database."
+      },
+      "note": "也可以作名词：run a backfill。",
+      "collocations": ["backfill the data", "run a backfill", "backfill in batches"]
+    },
+    {
+      "term": "roll out",
+      "kind": "chunk",
+      "zh": "（分批）推出、上线（动词短语，r 开头）",
+      "examples": [
+        {
+          "en": "We rolled out the change to ten percent of users and watched the metrics for a day.",
+          "zh": "我们先把这个改动推给 10% 的用户，观察了一天指标。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问：新的搜索功能什么时候所有人都能用上？",
+        "en": "We'll roll it out gradually this week and reach everyone by Friday if nothing breaks."
+      },
+      "note": "名词连写 rollout：a gradual rollout、a staged rollout。",
+      "collocations": ["roll out gradually", "a staged rollout", "roll out to all users"]
+    },
+    {
+      "term": "deprecate",
+      "kind": "word",
+      "zh": "弃用（标记为不推荐使用）",
+      "ipa": "/ˈdeprəkeɪt/",
+      "examples": [
+        {
+          "en": "We deprecated the v1 endpoints last year and plan to remove them in March.",
+          "zh": "我们去年就把 v1 的接口标记为弃用了，计划三月份下线。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：旧接口不想再维护了，你会直接删掉吗？",
+        "en": "No, I'd deprecate it first, give clients a migration window, and remove it once traffic drops to zero."
+      },
+      "note": "deprecate 是“不推荐再用，但还能用”；真正下线说 remove、retire 或 sunset。",
+      "collocations": ["deprecate an endpoint", "a deprecation notice", "a deprecation period"]
+    },
+    {
+      "term": "kill switch",
+      "kind": "chunk",
+      "zh": "紧急开关（一键关停功能）",
+      "examples": [
+        {
+          "en": "We added a kill switch so we can disable the feature without redeploying.",
+          "zh": "我们加了一个紧急开关，这样不用重新部署就能关掉这个功能。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：新功能如果把下游打挂了，你最快的止损手段是什么？",
+        "en": "We ship every risky feature with a kill switch, so anyone on call can turn it off in seconds."
+      },
+      "collocations": ["flip the kill switch", "add a kill switch"]
+    },
+    {
+      "term": "bulkhead",
+      "kind": "word",
+      "zh": "舱壁隔离（模式名，一个词）",
+      "examples": [
+        {
+          "en": "We use bulkheads, giving each dependency its own thread pool, so one slow service can't starve the others.",
+          "zh": "我们用了舱壁隔离，给每个依赖单独的线程池，这样一个慢服务不会把其他依赖的资源占光。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个下游变慢，把所有线程都占满了，怎么避免？",
+        "en": "I'd apply the bulkhead pattern and isolate resources per dependency, so the damage stays contained."
+      },
+      "note": "原意是船舱之间的隔板，一个舱进水不会让整条船沉掉。常说 the bulkhead pattern。",
+      "collocations": ["the bulkhead pattern", "isolate resources per dependency"]
+    },
+    {
+      "term": "fall back to ...",
+      "kind": "chunk",
+      "zh": "退而使用…（备用方案，动词短语）",
+      "examples": [
+        {
+          "en": "If the pricing service times out, we fall back to the last known price.",
+          "zh": "如果定价服务超时，我们就退而使用最后一次已知的价格。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：实时汇率接口挂了，下单页面怎么办？",
+        "en": "We fall back to a rate we fetched earlier and flag the order for review."
+      },
+      "note": "名词连写 fallback：a fallback response。",
+      "collocations": ["fall back to a default", "a fallback response", "as a fallback"]
+    },
+    {
+      "term": "fail fast",
+      "kind": "chunk",
+      "zh": "快速失败",
+      "examples": [
+        {
+          "en": "It's better to fail fast and return an error than to keep the user waiting for thirty seconds.",
+          "zh": "与其让用户干等三十秒，不如快速失败、直接返回错误。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：下游已经明显不可用了，请求还要不要排队等？",
+        "en": "No, we should fail fast. Queuing more requests just makes recovery harder."
+      }
+    },
+    {
+      "term": "add jitter",
+      "kind": "chunk",
+      "zh": "加随机抖动（让重试时间错开）",
+      "examples": [
+        {
+          "en": "We add jitter to the retry delay so that clients don't all retry at the same moment.",
+          "zh": "我们给重试间隔加了随机抖动，这样客户端不会在同一时刻一起重试。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：所有客户端都按 1 秒、2 秒、4 秒的间隔重试，会有什么问题？",
+        "en": "They'll all come back in waves. We should add jitter to spread the retries out."
+      },
+      "collocations": ["add jitter to the backoff", "a randomized delay"]
+    },
+    {
+      "term": "partial failure",
+      "kind": "chunk",
+      "zh": "部分失败",
+      "examples": [
+        {
+          "en": "In a distributed system you have to design for partial failure, not just total outages.",
+          "zh": "在分布式系统里，你必须针对部分失败做设计，而不只是考虑整体宕机。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个批量接口处理 100 条，其中 3 条没成功，你怎么返回？",
+        "en": "I'd treat it as a partial failure: return the 97 successes and list the three failed items so the client can retry them."
+      },
+      "collocations": ["handle partial failures", "design for partial failure"]
+    },
+    {
+      "term": "chaos engineering",
+      "kind": "chunk",
+      "zh": "混沌工程",
+      "examples": [
+        {
+          "en": "We practice chaos engineering by killing random instances in production during business hours.",
+          "zh": "我们实践混沌工程的方式，是在工作时间随机杀掉生产环境的实例。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你们怎么验证故障转移真的管用，而不是只停留在设计文档里？",
+        "en": "We run chaos engineering experiments, like shutting down a zone, and check that the system recovers by itself."
+      },
+      "note": "chaos 读 /ˈkeɪɑːs/，ch 发 /k/。",
+      "collocations": ["run a chaos experiment", "inject failures"]
+    },
+    {
+      "term": "failure mode",
+      "kind": "chunk",
+      "zh": "故障模式（系统可能出错的方式）",
+      "examples": [
+        {
+          "en": "Before the design review, I listed every failure mode I could think of and how we'd handle each.",
+          "zh": "设计评审之前，我把能想到的每一种故障模式都列了出来，以及各自怎么应对。"
+        }
+      ],
+      "situation": {
+        "zh": "评审时你想问对方：这个新组件可能会以哪些方式出问题？",
+        "en": "What are the failure modes here? For example, what happens if the disk fills up or the network drops?"
+      },
+      "collocations": ["a common failure mode", "think through the failure modes"]
+    },
+    {
+      "term": "disaster recovery",
+      "kind": "chunk",
+      "zh": "灾难恢复（容灾）",
+      "examples": [
+        {
+          "en": "Our disaster recovery plan assumes we could lose an entire region and still restore service within an hour.",
+          "zh": "我们的容灾方案假设整个区域都可能丢失，并且仍要在一小时内恢复服务。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：如果整个机房被毁了，你们多久能恢复？数据会丢多少？",
+        "en": "Our disaster recovery targets are an RTO of one hour and an RPO of five minutes, and we test them twice a year."
+      },
+      "note": "缩写 DR。RTO 是允许的最长恢复时间，RPO 是允许丢失的最长数据时间窗口。",
+      "collocations": ["a disaster recovery plan", "a DR drill", "restore from backup"]
+    },
+    {
+      "term": "graceful shutdown",
+      "kind": "chunk",
+      "zh": "优雅停机",
+      "examples": [
+        {
+          "en": "We implemented graceful shutdown, so in-flight requests finish before the process exits.",
+          "zh": "我们实现了优雅停机，进程退出前会先把处理中的请求跑完。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：为什么每次发版都有几个请求报 502？",
+        "en": "The service doesn't do a graceful shutdown. It should stop accepting new requests and drain existing ones first."
+      },
+      "note": "动词说法是 shut down gracefully；把现有连接处理完叫 drain connections。",
+      "collocations": ["shut down gracefully", "drain connections", "in-flight requests"]
+    },
+    {
+      "term": "retry storm",
+      "kind": "chunk",
+      "zh": "重试风暴",
+      "examples": [
+        {
+          "en": "The outage got worse because every client retried at once and caused a retry storm.",
+          "zh": "故障之所以恶化，是因为所有客户端同时重试，引发了重试风暴。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：重试不是能提高成功率吗，有什么坏处？",
+        "en": "Naive retries can cause a retry storm, where the extra load keeps a recovering service from coming back up."
+      },
+      "collocations": ["cause a retry storm", "amplify the load"]
+    },
+    {
+      "term": "escalate",
+      "kind": "word",
+      "zh": "升级（把问题上报给更合适的人）",
+      "examples": [
+        {
+          "en": "I couldn't find the cause within twenty minutes, so I escalated to the database team.",
+          "zh": "我二十分钟内没找到原因，所以把问题升级给了数据库团队。"
+        }
+      ],
+      "situation": {
+        "zh": "你值班时遇到一个自己搞不定的故障。你在群里说：",
+        "en": "This is beyond what I can fix alone, so I'm going to escalate to the platform team."
+      },
+      "note": "及物、不及物都可以：escalate the issue、escalate to someone。名词 escalation：an escalation policy。",
+      "collocations": ["escalate to the next level", "escalate an issue", "an escalation policy"]
+    },
+    {
+      "term": "get paged",
+      "kind": "chunk",
+      "zh": "被告警呼叫（值班时）",
+      "examples": [
+        {
+          "en": "I got paged at 3 a.m. because the disk on the primary database was almost full.",
+          "zh": "我凌晨三点被告警叫起来，因为主库的磁盘快满了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：你昨晚怎么没睡好？",
+        "en": "I got paged twice last night for the same flaky alert."
+      },
+      "note": "page 作动词是“呼叫值班的人”：page the on-call engineer。只有需要人立刻处理的告警才应该 page。",
+      "collocations": ["page the on-call engineer", "a paging alert"]
+    },
+    {
+      "term": "declare an incident",
+      "kind": "chunk",
+      "zh": "宣布进入事故状态（动词短语）",
+      "examples": [
+        {
+          "en": "As soon as checkout errors passed one percent, I declared an incident and opened a channel.",
+          "zh": "结账错误率一超过 1%，我就宣布进入事故状态，并拉了一个频道。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你发现线上有大面积报错，第一步做什么？",
+        "en": "I'd declare an incident right away, so the right people get pulled in and customers get an update."
+      },
+      "note": "事故按严重程度分级，常说 a SEV1 或 a P0 incident。负责总协调的人叫 incident commander。",
+      "collocations": ["resolve an incident", "an incident commander", "incident response"]
+    },
+    {
+      "term": "runbook",
+      "kind": "word",
+      "zh": "应急操作手册（r 开头）",
+      "examples": [
+        {
+          "en": "Every alert links to a runbook that explains what to check and how to mitigate.",
+          "zh": "每条告警都链接到一份应急操作手册，说明该查什么、怎么缓解。"
+        }
+      ],
+      "situation": {
+        "zh": "新同事问：我第一次值班，半夜告警响了不知道怎么处理怎么办？",
+        "en": "Follow the runbook linked in the alert. It walks you through the steps one by one."
+      },
+      "note": "也有团队叫 playbook。",
+      "collocations": ["follow the runbook", "update the runbook", "a runbook for each alert"]
+    },
+    {
+      "term": "mean time to recovery",
+      "kind": "chunk",
+      "zh": "平均恢复时间",
+      "examples": [
+        {
+          "en": "Automated rollbacks cut our mean time to recovery from forty minutes to under ten.",
+          "zh": "自动回滚把我们的平均恢复时间从四十分钟降到了十分钟以内。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你用什么指标衡量团队处理事故的能力？",
+        "en": "Mainly mean time to recovery. Failures are inevitable, so what matters is how fast we restore service."
+      },
+      "note": "缩写 MTTR，逐个字母读。对应的“平均多久发现问题”是 mean time to detect（MTTD）。",
+      "collocations": ["reduce MTTR", "mean time to detect", "restore service"]
+    },
+    {
+      "term": "SLI",
+      "kind": "word",
+      "zh": "服务等级指标（实际测量值，缩写）",
+      "examples": [
+        {
+          "en": "Our main SLI is the percentage of requests that return successfully within 300 milliseconds.",
+          "zh": "我们最主要的 SLI 是 300 毫秒内成功返回的请求占比。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：你说可用性目标是 99.9%，那具体量的是什么？",
+        "en": "The SLI is the ratio of successful requests to total requests, measured at the edge."
+      },
+      "note": "SLI 是测出来的数，SLO 是给这个数定的目标，SLA 是对外的合同承诺。",
+      "collocations": ["define an SLI", "measure the SLI"]
+    },
+    {
+      "term": "burn rate",
+      "kind": "chunk",
+      "zh": "（错误预算的）消耗速率",
+      "examples": [
+        {
+          "en": "We page someone only when the burn rate means we'd exhaust the error budget within hours.",
+          "zh": "只有当消耗速率意味着几小时内就会耗尽错误预算时，我们才会呼叫值班的人。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：基于服务等级目标的告警，具体怎么设？",
+        "en": "We alert on burn rate. A fast burn pages immediately, and a slow burn just opens a ticket."
+      },
+      "note": "burn rate 为 1 表示正好在统计周期结束时用完预算，数值越大烧得越快。",
+      "collocations": ["a fast burn rate", "alert on burn rate"]
+    },
+    {
+      "term": "instrument the code",
+      "kind": "chunk",
+      "zh": "给代码埋点（加监控采集，动词短语）",
+      "examples": [
+        {
+          "en": "We instrumented the code with timers around every database call.",
+          "zh": "我们给代码埋了点，在每次数据库调用前后都加了计时。"
+        }
+      ],
+      "situation": {
+        "zh": "同事说：这个函数到底慢在哪一步，现在完全看不出来。你建议：",
+        "en": "Let's instrument the code first, so we have real numbers instead of guesses."
+      },
+      "note": "名词是 instrumentation：add instrumentation。",
+      "collocations": ["instrument a service", "add instrumentation", "auto-instrumentation"]
+    },
+    {
+      "term": "sampling rate",
+      "kind": "chunk",
+      "zh": "采样率",
+      "examples": [
+        {
+          "en": "We lowered the trace sampling rate to one percent because storing every trace was too expensive.",
+          "zh": "我们把链路的采样率降到了 1%，因为每条链路都存成本太高。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问：为什么我在追踪系统里搜不到这个请求？",
+        "en": "It probably wasn't sampled. Our sampling rate is only five percent."
+      },
+      "collocations": ["a sampling rate of 1%", "sample traces", "tail-based sampling"]
+    },
+    {
+      "term": "high cardinality",
+      "kind": "chunk",
+      "zh": "高基数（标签取值太多）",
+      "examples": [
+        {
+          "en": "Adding user ID as a metric label caused high cardinality and blew up our monitoring bill.",
+          "zh": "把用户 ID 加成指标标签导致了高基数，监控账单直接爆了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事想给每个指标都打上订单号标签。你想提醒：",
+        "en": "Order IDs are high cardinality, so that would create millions of time series. Let's put them in logs instead."
+      },
+      "note": "cardinality 指一个字段不同取值的数量。高基数的数据适合放日志或链路，不适合当指标标签。",
+      "collocations": ["a high-cardinality label", "a cardinality explosion"]
+    },
+    {
+      "term": "OAuth",
+      "kind": "word",
+      "zh": "开放授权协议（第三方登录常用，O 开头）",
+      "examples": [
+        {
+          "en": "We use OAuth so users can sign in with their Google account without sharing their password.",
+          "zh": "我们用 OAuth，让用户可以用 Google 账号登录，而不用把密码交给我们。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：第三方应用想访问用户在你们平台上的数据，怎么授权才安全？",
+        "en": "We'd support OAuth 2.0, so the user grants limited access and the third party never sees their credentials."
+      },
+      "note": "读作 /ˈoʊɔːθ/。OAuth 2.0 本身管的是授权，登录身份由建在它上面的 OpenID Connect（OIDC）负责。",
+      "collocations": ["an OAuth flow", "OAuth scopes", "sign in with Google"]
+    },
+    {
+      "term": "access token",
+      "kind": "chunk",
+      "zh": "访问令牌",
+      "examples": [
+        {
+          "en": "The access token expires after fifteen minutes, which limits the damage if it leaks.",
+          "zh": "访问令牌十五分钟后过期，这样即使泄露，损失也有限。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：客户端登录成功之后，后续请求怎么证明身份？",
+        "en": "It sends an access token in the Authorization header, and each service validates the signature."
+      },
+      "note": "常见格式是 JWT，可以逐个字母读，也有人读作 jot。",
+      "collocations": ["issue an access token", "validate the token", "a short-lived token", "the token expires"]
+    },
+    {
+      "term": "refresh token",
+      "kind": "chunk",
+      "zh": "刷新令牌",
+      "examples": [
+        {
+          "en": "When the access token expires, the client uses the refresh token to get a new one.",
+          "zh": "访问令牌过期后，客户端用刷新令牌换一个新的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：访问令牌有效期这么短，用户岂不是要频繁重新登录？",
+        "en": "No, the client holds a longer-lived refresh token and exchanges it for a new access token in the background."
+      },
+      "collocations": ["exchange a refresh token", "rotate refresh tokens"]
+    },
+    {
+      "term": "revoke",
+      "kind": "word",
+      "zh": "吊销（令牌、权限）",
+      "examples": [
+        {
+          "en": "When an employee leaves, we revoke all of their tokens and API keys the same day.",
+          "zh": "员工离职时，我们会在当天吊销他所有的令牌和 API 密钥。"
+        }
+      ],
+      "situation": {
+        "zh": "用户反馈手机丢了，担心账号被人用。你说明你们会怎么处理：",
+        "en": "We can revoke every active session on that device, so whoever has the phone gets logged out."
+      },
+      "note": "名词是 revocation。无状态的 JWT 很难在过期前吊销，这是面试里常被追问的点。",
+      "collocations": ["revoke a token", "revoke access", "revoke a certificate"]
+    },
+    {
+      "term": "role-based access control",
+      "kind": "chunk",
+      "zh": "基于角色的访问控制",
+      "examples": [
+        {
+          "en": "We use role-based access control, so permissions are assigned to roles rather than to individual users.",
+          "zh": "我们用基于角色的访问控制，权限是分配给角色的，而不是直接分给个人。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：后台有管理员、客服、财务三类人，权限怎么管？",
+        "en": "I'd go with role-based access control: define a role for each group and attach permissions to the role."
+      },
+      "note": "缩写 RBAC，读作 /ˈɑːrbæk/。",
+      "collocations": ["assign a role", "grant a permission", "an admin role"]
+    },
+    {
+      "term": "SQL injection",
+      "kind": "chunk",
+      "zh": "SQL 注入",
+      "examples": [
+        {
+          "en": "The endpoint was vulnerable to SQL injection because it built the query by concatenating strings.",
+          "zh": "这个接口有 SQL 注入漏洞，因为它是用字符串拼接来构造查询的。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里把用户输入直接拼进了查询语句。你想指出：",
+        "en": "This is open to SQL injection. Please pass the value as a parameter instead of concatenating it."
+      },
+      "note": "SQL 可以逐个字母读，也可以读作 sequel。",
+      "collocations": ["vulnerable to SQL injection", "an injection attack", "prevent SQL injection"]
+    },
+    {
+      "term": "parameterized query",
+      "kind": "chunk",
+      "zh": "参数化查询",
+      "examples": [
+        {
+          "en": "We only use parameterized queries, so user input is never interpreted as SQL.",
+          "zh": "我们只用参数化查询，所以用户输入永远不会被当成 SQL 执行。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：防止注入攻击，最根本的做法是什么？",
+        "en": "Use a parameterized query everywhere, so the database treats input strictly as data."
+      },
+      "note": "也叫 prepared statement。"
+    },
+    {
+      "term": "cross-site scripting",
+      "kind": "chunk",
+      "zh": "跨站脚本攻击",
+      "examples": [
+        {
+          "en": "We escape all user-generated content before rendering it to prevent cross-site scripting.",
+          "zh": "渲染之前我们会转义所有用户生成的内容，以防止跨站脚本攻击。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：评论区允许用户输入富文本，有什么安全风险？",
+        "en": "The main risk is cross-site scripting, where an attacker injects a script that runs in other users' browsers."
+      },
+      "note": "缩写 XSS，逐个字母读。防御靠输出转义（escape output）和内容安全策略（CSP）。",
+      "collocations": ["an XSS vulnerability", "escape output", "a content security policy"]
+    },
+    {
+      "term": "CSRF",
+      "kind": "word",
+      "zh": "跨站请求伪造（缩写）",
+      "examples": [
+        {
+          "en": "We protect state-changing endpoints against CSRF with a token and SameSite cookies.",
+          "zh": "我们用令牌加 SameSite Cookie，防止修改状态的接口遭到 CSRF 攻击。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：用 Cookie 保存登录态，别的网站能不能冒用用户身份发请求？",
+        "en": "That's a CSRF attack. We mitigate it with SameSite cookies and an anti-CSRF token on every form."
+      },
+      "note": "全称 cross-site request forgery。逐个字母读，也有人读作 sea-surf。",
+      "collocations": ["a CSRF token", "CSRF protection", "SameSite cookies"]
+    },
+    {
+      "term": "sanitize user input",
+      "kind": "chunk",
+      "zh": "清洗用户输入（动词短语，s 开头）",
+      "examples": [
+        {
+          "en": "We validate and sanitize user input on the server, because client-side checks can be bypassed.",
+          "zh": "我们在服务端校验并清洗用户输入，因为客户端的检查是可以被绕过的。"
+        }
+      ],
+      "situation": {
+        "zh": "同事说：前端已经做过校验了，后端不用再管了吧？你回复：",
+        "en": "We still need to sanitize user input on the backend. Anyone can call the API directly."
+      },
+      "note": "validate 是不合格就拒绝，sanitize 是把危险内容去掉或转义。",
+      "collocations": ["validate input", "untrusted input", "escape special characters"]
+    },
+    {
+      "term": "secrets management",
+      "kind": "chunk",
+      "zh": "密钥管理（密码、API 密钥等敏感配置）",
+      "examples": [
+        {
+          "en": "We moved all credentials out of the repo and into a secrets management service.",
+          "zh": "我们把所有凭据都从代码仓库里挪了出去，放进了密钥管理服务。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：数据库密码、第三方 API 密钥，你们放在哪？",
+        "en": "They live in a secrets management system. Services fetch them at startup, and we rotate them regularly."
+      },
+      "note": "secret 泛指密码、密钥、令牌等敏感值。定期更换叫 rotate：rotate the keys。把密钥写死在代码里叫 hard-code a secret。",
+      "collocations": ["store secrets in a vault", "rotate secrets", "a leaked secret", "hard-coded credentials"]
+    },
+    {
+      "term": "audit log",
+      "kind": "chunk",
+      "zh": "审计日志",
+      "examples": [
+        {
+          "en": "Every permission change is written to an audit log, so we can see who did what and when.",
+          "zh": "每次权限变更都会写入审计日志，这样我们能查到谁在什么时候做了什么。"
+        }
+      ],
+      "situation": {
+        "zh": "安全团队问：如果有人偷偷导出了客户数据，你们能查出是谁吗？",
+        "en": "Yes, every export is recorded in an audit log that engineers can't modify or delete."
+      },
+      "note": "也叫 audit trail。audit 读 /ˈɔːdɪt/。",
+      "collocations": ["write to the audit log", "an audit trail", "tamper-proof logs"]
+    }
+  ]
+}

@@ -1,0 +1,602 @@
+{
+  "layer": "C",
+  "category": "python",
+  "title": "Python",
+  "entries": [
+    {
+      "term": "global interpreter lock",
+      "kind": "chunk",
+      "zh": "全局解释器锁（GIL 的全称）",
+      "examples": [
+        {
+          "en": "Because of the global interpreter lock, only one thread runs Python bytecode at a time.",
+          "zh": "因为有全局解释器锁，同一时刻只有一个线程在执行 Python 字节码。"
+        },
+        {
+          "en": "The global interpreter lock makes threads useless for CPU-heavy work, but they're fine for I/O.",
+          "zh": "全局解释器锁让线程对 CPU 密集的工作毫无帮助，但做 I/O 没问题。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Python 的多线程为什么不能真正并行地跑计算？",
+        "en": "Because of the global interpreter lock: a thread has to hold it to run Python bytecode, so only one thread executes at a time."
+      },
+      "collocations": ["hold the GIL", "contend for the GIL", "a GIL-bound workload"],
+      "note": "缩写 GIL 当成一个词读 /ɡɪl/，不逐字母读。这是 CPython 的实现细节，不是 Python 语言规范的一部分。"
+    },
+    {
+      "term": "CPU-bound task",
+      "kind": "chunk",
+      "zh": "CPU 密集型任务（第二个词 b 开头）",
+      "examples": [
+        {
+          "en": "Image resizing is a CPU-bound task, so adding more threads didn't make it any faster.",
+          "zh": "图片缩放是 CPU 密集型任务，所以加线程并没有让它变快。"
+        },
+        {
+          "en": "For CPU-bound tasks we use multiple processes, because each process has its own interpreter and its own GIL.",
+          "zh": "CPU 密集型任务我们用多进程，因为每个进程有自己的解释器和自己的 GIL。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：什么样的工作在 Python 里用多线程没有效果？",
+        "en": "A CPU-bound task, like parsing or number crunching in pure Python, because the threads just take turns holding the GIL."
+      },
+      "note": "bound 在这里是“受……限制”的意思：瓶颈在 CPU。也说 CPU-intensive。"
+    },
+    {
+      "term": "I/O-bound task",
+      "kind": "chunk",
+      "zh": "I/O 密集型任务（第二个词 b 开头）",
+      "examples": [
+        {
+          "en": "Calling ten downstream APIs is an I/O-bound task, so threads or asyncio both work well.",
+          "zh": "调用十个下游接口是 I/O 密集型任务，所以用线程或 asyncio 都很合适。"
+        },
+        {
+          "en": "Most of our web handlers are I/O-bound tasks that spend their time waiting on the database.",
+          "zh": "我们大部分 Web 处理函数都是 I/O 密集型任务，时间都花在等数据库上。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：既然有 GIL，Python 的线程还有什么用？",
+        "en": "They're still useful for I/O-bound tasks, because a thread gives up the GIL while it waits on the network or disk."
+      }
+    },
+    {
+      "term": "release the GIL",
+      "kind": "chunk",
+      "zh": "释放 GIL",
+      "examples": [
+        {
+          "en": "NumPy releases the GIL during many of its heavy computations, so those parts can run in parallel.",
+          "zh": "NumPy 在做很多重计算时会释放 GIL，所以那部分可以并行跑。"
+        },
+        {
+          "en": "A thread releases the GIL whenever it blocks on I/O, which lets other threads run.",
+          "zh": "线程一旦阻塞在 I/O 上就会释放 GIL，其他线程就能运行了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：一个线程在等网络响应时，其他 Python 线程能运行吗？",
+        "en": "Yes. A thread releases the GIL while it's blocked on I/O, so another thread can pick it up and run."
+      },
+      "collocations": ["acquire the GIL", "hold the GIL"]
+    },
+    {
+      "term": "process pool",
+      "kind": "chunk",
+      "zh": "进程池",
+      "examples": [
+        {
+          "en": "We moved the PDF rendering into a process pool so it could use all eight cores.",
+          "zh": "我们把 PDF 渲染挪进了进程池，这样就能用上全部八个核。"
+        },
+        {
+          "en": "Arguments sent to a process pool have to be picklable, which caught us out with lambdas.",
+          "zh": "传给进程池的参数必须能被 pickle 序列化，我们用 lambda 的时候就踩了这个坑。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：纯 Python 的计算想用上多核，你会怎么做？",
+        "en": "I'd run it in a process pool, for example with ProcessPoolExecutor, so each worker has its own interpreter and its own GIL."
+      },
+      "note": "标准库里对应 concurrent.futures.ProcessPoolExecutor 和 multiprocessing.Pool。进程间传数据要序列化，有开销。"
+    },
+    {
+      "term": "coroutine",
+      "kind": "word",
+      "zh": "协程",
+      "examples": [
+        {
+          "en": "Calling an async function doesn't run it; it just returns a coroutine that you have to await.",
+          "zh": "调用 async 函数并不会执行它，只会返回一个协程，你得 await 它才行。"
+        },
+        {
+          "en": "Each request is handled by a coroutine, so thousands of them can share a single thread.",
+          "zh": "每个请求由一个协程处理，所以几千个协程可以共用一个线程。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：asyncio 为什么能在一个线程里同时处理上万个连接？",
+        "en": "Because each connection is handled by a coroutine, which is much cheaper than a thread and only switches at await points."
+      },
+      "collocations": ["await a coroutine", "a coroutine function", "schedule a coroutine as a task"]
+    },
+    {
+      "term": "asyncio event loop",
+      "kind": "chunk",
+      "zh": "asyncio 的事件循环",
+      "examples": [
+        {
+          "en": "The asyncio event loop runs in a single thread and switches between coroutines whenever one awaits.",
+          "zh": "asyncio 的事件循环跑在单个线程里，哪个协程一 await，它就切到别的协程。"
+        },
+        {
+          "en": "We swapped the default asyncio event loop for uvloop and got noticeably better throughput.",
+          "zh": "我们把默认的 asyncio 事件循环换成了 uvloop，吞吐量明显提升。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Python 的 async 代码里，是谁在调度这些协程？",
+        "en": "The asyncio event loop. It keeps track of the tasks and resumes each one when the I/O it's waiting on is ready."
+      }
+    },
+    {
+      "term": "yield control back to the event loop",
+      "kind": "chunk",
+      "zh": "把控制权交还给事件循环",
+      "examples": [
+        {
+          "en": "Every await is a point where the coroutine can yield control back to the event loop.",
+          "zh": "每个 await 都是协程可以把控制权交还给事件循环的地方。"
+        },
+        {
+          "en": "A long loop without any await never yields control back to the event loop, so everything else stalls.",
+          "zh": "一个很长的循环里如果没有任何 await，就永远不会把控制权交还给事件循环，其他任务全都会卡住。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：协程之间是在什么时候切换的？",
+        "en": "Only at an await. That's where a coroutine yields control back to the event loop, which then runs another task."
+      },
+      "note": "这叫协作式调度（cooperative scheduling）：协程自己不让出，别的任务就跑不了。"
+    },
+    {
+      "term": "blocking call",
+      "kind": "chunk",
+      "zh": "阻塞调用",
+      "examples": [
+        {
+          "en": "One blocking call inside an async handler froze every other request on that worker.",
+          "zh": "异步处理函数里的一个阻塞调用，把那个 worker 上的其他请求全卡住了。"
+        },
+        {
+          "en": "requests.get is a blocking call, so we switched to httpx's async client.",
+          "zh": "requests.get 是阻塞调用，所以我们换成了 httpx 的异步客户端。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里的 async 函数中用了 time.sleep，你想提醒他：",
+        "en": "time.sleep is a blocking call, so it will stall the whole event loop. Could we use asyncio.sleep instead?"
+      },
+      "collocations": ["make a blocking call", "wrap a blocking call in asyncio.to_thread", "run it in an executor"]
+    },
+    {
+      "term": "run coroutines concurrently",
+      "kind": "chunk",
+      "zh": "并发运行多个协程",
+      "examples": [
+        {
+          "en": "We run the three coroutines concurrently with asyncio.gather instead of awaiting them one by one.",
+          "zh": "我们用 asyncio.gather 并发运行这三个协程，而不是一个一个地 await。"
+        },
+        {
+          "en": "Running the coroutines concurrently cut the page load from three seconds to one.",
+          "zh": "并发运行这些协程之后，页面加载从三秒降到了一秒。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：要同时调三个互不依赖的接口，用 asyncio 怎么写才不会变成串行？",
+        "en": "I'd run the coroutines concurrently with asyncio.gather or a TaskGroup, so the total time is roughly that of the slowest call."
+      },
+      "note": "concurrently（并发）不等于 in parallel（并行）：asyncio 是单线程里的并发。Python 3.11 起可以用 asyncio.TaskGroup。"
+    },
+    {
+      "term": "decorator",
+      "kind": "word",
+      "zh": "装饰器",
+      "examples": [
+        {
+          "en": "I wrote a decorator that retries the function up to three times on a timeout.",
+          "zh": "我写了一个装饰器，函数超时的时候最多重试三次。"
+        },
+        {
+          "en": "A decorator is just a function that takes a function and returns a new one.",
+          "zh": "装饰器其实就是一个接收函数、再返回一个新函数的函数。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：想给很多函数统一加上日志和计时，又不想改它们的代码，Python 里怎么做？",
+        "en": "I'd write a decorator that wraps the function, and use functools.wraps so the original name and docstring are preserved."
+      },
+      "collocations": ["apply a decorator", "wrap a function", "a decorator that takes arguments"]
+    },
+    {
+      "term": "generator",
+      "kind": "word",
+      "zh": "生成器",
+      "examples": [
+        {
+          "en": "We read the log file with a generator, so only one line is in memory at a time.",
+          "zh": "我们用生成器读日志文件，所以内存里同一时间只有一行。"
+        },
+        {
+          "en": "A generator pauses at each yield and picks up where it left off on the next call.",
+          "zh": "生成器在每个 yield 处暂停，下次调用时从上次停下的地方继续。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：要处理一个比内存还大的文件，Python 里怎么写？",
+        "en": "I'd use a generator to yield one record at a time, so memory usage stays flat no matter how big the file is."
+      },
+      "collocations": ["a generator expression", "yield a value", "exhaust a generator"],
+      "note": "生成器只能遍历一次，用完就空了（exhausted）。"
+    },
+    {
+      "term": "iterator protocol",
+      "kind": "chunk",
+      "zh": "迭代器协议",
+      "examples": [
+        {
+          "en": "Any object that implements the iterator protocol can be used in a for loop.",
+          "zh": "任何实现了迭代器协议的对象都可以用在 for 循环里。"
+        },
+        {
+          "en": "We implemented the iterator protocol on the paginator so callers can simply loop over all the pages.",
+          "zh": "我们给分页器实现了迭代器协议，这样调用方直接循环就能遍历所有页。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：for 循环在底层是怎么遍历一个对象的？",
+        "en": "It uses the iterator protocol: it calls iter() on the object, then calls next() until StopIteration is raised."
+      },
+      "note": "iterable（可迭代对象）实现 __iter__；iterator（迭代器）还要实现 __next__。"
+    },
+    {
+      "term": "context manager",
+      "kind": "chunk",
+      "zh": "上下文管理器",
+      "examples": [
+        {
+          "en": "We wrapped the database session in a context manager so it always gets closed, even on errors.",
+          "zh": "我们把数据库会话包在上下文管理器里，这样即使出错它也一定会被关闭。"
+        },
+        {
+          "en": "The lock is a context manager, so the with statement releases it for you.",
+          "zh": "这个锁是一个上下文管理器，所以 with 语句会替你释放它。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Python 里怎么保证文件或连接用完一定被释放？",
+        "en": "Use a context manager with the with statement. Its __exit__ method runs even if the block raises an exception."
+      },
+      "collocations": ["the with statement", "write a context manager with contextlib", "an async context manager"]
+    },
+    {
+      "term": "list comprehension",
+      "kind": "chunk",
+      "zh": "列表推导式",
+      "examples": [
+        {
+          "en": "I replaced the loop with a list comprehension, which is shorter and a bit faster.",
+          "zh": "我把这个循环换成了列表推导式，更短，也快一点。"
+        },
+        {
+          "en": "A nested list comprehension with two conditions is hard to read, so I'd use a plain loop here.",
+          "zh": "带两个条件的嵌套列表推导式很难读，这里我会用普通循环。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里用四行 for 循环加 append 来构造一个新列表，你想建议：",
+        "en": "This could be a single list comprehension, which is more idiomatic and easier to read than building the list by hand."
+      },
+      "note": "comprehension 读 /ˌkɑːmprɪˈhenʃn/。同类还有 dict comprehension、set comprehension；圆括号的写法叫 generator expression。"
+    },
+    {
+      "term": "duck typing",
+      "kind": "chunk",
+      "zh": "鸭子类型",
+      "examples": [
+        {
+          "en": "Thanks to duck typing, the function accepts anything with a read method, not just real files.",
+          "zh": "得益于鸭子类型，这个函数接受任何有 read 方法的对象，不只是真正的文件。"
+        },
+        {
+          "en": "We rely on duck typing in the tests and pass in a fake client with the same methods.",
+          "zh": "我们在测试里依靠鸭子类型，传入一个方法相同的假客户端。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Python 没有 interface 关键字，怎么做到多态？",
+        "en": "Through duck typing: we don't check the object's type, we just call the method and trust that it's there."
+      },
+      "note": "出自 “If it walks like a duck and quacks like a duck, it's a duck.”"
+    },
+    {
+      "term": "type hints",
+      "kind": "chunk",
+      "zh": "类型提示（第二个词 h 开头）",
+      "examples": [
+        {
+          "en": "We added type hints to the whole service layer, and the editor started catching bugs for us.",
+          "zh": "我们给整个服务层加上了类型提示，编辑器开始帮我们抓 bug 了。"
+        },
+        {
+          "en": "Type hints also work as documentation, because you can see what a function expects at a glance.",
+          "zh": "类型提示也能当文档用，一眼就能看出函数需要什么参数。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Python 是动态语言，大型项目里你们怎么保证代码可维护？",
+        "en": "We use type hints everywhere and run mypy in CI, so most type errors are caught before the code ships."
+      },
+      "collocations": ["add type hints", "fully typed", "gradual typing"],
+      "note": "也叫 type annotations。"
+    },
+    {
+      "term": "static type checker",
+      "kind": "chunk",
+      "zh": "静态类型检查器",
+      "examples": [
+        {
+          "en": "We run a static type checker in CI, and the build fails on any new type error.",
+          "zh": "我们在 CI 里跑静态类型检查器，一出现新的类型错误构建就失败。"
+        },
+        {
+          "en": "A static type checker like mypy found a None bug that our tests had missed.",
+          "zh": "像 mypy 这样的静态类型检查器查出了一个测试没覆盖到的 None 问题。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：类型标注写错了，Python 解释器会报错吗？那靠什么发现？",
+        "en": "No, the interpreter ignores them. You need a static type checker like mypy or Pyright to actually verify them."
+      }
+    },
+    {
+      "term": "dynamically typed",
+      "kind": "chunk",
+      "zh": "动态类型的（语言）",
+      "examples": [
+        {
+          "en": "Python is dynamically typed, so a variable can point to a string now and a list later.",
+          "zh": "Python 是动态类型的，所以一个变量现在可以指向字符串，待会儿又指向列表。"
+        },
+        {
+          "en": "In a dynamically typed codebase, good tests matter even more, because no compiler catches your typos.",
+          "zh": "在动态类型的代码库里，好的测试更重要，因为没有编译器替你抓拼写错误。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Python 和 Java 在类型系统上最大的区别是什么？",
+        "en": "Python is dynamically typed: types belong to objects, not variables, and they're only checked when the code runs."
+      },
+      "note": "Python 是动态类型，但也是强类型（strongly typed）：'1' + 1 会直接报 TypeError。反义是 statically typed。"
+    },
+    {
+      "term": "enforced at runtime",
+      "kind": "chunk",
+      "zh": "在运行时被强制执行（e 开头的过去分词）",
+      "examples": [
+        {
+          "en": "Type hints aren't enforced at runtime, so passing a string where an int is expected still runs.",
+          "zh": "类型提示在运行时不会被强制执行，所以本该传 int 的地方传了字符串，代码照样跑。"
+        },
+        {
+          "en": "Pydantic is different: its field types are enforced at runtime, every time a model is created.",
+          "zh": "Pydantic 不一样：它的字段类型会在运行时强制校验，每次创建模型都会检查。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：函数标注了参数是 int，调用时传了个字符串，会发生什么？",
+        "en": "Nothing, at least not right away. Type hints aren't enforced at runtime; they're only there for tools like mypy."
+      }
+    },
+    {
+      "term": "mutable default argument",
+      "kind": "chunk",
+      "zh": "可变默认参数",
+      "examples": [
+        {
+          "en": "The bug was a mutable default argument: every call was appending to the same list.",
+          "zh": "这个 bug 是可变默认参数导致的：每次调用都在往同一个列表里追加。"
+        },
+        {
+          "en": "To avoid the mutable default argument trap, default to None and create the list inside the function.",
+          "zh": "要避开可变默认参数的坑，就把默认值设成 None，在函数里面再创建列表。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里写了 def add_item(item, items=[])，你想指出问题：",
+        "en": "This is a mutable default argument. The list is created once, when the function is defined, so it's shared across calls."
+      },
+      "note": "根源是默认值只在函数定义时求值一次。mutable 读 /ˈmjuːtəbl/。"
+    },
+    {
+      "term": "shallow copy",
+      "kind": "chunk",
+      "zh": "浅拷贝",
+      "examples": [
+        {
+          "en": "list.copy() only makes a shallow copy, so the nested dicts are still shared with the original.",
+          "zh": "list.copy() 只做浅拷贝，所以里面嵌套的字典仍然和原来的列表共用。"
+        },
+        {
+          "en": "A shallow copy was enough here, because the items themselves are immutable.",
+          "zh": "这里浅拷贝就够了，因为元素本身是不可变的。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：我复制了一个嵌套列表，改了副本里的内层列表，原列表也跟着变了，为什么？",
+        "en": "Because it was a shallow copy: only the outer list was copied, and the inner lists are still the same objects."
+      }
+    },
+    {
+      "term": "deep copy",
+      "kind": "chunk",
+      "zh": "深拷贝",
+      "examples": [
+        {
+          "en": "We make a deep copy of the config before each test so tests can't affect each other.",
+          "zh": "我们在每个测试之前对配置做一次深拷贝，这样测试之间不会互相影响。"
+        },
+        {
+          "en": "A deep copy of that structure is expensive, so we only do it when we really have to.",
+          "zh": "对那个结构做深拷贝开销很大，所以我们只在确实需要的时候才做。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：怎么得到一个和原对象完全独立的嵌套结构副本？",
+        "en": "Use copy.deepcopy to make a deep copy, which recursively copies every nested object."
+      }
+    },
+    {
+      "term": "mutate in place",
+      "kind": "chunk",
+      "zh": "原地修改（对象），m 开头的动词",
+      "examples": [
+        {
+          "en": "list.sort() mutates the list in place and returns None, which surprises a lot of people.",
+          "zh": "list.sort() 会原地修改列表并返回 None，很多人都会被这一点坑到。"
+        },
+        {
+          "en": "I avoid mutating arguments in place, because the caller usually doesn't expect its data to change.",
+          "zh": "我尽量不原地修改传进来的参数，因为调用方通常想不到自己的数据会被改掉。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在 PR 里的函数直接改了调用方传进来的字典，你想提醒他：",
+        "en": "This mutates the caller's dict in place. Could we return a new dict instead?"
+      },
+      "note": "作形容词时加连字符：an in-place sort。"
+    },
+    {
+      "term": "passed by object reference",
+      "kind": "chunk",
+      "zh": "按对象引用传递（Python 的传参方式）",
+      "examples": [
+        {
+          "en": "Arguments are passed by object reference, so the function sees the very same list as the caller.",
+          "zh": "参数是按对象引用传递的，所以函数拿到的和调用方是同一个列表。"
+        },
+        {
+          "en": "Since everything is passed by object reference, rebinding the parameter inside the function doesn't affect the caller.",
+          "zh": "因为一切都是按对象引用传递的，在函数里给形参重新赋值不会影响调用方。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：Python 传参是值传递还是引用传递？",
+        "en": "Neither, strictly speaking. Arguments are passed by object reference: the function gets a new name bound to the same object."
+      },
+      "note": "也叫 pass by assignment 或 call by sharing。"
+    },
+    {
+      "term": "reference counting",
+      "kind": "chunk",
+      "zh": "引用计数",
+      "examples": [
+        {
+          "en": "CPython uses reference counting, so most objects are freed the moment nothing points to them.",
+          "zh": "CPython 用引用计数，所以大部分对象在没人指向它的那一刻就被释放了。"
+        },
+        {
+          "en": "Reference counting is simple and predictable, but it can't deal with objects that refer to each other.",
+          "zh": "引用计数简单、可预测，但处理不了互相引用的对象。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：CPython 主要靠什么机制管理内存？",
+        "en": "Mainly reference counting. Every object keeps a count of the references to it, and it's freed when the count hits zero."
+      },
+      "collocations": ["reference count", "refcount", "increment the reference count"]
+    },
+    {
+      "term": "reference cycle",
+      "kind": "chunk",
+      "zh": "循环引用（r 开头，不是 circular 那个说法）",
+      "examples": [
+        {
+          "en": "The parent and child nodes pointed at each other, which created a reference cycle.",
+          "zh": "父节点和子节点互相指向对方，形成了循环引用。"
+        },
+        {
+          "en": "We broke the reference cycle by making the back-pointer a weak reference.",
+          "zh": "我们把反向指针改成弱引用，打破了循环引用。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：什么情况下光靠引用计数回收不了对象？",
+        "en": "When there's a reference cycle, for example two objects that refer to each other. Their counts never reach zero."
+      },
+      "note": "也说 circular reference。"
+    },
+    {
+      "term": "cyclic garbage collector",
+      "kind": "chunk",
+      "zh": "循环垃圾回收器（CPython 里专门回收循环引用的）",
+      "examples": [
+        {
+          "en": "The cyclic garbage collector runs periodically and cleans up cycles that reference counting can't free.",
+          "zh": "循环垃圾回收器会定期运行，清理引用计数释放不掉的环。"
+        },
+        {
+          "en": "Objects that aren't in a cycle never need the cyclic garbage collector; reference counting frees them right away.",
+          "zh": "不在环里的对象根本用不到循环垃圾回收器，引用计数马上就把它们释放了。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：既然有引用计数，Python 为什么还需要 gc 模块？",
+        "en": "Because reference counting can't free cycles. The cyclic garbage collector in the gc module detects and collects them."
+      }
+    },
+    {
+      "term": "weak reference",
+      "kind": "chunk",
+      "zh": "弱引用",
+      "examples": [
+        {
+          "en": "The cache holds weak references, so an entry disappears once nobody else is using the object.",
+          "zh": "这个缓存持有的是弱引用，所以一旦没有别人在用这个对象，对应的条目就消失了。"
+        },
+        {
+          "en": "A weak reference doesn't increase the reference count, so it doesn't keep the object alive.",
+          "zh": "弱引用不会增加引用计数，所以不会让对象一直活着。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：想缓存一些对象，但又不想因为缓存导致它们永远不被回收，怎么办？",
+        "en": "Use a weak reference, for example a WeakValueDictionary. It doesn't keep the object alive on its own."
+      }
+    },
+    {
+      "term": "drop to zero",
+      "kind": "chunk",
+      "zh": "（引用计数）降到零，动词 d 开头",
+      "examples": [
+        {
+          "en": "As soon as the reference count drops to zero, CPython frees the object immediately.",
+          "zh": "引用计数一降到零，CPython 就立刻释放这个对象。"
+        },
+        {
+          "en": "The file was closed right away because its reference count dropped to zero at the end of the function.",
+          "zh": "文件马上就被关闭了，因为函数结束时它的引用计数降到了零。"
+        }
+      ],
+      "situation": {
+        "zh": "面试官问：CPython 里一个对象具体在什么时候被释放？",
+        "en": "In most cases, as soon as its reference count drops to zero. Only objects in cycles have to wait for the garbage collector."
+      },
+      "note": "也说 hit zero / reach zero。靠这一点来关文件并不可靠（其他 Python 实现不保证），还是应该用 with。"
+    }
+  ]
+}

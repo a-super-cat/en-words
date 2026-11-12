@@ -1,0 +1,289 @@
+{
+  "category": "intro",
+  "title": "自我介绍和经历",
+  "questions": [
+    {
+      "id": "tell-me-about-yourself",
+      "prompt": "Tell me a bit about yourself and your background.",
+      "zh": "简单介绍一下你自己和你的背景。",
+      "outline": [
+        "One-line headline: role, years of experience, main domain",
+        "Current role: what you own and at what scale",
+        "One or two highlights with measurable impact",
+        "Close with what you want next and why this role"
+      ],
+      "chunks": [
+        { "term": "I'm a full-stack engineer with ... years of experience.", "zh": "我是一名有……年经验的全栈工程师。" },
+        { "term": "My background is in ...", "zh": "我的背景主要是……方面" },
+        { "term": "most recently", "zh": "最近这一段（经历）" },
+        { "term": "in my current role", "zh": "在我目前的岗位上" },
+        { "term": "What I'm looking for next is ...", "zh": "我下一步想找的是……" }
+      ],
+      "followUps": ["What made you move from your previous company to your current one?"]
+    },
+    {
+      "id": "current-role-responsibilities",
+      "prompt": "What does your current role look like? What are you responsible for day to day?",
+      "zh": "你现在的岗位是什么样的？日常负责哪些事情？",
+      "outline": [
+        "The team and product in one sentence, then your scope",
+        "What you own outright versus what you contribute to",
+        "How your time splits across coding, design, reviews, and mentoring",
+        "One recent piece of work that shows your level"
+      ],
+      "chunks": [
+        { "term": "in my current role", "zh": "在我目前的岗位上" },
+        { "term": "be responsible for", "zh": "负责" },
+        { "term": "own ... end to end", "zh": "从头到尾全权负责……" },
+        { "term": "take ownership of", "zh": "主动把……的责任担起来" },
+        { "term": "mentor junior engineers", "zh": "指导初级工程师、带新人" }
+      ],
+      "followUps": ["How big is your team, and how is the work divided?"]
+    },
+    {
+      "id": "most-challenging-project",
+      "prompt": "What's the most technically challenging project you've worked on?",
+      "zh": "你做过的技术上最有挑战的项目是什么？",
+      "outline": [
+        "Context: the product, the scale, why the project mattered",
+        "Name the hard part precisely: scale, legacy, ambiguity, or deadline",
+        "Your role and the key decisions you made",
+        "Trade-offs you accepted and the measurable result",
+        "What you would do differently now"
+      ],
+      "chunks": [
+        { "term": "to give you some context", "zh": "先给你交代一下背景" },
+        { "term": "The challenge was that ...", "zh": "难点在于……" },
+        { "term": "My role was to ...", "zh": "我当时的职责是……" },
+        { "term": "The trade-off here is ...", "zh": "这里的取舍是……" },
+        { "term": "result in", "zh": "带来（某个结果）" }
+      ],
+      "followUps": ["What was the hardest trade-off you had to make on that project?"]
+    },
+    {
+      "id": "proudest-achievement",
+      "prompt": "What accomplishment are you most proud of in your career so far?",
+      "zh": "到目前为止，你职业生涯里最自豪的成就是什么？",
+      "outline": [
+        "Pick one achievement with clear user or business impact",
+        "The starting point: what was broken, slow, or missing",
+        "What you personally drove, not only what the team did",
+        "Before-and-after numbers",
+        "Why this one matters to you"
+      ],
+      "chunks": [
+        { "term": "spearhead", "zh": "牵头发起并推动" },
+        { "term": "lead the effort to ...", "zh": "牵头推进……这项工作" },
+        { "term": "bring ... down from ... to ...", "zh": "把……从……降到……" },
+        { "term": "cut ... in half", "zh": "把……减半" },
+        { "term": "The biggest win was ...", "zh": "最大的成效是……" },
+        { "term": "pay off", "zh": "（前期投入）后来见到回报" }
+      ]
+    },
+    {
+      "id": "tech-stack-choice",
+      "prompt": "Walk me through the tech stack of your most recent project. Why did you choose it?",
+      "zh": "讲讲你最近一个项目的技术栈。当时为什么这么选？",
+      "outline": [
+        "Name the stack briefly: frontend, backend, data, infrastructure",
+        "Constraints behind the choice: team skills, timeline, expected scale",
+        "Alternatives you considered and why you rejected them",
+        "What worked well and what you would change today"
+      ],
+      "chunks": [
+        { "term": "We opted for ... over ... because ...", "zh": "我们选了……而不是……，因为……" },
+        { "term": "weigh the pros and cons", "zh": "权衡利弊" },
+        { "term": "decide against", "zh": "决定不采用" },
+        { "term": "good enough for our use case", "zh": "对我们的场景来说已经够用" },
+        { "term": "not worth the added complexity", "zh": "不值得为此增加复杂度" }
+      ],
+      "followUps": ["If you were starting that project today, would you pick the same stack?"]
+    },
+    {
+      "id": "why-leaving-current-job",
+      "prompt": "Why are you looking to leave your current job?",
+      "zh": "你为什么想离开现在的工作？",
+      "outline": [
+        "Start positive: what you learned and valued there",
+        "Give the honest reason, framed as growth rather than complaints",
+        "What is missing now: scope, scale, or technical challenge",
+        "Connect it to what this role offers"
+      ],
+      "chunks": [
+        { "term": "hit a ceiling", "zh": "遇到天花板、没有上升空间了" },
+        { "term": "outgrow", "zh": "成长到原有的（岗位、方案）不够用了" },
+        { "term": "It became clear that ...", "zh": "后来情况很明显：……" },
+        { "term": "What I'm looking for next is ...", "zh": "我下一步想找的是……" },
+        { "term": "be a good fit for", "zh": "和……很契合、很适合" }
+      ],
+      "followUps": ["What would have made you stay?"]
+    },
+    {
+      "id": "why-this-company",
+      "prompt": "Why do you want to work here, and why this role in particular?",
+      "zh": "你为什么想来我们这里工作？为什么是这个岗位？",
+      "outline": [
+        "Show you did your homework: product, engineering culture, current challenges",
+        "Match your experience to what the team needs",
+        "What you would learn here that you cannot learn now",
+        "What you expect to contribute in the first few months"
+      ],
+      "chunks": [
+        { "term": "What drew me to this role is ...", "zh": "这个岗位吸引我的地方是……" },
+        { "term": "be a good fit for", "zh": "和……很契合、很适合" },
+        { "term": "play to my strengths", "zh": "发挥我的长处" },
+        { "term": "My understanding is that ...", "zh": "据我的理解，……" }
+      ]
+    },
+    {
+      "id": "career-plan-five-years",
+      "prompt": "Where do you see yourself in three to five years?",
+      "zh": "你觉得三到五年后自己会是什么样？",
+      "outline": [
+        "State a direction: deeper technical track or people leadership",
+        "The scope and skills you want to grow into",
+        "How this role is a step on that path",
+        "Stay realistic and flexible; avoid naming a fixed title"
+      ],
+      "chunks": [
+        { "term": "set the technical direction", "zh": "确定技术方向" },
+        { "term": "mentor junior engineers", "zh": "指导初级工程师、带新人" },
+        { "term": "influence without authority", "zh": "没有职权也能影响别人" },
+        { "term": "own ... end to end", "zh": "从头到尾全权负责……" },
+        { "term": "What I'm looking for next is ...", "zh": "我下一步想找的是……" }
+      ],
+      "followUps": ["Do you see yourself moving into management or staying on the technical track?"]
+    },
+    {
+      "id": "greatest-strengths",
+      "prompt": "What would you say are your greatest strengths as an engineer?",
+      "zh": "作为工程师，你觉得自己最大的强项是什么？",
+      "outline": [
+        "Pick two strengths that matter for a senior role",
+        "Back each one with a short, concrete example",
+        "Show the effect on the team or the product",
+        "Avoid generic claims such as being hard-working"
+      ],
+      "chunks": [
+        { "term": "play to my strengths", "zh": "发挥我的长处" },
+        { "term": "Let me give you a concrete example.", "zh": "我给你举个具体的例子。" },
+        { "term": "take ownership of", "zh": "主动把……的责任担起来" },
+        { "term": "flag ... early", "zh": "尽早把（风险、问题）提出来" },
+        { "term": "translate into", "zh": "转化为（业务结果）" }
+      ],
+      "followUps": ["How would your teammates describe you?"]
+    },
+    {
+      "id": "biggest-weakness",
+      "prompt": "What's your biggest weakness, or an area you're actively working to improve?",
+      "zh": "你最大的短板是什么？或者说，你正在努力改进的是哪方面？",
+      "outline": [
+        "Name a real weakness, not a strength in disguise",
+        "Give a brief example of how it showed up",
+        "What you are doing about it, concretely",
+        "Evidence that it is getting better"
+      ],
+      "chunks": [
+        { "term": "An area I'm working on is ...", "zh": "我正在改进的一个方面是……" },
+        { "term": "delegate", "zh": "把任务放手交给别人做" },
+        { "term": "underestimate", "zh": "低估（工作量、复杂度）" },
+        { "term": "make a point of", "zh": "特意坚持去做（某事）" },
+        { "term": "own up to", "zh": "坦率承认（自己的问题）" }
+      ]
+    },
+    {
+      "id": "ideal-team-culture",
+      "prompt": "What kind of team and engineering culture do you do your best work in?",
+      "zh": "在什么样的团队和工程文化里，你的工作状态最好？",
+      "outline": [
+        "Name two or three things that matter most to you",
+        "Describe a team where you did your best work",
+        "Show you can adapt when conditions are less than ideal",
+        "Relate it to what you know about this team"
+      ],
+      "chunks": [
+        { "term": "disagree and commit", "zh": "保留不同意见，但全力执行决定" },
+        { "term": "on the same page", "zh": "大家理解一致" },
+        { "term": "set ... up for success", "zh": "为（某人）创造成功的条件" },
+        { "term": "a second pair of eyes", "zh": "再找个人帮忙看看" },
+        { "term": "How are technical decisions made on the team?", "zh": "团队里的技术决策是怎么做出来的？" }
+      ]
+    },
+    {
+      "id": "full-stack-depth",
+      "prompt": "You describe yourself as full-stack. Where is your real depth: frontend, backend, or somewhere in between?",
+      "zh": "你说自己是全栈。你真正深入的是前端、后端，还是介于两者之间？",
+      "outline": [
+        "Be honest about where you are strongest and why",
+        "Give one example of depth from each side of the stack",
+        "Explain how seeing the whole stack improves your design decisions",
+        "Say where you want to go deeper next"
+      ],
+      "chunks": [
+        { "term": "My background is in ...", "zh": "我的背景主要是……方面" },
+        { "term": "dive deeper into", "zh": "深入展开讲（某个部分）" },
+        { "term": "play to my strengths", "zh": "发挥我的长处" },
+        { "term": "I haven't used ... in production, but ...", "zh": "我没在生产环境用过……，不过……" },
+        { "term": "at a high level", "zh": "从总体上讲、不涉及细节地说" }
+      ],
+      "followUps": ["Tell me about a problem you could only solve because you understood both sides."]
+    },
+    {
+      "id": "decision-you-would-change",
+      "prompt": "What's a technical decision you made in the past that you would make differently today?",
+      "zh": "过去你做过的哪个技术决策，放到今天你会换一种做法？",
+      "outline": [
+        "The decision and the context at the time",
+        "Why it seemed right given what you knew",
+        "What changed, or what you missed",
+        "What you would choose today and the lesson you took"
+      ],
+      "chunks": [
+        { "term": "in hindsight", "zh": "事后看来" },
+        { "term": "given the constraints", "zh": "考虑到当时的限制条件" },
+        { "term": "at the cost of", "zh": "以……为代价" },
+        { "term": "If I were to do it again, I would ...", "zh": "如果重来一次，我会……" },
+        { "term": "The key takeaway was ...", "zh": "最重要的一点收获是……" }
+      ]
+    },
+    {
+      "id": "system-you-know-best",
+      "prompt": "Pick a system you know well and walk me through its architecture.",
+      "zh": "挑一个你很熟悉的系统，给我讲讲它的架构。",
+      "outline": [
+        "Start with what the system does and who uses it",
+        "Main components and how a request flows through them",
+        "One or two key design decisions and their trade-offs",
+        "Known weak spots and what you would improve",
+        "Check which part the interviewer wants to explore"
+      ],
+      "chunks": [
+        { "term": "Let me walk you through ...", "zh": "我带你过一遍……" },
+        { "term": "It started out as ...", "zh": "它一开始只是……" },
+        { "term": "The trade-off here is ...", "zh": "这里的取舍是……" },
+        { "term": "bottleneck", "zh": "瓶颈" },
+        { "term": "Is there a particular area you'd like me to focus on?", "zh": "有没有哪一块你希望我重点讲？" }
+      ],
+      "followUps": ["What would break first if traffic grew ten times?"]
+    },
+    {
+      "id": "questions-for-us",
+      "prompt": "Do you have any questions for us?",
+      "zh": "你有什么问题想问我们吗？",
+      "outline": [
+        "Always have two or three questions ready",
+        "Ask about the team's current challenges and priorities",
+        "Ask how success is measured in the first six months",
+        "Ask how technical decisions get made",
+        "Close by asking about next steps"
+      ],
+      "chunks": [
+        { "term": "What does success look like in this role?", "zh": "这个岗位怎样才算做得成功？" },
+        { "term": "What are the biggest challenges the team is facing right now?", "zh": "团队目前面临的最大挑战是什么？" },
+        { "term": "How are technical decisions made on the team?", "zh": "团队里的技术决策是怎么做出来的？" },
+        { "term": "What does a typical day look like on your team?", "zh": "你们团队典型的一天是什么样的？" },
+        { "term": "What are the next steps in the process?", "zh": "接下来的流程是怎样的？" }
+      ]
+    }
+  ]
+}

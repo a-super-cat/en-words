@@ -1,0 +1,461 @@
+{
+  "layer": "B",
+  "category": "planning",
+  "title": "排期、承诺与求助",
+  "entries": [
+    {
+      "term": "Which one should I prioritize?",
+      "kind": "sentence",
+      "zh": "我应该先做哪个？（p 开头的动词）",
+      "examples": [
+        {
+          "en": "I have the bug fix and the migration. Which one should I prioritize?",
+          "zh": "我手上有 bug 修复和迁移，应该先做哪个？"
+        }
+      ],
+      "situation": {
+        "zh": "经理同一天给你派了两个都说很急的任务，你想让他定个先后。",
+        "en": "Both are due this week. Which one should I prioritize?"
+      },
+      "note": "让派活的人来定优先级，而不是自己猜。两件事都急时特别有用。"
+    },
+    {
+      "term": "top priority",
+      "kind": "chunk",
+      "zh": "头等大事、最高优先级（t 开头的形容词）",
+      "examples": [
+        {
+          "en": "Fixing the checkout bug is my top priority this week.",
+          "zh": "修结账的 bug 是我这周的头等大事。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你现在能不能帮他看个问题，你说得先处理线上数据修复，那是最要紧的。",
+        "en": "The data fix is my top priority right now. Can I look at yours after lunch?"
+      },
+      "collocations": [
+        "my top priority",
+        "a high priority",
+        "low priority"
+      ]
+    },
+    {
+      "term": "Let's tackle ... first.",
+      "kind": "sentence",
+      "zh": "我们先解决……（t 开头的动词）",
+      "examples": [
+        {
+          "en": "Let's tackle the login issue first, since it blocks everything else.",
+          "zh": "我们先解决登录的问题，因为它挡住了别的所有事。"
+        }
+      ],
+      "situation": {
+        "zh": "排期会上任务很多，你建议先处理风险最大的数据迁移。",
+        "en": "Let's tackle the data migration first. It's the riskiest part."
+      },
+      "note": "tackle 是“着手解决（难题）”，比 do 多一层“啃硬骨头”的意味。"
+    },
+    {
+      "term": "deprioritize",
+      "kind": "word",
+      "zh": "降低……的优先级、往后放",
+      "examples": [
+        {
+          "en": "We deprioritized the dark mode work to focus on performance.",
+          "zh": "我们把深色模式的工作往后放了，先集中做性能。"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理问为什么搜索优化还没开始，你解释说团队决定先做支付，把它往后排了。",
+        "en": "We deprioritized the search work because payments came first."
+      },
+      "note": "比 delay 更准确：不是拖延，是有意识地往后排。"
+    },
+    {
+      "term": "put ... on hold",
+      "kind": "chunk",
+      "zh": "把……先搁置（暂停，以后再继续）",
+      "examples": [
+        {
+          "en": "We put the redesign on hold until the new designer joins.",
+          "zh": "在新设计师入职之前，我们把改版先搁置了。"
+        }
+      ],
+      "situation": {
+        "zh": "线上出了紧急问题，你告诉产品经理手头的新功能得先停一下。",
+        "en": "I need to put the new feature on hold while I deal with the production issue."
+      },
+      "note": "on hold 是暂停，还会回来做；彻底不做了用 drop 或 cancel。"
+    },
+    {
+      "term": "What's driving the deadline?",
+      "kind": "sentence",
+      "zh": "这个截止日期是由什么决定的？（d 开头的动词）",
+      "examples": [
+        {
+          "en": "What's driving the deadline? Is it a customer commitment or an internal target?",
+          "zh": "这个截止日期是由什么决定的？是对客户的承诺，还是内部目标？"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理说功能必须 15 号上线，你想弄清楚这个日期背后的原因，看有没有商量余地。",
+        "en": "What's driving the deadline? Is there an event on the 15th?"
+      },
+      "note": "问日期背后的原因，语气是好奇而不是质疑。知道原因才好谈范围。"
+    },
+    {
+      "term": "hard deadline",
+      "kind": "chunk",
+      "zh": "硬性截止日期（不能动的）",
+      "examples": [
+        {
+          "en": "Is the 30th a hard deadline, or is there some wiggle room?",
+          "zh": "30 号是硬性截止日期吗，还是有点回旋余地？"
+        }
+      ],
+      "situation": {
+        "zh": "你告诉团队：合规审计的日期是监管定的，绝对不能拖。",
+        "en": "The audit date is a hard deadline. It's set by the regulator."
+      },
+      "note": "反义是 soft deadline（可以商量的期限）。wiggle room 是“回旋余地”。"
+    },
+    {
+      "term": "If we take this on, something else will have to wait.",
+      "kind": "sentence",
+      "zh": "如果接下这个，别的事就得往后排。",
+      "examples": [
+        {
+          "en": "If we take this on, something else will have to wait. Which ticket should move?",
+          "zh": "如果接下这个，别的事就得往后排。该挪哪个任务？"
+        }
+      ],
+      "situation": {
+        "zh": "迭代进行到一半，产品经理想临时加一个需求，你想让她明白这是有代价的。",
+        "en": "If we take this on, something else will have to wait. What would you like to push out?"
+      },
+      "note": "不说“不行”，而是把取舍摆出来让对方选。take on 是“接下（任务）”。"
+    },
+    {
+      "term": "stretch goal",
+      "kind": "chunk",
+      "zh": "争取完成、但不承诺的目标（s 开头）",
+      "examples": [
+        {
+          "en": "CSV export is committed; PDF export is a stretch goal.",
+          "zh": "CSV 导出是承诺要交付的，PDF 导出是争取完成的目标。"
+        }
+      ],
+      "situation": {
+        "zh": "排期时你想说：离线模式这个迭代尽量做，但做不完也正常。",
+        "en": "Let's make offline mode a stretch goal for this sprint."
+      },
+      "note": "排期时把“一定交付”和“有余力再做”分开，是管理预期的好办法。"
+    },
+    {
+      "term": "I have a lot on my plate right now.",
+      "kind": "sentence",
+      "zh": "我现在手头的事很多。（用餐具打比方）",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "I have a lot on my plate right now, so I can't start until next week.",
+          "zh": "我现在手头的事很多，下周才能开始。"
+        }
+      ],
+      "situation": {
+        "zh": "同事想拉你进一个新项目，你这周又要发版又要值班。",
+        "en": "I have a lot on my plate right now with the release and on-call."
+      },
+      "note": "职场里说“忙”的常用比喻，不显得在抱怨。"
+    },
+    {
+      "term": "I don't have the bandwidth for ...",
+      "kind": "sentence",
+      "zh": "我没有余力做……（b 开头的名词）",
+      "examples": [
+        {
+          "en": "I don't have the bandwidth for another project this quarter.",
+          "zh": "这个季度我没有余力再接一个项目了。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问你能不能顺便负责新人的入职培训，你现在两个项目并行，实在顾不上。",
+        "en": "Honestly, I don't have the bandwidth for onboarding right now."
+      },
+      "note": "bandwidth 借“带宽”指时间和精力，科技公司里非常常见。也说 I don't have the bandwidth to ...。"
+    },
+    {
+      "term": "I'm at capacity.",
+      "kind": "sentence",
+      "zh": "我已经排满了。（c 开头的名词）",
+      "examples": [
+        {
+          "en": "I'm at capacity this sprint. Could this wait until the next one?",
+          "zh": "这个迭代我已经排满了，这事能等到下个迭代吗？"
+        }
+      ],
+      "situation": {
+        "zh": "产品经理又想塞给你一个任务，你这个迭代的工作量已经饱和。",
+        "en": "I'm at capacity this sprint, so I can't take anything else."
+      },
+      "note": "比 I'm too busy 更职业，说的是工作量而不是情绪。也可以说团队：The team is at capacity."
+    },
+    {
+      "term": "I'd love to help, but ...",
+      "kind": "sentence",
+      "zh": "我很想帮忙，但是……",
+      "examples": [
+        {
+          "en": "I'd love to help, but I'm on call this week.",
+          "zh": "我很想帮忙，但我这周值班。"
+        }
+      ],
+      "situation": {
+        "zh": "别的团队的同事请你帮他们做性能调优，你这周要赶发版。",
+        "en": "I'd love to help, but I'm heads-down on the release until Friday."
+      },
+      "note": "礼貌拒绝的标准开头：先表达意愿，再给具体原因，最好再给一个替代方案。"
+    },
+    {
+      "term": "I can't take that on right now.",
+      "kind": "sentence",
+      "zh": "我现在接不了这个。（take 开头的短语动词）",
+      "examples": [
+        {
+          "en": "I can't take that on right now, but I could look at it after the release.",
+          "zh": "我现在接不了这个，不过发版之后可以看。"
+        }
+      ],
+      "situation": {
+        "zh": "经理问你能不能接手另一个组的遗留模块，你手上的事已经排到月底。",
+        "en": "I can't take that on right now. My schedule is full until the end of the month."
+      },
+      "note": "清楚的拒绝，但 right now 留了以后再谈的余地。"
+    },
+    {
+      "term": "Do you have a minute?",
+      "kind": "sentence",
+      "zh": "你现在有空吗？（就一两分钟）",
+      "examples": [
+        {
+          "en": "Do you have a minute? I have a question about the deploy script.",
+          "zh": "你现在有空吗？我想问个部署脚本的问题。"
+        }
+      ],
+      "situation": {
+        "zh": "你走到同事工位旁，想请教一个配置问题，先问他方不方便。",
+        "en": "Hey, do you have a minute? I'm confused about this config."
+      },
+      "note": "打扰别人前的标准开场。更随意：Got a minute? 需要久一点就说 Do you have a few minutes?"
+    },
+    {
+      "term": "I'm stuck on ...",
+      "kind": "sentence",
+      "zh": "我卡在……上了（s 开头，自己搞不定）",
+      "examples": [
+        {
+          "en": "I'm stuck on a weird CORS error. Have you seen this before?",
+          "zh": "我卡在一个奇怪的 CORS 报错上了，你以前见过吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你调一个单元测试调了一上午还是过不了，想请同事帮忙。",
+        "en": "I'm stuck on this failing test. Do you have a few minutes to help?"
+      },
+      "note": "stuck 是自己想不出办法；被外部依赖挡住用 blocked。"
+    },
+    {
+      "term": "Who's the right person to talk to about ...?",
+      "kind": "sentence",
+      "zh": "……应该找谁聊？",
+      "examples": [
+        {
+          "en": "Who's the right person to talk to about the billing service?",
+          "zh": "计费服务的事应该找谁聊？"
+        }
+      ],
+      "situation": {
+        "zh": "你刚加入团队，需要申请生产数据库的只读权限，不知道该找谁。",
+        "en": "Who's the right person to talk to about database access?"
+      },
+      "note": "不知道谁负责时的标准问法。也可以问 Who owns the billing service?"
+    },
+    {
+      "term": "Could you point me to ...?",
+      "kind": "sentence",
+      "zh": "你能告诉我……在哪儿吗？（p 开头的动词，请对方指个方向）",
+      "examples": [
+        {
+          "en": "Could you point me to the docs for the internal auth library?",
+          "zh": "你能告诉我内部鉴权库的文档在哪儿吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你想了解部署流程，问同事有没有相关的文档或代码可以看。",
+        "en": "Could you point me to the deployment docs, or the code that handles it?"
+      },
+      "note": "只请对方指个方向，不占用太多时间，所以很好开口。"
+    },
+    {
+      "term": "What I'm trying to do is ...",
+      "kind": "sentence",
+      "zh": "我想做的是……（提问前先说目标）",
+      "examples": [
+        {
+          "en": "What I'm trying to do is run the integration tests against a local database.",
+          "zh": "我想做的是用本地数据库跑集成测试。"
+        }
+      ],
+      "situation": {
+        "zh": "你在频道里提问，想先说明目标：把日志从写文件改成输出到标准输出。",
+        "en": "What I'm trying to do is send the logs to stdout instead of a file."
+      },
+      "note": "提问先讲目标，对方才可能告诉你更好的办法，而不是只回答你卡住的那一步。"
+    },
+    {
+      "term": "Here's what I've tried so far.",
+      "kind": "sentence",
+      "zh": "这是我目前试过的办法。",
+      "examples": [
+        {
+          "en": "Here's what I've tried so far: clearing the cache and reinstalling dependencies.",
+          "zh": "这是我目前试过的办法：清缓存，重装依赖。"
+        }
+      ],
+      "situation": {
+        "zh": "你向同事求助一个构建失败的问题，想先列出已经排查过的方向，免得他重复劳动。",
+        "en": "Here's what I've tried so far. I reverted the lockfile and rebuilt the image."
+      },
+      "note": "求助时说明已经试过什么，既省对方时间，也表明你做过功课。"
+    },
+    {
+      "term": "Am I missing something?",
+      "kind": "sentence",
+      "zh": "是不是我漏了什么？",
+      "examples": [
+        {
+          "en": "The config looks right to me, but the service won't start. Am I missing something?",
+          "zh": "配置我看着是对的，但服务起不来。是不是我漏了什么？"
+        }
+      ],
+      "situation": {
+        "zh": "你按文档一步步配了环境，还是连不上数据库，想请同事看看。",
+        "en": "I followed the setup guide, but I still can't connect. Am I missing something?"
+      },
+      "note": "把问题归到自己可能的疏漏上，显得谦逊。在评审里也用它委婉地质疑。"
+    },
+    {
+      "term": "What do you need from me?",
+      "kind": "sentence",
+      "zh": "你需要我做什么？",
+      "examples": [
+        {
+          "en": "I'm happy to help with the launch. What do you need from me?",
+          "zh": "上线的事我乐意帮忙，你需要我做什么？"
+        }
+      ],
+      "situation": {
+        "zh": "别的团队拉你进一个群说要配合迁移，但没说清楚要你干什么。",
+        "en": "Thanks for adding me. What do you need from me, and by when?"
+      },
+      "note": "问清对方的期望。语气要平，配上 Happy to help 之类的话才不显得不耐烦。"
+    },
+    {
+      "term": "What does done look like?",
+      "kind": "sentence",
+      "zh": "做到什么程度算完成？",
+      "examples": [
+        {
+          "en": "Before I start, what does done look like for this ticket?",
+          "zh": "开始之前我想问一下，这个任务做到什么程度算完成？"
+        }
+      ],
+      "situation": {
+        "zh": "经理让你“优化一下首页性能”，没有具体指标，你想问清验收标准。",
+        "en": "What does done look like here? Is there a target load time?"
+      },
+      "note": "done 在这里当名词用，指“完成的标准”。也说 What's the definition of done?"
+    },
+    {
+      "term": "Happy to help.",
+      "kind": "sentence",
+      "zh": "乐意帮忙。",
+      "register": "casual",
+      "examples": [
+        {
+          "en": "Happy to help. Send me the logs and I'll go through them.",
+          "zh": "乐意帮忙。把日志发我，我过一遍。"
+        }
+      ],
+      "situation": {
+        "zh": "新同事不好意思地问你能不能教他用部署工具，你爽快答应。",
+        "en": "Sure, happy to help. Do you want to pair on it this afternoon?"
+      },
+      "note": "省略了主语 I'm。回应求助或回应感谢都可以用。"
+    },
+    {
+      "term": "I'll take a look.",
+      "kind": "sentence",
+      "zh": "我来看看。（回应别人的求助）",
+      "examples": [
+        {
+          "en": "I'll take a look after standup and let you know what I find.",
+          "zh": "站会后我来看看，有发现就告诉你。"
+        }
+      ],
+      "situation": {
+        "zh": "同事在频道里说测试环境登不上了，你正好有空，回一句你去查。",
+        "en": "I'll take a look."
+      },
+      "note": "回应求助最常用的一句。加上时间更好：I'll take a look this afternoon."
+    },
+    {
+      "term": "I'm in the middle of something.",
+      "kind": "sentence",
+      "zh": "我手头正有事。",
+      "examples": [
+        {
+          "en": "I'm in the middle of something. Can I get back to you in an hour?",
+          "zh": "我手头正有事，一小时后回你行吗？"
+        }
+      ],
+      "situation": {
+        "zh": "你正在处理一个紧急修复，同事过来问问题，你想让他稍等二十分钟。",
+        "en": "I'm in the middle of something. Can you give me twenty minutes?"
+      },
+      "note": "不是拒绝，是“稍等”。后面一定要给一个时间，否则听起来像在打发人。"
+    },
+    {
+      "term": "I won't be able to get to it until ...",
+      "kind": "sentence",
+      "zh": "我要到……才顾得上这件事",
+      "examples": [
+        {
+          "en": "I won't be able to get to it until Thursday. Is that OK?",
+          "zh": "我要到周四才顾得上这件事，可以吗？"
+        }
+      ],
+      "situation": {
+        "zh": "同事请你评估一个需求的工作量，你今明两天都排满了，后天才有空。",
+        "en": "I won't be able to get to it until Wednesday. Does that still work?"
+      },
+      "note": "get to it 是“腾出手来处理”。给出明确时间，让对方决定是等你还是另找人。"
+    },
+    {
+      "term": "The best person to ask would be ...",
+      "kind": "sentence",
+      "zh": "这个最好去问……（把对方指给正确的人）",
+      "examples": [
+        {
+          "en": "The best person to ask would be Priya. She wrote most of that service.",
+          "zh": "这个最好去问 Priya，那个服务大部分是她写的。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你消息队列的监控告警怎么配，这块不归你管，是 Sam 负责的。",
+        "en": "I'm not sure, to be honest. The best person to ask would be Sam."
+      },
+      "note": "自己答不了时，把人指对比硬答更有帮助。would be 比 is 更委婉。"
+    }
+  ]
+}

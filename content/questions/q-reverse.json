@@ -1,0 +1,106 @@
+{
+  "category": "reverse",
+  "title": "反问面试官",
+  "questions": [
+    {
+      "id": "reverse-any-questions",
+      "prompt": "Do you have any questions for me?",
+      "zh": "你有什么问题想问我吗？",
+      "outline": [
+        "Have three to five questions ready; never say you have none",
+        "Ask about the work: current priorities and the hardest technical problems",
+        "Ask about expectations: what a strong first six months looks like",
+        "Tailor the questions to the interviewer's role",
+        "Leave salary and benefits for the recruiter"
+      ],
+      "chunks": [
+        { "term": "What are the biggest challenges the team is facing right now?", "zh": "团队目前面临的最大挑战是什么？" },
+        { "term": "What does success look like in this role?", "zh": "这个岗位怎样才算做得成功？" },
+        { "term": "What are the team's priorities for the next six months?", "zh": "团队接下来六个月的重点是什么？" },
+        { "term": "I'd love to hear more about ...", "zh": "我很想多了解一些……" },
+        { "term": "Could you say more about ...?", "zh": "你能再多讲讲……吗？" }
+      ],
+      "followUps": ["Is there anything else you'd like to know?"]
+    },
+    {
+      "id": "reverse-about-the-team",
+      "prompt": "What would you like to know about the team?",
+      "zh": "关于这个团队，你想了解些什么？",
+      "outline": [
+        "Team size, makeup, and how the work is divided",
+        "How the team plans, reviews code, and ships",
+        "On-call load and how incidents are handled",
+        "How decisions get made and disagreements get resolved",
+        "How people collaborate across offices and time zones"
+      ],
+      "chunks": [
+        { "term": "What does a typical day look like on your team?", "zh": "你们团队典型的一天是什么样的？" },
+        { "term": "How are technical decisions made on the team?", "zh": "团队里的技术决策是怎么做出来的？" },
+        { "term": "How is the team structured?", "zh": "团队是怎么组织的？" },
+        { "term": "What does the on-call rotation look like?", "zh": "值班是怎么轮的？" },
+        { "term": "How does the team handle disagreements?", "zh": "团队里有分歧时是怎么处理的？" }
+      ],
+      "followUps": ["Does that sound like the kind of environment you work well in?"]
+    },
+    {
+      "id": "reverse-about-the-role",
+      "prompt": "Is there anything you'd like to ask about the role itself?",
+      "zh": "关于这个岗位本身，你有什么想问的吗？",
+      "outline": [
+        "What the first ninety days would look like",
+        "Which problem this hire is meant to solve",
+        "Scope and ownership: which systems you would be responsible for",
+        "How performance is evaluated, and by whom",
+        "Growth paths for senior engineers: technical track or management"
+      ],
+      "chunks": [
+        { "term": "What would you expect me to accomplish in the first ninety days?", "zh": "你希望我在头九十天里做成哪些事？" },
+        { "term": "How is performance evaluated?", "zh": "绩效是怎么评估的？" },
+        { "term": "What would it take to get to the next level?", "zh": "要怎样才能升到下一级？" },
+        { "term": "own ... end to end", "zh": "从头到尾全权负责……" },
+        { "term": "individual contributor", "zh": "不带人的技术岗（和管理岗相对）" }
+      ],
+      "followUps": ["How does that compare with what you're looking for in your next role?"]
+    },
+    {
+      "id": "reverse-engineering-practices",
+      "prompt": "We have about ten minutes left. What do you want to know about our tech stack or the way we work?",
+      "zh": "我们还剩十分钟左右。关于我们的技术栈或者工作方式，你想了解什么？",
+      "outline": [
+        "The stack and architecture, and what they would change about it",
+        "How they balance feature work against technical debt",
+        "How often they deploy, and what testing and release look like",
+        "How AI coding tools fit into their workflow",
+        "A recent technical decision and how it was reached"
+      ],
+      "chunks": [
+        { "term": "How do you balance ... against ...?", "zh": "你们怎么在……和……之间做平衡？" },
+        { "term": "If you could change one thing about ..., what would it be?", "zh": "如果能改变……的一件事，你会改什么？" },
+        { "term": "deployment frequency", "zh": "部署频率" },
+        { "term": "pay down technical debt", "zh": "偿还技术债" },
+        { "term": "Could you elaborate on ...?", "zh": "能不能展开讲讲……？" }
+      ],
+      "followUps": ["What would you want to change first if you joined?"]
+    },
+    {
+      "id": "reverse-closing-questions",
+      "prompt": "Before we wrap up, is there anything else you'd like to ask, or anything we haven't covered?",
+      "zh": "结束之前，你还有什么想问的，或者有什么我们没聊到的吗？",
+      "outline": [
+        "Ask what the interviewer enjoys most, or finds hardest, about working there",
+        "Ask whether anything about your background is worth clarifying",
+        "Briefly restate why the role interests you",
+        "Ask about the next steps and the timeline",
+        "Thank them for their time"
+      ],
+      "chunks": [
+        { "term": "What do you enjoy most about working here?", "zh": "在这里工作，你最喜欢的是什么？" },
+        { "term": "Is there anything in my background you'd like me to clarify?", "zh": "我的经历里有没有哪里需要我再说明一下？" },
+        { "term": "What are the next steps in the process?", "zh": "接下来的流程是怎样的？" },
+        { "term": "When can I expect to hear back?", "zh": "我大概什么时候能收到答复？" },
+        { "term": "What drew me to this role is ...", "zh": "这个岗位吸引我的地方是……" },
+        { "term": "be a good fit for", "zh": "和……很契合、很适合" }
+      ]
+    }
+  ]
+}

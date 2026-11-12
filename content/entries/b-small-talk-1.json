@@ -1,0 +1,519 @@
+{
+  "layer": "B",
+  "category": "small-talk",
+  "title": "闲聊与日常",
+  "entries": [
+    {
+      "term": "How's it going?",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "最近怎么样？（随口问候，含 g 开头的 -ing 动词）",
+      "examples": [
+        {
+          "en": "Hey Mike, how's it going? Did you get any sleep after the release?",
+          "zh": "嗨，Mike，怎么样？发完版睡了会儿没？"
+        }
+      ],
+      "situation": {
+        "zh": "早上在茶水间碰到同事，你想随口打个招呼。",
+        "en": "Morning! How's it going?"
+      },
+      "note": "只是打招呼，不是真的问近况。回答 Good, you? 或 Not bad. 就够了，不用详细汇报。"
+    },
+    {
+      "term": "Pretty good. How about you?",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "挺好的，你呢？（p 开头的副词 + good）",
+      "examples": [
+        {
+          "en": "Pretty good. How about you? Busy week?",
+          "zh": "挺好的，你呢？这周忙吗？"
+        }
+      ],
+      "situation": {
+        "zh": "同事在走廊里问你最近怎么样，你想简单回一句，再把问题抛回去。",
+        "en": "Pretty good. How about you?"
+      },
+      "note": "别只会说 Fine, thank you, and you?，语气太像课本。关键是把问题抛回去，对话才接得下去。也可以说 Good, thanks. You?"
+    },
+    {
+      "term": "Can't complain.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "还行吧，没什么可抱怨的。（两个词，省略了主语）",
+      "examples": [
+        {
+          "en": "Can't complain. The release went out on time, and it's almost Friday.",
+          "zh": "还行吧。版本按时发了，而且马上周五了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你这周过得怎么样。其实一切平平常常，你想轻松地回一句。",
+        "en": "Can't complain. How about you?"
+      },
+      "note": "省略了主语 I。意思是“还不错”，带一点幽默感，不是真的在忍着不抱怨。"
+    },
+    {
+      "term": "What's up?",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "嘿，怎么样？／找我什么事？（最随意的问候，两个词）",
+      "examples": [
+        {
+          "en": "Hey, what's up? I haven't seen you all week.",
+          "zh": "嘿，怎么样？一整个星期没见到你了。"
+        }
+      ],
+      "situation": {
+        "zh": "同事走到你工位旁边，看起来有话要说。你想随口问一句：怎么了？",
+        "en": "Hey, what's up?"
+      },
+      "note": "两个用法：一是随口打招呼，二是问“找我什么事”。很随意，对上级或不熟的人用 How's it going? 更稳妥。"
+    },
+    {
+      "term": "Not much.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "没什么新鲜事。（两个词，m 开头，回应很随意的问候）",
+      "examples": [
+        {
+          "en": "Not much. Just trying to finish this ticket before lunch.",
+          "zh": "没什么，就是想在午饭前把这个任务做完。"
+        }
+      ],
+      "situation": {
+        "zh": "同事路过时用最随意的那句问候跟你打招呼，意思是“最近有啥事儿”。你没什么特别的，想随口回一句再反问。",
+        "en": "Not much. You?"
+      },
+      "note": "What's up? 的标准回应，也说 Nothing much. 这时不要回答 I'm fine。"
+    },
+    {
+      "term": "No worries.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "没事儿，别在意。（回应道歉或感谢，w 开头）",
+      "examples": [
+        {
+          "en": "No worries. I was running a few minutes late myself.",
+          "zh": "没事儿，我自己也晚了几分钟。"
+        }
+      ],
+      "situation": {
+        "zh": "同事发消息说：抱歉，你昨天问的问题我今天才看到。你想说没关系。",
+        "en": "No worries. It wasn't urgent."
+      },
+      "note": "回应道歉（没关系）和感谢（不客气）都可以。类似说法：No problem. / Don't worry about it."
+    },
+    {
+      "term": "Good to know.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "原来是这样，知道了。（表示这条信息对我有用，三个词）",
+      "examples": [
+        {
+          "en": "Oh, the cafeteria closes at two? Good to know.",
+          "zh": "哦，食堂两点关门？知道了，谢谢提醒。"
+        }
+      ],
+      "situation": {
+        "zh": "同事告诉你：周五下午停车场出口会很堵，最好早点走。你想表示这个信息有用。",
+        "en": "Good to know. I'll try to leave before four, then."
+      },
+      "note": "省略了 That's。表示对方说的信息对你有用，比单说 OK 更有回应感。"
+    },
+    {
+      "term": "Got it.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "明白了，收到。（两个词）",
+      "examples": [
+        {
+          "en": "Got it. I'll bring my laptop to the offsite, then.",
+          "zh": "明白了，那团建我带上笔记本。"
+        }
+      ],
+      "situation": {
+        "zh": "同事跟你说：聚餐改到周四晚上七点了，地方不变。你想表示收到。",
+        "en": "Got it. Thursday at seven, same place."
+      },
+      "note": "省略了 I've。很随意；对上级或在书面里可以说 Understood."
+    },
+    {
+      "term": "Oh, nice!",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "哦，不错啊！（听到别人的好事时的回应，n 开头）",
+      "examples": [
+        {
+          "en": "Oh, nice! How long are you staying in Japan?",
+          "zh": "哦，不错啊！你要在日本待多久？"
+        }
+      ],
+      "situation": {
+        "zh": "同事说他周末要去看一场期待了很久的演唱会。你想表示替他高兴，再追问一句。",
+        "en": "Oh, nice! Who are you going to see?"
+      },
+      "note": "闲聊的关键是“回应 + 追问”。类似的回应：That's great! / Sounds fun! / Good for you! 别只说 Oh 或 OK。"
+    },
+    {
+      "term": "That's a shame.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "那太可惜了。（s 开头的名词）",
+      "examples": [
+        {
+          "en": "You missed the team dinner? That's a shame. The food was amazing.",
+          "zh": "你没赶上团队聚餐？太可惜了，菜特别好吃。"
+        }
+      ],
+      "situation": {
+        "zh": "同事说他订好的周末滑雪因为下雨取消了。你想表示惋惜。",
+        "en": "Oh, that's a shame. Can you go next weekend instead?"
+      },
+      "note": "shame 在这里是“可惜”，不是“羞耻”。也说 That's too bad. 只用于小遗憾；对方遇到严重的事要说 I'm sorry to hear that."
+    },
+    {
+      "term": "Any plans for the weekend?",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "周末有什么安排吗？（省略了 Do you have）",
+      "examples": [
+        {
+          "en": "It's finally Friday. Any plans for the weekend?",
+          "zh": "总算到周五了。周末有什么安排吗？"
+        }
+      ],
+      "situation": {
+        "zh": "周五下午，你和同事一起等电梯，想找个话题聊两句。",
+        "en": "Any plans for the weekend?"
+      },
+      "note": "周四、周五的万能话题。对方回答后记得追问一句，或者说说自己的打算。"
+    },
+    {
+      "term": "How was your weekend?",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "周末过得怎么样？",
+      "examples": [
+        {
+          "en": "Morning! How was your weekend? Did you go hiking in the end?",
+          "zh": "早！周末过得怎么样？最后去爬山了吗？"
+        }
+      ],
+      "situation": {
+        "zh": "周一早上，你在咖啡机旁遇到同事，想寒暄一句。",
+        "en": "Hey, how was your weekend?"
+      },
+      "note": "周一的万能开场。被问到时别只说 Good，加一句具体的事：Good! We took the kids to the zoo. 然后反问 How about yours?"
+    },
+    {
+      "term": "Nothing special.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "没什么特别的。（回答别人问你有什么安排或做了什么）",
+      "examples": [
+        {
+          "en": "Nothing special. I just stayed home and watched a couple of movies.",
+          "zh": "没什么特别的，就在家待着看了两部电影。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你周末干了什么。你其实哪儿也没去，就在家打扫了一下。",
+        "en": "Nothing special. I just cleaned the apartment and did some laundry. How about you?"
+      },
+      "note": "说完最好补一句具体做了什么，再反问对方，不然话题就断了。"
+    },
+    {
+      "term": "take it easy",
+      "kind": "chunk",
+      "register": "casual",
+      "zh": "放松休息、悠着点（三个词，最后一个词 e 开头）",
+      "examples": [
+        {
+          "en": "I didn't do much this weekend. I just took it easy at home.",
+          "zh": "这个周末没干什么，就在家歇着。"
+        }
+      ],
+      "situation": {
+        "zh": "同事问你周末打算干什么。这周加班很累，你只想好好休息。",
+        "en": "I'm just going to take it easy. It's been a long week."
+      },
+      "note": "也可以用在告别时：Take it easy!（保重，慢走。）"
+    },
+    {
+      "term": "Have a good weekend!",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "周末愉快！",
+      "examples": [
+        {
+          "en": "I'm heading out. Have a good weekend, everyone!",
+          "zh": "我先走了。大家周末愉快！"
+        }
+      ],
+      "situation": {
+        "zh": "周五下班，你收拾好东西准备走，想跟旁边的同事道个别。",
+        "en": "All right, I'm off. Have a good weekend!"
+      },
+      "note": "对方说了这句，回 You too! 就行。平时下班可以说 Have a good one! 或 Have a good evening!"
+    },
+    {
+      "term": "I should get back to work.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "我该回去干活了。（结束闲聊）",
+      "examples": [
+        {
+          "en": "Anyway, I should get back to work. That report won't write itself.",
+          "zh": "好了，我该回去干活了，那份报告可不会自己写完。"
+        }
+      ],
+      "situation": {
+        "zh": "你和同事在茶水间聊了十分钟，想自然地结束对话回工位。",
+        "en": "Anyway, I should get back to work. Good talking to you!"
+      },
+      "note": "前面加 Anyway 或 Well 作为收尾信号，就不会显得突兀。也说 I'd better get back to it."
+    },
+    {
+      "term": "I'll let you get back to it.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "不耽误你了，你接着忙吧。（让对方回去继续做事）",
+      "examples": [
+        {
+          "en": "You look busy, so I'll let you get back to it.",
+          "zh": "看你挺忙的，就不耽误你了。"
+        }
+      ],
+      "situation": {
+        "zh": "你去同事工位闲聊了几句，发现他手头还有事，想礼貌地结束。",
+        "en": "I'll let you get back to it. See you at lunch!"
+      },
+      "note": "把结束对话说成是替对方着想，比“我要走了”更得体。打电话时常说 I'll let you go."
+    },
+    {
+      "term": "Want to grab lunch?",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "要不要一起去吃个午饭？（省略了 Do you，含 g 开头的动词）",
+      "examples": [
+        {
+          "en": "Want to grab lunch? I'm thinking of trying the noodle place downstairs.",
+          "zh": "要不要一起吃午饭？我想去试试楼下那家面馆。"
+        }
+      ],
+      "situation": {
+        "zh": "快十二点了，你想约旁边的同事一起吃午饭。",
+        "en": "Hey, want to grab lunch? I was going to head out in ten minutes."
+      },
+      "note": "省略了 Do you。grab 表示“随便吃点、不正式”。更客气一点：Would you like to grab lunch sometime?"
+    },
+    {
+      "term": "Nice chatting with you.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "跟你聊得很开心。（闲聊结束时说，含 c 开头的 -ing 动词）",
+      "examples": [
+        {
+          "en": "I have a meeting at two, but it was nice chatting with you.",
+          "zh": "我两点有个会，不过跟你聊得很开心。"
+        }
+      ],
+      "situation": {
+        "zh": "你在公司活动上和别的组的同事聊了一会儿，现在要去找别人了。",
+        "en": "Nice chatting with you. Let's catch up again soon."
+      },
+      "note": "省略了 It was。也说 Nice talking to you. 或 Good catching up."
+    },
+    {
+      "term": "Catch you later.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "回头见。（c 开头的动词）",
+      "examples": [
+        {
+          "en": "I've got to run to a meeting. Catch you later!",
+          "zh": "我得赶去开会了，回头见！"
+        }
+      ],
+      "situation": {
+        "zh": "你和同事在楼下聊了几句，他说要去开会了。你想随口道别。",
+        "en": "No problem. Catch you later!"
+      },
+      "note": "和 See you later. 一样，更随意。也说 Talk to you later. 或 See you around."
+    },
+    {
+      "term": "It's really nice out today.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "今天外面天气真好。（用 out 表示“外面”）",
+      "examples": [
+        {
+          "en": "It's really nice out today. Do you want to eat lunch outside?",
+          "zh": "今天外面天气真好，要不要在户外吃午饭？"
+        }
+      ],
+      "situation": {
+        "zh": "早上在电梯里遇到同事，窗外阳光很好，你想找个话题。",
+        "en": "It's really nice out today. It finally feels like spring."
+      },
+      "note": "nice out 就是 nice outside。天气是最安全的开场话题，重点不在天气，而在开个头。"
+    },
+    {
+      "term": "It's freezing out there.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "外面冷死了。（f 开头，夸张说法）",
+      "examples": [
+        {
+          "en": "It's freezing out there. I should have brought a thicker jacket.",
+          "zh": "外面冷死了，我该带件厚点的外套。"
+        }
+      ],
+      "situation": {
+        "zh": "冬天早上，你刚从外面走进办公室，同事看你直搓手。你想感叹一下天气。",
+        "en": "It's freezing out there! I couldn't feel my fingers on the way in."
+      },
+      "note": "freezing 是夸张说法，不一定真到零度。热得受不了说 It's boiling."
+    },
+    {
+      "term": "It's supposed to rain later.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "预报说晚点要下雨。（含 s 开头的过去分词，表示“据说会”）",
+      "examples": [
+        {
+          "en": "Take an umbrella with you. It's supposed to rain later.",
+          "zh": "带把伞吧，预报说晚点要下雨。"
+        }
+      ],
+      "situation": {
+        "zh": "同事约你下班后去露天的地方喝一杯。你看过天气预报，想提醒他可能下雨。",
+        "en": "It's supposed to rain later, so maybe we should sit inside."
+      },
+      "note": "be supposed to 在这里是“按预报应该会”。聊天气常用：It's supposed to be sunny this weekend."
+    },
+    {
+      "term": "How long is your commute?",
+      "kind": "sentence",
+      "zh": "你上班路上要多久？（含 c 开头的名词）",
+      "ipa": "/kəˈmjuːt/",
+      "examples": [
+        {
+          "en": "You live in the suburbs, right? How long is your commute?",
+          "zh": "你住郊区对吧？上班路上要多久？"
+        }
+      ],
+      "situation": {
+        "zh": "新同事说他住得离公司挺远。你想问他每天通勤要花多长时间。",
+        "en": "Oh, that's pretty far. How long is your commute?"
+      },
+      "note": "commute 可作名词也可作动词：I commute by subway. 回答：About forty minutes door to door.（从家门到公司门大约四十分钟。）"
+    },
+    {
+      "term": "stuck in traffic",
+      "kind": "chunk",
+      "register": "casual",
+      "zh": "堵在路上了（s 开头的过去分词）",
+      "examples": [
+        {
+          "en": "Sorry I'm late. I was stuck in traffic for almost an hour.",
+          "zh": "抱歉来晚了，我在路上堵了快一个小时。"
+        }
+      ],
+      "situation": {
+        "zh": "你早上迟到了半小时，同事问你怎么了。原因是路上堵车。",
+        "en": "I got stuck in traffic. There was an accident on the highway."
+      },
+      "collocations": ["get stuck in traffic", "rush hour", "The traffic was terrible."],
+      "note": "be stuck 或 get stuck in traffic。“路上很堵”说 The traffic was terrible."
+    },
+    {
+      "term": "I could use a coffee.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "我真想来杯咖啡。（用 could use 表示“很需要”）",
+      "examples": [
+        {
+          "en": "That meeting was long. I could use a coffee.",
+          "zh": "这个会真长，我得来杯咖啡。"
+        }
+      ],
+      "situation": {
+        "zh": "下午三点，你和同事都有点犯困。你想提议去买杯咖啡。",
+        "en": "I could use a coffee. Want to walk over to the cafe with me?"
+      },
+      "note": "could use 是“很需要、来一个就好了”的委婉说法：I could use a break. / I could use some help."
+    },
+    {
+      "term": "grab a bite",
+      "kind": "chunk",
+      "register": "casual",
+      "zh": "随便吃点东西（含 b 开头的名词，字面是“咬一口”）",
+      "examples": [
+        {
+          "en": "Do you want to grab a bite after work?",
+          "zh": "下班后要不要一起随便吃点？"
+        }
+      ],
+      "situation": {
+        "zh": "加班到七点，你和同事都还没吃饭。你想提议出去简单吃点。",
+        "en": "I'm getting hungry. Let's grab a bite before we finish this."
+      },
+      "collocations": ["grab a bite to eat", "grab a coffee", "grab a drink"],
+      "note": "完整说法是 grab a bite to eat。grab 还可以接 a coffee、a drink，都表示随意、不正式。"
+    },
+    {
+      "term": "I'm starving.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "我饿坏了。（s 开头，夸张说法）",
+      "examples": [
+        {
+          "en": "I skipped breakfast this morning, and now I'm starving.",
+          "zh": "我早上没吃早饭，现在饿坏了。"
+        }
+      ],
+      "situation": {
+        "zh": "会议拖到下午一点才结束，你还没吃午饭。走出会议室时你想感叹一句。",
+        "en": "I'm starving. Let's go eat before the cafeteria closes."
+      },
+      "note": "夸张说法，比 I'm very hungry 自然得多。吃撑了说 I'm stuffed."
+    },
+    {
+      "term": "Have you tried ...?",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "你试过／去吃过……吗？（聊餐馆或食物时的问法）",
+      "examples": [
+        {
+          "en": "Have you tried the new ramen place across the street?",
+          "zh": "你去吃过街对面新开的那家拉面吗？"
+        }
+      ],
+      "situation": {
+        "zh": "公司附近新开了一家泰国菜，你想问同事去过没有，顺便找个话题。",
+        "en": "Have you tried the Thai place that just opened on the corner? I heard it's really good."
+      },
+      "note": "聊吃的万能句型。回答：Not yet. Is it good? 或 Yeah, it's great. You should go."
+    },
+    {
+      "term": "It's on me.",
+      "kind": "sentence",
+      "register": "casual",
+      "zh": "这顿我请。（三个词，含介词 on）",
+      "examples": [
+        {
+          "en": "Put your wallet away. It's on me today.",
+          "zh": "把钱包收起来，今天我请。"
+        }
+      ],
+      "situation": {
+        "zh": "同事帮你排查了一下午的问题。买咖啡时你想说这杯你来付。",
+        "en": "It's on me. You saved me a whole afternoon."
+      },
+      "note": "也说 My treat. 英美同事一起吃饭默认各付各的（split the bill），想请客要明说。"
+    }
+  ]
+}

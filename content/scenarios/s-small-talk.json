@@ -1,0 +1,472 @@
+{
+  "category": "small-talk",
+  "title": "闲聊",
+  "scenarios": [
+    {
+      "id": "monday-weekend-catch-up",
+      "title": "周一早上聊周末",
+      "setting": "周一早上九点，你在茶水间接咖啡，碰到隔壁组的 Jake。他是美国人，话多又随意，周末去露营了。你想自然地聊上几句，而不是一句话就把天聊死。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Jake",
+          "en": "Hey hey! Morning. Man, I am not awake yet. How was your weekend? Get up to anything fun?",
+          "zh": "嘿！早啊。天，我还没醒呢。周末过得怎么样？干什么好玩的了吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说周末过得不错，没什么特别的：周六带孩子去了动物园，周日就在家歇着。然后反过来问他。",
+          "en": "Morning! Pretty good, thanks. Nothing special — we took the kids to the zoo on Saturday, and on Sunday I just took it easy at home. How about you?",
+          "chunks": [
+            { "term": "Pretty good. How about you?", "zh": "挺好的。你呢？" },
+            { "term": "Nothing special.", "zh": "没什么特别的。" },
+            { "term": "take it easy", "zh": "放松、歇着" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Jake",
+          "en": "Nice, nice. We went camping up by the lake. It was awesome until, like, two a.m., when it started pouring, and it turns out our tent is not waterproof. At all.",
+          "zh": "不错不错。我们去湖边露营了。一开始特别棒，结果半夜两点左右开始下暴雨，才发现我们的帐篷不防水。一点都不防。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你表示同情，觉得听起来真够惨的。问他们后来怎么办的，最后是不是只能睡在车里。",
+          "en": "Oh no, that sounds rough! So what did you do? Did you end up sleeping in the car?",
+          "chunks": [
+            { "term": "That sounds rough.", "zh": "听起来真够呛。" },
+            { "term": "end up", "zh": "（几经周折）最终……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Jake",
+          "en": "Yup. Four of us and a wet dog in a Honda. My back is destroyed. Anyway — the zoo! How old are your kids again? Did they love it?",
+          "zh": "没错。四个人加一条湿漉漉的狗，挤在一辆本田里。我的腰废了。不说这个——动物园！你家孩子多大来着？他们喜欢吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说一个五岁一个八岁。小的看到企鹅喜欢得不得了，怎么拉都不肯走；大的从头到尾都在抱怨，只想回家打游戏。感叹一句有他们俩你闲不下来。",
+          "en": "They're five and eight. The little one went crazy for the penguins — we couldn't drag her away. The older one complained the whole time and just wanted to go home and play video games. They keep me busy, that's for sure.",
+          "chunks": [
+            { "term": "go crazy for", "zh": "喜欢得不得了" },
+            { "term": "drag ... away", "zh": "把……硬拉走" },
+            { "term": "They keep me busy.", "zh": "他们让我闲不下来。" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Jake",
+          "en": "Ha! Classic. Mine's the same, everything's 'boring' unless it has a screen. Hey, you guys should come camping with us sometime. In a better tent, I swear.",
+          "zh": "哈！太典型了。我家那个也一样，没屏幕的东西全都“无聊”。对了，你们哪天应该跟我们一起去露营。我保证换个好点的帐篷。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说听起来很有意思，孩子们肯定喜欢。不过先说好，你从来没露过营，到时候全靠他了。再开个玩笑：你会先看天气预报。",
+          "en": "That sounds fun, the kids would love it. Fair warning, though: I've never been camping, so I'd be counting on you. And I'm checking the forecast first.",
+          "chunks": [
+            { "term": "fair warning", "zh": "先说好、丑话说在前头" },
+            { "term": "count on", "zh": "指望、依靠" },
+            { "term": "forecast", "zh": "天气预报" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Jake",
+          "en": "Deal. Okay, I gotta grab this coffee and run — I've got a nine-fifteen. Good talking to you!",
+          "zh": "说定了。好了，我得拿上咖啡赶紧走——九点一刻有个会。跟你聊天真开心！"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说好，那就不耽误他了，祝他开会顺利，回头见。",
+          "en": "Sure, I'll let you get back to it. Good luck with the meeting — catch you later!",
+          "chunks": [
+            { "term": "I'll let you get back to it.", "zh": "那我不耽误你了，你忙吧。" },
+            { "term": "Catch you later.", "zh": "回头见。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lunch-travel-and-hobbies",
+      "title": "午饭时聊爱好和旅行",
+      "setting": "周三中午在公司食堂，你和同组的 Yuki、Tunde 坐一桌。Yuki 下个月要休三周假，还没想好怎么安排；Tunde 说话爱抬杠。你想聊聊自己的旅行经历和爱好，顺便给点建议。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Yuki",
+          "en": "Oh my god, I can't wait for next month. Three weeks off! I'm thinking Vietnam, but I haven't booked a thing yet. Have either of you been?",
+          "zh": "天哪，我等不及下个月了。三周的假！我在考虑去越南，但还什么都没订。你们俩谁去过吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说你去过，是前年去的，待了十天，非常喜欢。你强烈推荐会安：古城很漂亮，东西好吃还很便宜。",
+          "en": "I have, actually! I went the year before last and spent ten days there. I loved it. I'd definitely recommend Hoi An — the old town is beautiful, and the food is amazing and really cheap.",
+          "chunks": [
+            { "term": "the year before last", "zh": "前年" },
+            { "term": "I'd definitely recommend ...", "zh": "我强烈推荐……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Tunde",
+          "en": "See, everyone says the food. But is it one of those places that's just rammed with tourists? Because I did Bali last year and, mate, never again.",
+          "zh": "你看，人人都说吃的好。但那儿是不是那种挤满游客的地方？我去年去了巴厘岛，哥们儿，再也不去了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说热门的地方确实人多，尤其是晚上。但只要早点起，或者往游客少的地方走一走，就很清静。你当时租了辆小摩托骑去周边的村子，那是整趟旅行最精彩的部分。",
+          "en": "The popular spots do get crowded, especially in the evening. But if you get up early or go a bit off the beaten track, it's really peaceful. I rented a scooter and rode out to the villages — that was the highlight of the trip.",
+          "chunks": [
+            { "term": "get crowded", "zh": "变得很挤、人多起来" },
+            { "term": "off the beaten track", "zh": "游客少的、不那么热门的地方" },
+            { "term": "the highlight of the trip", "zh": "旅行中最精彩的部分" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Yuki",
+          "en": "A scooter? Brave. I'd be terrified. So are you, like, a big traveller in general? Is that your thing?",
+          "zh": "小摩托？真勇敢。换我得吓死。那你平时是那种特别爱旅行的人吗？这是你的爱好？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说其实算不上，一年最多出去一两次。你真正着迷的是摄影，旅行多半只是给自己找个拍照的理由。",
+          "en": "Not really — once or twice a year, at most. What I'm really into is photography. Honestly, the trips are mostly an excuse to take pictures.",
+          "chunks": [
+            { "term": "at most", "zh": "最多" },
+            { "term": "I'm really into ...", "zh": "我特别喜欢……、对……很着迷" },
+            { "term": "an excuse to ...", "zh": "做……的借口、理由" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Tunde",
+          "en": "Oh, nice. Proper camera, or are you one of those people who says 'photography' and means their phone?",
+          "zh": "哦，不错。是正经相机，还是那种嘴上说“摄影”其实就是用手机拍的人？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你笑着说是正经相机，一台用了好多年的旧微单。不过你承认，现在手机拍得太好了，很多时候你都懒得带相机出门。",
+          "en": "Ha, a proper camera — an old mirrorless one I've had for years. Although I'll admit, phones have gotten so good that half the time I can't be bothered to carry it.",
+          "chunks": [
+            { "term": "I'll admit", "zh": "我承认" },
+            { "term": "half the time", "zh": "很多时候、动不动就" },
+            { "term": "I can't be bothered to ...", "zh": "我懒得……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Yuki",
+          "en": "Okay, you have to show me your Vietnam photos. And can you send me the name of where you stayed? I'm hopeless at planning.",
+          "zh": "好，你一定得给我看看你在越南拍的照片。还有，能把你住的地方的名字发我吗？我做计划简直没救。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说没问题，吃完饭就把照片和酒店发给她。再给她提个醒：如果下个月就走，机票最好尽快订，越拖只会越贵。",
+          "en": "Sure, I'll send you the photos and the hotel after lunch. One tip: if you're going next month, I'd book the flights soon. Prices only go up the longer you leave it.",
+          "chunks": [
+            { "term": "book a flight", "zh": "订机票" },
+            { "term": "the longer you leave it", "zh": "你拖得越久" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Tunde",
+          "en": "She won't. She'll book it the night before and pay double, you watch.",
+          "zh": "她才不会。她会拖到出发前一晚才订，然后付双倍的钱，你等着瞧。"
+        },
+        {
+          "speaker": "them",
+          "name": "Yuki",
+          "en": "Rude. Accurate, but rude.",
+          "zh": "没礼貌。说得倒是准，但真没礼貌。"
+        }
+      ]
+    },
+    {
+      "id": "waiting-for-meeting-to-start",
+      "title": "会议开始前等人时的寒暄",
+      "setting": "周四晚上十点（伦敦是下午），跨团队的视频会议。你提前两分钟进了会，只有伦敦的产品经理 Charlotte 在，主讲人 Dev 还没到。你们俩不太熟，你要用天气、近况这类话题把这几分钟填上，别冷场。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Charlotte",
+          "en": "Oh, hi! Looks like it's just the two of us so far. Dev's running a few minutes late, I think — his last one overran. How's it going?",
+          "zh": "哦，嗨！看来现在就我们俩。Dev 应该会晚几分钟——他上一个会拖堂了。你最近怎么样？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你跟她打招呼，说自己还不错，没什么可抱怨的。告诉她 Dev 晚到没关系，你也刚进来。然后问问伦敦那边怎么样，是不是已经冷了。",
+          "en": "Hi Charlotte! Can't complain, thanks. And no worries about Dev, I just joined myself. How are things in London? Is it cold yet?",
+          "chunks": [
+            { "term": "Can't complain.", "zh": "还不错，没什么可抱怨的。" },
+            { "term": "No worries.", "zh": "没关系。" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Charlotte",
+          "en": "Oh, don't ask. It's freezing out there, and it's dark by four. Typical November. I've basically forgotten what the sun looks like. How about you? Where are you based again?",
+          "zh": "哦，别提了。外面冷得要命，四点天就黑了。典型的十一月。我都快忘了太阳长什么样了。你呢？你是在哪儿办公来着？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说你常驻上海。今天这边天气其实特别好，凉爽又晴朗。现在是这里一年中最舒服的时候，所以大家都在抓紧享受。",
+          "en": "I'm based in Shanghai. It was really nice out today, actually — cool and sunny. This is the best time of the year here, so we're making the most of it.",
+          "chunks": [
+            { "term": "I'm based in ...", "zh": "我常驻在……" },
+            { "term": "It's really nice out today.", "zh": "今天外面天气真好。" },
+            { "term": "make the most of", "zh": "好好利用、抓紧享受" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Charlotte",
+          "en": "Ugh, jealous. Wait, so what time is it for you right now? It must be getting late.",
+          "zh": "唉，羡慕。等等，那你那边现在几点了？应该挺晚了吧。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说现在快晚上十点了。不过你不介意，已经习惯了，而且这样你早上可以晚一点开始工作。",
+          "en": "It's almost ten p.m. I don't mind, though. I'm used to it by now, and it means I can start a bit later in the morning.",
+          "chunks": [
+            { "term": "I don't mind.", "zh": "我不介意。" },
+            { "term": "be used to", "zh": "习惯了……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Charlotte",
+          "en": "Ten! Oh, you poor thing. We really need to find a better slot for this. Any plans for the weekend, at least?",
+          "zh": "十点！哎呀，真是辛苦你了。我们真得给这个会找个更好的时间。至少周末有什么安排吧？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说没什么安排，大概就是补补觉，再刷刷剧。然后反问她周末打算去哪儿。",
+          "en": "Not much, really. I'll probably catch up on sleep and binge-watch something. What about you — are you going anywhere?",
+          "chunks": [
+            { "term": "Not much.", "zh": "没什么。" },
+            { "term": "catch up on sleep", "zh": "补觉" },
+            { "term": "binge-watch", "zh": "一口气刷（剧）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Charlotte",
+          "en": "My in-laws are visiting, so... pray for me. Kidding! Mostly. Oh — I think that's Dev joining now.",
+          "zh": "我公公婆婆要来，所以……替我祈祷吧。开玩笑的！基本上是开玩笑。哦——好像是 Dev 进来了。"
+        },
+        {
+          "speaker": "them",
+          "name": "Dev",
+          "en": "Hi both, so sorry — back-to-back meetings all day. Did I miss anything?",
+          "zh": "两位好，太抱歉了——今天一整天的会都是连着的。我错过什么了吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说没有，你们只是在闲聊。让他别着急，还有几个人没到，需要的话可以先缓一缓再开始。",
+          "en": "Not at all, we were just chatting. No rush — we're still waiting on a couple of people, so take a minute if you need it.",
+          "chunks": [
+            { "term": "No rush.", "zh": "不着急。" },
+            { "term": "take a minute", "zh": "先缓一缓、花点时间准备" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dev",
+          "en": "You're a lifesaver. Okay, give me ten seconds to share my screen, and we'll get going.",
+          "zh": "你真是救了我。好，给我十秒钟共享屏幕，然后我们就开始。"
+        }
+      ]
+    },
+    {
+      "id": "colleague-back-from-vacation",
+      "title": "同事休假回来",
+      "setting": "周一上午，同事 Camille 休了两周假刚回来，晒黑了，正对着几百封未读邮件发愁。你路过她的座位，想问问她假期过得怎么样，告诉她这两周团队里发生了什么，并主动帮她分担一点。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Camille",
+          "en": "Oh là là. Four hundred and twelve unread emails. Why did I come back? Somebody remind me.",
+          "zh": "我的天。四百一十二封未读邮件。我为什么要回来？谁来提醒我一下。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你欢迎她回来，夸她气色很好，晒出了一身漂亮的肤色。然后问她这趟旅行怎么样。",
+          "en": "Welcome back! You look great — you've got a proper tan. So, how was your trip?",
+          "chunks": [
+            { "term": "Welcome back!", "zh": "欢迎回来！" },
+            { "term": "get a tan", "zh": "晒黑、晒出小麦色" },
+            { "term": "How was your trip?", "zh": "旅行怎么样？" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Camille",
+          "en": "Honestly? It was heaven. Two weeks in Corsica, no laptop, just beach, hiking, and way too much cheese. I didn't think about work once. Well — maybe once.",
+          "zh": "说实话？简直是天堂。在科西嘉待了两周，没带电脑，就是海滩、徒步，还有吃不完的奶酪。我一次都没想过工作。好吧——可能想过一次。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说太羡慕了，你都不记得自己上次请几天假、彻底把工作放下是什么时候了。问她：要是你哪天也去，有什么是绝对不能错过的。",
+          "en": "I'm so jealous. I can't remember the last time I took a few days off and properly switched off. If I ever go, what's the one thing I shouldn't miss?",
+          "chunks": [
+            { "term": "I'm so jealous.", "zh": "太羡慕了。" },
+            { "term": "take a few days off", "zh": "请几天假" },
+            { "term": "switch off", "zh": "彻底把工作放下、放空" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Camille",
+          "en": "The mountains, not the beaches. Everybody goes for the beaches. Anyway — tell me the truth. What did I miss? Is everything on fire?",
+          "zh": "去山里，别去海滩。人人都奔着海滩去。不说这个了——跟我说实话，我错过了什么？是不是到处都着火了？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你让她放心，没出什么大事。主要有两件：搜索功能的上线推迟了一周；另外 Ben 调去了平台组，所以他的代码评审暂时由你顶着。",
+          "en": "Nothing's on fire, don't worry. Two main things: the search launch got pushed back a week, and Ben moved to the platform team, so I'm covering for him on code reviews for now.",
+          "chunks": [
+            { "term": "get pushed back", "zh": "被推迟" },
+            { "term": "cover for", "zh": "替（某人）顶班、代管" },
+            { "term": "for now", "zh": "暂时、目前先这样" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Camille",
+          "en": "Wait, Ben left the team? Nobody told me! Okay, that's... a lot. And my dashboard project — please tell me nobody touched it.",
+          "zh": "等等，Ben 离开我们组了？没人告诉我啊！好吧，这……信息量有点大。那我的仪表盘项目呢——拜托告诉我没人动过它。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你告诉她没人动过，跟她走的时候一模一样。不过设计那边上周留了一些意见，你已经替她整理了一份简短的摘要，省得她在收件箱里一封封翻。",
+          "en": "Nobody touched it, it's exactly how you left it. Design did leave some comments last week, though, so I put together a short summary for you. That way you don't have to dig through your inbox.",
+          "chunks": [
+            { "term": "put together", "zh": "整理出、汇总成" },
+            { "term": "dig through", "zh": "在一堆东西里翻找" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Camille",
+          "en": "You did not. You are an angel. Okay, I owe you one. Actually, I owe you several.",
+          "zh": "不会吧。你真是个天使。好，我欠你一个人情。不对，欠你好几个。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说小事一桩。劝她今天别想着把所有事都补上，慢慢找回状态。你十一点左右正好想喝杯咖啡，叫她一起，到时候把剩下的情况讲给她听。",
+          "en": "Happy to help. Don't try to catch up on everything today — ease back into it. I could use a coffee around eleven, so join me and I'll fill you in on the rest.",
+          "chunks": [
+            { "term": "ease back into it", "zh": "慢慢找回状态" },
+            { "term": "I could use a coffee.", "zh": "我正想来杯咖啡。" },
+            { "term": "fill ... in on", "zh": "把……的情况讲给（某人）听" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Camille",
+          "en": "Perfect. Eleven. Oh, and I brought chocolate from the airport. It's on my desk — help yourself before the others find it.",
+          "zh": "太好了。十一点。哦对了，我从机场带了巧克力，就在我桌上——趁别人还没发现，你自己拿。"
+        }
+      ]
+    },
+    {
+      "id": "friday-drinks-rain-check",
+      "title": "下班前婉拒邀请并改约吃饭",
+      "setting": "周五下午五点半。热情的意大利同事 Luca 和南非同事 Zanele 在招呼大家下班去街角新开的酒吧喝一杯。你今晚得去接孩子、回家吃饭，去不了，但你不想显得不合群，想改约下周一起吃晚饭。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Luca",
+          "en": "Okay, laptops closed, people! We're heading to that new place on the corner for a drink. You're coming, right? Don't even think about saying no.",
+          "zh": "好了，各位，合上电脑！我们要去街角新开的那家喝一杯。你来的吧？想都别想说不。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说你很想去，但今晚去不了：你得去接孩子，还答应了要回家吃晚饭。表示抱歉，时间实在不凑巧。",
+          "en": "I'd love to, but I can't make it tonight. I have to pick up the kids, and I promised I'd be home for dinner. Sorry, bad timing!",
+          "chunks": [
+            { "term": "I'd love to, but ...", "zh": "我很想，但是……" },
+            { "term": "I can't make it.", "zh": "我去不了。" },
+            { "term": "pick up the kids", "zh": "接孩子" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Luca",
+          "en": "Come on, one drink! Twenty minutes. The kids will survive.",
+          "zh": "来嘛，就一杯！二十分钟。孩子们不会有事的。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你笑着不上当：你太清楚跟他喝“一杯”是怎么回事了，从来不止一杯。今晚是真的不行，但你说改天一定补上。",
+          "en": "Ha, nice try. I know how 'one drink' goes with you — it's never just one. I really can't tonight, but I'll take a rain check.",
+          "chunks": [
+            { "term": "Nice try.", "zh": "想得美、这招对我没用。" },
+            { "term": "take a rain check", "zh": "这次不行，改天再约" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Zanele",
+          "en": "Leave them alone, Luca. Honestly, though, we never see you outside the office. We should fix that.",
+          "zh": "别为难人家了，Luca。不过说真的，出了办公室我们就从来见不到你。这个得改改。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你承认她说得对，你最近在这方面确实做得不好。你提议下周找个晚上一起去吃顿饭，你请客，算是弥补今晚。",
+          "en": "You're right, I've been pretty bad at this lately. How about we grab a bite one night next week instead? It's on me, to make up for tonight.",
+          "chunks": [
+            { "term": "grab a bite", "zh": "去吃点东西" },
+            { "term": "It's on me.", "zh": "我请客。" },
+            { "term": "make up for", "zh": "弥补" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Zanele",
+          "en": "Ooh, now we're talking. I'm free Wednesday or Thursday. Luca?",
+          "zh": "哦，这才像话嘛。我周三或周四有空。Luca 呢？"
+        },
+        {
+          "speaker": "them",
+          "name": "Luca",
+          "en": "Thursday. Wednesday is football. But I choose the restaurant — no offence, but last time you picked that salad place.",
+          "zh": "周四。周三我要看球。但是餐厅我来选——别见怪啊，上次你挑的是那家沙拉店。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说周四你可以。同意让他来挑餐厅，但半开玩笑地提醒他别选太高档的，毕竟掏钱的是你。",
+          "en": "Thursday works for me. Fine, you pick — but nothing too fancy. Remember, I'm the one paying.",
+          "chunks": [
+            { "term": "... works for me", "zh": "……我可以、对我合适" },
+            { "term": "nothing too fancy", "zh": "别太高档、简单点就行" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Luca",
+          "en": "No promises. I'll send a few options to the group chat tonight. Well — tomorrow. After the drinks.",
+          "zh": "这我可不保证。我今晚往群里发几个选项。呃——明天吧。等喝完酒。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说好，你会留意群里的消息。祝他们今晚玩得开心，周末愉快，周一见。",
+          "en": "Sounds good, I'll keep an eye out for it. Have fun tonight, and have a good weekend! See you Monday.",
+          "chunks": [
+            { "term": "keep an eye out for", "zh": "留意（某样东西的出现）" },
+            { "term": "Have a good weekend!", "zh": "周末愉快！" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Zanele",
+          "en": "You too! Say hi to the family for us.",
+          "zh": "你也是！替我们向你家人问好。"
+        }
+      ]
+    }
+  ]
+}
