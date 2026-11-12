@@ -1,0 +1,619 @@
+{
+ "category": "phrasal-verbs",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "It took me a while to figure out why the tests only failed on Fridays.",
+     "zh": "我花了好一阵才弄明白，为什么测试只在周五挂。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I finally figured out what was causing it — a timezone bug.",
+    "zh": "同事问你那个诡异的 bug 查得怎么样了，你想说刚弄明白。"
+   },
+   "term": "figure out",
+   "zh": "想明白、弄清楚（自己琢磨出来的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "She came up with a workaround that bought us two extra weeks.",
+     "zh": "她想出了一个临时方案，给我们多争取了两周。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let me come up with a couple of options and share them tomorrow.",
+    "zh": "会上卡住了，你想说自己有个想法。"
+   },
+   "term": "come up with",
+   "zh": "想出（方案、主意）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I need a day to sort out this billing mess before we add new features.",
+     "zh": "我需要一天把计费这团乱账理顺，再加新功能。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'll sort out the permission issues today.",
+    "zh": "站会上你想说今天先处理权限那堆遗留问题。"
+   },
+   "term": "sort out",
+   "zh": "理顺、解决（乱成一团的问题）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We narrowed it down to two possible causes by turning features off one by one.",
+     "zh": "我们逐个关掉功能，把可能性缩小到了两个。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "First I narrowed it down to the cache layer, then checked the logs.",
+    "zh": "面试官问你怎么定位的，你想说先把范围缩小。"
+   },
+   "term": "narrow down",
+   "zh": "缩小范围（把候选一个个排除）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We ran into a problem with the payment provider's sandbox — it behaves nothing like production.",
+     "zh": "我们撞上了支付服务商的沙箱环境问题，它和生产环境完全不一样。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "run into 也可以是偶遇某人：I ran into an old colleague at the airport。",
+   "situation": {
+    "en": "We ran into a problem with the certificates, so the release slipped a day.",
+    "zh": "站会上汇报进展，你想说遇到了点麻烦。"
+   },
+   "term": "run into",
+   "zh": "撞上、遇到（问题或麻烦）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The job ran out of disk space halfway through the export.",
+     "zh": "导出跑到一半，磁盘空间用完了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We're running out of budget for cloud spend this quarter.",
+    "zh": "会上你想提醒大家：预算快没了。"
+   },
+   "term": "run out of",
+   "zh": "用完、耗尽（时间、钱、空间）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let me break down the estimate so you can see where the time goes.",
+     "zh": "我把工时估算拆开讲，你就知道时间都花在哪了。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "break down 讲故障（The car broke down）和讲分解（break down the numbers）是同一个词，靠宾语区分。",
+   "situation": {
+    "en": "Let me break it down into three parts: ingestion, processing, and serving.",
+    "zh": "面试官让你细说一个复杂项目，你想先拆成几块讲。"
+   },
+   "term": "break down",
+   "zh": "（机器、谈判）出故障、破裂；分解（把大问题拆开讲）"
+  },
+  {
+   "examples": [
+    {
+     "en": "If the new API is not ready, we can fall back on the old import path.",
+     "zh": "如果新接口还没好，我们可以退回到旧的导入方式兜底。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We still have the legacy flow to fall back on.",
+    "zh": "评审时有人问新方案失败了怎么办，你想说有老方案兜底。"
+   },
+   "term": "fall back on",
+   "zh": "退而求其次、靠（备选方案）兜底"
+  },
+  {
+   "examples": [
+    {
+     "en": "We keep putting off the upgrade, and the version gap keeps growing.",
+     "zh": "我们一直推迟升级，版本差距越拉越大。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "put someone off 是“让某人反感”，意思不同，别混。",
+   "situation": {
+    "en": "Can we put off the review until tomorrow? I need another hour.",
+    "zh": "你想跟同事商量把评审推迟到明天。"
+   },
+   "term": "put off",
+   "zh": "推迟、拖延（本来该做的事）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I finally got around to updating the onboarding doc after three months.",
+     "zh": "拖了三个月，我终于抽时间把入职文档更新了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Sorry, I haven't got around to it yet — it's on my list for Friday.",
+    "zh": "同事问你那个文档写了没，你想说一直没顾上。"
+   },
+   "term": "get around to",
+   "zh": "终于抽出时间去做（拖了很久的事）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let's hold off on the announcement until the hotfix is verified.",
+     "zh": "我们先别发公告，等热修复验证通过再说。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd hold off on the experiment until we have better metrics.",
+    "zh": "你想建议团队暂缓上这个实验功能。"
+   },
+   "term": "hold off",
+   "zh": "先别做、暂缓（等条件成熟）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Monday mornings I catch up on everything that happened while I was on leave.",
+     "zh": "周一早上我会把休假期间落下的事情都补看一遍。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Give me an hour to catch up on messages, then let's sync.",
+    "zh": "休假回来第一天，你想跟同事说先补一下进度。"
+   },
+   "term": "catch up on",
+   "zh": "把落下的……补上（工作、消息、睡眠）"
+  },
+  {
+   "examples": [
+    {
+     "en": "It is hard to keep up with how fast the frontend ecosystem changes.",
+     "zh": "前端生态变化太快，很难跟上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I keep up with new releases by reading the changelogs every week.",
+    "zh": "面试聊到学习习惯，你想说你能跟上新技术。"
+   },
+   "term": "keep up with",
+   "zh": "跟上（变化、进度、潮流）"
+  },
+  {
+   "examples": [
+    {
+     "en": "She likes to bring up the flaky tests in every retro, and she is right — it is time to fix them.",
+     "zh": "她每次复盘都爱提不稳定的测试问题，她说得对，是该修了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I wanted to bring up the on-call load — it has doubled since June.",
+    "zh": "一对一时你想提一下加班太多的事。"
+   },
+   "term": "bring up",
+   "zh": "提出、提起（话题、问题）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The reviewer pointed out that my query would do a full table scan.",
+     "zh": "评审的人指出，我的查询会全表扫描。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd like to point out one risk: this cache has no invalidation strategy.",
+    "zh": "评审里你想礼貌地指出对方方案的一个风险。"
+   },
+   "term": "point out",
+   "zh": "指出（某个事实或问题）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I will follow up with the vendor if they do not reply by Thursday.",
+     "zh": "如果供应商周四之前不回复，我会再跟进一次。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "名词是 follow-up：a quick follow-up question。口语里两个都常见。",
+   "situation": {
+    "en": "I'll follow up on the pricing question and post in the channel.",
+    "zh": "会后你想跟同事确认你来跟进这件事。"
+   },
+   "term": "follow up",
+   "zh": "跟进（之前的事有没有下文）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I do not have the numbers yet — let me get back to you by end of day.",
+     "zh": "我现在还没有数据，今天下班前答复你。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let me double-check and get back to you on that.",
+    "zh": "面试官问了个细节你记不清，你想说回头确认。"
+   },
+   "term": "get back to ...",
+   "zh": "回头答复（某人）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Before I refactor it, I want to run the plan by our tech lead.",
+     "zh": "动手重构之前，我想先把方案说给技术负责人听听。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Can I run something by you? I'm thinking of changing how we do releases.",
+    "zh": "你有了个主意，想先说给同事把把关。"
+   },
+   "term": "run ... by ...",
+   "zh": "把（想法）说给（某人）听、征求意见"
+  },
+  {
+   "examples": [
+    {
+     "en": "We need to carry out the migration in a single weekend.",
+     "zh": "我们需要在一个周末内把这次迁移执行完。"
+    }
+   ],
+   "kind": "chunk",
+   "register": "formal",
+   "situation": {
+    "zh": "面试介绍项目时，你想说计划是你负责落地的。",
+    "en": "My job was to carry out the rollout plan with two other engineers."
+   },
+   "term": "carry out",
+   "zh": "执行、实施（计划、任务）"
+  },
+  {
+   "examples": [
+    {
+     "en": "It took me half a day to set up the dev environment on the new laptop.",
+     "zh": "在新电脑上搭开发环境花了我半天。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ping me if you get stuck setting up your environment.",
+    "zh": "新同事入职，你想帮他把环境弄好。"
+   },
+   "term": "set up",
+   "zh": "搭好、设置（环境、账号、会议）"
+  },
+  {
+   "examples": [
+    {
+     "en": "When our tech lead left, I took over the release process.",
+     "zh": "技术负责人走了之后，我接手了发布流程。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I can take over your on-call while you are away.",
+    "zh": "同事要休假，你主动说他的值班你来接。"
+   },
+   "term": "take over",
+   "zh": "接手（工作、项目）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Users reported slow uploads — I will look into it this afternoon.",
+     "zh": "有用户反馈上传慢，我下午调查一下。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Thanks for flagging it, I'll look into it and update the ticket.",
+    "zh": "有人报了个问题你还不清楚，你答应去看。"
+   },
+   "term": "look into",
+   "zh": "调查、了解一下（还没结论）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let's go over the design doc together before the review meeting.",
+     "zh": "评审会之前，我们先一起把设计文档过一遍。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Could you go over my résumé once more before I send it?",
+    "zh": "你想请同事帮你把简历再看一遍。"
+   },
+   "term": "go over",
+   "zh": "仔细过一遍（文档、方案）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We went through the whole checklist before the audit and found two gaps.",
+     "zh": "审计前我们把清单逐条过了一遍，发现了两个缺口。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We went through a rough night, but the rollback saved us.",
+    "zh": "面试讲故障经历时，你想说那晚很折腾。"
+   },
+   "term": "go through",
+   "zh": "经历（一段麻烦过程）；逐条审阅"
+  },
+  {
+   "examples": [
+    {
+     "en": "The proposal is just an outline — I need to flesh out the details this week.",
+     "zh": "这个方案还只是个提纲，我这周要把细节充实起来。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "flesh 是肉：给骨架长肉，就是细化。别写成 flush out，那是“冲出来/赶出来”。",
+   "situation": {
+    "en": "Good direction — let's flesh out the error handling part.",
+    "zh": "评审时你评价同事的草案还不错，就是需要细化。"
+   },
+   "term": "flesh out",
+   "zh": "把（想法、方案）充实、细化"
+  },
+  {
+   "examples": [
+    {
+     "en": "The doc spells out exactly who owns each step of the incident process.",
+     "zh": "文档把故障流程每一步归谁负责都写得清清楚楚。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let me spell it out: we ship Friday, or we cut the feature.",
+    "zh": "同事没听懂你的意思，你主动说得更直白一点。"
+   },
+   "term": "spell out",
+   "zh": "把话说明白、一条条讲清楚"
+  },
+  {
+   "examples": [
+    {
+     "en": "If we stick to the plan, the beta ships on the fifteenth.",
+     "zh": "只要坚持原计划，测试版就能在 15 号发。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let's stick to the plan and park the new ideas for v2.",
+    "zh": "范围开始膨胀，你想提醒大家守住原计划。"
+   },
+   "term": "stick to",
+   "zh": "坚持（计划、约定）不改"
+  },
+  {
+   "examples": [
+    {
+     "en": "The discussion was going in circles, so our manager stepped in and made the call.",
+     "zh": "讨论一直在绕圈子，经理出手拍了板。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I can step in on the incident while you take a break.",
+    "zh": "同事卡在故障上，你说你来顶一下。"
+   },
+   "term": "step in",
+   "zh": "出手介入（出问题时顶上）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Feel free to jump in with questions at any point.",
+     "zh": "任何时候有问题都可以直接插进来问。"
+    }
+   ],
+   "kind": "chunk",
+   "register": "casual",
+   "situation": {
+    "en": "Mind if I jump in on this? I worked on something similar last year.",
+    "zh": "你想加入隔壁组的一个项目。"
+   },
+   "term": "jump in",
+   "zh": "插话、加入（讨论或项目），语气积极"
+  },
+  {
+   "examples": [
+    {
+     "en": "I decided to take on the documentation work because nobody else had time.",
+     "zh": "别人都没时间，我决定把文档工作接下来。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I can take it on, but something else has to give.",
+    "zh": "经理问你能不能再多带一个项目，你掂量后答应。"
+   },
+   "term": "take on",
+   "zh": "承担、接下（额外的工作）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Before my leave, I handed over the release checklist and the pending tickets.",
+     "zh": "休假之前，我把发布清单和未处理的工单都交接了。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "名词 handover（交接）英式拼写常见，美式常写 hand-off。",
+   "situation": {
+    "en": "Let's do a proper hand-over call on Thursday.",
+    "zh": "你想跟接班的同事约个交接时间。"
+   },
+   "term": "hand over",
+   "zh": "交接（把工作交出去）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Back up the database before you run any migration, no exceptions.",
+     "zh": "跑任何迁移之前先备份数据库，没有例外。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'll back you up in the review — the data supports the proposal.",
+    "zh": "同事的方案被质疑，你站出来支持他。"
+   },
+   "term": "back up",
+   "zh": "备份；支持、给（某人）撑腰"
+  },
+  {
+   "examples": [
+    {
+     "en": "I check in with my mentor every two weeks, even when nothing is urgent.",
+     "zh": "就算没什么急事，我每两周也会和导师碰一下。"
+    }
+   ],
+   "kind": "chunk",
+   "register": "casual",
+   "situation": {
+    "en": "Let me check in with you after standup about the timeline.",
+    "zh": "你想约同事下午简单确认下进度。"
+   },
+   "term": "check in with",
+   "zh": "跟（某人）碰一下、确认近况"
+  },
+  {
+   "examples": [
+    {
+     "en": "I missed out on the early-bird tickets because I waited a day too long.",
+     "zh": "我多等了一天，错过了早鸟票。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "You don't want to miss out on this one — last year's was excellent.",
+    "zh": "同事犹豫要不要报名内部分享，你劝他别错过。"
+   },
+   "term": "miss out on",
+   "zh": "错过（机会、活动）"
+  },
+  {
+   "examples": [
+    {
+     "en": "After three months of on-call every other week, he burned out and quit.",
+     "zh": "隔周值班熬了三个月，他累垮了，辞了职。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "名词是 burnout（一个词）：signs of burnout。形容词 burned out 或 burnt out。",
+   "situation": {
+    "en": "If we keep this pace, people will burn out by spring.",
+    "zh": "一对一时你想提醒经理团队的负荷不健康。"
+   },
+   "term": "burn out",
+   "zh": "累垮、职业倦怠"
+  },
+  {
+   "term": "come across",
+   "kind": "chunk",
+   "zh": "偶然发现、碰到（信息或东西）",
+   "examples": [
+    {
+     "en": "I came across an old design doc that explains why we built it this way.",
+     "zh": "我偶然翻到一份旧的设计文档，里面讲了当初为什么这么做。"
+    }
+   ],
+   "situation": {
+    "zh": "你在调研时意外找到一篇正好相关的文章，想跟同事说。",
+    "en": "I came across a post that covers exactly this problem."
+   }
+  },
+  {
+   "term": "turn out",
+   "kind": "chunk",
+   "zh": "结果发现是、最后证明是",
+   "examples": [
+    {
+     "en": "The outage turned out to be a bad config, not a code bug.",
+     "zh": "查到最后，这次故障是配置错误，不是代码 bug。"
+    }
+   ],
+   "situation": {
+    "zh": "你向同事转述调查结论：其实原因很简单。",
+    "en": "It turned out to be a typo in the config file."
+   }
+  },
+  {
+   "term": "look forward to",
+   "kind": "chunk",
+   "zh": "期待（后面接名词或动名词）",
+   "examples": [
+    {
+     "en": "I am looking forward to working with the new design team.",
+     "zh": "我很期待和新的设计团队合作。"
+    }
+   ],
+   "situation": {
+    "zh": "面试最后，你想得体地表达期待加入。",
+    "en": "I really look forward to hearing from you."
+   },
+   "note": "to 是介词，后面接名词或 -ing：look forward to seeing you。别写成 look forward to see。"
+  },
+  {
+   "term": "get along with",
+   "kind": "chunk",
+   "zh": "跟（某人）相处得来",
+   "examples": [
+    {
+     "en": "He gets along with everyone on the team, including the tricky stakeholders.",
+     "zh": "他和团队里每个人都处得来，包括难搞的干系人。"
+    }
+   ],
+   "situation": {
+    "zh": "面试官问你和上一任经理的关系，你想说处得不错。",
+    "en": "I got along well with my previous manager."
+   }
+  },
+  {
+   "term": "go ahead",
+   "kind": "chunk",
+   "zh": "放手去做吧；请便（表示许可或开始）",
+   "examples": [
+    {
+     "en": "The reviewer said go ahead and merge it once CI passes.",
+     "zh": "评审的人说 CI 一过就直接合并吧。"
+    }
+   ],
+   "situation": {
+    "zh": "同事问能不能先用你的会议室，你想说尽管用。",
+    "en": "Sure, go ahead — I am not using it this hour."
+   },
+   "register": "casual"
+  }
+ ],
+ "layer": "A",
+ "title": "短语动词"
+}

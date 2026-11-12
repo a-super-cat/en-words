@@ -211,7 +211,7 @@
 
 ### P1-2 A 层：日常口语词块
 
-**状态**：未开始
+**状态**：进行中——2026-11-12 已完成 `a-phrasal-verbs-1.json` 首批 40 条（figure out、come up with 等，含情境题），校验 0 error。还差：短语动词余量（目标共约 150）、日常搭配 everyday 约 150。注意 term 全库唯一：work out / roll out / end up / phase out / wrap up 已存在于 B/C 层，新写时先查重复。
 
 **为什么**：A 层现在没有内置内容，只有生词本。但用户日常沟通里最缺的不是生僻词，是那些“都认识但开口想不起来”的短语动词和日常搭配，例如 *figure out、run into、end up、get around to、come up with*。
 
