@@ -4,21 +4,6 @@
   {
    "examples": [
     {
-     "en": "We share the config across threads with an Arc — every worker holds a reference-counted handle.",
-     "zh": "我们用 Arc 在线程间共享配置，每个工作线程都持有一个引用计数的句柄。"
-    }
-   ],
-   "kind": "chunk",
-   "situation": {
-    "en": "Shared ownership across threads means Arc, not Rc.",
-    "zh": "面试官问多线程怎么共享所有权，你给出标准答案。"
-   },
-   "term": "reference counting",
-   "zh": "引用计数（Rc/Arc 的机制）"
-  },
-  {
-   "examples": [
-    {
      "en": "RefCell moves the borrow checks to runtime — break the rules and it panics instead of failing to compile.",
      "zh": "RefCell 把借用检查挪到了运行时——违反规则不是编译失败，而是直接 panic。"
     }
@@ -257,7 +242,7 @@
     "zh": "你区分两种写法的分发方式。"
    },
    "term": "impl Trait",
-   "zh": "impl Trait（隐藏具体类型）"
+   "zh": "隐藏具体类型的写法（用在返回位置）"
   },
   {
    "examples": [
@@ -317,7 +302,7 @@
     "zh": "你定库的错误设计原则。"
    },
    "term": "thiserror",
-   "zh": "thiserror（库错误定义库）"
+   "zh": "定义库错误类型的那个库（常和 anyhow 搭配）"
   },
   {
    "examples": [
@@ -363,7 +348,7 @@
     "zh": "评审时你建议收紧可见性。"
    },
    "term": "pub(crate)",
-   "zh": "pub(crate)（crate 内可见）"
+   "zh": "只在当前包内可见的可见性标记"
   },
   {
    "examples": [
@@ -382,5 +367,5 @@
   }
  ],
  "layer": "C",
- "title": "Rust 进阶"
+ "title": "Rust"
 }
