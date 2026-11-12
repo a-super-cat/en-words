@@ -76,7 +76,7 @@ en-words 是一个**自用**的英语训练工具，只有一个用户。它跑�
 **还没有的东西**：
 
 - 项目已在 git 里：2026-11-12 用户建了 GitHub 仓库 https://github.com/a-super-cat/en-words 并推送（初始提交 0c72e36）。提交、推送前仍要先问用户。
-- 安卓 App 已起步（2026-11-12 用户决定，见 ROADMAP“移动端”一节）：已加 Capacitor 8.6 的壳和 `android/` 工程，APK 由 GitHub Actions 云端打 debug 包。**还没有在真机上验证过**：IndexedDB 持久化、朗读、录音这三样在安卓 WebView 里行不行，要等用户装到手机上实测。
+- 安卓 App 已起步（2026-11-12 用户决定，见 ROADMAP“移动端”一节）：已加 Capacitor 8.6 的壳和 `android/` 工程，APK 由 GitHub Actions 云端打 debug 包。真机验证进度：朗读已实测——WebView 自带的 `speechSynthesis` 完全没有声音，`src/lib/tts.ts` 已改为原生平台走系统 TTS 插件（`@capacitor-community/text-to-speech`）、网页版不变，待复验；IndexedDB 持久化和录音还要等用户实测。
 - 没有页面的自动化测试，只有纯逻辑的单元测试（57 个）。
 - 真实麦克风录音和朗读的声音没有人工验证过（开发时是用脚本和模拟音频流测的）。
 - 用户还没有真正开始使用，数据库里没有学习记录。
@@ -629,7 +629,7 @@ navigator.mediaDevices.getUserMedia = async () => {
 | 9 | D 层的词在新学小测里按钮文字还是“没说对 / 说对了”，应该是“没想起来 / 想起来了” | `features/LearnView.vue` |
 | 10 | 生产构建的主包 1.1 MB（内容都打在里面），词典 2.6 MB（按需加载）。本地使用没影响 | — |
 | 11 | 没有页面的自动化测试 | — |
-| 12 | 安卓 App（Capacitor 壳）还没在真机验证：IndexedDB 持久化、WebView 里的朗读和录音都未实测 | `android/`、`src/lib/tts.ts`、`src/lib/recorder.ts` |
+| 12 | 安卓 App 真机验证未完：朗读已实测无声并改走原生 TTS（v0.1.1，待复验）；IndexedDB 持久化和录音回听尚未实测 | `android/`、`src/lib/tts.ts`、`src/lib/recorder.ts` |
 
 ## 12. 文档清单
 

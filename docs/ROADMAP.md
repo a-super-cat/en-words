@@ -369,7 +369,7 @@ C 层：
 
 用户明确要求把这个项目做成安卓 App。理由和项目目的直接相关：核心练习是开口说，手机随身带麦克风和扬声器，碎片时间也能练。路线选 **Capacitor**：现有 Vue 应用不重写，平台差异只收在 `src/lib/` 的朗读、录音、下载三个文件里。桌面网页版继续保留、行为不变（端口仍是 5310）。
 
-- **阶段 A（验证，进行中）**：最薄的 Capacitor 壳（`@capacitor/core`、`@capacitor/android`、`@capacitor/cli` 均为 8.6，appId `com.asupercat.enwords`，最低 Android 7 / SDK 24，目标 SDK 36），业务代码零改动；安卓清单已加录音权限。APK 用 GitHub Actions 云端打 debug 包（`.github/workflows/android.yml`），不依赖本地安卓环境。**待用户在真机安装后验三件事**：① 学一组后杀掉 App 重开，IndexedDB 数据还在；② 设置页试听和新学朗读有没有声音（WebView 自带 `speechSynthesis` 不可靠，不行就在阶段 B 换原生 TTS 插件）；③ 口语练习能不能录音并回听（不行就换原生录音插件）。
+- **阶段 A（验证，进行中）**：最薄的 Capacitor 壳（`@capacitor/core`、`@capacitor/android`、`@capacitor/cli` 均为 8.6，appId `com.asupercat.enwords`，最低 Android 7 / SDK 24，目标 SDK 36），业务代码零改动；安卓清单已加录音权限。APK 用 GitHub Actions 云端打 debug 包（`.github/workflows/android.yml`），不依赖本地安卓环境。**待用户在真机安装后验三件事**：① 学一组后杀掉 App 重开，IndexedDB 数据还在；② 设置页试听和新学朗读有没有声音；③ 口语练习能不能录音并回听（不行就换原生录音插件）。2026-11-12 实测：②确认完全没有声音（WebView 自带 `speechSynthesis` 在安卓上出不了声），已按阶段 B 换成原生 TTS（v0.1.1），待复验；①③待用户反馈。
 - **阶段 B（适配）**：按阶段 A 的实测结果给 `tts.ts`、`recorder.ts`、`download.ts` 加原生实现（网页版保持原实现）；移动端样式和触控逐页走查（现在只有一处 520px 适配，且交互重度依赖键盘快捷键）；安卓返回键、安全区。
 - **阶段 C（出包）**：debug 包先自用。需要正式签名或上架时再配 keystore，签名文件不要进仓库。
 - **阶段 D（移动端专属，用过再说）**：复习提醒通知、自动备份到手机文件夹（对应 P2-5）、听力模式（对应 P2-2）。
