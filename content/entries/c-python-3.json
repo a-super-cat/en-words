@@ -1,0 +1,355 @@
+{
+ "category": "python",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "A dataclass gives you init, repr, and equality for free — I use it for plain data holders.",
+     "zh": "数据类免费给你构造、打印和相等比较，我用它装纯数据。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For internal DTOs we just use dataclasses, nothing fancier.",
+    "zh": "你介绍内部数据结构的选型。"
+   },
+   "term": "dataclass",
+   "zh": "数据类（自动生成样板方法的那个装饰类）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Adding slots to that class cut its memory by more than half — we create millions of them.",
+     "zh": "给那个类加上 slots 后内存降了一半多，我们会创建几百万个。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If instances are numerous and small, give the class slots.",
+    "zh": "你给内存敏感的类提优化建议。"
+   },
+   "term": "__slots__",
+   "zh": "限制属性集合的类属性（省内存的那个）"
+  },
+  {
+   "examples": [
+    {
+     "en": "With Protocol, anything that has a send method qualifies — no inheritance needed.",
+     "zh": "有了协议类，任何有 send 方法的类型都算数，不需要继承。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We type it against a Protocol, so tests can pass a fake.",
+    "zh": "你解释为什么这样标注类型：方便测试替身。"
+   },
+   "term": "structural typing",
+   "zh": "结构化类型（长得像就算数）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The TypedDict documents the JSON shape without paying for a class at runtime.",
+     "zh": "这个写法把 JSON 的结构标注清楚，运行时又不用真的建一个类。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For raw API payloads, a TypedDict is honest about what we actually have.",
+    "zh": "你解释为什么不用数据类装原始报文。"
+   },
+   "term": "TypedDict",
+   "zh": "给字典标注字段类型的写法"
+  },
+  {
+   "examples": [
+    {
+     "en": "The walrus operator lets the loop read and test the chunk in one line.",
+     "zh": "海象运算符让循环在一行里同时读数据和判断。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "walrus 是 := 因为长得像海象的眼睛和牙。这个昵称在社区和文档里通用。",
+   "situation": {
+    "en": "One walrus there saves a duplicated read call.",
+    "zh": "评审时你点评一处可以用海象运算符简化的代码。"
+   },
+   "term": "walrus operator",
+   "zh": "海象运算符（一边赋值一边判断的那个）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Structural pattern matching reads better than the if-elif chain it replaced.",
+     "zh": "结构模式匹配比它替换掉的那串 if-elif 读起来好多了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The match statement handles each command type in its own arm.",
+    "zh": "你介绍命令分发的写法。"
+   },
+   "term": "pattern matching (match)",
+   "zh": "模式匹配语句（match 那个）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An lru_cache on the permission lookup took it from a database hit to a dict hit.",
+     "zh": "给权限查询加了个最近最少使用缓存后，它就从查数据库变成了查字典。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Cache the pure function and move on — lru_cache is one line.",
+    "zh": "你给纯函数提最省事的缓存方案。"
+   },
+   "term": "lru_cache",
+   "zh": "最近最少使用缓存装饰器（functools 里的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Mixing naive and aware datetimes raised an error that took an hour to understand.",
+     "zh": "把无时区和有时区的日期时间混在一起，报了个错，我们花了一小时才搞懂。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "这是 Python 最经典的坑之一：所有时间都存 UTC 并带时区，是面试和工作都用得上的标准答案。",
+   "situation": {
+    "en": "Rule one: store aware datetimes in UTC, convert at display time.",
+    "zh": "你给团队定时间处理的第一原则。"
+   },
+   "term": "naive vs aware datetime",
+   "zh": "无时区与有时区的时间（混用必爆的那个坑）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The bug was treating bytes as str — the decode has to happen at the boundary.",
+     "zh": "这个 bug 是把字节当字符串用，解码必须在边界做。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Decode early, encode late, keep str inside.",
+    "zh": "你总结文本处理的内部约定。"
+   },
+   "term": "bytes vs str",
+   "zh": "字节与字符串（边界编解码）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Pathlib turned the string juggling for file paths into readable method calls.",
+     "zh": "这个路径库把文件路径的字符串拼接变成了可读的方法调用。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Use pathlib — the code reads like what it does.",
+    "zh": "你建议同事别再手工拼路径字符串。"
+   },
+   "term": "pathlib",
+   "zh": "面向对象的路径库（官方推荐的那个）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The fixture builds a fresh database per test module, so tests never pollute each other.",
+     "zh": "这个测试固件为每个测试模块建一个新数据库，测试之间互不污染。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Put the setup in a fixture, not in every test.",
+    "zh": "你指导新人怎么组织测试。"
+   },
+   "term": "pytest fixture",
+   "zh": "测试固件（共享的准备与清理代码）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Parametrize the test over the edge cases instead of copy-pasting it five times.",
+     "zh": "把测试参数化跑遍边界情况，别复制粘贴五份。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "One parametrized test replaced a page of near-duplicates.",
+    "zh": "你表扬一个测试的重构。"
+   },
+   "term": "parametrize a test",
+   "zh": "把测试参数化（一份代码跑多组输入）"
+  },
+  {
+   "examples": [
+    {
+     "en": "When the request dies, its tasks must be cancelled too — orphans kept the worker busy all night.",
+     "zh": "请求结束时，它的任务也要被取消，孤儿任务让工作进程忙了一整夜。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Handle cancellation explicitly; don't let it tear down half-finished writes.",
+    "zh": "你提醒异步代码要专门处理取消。"
+   },
+   "term": "task cancellation",
+   "zh": "任务取消（异步里的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Python 3.11 exception groups let the task group report every failure, not just the first.",
+     "zh": "3.11 的异常组能让任务组把每个失败都报出来，而不是只报第一个。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With exception groups, partial failures finally have a clean story.",
+    "zh": "你介绍并发失败的新处理方式。"
+   },
+   "term": "exception group",
+   "zh": "异常组（一次抛多个异常的机制）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A descriptor is how property and cached_property work under the hood.",
+     "zh": "描述符是 property 和缓存属性在底层的工作方式。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We wrote a descriptor to validate the field on every assignment.",
+    "zh": "你介绍一个元编程手法的用途。"
+   },
+   "term": "descriptor protocol",
+   "zh": "描述符协议（属性访问的底层钩子）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Making it a property let us add validation without changing any callers.",
+     "zh": "把它做成属性后，我们加上了校验，又不用改任何调用方。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Start with a plain attribute; promote it to a property when rules appear.",
+    "zh": "你讲属性设计的演进策略。"
+   },
+   "term": "property decorator",
+   "zh": "属性装饰器（把方法装成属性的那个）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A classmethod factory reads better than a pile of boolean arguments in init.",
+     "zh": "用类方法做工厂函数，比在构造里堆一堆布尔参数读起来好。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Alternative constructors belong in classmethods, by convention.",
+    "zh": "你讲替代构造函数的惯例位置。"
+   },
+   "term": "classmethod factory",
+   "zh": "类方法工厂（替代构造函数）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We shell out to ffmpeg through subprocess and stream its output line by line.",
+     "zh": "我们通过子进程调用 ffmpeg，并逐行流式读取它的输出。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Never build shell commands with string formatting — that's an injection waiting to happen.",
+    "zh": "你警告拼接 shell 命令的安全问题。"
+   },
+   "term": "subprocess",
+   "zh": "子进程（调用外部命令的模块）"
+  },
+  {
+   "examples": [
+    {
+     "en": "ThreadPoolExecutor for the network calls, ProcessPoolExecutor for the parsing — pick by bottleneck.",
+     "zh": "网络调用用线程池执行器，解析用进程池执行器，按瓶颈选。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "concurrent.futures is enough for most of our parallel work.",
+    "zh": "你介绍并行工具的选型默认项。"
+   },
+   "term": "concurrent.futures",
+   "zh": "标准库的并发执行器（线程池/进程池）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Everything — build, dependencies, tool configs — lives in the pyproject file now.",
+     "zh": "一切（构建、依赖、工具配置）现在都放在那个项目配置文件里了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If it's not in pyproject.toml, it doesn't exist for CI.",
+    "zh": "你定依赖声明的唯一入口。"
+   },
+   "term": "pyproject.toml",
+   "zh": "Python 项目的统一配置文件"
+  },
+  {
+   "examples": [
+    {
+     "en": "Ruff replaced three tools for us — linting and formatting at a speed that feels instant.",
+     "zh": "那个工具一家顶三家：检查和格式化一次搞定，快得像即时的一样。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Run the formatter in CI, not in arguments during review.",
+    "zh": "你建议把格式之争交给 CI 门禁。"
+   },
+   "term": "ruff",
+   "zh": "极快的 Python 检查与格式化工具（Rust 写的那家）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Mock the HTTP client, never the database — you want the SQL to be real.",
+     "zh": "模拟 HTTP 客户端，永远别模拟数据库，SQL 得是真的。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "mock 的边界选择是测试设计的真功夫，这句是很多资深工程师的共识。",
+   "situation": {
+    "en": "That test mocks so much it only tests the mocks.",
+    "zh": "你评价一个过度模拟的测试。"
+   },
+   "term": "mock the boundary",
+   "zh": "在边界处模拟（只模拟外部依赖）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Iterating a dict while mutating it raises an error — snapshot the keys first.",
+     "zh": "一边迭代字典一边改它会报错，先把键快照下来。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Copy before you mutate when other code holds a reference.",
+    "zh": "你给共享可变状态定安全规则。"
+   },
+   "term": "mutate while iterating",
+   "zh": "迭代时修改（容器的经典错误）"
+  }
+ ],
+ "layer": "C",
+ "title": "Python"
+}
