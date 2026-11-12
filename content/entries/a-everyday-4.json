@@ -1,0 +1,470 @@
+{
+ "layer": "A",
+ "category": "everyday",
+ "title": "日常搭配",
+ "entries": [
+  {
+   "term": "in addition",
+   "kind": "chunk",
+   "zh": "此外、另外（书面与汇报常用）",
+   "examples": [
+    {
+     "en": "In addition to the new dashboard, we also rebuilt the alerting rules.",
+     "zh": "除了新仪表盘，我们还重做了告警规则。"
+    }
+   ],
+   "situation": {
+    "zh": "你在方案里补充一条。",
+    "en": "In addition, the plan includes a load test before launch."
+   },
+   "register": "formal",
+   "note": "in addition to + 名词/动名词；句首 In addition, 是“此外”。"
+  },
+  {
+   "term": "in return",
+   "kind": "chunk",
+   "zh": "作为回报、交换地",
+   "examples": [
+    {
+     "en": "I reviewed his design, and in return he covered my on-call weekend.",
+     "zh": "我帮他评审了设计，作为回报他替了我的周末值班。"
+    }
+   ],
+   "situation": {
+    "zh": "你开玩笑地向同事讨一杯咖啡当回报。",
+    "en": "Happy to help — in return, just owe me a coffee."
+   }
+  },
+  {
+   "term": "in the works",
+   "kind": "chunk",
+   "zh": "正在筹备/开发中（还没完成）",
+   "examples": [
+    {
+     "en": "A proper fix is in the works, but it will not land this quarter.",
+     "zh": "正经的修复正在做，但这个季度上不了。"
+    }
+   ],
+   "situation": {
+    "zh": "你向新人透露新流程正在开发中。",
+    "en": "There's a new onboarding flow in the works."
+   }
+  },
+  {
+   "term": "on the go",
+   "kind": "chunk",
+   "zh": "忙个不停、一直在路上",
+   "examples": [
+    {
+     "en": "With two kids and a release, I am on the go from six in the morning.",
+     "zh": "两个孩子加上要发布，我从早上六点就连轴转。"
+    }
+   ],
+   "situation": {
+    "zh": "你提醒同事今天会很赶，咖啡带着走。",
+    "en": "Grab a coffee to go — we're on the go today."
+   },
+   "register": "casual"
+  },
+  {
+   "term": "on the market",
+   "kind": "chunk",
+   "zh": "在售、上市了",
+   "examples": [
+    {
+     "en": "The house has been on the market for three months with no offers.",
+     "zh": "这房子挂牌三个月了，没人出价。"
+    }
+   ],
+   "situation": {
+    "zh": "你介绍一款刚上市的产品。",
+    "en": "Their app just came on the market last month."
+   }
+  },
+  {
+   "term": "on the move",
+   "kind": "chunk",
+   "zh": "在移动中、四处奔波",
+   "examples": [
+    {
+     "en": "Our team is always on the move during conference season.",
+     "zh": "会议季我们团队一直在各地跑。"
+    }
+   ],
+   "situation": {
+    "zh": "闲聊出差多：每个月换一座城市。",
+    "en": "The roadmap keeps us on the move — new city every month."
+   }
+  },
+  {
+   "term": "on the road",
+   "kind": "chunk",
+   "zh": "在路上、在旅途中",
+   "examples": [
+    {
+     "en": "I wrote most of the talk on the road, in trains and airports.",
+     "zh": "这次分享的大部分内容是我在路上写的，火车上和机场里。"
+    }
+   ],
+   "situation": {
+    "zh": "你同步下周在外出差、基本离线。",
+    "en": "I'll be on the road next week, mostly offline."
+   }
+  },
+  {
+   "term": "on the verge of",
+   "kind": "chunk",
+   "zh": "濒临、差一点就（发生）",
+   "examples": [
+    {
+     "en": "The old service is on the verge of collapse under the new traffic.",
+     "zh": "老服务在新流量下快要撑不住了。"
+    }
+   ],
+   "situation": {
+    "zh": "你说签约就差临门一脚时法务插进来了。",
+    "en": "We were on the verge of signing when their legal stepped in."
+   }
+  },
+  {
+   "term": "on vacation",
+   "kind": "chunk",
+   "zh": "在度假、休假中",
+   "examples": [
+    {
+     "en": "I am on vacation next week — no laptop, no Slack.",
+     "zh": "我下周休假，不带电脑、不看 Slack。"
+    }
+   ],
+   "situation": {
+    "zh": "你问同事休假期间谁顶他的服务。",
+    "en": "While you're on vacation, who covers your services?"
+   }
+  },
+  {
+   "term": "out of breath",
+   "kind": "chunk",
+   "zh": "喘不上气、上气不接下气",
+   "examples": [
+    {
+     "en": "After the stairs to the fifth floor, I was completely out of breath.",
+     "zh": "爬楼梯到五楼后，我喘得不行了。"
+    }
+   ],
+   "situation": {
+    "zh": "你跑着赶来开会，先喘口气。",
+    "en": "Give me a second — I'm out of breath from running here."
+   },
+   "register": "casual"
+  },
+  {
+   "term": "out of hand",
+   "kind": "chunk",
+   "zh": "失控、不可收拾",
+   "examples": [
+    {
+     "en": "The comment thread got out of hand, so a moderator locked it.",
+     "zh": "评论串吵失控了，版主就把它锁了。"
+    }
+   ],
+   "situation": {
+    "zh": "你警告这个项目的需求膨胀失控了。",
+    "en": "Scope creep is getting out of hand on this project."
+   }
+  },
+  {
+   "term": "out of luck",
+   "kind": "chunk",
+   "zh": "运气不好、没赶上",
+   "examples": [
+    {
+     "en": "The last spare server just died — we are out of luck this week.",
+     "zh": "最后一台备用机刚坏，这周我们运气真是差透了。"
+    }
+   ],
+   "situation": {
+    "zh": "你告诉同事早鸟票没了，运气不好。",
+    "en": "You're out of luck — the early-bird tickets sold out yesterday."
+   },
+   "register": "casual"
+  },
+  {
+   "term": "out of office",
+   "kind": "chunk",
+   "zh": "不在办公室（外出自动回复）",
+   "examples": [
+    {
+     "en": "Her out of office message says she returns on the fifth.",
+     "zh": "她的外出自动回复说她五号回来。"
+    }
+   ],
+   "situation": {
+    "zh": "你说今晚走之前会设好自动回复。",
+    "en": "I'll set my out of office before I leave tonight."
+   },
+   "register": "formal",
+   "note": "out of office 常缩写 OOO：I'm OOO Friday. 我周五不在。"
+  },
+  {
+   "term": "out of place",
+   "kind": "chunk",
+   "zh": "不合适、格格不入",
+   "examples": [
+    {
+     "en": "A gaming keyboard looks out of place in a bank's office.",
+     "zh": "游戏键盘放在银行的办公室里显得格格不入。"
+    }
+   ],
+   "situation": {
+    "zh": "你评价文档里有一段放错了位置。",
+    "en": "That paragraph feels out of place in the summary."
+   }
+  },
+  {
+   "term": "out of reach",
+   "kind": "chunk",
+   "zh": "够不着、达不到",
+   "examples": [
+    {
+     "en": "The fix is simple; the legacy data is just out of reach behind a VPN.",
+     "zh": "修复很简单，只是遗留数据在 VPN 后面够不着。"
+    }
+   ],
+   "situation": {
+    "zh": "你提醒大家零食别让办公室的狗够着。",
+    "en": "Keep the snacks out of reach of the office dog."
+   }
+  },
+  {
+   "term": "on the fence",
+   "kind": "chunk",
+   "zh": "观望、拿不定主意",
+   "examples": [
+    {
+     "en": "Half the team is still on the fence about the rewrite.",
+     "zh": "团队有一半人对重写还持观望态度。"
+    }
+   ],
+   "situation": {
+    "zh": "你告诉同事你还没拿定主意。",
+    "en": "I'm still on the fence — convince me on Friday."
+   }
+  },
+  {
+   "term": "at stake",
+   "kind": "chunk",
+   "zh": "关乎重大、利害攸关",
+   "examples": [
+    {
+     "en": "There is a lot at stake in this launch — the renewal depends on it.",
+     "zh": "这次上线利害很大，续约就指着它了。"
+    }
+   ],
+   "situation": {
+    "zh": "你劝大家这件事利害太大、不能草率定。",
+    "en": "Too much is at stake to rush this decision."
+   },
+   "note": "at stake 的 stake 是赌注；high stakes 指高风险高回报的局面。"
+  },
+  {
+   "term": "at odds with",
+   "kind": "chunk",
+   "zh": "与……不一致、有冲突",
+   "examples": [
+    {
+     "en": "His roadmap is at odds with what the data team needs.",
+     "zh": "他的路线图和数据组的需求相冲突。"
+    }
+   ],
+   "situation": {
+    "zh": "你指出两份报告的结论互相矛盾。",
+    "en": "The two reports are at odds with each other."
+   },
+   "register": "formal"
+  },
+  {
+   "term": "at random",
+   "kind": "chunk",
+   "zh": "随机地、任意地",
+   "examples": [
+    {
+     "en": "The load test picks users at random, not in sign-up order.",
+     "zh": "压测是随机挑用户，不是按注册顺序。"
+    }
+   ],
+   "situation": {
+    "zh": "你提议随机抽几张工单看看质量。",
+    "en": "Let's sample a few tickets at random and read them."
+   }
+  },
+  {
+   "term": "at short notice",
+   "kind": "chunk",
+   "zh": "临时通知、时间很紧地",
+   "examples": [
+    {
+     "en": "They asked for a demo at short notice, so we reused last month's slides.",
+     "zh": "他们临时通知要演示，我们就用了上个月的幻灯片。"
+    }
+   ],
+   "situation": {
+    "zh": "你为临时改时间向对方道歉。",
+    "en": "Sorry for the short notice — can we move it to three?"
+   }
+  },
+  {
+   "term": "at the moment",
+   "kind": "chunk",
+   "zh": "目前、现在这个时候",
+   "examples": [
+    {
+     "en": "At the moment, the fix is only in staging, not production.",
+     "zh": "目前这个修复只在预发，还没上生产。"
+    }
+   ],
+   "situation": {
+    "zh": "你表示当下实在接不了新项目。",
+    "en": "I can't take another project at the moment."
+   }
+  },
+  {
+   "term": "at times",
+   "kind": "chunk",
+   "zh": "有时、不时",
+   "examples": [
+    {
+     "en": "At times, the simplest explanation is just a typo in the config.",
+     "zh": "有时候，最简单的解释就是配置里有个错别字。"
+    }
+   ],
+   "situation": {
+    "zh": "闲聊时你感慨偶尔会怀念小团队时期。",
+    "en": "At times I miss the small-team days."
+   }
+  },
+  {
+   "term": "at once",
+   "kind": "chunk",
+   "zh": "同时；立刻",
+   "examples": [
+    {
+     "en": "The alert fired and half the team replied at once.",
+     "zh": "告警一响，半个团队同时回复了。"
+    }
+   ],
+   "situation": {
+    "zh": "你提醒别同时上两个改动。",
+    "en": "Don't deploy both changes at once — we won't know which broke it."
+   },
+   "note": "at once 还表“马上”：Come here at once! 靠语境区分。"
+  },
+  {
+   "term": "by and large",
+   "kind": "chunk",
+   "zh": "总的来说、大体上",
+   "examples": [
+    {
+     "en": "By and large, the migration went smoothly.",
+     "zh": "总的来说，这次迁移很顺利。"
+    }
+   ],
+   "situation": {
+    "zh": "闲聊远程办公：总的来说挺适合我。",
+    "en": "By and large, working from home suits me."
+   }
+  },
+  {
+   "term": "by far",
+   "kind": "chunk",
+   "zh": "迄今为止最……、远远地（和最高级连用）",
+   "examples": [
+    {
+     "en": "This is by far the most useful internal tool we have.",
+     "zh": "这是我们迄今为止最有用的内部工具，没有之一。"
+    }
+   ],
+   "situation": {
+    "zh": "你说这次是今年最顺的一次发布。",
+    "en": "That was by far the smoothest launch this year."
+   },
+   "register": "casual"
+  },
+  {
+   "term": "for a change",
+   "kind": "chunk",
+   "zh": "换换口味、难得地（做点不一样的）",
+   "examples": [
+    {
+     "en": "Let's skip the usual dashboard and review raw logs for a change.",
+     "zh": "我们换换口味，别看平时的仪表盘了，直接看原始日志。"
+    }
+   ],
+   "situation": {
+    "zh": "你提议午饭换个地方吃。",
+    "en": "Let's eat somewhere new for a change."
+   }
+  },
+  {
+   "term": "take ... for granted",
+   "kind": "chunk",
+   "zh": "把……当成理所当然",
+   "examples": [
+    {
+     "en": "We take the build pipeline for granted until the day it breaks.",
+     "zh": "我们平时把构建流水线当成理所当然，直到它坏的那天。"
+    }
+   ],
+   "situation": {
+    "zh": "你提醒大家别把支持团队的付出当理所当然。",
+    "en": "Don't take the support team for granted."
+   },
+   "note": "for granted 也可以形容人被忽视：feel taken for granted 觉得付出没人珍惜。"
+  },
+  {
+   "term": "for the sake of",
+   "kind": "chunk",
+   "zh": "为了（某人/某事的利益）",
+   "examples": [
+    {
+     "en": "For the sake of stability, we froze all non-critical changes.",
+     "zh": "为了稳定性，我们冻结了所有非关键改动。"
+    }
+   ],
+   "situation": {
+    "zh": "你说为了团队别再熬夜了。",
+    "en": "For the sake of the team, no more midnight deploys."
+   },
+   "register": "formal"
+  },
+  {
+   "term": "for the time being",
+   "kind": "chunk",
+   "zh": "暂时、眼下先",
+   "examples": [
+    {
+     "en": "For the time being, the old API stays alive.",
+     "zh": "眼下先让旧接口继续活着。"
+    }
+   ],
+   "situation": {
+    "zh": "你交代临时安排：先这样过渡。",
+    "en": "You'll report to me for the time being."
+   }
+  },
+  {
+   "term": "all in all",
+   "kind": "chunk",
+   "zh": "总的来说、总体而言",
+   "examples": [
+    {
+     "en": "All in all, the launch went better than anyone expected.",
+     "zh": "总的来说，这次上线比所有人预期的都好。"
+    }
+   ],
+   "situation": {
+    "zh": "季度复盘的最后，你想用一句话总结。",
+    "en": "All in all, a good quarter — two launches, zero major incidents."
+   }
+  }
+ ]
+}
