@@ -266,6 +266,272 @@
      "zh": "你表示没有别的问题了，真诚感谢他，并说期待和他以及团队共事。"
     }
    ]
+  },
+  {
+   "id": "iv-tech-deep-dive",
+   "title": "技术面：深挖你的旗舰项目",
+   "setting": "技术面，面试官 Priya 看过你的简历，对你主导的“LLM + RAG 生成测试用例、覆盖 85% 测试路径”的质量平台很感兴趣，一路追问细节、取舍和你的个人贡献。你要讲得具体、有数字、不夸大。",
+   "turns": [
+    {
+     "speaker": "them",
+     "name": "Priya",
+     "en": "Let's dig into the quality platform on your résumé. In one or two sentences, what problem were you solving?",
+     "zh": "我们来深挖一下你简历上的质量平台。用一两句话说，你们当时在解决什么问题？"
+    },
+    {
+     "speaker": "me",
+     "zh": "你先给一句话定义：测试用例靠手写，覆盖不全、还慢；你们的平台用大模型加检索生成用例，把核心流程的测试路径覆盖做到了 85%。",
+     "en": "Our test cases were all written by hand, so coverage was patchy and slow. We built a platform that generates test cases with an LLM grounded by RAG over our own docs and code, and got core-flow path coverage to about eighty-five percent.",
+     "chunks": [
+      {
+       "term": "patchy",
+       "zh": "不均匀、这儿缺那儿缺"
+      },
+      {
+       "term": "path coverage",
+       "zh": "测试路径覆盖"
+      }
+     ]
+    },
+    {
+     "speaker": "them",
+     "name": "Priya",
+     "en": "Why RAG? Why not just prompt a big model with the requirements?",
+     "zh": "为什么用 RAG？直接拿需求提示大模型不行吗？"
+    },
+    {
+     "speaker": "me",
+     "zh": "你解释取舍：裸提示会编造不存在的接口和规则；检索把生成锚定在真实的代码和规则文档上，幻觉明显减少，生成结果还能引用出处让人审。",
+     "en": "A raw prompt hallucinates — it invents APIs and business rules that don't exist. Retrieval grounds the generation in our actual code and rule documents, so hallucinations dropped a lot, and every generated case cites its sources, which makes review much easier.",
+     "chunks": [
+      {
+       "term": "hallucinate",
+       "zh": "（AI）产生幻觉、编造"
+      },
+      {
+       "term": "grounds",
+       "zh": "使有依据、锚定"
+      }
+     ]
+    },
+    {
+     "speaker": "them",
+     "name": "Priya",
+     "en": "What was your personal contribution versus the team's?",
+     "zh": "这个项目里，哪些是你个人做的，哪些是团队的？"
+    },
+    {
+     "speaker": "me",
+     "zh": "你明确切分：你负责前端架构和生成结果的评审界面（React 18 + Vite），以及评审流程的设计；检索引擎和评估是另外两位后端同事做的。最后落一句：最难的部分是让人愿意信任并使用生成结果。",
+     "en": "I owned the frontend architecture and the review interface — React 18 with Vite — plus the human review workflow. The retrieval engine and the evaluation harness were built by two backend teammates. Honestly, the hardest part was getting people to trust and actually use the generated cases.",
+     "chunks": [
+      {
+       "term": "I owned ...",
+       "zh": "……是我负责的"
+      },
+      {
+       "term": "evaluation harness",
+       "zh": "评估框架/工具"
+      }
+     ]
+    },
+    {
+     "speaker": "them",
+     "name": "Priya",
+     "en": "How did you measure that eighty-five percent? Numbers in interviews are often... optimistic.",
+     "zh": "那 85% 是怎么测出来的？面试里的数字经常……比较乐观。"
+    },
+    {
+     "speaker": "me",
+     "zh": "你坦然应对：路径的定义来自状态机穷举的核心流程清单，不是全代码行覆盖；你承认这是团队口径，并说如果重算你愿意把口径文档拿出来对。你强调这个数字不含探索性测试。",
+     "en": "Fair question. The denominator is an enumerated list of core user flows from our state machines — it's path coverage of those flows, not line coverage of the whole codebase. It's the team's agreed metric; I'm happy to walk through the definition. It doesn't claim anything about exploratory testing.",
+     "chunks": [
+      {
+       "term": "denominator",
+       "zh": "分母（这里指统计口径的总数）"
+      },
+      {
+       "term": "walk through",
+       "zh": "详细过一遍"
+      }
+     ]
+    },
+    {
+     "speaker": "them",
+     "name": "Priya",
+     "en": "If you rebuilt it today, what would you do differently?",
+     "zh": "如果今天重做一遍，你会怎么做得不一样？"
+    },
+    {
+     "speaker": "me",
+     "zh": "你给两个具体的不同：第一，先做评估集再做生成，不然早期全凭感觉；第二，评审界面一开始就该做批量通过和快捷键，评审速度决定了整个系统的吞吐。",
+     "en": "Two things. First, I'd build the evaluation set before the generator — early on we tuned by gut feeling. Second, I'd design the review UI for bulk approval and keyboard shortcuts from day one; review speed turned out to be the real throughput limit of the whole system.",
+     "chunks": [
+      {
+       "term": "by gut feeling",
+       "zh": "凭感觉"
+      },
+      {
+       "term": "throughput limit",
+       "zh": "吞吐瓶颈"
+      }
+     ]
+    },
+    {
+     "speaker": "them",
+     "name": "Priya",
+     "en": "That's a thoughtful answer. Let's switch gears to a design problem...",
+     "zh": "回答得很扎实。我们换个方向，来看一道设计题……"
+    },
+    {
+     "speaker": "me",
+     "zh": "你简短地表示没问题，并顺口说设计题你习惯先问澄清问题再动手。",
+     "en": "Sure — I usually start design problems with a few clarifying questions, if that's okay.",
+     "chunks": [
+      {
+       "term": "switch gears",
+       "zh": "换个方向、转个话题"
+      },
+      {
+       "term": "clarifying questions",
+       "zh": "澄清问题"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "iv-system-design",
+   "title": "系统设计面：和面试官一起设计限流系统",
+   "setting": "系统设计面，面试官 Marcus 让你设计一个给 API 用的分布式限流服务。他更看重你边想边说的过程：一路要澄清规模、讲数据流、谈取舍，遇到他追问时不要慌。",
+   "turns": [
+    {
+     "speaker": "them",
+     "name": "Marcus",
+     "en": "Let's design a rate limiter service for a public API. Where would you start?",
+     "zh": "我们来设计一个给公开 API 用的限流服务。你会从哪儿开始？"
+    },
+    {
+     "speaker": "me",
+     "zh": "你先别画图，先问澄清问题：规模多大（请求量、租户数）？限流规则是全局还是按租户/按接口？超限了返回什么？",
+     "en": "Before drawing anything, let me clarify the scale and the rules. How many requests per second are we designing for, and how many tenants? Are limits global, per tenant, or per endpoint? And when we reject, do we return a 429 with a retry hint?",
+     "chunks": [
+      {
+       "term": "per tenant",
+       "zh": "按租户"
+      },
+      {
+       "term": "retry hint",
+       "zh": "重试提示（如 Retry-After）"
+      }
+     ]
+    },
+    {
+     "speaker": "them",
+     "name": "Marcus",
+     "en": "Say fifty thousand requests per second, ten thousand tenants, limits per tenant per endpoint. 429 with Retry-After is fine.",
+     "zh": "就按每秒五万请求、一万个租户、按租户按接口限流。超限返回 429 带 Retry-After 可以。"
+    },
+    {
+     "speaker": "me",
+     "zh": "你复述确认规模，然后给高层设计：网关层做限流检查，计数放 Redis 用滑动窗口或令牌桶，规则从配置中心下发。强调先说主路径，再谈异常。",
+     "en": "Got it — fifty thousand a second, per-tenant per-endpoint rules. At a high level: the check sits in the API gateway, counters live in Redis using a sliding window or token bucket, and rules are pushed from a config service. Let me walk through the happy path first, then the failure cases.",
+     "chunks": [
+      {
+       "term": "at a high level",
+       "zh": "从高层面看"
+      },
+      {
+       "term": "happy path",
+       "zh": "主流程、顺利路径"
+      }
+     ]
+    },
+    {
+     "speaker": "them",
+     "name": "Marcus",
+     "en": "Why Redis? What happens when it goes down — do you fail open or fail closed?",
+     "zh": "为什么用 Redis？它挂了怎么办——放行还是拒绝？"
+    },
+    {
+     "speaker": "me",
+     "zh": "你答取舍：Redis 是因为要亚毫秒级的原子计数（Lua 脚本）。挂掉时你的选择是 fail open 放行 + 本地兜底限流，因为限流是为了保护，不该让它单点把 API 拖死；但你也指出计费类接口应该反过来。",
+     "en": "Redis because we need atomic counters with sub-millisecond latency — we'd use a Lua script so the check-and-increment is one step. If Redis goes down, I'd fail open, with a coarse local limit as backup: the limiter exists to protect the API, it shouldn't become the thing that kills it. For billing-sensitive endpoints, I'd flip that choice.",
+     "chunks": [
+      {
+       "term": "fail open",
+       "zh": "故障时放行"
+      },
+      {
+       "term": "atomic",
+       "zh": "原子性的"
+      }
+     ]
+    },
+    {
+     "speaker": "them",
+     "name": "Marcus",
+     "en": "How accurate does the counting need to be across regions?",
+     "zh": "跨区域的计数需要多准？"
+    },
+    {
+     "speaker": "me",
+     "zh": "你反问并给分层答案：如果规则是软性的（防滥用），各区域本地计数加定期汇总就够了，允许小误差；如果必须严格全局配额，就要中心计数，代价是延迟。你建议默认前者。",
+     "en": "It depends on what the limit protects. For abuse prevention, local counting per region with periodic sync is fine — small overshoot is acceptable. A hard global quota would need central counting, and you pay for it in latency. I'd default to local-first and make strictness a per-rule option.",
+     "chunks": [
+      {
+       "term": "overshoot",
+       "zh": "超出（配额）"
+      },
+      {
+       "term": "per-rule",
+       "zh": "按规则（粒度）"
+      }
+     ]
+    },
+    {
+     "speaker": "them",
+     "name": "Marcus",
+     "en": "One tenant suddenly sends ten times the traffic. What breaks first, and how do you notice?",
+     "zh": "有个租户突然发来十倍流量。先坏的是什么？你怎么发现？"
+    },
+    {
+     "speaker": "me",
+     "zh": "你答：先坏的通常不是限流器本身，而是 Redis 的热键和网关的连接数；发现靠三件事——按租户的限流命中率告警、热键监控、以及 429 比例突增的告警。并补一句会给大租户单独分片。",
+     "en": "What breaks first is usually not the limiter logic — it's hot keys in Redis and connection counts at the gateway. I'd notice through three signals: per-tenant rejection-rate alerts, hot-key monitoring, and a spike alert on the overall 429 ratio. For the largest tenants, I'd shard their counters separately.",
+     "chunks": [
+      {
+       "term": "hot keys",
+       "zh": "热键（被集中访问的键）"
+      },
+      {
+       "term": "spike",
+       "zh": "突增、尖峰"
+      }
+     ]
+    },
+    {
+     "speaker": "them",
+     "name": "Marcus",
+     "en": "Good. We're almost out of time — summarize your design in thirty seconds.",
+     "zh": "很好。时间快到了，用三十秒总结一下你的设计。"
+    },
+    {
+     "speaker": "me",
+     "zh": "你收尾总结：网关检查、Redis 原子计数、规则配置化下发；故障时放行加本地兜底；监控盯租户维度的拒绝率。最后问他有没有想深挖的部分。",
+     "en": "To sum up: checks in the gateway, atomic counters in Redis, rules pushed from config. Fail open with a local fallback if Redis dies, and alert on per-tenant rejection rates so abuse is visible early. Happy to go deeper on any part of that.",
+     "chunks": [
+      {
+       "term": "to sum up",
+       "zh": "总结一下"
+      },
+      {
+       "term": "go deeper",
+       "zh": "深入讲"
+      }
+     ]
+    }
+   ]
   }
  ],
  "title": "面试场景"
