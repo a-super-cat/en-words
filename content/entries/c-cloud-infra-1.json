@@ -1,1 +1,539 @@
-{"category":"cloud-infra","entries":[{"examples":[{"en":"We run the whole platform on managed Kubernetes across two regions.","zh":"我们的整个平台跑在两个区域的托管 Kubernetes 上。"}],"kind":"chunk","situation":{"en":"Our workloads run on managed Kubernetes; we only operate the app layer.","zh":"面试官问你们的基础设施，你介绍云上的运行方式。"},"term":"managed Kubernetes","zh":"托管 Kubernetes（云厂商运维控制面）"},{"examples":[{"en":"Everything is defined in Terraform — if it's not in code, it doesn't exist.","zh":"一切都用 Terraform 定义，没写进代码的，就算不存在。"}],"kind":"chunk","situation":{"en":"We manage it as infrastructure as code, so every change goes through review.","zh":"你介绍团队怎么管理云资源。"},"term":"infrastructure as code","zh":"基础设施即代码（IaC）"},{"examples":[{"en":"The load balancer spreads traffic across three availability zones.","zh":"负载均衡器把流量分摊到三个可用区。"}],"kind":"chunk","situation":{"en":"If one availability zone goes down, the others absorb the traffic.","zh":"设计题里你讲多可用区怎么扛故障。"},"term":"availability zone","zh":"可用区（AZ）"},{"examples":[{"en":"Services inside the VPC can reach the database; nothing from the public internet can.","zh":"VPC 内的服务能访问数据库，公网什么都进不来。"}],"kind":"chunk","situation":{"en":"The database lives in a private subnet inside the VPC.","zh":"你介绍网络隔离的设计。"},"term":"virtual private cloud","zh":"虚拟私有云（VPC）"},{"examples":[{"en":"Public subnets hold the load balancers; private subnets hold everything else.","zh":"公有子网放负载均衡器，其余一切放在私有子网。"}],"kind":"chunk","situation":{"en":"App servers sit in private subnets, behind the load balancer.","zh":"画架构图时你解释子网的划分。"},"term":"private subnet","zh":"私有子网"},{"examples":[{"en":"The security group only allows port 443 from the load balancer's group.","zh":"这个安全组只允许来自负载均衡器安全组的 443 端口。"}],"kind":"chunk","situation":{"en":"Check the security group rules first — nine times out of ten, that's the issue.","zh":"同事说服务连不上，你让他先查安全组。"},"term":"security group","zh":"安全组（云上的虚拟防火墙）"},{"examples":[{"en":"The instance gets its permissions from an IAM role, not from stored keys.","zh":"这台机器的权限来自 IAM 角色，不是存着的密钥。"}],"kind":"chunk","situation":{"en":"Never hardcode credentials — use an IAM role instead.","zh":"评审时你指出代码里硬编码密钥的问题。"},"term":"IAM role","zh":"IAM 角色（给机器的权限身份）"},{"examples":[{"en":"We follow least privilege: each service can only touch its own bucket.","zh":"我们遵循最小权限：每个服务只能访问自己的桶。"}],"kind":"chunk","situation":{"en":"We tightened it to least privilege after the audit.","zh":"安全评审里你介绍权限整改。"},"term":"least privilege","zh":"最小权限原则"},{"examples":[{"en":"User uploads go straight to object storage; we never stream them through the app servers.","zh":"用户上传直接进对象存储，从不经过应用服务器中转。"}],"kind":"chunk","situation":{"en":"Backups live in object storage with a ninety-day lifecycle rule.","zh":"你介绍备份方案。"},"term":"object storage","zh":"对象存储（如 S3）"},{"examples":[{"en":"Ephemeral storage disappears when the instance stops — never put real data there.","zh":"实例一停，临时存储就没了，千万别往那放真数据。"}],"kind":"chunk","situation":{"en":"That data was on ephemeral storage, so it's gone.","zh":"复盘时你解释数据为什么丢了。"},"term":"ephemeral storage","zh":"临时存储（实例停就没）"},{"examples":[{"en":"The autoscaler adds instances when CPU stays above seventy percent for five minutes.","zh":"CPU 连续五分钟超过 70% 时，自动扩缩器会增加实例。"}],"kind":"chunk","situation":{"en":"During the sale, autoscaling took us from ten instances to forty.","zh":"你复盘大促当天的扩容情况。"},"term":"autoscaling","zh":"自动扩缩容"},{"examples":[{"en":"We set a hard cap on instances so a bug can't scale our bill to the moon.","zh":"我们给实例数设了硬上限，免得一个 bug 把账单扩到天上去。"}],"kind":"chunk","note":"scale ... to the moon 是口语夸张，指费用失控。账单事故在面试里是很好的故事素材。","situation":{"en":"A runaway retry loop once scaled our bill to the moon overnight.","zh":"讲踩坑经历时你说重试风暴把账单刷爆了。"},"term":"a hard cap","zh":"硬上限（防止失控）"},{"examples":[{"en":"With containers, the same image runs on my laptop and in production — no more 'works on my machine'.","zh":"有了容器，同一个镜像在我电脑上和生产环境跑得一模一样，再没有“我这能跑”了。"}],"kind":"chunk","situation":{"en":"We ship containers, so the runtime is identical everywhere.","zh":"面试官问你们怎么做环境一致性。"},"term":"the same image everywhere","zh":"处处同一个镜像（环境一致性）"},{"examples":[{"en":"The orchestrator restarts failed containers and reschedules them onto healthy nodes.","zh":"编排器会重启失败的容器，并把它们重新调度到健康的节点上。"}],"kind":"chunk","situation":{"en":"Kubernetes is our orchestrator — scheduling, healing, scaling.","zh":"你一句话介绍编排层做什么。"},"term":"container orchestration","zh":"容器编排"},{"examples":[{"en":"Liveness probes restart a stuck container; readiness probes keep traffic away until it's warm.","zh":"存活探针重启卡死的容器，就绪探针在预热完成前不让流量进来。"}],"kind":"chunk","note":"liveness / readiness 两个探针的区别是 K8s 面试的经典题，答反了很扣分。","situation":{"en":"The readiness probe was failing, so the pod never got traffic.","zh":"排查发布问题时你发现就绪探针一直失败。"},"term":"readiness probe","zh":"就绪探针（决定要不要给流量）"},{"examples":[{"en":"We use a rolling update with a small canary batch first.","zh":"我们用滚动更新，先发一个小批次当金丝雀。"}],"kind":"chunk","situation":{"en":"Rolling update, ten percent at a time, with automatic rollback.","zh":"你介绍发布策略。"},"term":"rolling update","zh":"滚动更新"},{"examples":[{"en":"Blue-green doubles the cost during the switch, but rollback is instant.","zh":"蓝绿部署在切换期间成本翻倍，但回滚是瞬时的。"}],"kind":"chunk","situation":{"en":"For the payment service, we pay for blue-green because rollback must be instant.","zh":"你解释为什么支付服务要用贵的部署方式。"},"term":"blue-green deployment","zh":"蓝绿部署"},{"examples":[{"en":"All traffic from the edge goes through a CDN, so static assets never hit our origin.","zh":"边缘进来的流量先过 CDN，静态资源根本到不了源站。"}],"kind":"chunk","situation":{"en":"The CDN absorbs most of the read traffic.","zh":"设计题里你用 CDN 挡读流量。"},"term":"content delivery network","zh":"内容分发网络（CDN）"},{"examples":[{"en":"The API gateway handles auth, rate limiting, and routing in one place.","zh":"API 网关在一个地方统一处理认证、限流和路由。"}],"kind":"chunk","situation":{"en":"Every external call enters through the API gateway.","zh":"你画架构时介绍入口层。"},"term":"API gateway","zh":"API 网关"},{"examples":[{"en":"A reverse proxy terminates TLS and forwards plain HTTP inside the network.","zh":"反向代理终结 TLS，在内网转发普通 HTTP。"}],"kind":"chunk","situation":{"en":"Nginx acts as our reverse proxy in front of the app servers.","zh":"你介绍入口流量的处理链。"},"term":"reverse proxy","zh":"反向代理"},{"examples":[{"en":"DNS failover moves traffic to the healthy region within a minute.","zh":"DNS 故障转移在一分钟内把流量切到健康区域。"}],"kind":"chunk","situation":{"en":"If the region dies, DNS failover is our first line of defense.","zh":"设计题谈容灾时你讲第一道防线。"},"term":"DNS failover","zh":"DNS 故障转移"},{"examples":[{"en":"Egress traffic goes through a NAT gateway, so instances never expose public IPs.","zh":"出口流量走 NAT 网关，实例永不暴露公网 IP。"}],"kind":"chunk","note":"ingress（入）/ egress（出）是一对高频词，安全和网络题里天天见。","situation":{"en":"Only the NAT gateway has a public route out.","zh":"你介绍网络出口的设计。"},"term":"egress traffic","zh":"出口流量（出方向）"},{"examples":[{"en":"We peered the two VPCs so the data platform can read from the app network.","zh":"我们把两个 VPC 打通对等连接，让数据平台能读应用网络的数据。"}],"kind":"chunk","situation":{"en":"The VPCs are peered, but the routes are read-only one way.","zh":"你解释跨网络访问的限制。"},"term":"VPC peering","zh":"VPC 对等连接"},{"examples":[{"en":"Serverless sounds cheap until your function runs a million times a day.","zh":"无服务器听着便宜，直到你的函数一天跑一百万次。"}],"kind":"chunk","note":"serverless 不是“没有服务器”，是“不用你管服务器”。面试里能说清这一点很加分。","situation":{"en":"For the image resizing, serverless was the right call — spiky, low volume.","zh":"你解释某个场景为什么选无服务器。"},"term":"serverless","zh":"无服务器（云函数等）"},{"examples":[{"en":"Cold starts added three hundred milliseconds to the first request after idle.","zh":"闲置后的第一个请求被冷启动多加了三百毫秒。"}],"kind":"chunk","situation":{"en":"Cold starts were our main complaint about the function setup.","zh":"复盘无服务器方案时你讲主要槽点。"},"term":"cold start","zh":"冷启动（无服务器/容器）"},{"examples":[{"en":"Spot instances cut our batch bill by seventy percent, but they can vanish with two minutes' notice.","zh":"竞价实例把批处理账单砍了七成，但它们可能提前两分钟通知就被收走。"}],"kind":"chunk","situation":{"en":"Batch jobs run on spot instances; user traffic never does.","zh":"你介绍成本优化的分工。"},"term":"spot instances","zh":"竞价实例（便宜但可被回收）"},{"examples":[{"en":"We moved the reserved capacity to a three-year commitment for the steady baseline.","zh":"我们把稳定基线的容量买成三年预留，省了长期成本。"}],"kind":"chunk","situation":{"en":"Reserved for the baseline, on-demand for the peaks.","zh":"你一句话总结容量采购策略。"},"term":"reserved instances","zh":"预留实例（包年包月）"},{"examples":[{"en":"Multi-tenancy done wrong means one noisy neighbor ruins everyone's latency.","zh":"多租户做不好，一个吵闹的邻居就能毁掉所有人的延迟。"}],"kind":"chunk","situation":{"en":"We isolate big tenants to avoid the noisy neighbor problem.","zh":"你解释为什么大客户要单独隔离。"},"term":"noisy neighbor","zh":"吵闹的邻居（抢资源的租户）"},{"examples":[{"en":"The control plane is managed; we only operate the data plane.","zh":"控制面是托管的，我们只运维数据面。"}],"kind":"chunk","note":"control plane / data plane 的区分在系统设计面试里非常常见，答得出很显功底。","situation":{"en":"That outage was in their control plane; our data plane kept serving.","zh":"复盘云厂商故障时你区分影响面。"},"term":"control plane","zh":"控制面（管配置和调度的那层）"},{"examples":[{"en":"We keep an eye on egress fees — moving data between regions is where the bill hides.","zh":"我们盯着出口流量费，跨区域搬数据才是账单的大头藏身处。"}],"kind":"chunk","situation":{"en":"The surprise on the bill was egress fees, not compute.","zh":"你复盘云账单超支的原因。"},"term":"egress fees","zh":"出口流量费（云账单刺客）"},{"examples":[{"en":"A bastion host is the only SSH entry point, and every session is recorded.","zh":"堡垒机是唯一的 SSH 入口，所有会话都被录像。"}],"kind":"chunk","situation":{"en":"Nobody SSHs directly — everything goes through the bastion host.","zh":"安全评审时你介绍运维入口的管理。"},"term":"bastion host","zh":"堡垒机、跳板机"},{"examples":[{"en":"Secrets live in a managed vault and rotate every ninety days.","zh":"密钥放在托管的密钥库里，每九十天轮换一次。"}],"kind":"chunk","situation":{"en":"The app reads secrets from the vault at startup, never from env files.","zh":"你介绍密钥的管理方式。"},"term":"secrets management","zh":"密钥管理"},{"examples":[{"en":"We run active-passive across regions because active-active doubles the data headaches.","zh":"我们跨区域用主备模式，因为双活会让数据问题翻倍。"}],"kind":"chunk","situation":{"en":"Active-passive is slower to fail over, but far simpler to reason about.","zh":"设计题里你比较两种容灾模式。"},"term":"active-passive","zh":"主备模式（容灾）"},{"examples":[{"en":"The recovery time objective is fifteen minutes; the recovery point is five.","zh":"恢复时间目标是十五分钟，恢复点目标是五分钟。"}],"kind":"chunk","note":"RTO（多久恢复）和 RPO（丢多少数据）是容灾题的必答项，别说反了。","situation":{"en":"Our RPO is five minutes — that's the most data we can afford to lose.","zh":"你给设计定容灾指标。"},"term":"recovery time objective","zh":"恢复时间目标（RTO）"},{"examples":[{"en":"Immutable infrastructure means we replace instances instead of patching them.","zh":"不可变基础设施的意思是：我们换实例，而不是给实例打补丁。"}],"kind":"chunk","situation":{"en":"With immutable infrastructure, a bad deploy is just a rollback to the previous image.","zh":"你解释不可变部署的好处。"},"term":"immutable infrastructure","zh":"不可变基础设施"},{"examples":[{"en":"Drift detection tells us when someone changed a resource by hand in the console.","zh":"漂移检测会告诉我们，有人是不是在控制台里手动改了资源。"}],"kind":"chunk","situation":{"en":"Config drift caused that incident — someone hotfixed the console directly.","zh":"复盘时你指出配置漂移是事故原因。"},"term":"configuration drift","zh":"配置漂移"},{"examples":[{"en":"We tag every resource with team and project, or finance can't split the bill.","zh":"每个资源都打上团队和项目的标签，不然财务没法分账。"}],"kind":"chunk","situation":{"en":"Untagged resources get flagged in the weekly cost report.","zh":"你介绍成本治理的规则。"},"term":"tag every resource","zh":"给每个资源打标签（成本分摊）"},{"examples":[{"en":"The region outage taught us that a single point of failure can hide in the boring parts — like DNS.","zh":"那次区域故障教会我们：单点故障会藏在最无聊的地方，比如 DNS。"}],"kind":"chunk","situation":{"en":"Our boring parts — DNS, certificates — caused the last two incidents.","zh":"你总结事故教训时提到不起眼的组件。"},"term":"hide in the boring parts","zh":"藏在不起眼的地方（指单点/风险）"},{"examples":[{"en":"Edge computing pushes the cache and light logic closer to the user.","zh":"边缘计算把缓存和轻逻辑推到离用户更近的地方。"}],"kind":"chunk","situation":{"en":"Latency-sensitive checks run at the edge, not in the home region.","zh":"设计题里你讲哪些逻辑放边缘。"},"term":"edge computing","zh":"边缘计算"},{"examples":[{"en":"We rehearse region failover every quarter — an untested failover is just a hope.","zh":"我们每季度演练一次区域切换，没演练过的切换只是个希望。"}],"kind":"chunk","note":"untested X is just a hope 这句可以套用在备份、回滚、告警上，是很好的面试句式。","situation":{"en":"An untested backup is just a hope, so we restore one every month.","zh":"你套用这个句式讲备份演练。"},"term":"an untested failover is just a hope","zh":"没演练过的切换只是个希望"}],"layer":"C","title":"云与基础设施"}
+{
+ "category": "cloud-infra",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "We run the whole platform on managed Kubernetes across two regions.",
+     "zh": "我们的整个平台跑在两个区域的托管 Kubernetes 上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our workloads run on managed Kubernetes; we only operate the app layer.",
+    "zh": "面试官问你们的基础设施，你介绍云上的运行方式。"
+   },
+   "term": "managed Kubernetes",
+   "zh": "托管 Kubernetes（云厂商运维控制面）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Everything is defined in Terraform — if it's not in code, it doesn't exist.",
+     "zh": "一切都用 Terraform 定义，没写进代码的，就算不存在。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We manage it as infrastructure as code, so every change goes through review.",
+    "zh": "你介绍团队怎么管理云资源。"
+   },
+   "term": "infrastructure as code",
+   "zh": "基础设施即代码（IaC）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The load balancer spreads traffic across three availability zones.",
+     "zh": "负载均衡器把流量分摊到三个可用区。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If one availability zone goes down, the others absorb the traffic.",
+    "zh": "设计题里你讲多可用区怎么扛故障。"
+   },
+   "term": "availability zone",
+   "zh": "可用区（AZ）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Services inside the VPC can reach the database; nothing from the public internet can.",
+     "zh": "VPC 内的服务能访问数据库，公网什么都进不来。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The database lives in a private subnet inside the VPC.",
+    "zh": "你介绍网络隔离的设计。"
+   },
+   "term": "virtual private cloud",
+   "zh": "虚拟私有云（VPC）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Public subnets hold the load balancers; private subnets hold everything else.",
+     "zh": "公有子网放负载均衡器，其余一切放在私有子网。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "App servers sit in private subnets, behind the load balancer.",
+    "zh": "画架构图时你解释子网的划分。"
+   },
+   "term": "private subnet",
+   "zh": "私有子网"
+  },
+  {
+   "examples": [
+    {
+     "en": "The security group only allows port 443 from the load balancer's group.",
+     "zh": "这个安全组只允许来自负载均衡器安全组的 443 端口。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Check the security group rules first — nine times out of ten, that's the issue.",
+    "zh": "同事说服务连不上，你让他先查安全组。"
+   },
+   "term": "security group",
+   "zh": "安全组（云上的虚拟防火墙）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The instance gets its permissions from an IAM role, not from stored keys.",
+     "zh": "这台机器的权限来自 IAM 角色，不是存着的密钥。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Never hardcode credentials — use an IAM role instead.",
+    "zh": "评审时你指出代码里硬编码密钥的问题。"
+   },
+   "term": "IAM role",
+   "zh": "IAM 角色（给机器的权限身份）"
+  },
+  {
+   "examples": [
+    {
+     "en": "User uploads go straight to object storage; we never stream them through the app servers.",
+     "zh": "用户上传直接进对象存储，从不经过应用服务器中转。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Backups live in object storage with a ninety-day lifecycle rule.",
+    "zh": "你介绍备份方案。"
+   },
+   "term": "object storage",
+   "zh": "对象存储（如 S3）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Ephemeral storage disappears when the instance stops — never put real data there.",
+     "zh": "实例一停，临时存储就没了，千万别往那放真数据。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "That data was on ephemeral storage, so it's gone.",
+    "zh": "复盘时你解释数据为什么丢了。"
+   },
+   "term": "ephemeral storage",
+   "zh": "临时存储（实例停就没）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The autoscaler adds instances when CPU stays above seventy percent for five minutes.",
+     "zh": "CPU 连续五分钟超过 70% 时，自动扩缩器会增加实例。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "During the sale, autoscaling took us from ten instances to forty.",
+    "zh": "你复盘大促当天的扩容情况。"
+   },
+   "term": "autoscaling",
+   "zh": "自动扩缩容"
+  },
+  {
+   "examples": [
+    {
+     "en": "We set a hard cap on instances so a bug can't scale our bill to the moon.",
+     "zh": "我们给实例数设了硬上限，免得一个 bug 把账单扩到天上去。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "scale ... to the moon 是口语夸张，指费用失控。账单事故在面试里是很好的故事素材。",
+   "situation": {
+    "en": "A runaway retry loop once scaled our bill to the moon overnight.",
+    "zh": "讲踩坑经历时你说重试风暴把账单刷爆了。"
+   },
+   "term": "a hard cap",
+   "zh": "硬上限（防止失控）"
+  },
+  {
+   "examples": [
+    {
+     "en": "With containers, the same image runs on my laptop and in production — no more 'works on my machine'.",
+     "zh": "有了容器，同一个镜像在我电脑上和生产环境跑得一模一样，再没有“我这能跑”了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We ship containers, so the runtime is identical everywhere.",
+    "zh": "面试官问你们怎么做环境一致性。"
+   },
+   "term": "the same image everywhere",
+   "zh": "处处同一个镜像（环境一致性）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The orchestrator restarts failed containers and reschedules them onto healthy nodes.",
+     "zh": "编排器会重启失败的容器，并把它们重新调度到健康的节点上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Kubernetes is our orchestrator — scheduling, healing, scaling.",
+    "zh": "你一句话介绍编排层做什么。"
+   },
+   "term": "container orchestration",
+   "zh": "容器编排"
+  },
+  {
+   "examples": [
+    {
+     "en": "Liveness probes restart a stuck container; readiness probes keep traffic away until it's warm.",
+     "zh": "存活探针重启卡死的容器，就绪探针在预热完成前不让流量进来。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "liveness / readiness 两个探针的区别是 K8s 面试的经典题，答反了很扣分。",
+   "situation": {
+    "en": "The readiness probe was failing, so the pod never got traffic.",
+    "zh": "排查发布问题时你发现就绪探针一直失败。"
+   },
+   "term": "readiness probe",
+   "zh": "就绪探针（决定要不要给流量）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We use a rolling update with a small canary batch first.",
+     "zh": "我们用滚动更新，先发一个小批次当金丝雀。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Rolling update, ten percent at a time, with automatic rollback.",
+    "zh": "你介绍发布策略。"
+   },
+   "term": "rolling update",
+   "zh": "滚动更新"
+  },
+  {
+   "examples": [
+    {
+     "en": "All traffic from the edge goes through a CDN, so static assets never hit our origin.",
+     "zh": "边缘进来的流量先过 CDN，静态资源根本到不了源站。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The CDN absorbs most of the read traffic.",
+    "zh": "设计题里你用 CDN 挡读流量。"
+   },
+   "term": "content delivery network",
+   "zh": "内容分发网络（CDN）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A reverse proxy terminates TLS and forwards plain HTTP inside the network.",
+     "zh": "反向代理终结 TLS，在内网转发普通 HTTP。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Nginx acts as our reverse proxy in front of the app servers.",
+    "zh": "你介绍入口流量的处理链。"
+   },
+   "term": "reverse proxy",
+   "zh": "反向代理"
+  },
+  {
+   "examples": [
+    {
+     "en": "DNS failover moves traffic to the healthy region within a minute.",
+     "zh": "DNS 故障转移在一分钟内把流量切到健康区域。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If the region dies, DNS failover is our first line of defense.",
+    "zh": "设计题谈容灾时你讲第一道防线。"
+   },
+   "term": "DNS failover",
+   "zh": "DNS 故障转移"
+  },
+  {
+   "examples": [
+    {
+     "en": "Egress traffic goes through a NAT gateway, so instances never expose public IPs.",
+     "zh": "出口流量走 NAT 网关，实例永不暴露公网 IP。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "ingress（入）/ egress（出）是一对高频词，安全和网络题里天天见。",
+   "situation": {
+    "en": "Only the NAT gateway has a public route out.",
+    "zh": "你介绍网络出口的设计。"
+   },
+   "term": "egress traffic",
+   "zh": "出口流量（出方向）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We peered the two VPCs so the data platform can read from the app network.",
+     "zh": "我们把两个 VPC 打通对等连接，让数据平台能读应用网络的数据。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The VPCs are peered, but the routes are read-only one way.",
+    "zh": "你解释跨网络访问的限制。"
+   },
+   "term": "VPC peering",
+   "zh": "VPC 对等连接"
+  },
+  {
+   "examples": [
+    {
+     "en": "Serverless sounds cheap until your function runs a million times a day.",
+     "zh": "无服务器听着便宜，直到你的函数一天跑一百万次。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "serverless 不是“没有服务器”，是“不用你管服务器”。面试里能说清这一点很加分。",
+   "situation": {
+    "en": "For the image resizing, serverless was the right call — spiky, low volume.",
+    "zh": "你解释某个场景为什么选无服务器。"
+   },
+   "term": "serverless",
+   "zh": "无服务器（云函数等）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Cold starts added three hundred milliseconds to the first request after idle.",
+     "zh": "闲置后的第一个请求被冷启动多加了三百毫秒。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Cold starts were our main complaint about the function setup.",
+    "zh": "复盘无服务器方案时你讲主要槽点。"
+   },
+   "term": "cold start",
+   "zh": "冷启动（无服务器/容器）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Spot instances cut our batch bill by seventy percent, but they can vanish with two minutes' notice.",
+     "zh": "竞价实例把批处理账单砍了七成，但它们可能提前两分钟通知就被收走。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Batch jobs run on spot instances; user traffic never does.",
+    "zh": "你介绍成本优化的分工。"
+   },
+   "term": "spot instances",
+   "zh": "竞价实例（便宜但可被回收）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We moved the reserved capacity to a three-year commitment for the steady baseline.",
+     "zh": "我们把稳定基线的容量买成三年预留，省了长期成本。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Reserved for the baseline, on-demand for the peaks.",
+    "zh": "你一句话总结容量采购策略。"
+   },
+   "term": "reserved instances",
+   "zh": "预留实例（包年包月）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The control plane is managed; we only operate the data plane.",
+     "zh": "控制面是托管的，我们只运维数据面。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "control plane / data plane 的区分在系统设计面试里非常常见，答得出很显功底。",
+   "situation": {
+    "en": "That outage was in their control plane; our data plane kept serving.",
+    "zh": "复盘云厂商故障时你区分影响面。"
+   },
+   "term": "control plane",
+   "zh": "控制面（管配置和调度的那层）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We keep an eye on egress fees — moving data between regions is where the bill hides.",
+     "zh": "我们盯着出口流量费，跨区域搬数据才是账单的大头藏身处。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The surprise on the bill was egress fees, not compute.",
+    "zh": "你复盘云账单超支的原因。"
+   },
+   "term": "egress fees",
+   "zh": "出口流量费（云账单刺客）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A bastion host is the only SSH entry point, and every session is recorded.",
+     "zh": "堡垒机是唯一的 SSH 入口，所有会话都被录像。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Nobody SSHs directly — everything goes through the bastion host.",
+    "zh": "安全评审时你介绍运维入口的管理。"
+   },
+   "term": "bastion host",
+   "zh": "堡垒机、跳板机"
+  },
+  {
+   "examples": [
+    {
+     "en": "We run active-passive across regions because active-active doubles the data headaches.",
+     "zh": "我们跨区域用主备模式，因为双活会让数据问题翻倍。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Active-passive is slower to fail over, but far simpler to reason about.",
+    "zh": "设计题里你比较两种容灾模式。"
+   },
+   "term": "active-passive",
+   "zh": "主备模式（容灾）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The recovery time objective is fifteen minutes; the recovery point is five.",
+     "zh": "恢复时间目标是十五分钟，恢复点目标是五分钟。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "RTO（多久恢复）和 RPO（丢多少数据）是容灾题的必答项，别说反了。",
+   "situation": {
+    "en": "Our RPO is five minutes — that's the most data we can afford to lose.",
+    "zh": "你给设计定容灾指标。"
+   },
+   "term": "recovery time objective",
+   "zh": "恢复时间目标（RTO）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Immutable infrastructure means we replace instances instead of patching them.",
+     "zh": "不可变基础设施的意思是：我们换实例，而不是给实例打补丁。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With immutable infrastructure, a bad deploy is just a rollback to the previous image.",
+    "zh": "你解释不可变部署的好处。"
+   },
+   "term": "immutable infrastructure",
+   "zh": "不可变基础设施"
+  },
+  {
+   "examples": [
+    {
+     "en": "Drift detection tells us when someone changed a resource by hand in the console.",
+     "zh": "漂移检测会告诉我们，有人是不是在控制台里手动改了资源。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Config drift caused that incident — someone hotfixed the console directly.",
+    "zh": "复盘时你指出配置漂移是事故原因。"
+   },
+   "term": "configuration drift",
+   "zh": "配置漂移"
+  },
+  {
+   "examples": [
+    {
+     "en": "We tag every resource with team and project, or finance can't split the bill.",
+     "zh": "每个资源都打上团队和项目的标签，不然财务没法分账。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Untagged resources get flagged in the weekly cost report.",
+    "zh": "你介绍成本治理的规则。"
+   },
+   "term": "tag every resource",
+   "zh": "给每个资源打标签（成本分摊）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The region outage taught us that a single point of failure can hide in the boring parts — like DNS.",
+     "zh": "那次区域故障教会我们：单点故障会藏在最无聊的地方，比如 DNS。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our boring parts — DNS, certificates — caused the last two incidents.",
+    "zh": "你总结事故教训时提到不起眼的组件。"
+   },
+   "term": "hide in the boring parts",
+   "zh": "藏在不起眼的地方（指单点/风险）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Edge computing pushes the cache and light logic closer to the user.",
+     "zh": "边缘计算把缓存和轻逻辑推到离用户更近的地方。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Latency-sensitive checks run at the edge, not in the home region.",
+    "zh": "设计题里你讲哪些逻辑放边缘。"
+   },
+   "term": "edge computing",
+   "zh": "边缘计算"
+  },
+  {
+   "examples": [
+    {
+     "en": "We rehearse region failover every quarter — an untested failover is just a hope.",
+     "zh": "我们每季度演练一次区域切换，没演练过的切换只是个希望。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "untested X is just a hope 这句可以套用在备份、回滚、告警上，是很好的面试句式。",
+   "situation": {
+    "en": "An untested backup is just a hope, so we restore one every month.",
+    "zh": "你套用这个句式讲备份演练。"
+   },
+   "term": "an untested failover is just a hope",
+   "zh": "没演练过的切换只是个希望"
+  }
+ ],
+ "layer": "C",
+ "title": "云与基础设施"
+}
