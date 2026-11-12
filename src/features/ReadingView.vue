@@ -2,6 +2,7 @@
 import { computed, onMounted, ref, shallowRef } from 'vue';
 import SpeakButton from '../components/SpeakButton.vue';
 import { decompose, formatParts } from '../lib/morphology';
+import { getWordNote } from '../lib/wordNotes';
 import { useApp } from '../stores/app';
 import { useVocab } from '../stores/vocab';
 import { analyze, sentenceAt, type Segment, type UnknownWord, type WordStatus } from '../vocab/analyze';
@@ -41,6 +42,8 @@ const selectedMorph = computed(() => {
   });
   return parts ? formatParts(parts) : null;
 });
+/** 单词详解二期的人工内容（词源、搭配、场景例句），目前只覆盖高频技术词 */
+const selectedNote = computed(() => (selected.value?.word ? getWordNote(selected.value.word.word) : undefined));
 const showAll = ref(false);
 
 const analysis = computed(() => (dict.value && text.value ? analyze(text.value, dict.value, vocab.model) : null));
@@ -160,6 +163,14 @@ function reset() {
         <p v-if="selected.word" :class="{ 'muted small': selectedEntry }">{{ selected.word.zh }}</p>
         <p v-if="selected.word?.en" class="muted small">{{ selected.word.en }}</p>
         <p v-if="selectedMorph" class="muted small">构词：{{ selectedMorph }}</p>
+        <template v-if="selectedNote">
+          <p class="muted small">词源：{{ selectedNote.etymology }}</p>
+          <p class="muted small">常用搭配：{{ selectedNote.collocations.join('；') }}</p>
+          <p class="small">
+            例：{{ selectedNote.example.en }}<br />
+            <span class="muted">{{ selectedNote.example.zh }}</span>
+          </p>
+        </template>
         <p v-else-if="!selectedEntry" class="muted small">
           词典里没有这个词。需要的话可以到<RouterLink to="/library">词库</RouterLink>里手动添加。
         </p>
