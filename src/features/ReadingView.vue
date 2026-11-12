@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, shallowRef } from 'vue';
 import SpeakButton from '../components/SpeakButton.vue';
+import { useApp } from '../stores/app';
 import { useVocab } from '../stores/vocab';
 import { analyze, sentenceAt, type Segment, type UnknownWord, type WordStatus } from '../vocab/analyze';
 import { loadDictionary, type Dictionary } from '../vocab/dictionary';
@@ -15,6 +16,7 @@ const STATUS_LABEL: Record<WordStatus, string> = {
 };
 
 const vocab = useVocab();
+const app = useApp();
 const dict = shallowRef<Dictionary | null>(null);
 onMounted(async () => (dict.value = await loadDictionary()));
 
@@ -25,6 +27,8 @@ const text = ref('');
 const readingId = ref('');
 const added = ref(0);
 const selected = shallowRef<Segment | null>(null);
+/** 词库里有同名词条时优先显示词库的中文（那是给技术场景写的，比通用词典准） */
+const selectedEntry = computed(() => (selected.value?.key ? app.byTerm.get(selected.value.key) : undefined));
 const showAll = ref(false);
 
 const analysis = computed(() => (dict.value && text.value ? analyze(text.value, dict.value, vocab.model) : null));
@@ -140,8 +144,9 @@ function reset() {
           <span v-if="selectedStatus" class="badge">{{ STATUS_LABEL[selectedStatus] }}</span>
           <span v-if="selected.word?.rank" class="muted small">词频第 {{ selected.word.rank }}</span>
         </div>
-        <p v-if="selected.word">{{ selected.word.zh }}</p>
-        <p v-else class="muted small">
+        <p v-if="selectedEntry">{{ selectedEntry.zh }}<span class="muted small">（词库词条）</span></p>
+        <p v-if="selected.word" :class="{ 'muted small': selectedEntry }">{{ selected.word.zh }}</p>
+        <p v-else-if="!selectedEntry" class="muted small">
           词典里没有这个词。需要的话可以到<RouterLink to="/library">词库</RouterLink>里手动添加。
         </p>
         <div v-if="selected.word" class="row">

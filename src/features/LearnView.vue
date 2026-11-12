@@ -23,6 +23,8 @@ const testQueue = shallowRef<Entry[]>([]);
 const revealed = ref(false);
 const learned = ref(0);
 const saving = ref(false);
+/** 这一组从开始到学完的用时，结束时写进新学日志，计入统计页的学习时长 */
+const groupStart = ref(0);
 
 const group = computed(() => groups.value[groupIndex.value] ?? []);
 const current = computed(() => (phase.value === 'study' ? group.value[studyIndex.value] : testQueue.value[0]));
@@ -30,6 +32,7 @@ const current = computed(() => (phase.value === 'study' ? group.value[studyIndex
 const say = (text: string) => app.settings.autoSpeak && speak(text, app.settings);
 
 function startGroup() {
+  groupStart.value = Date.now();
   phase.value = 'study';
   studyIndex.value = 0;
   known.value = new Set();
@@ -85,7 +88,7 @@ async function finishGroup() {
   saving.value = true;
   const outcome = (e: Entry): LearnOutcome =>
     known.value.has(e.id) ? 'known' : missed.value.has(e.id) ? 'retry' : 'pass';
-  await app.learnGroup(group.value.map((entry) => ({ entry, outcome: outcome(entry) })));
+  await app.learnGroup(group.value.map((entry) => ({ entry, outcome: outcome(entry) })), Date.now() - groupStart.value);
   learned.value += group.value.length;
   saving.value = false;
   if (groupIndex.value < groups.value.length - 1) {
@@ -138,8 +141,8 @@ useHotkeys((key, e) => {
         <hr />
         <EntryFacts :entry="current" compact />
         <div class="row">
-          <button type="button" class="danger" @click="answer(false)">没说对 <kbd>1</kbd></button>
-          <button type="button" class="primary" @click="answer(true)">说对了 <kbd>2</kbd></button>
+          <button type="button" class="danger" @click="answer(false)">{{ current.layer === 'D' ? '没想起来' : '没说对' }} <kbd>1</kbd></button>
+          <button type="button" class="primary" @click="answer(true)">{{ current.layer === 'D' ? '想起来了' : '说对了' }} <kbd>2</kbd></button>
         </div>
       </template>
       <div v-else>

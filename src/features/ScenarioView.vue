@@ -14,6 +14,8 @@ const route = useRoute();
 const router = useRouter();
 
 const scenario = speaking.scenarioById.get(String(route.params.id));
+/** 进入场景的时刻，练完时算用时写进记录，计入统计页的学习时长 */
+const startedAt = Date.now();
 const turns = scenario?.turns ?? [];
 const myTurns = turns.filter((t) => t.speaker === 'me').length;
 
@@ -52,7 +54,14 @@ async function next() {
   stopSpeaking();
   done.value = true;
   if (scenario) {
-    await speaking.saveRun({ id: String(Date.now()), scenarioId: scenario.id, at: Date.now(), said: said.value, total: myTurns });
+    await speaking.saveRun({
+      id: String(Date.now()),
+      scenarioId: scenario.id,
+      at: Date.now(),
+      said: said.value,
+      total: myTurns,
+      seconds: Math.round((Date.now() - startedAt) / 1000),
+    });
   }
 }
 

@@ -619,17 +619,13 @@ navigator.mediaDevices.getUserMedia = async () => {
 | # | 问题 | 位置 |
 |---|---|---|
 | 1 | 真实麦克风录音、朗读的声音没有人工验证过 | `lib/recorder.ts`、`lib/tts.ts` |
-| 2 | 词典的释义来自通用词典，部分技术词给的是日常义项。例如 *scalable* 是“可攀登的”，*serialize* 是“连载”，*stale* 的第一个义项是“尿” | `content/wordlists/frequency.json` |
+| 2 | 词典的释义来自通用词典，技术词的日常义项问题已建人工覆盖表（`content/wordlists/overrides.json`，86 个高频技术词）且阅读助手优先显示词库词条的中文；覆盖表之外的长尾技术词仍可能给日常义项，遇到再往覆盖表里加 | `content/wordlists/frequency.json`、`content/wordlists/overrides.json` |
 | 3 | 内容没有逐条审校。子代理写的，只抽查过。Java 分类里有几条的中文提示保留了英文关键字（volatile、Optional 等），等于提示了部分答案 | `content/entries/c-java-*.json` |
-| 4 | 阅读助手只用约 150 词的文字测过。每个词渲染成一个元素，几千词的长文可能卡 | `features/ReadingView.vue` |
-| 5 | 测评抽样里偶尔出现小写的地名或生僻缩写（见过 *sussex*） | `vocab/assess.ts` 的 `sampleBand` |
-| 6 | 第 2 批词块去重时删了 22 条，这些分类里“每 5 条主题相近”的分组错开了几条 | 多个 `content/entries` 文件 |
-| 7 | 页面开着跨过午夜时，“今天复习了几张”“连续天数”不会自动重算，刷新后才对 | `stores/app.ts` 的 `todayStats`、`days` |
-| 8 | 统计里的学习时长只算了复习和口答，新学和场景对话没有计时 | `features/StatsView.vue` |
-| 9 | D 层的词在新学小测里按钮文字还是“没说对 / 说对了”，应该是“没想起来 / 想起来了” | `features/LearnView.vue` |
-| 10 | 生产构建的主包 1.1 MB（内容都打在里面），词典 2.6 MB（按需加载）。本地使用没影响 | — |
-| 11 | 没有页面的自动化测试 | — |
-| 12 | 安卓 App 真机验证未完：朗读已实测无声并改走原生 TTS（v0.1.1，待复验）；IndexedDB 持久化和录音回听尚未实测 | `android/`、`src/lib/tts.ts`、`src/lib/recorder.ts` |
+| 4 | 阅读助手的 `analyze` 已实测不慢（5031 词首次分析 8.3ms、标记后重分析平均 8.8ms，2026-11-12 Node 环境测量）；未测的是浏览器渲染上万个片段时的帧率，几千词长文若卡顿再做分段渲染 | `features/ReadingView.vue` |
+| 5 | 第 2 批词块去重时删了 22 条，这些分类里“每 5 条主题相近”的分组错开了几条 | 多个 `content/entries` 文件 |
+| 6 | 生产构建的主包 1.1 MB（内容都打在里面），词典 2.6 MB（按需加载）。本地使用没影响 | — |
+| 7 | 没有页面的自动化测试 | — |
+| 8 | 安卓 App 真机验证未完：系统 TTS 已确认有声（音色机械），Azure 分支（v0.3.0）待用户填密钥验自然度；IndexedDB 持久化和录音回听尚未实测 | `android/`、`src/lib/tts.ts`、`src/lib/recorder.ts` |
 
 ## 12. 文档清单
 

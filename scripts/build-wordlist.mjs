@@ -79,6 +79,18 @@ for (let n = 1; n < lines.length; n++) {
   if (!/^[a-z][a-z'-]*$/.test(word) && word !== 'I') continue;
   const translation = c[col.translation];
   if (!translation || /男子名|女子名|姓氏/.test(translation)) continue;
+  // P0-3：纯缩写、纯地名的词条不进词典，免得混进测评抽样（抽到一个就偏 10%）。
+  // 判定口径：所有义项都是这类才跳过；只要有一条正常义项就保留。
+  // 例外：排名 5000 以内的纯缩写（比如 ceo）是真词汇，阅读里天天见，留着。
+  const senses = translation.split('\\n').map((s) => s.trim()).filter(Boolean);
+  const roughRank = Number(c[col.frq]) || Number(c[col.bnc]) * 2 || Infinity;
+  if (senses.length > 0 && roughRank > 5000 && senses.every((s) => s.startsWith('abbr.'))) continue;
+  if (
+    senses.length > 0 &&
+    senses.every((s) => /地名|郡名|（英国|（美国|（西班牙|（德国|（法国|（意大利|（加拿大|（爱尔兰|（新西兰|（荷兰|（苏格兰|（英格兰/.test(s))
+  ) {
+    continue;
+  }
   const exchange = Object.fromEntries(
     c[col.exchange]
       .split('/')
@@ -116,7 +128,17 @@ for (const [form, lemma] of lemmaOf) {
 // ECDICT 里的 am 只有“上午”的缩写义，没有标成 be 的变形，手工补上
 if (dict.has('be') && !dict.get('be').forms.includes('am')) dict.get('be').forms.push('am');
 
-const pack = (e, techFirst) => [e.word, gloss(e.translation, techFirst), e.phonetic, e.forms.join(' ')];
+// P0-2：人工覆盖表。通用词典给技术词的日常义项会误导（scalable 显示“可攀登的”），
+// 覆盖表里的词直接用人工释义，不走 gloss() 的截断逻辑。
+const overridesPath = join(root, 'content', 'wordlists', 'overrides.json');
+const overrides = existsSync(overridesPath) ? JSON.parse(readFileSync(overridesPath, 'utf8')) : {};
+
+const pack = (e, techFirst) => [
+  e.word,
+  overrides[e.word.toLowerCase()] ?? gloss(e.translation, techFirst),
+  e.phonetic,
+  e.forms.join(' '),
+];
 
 // ---- 通用高频词 ----
 const ranked = [...dict.values()].filter((e) => e.rank > 0).sort((a, b) => a.rank - b.rank || a.word.localeCompare(b.word));

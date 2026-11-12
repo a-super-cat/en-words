@@ -36,11 +36,13 @@ const upcoming = computed(() =>
   forecast(live.value, app.now, DAYS).map((value, i) => ({ label: i === 0 ? '今天' : dayLabel(i), value })),
 );
 
-// 学习时长 = 复习卡片的时间 + 口答的时间。新学和场景对话没有计时，不在里面。
+// 学习时长 = 复习 + 新学（stage 0 的日志，ms 是整组用时均摊的）+ 口答 + 场景对话。
+// 自动带过的识别卡（auto）不算，那份时间已经记在对应的产出卡上了。
 const spent = computed(() => {
   const records = [
-    ...logs.value.filter((l) => l.stage > 0 && !l.auto).map((l) => ({ at: l.at, ms: l.ms })),
+    ...logs.value.filter((l) => !l.auto).map((l) => ({ at: l.at, ms: l.ms })),
     ...speaking.attempts.map((a) => ({ at: a.at, ms: a.seconds * 1000 })),
+    ...speaking.runs.map((r) => ({ at: r.at, ms: (r.seconds ?? 0) * 1000 })),
   ];
   return minutesByDay(records, app.now, DAYS, 180_000).map((value, i) => ({ label: dayLabel(i - DAYS + 1), value }));
 });
@@ -111,7 +113,7 @@ const lastReading = computed(() => vocab.readings.at(-1));
 
     <section class="panel">
       <BarChart title="过去 30 天每天的学习时长" unit="分钟" :items="spent" />
-      <p class="muted small note">只统计复习和口答的时间；新学和场景对话没有计时。</p>
+      <p class="muted small note">复习、新学、口答和场景对话的时间都算在内；场景对话的时长从 2026-11-12 之后才有记录。</p>
     </section>
 
     <section class="panel stack">

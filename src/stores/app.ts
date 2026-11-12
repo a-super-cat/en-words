@@ -160,7 +160,16 @@ export const useApp = defineStore('app', () => {
     }
   }
 
-  const tick = () => (now.value = Date.now());
+  // 页面开着跨过午夜时，今天的统计和连续天数要按新的一天重算，不然得刷新才对
+  let lastTickDay = dayKey(Date.now());
+  const tick = () => {
+    now.value = Date.now();
+    const today = dayKey(now.value);
+    if (today !== lastTickDay) {
+      lastTickDay = today;
+      void init();
+    }
+  };
 
   /** 某个时刻之后的复习日志，统计页用 */
   const logsSince = (time: number) => db.logs.where('at').aboveOrEqual(time).toArray();
@@ -185,22 +194,28 @@ export const useApp = defineStore('app', () => {
     return ids;
   }
 
-  /** 一组新内容学完后建卡。known：自称已经会了；pass：小测一次说对；retry：小测说错过。 */
-  async function learnGroup(results: { entry: Entry; outcome: LearnOutcome }[]): Promise<void> {
+  /**
+   * 一组新内容学完后建卡。known：自称已经会了；pass：小测一次说对；retry：小测说错过。
+   * groupMs 是这一组从开始到学完的总用时，均摊写进每条新学日志的 ms，统计页按总和算时长。
+   */
+  async function learnGroup(results: { entry: Entry; outcome: LearnOutcome }[], groupMs = 0): Promise<void> {
     const t = Date.now();
     const changed: CardState[] = [];
-    const logs: ReviewLog[] = [];
-    const add = (entry: Entry, direction: 'recognize' | 'produce', rating: Rating) => {
-      const card = rateCard(newCard(entry.id, direction, t), rating, t);
-      changed.push(card);
-      logs.push({ key: card.key, entryId: entry.id, direction, rating, at: t, ms: 0, stage: 0 });
-    };
+    const pending: { entry: Entry; direction: 'recognize' | 'produce'; rating: Rating }[] = [];
     for (const { entry, outcome } of results) {
       if (hasCard(entry.id)) continue;
-      add(entry, 'recognize', outcome === 'known' ? 4 : 3);
+      pending.push({ entry, direction: 'recognize', rating: outcome === 'known' ? 4 : 3 });
       // D 层是只需要读懂的书面词，不练产出
-      if (entry.layer !== 'D') add(entry, 'produce', outcome === 'known' ? 4 : outcome === 'pass' ? 3 : 1);
+      if (entry.layer !== 'D') {
+        pending.push({ entry, direction: 'produce', rating: outcome === 'known' ? 4 : outcome === 'pass' ? 3 : 1 });
+      }
     }
+    const perLogMs = pending.length > 0 ? Math.round(groupMs / pending.length) : 0;
+    const logs: ReviewLog[] = pending.map(({ entry, direction, rating }) => {
+      const card = rateCard(newCard(entry.id, direction, t), rating, t);
+      changed.push(card);
+      return { key: card.key, entryId: entry.id, direction, rating, at: t, ms: perLogMs, stage: 0 };
+    });
     await commit(changed, logs);
   }
 
@@ -457,6 +472,7 @@ export const useApp = defineStore('app', () => {
     now,
     entries,
     byId,
+    byTerm,
     categories,
     categoryTitle,
     cards,

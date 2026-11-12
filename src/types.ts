@@ -154,6 +154,8 @@ export interface ScenarioRun {
   /** 自评说出来了的轮数 */
   said: number;
   total: number;
+  /** 这一趟练习的用时（秒）。2026-11-12 之前存的旧记录没有这个字段 */
+  seconds?: number;
 }
 
 /** 一次词汇量测评的结果 */
