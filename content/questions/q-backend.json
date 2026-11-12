@@ -1,542 +1,1202 @@
 {
-  "category": "backend",
-  "title": "后端和语言深挖",
-  "questions": [
+ "category": "backend",
+ "title": "后端和语言深挖",
+ "questions": [
+  {
+   "id": "be-java-gc-tuning",
+   "prompt": "How do you choose and tune a garbage collector for a latency-sensitive Java service?",
+   "zh": "对一个延迟敏感的 Java 服务，你怎么选择垃圾回收器、怎么调优？",
+   "outline": [
+    "Define the goal first: throughput, pause time, or memory footprint",
+    "G1 is the balanced default; ZGC or Shenandoah target very short pauses",
+    "Low-pause collectors cost some throughput and need extra heap headroom",
+    "Read the GC logs before tuning: allocation rate, pause distribution, promotion",
+    "Often the real fix is in the code: allocate less, size the heap sensibly"
+   ],
+   "chunks": [
     {
-      "id": "be-java-gc-tuning",
-      "prompt": "How do you choose and tune a garbage collector for a latency-sensitive Java service?",
-      "zh": "对一个延迟敏感的 Java 服务，你怎么选择垃圾回收器、怎么调优？",
-      "outline": [
-        "Define the goal first: throughput, pause time, or memory footprint",
-        "G1 is the balanced default; ZGC or Shenandoah target very short pauses",
-        "Low-pause collectors cost some throughput and need extra heap headroom",
-        "Read the GC logs before tuning: allocation rate, pause distribution, promotion",
-        "Often the real fix is in the code: allocate less, size the heap sensibly"
-      ],
-      "chunks": [
-        { "term": "GC pause", "zh": "GC 停顿" },
-        { "term": "stop-the-world pause", "zh": "全局停顿（所有应用线程都被暂停）" },
-        { "term": "GC tuning", "zh": "GC 调优" },
-        { "term": "short-lived objects", "zh": "短命对象" },
-        { "term": "get promoted to the old generation", "zh": "晋升到老年代" },
-        { "term": "p99 latency", "zh": "99 分位延迟" }
-      ],
-      "followUps": [
-        "What would frequent full GCs tell you about the application?",
-        "How do you tell a GC problem apart from a memory leak?"
-      ]
+     "term": "GC pause",
+     "zh": "GC 停顿"
     },
     {
-      "id": "be-java-cold-start",
-      "prompt": "Why is a Java service often slow right after a deployment, and what can you do about it?",
-      "zh": "Java 服务为什么刚部署完那一阵往往比较慢？你能做些什么？",
-      "outline": [
-        "A cold JVM loads classes lazily and starts by interpreting bytecode",
-        "The JIT compiles hot paths only after enough invocations",
-        "Connection pools and caches also start empty",
-        "Mitigate: send warm-up requests before readiness, shift traffic gradually",
-        "Other options: class data sharing, or native images with lower peak throughput"
-      ],
-      "chunks": [
-        { "term": "warm up the JVM", "zh": "预热 JVM" },
-        { "term": "JIT compiler", "zh": "即时编译器" },
-        { "term": "hot path", "zh": "热点路径" },
-        { "term": "warm up the cache", "zh": "预热缓存" },
-        { "term": "connection pool", "zh": "连接池" }
-      ],
-      "followUps": ["How does this interact with auto-scaling during a traffic spike?"]
+     "term": "stop-the-world pause",
+     "zh": "全局停顿（所有应用线程都被暂停）"
     },
     {
-      "id": "be-java-concurrency-bug",
-      "prompt": "Tell me about a concurrency bug you've dealt with in Java. How did you find it and fix it?",
-      "zh": "讲一个你处理过的 Java 并发 bug。你是怎么发现、怎么修的？",
-      "outline": [
-        "Situation: intermittent wrong data or a hang that only showed under load",
-        "Reproduce with a stress test; take thread dumps if threads hang",
-        "Pin down the shared mutable state and the unsafe interleaving",
-        "Prefer confinement, immutability, or concurrent collections over adding more locks",
-        "Result: add a regression test and review similar code paths"
-      ],
-      "chunks": [
-        { "term": "race condition", "zh": "竞态条件" },
-        { "term": "shared mutable state", "zh": "共享可变状态" },
-        { "term": "check-then-act", "zh": "先检查再执行（典型的竞态写法）" },
-        { "term": "take a thread dump", "zh": "抓一份线程转储" },
-        { "term": "deadlock", "zh": "死锁" },
-        { "term": "immutable object", "zh": "不可变对象" }
-      ],
-      "followUps": ["Why are these bugs so hard to catch in code review or unit tests?"]
+     "term": "GC tuning",
+     "zh": "GC 调优"
     },
     {
-      "id": "be-java-virtual-threads",
-      "prompt": "What do virtual threads change about how you write concurrent Java, and where do they not help?",
-      "zh": "虚拟线程改变了你写 Java 并发代码的哪些方式？它在哪些地方帮不上忙？",
-      "outline": [
-        "Threads become cheap, so plain blocking code scales without reactive frameworks",
-        "A blocked virtual thread unmounts and frees its carrier thread",
-        "Great for I/O-bound work; no gain for CPU-bound work",
-        "Do not pool them; limit concurrency with a semaphore instead",
-        "Watch for pinning on older JDKs and heavy ThreadLocal use"
-      ],
-      "chunks": [
-        { "term": "virtual threads", "zh": "虚拟线程" },
-        { "term": "platform thread", "zh": "平台线程" },
-        { "term": "block the calling thread", "zh": "阻塞调用方线程" },
-        { "term": "thread pool", "zh": "线程池" },
-        { "term": "I/O-bound task", "zh": "I/O 密集型任务" },
-        { "term": "CPU-bound task", "zh": "CPU 密集型任务" }
-      ],
-      "followUps": ["Would you still pick a reactive framework for a new service today?"]
+     "term": "short-lived objects",
+     "zh": "短命对象"
     },
     {
-      "id": "be-spring-transactional-pitfalls",
-      "prompt": "What are the common ways @Transactional silently fails to do what people expect in Spring?",
-      "zh": "Spring 里的 @Transactional 有哪些常见情况会悄悄失效、达不到大家的预期？",
-      "outline": [
-        "It works through a proxy, so calling it from the same class bypasses it",
-        "Private and final methods cannot be intercepted",
-        "By default it rolls back on unchecked exceptions only",
-        "Catching and swallowing the exception inside the method prevents rollback",
-        "Propagation matters: REQUIRES_NEW suspends the outer transaction and uses another connection"
-      ],
-      "chunks": [
-        { "term": "declarative transactions", "zh": "声明式事务" },
-        { "term": "bypass the proxy", "zh": "绕过代理" },
-        { "term": "transaction propagation", "zh": "事务传播（行为）" },
-        { "term": "roll back the transaction", "zh": "回滚事务" },
-        { "term": "checked exception", "zh": "受检异常" },
-        { "term": "swallow an exception", "zh": "吞掉异常" }
-      ],
-      "followUps": ["Why is it risky to call a remote service inside a transactional method?"]
+     "term": "get promoted to the old generation",
+     "zh": "晋升到老年代"
     },
     {
-      "id": "be-java-thread-pool-sizing",
-      "prompt": "How do you size and configure thread pools in a service that calls several downstream dependencies?",
-      "zh": "一个要调用好几个下游依赖的服务，线程池的大小和配置你怎么定？",
-      "outline": [
-        "CPU-bound work: roughly one thread per core",
-        "I/O-bound work: more threads, sized by wait time and downstream limits",
-        "Use bounded queues and a rejection policy; unbounded queues hide overload",
-        "Separate pools per dependency so one slow service cannot starve the rest",
-        "Measure queue time and saturation, then adjust"
-      ],
-      "chunks": [
-        { "term": "thread pool", "zh": "线程池" },
-        { "term": "submit a task", "zh": "提交任务" },
-        { "term": "bulkhead", "zh": "舱壁隔离" },
-        { "term": "backpressure", "zh": "背压" },
-        { "term": "cascading failure", "zh": "级联故障" }
-      ],
-      "followUps": ["What should happen to a request when the pool and its queue are both full?"]
-    },
-    {
-      "id": "be-python-gil",
-      "prompt": "How does the GIL affect the way you design a Python service, and what are your options for CPU-heavy work?",
-      "zh": "GIL 怎样影响你设计 Python 服务的方式？遇到重 CPU 的工作你有哪些办法？",
-      "outline": [
-        "Only one thread executes Python bytecode at a time",
-        "Threads still help I/O-bound work because the GIL is released while waiting",
-        "For CPU-bound work: processes, native code that releases the GIL, or another service",
-        "Processes cost memory and serialization between them",
-        "Free-threaded builds exist since 3.13, but not every library supports them yet"
-      ],
-      "chunks": [
-        { "term": "global interpreter lock", "zh": "全局解释器锁" },
-        { "term": "CPU-bound task", "zh": "CPU 密集型任务" },
-        { "term": "release the GIL", "zh": "释放 GIL" },
-        { "term": "process pool", "zh": "进程池" },
-        { "term": "C extension", "zh": "C 扩展" },
-        { "term": "free-threaded build", "zh": "自由线程构建版（去掉了 GIL 的 CPython）" }
-      ],
-      "followUps": ["Why did CPython have a GIL in the first place?"]
-    },
-    {
-      "id": "be-python-asyncio-fit",
-      "prompt": "When does asyncio make a Python service faster, and when does it make things worse?",
-      "zh": "asyncio 什么时候能让 Python 服务更快，什么时候反而更糟？",
-      "outline": [
-        "It shines when one thread juggles many concurrent I/O waits",
-        "It does nothing for CPU-bound code, which stalls the loop",
-        "A single blocking call, such as a sync driver, freezes every request",
-        "Offload blocking or heavy work to a thread or process pool",
-        "The whole call chain must be async, which limits library choice"
-      ],
-      "chunks": [
-        { "term": "asyncio event loop", "zh": "asyncio 的事件循环" },
-        { "term": "coroutine", "zh": "协程" },
-        { "term": "blocking call", "zh": "阻塞调用" },
-        { "term": "yield control back to the event loop", "zh": "把控制权交还给事件循环" },
-        { "term": "run coroutines concurrently", "zh": "并发运行多个协程" },
-        { "term": "I/O-bound task", "zh": "I/O 密集型任务" }
-      ],
-      "followUps": [
-        "How would you find a blocking call hidden in an async code path?",
-        "How do you limit concurrency when fanning out thousands of requests?"
-      ]
-    },
-    {
-      "id": "be-python-typing-at-scale",
-      "prompt": "How do you keep a large Python codebase maintainable, given that the language is dynamically typed?",
-      "zh": "Python 是动态类型语言，你怎么让一个很大的 Python 代码库保持可维护？",
-      "outline": [
-        "Type hints plus a checker in CI, such as mypy or pyright",
-        "Adopt gradually: strict for new modules, looser for legacy code",
-        "Hints are not enforced at runtime, so validate external data at the boundary",
-        "Tests carry more weight than in a statically typed language",
-        "Linting, formatting, and clear module boundaries do the rest"
-      ],
-      "chunks": [
-        { "term": "type hints", "zh": "类型提示" },
-        { "term": "static type checker", "zh": "静态类型检查器" },
-        { "term": "dynamically typed", "zh": "动态类型的" },
-        { "term": "enforced at runtime", "zh": "在运行时被强制执行" },
-        { "term": "validate the request body", "zh": "校验请求体" },
-        { "term": "cover it with unit tests", "zh": "用单元测试把它覆盖到" }
-      ],
-      "followUps": ["How do you get a team to adopt type checking on a legacy codebase?"]
-    },
-    {
-      "id": "be-python-slow-endpoint",
-      "prompt": "A Python endpoint is too slow. How do you speed it up before you consider rewriting it in another language?",
-      "zh": "一个 Python 接口太慢了。在考虑用别的语言重写之前，你会怎么给它提速？",
-      "outline": [
-        "Profile first: cProfile, or a sampling profiler such as py-spy in production",
-        "Most wins are I/O or algorithmic: N+1 queries, missing caches, chatty calls",
-        "Push hot loops into built-ins, NumPy, or a native extension",
-        "Batch and parallelize I/O; cache pure results",
-        "Rewrite only the measured hot path, not the whole service"
-      ],
-      "chunks": [
-        { "term": "profile the code", "zh": "对代码做性能剖析" },
-        { "term": "hot path", "zh": "热点路径" },
-        { "term": "N+1 query problem", "zh": "N+1 查询问题" },
-        { "term": "batch the queries", "zh": "把多条查询合并成一批" },
-        { "term": "order of magnitude", "zh": "数量级" },
-        { "term": "rewrite from scratch", "zh": "推倒重写" }
-      ],
-      "followUps": ["At what point would you actually move that piece to Rust or Go?"]
-    },
-    {
-      "id": "be-python-production-serving",
-      "prompt": "How do you run a Python web service in production so it uses every core and survives traffic spikes?",
-      "zh": "你怎么在生产环境运行 Python Web 服务，让它既用上所有的核，又扛得住流量尖峰？",
-      "outline": [
-        "Run several worker processes behind a process manager, because of the GIL",
-        "Sync workers for simple apps; async workers for many slow connections",
-        "Size workers by cores and memory, not by guesswork",
-        "Each worker holds its own connection pool: watch total database connections",
-        "Set request timeouts and restart workers gracefully on deploy"
-      ],
-      "chunks": [
-        { "term": "worker process", "zh": "工作进程" },
-        { "term": "take advantage of multiple cores", "zh": "利用多核" },
-        { "term": "ASGI", "zh": "Python 异步 Web 应用和服务器之间的标准接口" },
-        { "term": "run out of connections", "zh": "连接数打满" },
-        { "term": "set a timeout", "zh": "设置超时" },
-        { "term": "task queue", "zh": "任务队列" }
-      ],
-      "followUps": ["Where would you run long background jobs, and why not in the web workers?"]
-    },
-    {
-      "id": "be-rust-ownership-explained",
-      "prompt": "How would you explain ownership and borrowing to a senior engineer coming from Java or Go, and what does it buy you?",
-      "zh": "面对一位写 Java 或 Go 出身的资深工程师，你会怎么解释所有权和借用？它带来了什么好处？",
-      "outline": [
-        "Each value has one owner and is freed when that owner leaves scope",
-        "Borrowing: many shared references or one mutable reference, never both",
-        "The compiler enforces this, so no garbage collector is needed",
-        "It rules out use-after-free, double frees, and data races at compile time",
-        "The price: a steeper learning curve, and some designs need rethinking"
-      ],
-      "chunks": [
-        { "term": "ownership model", "zh": "所有权模型" },
-        { "term": "the borrow checker", "zh": "借用检查器" },
-        { "term": "go out of scope", "zh": "离开作用域" },
-        { "term": "at compile time", "zh": "在编译期" },
-        { "term": "exclusive access", "zh": "独占访问" },
-        { "term": "dangling reference", "zh": "悬垂引用" }
-      ],
-      "followUps": [
-        "What do you do when the borrow checker rejects a design you know is safe?",
-        "When do you reach for reference counting instead?"
-      ]
-    },
-    {
-      "id": "be-rust-concurrency-guarantees",
-      "prompt": "How does Rust prevent data races at compile time, and which concurrency bugs can it still not prevent?",
-      "zh": "Rust 是怎么在编译期防住数据竞争的？还有哪些并发 bug 是它防不住的？",
-      "outline": [
-        "Send and Sync mark which types may move to or be shared across threads",
-        "Shared mutation must go through a mutex, read-write lock, or atomics",
-        "A mutex owns its data, so you cannot touch it without locking",
-        "Still possible: deadlocks, logical race conditions, starvation",
-        "Message passing over channels is often simpler than shared state"
-      ],
-      "chunks": [
-        { "term": "data race", "zh": "数据竞争" },
-        { "term": "Send and Sync", "zh": "标记类型能否跨线程转移、能否跨线程共享的两个 trait" },
-        { "term": "wrap it in a mutex", "zh": "用互斥锁把它包起来" },
-        { "term": "message passing", "zh": "消息传递" },
-        { "term": "fearless concurrency", "zh": "无畏并发" },
-        { "term": "race condition", "zh": "竞态条件" }
-      ],
-      "followUps": ["What is the difference between a data race and a race condition?"]
-    },
-    {
-      "id": "be-rust-when-to-choose",
-      "prompt": "Why would you choose Rust for a service over Go or Java, and when would you argue against it?",
-      "zh": "你为什么会给一个服务选 Rust 而不是 Go 或 Java？什么情况下你会反对用它？",
-      "outline": [
-        "Strengths: predictable latency without GC pauses, low memory use, memory safety",
-        "Good fit: hot paths, proxies, data infrastructure, embedded, WebAssembly",
-        "Costs: slower onboarding, long compile times, a smaller hiring pool",
-        "For typical CRUD services, Go or Java usually ships faster",
-        "A middle path: rewrite only the performance-critical component"
-      ],
-      "chunks": [
-        { "term": "memory safety", "zh": "内存安全" },
-        { "term": "zero-cost abstraction", "zh": "零成本抽象" },
-        { "term": "GC pause", "zh": "GC 停顿" },
-        { "term": "compile times", "zh": "编译耗时" },
-        { "term": "get ... up to speed", "zh": "让（新人）尽快上手" },
-        { "term": "good enough for our use case", "zh": "对我们的场景来说已经够用" }
-      ],
-      "followUps": ["How would you introduce Rust to a team that has never used it?"]
-    },
-    {
-      "id": "be-rust-error-handling",
-      "prompt": "How do you approach error handling in Rust, and how does it compare with exceptions in other languages?",
-      "zh": "你在 Rust 里是怎么做错误处理的？和其他语言的异常机制比起来怎么样？",
-      "outline": [
-        "Errors are values: Result for expected failures, panic for bugs",
-        "The question mark operator propagates errors while keeping control flow visible",
-        "Libraries expose typed errors; applications often use one catch-all with context",
-        "The compiler makes callers handle or propagate each error explicitly",
-        "Avoid unwrap on production paths; add context at each layer"
-      ],
-      "chunks": [
-        { "term": "Result type", "zh": "表示“操作可能失败”的返回类型" },
-        { "term": "propagate the error", "zh": "把错误向上传播" },
-        { "term": "the question mark operator", "zh": "问号运算符" },
-        { "term": "unwrap", "zh": "直接取出里面的值，没有值就崩溃" },
-        { "term": "panic", "zh": "（遇到无法恢复的错误时）崩溃" },
-        { "term": "checked exception", "zh": "受检异常" }
-      ],
-      "followUps": ["When is it acceptable to panic in a long-running service?"]
-    },
-    {
-      "id": "be-rust-async-service",
-      "prompt": "What should a team know before building an async Rust service on a runtime like Tokio?",
-      "zh": "一个团队在用 Tokio 这类运行时构建异步 Rust 服务之前，应该先了解什么？",
-      "outline": [
-        "Futures are lazy state machines; nothing runs until an executor polls them",
-        "The runtime is a library you choose, not part of the language",
-        "Never block worker threads: send CPU work and sync I/O to a blocking pool",
-        "Avoid holding a standard mutex guard across an await",
-        "Cancellation means dropping the future, so design every await point for it"
-      ],
-      "chunks": [
-        { "term": "async runtime", "zh": "异步运行时" },
-        { "term": "poll a future", "zh": "轮询一个 future" },
-        { "term": "state machine", "zh": "状态机" },
-        { "term": "block the executor", "zh": "阻塞执行器" },
-        { "term": "spawn a task", "zh": "启动一个（异步）任务" },
-        { "term": "backpressure", "zh": "背压" }
-      ],
-      "followUps": ["How do you apply backpressure when tasks are cheap to spawn?"]
-    },
-    {
-      "id": "be-node-event-loop",
-      "prompt": "Walk me through the Node.js event loop. Why does it matter for how you write server code?",
-      "zh": "给我讲讲 Node.js 的事件循环。它为什么会影响你写服务端代码的方式？",
-      "outline": [
-        "One thread runs JavaScript; I/O goes to the OS or libuv's thread pool",
-        "Phases: timers, pending callbacks, poll, check, close callbacks",
-        "nextTick and promise callbacks run between callbacks, before the loop moves on",
-        "Any long synchronous work delays every other request",
-        "So keep handlers short and keep I/O asynchronous"
-      ],
-      "chunks": [
-        { "term": "single-threaded", "zh": "单线程的" },
-        { "term": "non-blocking I/O", "zh": "非阻塞 I/O" },
-        { "term": "libuv thread pool", "zh": "libuv 线程池" },
-        { "term": "poll phase", "zh": "轮询阶段" },
-        { "term": "nextTick queue", "zh": "process.nextTick 的回调队列" },
-        { "term": "starve the event loop", "zh": "把事件循环饿死" }
-      ],
-      "followUps": ["Which operations actually use the libuv thread pool, and which don't?"]
-    },
-    {
-      "id": "be-node-blocked-loop",
-      "prompt": "A Node.js service's latency spikes under load while CPU sits at one full core. How do you diagnose and fix it?",
-      "zh": "一个 Node.js 服务一上负载延迟就飙升，而 CPU 正好占满一个核。你怎么诊断、怎么解决？",
-      "outline": [
-        "Suspect a blocked event loop; measure event loop delay to confirm",
-        "Capture a CPU profile or flame graph to find the synchronous hot spot",
-        "Typical culprits: huge JSON payloads, sync crypto or file calls, catastrophic regex backtracking",
-        "Fix: chunk the work, move it to worker threads, or to another service",
-        "Add event loop delay to dashboards and alerts"
-      ],
-      "chunks": [
-        { "term": "block the event loop", "zh": "阻塞事件循环" },
-        { "term": "worker thread", "zh": "工作线程" },
-        { "term": "attach a profiler", "zh": "挂上性能剖析器" },
-        { "term": "hot path", "zh": "热点路径" },
-        { "term": "p99 latency", "zh": "99 分位延迟" },
-        { "term": "alert on ...", "zh": "针对……告警" }
-      ],
-      "followUps": ["When are worker threads the wrong tool for this?"]
-    },
-    {
-      "id": "be-node-scaling",
-      "prompt": "Node runs your JavaScript on a single thread. How do you scale a Node service across cores and machines?",
-      "zh": "Node 只在一个线程上跑你的 JavaScript。你怎么让 Node 服务扩展到多个核、多台机器？",
-      "outline": [
-        "One process per core: the cluster module, or more containers behind a load balancer",
-        "Keep processes stateless; put sessions and caches in external stores",
-        "Worker threads are for CPU-heavy tasks, not for scaling request handling",
-        "WebSockets need sticky sessions or a shared pub/sub layer",
-        "On SIGTERM: stop accepting connections, finish in-flight requests, then exit"
-      ],
-      "chunks": [
-        { "term": "take advantage of multiple cores", "zh": "利用多核" },
-        { "term": "fork a worker per core", "zh": "每个 CPU 核 fork 一个工作进程" },
-        { "term": "stateless service", "zh": "无状态服务" },
-        { "term": "load balancer", "zh": "负载均衡器" },
-        { "term": "handle SIGTERM", "zh": "处理 SIGTERM 信号" },
-        { "term": "finish in-flight requests", "zh": "把在途的请求处理完" }
-      ],
-      "followUps": ["What breaks if an in-memory cache lives inside each process?"]
-    },
-    {
-      "id": "be-node-streams",
-      "prompt": "How do streams and backpressure work in Node, and when have they mattered to you?",
-      "zh": "Node 里的流和背压是怎么工作的？它们在什么场合对你很重要？",
-      "outline": [
-        "Streams handle data in chunks instead of loading everything into memory",
-        "Backpressure: a slow destination tells the source to pause",
-        "Manually: stop when write returns false, resume on the drain event",
-        "Prefer pipeline over pipe: it forwards errors and cleans up",
-        "It matters for large uploads, exports, proxies, and log processing"
-      ],
-      "chunks": [
-        { "term": "respect backpressure", "zh": "遵守背压" },
-        { "term": "buffer the whole file in memory", "zh": "把整个文件缓冲进内存" },
-        { "term": "readable stream", "zh": "可读流" },
-        { "term": "pipe ... into ...", "zh": "把（一个流）接到（另一个流）上" },
-        { "term": "memory footprint", "zh": "内存占用" }
-      ],
-      "followUps": ["What happens to memory if a producer ignores backpressure?"]
-    },
-    {
-      "id": "be-node-crash-handling",
-      "prompt": "How should a Node.js service deal with unhandled promise rejections and uncaught exceptions in production?",
-      "zh": "生产环境里的 Node.js 服务应该怎么对待未处理的 Promise 拒绝和未捕获的异常？",
-      "outline": [
-        "Separate operational errors from programmer bugs",
-        "Handle operational errors per request: validate, catch, return a proper status",
-        "Since Node 15, an unhandled rejection crashes the process by default",
-        "On an uncaught exception, log, stop accepting traffic, and restart: state may be corrupt",
-        "Rely on an orchestrator and multiple instances to absorb restarts"
-      ],
-      "chunks": [
-        { "term": "unhandled rejection", "zh": "未处理的 Promise 拒绝" },
-        { "term": "uncaught exception", "zh": "未捕获的异常" },
-        { "term": "exit with a non-zero code", "zh": "以非零退出码退出" },
-        { "term": "error-handling middleware", "zh": "错误处理中间件" },
-        { "term": "swallow an exception", "zh": "吞掉异常" },
-        { "term": "structured logging", "zh": "结构化日志" }
-      ],
-      "followUps": ["Why is it dangerous to catch everything and keep the process running?"]
-    },
-    {
-      "id": "be-choosing-a-language",
-      "prompt": "How do you decide which language or runtime to use for a new backend service?",
-      "zh": "一个新的后端服务该用哪种语言或运行时，你是怎么决定的？",
-      "outline": [
-        "Start from the workload: I/O-bound, CPU-bound, latency-sensitive, memory-constrained",
-        "Team skills and hiring usually outweigh benchmark differences",
-        "Ecosystem: libraries, tooling, cloud SDKs, operational maturity",
-        "Limit how many languages the organization has to support",
-        "Prototype the riskiest part before committing"
-      ],
-      "chunks": [
-        { "term": "given the constraints", "zh": "考虑到当时的限制条件" },
-        { "term": "We opted for ... over ... because ...", "zh": "我们选了……而不是……，因为……" },
-        { "term": "weigh the pros and cons", "zh": "权衡利弊" },
-        { "term": "runtime overhead", "zh": "运行时开销" },
-        { "term": "ramp up", "zh": "（新人）逐步上手" }
-      ],
-      "followUps": [
-        "Tell me about a language choice you later regretted.",
-        "How many languages is too many for one engineering organization?"
-      ]
-    },
-    {
-      "id": "be-memory-leak-hunt",
-      "prompt": "Memory usage of a production service grows steadily until the process gets killed. How do you track down the leak?",
-      "zh": "一个线上服务的内存持续上涨，直到进程被杀掉。你怎么把泄漏点找出来？",
-      "outline": [
-        "Confirm it is a real leak: memory keeps rising even after GC",
-        "Compare heap dumps or snapshots taken some time apart",
-        "Find what is growing and what keeps it reachable",
-        "Common causes: unbounded caches, listeners never removed, growing maps, unclosed resources",
-        "Mitigate first if needed: restart or roll back, then fix and add monitoring"
-      ],
-      "chunks": [
-        { "term": "memory leak", "zh": "内存泄漏" },
-        { "term": "take a heap dump", "zh": "抓一份堆转储" },
-        { "term": "heap snapshot", "zh": "堆快照" },
-        { "term": "hold a reference to", "zh": "持有对……的引用" },
-        { "term": "unbounded cache", "zh": "没有上限的缓存" },
-        { "term": "event listener leak", "zh": "事件监听器泄漏" }
-      ],
-      "followUps": ["What if the heap looks stable but the process memory still grows?"]
-    },
-    {
-      "id": "be-tail-latency-regression",
-      "prompt": "An API's p99 latency has doubled since last week, but the average looks fine. How do you investigate?",
-      "zh": "一个接口的 p99 延迟比上周翻了一倍，但平均值看着正常。你怎么排查？",
-      "outline": [
-        "Check what changed: deploys, traffic mix, data size, dependencies",
-        "Tail latency points at outliers: GC pauses, lock contention, slow queries, retries",
-        "Use tracing to see where the slow requests spend their time",
-        "Compare slow and fast requests: payload, tenant, shard, instance",
-        "Form a hypothesis, test it, and confirm the fix on the same metric"
-      ],
-      "chunks": [
-        { "term": "p99 latency", "zh": "99 分位延迟" },
-        { "term": "distributed tracing", "zh": "分布式链路追踪" },
-        { "term": "lock contention", "zh": "锁竞争" },
-        { "term": "rule out", "zh": "排除（某种可能性）" },
-        { "term": "bottleneck", "zh": "瓶颈" },
-        { "term": "root cause", "zh": "根因" }
-      ],
-      "followUps": ["Why is the average a poor signal for user-facing latency?"]
-    },
-    {
-      "id": "be-api-design-principles",
-      "prompt": "What principles do you follow when designing an API that other teams will depend on for years?",
-      "zh": "设计一个别的团队要依赖很多年的 API 时，你遵循哪些原则？",
-      "outline": [
-        "Design from the consumers' use cases, not from your database tables",
-        "Make it hard to misuse: consistent naming, pagination, a clear error model",
-        "Make writes idempotent so clients can retry safely",
-        "Evolve additively; bump the version only for breaking changes",
-        "Document the contract; deprecate with notice and real usage data"
-      ],
-      "chunks": [
-        { "term": "API contract", "zh": "接口契约" },
-        { "term": "backward compatible", "zh": "向后兼容的" },
-        { "term": "breaking change", "zh": "破坏性变更" },
-        { "term": "idempotency key", "zh": "幂等键" },
-        { "term": "keyset pagination", "zh": "键集分页" },
-        { "term": "deprecate", "zh": "弃用" }
-      ],
-      "followUps": [
-        "How do you retire an endpoint that some clients still call?",
-        "When would you pick gRPC or GraphQL over REST?"
-      ]
+     "term": "p99 latency",
+     "zh": "99 分位延迟"
     }
-  ]
+   ],
+   "followUps": [
+    "What would frequent full GCs tell you about the application?",
+    "How do you tell a GC problem apart from a memory leak?"
+   ]
+  },
+  {
+   "id": "be-java-cold-start",
+   "prompt": "Why is a Java service often slow right after a deployment, and what can you do about it?",
+   "zh": "Java 服务为什么刚部署完那一阵往往比较慢？你能做些什么？",
+   "outline": [
+    "A cold JVM loads classes lazily and starts by interpreting bytecode",
+    "The JIT compiles hot paths only after enough invocations",
+    "Connection pools and caches also start empty",
+    "Mitigate: send warm-up requests before readiness, shift traffic gradually",
+    "Other options: class data sharing, or native images with lower peak throughput"
+   ],
+   "chunks": [
+    {
+     "term": "warm up the JVM",
+     "zh": "预热 JVM"
+    },
+    {
+     "term": "JIT compiler",
+     "zh": "即时编译器"
+    },
+    {
+     "term": "hot path",
+     "zh": "热点路径"
+    },
+    {
+     "term": "warm up the cache",
+     "zh": "预热缓存"
+    },
+    {
+     "term": "connection pool",
+     "zh": "连接池"
+    }
+   ],
+   "followUps": [
+    "How does this interact with auto-scaling during a traffic spike?"
+   ]
+  },
+  {
+   "id": "be-java-concurrency-bug",
+   "prompt": "Tell me about a concurrency bug you've dealt with in Java. How did you find it and fix it?",
+   "zh": "讲一个你处理过的 Java 并发 bug。你是怎么发现、怎么修的？",
+   "outline": [
+    "Situation: intermittent wrong data or a hang that only showed under load",
+    "Reproduce with a stress test; take thread dumps if threads hang",
+    "Pin down the shared mutable state and the unsafe interleaving",
+    "Prefer confinement, immutability, or concurrent collections over adding more locks",
+    "Result: add a regression test and review similar code paths"
+   ],
+   "chunks": [
+    {
+     "term": "race condition",
+     "zh": "竞态条件"
+    },
+    {
+     "term": "shared mutable state",
+     "zh": "共享可变状态"
+    },
+    {
+     "term": "check-then-act",
+     "zh": "先检查再执行（典型的竞态写法）"
+    },
+    {
+     "term": "take a thread dump",
+     "zh": "抓一份线程转储"
+    },
+    {
+     "term": "deadlock",
+     "zh": "死锁"
+    },
+    {
+     "term": "immutable object",
+     "zh": "不可变对象"
+    }
+   ],
+   "followUps": [
+    "Why are these bugs so hard to catch in code review or unit tests?"
+   ]
+  },
+  {
+   "id": "be-java-virtual-threads",
+   "prompt": "What do virtual threads change about how you write concurrent Java, and where do they not help?",
+   "zh": "虚拟线程改变了你写 Java 并发代码的哪些方式？它在哪些地方帮不上忙？",
+   "outline": [
+    "Threads become cheap, so plain blocking code scales without reactive frameworks",
+    "A blocked virtual thread unmounts and frees its carrier thread",
+    "Great for I/O-bound work; no gain for CPU-bound work",
+    "Do not pool them; limit concurrency with a semaphore instead",
+    "Watch for pinning on older JDKs and heavy ThreadLocal use"
+   ],
+   "chunks": [
+    {
+     "term": "virtual threads",
+     "zh": "虚拟线程"
+    },
+    {
+     "term": "platform thread",
+     "zh": "平台线程"
+    },
+    {
+     "term": "block the calling thread",
+     "zh": "阻塞调用方线程"
+    },
+    {
+     "term": "thread pool",
+     "zh": "线程池"
+    },
+    {
+     "term": "I/O-bound task",
+     "zh": "I/O 密集型任务"
+    },
+    {
+     "term": "CPU-bound task",
+     "zh": "CPU 密集型任务"
+    }
+   ],
+   "followUps": [
+    "Would you still pick a reactive framework for a new service today?"
+   ]
+  },
+  {
+   "id": "be-spring-transactional-pitfalls",
+   "prompt": "What are the common ways @Transactional silently fails to do what people expect in Spring?",
+   "zh": "Spring 里的 @Transactional 有哪些常见情况会悄悄失效、达不到大家的预期？",
+   "outline": [
+    "It works through a proxy, so calling it from the same class bypasses it",
+    "Private and final methods cannot be intercepted",
+    "By default it rolls back on unchecked exceptions only",
+    "Catching and swallowing the exception inside the method prevents rollback",
+    "Propagation matters: REQUIRES_NEW suspends the outer transaction and uses another connection"
+   ],
+   "chunks": [
+    {
+     "term": "declarative transactions",
+     "zh": "声明式事务"
+    },
+    {
+     "term": "bypass the proxy",
+     "zh": "绕过代理"
+    },
+    {
+     "term": "transaction propagation",
+     "zh": "事务传播（行为）"
+    },
+    {
+     "term": "roll back the transaction",
+     "zh": "回滚事务"
+    },
+    {
+     "term": "checked exception",
+     "zh": "受检异常"
+    },
+    {
+     "term": "swallow an exception",
+     "zh": "吞掉异常"
+    }
+   ],
+   "followUps": [
+    "Why is it risky to call a remote service inside a transactional method?"
+   ]
+  },
+  {
+   "id": "be-java-thread-pool-sizing",
+   "prompt": "How do you size and configure thread pools in a service that calls several downstream dependencies?",
+   "zh": "一个要调用好几个下游依赖的服务，线程池的大小和配置你怎么定？",
+   "outline": [
+    "CPU-bound work: roughly one thread per core",
+    "I/O-bound work: more threads, sized by wait time and downstream limits",
+    "Use bounded queues and a rejection policy; unbounded queues hide overload",
+    "Separate pools per dependency so one slow service cannot starve the rest",
+    "Measure queue time and saturation, then adjust"
+   ],
+   "chunks": [
+    {
+     "term": "thread pool",
+     "zh": "线程池"
+    },
+    {
+     "term": "submit a task",
+     "zh": "提交任务"
+    },
+    {
+     "term": "bulkhead",
+     "zh": "舱壁隔离"
+    },
+    {
+     "term": "backpressure",
+     "zh": "背压"
+    },
+    {
+     "term": "cascading failure",
+     "zh": "级联故障"
+    }
+   ],
+   "followUps": [
+    "What should happen to a request when the pool and its queue are both full?"
+   ]
+  },
+  {
+   "id": "be-python-gil",
+   "prompt": "How does the GIL affect the way you design a Python service, and what are your options for CPU-heavy work?",
+   "zh": "GIL 怎样影响你设计 Python 服务的方式？遇到重 CPU 的工作你有哪些办法？",
+   "outline": [
+    "Only one thread executes Python bytecode at a time",
+    "Threads still help I/O-bound work because the GIL is released while waiting",
+    "For CPU-bound work: processes, native code that releases the GIL, or another service",
+    "Processes cost memory and serialization between them",
+    "Free-threaded builds exist since 3.13, but not every library supports them yet"
+   ],
+   "chunks": [
+    {
+     "term": "global interpreter lock",
+     "zh": "全局解释器锁"
+    },
+    {
+     "term": "CPU-bound task",
+     "zh": "CPU 密集型任务"
+    },
+    {
+     "term": "release the GIL",
+     "zh": "释放 GIL"
+    },
+    {
+     "term": "process pool",
+     "zh": "进程池"
+    },
+    {
+     "term": "C extension",
+     "zh": "C 扩展"
+    },
+    {
+     "term": "free-threaded build",
+     "zh": "自由线程构建版（去掉了 GIL 的 CPython）"
+    }
+   ],
+   "followUps": [
+    "Why did CPython have a GIL in the first place?"
+   ]
+  },
+  {
+   "id": "be-python-asyncio-fit",
+   "prompt": "When does asyncio make a Python service faster, and when does it make things worse?",
+   "zh": "asyncio 什么时候能让 Python 服务更快，什么时候反而更糟？",
+   "outline": [
+    "It shines when one thread juggles many concurrent I/O waits",
+    "It does nothing for CPU-bound code, which stalls the loop",
+    "A single blocking call, such as a sync driver, freezes every request",
+    "Offload blocking or heavy work to a thread or process pool",
+    "The whole call chain must be async, which limits library choice"
+   ],
+   "chunks": [
+    {
+     "term": "asyncio event loop",
+     "zh": "asyncio 的事件循环"
+    },
+    {
+     "term": "coroutine",
+     "zh": "协程"
+    },
+    {
+     "term": "blocking call",
+     "zh": "阻塞调用"
+    },
+    {
+     "term": "yield control back to the event loop",
+     "zh": "把控制权交还给事件循环"
+    },
+    {
+     "term": "run coroutines concurrently",
+     "zh": "并发运行多个协程"
+    },
+    {
+     "term": "I/O-bound task",
+     "zh": "I/O 密集型任务"
+    }
+   ],
+   "followUps": [
+    "How would you find a blocking call hidden in an async code path?",
+    "How do you limit concurrency when fanning out thousands of requests?"
+   ]
+  },
+  {
+   "id": "be-python-typing-at-scale",
+   "prompt": "How do you keep a large Python codebase maintainable, given that the language is dynamically typed?",
+   "zh": "Python 是动态类型语言，你怎么让一个很大的 Python 代码库保持可维护？",
+   "outline": [
+    "Type hints plus a checker in CI, such as mypy or pyright",
+    "Adopt gradually: strict for new modules, looser for legacy code",
+    "Hints are not enforced at runtime, so validate external data at the boundary",
+    "Tests carry more weight than in a statically typed language",
+    "Linting, formatting, and clear module boundaries do the rest"
+   ],
+   "chunks": [
+    {
+     "term": "type hints",
+     "zh": "类型提示"
+    },
+    {
+     "term": "static type checker",
+     "zh": "静态类型检查器"
+    },
+    {
+     "term": "dynamically typed",
+     "zh": "动态类型的"
+    },
+    {
+     "term": "enforced at runtime",
+     "zh": "在运行时被强制执行"
+    },
+    {
+     "term": "validate the request body",
+     "zh": "校验请求体"
+    },
+    {
+     "term": "cover it with unit tests",
+     "zh": "用单元测试把它覆盖到"
+    }
+   ],
+   "followUps": [
+    "How do you get a team to adopt type checking on a legacy codebase?"
+   ]
+  },
+  {
+   "id": "be-python-slow-endpoint",
+   "prompt": "A Python endpoint is too slow. How do you speed it up before you consider rewriting it in another language?",
+   "zh": "一个 Python 接口太慢了。在考虑用别的语言重写之前，你会怎么给它提速？",
+   "outline": [
+    "Profile first: cProfile, or a sampling profiler such as py-spy in production",
+    "Most wins are I/O or algorithmic: N+1 queries, missing caches, chatty calls",
+    "Push hot loops into built-ins, NumPy, or a native extension",
+    "Batch and parallelize I/O; cache pure results",
+    "Rewrite only the measured hot path, not the whole service"
+   ],
+   "chunks": [
+    {
+     "term": "profile the code",
+     "zh": "对代码做性能剖析"
+    },
+    {
+     "term": "hot path",
+     "zh": "热点路径"
+    },
+    {
+     "term": "N+1 query problem",
+     "zh": "N+1 查询问题"
+    },
+    {
+     "term": "batch the queries",
+     "zh": "把多条查询合并成一批"
+    },
+    {
+     "term": "order of magnitude",
+     "zh": "数量级"
+    },
+    {
+     "term": "rewrite from scratch",
+     "zh": "推倒重写"
+    }
+   ],
+   "followUps": [
+    "At what point would you actually move that piece to Rust or Go?"
+   ]
+  },
+  {
+   "id": "be-python-production-serving",
+   "prompt": "How do you run a Python web service in production so it uses every core and survives traffic spikes?",
+   "zh": "你怎么在生产环境运行 Python Web 服务，让它既用上所有的核，又扛得住流量尖峰？",
+   "outline": [
+    "Run several worker processes behind a process manager, because of the GIL",
+    "Sync workers for simple apps; async workers for many slow connections",
+    "Size workers by cores and memory, not by guesswork",
+    "Each worker holds its own connection pool: watch total database connections",
+    "Set request timeouts and restart workers gracefully on deploy"
+   ],
+   "chunks": [
+    {
+     "term": "worker process",
+     "zh": "工作进程"
+    },
+    {
+     "term": "take advantage of multiple cores",
+     "zh": "利用多核"
+    },
+    {
+     "term": "ASGI",
+     "zh": "Python 异步 Web 应用和服务器之间的标准接口"
+    },
+    {
+     "term": "run out of connections",
+     "zh": "连接数打满"
+    },
+    {
+     "term": "set a timeout",
+     "zh": "设置超时"
+    },
+    {
+     "term": "task queue",
+     "zh": "任务队列"
+    }
+   ],
+   "followUps": [
+    "Where would you run long background jobs, and why not in the web workers?"
+   ]
+  },
+  {
+   "id": "be-rust-ownership-explained",
+   "prompt": "How would you explain ownership and borrowing to a senior engineer coming from Java or Go, and what does it buy you?",
+   "zh": "面对一位写 Java 或 Go 出身的资深工程师，你会怎么解释所有权和借用？它带来了什么好处？",
+   "outline": [
+    "Each value has one owner and is freed when that owner leaves scope",
+    "Borrowing: many shared references or one mutable reference, never both",
+    "The compiler enforces this, so no garbage collector is needed",
+    "It rules out use-after-free, double frees, and data races at compile time",
+    "The price: a steeper learning curve, and some designs need rethinking"
+   ],
+   "chunks": [
+    {
+     "term": "ownership model",
+     "zh": "所有权模型"
+    },
+    {
+     "term": "the borrow checker",
+     "zh": "借用检查器"
+    },
+    {
+     "term": "go out of scope",
+     "zh": "离开作用域"
+    },
+    {
+     "term": "at compile time",
+     "zh": "在编译期"
+    },
+    {
+     "term": "exclusive access",
+     "zh": "独占访问"
+    },
+    {
+     "term": "dangling reference",
+     "zh": "悬垂引用"
+    }
+   ],
+   "followUps": [
+    "What do you do when the borrow checker rejects a design you know is safe?",
+    "When do you reach for reference counting instead?"
+   ]
+  },
+  {
+   "id": "be-rust-concurrency-guarantees",
+   "prompt": "How does Rust prevent data races at compile time, and which concurrency bugs can it still not prevent?",
+   "zh": "Rust 是怎么在编译期防住数据竞争的？还有哪些并发 bug 是它防不住的？",
+   "outline": [
+    "Send and Sync mark which types may move to or be shared across threads",
+    "Shared mutation must go through a mutex, read-write lock, or atomics",
+    "A mutex owns its data, so you cannot touch it without locking",
+    "Still possible: deadlocks, logical race conditions, starvation",
+    "Message passing over channels is often simpler than shared state"
+   ],
+   "chunks": [
+    {
+     "term": "data race",
+     "zh": "数据竞争"
+    },
+    {
+     "term": "Send and Sync",
+     "zh": "标记类型能否跨线程转移、能否跨线程共享的两个 trait"
+    },
+    {
+     "term": "wrap it in a mutex",
+     "zh": "用互斥锁把它包起来"
+    },
+    {
+     "term": "message passing",
+     "zh": "消息传递"
+    },
+    {
+     "term": "fearless concurrency",
+     "zh": "无畏并发"
+    },
+    {
+     "term": "race condition",
+     "zh": "竞态条件"
+    }
+   ],
+   "followUps": [
+    "What is the difference between a data race and a race condition?"
+   ]
+  },
+  {
+   "id": "be-rust-when-to-choose",
+   "prompt": "Why would you choose Rust for a service over Go or Java, and when would you argue against it?",
+   "zh": "你为什么会给一个服务选 Rust 而不是 Go 或 Java？什么情况下你会反对用它？",
+   "outline": [
+    "Strengths: predictable latency without GC pauses, low memory use, memory safety",
+    "Good fit: hot paths, proxies, data infrastructure, embedded, WebAssembly",
+    "Costs: slower onboarding, long compile times, a smaller hiring pool",
+    "For typical CRUD services, Go or Java usually ships faster",
+    "A middle path: rewrite only the performance-critical component"
+   ],
+   "chunks": [
+    {
+     "term": "memory safety",
+     "zh": "内存安全"
+    },
+    {
+     "term": "zero-cost abstraction",
+     "zh": "零成本抽象"
+    },
+    {
+     "term": "GC pause",
+     "zh": "GC 停顿"
+    },
+    {
+     "term": "compile times",
+     "zh": "编译耗时"
+    },
+    {
+     "term": "get ... up to speed",
+     "zh": "让（新人）尽快上手"
+    },
+    {
+     "term": "good enough for our use case",
+     "zh": "对我们的场景来说已经够用"
+    }
+   ],
+   "followUps": [
+    "How would you introduce Rust to a team that has never used it?"
+   ]
+  },
+  {
+   "id": "be-rust-error-handling",
+   "prompt": "How do you approach error handling in Rust, and how does it compare with exceptions in other languages?",
+   "zh": "你在 Rust 里是怎么做错误处理的？和其他语言的异常机制比起来怎么样？",
+   "outline": [
+    "Errors are values: Result for expected failures, panic for bugs",
+    "The question mark operator propagates errors while keeping control flow visible",
+    "Libraries expose typed errors; applications often use one catch-all with context",
+    "The compiler makes callers handle or propagate each error explicitly",
+    "Avoid unwrap on production paths; add context at each layer"
+   ],
+   "chunks": [
+    {
+     "term": "Result type",
+     "zh": "表示“操作可能失败”的返回类型"
+    },
+    {
+     "term": "propagate the error",
+     "zh": "把错误向上传播"
+    },
+    {
+     "term": "the question mark operator",
+     "zh": "问号运算符"
+    },
+    {
+     "term": "unwrap",
+     "zh": "直接取出里面的值，没有值就崩溃"
+    },
+    {
+     "term": "panic",
+     "zh": "（遇到无法恢复的错误时）崩溃"
+    },
+    {
+     "term": "checked exception",
+     "zh": "受检异常"
+    }
+   ],
+   "followUps": [
+    "When is it acceptable to panic in a long-running service?"
+   ]
+  },
+  {
+   "id": "be-rust-async-service",
+   "prompt": "What should a team know before building an async Rust service on a runtime like Tokio?",
+   "zh": "一个团队在用 Tokio 这类运行时构建异步 Rust 服务之前，应该先了解什么？",
+   "outline": [
+    "Futures are lazy state machines; nothing runs until an executor polls them",
+    "The runtime is a library you choose, not part of the language",
+    "Never block worker threads: send CPU work and sync I/O to a blocking pool",
+    "Avoid holding a standard mutex guard across an await",
+    "Cancellation means dropping the future, so design every await point for it"
+   ],
+   "chunks": [
+    {
+     "term": "async runtime",
+     "zh": "异步运行时"
+    },
+    {
+     "term": "poll a future",
+     "zh": "轮询一个 future"
+    },
+    {
+     "term": "state machine",
+     "zh": "状态机"
+    },
+    {
+     "term": "block the executor",
+     "zh": "阻塞执行器"
+    },
+    {
+     "term": "spawn a task",
+     "zh": "启动一个（异步）任务"
+    },
+    {
+     "term": "backpressure",
+     "zh": "背压"
+    }
+   ],
+   "followUps": [
+    "How do you apply backpressure when tasks are cheap to spawn?"
+   ]
+  },
+  {
+   "id": "be-node-event-loop",
+   "prompt": "Walk me through the Node.js event loop. Why does it matter for how you write server code?",
+   "zh": "给我讲讲 Node.js 的事件循环。它为什么会影响你写服务端代码的方式？",
+   "outline": [
+    "One thread runs JavaScript; I/O goes to the OS or libuv's thread pool",
+    "Phases: timers, pending callbacks, poll, check, close callbacks",
+    "nextTick and promise callbacks run between callbacks, before the loop moves on",
+    "Any long synchronous work delays every other request",
+    "So keep handlers short and keep I/O asynchronous"
+   ],
+   "chunks": [
+    {
+     "term": "single-threaded",
+     "zh": "单线程的"
+    },
+    {
+     "term": "non-blocking I/O",
+     "zh": "非阻塞 I/O"
+    },
+    {
+     "term": "libuv thread pool",
+     "zh": "libuv 线程池"
+    },
+    {
+     "term": "poll phase",
+     "zh": "轮询阶段"
+    },
+    {
+     "term": "nextTick queue",
+     "zh": "process.nextTick 的回调队列"
+    },
+    {
+     "term": "starve the event loop",
+     "zh": "把事件循环饿死"
+    }
+   ],
+   "followUps": [
+    "Which operations actually use the libuv thread pool, and which don't?"
+   ]
+  },
+  {
+   "id": "be-node-blocked-loop",
+   "prompt": "A Node.js service's latency spikes under load while CPU sits at one full core. How do you diagnose and fix it?",
+   "zh": "一个 Node.js 服务一上负载延迟就飙升，而 CPU 正好占满一个核。你怎么诊断、怎么解决？",
+   "outline": [
+    "Suspect a blocked event loop; measure event loop delay to confirm",
+    "Capture a CPU profile or flame graph to find the synchronous hot spot",
+    "Typical culprits: huge JSON payloads, sync crypto or file calls, catastrophic regex backtracking",
+    "Fix: chunk the work, move it to worker threads, or to another service",
+    "Add event loop delay to dashboards and alerts"
+   ],
+   "chunks": [
+    {
+     "term": "block the event loop",
+     "zh": "阻塞事件循环"
+    },
+    {
+     "term": "worker thread",
+     "zh": "工作线程"
+    },
+    {
+     "term": "attach a profiler",
+     "zh": "挂上性能剖析器"
+    },
+    {
+     "term": "hot path",
+     "zh": "热点路径"
+    },
+    {
+     "term": "p99 latency",
+     "zh": "99 分位延迟"
+    },
+    {
+     "term": "alert on ...",
+     "zh": "针对……告警"
+    }
+   ],
+   "followUps": [
+    "When are worker threads the wrong tool for this?"
+   ]
+  },
+  {
+   "id": "be-node-scaling",
+   "prompt": "Node runs your JavaScript on a single thread. How do you scale a Node service across cores and machines?",
+   "zh": "Node 只在一个线程上跑你的 JavaScript。你怎么让 Node 服务扩展到多个核、多台机器？",
+   "outline": [
+    "One process per core: the cluster module, or more containers behind a load balancer",
+    "Keep processes stateless; put sessions and caches in external stores",
+    "Worker threads are for CPU-heavy tasks, not for scaling request handling",
+    "WebSockets need sticky sessions or a shared pub/sub layer",
+    "On SIGTERM: stop accepting connections, finish in-flight requests, then exit"
+   ],
+   "chunks": [
+    {
+     "term": "take advantage of multiple cores",
+     "zh": "利用多核"
+    },
+    {
+     "term": "fork a worker per core",
+     "zh": "每个 CPU 核 fork 一个工作进程"
+    },
+    {
+     "term": "stateless service",
+     "zh": "无状态服务"
+    },
+    {
+     "term": "load balancer",
+     "zh": "负载均衡器"
+    },
+    {
+     "term": "handle SIGTERM",
+     "zh": "处理 SIGTERM 信号"
+    },
+    {
+     "term": "finish in-flight requests",
+     "zh": "把在途的请求处理完"
+    }
+   ],
+   "followUps": [
+    "What breaks if an in-memory cache lives inside each process?"
+   ]
+  },
+  {
+   "id": "be-node-streams",
+   "prompt": "How do streams and backpressure work in Node, and when have they mattered to you?",
+   "zh": "Node 里的流和背压是怎么工作的？它们在什么场合对你很重要？",
+   "outline": [
+    "Streams handle data in chunks instead of loading everything into memory",
+    "Backpressure: a slow destination tells the source to pause",
+    "Manually: stop when write returns false, resume on the drain event",
+    "Prefer pipeline over pipe: it forwards errors and cleans up",
+    "It matters for large uploads, exports, proxies, and log processing"
+   ],
+   "chunks": [
+    {
+     "term": "respect backpressure",
+     "zh": "遵守背压"
+    },
+    {
+     "term": "buffer the whole file in memory",
+     "zh": "把整个文件缓冲进内存"
+    },
+    {
+     "term": "readable stream",
+     "zh": "可读流"
+    },
+    {
+     "term": "pipe ... into ...",
+     "zh": "把（一个流）接到（另一个流）上"
+    },
+    {
+     "term": "memory footprint",
+     "zh": "内存占用"
+    }
+   ],
+   "followUps": [
+    "What happens to memory if a producer ignores backpressure?"
+   ]
+  },
+  {
+   "id": "be-node-crash-handling",
+   "prompt": "How should a Node.js service deal with unhandled promise rejections and uncaught exceptions in production?",
+   "zh": "生产环境里的 Node.js 服务应该怎么对待未处理的 Promise 拒绝和未捕获的异常？",
+   "outline": [
+    "Separate operational errors from programmer bugs",
+    "Handle operational errors per request: validate, catch, return a proper status",
+    "Since Node 15, an unhandled rejection crashes the process by default",
+    "On an uncaught exception, log, stop accepting traffic, and restart: state may be corrupt",
+    "Rely on an orchestrator and multiple instances to absorb restarts"
+   ],
+   "chunks": [
+    {
+     "term": "unhandled rejection",
+     "zh": "未处理的 Promise 拒绝"
+    },
+    {
+     "term": "uncaught exception",
+     "zh": "未捕获的异常"
+    },
+    {
+     "term": "exit with a non-zero code",
+     "zh": "以非零退出码退出"
+    },
+    {
+     "term": "error-handling middleware",
+     "zh": "错误处理中间件"
+    },
+    {
+     "term": "swallow an exception",
+     "zh": "吞掉异常"
+    },
+    {
+     "term": "structured logging",
+     "zh": "结构化日志"
+    }
+   ],
+   "followUps": [
+    "Why is it dangerous to catch everything and keep the process running?"
+   ]
+  },
+  {
+   "id": "be-choosing-a-language",
+   "prompt": "How do you decide which language or runtime to use for a new backend service?",
+   "zh": "一个新的后端服务该用哪种语言或运行时，你是怎么决定的？",
+   "outline": [
+    "Start from the workload: I/O-bound, CPU-bound, latency-sensitive, memory-constrained",
+    "Team skills and hiring usually outweigh benchmark differences",
+    "Ecosystem: libraries, tooling, cloud SDKs, operational maturity",
+    "Limit how many languages the organization has to support",
+    "Prototype the riskiest part before committing"
+   ],
+   "chunks": [
+    {
+     "term": "given the constraints",
+     "zh": "考虑到当时的限制条件"
+    },
+    {
+     "term": "We opted for ... over ... because ...",
+     "zh": "我们选了……而不是……，因为……"
+    },
+    {
+     "term": "weigh the pros and cons",
+     "zh": "权衡利弊"
+    },
+    {
+     "term": "runtime overhead",
+     "zh": "运行时开销"
+    },
+    {
+     "term": "ramp up",
+     "zh": "（新人）逐步上手"
+    }
+   ],
+   "followUps": [
+    "Tell me about a language choice you later regretted.",
+    "How many languages is too many for one engineering organization?"
+   ]
+  },
+  {
+   "id": "be-memory-leak-hunt",
+   "prompt": "Memory usage of a production service grows steadily until the process gets killed. How do you track down the leak?",
+   "zh": "一个线上服务的内存持续上涨，直到进程被杀掉。你怎么把泄漏点找出来？",
+   "outline": [
+    "Confirm it is a real leak: memory keeps rising even after GC",
+    "Compare heap dumps or snapshots taken some time apart",
+    "Find what is growing and what keeps it reachable",
+    "Common causes: unbounded caches, listeners never removed, growing maps, unclosed resources",
+    "Mitigate first if needed: restart or roll back, then fix and add monitoring"
+   ],
+   "chunks": [
+    {
+     "term": "memory leak",
+     "zh": "内存泄漏"
+    },
+    {
+     "term": "take a heap dump",
+     "zh": "抓一份堆转储"
+    },
+    {
+     "term": "heap snapshot",
+     "zh": "堆快照"
+    },
+    {
+     "term": "hold a reference to",
+     "zh": "持有对……的引用"
+    },
+    {
+     "term": "unbounded cache",
+     "zh": "没有上限的缓存"
+    },
+    {
+     "term": "event listener leak",
+     "zh": "事件监听器泄漏"
+    }
+   ],
+   "followUps": [
+    "What if the heap looks stable but the process memory still grows?"
+   ]
+  },
+  {
+   "id": "be-tail-latency-regression",
+   "prompt": "An API's p99 latency has doubled since last week, but the average looks fine. How do you investigate?",
+   "zh": "一个接口的 p99 延迟比上周翻了一倍，但平均值看着正常。你怎么排查？",
+   "outline": [
+    "Check what changed: deploys, traffic mix, data size, dependencies",
+    "Tail latency points at outliers: GC pauses, lock contention, slow queries, retries",
+    "Use tracing to see where the slow requests spend their time",
+    "Compare slow and fast requests: payload, tenant, shard, instance",
+    "Form a hypothesis, test it, and confirm the fix on the same metric"
+   ],
+   "chunks": [
+    {
+     "term": "p99 latency",
+     "zh": "99 分位延迟"
+    },
+    {
+     "term": "distributed tracing",
+     "zh": "分布式链路追踪"
+    },
+    {
+     "term": "lock contention",
+     "zh": "锁竞争"
+    },
+    {
+     "term": "rule out",
+     "zh": "排除（某种可能性）"
+    },
+    {
+     "term": "bottleneck",
+     "zh": "瓶颈"
+    },
+    {
+     "term": "root cause",
+     "zh": "根因"
+    }
+   ],
+   "followUps": [
+    "Why is the average a poor signal for user-facing latency?"
+   ]
+  },
+  {
+   "id": "be-api-design-principles",
+   "prompt": "What principles do you follow when designing an API that other teams will depend on for years?",
+   "zh": "设计一个别的团队要依赖很多年的 API 时，你遵循哪些原则？",
+   "outline": [
+    "Design from the consumers' use cases, not from your database tables",
+    "Make it hard to misuse: consistent naming, pagination, a clear error model",
+    "Make writes idempotent so clients can retry safely",
+    "Evolve additively; bump the version only for breaking changes",
+    "Document the contract; deprecate with notice and real usage data"
+   ],
+   "chunks": [
+    {
+     "term": "API contract",
+     "zh": "接口契约"
+    },
+    {
+     "term": "backward compatible",
+     "zh": "向后兼容的"
+    },
+    {
+     "term": "breaking change",
+     "zh": "破坏性变更"
+    },
+    {
+     "term": "idempotency key",
+     "zh": "幂等键"
+    },
+    {
+     "term": "keyset pagination",
+     "zh": "键集分页"
+    },
+    {
+     "term": "deprecate",
+     "zh": "弃用"
+    }
+   ],
+   "followUps": [
+    "How do you retire an endpoint that some clients still call?",
+    "When would you pick gRPC or GraphQL over REST?"
+   ]
+  },
+  {
+   "id": "be-ai-rag-design",
+   "prompt": "Walk me through how you'd build a system that answers questions from a large internal document set.",
+   "zh": "讲讲你会怎么搭一个能根据大量内部文档回答问题的系统。",
+   "outline": [
+    "Chunk the documents, embed them, store in a vector database",
+    "Retrieve top candidates by semantic similarity, rerank, then generate with citations",
+    "Documents change — indexing must be incremental",
+    "Evaluate with a golden set before tuning anything",
+    "Grounding beats model size for factual answers"
+   ],
+   "chunks": [
+    {
+     "term": "retrieval-augmented generation",
+     "zh": "检索增强生成（RAG）"
+    },
+    {
+     "term": "chunking",
+     "zh": "（文档）切分、分块"
+    },
+    {
+     "term": "semantic search",
+     "zh": "语义搜索"
+    },
+    {
+     "term": "reranking",
+     "zh": "重排"
+    },
+    {
+     "term": "cite sources",
+     "zh": "引用出处"
+    }
+   ],
+   "followUps": [
+    "How do you keep answers from going stale when the documents change daily?",
+    "Keyword search or vector search — or both? Why?"
+   ]
+  },
+  {
+   "id": "be-ai-hallucination-control",
+   "prompt": "LLMs hallucinate. How do you keep that under control in a production feature?",
+   "zh": "大模型会产生幻觉。在生产功能里你怎么控制它？",
+   "outline": [
+    "Ground answers in retrieved sources and require citations",
+    "Constrain the output format; reject non-conforming output",
+    "Human in the loop for anything consequential",
+    "Guardrails screen outputs for sensitive data",
+    "Measure the hallucination rate on an evaluation set — vibes are not a metric"
+   ],
+   "chunks": [
+    {
+     "term": "hallucination",
+     "zh": "（AI 的）幻觉、编造"
+    },
+    {
+     "term": "guardrails",
+     "zh": "护栏（AI 输出的安全约束）"
+    },
+    {
+     "term": "human in the loop",
+     "zh": "人在回路"
+    },
+    {
+     "term": "evaluation set",
+     "zh": "评估集"
+    }
+   ],
+   "followUps": [
+    "Give me an example of a hallucination your users actually hit.",
+    "When is a wrong answer acceptable, and who decides?"
+   ]
+  },
+  {
+   "id": "be-ai-rag-vs-finetune",
+   "prompt": "When would you fine-tune a model instead of using retrieval?",
+   "zh": "什么情况下你会选微调而不是用检索？",
+   "outline": [
+    "Retrieval teaches facts; fine-tuning teaches format and style",
+    "Facts that change weekly belong in retrieval",
+    "Fine-tune when the behavior must change, not the knowledge",
+    "Fine-tuning costs more to run and to keep fresh",
+    "Most products need RAG first, fine-tuning later if at all"
+   ],
+   "chunks": [
+    {
+     "term": "fine-tuning",
+     "zh": "微调"
+    },
+    {
+     "term": "retrieval-augmented generation",
+     "zh": "检索增强生成（RAG）"
+    },
+    {
+     "term": "training data cutoff",
+     "zh": "训练数据截止时间"
+    },
+    {
+     "term": "prompt engineering",
+     "zh": "提示词工程"
+    },
+    {
+     "term": "context window",
+     "zh": "上下文窗口"
+    }
+   ],
+   "followUps": [
+    "Have you ever fine-tuned? What data did you use?",
+    "How would you combine both in one system?"
+   ]
+  },
+  {
+   "id": "be-ai-evaluation",
+   "prompt": "How do you know whether a change to your AI feature made it better or worse?",
+   "zh": "你怎么判断对 AI 功能的一次改动到底是变好还是变差了？",
+   "outline": [
+    "Build a golden evaluation set from real cases, written by domain experts",
+    "Run every prompt or model change against it before shipping",
+    "Track precision and recall for retrieval separately from answer quality",
+    "Watch for model drift — rerun evals on a schedule",
+    "Public benchmarks don't know your users"
+   ],
+   "chunks": [
+    {
+     "term": "evaluation set",
+     "zh": "评估集"
+    },
+    {
+     "term": "ground truth",
+     "zh": "标准答案、真实基准"
+    },
+    {
+     "term": "precision and recall",
+     "zh": "精确率与召回率"
+    },
+    {
+     "term": "model drift",
+     "zh": "模型漂移"
+    }
+   ],
+   "followUps": [
+    "How big does an evaluation set need to be to trust it?",
+    "What do you do when human reviewers disagree with each other?"
+   ]
+  },
+  {
+   "id": "be-ai-cost-latency",
+   "prompt": "Your AI feature works, but it's slow and expensive. What do you do?",
+   "zh": "你的 AI 功能能用，但又慢又贵。你怎么办？",
+   "outline": [
+    "Measure first: tokens per request, time to first token, cost per request",
+    "Cache repeated prompts and results",
+    "Route easy requests to a smaller model",
+    "Stream responses so perceived latency drops",
+    "Cut context — most prompts carry dead weight"
+   ],
+   "chunks": [
+    {
+     "term": "inference cost",
+     "zh": "推理成本"
+    },
+    {
+     "term": "time to first token",
+     "zh": "首 token 时间"
+    },
+    {
+     "term": "model routing",
+     "zh": "模型路由"
+    },
+    {
+     "term": "streaming response",
+     "zh": "流式响应"
+    },
+    {
+     "term": "token budget",
+     "zh": "token 预算"
+    }
+   ],
+   "followUps": [
+    "Which lever gave you the biggest win?",
+    "How do you stop cost controls from hurting answer quality?"
+   ]
+  }
+ ]
 }
