@@ -1,0 +1,620 @@
+{
+ "category": "hedging",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "I'm fairly sure the bottleneck is the database, but let me confirm with the profiler.",
+     "zh": "我基本确定瓶颈在数据库，但我用分析工具确认一下。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'm fairly sure we can ship Friday, unless the review drags.",
+    "zh": "站会上你报进度：有把握但留个余地。"
+   },
+   "term": "I'm fairly sure...",
+   "zh": "我基本确定……（八九成把握）"
+  },
+  {
+   "examples": [
+    {
+     "en": "As far as I know, nobody is using that endpoint anymore.",
+     "zh": "据我所知，已经没人用那个接口了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "As far as I know, the plan hasn't changed.",
+    "zh": "同事问你计划变没变，你把话说在自己知道的范围内。"
+   },
+   "term": "as far as I know",
+   "zh": "据我所知（把话限定在自己的信息内）"
+  },
+  {
+   "examples": [
+    {
+     "en": "As far as I can tell, the leak is in the new service, not the old one.",
+     "zh": "据我目前看，泄漏出在新服务，不是老的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "As far as I can tell, the data is consistent after the fix.",
+    "zh": "你向经理汇报初步结论，留有余地。"
+   },
+   "term": "as far as I can tell",
+   "zh": "据我目前观察、判断"
+  },
+  {
+   "examples": [
+    {
+     "en": "It depends — are your reads mostly by id, or full scans?",
+     "zh": "那要看情况：你的读取大多是按 id 查，还是全表扫描？"
+    }
+   ],
+   "kind": "chunk",
+   "note": "面试万能缓冲：先说 It depends，再说 depends on what。别只说这一句就停，那样显得在躲问题。",
+   "situation": {
+    "en": "It depends on the traffic pattern — let me explain both cases.",
+    "zh": "面试官问该用哪种方案，你先给条件再展开。"
+   },
+   "term": "it depends",
+   "zh": "那得看情况（后面必须接上看什么）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Roughly speaking, a third of our traffic is bots.",
+     "zh": "粗略地讲，我们三分之一的流量是机器人。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Roughly speaking, the migration is half done.",
+    "zh": "你报进度时先声明这是粗略估计。"
+   },
+   "term": "roughly speaking",
+   "zh": "粗略地说、大致上"
+  },
+  {
+   "examples": [
+    {
+     "en": "If I had to guess, the p99 will land around three hundred milliseconds.",
+     "zh": "非要我猜的话，p99 大概会落在三百毫秒左右。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If I had to guess, I'd say two more weeks.",
+    "zh": "经理追问一个你没数据的估时，你表明这是猜测。"
+   },
+   "term": "if I had to guess",
+   "zh": "非要我说的话、让我猜的话"
+  },
+  {
+   "examples": [
+    {
+     "en": "Chances are the deploy itself was fine — the data was already corrupted.",
+     "zh": "很可能发布本身没问题，数据早就坏了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Chances are it's a config issue, like last time.",
+    "zh": "故障刚发生，你给出最可能的初步判断。"
+   },
+   "term": "chances are",
+   "zh": "很可能、多半是"
+  },
+  {
+   "examples": [
+    {
+     "en": "Most likely it's the connection pool — the symptoms match exactly.",
+     "zh": "最可能是连接池的问题，症状完全对得上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Most likely we'll need one more sprint.",
+    "zh": "你给出最可能的时间判断。"
+   },
+   "term": "most likely",
+   "zh": "最可能、八成是"
+  },
+  {
+   "examples": [
+    {
+     "en": "This service tends to fall over whenever traffic spikes twice in one hour.",
+     "zh": "这个服务只要一小时内流量冲两次，就容易挂。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Fridays tend to be quiet on our team.",
+    "zh": "闲聊团队节奏：周五一般比较安静。"
+   },
+   "term": "tends to",
+   "zh": "往往会、倾向于（某种规律）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Generally speaking, we avoid Friday deploys unless it's a hotfix.",
+     "zh": "一般来说，我们避免周五发布，除非是热修复。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Generally speaking, smaller PRs get better reviews.",
+    "zh": "你总结一条团队经验规律。"
+   },
+   "term": "generally speaking",
+   "zh": "一般来说、总体而言"
+  },
+  {
+   "examples": [
+    {
+     "en": "In most cases, a retry with backoff fixes these transient errors.",
+     "zh": "大多数情况下，带退避的重试能解决这些偶发错误。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In most cases, the simplest fix is the right one.",
+    "zh": "你给新人讲排错经验。"
+   },
+   "term": "in most cases",
+   "zh": "在大多数情况下"
+  },
+  {
+   "examples": [
+    {
+     "en": "For the most part, the migration went smoothly — two services caused trouble.",
+     "zh": "总的来说迁移很顺利，有两个服务出了点问题。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For the most part, I'm happy with the new setup.",
+    "zh": "你评价新工作方式大体满意。"
+   },
+   "term": "for the most part",
+   "zh": "大体上、基本上（总有少数例外）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The slowdown is, to some extent, self-inflicted — we log way too much.",
+     "zh": "这次变慢在某种程度上是我们自找的，日志打太多了。"
+    }
+   ],
+   "kind": "chunk",
+   "register": "formal",
+   "situation": {
+    "en": "To some extent, yes — the design contributed to the outage.",
+    "zh": "复盘时你部分承认设计有责任。"
+   },
+   "term": "to some extent",
+   "zh": "在某种程度上（部分承认时）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The new dashboard is kind of overwhelming at first, but you get used to it.",
+     "zh": "新仪表盘一开始有点信息过载，但用着用着就习惯了。"
+    }
+   ],
+   "kind": "chunk",
+   "register": "casual",
+   "situation": {
+    "en": "It's kind of a mess in that module, honestly.",
+    "zh": "你私下评价某模块有点乱，语气放软。"
+   },
+   "term": "kind of",
+   "zh": "有点、算是（软化语气，口语）"
+  },
+  {
+   "examples": [
+    {
+     "en": "It's sort of a cache, but with invalidation built in.",
+     "zh": "它有点像缓存，但内置了失效机制。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "kind of 和 sort of 意思几乎一样，都是口语的软化词，正式文档里别用，换成 somewhat 或 a type of。",
+   "register": "casual",
+   "situation": {
+    "en": "We're sort of blocked until legal replies.",
+    "zh": "你报状态：算是被卡住了，等法务回复。"
+   },
+   "term": "sort of",
+   "zh": "有点像、算是（口语软化）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The migration is pretty much done — just the cleanup script left.",
+     "zh": "迁移基本完成了，就剩清理脚本了。"
+    }
+   ],
+   "kind": "chunk",
+   "register": "casual",
+   "situation": {
+    "en": "That's pretty much how it works, yes.",
+    "zh": "同事复述你的设计，你确认大体就是这样。"
+   },
+   "term": "pretty much",
+   "zh": "基本上、差不多（口语）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A faster database doesn't necessarily mean a faster page.",
+     "zh": "数据库更快，并不一定代表页面更快。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Cheaper isn't necessarily better here.",
+    "zh": "评审里你提醒便宜不等于更好。"
+   },
+   "term": "not necessarily",
+   "zh": "不一定、未必"
+  },
+  {
+   "examples": [
+    {
+     "en": "That's not exactly true — we do have a cache, it's just misconfigured.",
+     "zh": "这不完全对，我们有缓存，只是配错了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Not exactly — the deploy succeeded, the data migration didn't.",
+    "zh": "同事的结论八九不离十但有个关键误差，你纠正。"
+   },
+   "term": "not exactly",
+   "zh": "不完全是、不确切"
+  },
+  {
+   "examples": [
+    {
+     "en": "The design isn't quite ready for review — the failure cases are missing.",
+     "zh": "这个设计还没完全准备好评审，故障情况没写。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Not quite — we're off by one region.",
+    "zh": "对方的数字接近但不对，你轻轻纠正。"
+   },
+   "term": "not quite",
+   "zh": "还差一点、不完全"
+  },
+  {
+   "examples": [
+    {
+     "en": "I suppose we could add a queue there, if the latency budget allows.",
+     "zh": "我估计可以在那加个队列，如果延迟预算允许的话。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "I suppose 语气比 I think 更弱、更勉强，还带点“行吧”的让步感：I suppose so. 就算是吧。",
+   "situation": {
+    "en": "I suppose that's fair — the estimate was mine.",
+    "zh": "复盘被指出估时太乐观，你认了。"
+   },
+   "term": "I suppose",
+   "zh": "我估计、算是吧（语气弱、带让步）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'd say the split is roughly seventy percent features, thirty percent tech debt.",
+     "zh": "我会说大概七成是新功能，三成是还技术债。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd say we're about eighty percent done.",
+    "zh": "经理问进度，你给出自己的估算口径。"
+   },
+   "term": "I'd say",
+   "zh": "我会说、大概是（给出估算）"
+  },
+  {
+   "examples": [
+    {
+     "en": "It seems like the retries are making the outage worse, not better.",
+     "zh": "看起来重试让故障更严重了，而不是更好。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "It seems like the vendor changed something on their side.",
+    "zh": "你汇报一个尚不确定的观察。"
+   },
+   "term": "it seems like",
+   "zh": "看起来好像、似乎是"
+  },
+  {
+   "examples": [
+    {
+     "en": "Apparently the API changed last week, and nobody told the mobile team.",
+     "zh": "看起来接口上周已经改了，没人通知移动组。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "apparently 是“据说、表面看”：信息来源是别人或表象，自己没核实。",
+   "situation": {
+    "en": "Apparently the launch moved to Tuesday.",
+    "zh": "你转述一个还没官宣的消息。"
+   },
+   "term": "apparently",
+   "zh": "据说、看起来（听来的，没核实）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Arguably, the review process catches more bugs than the test suite does.",
+     "zh": "可以说，评审流程抓到的 bug 比测试套件还多。"
+    }
+   ],
+   "kind": "chunk",
+   "register": "formal",
+   "situation": {
+    "en": "Arguably, this is our most important launch of the year.",
+    "zh": "你想给一个论断加上“有理由这么说”的口气。"
+   },
+   "term": "arguably",
+   "zh": "可以说（这个说法有争议、但有理由站得住）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Presumably the client retries automatically, but I haven't verified it.",
+     "zh": "想必客户端会自动重试，不过我还没验证过。"
+    }
+   ],
+   "kind": "chunk",
+   "register": "formal",
+   "situation": {
+    "en": "Presumably they'll approve it this week.",
+    "zh": "你推测审批本周会下来。"
+   },
+   "term": "presumably",
+   "zh": "想必、大概（推测但没证据）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I can't say for sure, but the timing points at the certificate renewal.",
+     "zh": "我不能确定，但时间点指向证书续期那件事。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I can't say for sure until I see the logs.",
+    "zh": "经理问你故障原因，你表示要看到日志才敢定论。"
+   },
+   "term": "I can't say for sure",
+   "zh": "我不敢确定、说不准"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'm not entirely sure, but I believe the config lives in the platform repo.",
+     "zh": "我不太确定，但我印象中配置在平台仓库里。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'm not entirely sure, but I think Anna owns that service.",
+    "zh": "同事问某个服务谁负责，你印象里是某个人。"
+   },
+   "term": "I'm not entirely sure, but...",
+   "zh": "我不太确定，不过……"
+  },
+  {
+   "examples": [
+    {
+     "en": "This is off the record, but don't quote me on this — the reorg is probably happening in March.",
+     "zh": "这话别外传，我也是听说：重组可能在三月份。"
+    }
+   ],
+   "kind": "chunk",
+   "register": "casual",
+   "situation": {
+    "en": "Don't quote me on this, but I think the budget got approved.",
+    "zh": "你分享一个没证实的小道消息。"
+   },
+   "term": "Don't quote me on this, but...",
+   "zh": "这话别当真理外传，我也是听说"
+  },
+  {
+   "examples": [
+    {
+     "en": "The vendor promised a fix this week — take it with a grain of salt.",
+     "zh": "供应商承诺这周修复，这话要打个折扣听。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Those benchmark numbers? Take them with a grain of salt.",
+    "zh": "你提醒新同事别全信厂商的跑分。"
+   },
+   "term": "take it with a grain of salt",
+   "zh": "（对说法）打个折扣、别全信"
+  },
+  {
+   "examples": [
+    {
+     "en": "In my experience, the second launch is always smoother than the first.",
+     "zh": "以我的经验，第二次上线总是比第一次顺。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In my experience, these reviews take two rounds.",
+    "zh": "你给新人预告评审的节奏。"
+   },
+   "term": "in my experience",
+   "zh": "以我的经验（个人经验，非普遍规律）"
+  },
+  {
+   "examples": [
+    {
+     "en": "From what I've seen, teams that write design docs argue less in reviews.",
+     "zh": "就我观察到的，写设计文档的团队在评审时吵得少。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "From what I've seen so far, the new process is working.",
+    "zh": "你评价推行一个月的新流程。"
+   },
+   "term": "from what I've seen",
+   "zh": "就我所见、据我观察"
+  },
+  {
+   "examples": [
+    {
+     "en": "The way I see it, we're paying for storage we never read.",
+     "zh": "在我看来，我们在为从没读过的数据付存储费。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The way I see it, the risk is acceptable.",
+    "zh": "讨论风险时你先表明立场再讲理由。"
+   },
+   "term": "the way I see it",
+   "zh": "在我看来（表明立场）"
+  },
+  {
+   "examples": [
+    {
+     "en": "As I understand it, the freeze applies to features, not to fixes.",
+     "zh": "按我的理解，冻结针对的是新功能，不包括修复。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "As I understand it, you need the data by Friday?",
+    "zh": "你复述对方的需求请他纠正。"
+   },
+   "term": "as I understand it",
+   "zh": "按我的理解（说错请纠正）"
+  },
+  {
+   "examples": [
+    {
+     "en": "If I'm not mistaken, that flag was added for the enterprise pilot.",
+     "zh": "如果我没记错的话，那个开关是为企业试点加的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If I'm not mistaken, you're the owner of this service now.",
+    "zh": "你向新同事确认他是服务的负责人。"
+   },
+   "term": "if I'm not mistaken",
+   "zh": "如果我没记错的话"
+  },
+  {
+   "examples": [
+    {
+     "en": "Correct me if I'm wrong, but the deadline moved to the 20th, right?",
+     "zh": "我说错请纠正，截止日期是改到 20 号了，对吧？"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Correct me if I'm wrong — the old API is still live?",
+    "zh": "你怕自己信息过期，先把纠错的门打开。"
+   },
+   "term": "correct me if I'm wrong",
+   "zh": "我说错请纠正（开口前的保险）"
+  },
+  {
+   "examples": [
+    {
+     "en": "So far, the rollout has been quiet — no new error types.",
+     "zh": "到目前为止，这次上线很安静，没有新的错误类型。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "So far so good on the migration.",
+    "zh": "汇报时你给一个阶段性的乐观结论。"
+   },
+   "term": "so far",
+   "zh": "到目前为止（后面可能还有变数）"
+  },
+  {
+   "examples": [
+    {
+     "en": "At this point, reopening the design would cost us the launch date.",
+     "zh": "事到如今，重开设计讨论会让我们丢掉上线日期。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "At this point I'd rather ship and iterate.",
+    "zh": "讨论僵持时你表达倾向：先发再迭代。"
+   },
+   "term": "at this point",
+   "zh": "到这一步、事到如今"
+  },
+  {
+   "examples": [
+    {
+     "en": "It's hard to say whether users actually want that feature.",
+     "zh": "很难说用户是否真的想要那个功能。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "It's hard to say — the data cuts both ways.",
+    "zh": "被问到结论时你说证据两边都有。"
+   },
+   "term": "it's hard to say",
+   "zh": "很难说、不好讲"
+  },
+  {
+   "examples": [
+    {
+     "en": "The new flow is more or less the same as the old one, just with fewer steps.",
+     "zh": "新流程和旧的基本差不多，只是步骤少了。"
+    }
+   ],
+   "kind": "chunk",
+   "register": "casual",
+   "situation": {
+    "en": "We're more or less done — just the docs left.",
+    "zh": "你报进度：基本上完成了。"
+   },
+   "term": "more or less",
+   "zh": "或多或少、基本上"
+  },
+  {
+   "examples": [
+    {
+     "en": "The whole thing costs somewhere in the ballpark of forty thousand a year.",
+     "zh": "这一整套一年大概在四万美元上下。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "ballpark 本是棒球场：in the ballpark 就是“在估算范围里”。和 c 层的 ballpark figure 是同一个比喻，这里是口语用法。",
+   "situation": {
+    "en": "Are we in the ballpark of two weeks, or is it more like two months?",
+    "zh": "你问估时时先确认数量级对不对。"
+   },
+   "term": "in the ballpark of",
+   "zh": "在……的量级、大概是（数量级估算）"
+  }
+ ],
+ "layer": "B",
+ "title": "表达不确定与程度"
+}
