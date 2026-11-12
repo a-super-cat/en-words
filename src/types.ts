@@ -198,5 +198,13 @@ export interface Settings {
   autoSpeak: boolean;
   voice: string;
   rate: number;
+  /** 朗读引擎：system = 本机系统语音（离线）；azure = Azure 神经网络语音（联网，自然度高） */
+  ttsEngine: 'system' | 'azure';
+  /** Azure 语音服务的密钥，只存在本机设置里，绝不进代码仓库 */
+  azureKey: string;
+  /** Azure 语音服务所在区域，比如 eastus */
+  azureRegion: string;
+  /** Azure 语音名，比如 en-US-JennyNeural */
+  azureVoice: string;
   disabledCategories: string[];
 }

@@ -68,7 +68,8 @@ a {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 10px 20px;
+  /* 顶部多留出安全区：安卓全面屏下状态栏会压住粘性导航 */
+  padding: calc(10px + env(safe-area-inset-top, 0px)) 20px 10px;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
   position: sticky;
@@ -102,7 +103,7 @@ a {
 main {
   max-width: 780px;
   margin: 0 auto;
-  padding: 24px 16px 64px;
+  padding: 24px 16px calc(64px + env(safe-area-inset-bottom, 0px));
 }
 
 .stack {
@@ -389,5 +390,55 @@ th.n {
 
   .big {
     font-size: 1.4rem;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+
+  table {
+    font-size: 0.82rem;
+  }
+
+  th,
+  td {
+    padding: 6px 4px;
+  }
+}
+
+/* 移动端适配（阶段 B）：触控设备上把点击目标做到手指好按的尺寸，
+   并藏掉只对物理键盘有意义的快捷键提示；桌面不受影响 */
+button,
+.btn {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (pointer: coarse) {
+  kbd {
+    display: none;
+  }
+
+  button,
+  .btn {
+    min-height: 44px;
+  }
+
+  .ghost,
+  .icon {
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  select,
+  input[type='text'],
+  input[type='search'],
+  input[type='number'] {
+    min-height: 44px;
+  }
+
+  .nav a {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 }

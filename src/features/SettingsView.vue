@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref, shallowRef } from 'vue';
+import { AZURE_VOICES } from '../lib/azure';
 import { downloadJson } from '../lib/download';
 import { loadVoices, speak, ttsSupported } from '../lib/tts';
 import { dayKey } from '../srs/queue';
@@ -137,6 +138,25 @@ async function clearProgress() {
         </label>
         <div class="grid">
           <label class="field">
+            朗读引擎
+            <select
+              :value="app.settings.ttsEngine"
+              @change="app.updateSettings({ ttsEngine: ($event.target as HTMLSelectElement).value as Settings['ttsEngine'] })"
+            >
+              <option value="system">系统语音（离线，音质一般）</option>
+              <option value="azure">Azure 神经网络语音（联网，自然）</option>
+            </select>
+          </label>
+          <label v-if="app.settings.ttsEngine === 'azure'" class="field">
+            Azure 语音
+            <select
+              :value="app.settings.azureVoice"
+              @change="app.updateSettings({ azureVoice: ($event.target as HTMLSelectElement).value })"
+            >
+              <option v-for="v in AZURE_VOICES" :key="v.name" :value="v.name">{{ v.label }}</option>
+            </select>
+          </label>
+          <label v-else class="field">
             语音
             <select
               :value="app.settings.voice"
@@ -158,6 +178,33 @@ async function clearProgress() {
             />
           </label>
         </div>
+        <template v-if="app.settings.ttsEngine === 'azure'">
+          <div class="grid">
+            <label class="field">
+              Azure 密钥（Key 1）
+              <input
+                type="password"
+                autocomplete="off"
+                placeholder="粘贴语音资源的密钥"
+                :value="app.settings.azureKey"
+                @change="app.updateSettings({ azureKey: ($event.target as HTMLInputElement).value.trim() })"
+              />
+            </label>
+            <label class="field">
+              区域（Region）
+              <input
+                type="text"
+                autocomplete="off"
+                placeholder="eastus"
+                :value="app.settings.azureRegion"
+                @change="app.updateSettings({ azureRegion: ($event.target as HTMLInputElement).value.trim() })"
+              />
+            </label>
+          </div>
+          <p class="muted small">
+            密钥只存在这台设备上，只发给微软的语音接口。同一句话合成一次后会缓存在本地，不重复花额度；断网或合成失败时自动回退系统语音。没填密钥时也按系统语音读。
+          </p>
+        </template>
         <div><button type="button" @click="tryVoice">试听</button></div>
       </template>
     </section>

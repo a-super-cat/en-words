@@ -24,6 +24,7 @@ class AppDB extends Dexie {
   marks!: Table<WordMark, string>;
   readings!: Table<Reading, string>;
   assessments!: Table<Assessment, string>;
+  ttsCache!: Table<{ key: string; blob: Blob; at: number }, string>;
 
   constructor() {
     super('en-words');
@@ -45,6 +46,10 @@ class AppDB extends Dexie {
       marks: 'word',
       readings: 'id, at',
       assessments: 'id, at',
+    });
+    // 移动端阶段 B：Azure 云端朗读的音频缓存，同一句不重复合成
+    this.version(4).stores({
+      ttsCache: 'key, at',
     });
   }
 }

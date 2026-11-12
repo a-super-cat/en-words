@@ -1,9 +1,20 @@
 <script setup lang="ts">
+import { Capacitor } from '@capacitor/core';
+import { App as CapApp } from '@capacitor/app';
 import { useApp } from './stores/app';
 import { useSpeaking } from './stores/speaking';
 
 const app = useApp();
 const speaking = useSpeaking();
+
+// 安卓返回键：有历史就后退，没有就退出。不接管的话按返回会直接退出应用，
+// 练到一半误触就全丢了。网页版没有这个事件，不受影响。
+if (Capacitor.isNativePlatform()) {
+  void CapApp.addListener('backButton', ({ canGoBack }) => {
+    if (canGoBack) window.history.back();
+    else void CapApp.exitApp();
+  });
+}
 </script>
 
 <template>

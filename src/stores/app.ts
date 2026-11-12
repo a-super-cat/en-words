@@ -55,6 +55,10 @@ const DEFAULTS: Settings = {
   autoSpeak: true,
   voice: '',
   rate: 1,
+  ttsEngine: 'system',
+  azureKey: '',
+  azureRegion: 'eastus',
+  azureVoice: 'en-US-JennyNeural',
   disabledCategories: [],
 };
 /** 单张卡计入学习时长的上限，避免中途离开把时长撑大 */
