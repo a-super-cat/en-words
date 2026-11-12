@@ -26,7 +26,7 @@ export interface RawScenarioFile {
 
 // 分类的展示顺序。文件名的字母顺序不适合学习（比如“反问面试官”应该在最后），没列在这里的分类排在最后。
 const QUESTION_ORDER = ['intro', 'behavioral', 'leadership', 'system-design', 'architecture', 'frontend', 'backend', 'data', 'reverse'];
-const SCENARIO_ORDER = ['standup', 'requirements', 'design-review', 'code-review', 'incident', 'one-on-one', 'onboarding', 'small-talk'];
+const SCENARIO_ORDER = ['interview', 'standup', 'requirements', 'design-review', 'code-review', 'incident', 'one-on-one', 'onboarding', 'small-talk'];
 
 function ordered<F extends { category: string }>(files: Record<string, F>, order: string[]): F[] {
   const rank = (f: F) => (order.includes(f.category) ? order.indexOf(f.category) : order.length);
