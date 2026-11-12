@@ -1,0 +1,386 @@
+{
+ "category": "rust",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "We share the config across threads with an Arc — every worker holds a reference-counted handle.",
+     "zh": "我们用 Arc 在线程间共享配置，每个工作线程都持有一个引用计数的句柄。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Shared ownership across threads means Arc, not Rc.",
+    "zh": "面试官问多线程怎么共享所有权，你给出标准答案。"
+   },
+   "term": "reference counting",
+   "zh": "引用计数（Rc/Arc 的机制）"
+  },
+  {
+   "examples": [
+    {
+     "en": "RefCell moves the borrow checks to runtime — break the rules and it panics instead of failing to compile.",
+     "zh": "RefCell 把借用检查挪到了运行时——违反规则不是编译失败，而是直接 panic。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "When the compiler can't prove it, RefCell is the honest escape hatch.",
+    "zh": "你解释为什么这里要用 RefCell 而不是硬刚编译器。"
+   },
+   "term": "borrow at runtime",
+   "zh": "运行时借用（RefCell 的方式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Cow lets the function return the borrowed text when no change is needed, and an owned copy when it is.",
+     "zh": "Cow 让函数在不需要改动时返回借用的文本，需要时才返回拥有的副本。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "Cow 是 clone-on-write 的缩写，读作“cow”；处理“多数情况不用改”字符串的经典工具。",
+   "situation": {
+    "en": "Return a Cow and let the caller avoid the allocation most of the time.",
+    "zh": "你给 API 设计建议：返回 Cow 避免大多数分配。"
+   },
+   "term": "clone on write",
+   "zh": "写时克隆（Cow）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Iterators in Rust are lazy — nothing runs until you call collect or sum.",
+     "zh": "Rust 的迭代器是惰性的，不调用 collect 或 sum 就什么都不执行。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The chain looks expensive, but iterators are lazy and fuse into one loop.",
+    "zh": "评审时有人担心链式调用的性能，你解释零成本。"
+   },
+   "term": "lazy iterator",
+   "zh": "惰性迭代器"
+  },
+  {
+   "examples": [
+    {
+     "en": "The closure captures its environment by reference unless you write move.",
+     "zh": "闭包默认以引用捕获环境，除非你写 move。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "That move keyword is there because the thread may outlive the caller.",
+    "zh": "你解释 spawn 线程时为什么要写 move。"
+   },
+   "term": "closure capture",
+   "zh": "闭包捕获（环境变量）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Sometimes you need the turbofish — collect::<Vec<_>>() — to tell the compiler the target type.",
+     "zh": "有时你需要涡轮鱼语法 collect::<Vec<_>>() 来告诉编译器目标类型。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "turbofish 是社区给 ::<> 起的昵称，因为它长得像鱼；面试时说出来显熟悉生态。",
+   "situation": {
+    "en": "Type inference failed there — add the turbofish.",
+    "zh": "同事的代码推不出类型，你给提示。"
+   },
+   "term": "turbofish",
+   "zh": "涡轮鱼语法（::<...> 显式标注泛型）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The associated type Output is what makes Iterator flexible without extra parameters.",
+     "zh": "关联类型 Output 是 Iterator 不加额外参数也能灵活的原因。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Associated types keep the trait signature readable.",
+    "zh": "你比较关联类型和泛型参数的取舍。"
+   },
+   "term": "associated type",
+   "zh": "关联类型"
+  },
+  {
+   "examples": [
+    {
+     "en": "When the bounds pile up, move them into a where clause and the signature breathes again.",
+     "zh": "约束多起来时，把它们挪进 where 子句，签名就清爽了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Same bounds, just written as a where clause for readability.",
+    "zh": "你解释重构签名格式不改语义。"
+   },
+   "term": "where clause",
+   "zh": "where 子句（写 trait 约束）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Deriving Debug and Clone covers ninety percent of what we used to write by hand.",
+     "zh": "派生 Debug 和 Clone 覆盖了我们过去手写的九成样板。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Just derive it — PartialEq comes free with the derive macro.",
+    "zh": "你建议同事用派生宏别手写实现。"
+   },
+   "term": "derive macro",
+   "zh": "派生宏（#[derive(...)]）"
+  },
+  {
+   "examples": [
+    {
+     "en": "That test only compiles under cfg(test) — production never sees it.",
+     "zh": "那个测试只在 cfg(test) 下编译，生产代码根本看不到。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We gate the mock behind a cfg feature for tests.",
+    "zh": "你介绍测试替身怎么隔离。"
+   },
+   "term": "cfg attribute",
+   "zh": "cfg 属性（条件编译开关）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Our cargo workspace holds nine crates that share one lockfile and one target directory.",
+     "zh": "我们的 Cargo 工作区里有九个 crate，共享一个锁文件和一个 target 目录。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A workspace keeps the versions consistent across crates.",
+    "zh": "你介绍多 crate 项目的组织方式。"
+   },
+   "term": "cargo workspace",
+   "zh": "Cargo 工作区（多 crate 项目）"
+  },
+  {
+   "examples": [
+    {
+     "en": "TLS support is behind a feature flag, so embedded builds stay small.",
+     "zh": "TLS 支持放在特性开关后面，嵌入式构建就能保持小巧。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Enable the feature only where you need it — features are additive.",
+    "zh": "你提醒特性是叠加的，别乱开。"
+   },
+   "term": "feature flag (cargo)",
+   "zh": "（Cargo 的）特性开关"
+  },
+  {
+   "examples": [
+    {
+     "en": "Conditional compilation lets one codebase serve Linux, Windows, and the embedded target.",
+     "zh": "条件编译让一份代码同时服务 Linux、Windows 和嵌入式目标。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The platform differences hide behind conditional compilation.",
+    "zh": "你介绍跨平台代码的组织。"
+   },
+   "term": "conditional compilation",
+   "zh": "条件编译"
+  },
+  {
+   "examples": [
+    {
+     "en": "In no_std land there's no allocator until you bring your own.",
+     "zh": "在 no_std 的世界里，你不自带分配器就没有堆可用。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "That crate is no_std-compatible, so it works on our firmware too.",
+    "zh": "你评价一个库能不能用在固件上。"
+   },
+   "term": "no_std",
+   "zh": "无标准库（嵌入式环境）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Doc tests run the examples in your comments — stale docs become failing tests.",
+     "zh": "文档测试会运行注释里的示例，过期文档就变成失败的测试。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "这是 Rust 很自豪的一点：文档里的代码示例会被当成测试跑，文档永远不过期。",
+   "situation": {
+    "en": "Write the example as a doc test and it can never rot.",
+    "zh": "你建议把示例写成文档测试。"
+   },
+   "term": "doc test",
+   "zh": "文档测试"
+  },
+  {
+   "examples": [
+    {
+     "en": "That trait isn't object-safe, so you can't put it behind a dyn — generics it is.",
+     "zh": "那个 trait 不是对象安全的，没法放在 dyn 后面，那就用泛型吧。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We switched to trait objects once object safety allowed it.",
+    "zh": "你解释从泛型改回动态分发的原因。"
+   },
+   "term": "object safety",
+   "zh": "对象安全（能否做 trait 对象）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Returning impl Trait hides the concrete iterator type and keeps callers honest.",
+     "zh": "返回 impl Trait 隐藏了具体的迭代器类型，也让调用方保持诚实。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "impl Trait in return position is not the same as dyn Trait.",
+    "zh": "你区分两种写法的分发方式。"
+   },
+   "term": "impl Trait",
+   "zh": "impl Trait（隐藏具体类型）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The orphan rule stops you implementing external traits for external types — it keeps the ecosystem coherent.",
+     "zh": "孤儿规则禁止你给外部类型实现外部 trait，它保住了生态的一致性。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Wrap it in a newtype — the orphan rule demands a local type.",
+    "zh": "同事的 impl 编不过，你给出 newtype 解法。"
+   },
+   "term": "orphan rule",
+   "zh": "孤儿规则（impl 的归属限制）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A blanket implementation gives every type that implements Read the extension methods for free.",
+     "zh": "毯式实现让每个实现了 Read 的类型都免费获得扩展方法。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Blanket impls are powerful — and they can conflict, so use them sparingly.",
+    "zh": "你提醒毯式 impl 的冲突风险。"
+   },
+   "term": "blanket implementation",
+   "zh": "毯式实现（为一类类型统一实现）"
+  },
+  {
+   "examples": [
+    {
+     "en": "With anyhow, I add context at each layer and the error reads like a story at the top.",
+     "zh": "用 anyhow 在每一层加上下文，错误到了顶层读起来像一个故事。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Applications use anyhow; libraries use thiserror. That's our split.",
+    "zh": "你介绍团队错误库的分工惯例。"
+   },
+   "term": "error context",
+   "zh": "错误上下文（给错误加说明）"
+  },
+  {
+   "examples": [
+    {
+     "en": "For a library, thiserror gives you typed errors without the boilerplate.",
+     "zh": "写库时，thiserror 让你不用样板代码就能定义类型化错误。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Library errors should be enums callers can match on.",
+    "zh": "你定库的错误设计原则。"
+   },
+   "term": "thiserror",
+   "zh": "thiserror（库错误定义库）"
+  },
+  {
+   "examples": [
+    {
+     "en": "String methods deref to str, so one implementation serves both types.",
+     "zh": "String 的方法会解引用到 str，一套实现服务两种类型。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Deref coercion is why &String works where &str is expected.",
+    "zh": "你解释一个类型自动适配的现象。"
+   },
+   "term": "deref coercion",
+   "zh": "解引用强转（&String 自动变 &str）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Take a &str when you only read; take a String when you need to own it. That one rule ends most debates.",
+     "zh": "只读就收 &str，需要拥有就收 String。这一条规则终结了大多数争论。"
+    }
+   ],
+   "kind": "chunk",
+   "note": "&str vs String 的取舍是 Rust 面试最高频的入门题，这个回答模板直接能用。",
+   "situation": {
+    "en": "Why &str here? The function never keeps the text.",
+    "zh": "面试官问参数类型选择，你给出理由。"
+   },
+   "term": "String vs &str",
+   "zh": "String 与 &str（拥有还是借用）"
+  },
+  {
+   "examples": [
+    {
+     "en": "pub(crate) keeps the helper visible inside the crate without leaking it into the public API.",
+     "zh": "pub(crate) 让辅助函数在 crate 内可见，又不泄露到公共 API 里。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Mark it pub(crate) — it's an internal detail.",
+    "zh": "评审时你建议收紧可见性。"
+   },
+   "term": "pub(crate)",
+   "zh": "pub(crate)（crate 内可见）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Clippy caught a needless clone in my iterator chain that rustc had waved through.",
+     "zh": "Clippy 在我的迭代器链里抓到了一个多余的 clone，rustc 本来放过去了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "zh": "你提醒同事推送前跑一遍 clippy。",
+    "en": "Run clippy before you push — its lints catch a whole class of smells."
+   },
+   "term": "clippy lints",
+   "zh": "Clippy 检查（官方 lint 工具）"
+  }
+ ],
+ "layer": "C",
+ "title": "Rust 进阶"
+}
