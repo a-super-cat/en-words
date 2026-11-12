@@ -6,7 +6,7 @@
     {
       "term": "take a few days off",
       "kind": "chunk",
-      "zh": "请几天假、休息几天（含 off）",
+      "zh": "请几天假、休息几天",
       "examples": [
         {
           "en": "I'm going to take a few days off after the release.",
@@ -17,7 +17,11 @@
         "zh": "同事问你国庆前后有什么打算。你想说你准备在假期后面再多请几天假。",
         "en": "I'm planning to take a few days off right after the holiday, so I'll be out for the whole week."
       },
-      "collocations": ["take a day off", "take Friday off", "I'm off tomorrow."],
+      "collocations": [
+        "take a day off",
+        "take Friday off",
+        "I'm off tomorrow."
+      ],
       "note": "take ... off：take Friday off、take a week off。“我明天休假”说 I'm off tomorrow."
     },
     {
@@ -58,7 +62,7 @@
       "term": "catch up on sleep",
       "kind": "chunk",
       "register": "casual",
-      "zh": "补觉（c 开头的短语动词 + sleep）",
+      "zh": "补觉（把之前缺的觉补回来）",
       "examples": [
         {
           "en": "I didn't go anywhere over the break. I mostly caught up on sleep.",
@@ -69,7 +73,11 @@
         "zh": "同事问你这个长周末打算做什么。你最近熬夜太多，只想把觉补回来。",
         "en": "Honestly, I just want to catch up on sleep. I've been up late all week."
       },
-      "collocations": ["catch up on email", "catch up on a show", "catch up with a friend"],
+      "collocations": [
+        "catch up on email",
+        "catch up on a show",
+        "catch up with a friend"
+      ],
       "note": "catch up on 后面接落下的事：catch up on email、catch up on a show。和 catch up with someone（跟某人叙旧）不同。"
     },
     {
@@ -137,7 +145,11 @@
         "zh": "同事问你怎么保持精力的。你想说你每周会去公司附近的健身房锻炼几次。",
         "en": "I work out at the gym near the office a few times a week. It really helps me sleep."
       },
-      "collocations": ["go to the gym", "a good workout", "go for a run"],
+      "collocations": [
+        "go to the gym",
+        "a good workout",
+        "go for a run"
+      ],
       "note": "名词是一个词 workout：a good workout。去健身房说 go to the gym。"
     },
     {
@@ -179,7 +191,7 @@
       "term": "How's the family?",
       "kind": "sentence",
       "register": "casual",
-      "zh": "家里人都好吗？（用 the，不用 your）",
+      "zh": "家里人都好吗？（问候家人的固定说法，不说“你的家人”）",
       "examples": [
         {
           "en": "Good to see you again! How's the family?",
@@ -255,7 +267,11 @@
         "zh": "同事约你下午五点半开个短会，但你那个时间要去幼儿园接孩子。",
         "en": "Could we do it earlier? I have to pick up the kids at five thirty."
       },
-      "collocations": ["drop off the kids", "pick them up from school", "daycare"],
+      "collocations": [
+        "drop off the kids",
+        "pick them up from school",
+        "daycare"
+      ],
       "note": "送孩子说 drop off the kids：I drop them off at eight. 只有一个孩子时说 pick up my son 或 my daughter。"
     },
     {
@@ -310,7 +326,7 @@
     {
       "term": "I'm still getting used to ...",
       "kind": "sentence",
-      "zh": "我还在适应……（含 used to）",
+      "zh": "我还在适应……",
       "examples": [
         {
           "en": "I'm still getting used to the time difference with the US team.",
@@ -327,7 +343,7 @@
       "term": "What's it like living in ...?",
       "kind": "sentence",
       "register": "casual",
-      "zh": "住在……是什么感觉？（问对方城市的生活，含 like）",
+      "zh": "住在……是什么感觉？（问对方在某个城市的生活体验）",
       "examples": [
         {
           "en": "What's it like living in Seattle? I've only seen it in movies.",
@@ -410,7 +426,7 @@
     {
       "term": "Let me know if there's anything I can do.",
       "kind": "sentence",
-      "zh": "有什么我能帮上忙的，尽管说。（慰问时用，以 Let me know 开头）",
+      "zh": "有什么我能帮上忙的，尽管说。（慰问或主动帮忙时用）",
       "examples": [
         {
           "en": "That sounds really stressful. Let me know if there's anything I can do.",
@@ -470,14 +486,18 @@
         "zh": "同事带病来上班，咳个不停。你想劝他请假回家休息。",
         "en": "You sound terrible. You should take a sick day and get some rest."
       },
-      "collocations": ["call in sick", "sick leave", "PTO"],
+      "collocations": [
+        "call in sick",
+        "sick leave",
+        "PTO"
+      ],
       "note": "病假统称 sick leave：I'm on sick leave. 临时打招呼请病假说 call in sick。带薪假常说 PTO（paid time off）。"
     },
     {
       "term": "Hope you feel better soon.",
       "kind": "sentence",
       "register": "casual",
-      "zh": "祝你早点好起来。（省略了主语 I，含 feel better）",
+      "zh": "祝你早点好起来。（生病慰问用，口语里常省略主语）",
       "examples": [
         {
           "en": "Don't worry about the review. Hope you feel better soon!",

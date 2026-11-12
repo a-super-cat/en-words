@@ -347,7 +347,7 @@
       "term": "It's really nice out today.",
       "kind": "sentence",
       "register": "casual",
-      "zh": "今天外面天气真好。（用 out 表示“外面”）",
+      "zh": "今天外面天气真好。（闲聊夸天气的地道说法）",
       "examples": [
         {
           "en": "It's really nice out today. Do you want to eat lunch outside?",
@@ -426,14 +426,18 @@
         "zh": "你早上迟到了半小时，同事问你怎么了。原因是路上堵车。",
         "en": "I got stuck in traffic. There was an accident on the highway."
       },
-      "collocations": ["get stuck in traffic", "rush hour", "The traffic was terrible."],
+      "collocations": [
+        "get stuck in traffic",
+        "rush hour",
+        "The traffic was terrible."
+      ],
       "note": "be stuck 或 get stuck in traffic。“路上很堵”说 The traffic was terrible."
     },
     {
       "term": "I could use a coffee.",
       "kind": "sentence",
       "register": "casual",
-      "zh": "我真想来杯咖啡。（用 could use 表示“很需要”）",
+      "zh": "我真想来杯咖啡。（表示“正需要着”的说法，不是“能使用”）",
       "examples": [
         {
           "en": "That meeting was long. I could use a coffee.",
@@ -461,7 +465,11 @@
         "zh": "加班到七点，你和同事都还没吃饭。你想提议出去简单吃点。",
         "en": "I'm getting hungry. Let's grab a bite before we finish this."
       },
-      "collocations": ["grab a bite to eat", "grab a coffee", "grab a drink"],
+      "collocations": [
+        "grab a bite to eat",
+        "grab a coffee",
+        "grab a drink"
+      ],
       "note": "完整说法是 grab a bite to eat。grab 还可以接 a coffee、a drink，都表示随意、不正式。"
     },
     {

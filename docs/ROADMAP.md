@@ -206,6 +206,7 @@
 - `c-java-1.json`，2026-11-12，改了 2 条（zh 泄露：volatile、bean 已改为不含答案的提示）；机械核查泄露/例句使用/重复 zh 均过。
 - `c-java-2.json`，2026-11-12，改了 4 条（zh 泄露：equals/hashCode、Stream、Optional、JVM）。例句 5 条疑似未用词块的复查后均为词形变化（took/swallowed 等），本身正确。
 - `c-interview-1.json`、`c-interview-2.json`，2026-11-12，第一轮审校改 0 条：zh 无答案泄露、无重复；13 条例句疑似未用词块复查后均为词形/人称变化，本身正确。另查清一个疑点：`situation.en` 有 44 条直接含 term——核对代码后确认这是设计（stage 3 情境应答只给用户看 `situation.zh` 提问，`en` 是答后展示的示范回答），不是泄露。
+- `b-small-talk-1.json`、`b-small-talk-2.json`，2026-11-12，改了 9 条：zh 提示里夹带英文片段的全部改成纯中文提示（如 catch up on sleep 的“（c 开头的短语动词+sleep）”、Let me know 的“（以 Let me know 开头）”——都等于把答案给了一半）。其余条目朗读抽查自然、无重复 zh。
 - 注：以上是第一轮（答案泄露、例句用没用词块、zh 重复、技术高频项抽查）。英文地道性逐条深审还没做完，后续继续。
 
 ### P1-2 A 层：日常口语词块
