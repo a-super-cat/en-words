@@ -1,0 +1,49 @@
+# 在云端打安卓调试包（debug APK），不需要本地装 Android Studio / SDK。
+# 产物在每次运行的 Artifacts 里（en-words-debug-apk），下载后可在手机上直接安装（需允许“安装未知应用”）。
+# debug 包用自动生成的调试签名，只能自用，不能上架应用商店；正式签名留到需要时再配。
+name: Android APK (debug)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: 安装依赖并构建网页版
+        run: |
+          npm ci
+          npm run build
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: 安装 Android SDK 36
+        uses: android-actions/setup-android@v3
+        with:
+          packages: platforms;android-36 build-tools;36.0.0
+
+      - name: 同步网页产物到安卓工程
+        run: npx cap sync android
+
+      - name: 打 debug APK
+        working-directory: android
+        run: ./gradlew assembleDebug
+
+      - name: 上传 APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: en-words-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30
