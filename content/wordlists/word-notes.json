@@ -1,1 +1,760 @@
-{"bottleneck":{"collocations":["the main bottleneck 主要瓶颈","remove the bottleneck 消除瓶颈","become a bottleneck 成为瓶颈"],"etymology":"The neck of a bottle is the narrow part that limits how fast liquid pours — the metaphor is the picture. 瓶颈就是瓶子最窄的那截：流速被它卡住，画面本身就是比喻。","example":{"en":"Profiling shows the database is the bottleneck, not the API layer.","zh":"性能分析显示瓶颈在数据库，不在接口层。"}},"cache":{"collocations":["cache hit / miss 缓存命中/未命中","invalidate the cache 让缓存失效","warm the cache 预热缓存"],"etymology":"French cacher, 'to hide'. A cache was a hidden store of supplies; in computing, a hidden store of data. 源自法语 cacher（藏）：本指藏物资的隐蔽仓库，计算机里就是藏数据的地方。","example":{"en":"The bug was a stale cache — the page showed prices from yesterday.","zh":"问题出在缓存过期上：页面显示的还是昨天的价格。"}},"concurrency":{"collocations":["concurrency control 并发控制","concurrent requests 并发请求","handle concurrency 处理并发"],"etymology":"Latin con- 'together' + currere 'to run': things running together. 注意它和 parallelism 的区别：concurrency 是结构（同时应对多件事），parallelism 是真并行执行。拉丁语 con-（一起）+ currere（跑）：一起跑。","example":{"en":"Under high concurrency, two requests updated the same row and one overwrote the other.","zh":"高并发下两个请求同时改了同一行，一个把另一个覆盖了。"}},"deadlock":{"collocations":["a deadlock occurs 发生死锁","avoid deadlocks 避免死锁","deadlock detection 死锁检测"],"etymology":"dead + lock: a lock so complete that nothing can move — first used for traffic and negotiations, then for threads. dead（死）+ lock（锁）：锁死到一动不能动，先用于交通和谈判僵局，后用于线程。","example":{"en":"Thread A waits for B's lock while B waits for A's — a classic deadlock.","zh":"线程 A 等 B 的锁，B 又等 A 的锁，经典死锁。"}},"deployment":{"collocations":["a failed deployment 失败的发布","deploy to production 部署到生产环境","deployment pipeline 部署流水线"],"etymology":"de- + Latin plicare 'to fold': to deploy was to unfold troops into formation. Unfolding software onto servers kept the word. de-（解开）+ 拉丁语 plicare（折叠）：本义是把军队“展开”成阵型，后来用来指把软件展开到服务器上。","example":{"en":"Friday deployments are banned — nobody wants a weekend incident.","zh":"周五禁止发布，没人想周末处理故障。"}},"deprecate":{"collocations":["deprecated in v2 在 v2 里被弃用","deprecate an API 弃用一个接口","will be deprecated 将被弃用"],"etymology":"Latin de- 'away' + precari 'to pray': originally 'to pray against' something, i.e. to wish it away — then 'to disapprove', now 'please stop using this'. 拉丁语 de-（离）+ precari（祈祷）：本义是“祈祷它别发生”，后来变成“弃用”。","example":{"en":"This endpoint is deprecated; please migrate to /v2 before the end of the quarter.","zh":"这个接口已经弃用了，请在本季度结束前迁到 /v2。"}},"fallback":{"collocations":["a fallback plan 备选方案","fall back to 退回到…","as a fallback 作为兜底"],"etymology":"fall + back: what you fall back on when the first plan fails. 字面就是“退回去靠的东西”：主方案不行时退守的备选。","example":{"en":"If the primary region goes down, traffic falls back to the secondary automatically.","zh":"主区域挂掉时，流量会自动切到备用区域。"}},"idempotent":{"collocations":["an idempotent operation 幂等操作","make it idempotent 把它改成幂等的","idempotent retries 幂等重试"],"etymology":"Latin idem 'the same' + potens 'powerful', a 19th-century math term: doing it twice has the same effect as once. 数学词：拉丁语 idem（相同）+ potens（有力量），做两遍和做一遍效果相同。","example":{"en":"Make the payment endpoint idempotent, or a retry will charge the user twice.","zh":"支付接口必须做成幂等的，不然一次重试就会重复扣款。"}},"latency":{"collocations":["low / high latency 低/高延迟","latency budget 延迟预算","tail latency (p99) 尾延迟","reduce latency 降低延迟"],"etymology":"Latin latens, 'hidden, lying dormant'. The delay is 'hidden' time before anything visibly happens. 源自拉丁语 latens（潜伏、隐藏）：延迟就是那段“什么都没发生”的隐藏时间。","example":{"en":"Moving the cache closer to users cut our p99 latency from 800ms to 120ms.","zh":"把缓存挪到离用户更近的地方后，p99 延迟从 800 毫秒降到了 120 毫秒。"}},"migration":{"collocations":["a data migration 数据迁移","run the migration 执行迁移","migration script 迁移脚本"],"etymology":"Latin migrare, 'to move from one place to another' — used for birds, people, and now databases. 拉丁语 migrare（从一地迁到另一地）：鸟、人、现在轮到数据库了。","example":{"en":"Run the migration during the maintenance window, and keep a rollback ready.","zh":"在维护窗口里执行迁移，并准备好回滚。"}},"note":"单词详解二期的人工内容：词源小注（etymology，中英对照）、常用搭配（collocations）、场景例句（example，职场语境）。人工撰写和维护，先覆盖高频技术词，质量优先于数量。词源只写有把握的简明版，拿不准的宁可不写。","overhead":{"collocations":["runtime overhead 运行时开销","adds overhead 增加开销","minimal overhead 开销极小"],"etymology":"over + head: costs that sit 'above your head' whether you produce anything or not. over（在上）+ head（头）：悬在头顶、干不干活都要付的成本。","example":{"en":"Encryption adds some overhead, but it is negligible at our scale.","zh":"加密会增加一点开销，但在我们的量级上可以忽略。"}},"queue":{"collocations":["a message queue 消息队列","queue up 排队等待","process the queue 处理队列"],"etymology":"Latin cauda, 'tail', via French: a line of people looked like a tail — that is also why British 'queue' means a line of people. 源自拉丁语 cauda（尾巴），经法语而来：一排人看起来像条尾巴，英式英语里 queue 也就是“排队”。","example":{"en":"Requests pile up in the queue whenever the workers fall behind.","zh":"只要处理端跟不上，请求就会在队列里堆起来。"}},"replica":{"collocations":["a read replica 只读副本","replica lag 副本延迟","replication 复制（机制）"],"etymology":"Latin replicare, 'to fold back, repeat' (re- + plicare 'fold'). A replica is the original 'folded back' into a copy. 拉丁语 replicare（折回、重复，词根 plic 是“折叠”）：原件“折”出一份副本。","example":{"en":"Reads go to the replica; writes always go to the primary.","zh":"读走副本，写永远走主库。"}},"resilient":{"collocations":["resilient to failure 对故障有韧性","build resilience 建立韧性/容错能力","a resilient design 韧性设计"],"etymology":"Latin re- 'back' + salire 'to jump': literally 'jumping back'. A resilient system bounces back from failure. 拉丁语 re-（回）+ salire（跳）：字面是“弹回来”，所以指系统出故障后能自己恢复。","example":{"en":"The service stayed resilient during the outage — it retried, degraded gracefully, and never lost data.","zh":"故障期间这个服务很抗造：重试、优雅降级，数据一条没丢。"}},"retry":{"collocations":["retry the request 重试请求","retry with backoff 带退避地重试","automatic retries 自动重试"],"etymology":"re- 'again' + try. 'Try' itself comes from Old French trier, 'to sift, select' — you sift once more. re-（再次）+ try（尝试）；try 本身源自古法语 trier（筛选），再筛一遍。","example":{"en":"Retry with exponential backoff, but cap it at three attempts.","zh":"用指数退避重试，但最多试三次。"}},"robust":{"collocations":["a robust solution 稳健的方案","robust error handling 健壮的错误处理","robust enough for production 足够健壮、能上生产"],"etymology":"Latin robustus, from robur, 'oak tree'. Hard oak wood became the image of strength. 源自拉丁语 robur（橡树），橡木坚硬，所以引申为强壮、可靠。","example":{"en":"The parser needs to be robust against malformed input from third-party feeds.","zh":"这个解析器必须扛得住第三方数据源的畸形输入。"}},"rollback":{"collocations":["roll back the deployment 回滚这次发布","a rollback plan 回滚方案","rollback to the previous version 回滚到上一版"],"etymology":"roll + back: roll the system back like a log to where it was. roll（滚动）+ back（回）：像滚木头一样把系统滚回之前的状态。","example":{"en":"Error rate spiked after the release, so we rolled back within five minutes.","zh":"发布后错误率飙升，我们五分钟内就回滚了。"}},"scalable":{"collocations":["highly scalable 高度可扩展的","scale horizontally / vertically 水平/垂直扩展","scalable architecture 可扩展架构"],"etymology":"From Latin scala, 'ladder' — that is why old dictionaries list 'climbable' first. The computing sense comes from 'scale' as size: a system that can climb to a bigger size. 源自拉丁语 scala（梯子），所以老词典把“可攀登的”排第一；计算机义取 scale 的“规模”义：能爬到更大规模。","example":{"en":"We need the design to be scalable before the marketing launch doubles our traffic.","zh":"市场推广会让流量翻倍，设计必须先做到可扩展。"}},"shard":{"collocations":["shard by user id 按用户 id 分片","a shard key 分片键","sharding strategy 分片策略"],"etymology":"Old English sceard, 'a fragment, a broken piece' (of pottery). Sharding breaks one big database into pieces. 古英语 sceard（碎片、破陶片）：分片就是把一个大库打成碎片分开放。","example":{"en":"We shard by tenant id so one noisy tenant cannot slow down the others.","zh":"我们按租户 id 分片，这样一个闹腾的租户拖不慢其他人。"}},"snapshot":{"collocations":["take a snapshot 做一个快照","a snapshot of the database 数据库快照","snapshot testing 快照测试"],"etymology":"snap + shot: a quick hunter's shot, then a quick photo — a frozen picture of one moment. snap（快速）+ shot（一击）：本是猎人的速射，后指快照：某一瞬间的定格。","example":{"en":"Take a snapshot of the volume before running the migration.","zh":"跑迁移之前，先给这个卷做个快照。"}},"stateless":{"collocations":["a stateless service 无状态服务","stateless by design 设计上无状态","keep it stateless 保持无状态"],"etymology":"state from Latin status, 'standing, condition', plus -less 'without'. 无状态 = 不记着上一次请求发生过什么。state 源自拉丁语 status（状态），加 -less（无）。","example":{"en":"If the service is stateless, we can add instances behind the load balancer freely.","zh":"只要服务是无状态的，我们就能在负载均衡后面随意加实例。"}},"throttle":{"collocations":["throttle requests 限制请求速率","get throttled 被限流","throttling policy 限流策略"],"etymology":"From 'throat': to throttle was to choke. Choking the flow of a pipe became limiting any flow. 来自 throat（喉咙），本义是掐脖子；掐住管道的流量，就成了“限流”。","example":{"en":"The API throttles us at 100 requests per minute, so we added a queue.","zh":"接口把我们限在每分钟 100 次请求，所以我们加了个队列。"}},"throughput":{"collocations":["high throughput 高吞吐","throughput of 10k requests per second 每秒一万请求的吞吐量","max out throughput 打满吞吐"],"etymology":"A plain compound: through + put — how much a factory could put through in a day, later borrowed by computing. 直白的复合词：through（穿过）+ put（放），原指工厂一天能“过”多少货，后来被计算机借用。","example":{"en":"Batching the writes tripled throughput without adding any servers.","zh":"把写入改成批量后，没加一台服务器，吞吐量涨到了三倍。"}},"timeout":{"collocations":["a 30-second timeout 30 秒超时","time out 超时（动词）","set a timeout 设置超时"],"etymology":"time + out: the time runs out. Originally a sports pause; in computing, a deadline that cancels the wait. time（时间）+ out（用完）：时间耗尽。原指体育暂停，后指等待的截止线。","example":{"en":"The request timed out because the downstream service never responded.","zh":"下游服务一直没响应，这个请求就超时了。"}}}
+{
+ "bottleneck": {
+  "collocations": [
+   "the main bottleneck 主要瓶颈",
+   "remove the bottleneck 消除瓶颈",
+   "become a bottleneck 成为瓶颈"
+  ],
+  "etymology": "The neck of a bottle is the narrow part that limits how fast liquid pours — the metaphor is the picture. 瓶颈就是瓶子最窄的那截：流速被它卡住，画面本身就是比喻。",
+  "example": {
+   "en": "Profiling shows the database is the bottleneck, not the API layer.",
+   "zh": "性能分析显示瓶颈在数据库，不在接口层。"
+  }
+ },
+ "cache": {
+  "collocations": [
+   "cache hit / miss 缓存命中/未命中",
+   "invalidate the cache 让缓存失效",
+   "warm the cache 预热缓存"
+  ],
+  "etymology": "French cacher, 'to hide'. A cache was a hidden store of supplies; in computing, a hidden store of data. 源自法语 cacher（藏）：本指藏物资的隐蔽仓库，计算机里就是藏数据的地方。",
+  "example": {
+   "en": "The bug was a stale cache — the page showed prices from yesterday.",
+   "zh": "问题出在缓存过期上：页面显示的还是昨天的价格。"
+  }
+ },
+ "concurrency": {
+  "collocations": [
+   "concurrency control 并发控制",
+   "concurrent requests 并发请求",
+   "handle concurrency 处理并发"
+  ],
+  "etymology": "Latin con- 'together' + currere 'to run': things running together. 注意它和 parallelism 的区别：concurrency 是结构（同时应对多件事），parallelism 是真并行执行。拉丁语 con-（一起）+ currere（跑）：一起跑。",
+  "example": {
+   "en": "Under high concurrency, two requests updated the same row and one overwrote the other.",
+   "zh": "高并发下两个请求同时改了同一行，一个把另一个覆盖了。"
+  }
+ },
+ "deadlock": {
+  "collocations": [
+   "a deadlock occurs 发生死锁",
+   "avoid deadlocks 避免死锁",
+   "deadlock detection 死锁检测"
+  ],
+  "etymology": "dead + lock: a lock so complete that nothing can move — first used for traffic and negotiations, then for threads. dead（死）+ lock（锁）：锁死到一动不能动，先用于交通和谈判僵局，后用于线程。",
+  "example": {
+   "en": "Thread A waits for B's lock while B waits for A's — a classic deadlock.",
+   "zh": "线程 A 等 B 的锁，B 又等 A 的锁，经典死锁。"
+  }
+ },
+ "deployment": {
+  "collocations": [
+   "a failed deployment 失败的发布",
+   "deploy to production 部署到生产环境",
+   "deployment pipeline 部署流水线"
+  ],
+  "etymology": "de- + Latin plicare 'to fold': to deploy was to unfold troops into formation. Unfolding software onto servers kept the word. de-（解开）+ 拉丁语 plicare（折叠）：本义是把军队“展开”成阵型，后来用来指把软件展开到服务器上。",
+  "example": {
+   "en": "Friday deployments are banned — nobody wants a weekend incident.",
+   "zh": "周五禁止发布，没人想周末处理故障。"
+  }
+ },
+ "deprecate": {
+  "collocations": [
+   "deprecated in v2 在 v2 里被弃用",
+   "deprecate an API 弃用一个接口",
+   "will be deprecated 将被弃用"
+  ],
+  "etymology": "Latin de- 'away' + precari 'to pray': originally 'to pray against' something, i.e. to wish it away — then 'to disapprove', now 'please stop using this'. 拉丁语 de-（离）+ precari（祈祷）：本义是“祈祷它别发生”，后来变成“弃用”。",
+  "example": {
+   "en": "This endpoint is deprecated; please migrate to /v2 before the end of the quarter.",
+   "zh": "这个接口已经弃用了，请在本季度结束前迁到 /v2。"
+  }
+ },
+ "fallback": {
+  "collocations": [
+   "a fallback plan 备选方案",
+   "fall back to 退回到…",
+   "as a fallback 作为兜底"
+  ],
+  "etymology": "fall + back: what you fall back on when the first plan fails. 字面就是“退回去靠的东西”：主方案不行时退守的备选。",
+  "example": {
+   "en": "If the primary region goes down, traffic falls back to the secondary automatically.",
+   "zh": "主区域挂掉时，流量会自动切到备用区域。"
+  }
+ },
+ "idempotent": {
+  "collocations": [
+   "an idempotent operation 幂等操作",
+   "make it idempotent 把它改成幂等的",
+   "idempotent retries 幂等重试"
+  ],
+  "etymology": "Latin idem 'the same' + potens 'powerful', a 19th-century math term: doing it twice has the same effect as once. 数学词：拉丁语 idem（相同）+ potens（有力量），做两遍和做一遍效果相同。",
+  "example": {
+   "en": "Make the payment endpoint idempotent, or a retry will charge the user twice.",
+   "zh": "支付接口必须做成幂等的，不然一次重试就会重复扣款。"
+  }
+ },
+ "latency": {
+  "collocations": [
+   "low / high latency 低/高延迟",
+   "latency budget 延迟预算",
+   "tail latency (p99) 尾延迟",
+   "reduce latency 降低延迟"
+  ],
+  "etymology": "Latin latens, 'hidden, lying dormant'. The delay is 'hidden' time before anything visibly happens. 源自拉丁语 latens（潜伏、隐藏）：延迟就是那段“什么都没发生”的隐藏时间。",
+  "example": {
+   "en": "Moving the cache closer to users cut our p99 latency from 800ms to 120ms.",
+   "zh": "把缓存挪到离用户更近的地方后，p99 延迟从 800 毫秒降到了 120 毫秒。"
+  }
+ },
+ "migration": {
+  "collocations": [
+   "a data migration 数据迁移",
+   "run the migration 执行迁移",
+   "migration script 迁移脚本"
+  ],
+  "etymology": "Latin migrare, 'to move from one place to another' — used for birds, people, and now databases. 拉丁语 migrare（从一地迁到另一地）：鸟、人、现在轮到数据库了。",
+  "example": {
+   "en": "Run the migration during the maintenance window, and keep a rollback ready.",
+   "zh": "在维护窗口里执行迁移，并准备好回滚。"
+  }
+ },
+ "note": "单词详解二期的人工内容：词源小注（etymology，中英对照）、常用搭配（collocations）、场景例句（example，职场语境）。人工撰写和维护，先覆盖高频技术词（当前 63 个），质量优先于数量。词源只写有把握的简明版，拿不准的宁可不写。",
+ "overhead": {
+  "collocations": [
+   "runtime overhead 运行时开销",
+   "adds overhead 增加开销",
+   "minimal overhead 开销极小"
+  ],
+  "etymology": "over + head: costs that sit 'above your head' whether you produce anything or not. over（在上）+ head（头）：悬在头顶、干不干活都要付的成本。",
+  "example": {
+   "en": "Encryption adds some overhead, but it is negligible at our scale.",
+   "zh": "加密会增加一点开销，但在我们的量级上可以忽略。"
+  }
+ },
+ "queue": {
+  "collocations": [
+   "a message queue 消息队列",
+   "queue up 排队等待",
+   "process the queue 处理队列"
+  ],
+  "etymology": "Latin cauda, 'tail', via French: a line of people looked like a tail — that is also why British 'queue' means a line of people. 源自拉丁语 cauda（尾巴），经法语而来：一排人看起来像条尾巴，英式英语里 queue 也就是“排队”。",
+  "example": {
+   "en": "Requests pile up in the queue whenever the workers fall behind.",
+   "zh": "只要处理端跟不上，请求就会在队列里堆起来。"
+  }
+ },
+ "replica": {
+  "collocations": [
+   "a read replica 只读副本",
+   "replica lag 副本延迟",
+   "replication 复制（机制）"
+  ],
+  "etymology": "Latin replicare, 'to fold back, repeat' (re- + plicare 'fold'). A replica is the original 'folded back' into a copy. 拉丁语 replicare（折回、重复，词根 plic 是“折叠”）：原件“折”出一份副本。",
+  "example": {
+   "en": "Reads go to the replica; writes always go to the primary.",
+   "zh": "读走副本，写永远走主库。"
+  }
+ },
+ "resilient": {
+  "collocations": [
+   "resilient to failure 对故障有韧性",
+   "build resilience 建立韧性/容错能力",
+   "a resilient design 韧性设计"
+  ],
+  "etymology": "Latin re- 'back' + salire 'to jump': literally 'jumping back'. A resilient system bounces back from failure. 拉丁语 re-（回）+ salire（跳）：字面是“弹回来”，所以指系统出故障后能自己恢复。",
+  "example": {
+   "en": "The service stayed resilient during the outage — it retried, degraded gracefully, and never lost data.",
+   "zh": "故障期间这个服务很抗造：重试、优雅降级，数据一条没丢。"
+  }
+ },
+ "retry": {
+  "collocations": [
+   "retry the request 重试请求",
+   "retry with backoff 带退避地重试",
+   "automatic retries 自动重试"
+  ],
+  "etymology": "re- 'again' + try. 'Try' itself comes from Old French trier, 'to sift, select' — you sift once more. re-（再次）+ try（尝试）；try 本身源自古法语 trier（筛选），再筛一遍。",
+  "example": {
+   "en": "Retry with exponential backoff, but cap it at three attempts.",
+   "zh": "用指数退避重试，但最多试三次。"
+  }
+ },
+ "robust": {
+  "collocations": [
+   "a robust solution 稳健的方案",
+   "robust error handling 健壮的错误处理",
+   "robust enough for production 足够健壮、能上生产"
+  ],
+  "etymology": "Latin robustus, from robur, 'oak tree'. Hard oak wood became the image of strength. 源自拉丁语 robur（橡树），橡木坚硬，所以引申为强壮、可靠。",
+  "example": {
+   "en": "The parser needs to be robust against malformed input from third-party feeds.",
+   "zh": "这个解析器必须扛得住第三方数据源的畸形输入。"
+  }
+ },
+ "rollback": {
+  "collocations": [
+   "roll back the deployment 回滚这次发布",
+   "a rollback plan 回滚方案",
+   "rollback to the previous version 回滚到上一版"
+  ],
+  "etymology": "roll + back: roll the system back like a log to where it was. roll（滚动）+ back（回）：像滚木头一样把系统滚回之前的状态。",
+  "example": {
+   "en": "Error rate spiked after the release, so we rolled back within five minutes.",
+   "zh": "发布后错误率飙升，我们五分钟内就回滚了。"
+  }
+ },
+ "scalable": {
+  "collocations": [
+   "highly scalable 高度可扩展的",
+   "scale horizontally / vertically 水平/垂直扩展",
+   "scalable architecture 可扩展架构"
+  ],
+  "etymology": "From Latin scala, 'ladder' — that is why old dictionaries list 'climbable' first. The computing sense comes from 'scale' as size: a system that can climb to a bigger size. 源自拉丁语 scala（梯子），所以老词典把“可攀登的”排第一；计算机义取 scale 的“规模”义：能爬到更大规模。",
+  "example": {
+   "en": "We need the design to be scalable before the marketing launch doubles our traffic.",
+   "zh": "市场推广会让流量翻倍，设计必须先做到可扩展。"
+  }
+ },
+ "shard": {
+  "collocations": [
+   "shard by user id 按用户 id 分片",
+   "a shard key 分片键",
+   "sharding strategy 分片策略"
+  ],
+  "etymology": "Old English sceard, 'a fragment, a broken piece' (of pottery). Sharding breaks one big database into pieces. 古英语 sceard（碎片、破陶片）：分片就是把一个大库打成碎片分开放。",
+  "example": {
+   "en": "We shard by tenant id so one noisy tenant cannot slow down the others.",
+   "zh": "我们按租户 id 分片，这样一个闹腾的租户拖不慢其他人。"
+  }
+ },
+ "snapshot": {
+  "collocations": [
+   "take a snapshot 做一个快照",
+   "a snapshot of the database 数据库快照",
+   "snapshot testing 快照测试"
+  ],
+  "etymology": "snap + shot: a quick hunter's shot, then a quick photo — a frozen picture of one moment. snap（快速）+ shot（一击）：本是猎人的速射，后指快照：某一瞬间的定格。",
+  "example": {
+   "en": "Take a snapshot of the volume before running the migration.",
+   "zh": "跑迁移之前，先给这个卷做个快照。"
+  }
+ },
+ "stateless": {
+  "collocations": [
+   "a stateless service 无状态服务",
+   "stateless by design 设计上无状态",
+   "keep it stateless 保持无状态"
+  ],
+  "etymology": "state from Latin status, 'standing, condition', plus -less 'without'. 无状态 = 不记着上一次请求发生过什么。state 源自拉丁语 status（状态），加 -less（无）。",
+  "example": {
+   "en": "If the service is stateless, we can add instances behind the load balancer freely.",
+   "zh": "只要服务是无状态的，我们就能在负载均衡后面随意加实例。"
+  }
+ },
+ "throttle": {
+  "collocations": [
+   "throttle requests 限制请求速率",
+   "get throttled 被限流",
+   "throttling policy 限流策略"
+  ],
+  "etymology": "From 'throat': to throttle was to choke. Choking the flow of a pipe became limiting any flow. 来自 throat（喉咙），本义是掐脖子；掐住管道的流量，就成了“限流”。",
+  "example": {
+   "en": "The API throttles us at 100 requests per minute, so we added a queue.",
+   "zh": "接口把我们限在每分钟 100 次请求，所以我们加了个队列。"
+  }
+ },
+ "throughput": {
+  "collocations": [
+   "high throughput 高吞吐",
+   "throughput of 10k requests per second 每秒一万请求的吞吐量",
+   "max out throughput 打满吞吐"
+  ],
+  "etymology": "A plain compound: through + put — how much a factory could put through in a day, later borrowed by computing. 直白的复合词：through（穿过）+ put（放），原指工厂一天能“过”多少货，后来被计算机借用。",
+  "example": {
+   "en": "Batching the writes tripled throughput without adding any servers.",
+   "zh": "把写入改成批量后，没加一台服务器，吞吐量涨到了三倍。"
+  }
+ },
+ "timeout": {
+  "collocations": [
+   "a 30-second timeout 30 秒超时",
+   "time out 超时（动词）",
+   "set a timeout 设置超时"
+  ],
+  "etymology": "time + out: the time runs out. Originally a sports pause; in computing, a deadline that cancels the wait. time（时间）+ out（用完）：时间耗尽。原指体育暂停，后指等待的截止线。",
+  "example": {
+   "en": "The request timed out because the downstream service never responded.",
+   "zh": "下游服务一直没响应，这个请求就超时了。"
+  }
+ },
+ "asynchronous": {
+  "collocations": [
+   "asynchronous calls 异步调用",
+   "async / await 异步写法",
+   "handle it asynchronously 异步处理"
+  ],
+  "etymology": "Greek a- 'not' + syn- 'together' + chronos 'time': not at the same time. 三个希腊部件：a-（不）+ syn-（一起）+ chronos（时间），字面“不在同一时间”。",
+  "example": {
+   "en": "Make the upload asynchronous so the user is not blocked waiting for it.",
+   "zh": "把上传做成异步的，这样用户不用干等着。"
+  }
+ },
+ "authentication": {
+  "collocations": [
+   "user authentication 用户认证",
+   "authentication failed 认证失败",
+   "two-factor authentication 双因素认证"
+  ],
+  "etymology": "Greek authentikos, 'genuine', from authentes, 'someone acting on their own authority'. Proving you are genuinely you. 希腊语 authentikos（真实的），源头是“有权自己做主的人”：证明你真是你。",
+  "example": {
+   "en": "Authentication is handled by the gateway; the services behind it just trust the token.",
+   "zh": "认证由网关统一处理，后面的服务信任令牌就行。"
+  }
+ },
+ "availability": {
+  "collocations": [
+   "high availability 高可用",
+   "availability zone 可用区",
+   "99.9% availability 99.9% 可用性"
+  ],
+  "etymology": "From Latin valere, 'to be strong, to be worth' (via avail). A system that is 'worth something' when you need it. 源自拉丁语 valere（强壮、有价值）：你需要时它顶用，就是可用。",
+  "example": {
+   "en": "We run in two availability zones so one can fail without downtime.",
+   "zh": "我们在两个可用区部署，一个挂了也不会停服。"
+  }
+ },
+ "bandwidth": {
+  "collocations": [
+   "bandwidth limits 带宽限制",
+   "consume bandwidth 占用带宽",
+   "save bandwidth 省带宽"
+  ],
+  "etymology": "band (a range of frequencies) + width: how wide the pipe is. band（频带）+ width（宽度）：管道有多宽。",
+  "example": {
+   "en": "Video calls eat most of the office bandwidth in the morning.",
+   "zh": "视频会议吃掉了办公室早上的大部分带宽。"
+  }
+ },
+ "buffer": {
+  "collocations": [
+   "a circular buffer 环形缓冲",
+   "buffer the stream 缓冲流数据",
+   "buffer overflow 缓冲区溢出"
+  ],
+  "etymology": "Linked to 'buff', a dull thud: a buffer is the soft layer that absorbs the impact between two harder things. 与 buff（沉闷的撞击声）有关：缓冲就是夹在两个硬东西之间吃掉冲击的那层。",
+  "example": {
+   "en": "The player buffers a few seconds ahead so the video never stutters.",
+   "zh": "播放器会提前缓冲几秒，视频就不会卡了。"
+  }
+ },
+ "callback": {
+  "collocations": [
+   "a callback function 回调函数",
+   "register a callback 注册回调",
+   "on complete callback 完成回调"
+  ],
+  "etymology": "call + back: like returning a phone call. You hand over your number (the function) and get called back when ready. call（打电话）+ back（回）：像回拨电话，你把“号码”（函数）留下，有结果了再打回来。",
+  "example": {
+   "en": "Pass a callback and it will fire once the file is fully written.",
+   "zh": "传入一个回调，文件写完时它就会被调用。"
+  }
+ },
+ "cluster": {
+  "collocations": [
+   "a Kubernetes cluster K8s 集群",
+   "cluster nodes 集群节点",
+   "run in a cluster 跑在集群里"
+  ],
+  "etymology": "Old English clyster, 'a bunch' (like a bunch of grapes): many individual units acting as one bunch. 古英语 clyster（一串，如葡萄串）：许多个体抱成一团对外像一个整体。",
+  "example": {
+   "en": "The cluster scales from three nodes to ten during peak hours.",
+   "zh": "这个集群在高峰期会从 3 个节点扩到 10 个。"
+  }
+ },
+ "compiler": {
+  "collocations": [
+   "the compiler warns 编译器警告",
+   "compile-time errors 编译期错误",
+   "a just-in-time compiler 即时编译器"
+  ],
+  "etymology": "Latin compilare, 'to gather together, pile up'. A compiler gathers your code and piles it into machine code. 拉丁语 compilare（汇集、堆积）：编译器把代码收集起来，“编”成机器码。",
+  "example": {
+   "en": "The compiler caught the type error before the code ever ran.",
+   "zh": "代码还没跑，编译器就先把这个类型错误抓出来了。"
+  }
+ },
+ "configuration": {
+  "collocations": [
+   "configuration file 配置文件",
+   "environment-specific configuration 环境相关配置",
+   "misconfiguration 配置错误"
+  ],
+  "etymology": "con- 'together' + Latin figura 'shape': how the parts are shaped together. con-（一起）+ 拉丁语 figura（形状）：各部件拼在一起的形状。",
+  "example": {
+   "en": "Most outages I have seen were configuration mistakes, not code bugs.",
+   "zh": "我见过的故障多数是配置错误，不是代码 bug。"
+  }
+ },
+ "consistency": {
+  "collocations": [
+   "strong consistency 强一致性",
+   "eventual consistency 最终一致性",
+   "consistency guarantees 一致性保证"
+  ],
+  "etymology": "Latin consistere, 'to stand firm' (con- + sistere 'stand'). Data that 'stands firm' — the same from every angle. 拉丁语 consistere（站稳）：从哪个角度看都立得住、不自相矛盾。",
+  "example": {
+   "en": "For balances we need strong consistency; for likes, eventual is fine.",
+   "zh": "余额需要强一致，点赞数最终一致就够了。"
+  }
+ },
+ "container": {
+  "collocations": [
+   "a Docker container Docker 容器",
+   "container image 容器镜像",
+   "run in containers 跑在容器里"
+  ],
+  "etymology": "contain, from Latin con- + tenere 'to hold': that which holds things together. Shipping containers standardized the box; software borrowed both. contain 源自拉丁语 con- + tenere（持有）：把东西装在一起的盒子，航运集装箱和软件容器用的是同一个比喻。",
+  "example": {
+   "en": "The app ships as a container, so it runs the same on my laptop and in production.",
+   "zh": "应用打成容器交付，在我电脑上和生产环境跑起来一模一样。"
+  }
+ },
+ "dependency": {
+  "collocations": [
+   "a dependency on 对…的依赖",
+   "dependency injection 依赖注入",
+   "upgrade dependencies 升级依赖"
+  ],
+  "etymology": "de- 'down' + Latin pendere 'to hang': hanging down from something else, relying on it to hold you. de-（向下）+ 拉丁语 pendere（悬挂）：挂在别的东西上，靠它撑着。pend 和 pending（悬而未决）同源。",
+  "example": {
+   "en": "Keep the dependency list short — every library is something you have to maintain.",
+   "zh": "依赖清单要短，每个库都是你要维护的东西。"
+  }
+ },
+ "deterministic": {
+  "collocations": [
+   "deterministic behavior 确定性行为",
+   "a deterministic test 结果确定的测试",
+   "non-deterministic bugs 非确定性 bug"
+  ],
+  "etymology": "de- + Latin terminus 'a boundary, an end': the outcome is fenced in in advance. de- + 拉丁语 terminus（界限、终点）：结果提前被边界圈定，没有意外。",
+  "example": {
+   "en": "Sort the output so the test is deterministic and stops flaking.",
+   "zh": "把输出排一下序，这个测试就结果确定、不再时好时坏了。"
+  }
+ },
+ "encryption": {
+  "collocations": [
+   "end-to-end encryption 端到端加密",
+   "encrypt at rest 静态加密",
+   "encryption keys 加密密钥"
+  ],
+  "etymology": "Greek kryptos, 'hidden' — the root of 'crypt'. To encrypt is to put something into the crypt, hidden. 希腊语 kryptos（隐藏的），也是 crypt（地窖）的源头：加密就是把东西藏进地窖。",
+  "example": {
+   "en": "All traffic is encrypted in transit, and the disks are encrypted at rest.",
+   "zh": "所有传输都加密，磁盘上的数据也是静态加密的。"
+  }
+ },
+ "exception": {
+  "collocations": [
+   "throw an exception 抛出异常",
+   "exception handling 异常处理",
+   "an unhandled exception 未处理的异常"
+  ],
+  "etymology": "Latin ex- 'out' + capere 'to take': the case that is 'taken out' of the normal flow. 拉丁语 ex-（出）+ capere（拿）：从正常流程里被“拿出来”的那个情况。",
+  "example": {
+   "en": "Do not catch the exception just to log it and pretend nothing happened.",
+   "zh": "别抓住异常只打个日志就假装什么都没发生。"
+  }
+ },
+ "framework": {
+  "collocations": [
+   "a web framework Web 框架",
+   "framework conventions 框架的约定",
+   "within the framework 在框架之内"
+  ],
+  "etymology": "frame + work: the skeleton you build inside of, as opposed to a library you call. frame（骨架）+ work：框架是你住进去的骨架，库是你调用的工具，区别就在这。",
+  "example": {
+   "en": "The framework handles routing and auth; we only write the business logic.",
+   "zh": "框架负责路由和认证，我们只写业务逻辑。"
+  }
+ },
+ "generic": {
+  "collocations": [
+   "a generic type 泛型类型",
+   "generic code 通用代码",
+   "generics in Java / TypeScript Java/TS 里的泛型"
+  ],
+  "etymology": "Latin genus, 'a kind, a class' (same root as 'general' and 'generate'). Code written for a whole class of types. 拉丁语 genus（种类、类别），和 general、generate 同源：为一整类类型写的代码就是泛型。",
+  "example": {
+   "en": "Write it as a generic function and it works for any record type.",
+   "zh": "把它写成泛型函数，任何记录类型都能用。"
+  }
+ },
+ "heap": {
+  "collocations": [
+   "the heap 堆（内存）",
+   "a heap allocation 堆上分配",
+   "min-heap / max-heap 最小堆/最大堆"
+  ],
+  "etymology": "Old English heap, 'a pile'. Both the memory region and the tree data structure borrow the image of things piled up. 古英语 heap（一堆）：内存的堆和树结构的堆，借的都是“东西堆在一起”的象。",
+  "example": {
+   "en": "Large objects go on the heap; the stack only holds small, short-lived values.",
+   "zh": "大对象放在堆上，栈只放小的、短命的值。"
+  }
+ },
+ "immutable": {
+  "collocations": [
+   "immutable data 不可变数据",
+   "an immutable object 不可变对象",
+   "treat it as immutable 把它当不可变的"
+  ],
+  "etymology": "in- 'not' + Latin mutare 'to change' — the root mut- also gives 'mutate' and 'mutation'. in-（不）+ 拉丁语 mutare（改变）：mut- 这个词根也给了 mutate（突变）。",
+  "example": {
+   "en": "Keep the state immutable; return a new object instead of editing the old one.",
+   "zh": "状态保持不可变，要改就返回一个新对象，别动旧的。"
+  }
+ },
+ "instance": {
+  "collocations": [
+   "an instance of 的一个实例",
+   "spin up an instance 拉起一个实例",
+   "instance type 实例规格"
+  ],
+  "etymology": "Latin instantia, 'presence', from in- + stare 'to stand': something standing right there — one concrete case. 拉丁语 instantia（在场），来自“站着”：一个具体地站在你面前的例子。",
+  "example": {
+   "en": "Each tenant gets its own instance of the worker, isolated from the rest.",
+   "zh": "每个租户有自己独立的 worker 实例，和其他人隔开。"
+  }
+ },
+ "interface": {
+  "collocations": [
+   "a clean interface 干净的接口",
+   "the API interface 接口（API）",
+   "implement an interface 实现一个接口"
+  ],
+  "etymology": "inter- 'between' + face: the surface where two things meet. inter-（之间）+ face（面）：两个东西相接的那个面。",
+  "example": {
+   "en": "Hide the database behind an interface and swapping it later gets easy.",
+   "zh": "把数据库藏在一个接口后面，以后换库就容易了。"
+  }
+ },
+ "kernel": {
+  "collocations": [
+   "the Linux kernel Linux 内核",
+   "kernel panic 内核崩溃",
+   "a kernel update 内核升级"
+  ],
+  "etymology": "Old English cyrnel, 'a small seed or grain' (a little corn): the seed at the centre of the plant. 古英语 cyrnel（小种子）：植物最中央的那颗仁，就是内核。",
+  "example": {
+   "en": "The bug turned out to be in a kernel driver, not in our code.",
+   "zh": "查到最后，bug 在一个内核驱动里，不在我们代码里。"
+  }
+ },
+ "monitor": {
+  "collocations": [
+   "monitor the service 监控这个服务",
+   "monitoring dashboard 监控大盘",
+   "set up monitoring 把监控建起来"
+  ],
+  "etymology": "Latin monere, 'to warn, to advise'. A monitor is the thing that warns you. 拉丁语 monere（警告、劝告）：监控的本职就是提前警告你。",
+  "example": {
+   "en": "Monitor the error rate, not just CPU — users feel errors, not load.",
+   "zh": "要监控错误率，不只是 CPU，用户感受到的是错误，不是负载。"
+  }
+ },
+ "observability": {
+  "collocations": [
+   "observability tooling 可观测性工具",
+   "improve observability 提升可观测性",
+   "logs, metrics, traces 日志、指标、链路"
+  ],
+  "etymology": "From 'observe' (Latin ob- + servare, 'to watch over'), a term borrowed from control theory: judging the inside of a system from its outputs. 源自“观察”（拉丁语 servare 是守护、注视），是控制论的词：从外部输出推断系统内部状态。",
+  "example": {
+   "en": "Without observability, debugging production is just guessing with logs open.",
+   "zh": "没有可观测性，查生产问题就是开着日志瞎猜。"
+  }
+ },
+ "pipeline": {
+  "collocations": [
+   "a CI pipeline CI 流水线",
+   "the build pipeline 构建流水线",
+   "pipeline stages 流水线阶段"
+  ],
+  "etymology": "pipe + line: a line of pipes carrying oil or water; then, work flowing stage by stage. pipe（管子）+ line（线）：先是输油输水的管道，后指工作一段段流过去。",
+  "example": {
+   "en": "The pipeline runs tests on every push and blocks the merge if they fail.",
+   "zh": "每次推送流水线都会跑测试，失败就挡住合并。"
+  }
+ },
+ "protocol": {
+  "collocations": [
+   "the HTTP protocol HTTP 协议",
+   "follow the protocol 遵循协议",
+   "a communication protocol 通信协议"
+  ],
+  "etymology": "Greek protokollon: proto- 'first' + kolla 'glue' — the first sheet glued onto a manuscript, listing its rules. A protocol is still 'the rules sheet'. 希腊语 protokollon：proto-（第一）+ kolla（胶），原指粘在手稿最前面的那页规范，协议至今仍是那张“规则页”。",
+  "example": {
+   "en": "Both sides must speak the same protocol version or the handshake fails.",
+   "zh": "两边必须用同一个协议版本，不然握手就失败。"
+  }
+ },
+ "recursion": {
+  "collocations": [
+   "recursive function 递归函数",
+   "infinite recursion 无限递归",
+   "base case 基线情况（递归终止条件）"
+  ],
+  "etymology": "Latin re- 'back' + currere 'to run': running back into itself. 拉丁语 re-（回）+ currere（跑）：跑回自己身上，和 current、concurrency 同根。",
+  "example": {
+   "en": "Every recursion needs a base case, or it runs until the stack blows up.",
+   "zh": "每个递归都要有终止条件，不然会跑到爆栈。"
+  }
+ },
+ "repository": {
+  "collocations": [
+   "a git repository Git 仓库",
+   "clone the repository 克隆仓库",
+   "the repo 仓库（口头简称）"
+  ],
+  "etymology": "Latin re- + ponere 'to put': a place where things are put away for keeping. 拉丁语 re- + ponere（放）：把东西收回去存放的地方。pon- 和 position 同根。",
+  "example": {
+   "en": "Clone the repository and run the setup script; it takes two minutes.",
+   "zh": "把仓库克隆下来跑一下初始化脚本，两分钟搞定。"
+  }
+ },
+ "runtime": {
+  "collocations": [
+   "at runtime 在运行时",
+   "runtime errors 运行时错误",
+   "a JavaScript runtime JS 运行时"
+  ],
+  "etymology": "A plain compound, run + time: the period when the program runs, and by extension the environment that runs it. 直白复合词 run + time：程序跑着的那段时间，后来也指让它跑起来的那套环境。",
+  "example": {
+   "en": "This check happens at runtime, so the compiler will not save you.",
+   "zh": "这个检查发生在运行时，编译器帮不了你。"
+  }
+ },
+ "schema": {
+  "collocations": [
+   "the database schema 数据库结构",
+   "a JSON schema JSON 模式",
+   "schema changes 结构变更"
+  ],
+  "etymology": "Greek skhema, 'form, shape, a plan'. A schema is the shape your data must fit. 希腊语 skhema（形状、图式）：数据必须长成的那个形状，就是 schema。",
+  "example": {
+   "en": "Changing the schema is easy; migrating the old data is the hard part.",
+   "zh": "改结构容易，难的是迁移旧数据。"
+  }
+ },
+ "session": {
+  "collocations": [
+   "a user session 用户会话",
+   "session expires 会话过期",
+   "log in session 登录会话"
+  ],
+  "etymology": "Latin sessio, 'a sitting', from sedere 'to sit': one sitting together — a meeting, a class, a login. 拉丁语 sessio（一次坐着），来自 sedere（坐）：坐下来开的一次会、上的一堂课、登的一次录。",
+  "example": {
+   "en": "The session expires after 30 minutes of inactivity, so users have to log in again.",
+   "zh": "会话闲置 30 分钟就过期，用户得重新登录。"
+  }
+ },
+ "socket": {
+  "collocations": [
+   "a WebSocket connection WebSocket 连接",
+   "open a socket 打开一个套接字",
+   "socket timeout 套接字超时"
+  ],
+  "etymology": "From an Old French word for a small ploughshare — something shaped to plug into. It became any hollow part you plug something into, then the endpoint of a network connection. 源自古法语里指小犁头的词，后来指一切“插进去的套”，再引申为网络连接的端点。",
+  "example": {
+   "en": "The socket closed unexpectedly, so the client reconnects with backoff.",
+   "zh": "套接字意外断了，客户端就带退避地重连。"
+  }
+ },
+ "stack": {
+  "collocations": [
+   "the call stack 调用栈",
+   "stack overflow 栈溢出",
+   "a full-stack developer 全栈开发者"
+  ],
+  "etymology": "Old Norse stakkr, 'a haystack': a pile where you can only take from the top. 古诺斯语 stakkr（干草堆）：只能从顶上取的一摞东西。stack overflow 的社区名字也来自这个“溢出”。",
+  "example": {
+   "en": "Read the stack trace from the top — the first frame is where it actually broke.",
+   "zh": "从栈轨迹的最上面开始看，第一帧才是真正出错的地方。"
+  }
+ },
+ "template": {
+  "collocations": [
+   "an email template 邮件模板",
+   "template engine 模板引擎",
+   "use a template 用模板"
+  ],
+  "etymology": "Related to the 'templet', a bar in a loom that held cloth to the right width — a pattern to match. 与织布机上把布撑到固定宽度的样板杆有关：一个供比照的模子。",
+  "example": {
+   "en": "Start from the service template instead of wiring everything by hand.",
+   "zh": "从服务模板起步，别什么都手动搭。"
+  }
+ },
+ "thread": {
+  "collocations": [
+   "a background thread 后台线程",
+   "thread-safe 线程安全的",
+   "the main thread 主线程"
+  ],
+  "etymology": "Old English thraed, from a verb meaning 'to twist': a twisted fibre. A thread of execution runs through the program like a thread through cloth. 古英语 thraed，源头是“拧”：拧成的一根线。执行线程像线一样穿过程序，正如线穿过布。",
+  "example": {
+   "en": "Never block the main thread with network calls; move them to a background thread.",
+   "zh": "绝不能用网络调用阻塞主线程，把它们挪到后台线程去。"
+  }
+ },
+ "threshold": {
+  "collocations": [
+   "an alert threshold 告警阈值",
+   "cross the threshold 越过阈值",
+   "set a threshold 设一个阈值"
+  ],
+  "etymology": "Old English for the wooden sill at a doorway: the strip you step over to enter. 古英语里就是门口那根木头门槛：迈过去就进了另一个状态。",
+  "example": {
+   "en": "Alert only when the error rate crosses the threshold for five straight minutes.",
+   "zh": "错误率连续五分钟都越过阈值时才告警。"
+  }
+ },
+ "token": {
+  "collocations": [
+   "an access token 访问令牌",
+   "token expires 令牌过期",
+   "refresh the token 刷新令牌"
+  ],
+  "etymology": "Old English tacen, 'a sign' (the source of modern 'token' and German Zeichen). A small sign that stands for a bigger right. 古英语 tacen（记号）：一个小记号，代表一份更大的权利。",
+  "example": {
+   "en": "Never log the token — anyone who reads the logs owns the account.",
+   "zh": "绝不能把令牌打进日志，谁看到日志谁就拿到了账号。"
+  }
+ },
+ "variable": {
+  "collocations": [
+   "a variable name 变量名",
+   "declare a variable 声明变量",
+   "global variable 全局变量"
+  ],
+  "etymology": "Latin variare, 'to vary, to change': the quantity that is allowed to change — the opposite of a constant. 拉丁语 variare（变化）：可以变的量，和 constant（常量）正好相对。",
+  "example": {
+   "en": "Name the variable after what it holds, not after its type.",
+   "zh": "变量名按它装的东西起，别按类型起。"
+  }
+ },
+ "virtual": {
+  "collocations": [
+   "a virtual machine 虚拟机",
+   "virtual memory 虚拟内存",
+   "virtual DOM 虚拟 DOM"
+  ],
+  "etymology": "Latin virtus, 'power, excellence': virtual meant 'effective in power, if not in form'. A virtual machine has the power of a machine without being one. 拉丁语 virtus（力量）：virtual 的原义是“效力上是、形式上不是”，虚拟机有机器的效力、却不是机器。",
+  "example": {
+   "en": "The virtual DOM diff is cheap; the real DOM write is the expensive part.",
+   "zh": "虚拟 DOM 的比对很便宜，贵的是真正写 DOM 那一步。"
+  }
+ }
+}
