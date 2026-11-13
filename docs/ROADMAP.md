@@ -226,6 +226,7 @@
 - 【深审·第二轮】`c-software-types-1.json`、`c-software-types-2.json`，2026-11-13，逐条深审改 0 条：行级安全租户隔离、ETL 与 ELT、代码签名与公证、A/B 分区防变砖等表述全部准确。
 - 【深审·第二轮】`c-python-1.json`、`c-python-2.json`，2026-11-13，逐条深审改 0 条：GIL 与按对象引用传递、引用计数与循环回收、WSGI/ASGI、自由线程构建的 PEP 703 时间线全部准确。
 - 【深审·第二轮】`c-rust-1.json`、`c-rust-2.json`，2026-11-13，逐条深审改 0 条：别名异或可变性规则、'static 约束的常见误解、panic 展开与互斥锁中毒、Send/Sync 语义全部准确。至此批次 F（C 层原有技术文件）审完。
+- 【深审·第二轮】A 层 8 个文件（`a-everyday-1..4.json`、`a-phrasal-verbs-1..4.json`，约 311 条），2026-11-13，逐条深审改 0 条：on time 与 in time、by chance 与 by accident、find out 与 figure out、flesh out 与 flush out 等易混点区分准确，情境例句均真用上词块。
 - 注：以上是第一轮（答案泄露、例句用没用词块、zh 重复、技术高频项抽查）。英文地道性逐条深审还没做完，后续继续。
 - 【深审·第二轮】`b-meetings-1.json`、`b-meetings-2.json`，2026-11-13，逐条深审改 0 条：英文自然、地道性与语气标注均无问题，这批文件质量可靠。（深审标准：母语高级工程师是否会这样说、搭配/介词/语域、技术准确性、zh 译文准确性。）
 
