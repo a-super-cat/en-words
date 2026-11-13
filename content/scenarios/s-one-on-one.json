@@ -368,6 +368,76 @@
           "zh": "一言为定。说实话，你刚才没有急着为自己辩护——这正是我希望看到的。"
         }
       ]
+    },
+    {
+      "id": "one-on-one-raise-with-data",
+      "title": "用数据谈调薪：不摊牌，只摆事实",
+      "setting": "和经理 Sarah 的月度 1:1。你准备在这次谈一次薪资调整：你手上有三份远程岗位的薪资带宽数据、过去两个季度你交付的清单，以及现岗位职责已经扩大到带两个项目的事实。你不想用离职威胁，只想把事实摆清楚，定下一个明确的时间点。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Sarah",
+          "en": "Before we start: anything big on your mind this month? You look like you came with an agenda.",
+          "zh": "开始之前先问一句：这个月有什么大事在你心上吗？你看起来像是有备而来。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你直接点题但不设压：今天想谈薪资，希望用事实谈——先说结论，你的诉求是什么，细节数据随后；并且强调这不是最后通牒，你想留下来把事情谈成。",
+          "en": "I do. I'd like to talk about compensation, with facts rather than pressure. Bottom line up front: this is not an ultimatum. I want to stay and get this right.",
+          "chunks": [
+            { "term": "bottom line up front", "zh": "结论先行（先给结论再给细节）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sarah",
+          "en": "Okay, I'm listening. What are you asking for, specifically?",
+          "zh": "好，我在听。具体说，你的诉求是什么？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你给出诉求：一是薪资向带宽中位数对齐，给出具体区间；二是依据——你现在带的范围已经超过当前职级的定义，这一点季度目标复盘里能验证。",
+          "en": "The ask today is specific: align my salary to the band median. The reasoning is scope, not sentiment: the work I carry now exceeds my current level's definition, and the quarterly goals review shows it.",
+          "chunks": [
+            { "term": "the ask", "zh": "诉求（这次汇报到底要什么）" },
+            { "term": "quarterly goals", "zh": "季度目标" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sarah",
+          "en": "The scope point is fair and I won't argue it. But salary bands move in the annual cycle, not in a random 1:1. What data are you basing the median on?",
+          "zh": "职责范围这一点是成立的，我不争。但薪资带宽是在年度周期里调整的，不会在随便一次 1:1 里动。你说的中位数是基于什么数据的？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你摆数据：三家远程公司的公开带宽、两个招聘平台上同职级同技术栈的区间，并说明你对这个数据的信心水平——不是精确数，是区间共识，正好和公司带宽上沿吻合。",
+          "en": "Three sources: published bands from three remote-first companies, plus ranges for this stack and level on two job platforms. My confidence level is this: not a precise number, but a consistent range — and it matches the top of our own band.",
+          "chunks": [
+            { "term": "confidence level", "zh": "信心水平（对估算的把握程度）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sarah",
+          "en": "That's better homework than most people bring. Here's my constraint: I can't move base salary mid-cycle, but I can put you first in the annual review queue and add a spot bonus discussion in Q4. What would make that acceptable?",
+          "zh": "这份功课比大多数人带来的都扎实。我的约束是这样：年中动不了基本工资，但我可以把你排进年度评审的第一顺位，并在四季度谈一笔即时奖金。怎样的条件能让你接受这个安排？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你接住但钉死条件：可以，但需要两个书面承诺——年度评审的具体日期，以及用哪三条标准衡量你是否达标；如果到期不兑现，你们就重开这个话题，而不是无限顺延。",
+          "en": "That works if two things are in writing: the review date, and the three criteria I'll be measured against. If the date passes without a decision, we reopen this conversation instead of letting it drift.",
+          "chunks": [
+            { "term": "decision needed", "zh": "需要拍板（等领导定的事）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sarah",
+          "en": "Deal. I'll send the date and criteria this week. And for the record: coming with data instead of a threat is exactly how these talks should go.",
+          "zh": "成交。日期和标准我这周发你。另外说一句：带着数据来、而不是带着威胁来谈，这正是这类谈话该有的样子。"
+        }
+      ]
     }
   ]
 }

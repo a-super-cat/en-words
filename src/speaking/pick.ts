@@ -44,12 +44,12 @@ export function audioToPrune(attempts: { id: string; at: number; audio?: Blob }[
  */
 export const QUESTION_ENTRY_CATEGORIES: Record<string, string[]> = {
   intro: ['c.interview', 'b.interview-talk', 'b.presenting', 'b.hedging', 'a.daily-home', 'a.daily-out'],
-  behavioral: ['c.interview', 'b.interview-talk', 'b.hedging', 'b.one-on-one', 'b.small-talk', 'b.difficult-conversations', 'a.daily-home', 'a.daily-out'],
-  leadership: ['b.meetings', 'b.planning', 'b.one-on-one', 'b.presenting', 'c.engineering', 'b.negotiation', 'b.difficult-conversations'],
-  'system-design': ['c.system-design', 'c.arch-distributed', 'c.arch-reliability', 'c.cloud-infra', 'c.data', 'c.performance', 'c.patterns'],
-  architecture: ['c.system-design', 'c.patterns', 'c.arch-distributed', 'c.arch-reliability', 'c.software-types', 'c.engineering', 'c.cloud-infra'],
-  frontend: ['c.react', 'c.vue', 'c.web-frontend', 'c.frontend-tooling', 'c.nodejs'],
-  backend: ['c.java', 'c.python', 'c.nodejs', 'c.data', 'c.patterns', 'c.security'],
+  behavioral: ['c.interview', 'b.interview-talk', 'b.hedging', 'b.one-on-one', 'b.small-talk', 'b.difficult-conversations', 'b.postmortems', 'a.daily-home', 'a.daily-out'],
+  leadership: ['b.meetings', 'b.planning', 'b.one-on-one', 'b.presenting', 'c.engineering', 'b.negotiation', 'b.difficult-conversations', 'b.executive', 'b.documents'],
+  'system-design': ['c.system-design', 'c.arch-distributed', 'c.arch-reliability', 'c.cloud-infra', 'c.data', 'c.performance', 'c.patterns', 'c.networking', 'b.documents'],
+  architecture: ['c.system-design', 'c.patterns', 'c.arch-distributed', 'c.arch-reliability', 'c.software-types', 'c.engineering', 'c.cloud-infra', 'c.sre', 'b.documents'],
+  frontend: ['c.react', 'c.vue', 'c.web-frontend', 'c.frontend-tooling', 'c.nodejs', 'c.frontend-arch'],
+  backend: ['c.java', 'c.python', 'c.nodejs', 'c.data', 'c.patterns', 'c.security', 'c.networking', 'c.sre', 'b.postmortems'],
   java: ['c.java', 'c.patterns', 'c.engineering'],
   rust: ['c.rust'],
   python: ['c.python', 'c.data'],

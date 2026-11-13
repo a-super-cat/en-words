@@ -1,0 +1,577 @@
+{
+ "category": "postmortems",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "The post-incident review is scheduled within five working days.",
+     "zh": "事故后评审安排在五个工作日之内。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ground rules for the post-incident review: timeline first, opinions after.",
+    "zh": "复盘评审会上你这样说："
+   },
+   "term": "post-incident review",
+   "zh": "事故后评审（复盘的正式说法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The incident timeline is built from logs, not from memory.",
+     "zh": "事故时间线是从日志里拼出来的，不是靠回忆。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The incident timeline below uses UTC throughout.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "incident timeline",
+   "zh": "事故时间线（按分钟还原的过程）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The timeline of events shows a nine-minute detection gap.",
+     "zh": "事件时间线显示检测环节有九分钟空白。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Attach the timeline of events to the ticket so support can reuse it.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "timeline of events",
+   "zh": "事件时间线（同时间线的另一种说法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The impact summary leads the document, above the technical detail.",
+     "zh": "影响概述写在文档最前面，技术细节在后面。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Impact summary: checkout errors for forty minutes, no data loss.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "impact summary",
+   "zh": "影响概述（复盘开头交代后果）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Customer impact was limited to delayed reports, not lost data.",
+     "zh": "客户影响仅限于报表延迟，没有丢数据。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "State customer impact plainly before explaining internals.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "customer impact",
+   "zh": "客户影响（用户实际受了什么影响）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The duration of outage was forty-three minutes, door to door.",
+     "zh": "故障时长总共四十三分钟，从头到尾。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Report the duration of outage honestly; rounding it down helps nobody.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "duration of outage",
+   "zh": "故障时长（从开始到恢复的总时长）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The detection gap was longer than the fix itself.",
+     "zh": "检测空白比修复本身还要久。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Closing the detection gap is the highest-value follow-up here.",
+    "zh": "复盘评审会上你这样说："
+   },
+   "term": "detection gap",
+   "zh": "检测空白（故障发生到被发现的间隔）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Time to detect was nine minutes; the budget says two.",
+     "zh": "检测耗时是九分钟；预算是两分钟。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our time to detect improved only after symptom-based alerts.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "time to detect",
+   "zh": "检测耗时（故障到发现用了多久）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Time to mitigate was short because the rollback was rehearsed.",
+     "zh": "缓解耗时很短，因为回滚演练过。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Separate time to mitigate from time to fully resolve in the writeup.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "time to mitigate",
+   "zh": "缓解耗时（发现到止血用了多久）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Time to resolve stretched to three hours on data backfill.",
+     "zh": "解决耗时拖到了三小时，卡在数据回填上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Time to resolve matters less than whether users noticed.",
+    "zh": "复盘评审会上你这样说："
+   },
+   "term": "time to resolve",
+   "zh": "解决耗时（发现到彻底恢复用了多久）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Root cause analysis follows the evidence chain, not the loudest theory.",
+     "zh": "根本原因分析跟着证据链走，不跟着嗓门最大的理论走。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The root cause analysis section separates cause from contributing factors.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "root cause analysis",
+   "zh": "根本原因分析（复盘的核心动作）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The five whys took us from a timeout to a missing review step.",
+     "zh": "五个为什么把我们从一个超时带到一个缺失的评审环节。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Run the five whys on the process, not on the person.",
+    "zh": "复盘评审会上你这样说："
+   },
+   "term": "five whys",
+   "zh": "五个为什么（连问五次为什么的挖根法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The triggering change was a routine config push at 14:02.",
+     "zh": "触发变更是 14:02 的一次例行配置推送。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Identifying the triggering change is step one; it is not yet the root cause.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "triggering change",
+   "zh": "触发变更（引爆故障的那次改动）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The change that introduced it shipped three weeks before it fired.",
+     "zh": "引入问题的那次变更在爆发前三周就上线了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Bisecting releases found the change that introduced it within an hour.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "the change that introduced it",
+   "zh": "引入问题的那次变更"
+  },
+  {
+   "examples": [
+    {
+     "en": "The missed signal was a slow rise in queue depth all morning.",
+     "zh": "被错过的信号是整个上午缓慢上升的队列深度。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Every incident has a missed signal; the review's job is to name it.",
+    "zh": "复盘评审会上你这样说："
+   },
+   "term": "missed signal",
+   "zh": "被错过的信号（事前其实有征兆）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The monitoring gap sat exactly where the failure started.",
+     "zh": "监控缺口正好在故障开始的地方。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Fixing the monitoring gap is action item one.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "monitoring gap",
+   "zh": "监控缺口（该有监控而没有）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The runbook gap forced the on-call to improvise the rollback.",
+     "zh": "手册缺口迫使值班同事对回滚步骤临场发挥。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A runbook gap is a process bug, not an operator error.",
+    "zh": "复盘评审会上你这样说："
+   },
+   "term": "runbook gap",
+   "zh": "手册缺口（手册没写清的环节）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Each follow-up action needs an owner before the meeting ends.",
+     "zh": "每个跟进行动都必须在散会前有负责人。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The follow-up action list is short on purpose: five items, all dated.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "follow-up action",
+   "zh": "跟进行动（复盘后要做的改进项）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The preventive measure is a contract test between the two services.",
+     "zh": "预防措施是两个服务之间的契约测试。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A preventive measure that needs heroics will not survive the quarter.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "preventive measure",
+   "zh": "预防措施（防复发的手段）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The corrective action shipped the following week.",
+     "zh": "纠正措施在接下来的一周内上线了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Distinguish the corrective action from the preventive one in the writeup.",
+    "zh": "复盘评审会上你这样说："
+   },
+   "term": "corrective action",
+   "zh": "纠正措施（针对已发生问题的修复动作）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The detection improvement is an alert on queue depth, not CPU.",
+     "zh": "检测改进是给队列深度加告警，而不是 CPU。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Detection improvement items close the gap named in the timeline.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "detection improvement",
+   "zh": "检测改进（让下次更早发现）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The blast radius summary counts affected tenants, not requests.",
+     "zh": "影响范围概述统计的是受影响的租户数，不是请求数。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Lead with the blast radius summary; executives read nothing else first.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "blast radius summary",
+   "zh": "影响范围概述（到底波及了多少）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Lessons learned go in the team wiki the same week.",
+     "zh": "经验教训在同一周内进团队知识库。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The lessons learned section is three bullets, not thirteen.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "lessons learned",
+   "zh": "经验教训（复盘的沉淀小节）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Under what went well: the rollback worked exactly as rehearsed.",
+     "zh": "“做得好的地方”里写：回滚完全按演练的样子工作了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "What went well matters; it tells you which habits to protect.",
+    "zh": "复盘评审会上你这样说："
+   },
+   "term": "what went well",
+   "zh": "做得好的地方（复盘的固定小节）"
+  },
+  {
+   "examples": [
+    {
+     "en": "What went poorly: two teams paged the same database engineer.",
+     "zh": "做得差的地方：两个团队呼叫了同一个数据库工程师。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Be specific in what went poorly: name the step, not the person.",
+    "zh": "复盘评审会上你这样说："
+   },
+   "term": "what went poorly",
+   "zh": "做得差的地方（复盘的固定小节）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Where we got lucky: the bad deploy landed before peak traffic.",
+     "zh": "我们走运的地方：坏版本是在流量高峰之前上线的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Where we got lucky is the most honest section of any review.",
+    "zh": "复盘评审会上你这样说："
+   },
+   "term": "where we got lucky",
+   "zh": "我们走运的地方（差点更糟的环节）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every line names an action item owner and a date.",
+     "zh": "每一行都写了行动项负责人和日期。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "An item without an action item owner is a wish, not a plan.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "action item owner",
+   "zh": "行动项负责人（每个改进项的名字）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The due date for the fix is the end of this sprint.",
+     "zh": "修复截止日期是这个迭代结束前。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Set the due date for the fix in the review, not in a later thread.",
+    "zh": "复盘评审会上你这样说："
+   },
+   "term": "due date for the fix",
+   "zh": "修复截止日期"
+  },
+  {
+   "examples": [
+    {
+     "en": "We share the writeup with support before the customer call.",
+     "zh": "我们会在和客户通话之前把复盘稿分享给支持团队。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Share the writeup widely inside the company; hide only customer data.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "share the writeup",
+   "zh": "分享复盘稿（发给干系人看）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Sanitize the details before the summary leaves the company.",
+     "zh": "在摘要发到公司外部之前，先做脱敏处理。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Legal asked us to sanitize the details about the affected accounts.",
+    "zh": "复盘评审会上你这样说："
+   },
+   "term": "sanitize the details",
+   "zh": "脱敏处理（发外部前去掉敏感信息）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A blameless writeup describes actions and systems, not culprits.",
+     "zh": "无指责复盘稿描述动作和系统，不写罪人。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Keep it a blameless writeup: the timeline carries the facts.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "blameless writeup",
+   "zh": "无指责复盘稿（写系统不写人）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The executive summary of the incident fits on one screen.",
+     "zh": "事故高管摘要一屏就能放下。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Write the executive summary of the incident last, but place it first.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "executive summary of the incident",
+   "zh": "事故高管摘要（给管理层的一页纸）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Severity classification follows customer impact, not internal effort.",
+     "zh": "等级划分看客户影响，不看内部忙乱程度。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our severity classification was argued for ten minutes; the matrix settles it now.",
+    "zh": "复盘评审会上你这样说："
+   },
+   "term": "severity classification",
+   "zh": "等级划分（事故定级的做法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Declare the incident early; you can always stand it down.",
+     "zh": "事故要早宣告；随时可以解除。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The on-call waited forty minutes to declare the incident, and that delay is on us.",
+    "zh": "复盘评审会上你这样说："
+   },
+   "term": "declare the incident",
+   "zh": "宣告事故（正式拉响事故流程）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We stand down once error rates stay normal for thirty minutes.",
+     "zh": "错误率正常保持三十分钟后，我们解除事故状态。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The commander will stand down the bridge at the top of the hour.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "stand down",
+   "zh": "解除事故状态（宣布恢复正常）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The all-clear message goes to the same channels as the alert.",
+     "zh": "解除警报消息要发到和警报相同的频道里。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Send the all-clear message even if the thread has gone quiet.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "all-clear message",
+   "zh": "解除警报消息（告诉大家恢复了）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A status page update is owed every thirty minutes during an incident.",
+     "zh": "事故期间每三十分钟欠用户一次状态页更新。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The status page update said 'investigating' for two hours; that was our failure.",
+    "zh": "复盘评审会上你这样说："
+   },
+   "term": "status page update",
+   "zh": "状态页更新（对外同步进展）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The customer communication draft avoids internal jargon entirely.",
+     "zh": "客户沟通稿完全不用内部术语。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Legal reviews the customer communication draft before it goes out.",
+    "zh": "你在写事故复盘，这样落笔："
+   },
+   "term": "customer communication draft",
+   "zh": "客户沟通稿（对外说明的草稿）"
+  }
+ ],
+ "layer": "B",
+ "title": "事故复盘写作"
+}

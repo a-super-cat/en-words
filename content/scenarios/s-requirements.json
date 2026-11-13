@@ -274,6 +274,78 @@
           ]
         }
       ]
+    },
+    {
+      "id": "req-scope-fight-mediation",
+      "title": "居中调停：销售的承诺撞上产品的路线图",
+      "setting": "对齐会。销售总监 Rachel 已经向一个大客户承诺了三季度交付“批量导入”功能；产品经理 Ben 坚持这个功能会挤掉路线图上的合规改造。你是技术负责人，被请来把这场范围之争拍成一个可执行的决定。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Rachel",
+          "en": "Let me be clear: I already told the client bulk import lands in Q3. Walking that back puts a seven-figure renewal at risk. I need engineering to commit.",
+          "zh": "我把话说清楚：我已经告诉客户批量导入三季度交付。收回这句话，一个七位数的续约就悬了。我需要工程这边给出承诺。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你先把争论拆开：承诺已经做出，这是事实；但交付什么、以什么深度交付，是可以谈的。先请 Ben 说清合规改造为什么不能让路。",
+          "en": "The commitment exists; that's a fact we work with. But what is in scope for Q3, and what stays explicitly out of scope, is still ours to define. Ben, first explain why the compliance work can't be the thing that gives.",
+          "chunks": [
+            { "term": "in scope", "zh": "在范围内（这次要做的）" },
+            { "term": "out of scope", "zh": "不在范围内（这次不做的）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ben",
+          "en": "Compliance slips, we fail the audit in Q4 and the same client can't renew at all. Bulk import as specced is nine engineer-weeks. I can't conjure capacity.",
+          "zh": "合规要是滑了，我们四季度审计过不了，同一个客户根本没法续约。批量导入按完整规格是九个人周。我变不出产能来。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你提出切分方案：三季度先交付覆盖八成用法的核心导入（文件格式、校验、错误报告），高级映射规则列为非目标、四季度快速跟进；并把成功标准写成客户能验收的清单。",
+          "en": "Then we split it. Q3 ships the core import that covers eighty percent of usage: formats, validation, error reports. Advanced mapping rules become explicit non-goals with a Q4 fast follow. Success criteria become a checklist the client can sign against.",
+          "chunks": [
+            { "term": "non-goals", "zh": "非目标（明确不做的事）" },
+            { "term": "success criteria", "zh": "成功标准（怎么算做成了）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rachel",
+          "en": "If I sell 'core in Q3, advanced in Q4', I need the Q4 part in writing, not as a verbal maybe. This client has been burned by roadmap promises before.",
+          "zh": "如果我去卖“三季度核心、四季度高级”，我需要四季度那部分是白纸黑字，不是一句口头上的“也许”。这个客户以前被路线图承诺坑过。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你答应并升级为机制：决定写进决策日志，包含范围、非目标和四季度日期；同时明确这需要一次正式拍板——今天在座的人签了字，之后任何一方改主意都要重开这个会，而不是私下改口。",
+          "en": "You'll have it in writing. The decision goes in the decision log today: scope, non-goals, and the Q4 date. And to be clear, this needs a formal decision: once this room signs off, changing it reopens this meeting, not a hallway chat.",
+          "chunks": [
+            { "term": "decision log", "zh": "决策日志（所有决定的流水账）" },
+            { "term": "decision needed", "zh": "需要拍板（等领导定的事）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ben",
+          "en": "With the split, compliance stays whole and my team can staff it. I'll trade two engineer-weeks from the reporting backlog for the Q4 follow-up.",
+          "zh": "这样切分的话，合规保持完整，我的团队也能排上人。我可以从报表积压里挪出两个人周给四季度的跟进部分。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你收尾确认三方承诺：Rachel 负责和客户重新对齐话术，Ben 负责把拆分写进路线图，你负责技术评估和风险清单，下周同一时间复查一次。",
+          "en": "Then we're set. Rachel re-aligns the client wording, Ben updates the roadmap with the split, and I'll own the technical assessment and risk list, with the trade-off analysis written down where all three teams can see it. We reconvene next week, same time, to check it held.",
+          "chunks": [
+            { "term": "trade-off analysis", "zh": "权衡分析（逐项比较取舍）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rachel",
+          "en": "I'll take that to the client. A split I can show in writing beats a promise I'd have to pray about.",
+          "zh": "我可以拿这个去跟客户谈。一个能白纸黑字展示的拆分，比一个我得祈祷兑现的承诺强。"
+        }
+      ]
     }
   ]
 }

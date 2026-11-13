@@ -1,0 +1,232 @@
+{
+ "category": "documents",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "This document proposes replacing cron polling with webhooks.",
+     "zh": "本文提议用 Webhook 取代定时轮询。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "This document proposes a phased migration of the billing pipeline.",
+    "zh": "你在写技术文档，轮到这个句式了："
+   },
+   "term": "This document proposes ...",
+   "zh": "本文提议……（提案开篇句）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The goal of this proposal is to cut checkout latency in half.",
+     "zh": "本提案的目标是把结账延迟砍掉一半。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "The goal of this proposal is to make rollbacks boring and safe.",
+    "zh": "你在写技术文档，轮到这个句式了："
+   },
+   "term": "The goal of this proposal is to ...",
+   "zh": "本提案的目标是……"
+  },
+  {
+   "examples": [
+    {
+     "en": "We considered three alternatives; the table below summarizes the trade-offs.",
+     "zh": "我们考虑过三个备选方案；下表汇总了各自的权衡。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "We considered three alternatives and rejected two on operational cost.",
+    "zh": "你在写技术文档，轮到这个句式了："
+   },
+   "term": "We considered three alternatives.",
+   "zh": "我们考虑过三个备选方案。"
+  },
+  {
+   "examples": [
+    {
+     "en": "This approach has two drawbacks: cost and a longer migration.",
+     "zh": "这个方案有两个缺点：成本，以及更长的迁移周期。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "This approach has two drawbacks, both manageable in phase two.",
+    "zh": "你在写技术文档，轮到这个句式了："
+   },
+   "term": "This approach has two drawbacks.",
+   "zh": "这个方案有两个缺点。"
+  },
+  {
+   "examples": [
+    {
+     "en": "To mitigate this, we keep the old path alive for one release.",
+     "zh": "为了缓解这一点，我们让旧路径再保留一个版本。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Retries can amplify load. To mitigate this, we cap them per tenant.",
+    "zh": "你在写技术文档，轮到这个句式了："
+   },
+   "term": "To mitigate this, ...",
+   "zh": "为了缓解这一点，……"
+  },
+  {
+   "examples": [
+    {
+     "en": "We will roll this out in phases, starting with internal traffic.",
+     "zh": "我们会分阶段上线，从内部流量开始。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "We will roll this out in phases; each phase has its own exit criteria.",
+    "zh": "你在写技术文档，轮到这个句式了："
+   },
+   "term": "We will roll this out in phases.",
+   "zh": "我们会分阶段上线。"
+  },
+  {
+   "examples": [
+    {
+     "en": "Success looks like zero-downtime deploys that nobody notices.",
+     "zh": "成功的样子是：零停机发布，而且没人察觉。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Success looks like a new engineer shipping on day two unaided.",
+    "zh": "你在写技术文档，轮到这个句式了："
+   },
+   "term": "Success looks like ...",
+   "zh": "成功的样子是……（具象化标准）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Out of scope for this proposal: the mobile clients and the admin UI.",
+     "zh": "不在本提案范围内的有：移动端和管理界面。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Out of scope for this proposal: pricing changes and contract terms.",
+    "zh": "你在写技术文档，轮到这个句式了："
+   },
+   "term": "Out of scope for this proposal: ...",
+   "zh": "不在本提案范围内的有：……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Unless there are objections, we will mark this accepted on Friday.",
+     "zh": "如果没有反对意见，我们周五就把这份标记为已接受。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Unless there are objections, the database team starts the migration Monday.",
+    "zh": "你在写技术文档，轮到这个句式了："
+   },
+   "term": "Unless there are objections, ...",
+   "zh": "如果没有反对意见，……（默认通过）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We chose Postgres over DynamoDB because our queries are relational.",
+     "zh": "我们选了 Postgres 而不是 DynamoDB，因为我们的查询是关系型的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We chose boring technology over novelty because the team is small.",
+    "zh": "你在写技术文档，轮到这个句式了："
+   },
+   "term": "We chose ... over ... because ...",
+   "zh": "我们选了……而不是……，因为……（决策句式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The consequences of this decision are a slower report path and a simpler write path.",
+     "zh": "这个决定的后果是报表路径变慢、写入路径变简单。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The consequences of this decision are mostly operational, and they are ours to carry.",
+    "zh": "你在写技术文档，轮到这个句式了："
+   },
+   "term": "The consequences of this decision are ...",
+   "zh": "这个决定的后果是……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Feedback is welcome until Wednesday; after that the doc freezes.",
+     "zh": "欢迎在周三之前反馈；之后文档就冻结了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Feedback is welcome until the end of the sprint.",
+    "zh": "你在写技术文档，轮到这个句式了："
+   },
+   "term": "Feedback is welcome until ...",
+   "zh": "欢迎在……之前反馈"
+  },
+  {
+   "examples": [
+    {
+     "en": "This decision supersedes the 2023 storage decision.",
+     "zh": "这个决定取代了 2023 年的存储决策。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "This decision supersedes the interim workaround from the March incident.",
+    "zh": "你在写技术文档，轮到这个句式了："
+   },
+   "term": "This decision supersedes ...",
+   "zh": "这个决定取代了……"
+  },
+  {
+   "examples": [
+    {
+     "en": "The proposal is open for review; comments go in the doc, not in chat.",
+     "zh": "这份提案已开放评审；评论请写在文档里，不要写在聊天里。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "The proposal is open for review for three working days.",
+    "zh": "你在写技术文档，轮到这个句式了："
+   },
+   "term": "The proposal is open for review.",
+   "zh": "这份提案已开放评审。"
+  },
+  {
+   "examples": [
+    {
+     "en": "In summary, we recommend the phased migration with a feature flag.",
+     "zh": "总而言之，我们建议用功能开关做分阶段迁移。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In summary, we recommend buying the tool and spending our time elsewhere.",
+    "zh": "你在写技术文档，轮到这个句式了："
+   },
+   "term": "In summary, we recommend ...",
+   "zh": "总而言之，我们建议……"
+  }
+ ],
+ "layer": "B",
+ "title": "RFC 与设计文档"
+}

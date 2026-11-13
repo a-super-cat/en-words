@@ -1,0 +1,652 @@
+{
+ "category": "documents",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "The request for comments stays open until Friday.",
+     "zh": "这份征求意见稿开放到周五为止。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "This request for comments is a draft; tear into the assumptions, not the wording.",
+    "zh": "评审群里你在文档下留了一条评论，这样说："
+   },
+   "term": "request for comments",
+   "zh": "征求意见稿（RFC 的全称与由来）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A good problem statement says what hurts, for whom, and how we know.",
+     "zh": "好的问题陈述要讲清：痛在哪、谁在痛、我们凭什么知道。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The problem statement opens with the checkout timeouts merchants hit daily.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "problem statement",
+   "zh": "问题陈述（文档开头讲清要解决什么）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The proposed solution adds a queue between checkout and inventory.",
+     "zh": "提议方案是在结账和库存之间加一条队列。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The proposed solution keeps the API stable and changes only internals.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "proposed solution",
+   "zh": "提议方案（文档主张的做法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The design proposal is two pages; the appendix holds the benchmarks.",
+     "zh": "设计提案正文两页；附录里放基准测试。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I left comments on the design proposal, mostly about the failure modes.",
+    "zh": "评审群里你在文档下留了一条评论，这样说："
+   },
+   "term": "design proposal",
+   "zh": "设计提案（待评审的设计文档）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The alternatives considered section is where reviewers look first.",
+     "zh": "备选方案一节是评审人最先看的地方。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Under alternatives considered, we explain why polling lost to webhooks.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "alternatives considered",
+   "zh": "备选方案（考虑过但没选的做法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The trade-off analysis weighs latency against operational cost.",
+     "zh": "权衡分析逐项比较延迟和运维成本。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our trade-off analysis is a table, because prose hides weak comparisons.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "trade-off analysis",
+   "zh": "权衡分析（逐项比较取舍）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The non-goals list stops the review from expanding the project.",
+     "zh": "非目标清单能防止评审把项目越聊越大。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Listed under non-goals: multi-region support and a new admin UI.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "non-goals",
+   "zh": "非目标（明确不做的事）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Migrating the reporting reads is in scope for this quarter.",
+     "zh": "迁移报表读路径在本季度的范围内。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In scope: the write path only. Everything else waits for phase two.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "in scope",
+   "zh": "在范围内（这次要做的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A UI redesign is out of scope for the migration proposal.",
+     "zh": "界面重做不在这次迁移提案的范围内。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Explicitly out of scope: changing the public API contract.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "out of scope",
+   "zh": "不在范围内（这次不做的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Three open questions remain, all about data retention.",
+     "zh": "还剩三个待定问题，全都关于数据保留。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I parked the naming debate under open questions to keep the review moving.",
+    "zh": "你在给一篇 RFC 收尾，这样写："
+   },
+   "term": "open questions",
+   "zh": "待定问题（还没答案的问题清单）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The unresolved questions go to the architecture meeting.",
+     "zh": "未决问题会上升到架构会议上拍板。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "One of the unresolved questions is who owns the service after launch.",
+    "zh": "你在给一篇 RFC 收尾，这样写："
+   },
+   "term": "unresolved questions",
+   "zh": "未决问题（需要拍板的问题）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Success criteria must be measurable before the work starts.",
+     "zh": "成功标准必须在开工之前就可度量。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our success criteria: p99 under 300 milliseconds and zero added pages.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "success criteria",
+   "zh": "成功标准（怎么算做成了）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The rollout plan starts with one percent of traffic for a week.",
+     "zh": "上线计划从百分之一的流量开始，跑一周。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The rollout plan names an owner and a rollback trigger per phase.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "rollout plan",
+   "zh": "上线计划（分阶段推全的安排）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A phased rollout limits the blast radius of a bad assumption.",
+     "zh": "分阶段上线把错误假设的影响范围限制住。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We propose a phased rollout: staff, one region, then everyone.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "phased rollout",
+   "zh": "分阶段上线（按批次逐步放量）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A feature-flagged rollout lets us stop without a new deploy.",
+     "zh": "开关灰度上线让我们不用重新部署就能停下来。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The feature-flagged rollout targets internal accounts first.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "feature-flagged rollout",
+   "zh": "开关灰度上线（用功能开关控制放量）"
+  },
+  {
+   "examples": [
+    {
+     "en": "During the canary phase we compare error rates hourly.",
+     "zh": "金丝雀阶段我们每小时对比一次错误率。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The canary phase lasts at least one full business cycle.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "canary phase",
+   "zh": "金丝雀阶段（先放一小撮流量验证）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Rollback criteria are decided before launch, not during the incident.",
+     "zh": "回滚标准要在上线之前定好，而不是在故障当中定。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Rollback criteria: error budget burn above two percent in an hour.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "rollback criteria",
+   "zh": "回滚标准（什么情况就回滚）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Exit criteria keep a migration from lingering forever.",
+     "zh": "退出标准让迁移不会永远拖着不结束。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Exit criteria for phase one: old path below one percent of traffic.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "exit criteria",
+   "zh": "退出标准（满足什么才算这一阶段完成）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The backward compatibility plan keeps old clients working for two releases.",
+     "zh": "兼容方案让旧客户端再撑两个版本。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our backward compatibility plan is expand, migrate, then contract.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "backward compatibility plan",
+   "zh": "兼容方案（新旧并存怎么过渡）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every significant choice gets a decision record in the repo.",
+     "zh": "每个重要选择都要在仓库里留一份决策记录。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "This decision record captures why we picked Postgres over a document store.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "decision record",
+   "zh": "决策记录（把决定和理由存档的文档）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The decision drivers were cost, team familiarity, and hiring.",
+     "zh": "决策驱动因素是成本、团队熟悉度和招聘。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Name the decision drivers before debating options; it shortens everything.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "decision drivers",
+   "zh": "决策驱动因素（真正影响拍板的几条）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The considered options range from buying a tool to building in-house.",
+     "zh": "候选选项从外购工具到自研都有。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Each of the considered options gets one paragraph, no more.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "considered options",
+   "zh": "候选选项（被认真评估过的几个方案）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The chosen approach is boring on purpose: one database, clear ownership.",
+     "zh": "选定方案是故意无聊的：一个数据库、清晰的归属。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The chosen approach trades a little latency for a much simpler operation.",
+    "zh": "你在给一篇 RFC 收尾，这样写："
+   },
+   "term": "chosen approach",
+   "zh": "选定方案（最终拍板的做法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "List the positive consequences honestly, not optimistically.",
+     "zh": "正面影响要如实列，不要乐观地列。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Positive consequences: one less system to page at night.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "positive consequences",
+   "zh": "正面影响（决定带来的好处）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The negative consequences section is where the honesty lives.",
+     "zh": "负面影响一节是诚实所在的地方。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Negative consequences: reporting queries get slower until phase two.",
+    "zh": "决定写完了，正反两面里负面那面这样写："
+   },
+   "term": "negative consequences",
+   "zh": "负面影响（决定带来的代价）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Once marked status: accepted, the record is history, not a draft.",
+     "zh": "一旦标上“状态：已接受”，这份记录就是历史，而不是草稿。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Decision 14 is now status: accepted; implementation starts Monday.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "status: accepted",
+   "zh": "状态：已接受（决策记录的状态标记）"
+  },
+  {
+   "examples": [
+    {
+     "en": "While status: proposed, comments can still change the outcome.",
+     "zh": "在“状态：提议中”时，评论还能改变结果。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Leaving this at status: proposed until the security review lands.",
+    "zh": "评审群里你在文档下留了一条评论，这样说："
+   },
+   "term": "status: proposed",
+   "zh": "状态：提议中（还没拍板）"
+  },
+  {
+   "examples": [
+    {
+     "en": "This record is superseded by decision 22.",
+     "zh": "这份记录已被第 22 号决策取代。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Header updated: superseded by the January storage decision.",
+    "zh": "你在给一篇 RFC 收尾，这样写："
+   },
+   "term": "superseded by",
+   "zh": "被……取代（旧决定指向新决定）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We deprecate the v1 API in favor of the resource-based v2.",
+     "zh": "我们弃用 v1 接口，改用资源化的 v2。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The plan is to deprecate polling in favor of webhooks over two releases.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "deprecate in favor of",
+   "zh": "弃用旧的、改用新的"
+  },
+  {
+   "examples": [
+    {
+     "en": "Context and problem comes first; options mean nothing without it.",
+     "zh": "先写背景与问题；没有它，选项什么都不是。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Under context and problem: two teams editing the same schema weekly.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "context and problem",
+   "zh": "背景与问题（决策记录的开篇）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The proposal needs stakeholder sign-off from support and sales.",
+     "zh": "这份提案需要支持和销售两边的干系人签字确认。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We have stakeholder sign-off from everyone except legal.",
+    "zh": "评审群里你在文档下留了一条评论，这样说："
+   },
+   "term": "stakeholder sign-off",
+   "zh": "干系人签字确认（相关方都点头）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The design review meeting is Thursday; the doc is the agenda.",
+     "zh": "设计评审会是周四；文档就是议程。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Please read before the design review meeting; we will not present slides.",
+    "zh": "评审群里你在文档下留了一条评论，这样说："
+   },
+   "term": "design review meeting",
+   "zh": "设计评审会（当面过设计的会）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The comment period runs for three working days.",
+     "zh": "评论期是三个工作日。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "After the comment period closes, I will resolve threads and mark it accepted.",
+    "zh": "你在给一篇 RFC 收尾，这样写："
+   },
+   "term": "comment period",
+   "zh": "评论期（留给异步反馈的时间窗）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I will address feedback in batches and summarize what changed.",
+     "zh": "我会分批回应反馈，并汇总改了什么。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Give me until tomorrow to address feedback properly.",
+    "zh": "评审群里你在文档下留了一条评论，这样说："
+   },
+   "term": "address feedback",
+   "zh": "回应反馈（逐条处理评论）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The second draft incorporates feedback from the database team.",
+     "zh": "第二稿吸收了数据库团队的反馈。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I incorporated feedback on the rollout section; the rest I answered inline.",
+    "zh": "你在给一篇 RFC 收尾，这样写："
+   },
+   "term": "incorporate feedback",
+   "zh": "吸收反馈（把意见改进文档里）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I revised the proposal after the cost review pushed back.",
+     "zh": "成本评审提出异议之后，我修订了提案。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Rather than defend it live, I will revise the proposal tonight.",
+    "zh": "评审群里你在文档下留了一条评论，这样说："
+   },
+   "term": "revise the proposal",
+   "zh": "修订提案（按反馈改稿）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The storage RFC is open for review until Wednesday.",
+     "zh": "存储的那份 RFC 开放评审到周三。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Marking this open for review; the numbers are final, the wording is not.",
+    "zh": "评审群里你在文档下留了一条评论，这样说："
+   },
+   "term": "open for review",
+   "zh": "开放评审（可以来提意见了）"
+  },
+  {
+   "examples": [
+    {
+     "en": "This is the call for objections before we mark it accepted.",
+     "zh": "这是标记为已接受之前的征集反对意见环节。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Final call for objections; silence will be taken as consent.",
+    "zh": "你在给一篇 RFC 收尾，这样写："
+   },
+   "term": "call for objections",
+   "zh": "征集反对意见（拍板前最后一问）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We run on rough consensus and running code.",
+     "zh": "我们靠粗略共识和能跑的代码运转。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I am calling rough consensus: two objections noted, neither blocking.",
+    "zh": "评审群里你在文档下留了一条评论，这样说："
+   },
+   "term": "rough consensus",
+   "zh": "粗略共识（不必全员同意、大致都点头）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The decision log answers 'why is it like this' six months later.",
+     "zh": "决策日志能在半年后回答“为什么是这样”。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Every review outcome lands in the decision log the same day.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "decision log",
+   "zh": "决策日志（所有决定的流水账）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The runbook is a living document, edited after every incident.",
+     "zh": "这份手册是活文档，每次故障后都会更新。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Treat the capacity model as a living document, not a one-off analysis.",
+    "zh": "你在写一份设计文档的对应小节，这样落笔："
+   },
+   "term": "living document",
+   "zh": "活文档（持续更新的文档）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The version history shows who changed the retention number, and why.",
+     "zh": "版本历史能看出保留期数字是谁改的、为什么改。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I added a version history so silent edits stop happening.",
+    "zh": "你在给一篇 RFC 收尾，这样写："
+   },
+   "term": "version history",
+   "zh": "版本历史（文档的修改记录）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Monitoring is a table stakes proposal, not an innovation.",
+     "zh": "监控是入场券式提案，不是创新。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Framing it as a table stakes proposal ended the cost debate quickly.",
+    "zh": "评审群里你在文档下留了一条评论，这样说："
+   },
+   "term": "table stakes proposal",
+   "zh": "入场券式提案（不做就没资格上桌的必备项）"
+  }
+ ],
+ "layer": "B",
+ "title": "RFC 与设计文档"
+}

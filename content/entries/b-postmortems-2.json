@@ -1,0 +1,142 @@
+{
+ "category": "postmortems",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "The incident began when a config push removed the rate limit.",
+     "zh": "事故始于一次配置推送移除了限流。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "The incident began when the primary database exhausted its connections.",
+    "zh": "你在写事故复盘，轮到这个句式了："
+   },
+   "term": "The incident began when ...",
+   "zh": "事故始于……（时间线开篇）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The root cause was a retry loop with no backoff and no cap.",
+     "zh": "根本原因是一个没有退避、没有上限的重试循环。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "The root cause was clock skew between the two regions, not the code.",
+    "zh": "你在写事故复盘，轮到这个句式了："
+   },
+   "term": "The root cause was ...",
+   "zh": "根本原因是……"
+  },
+  {
+   "examples": [
+    {
+     "en": "We got lucky that the failure happened before the evening peak.",
+     "zh": "我们走运的是，故障发生在晚高峰之前。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "We got lucky that the standby was only minutes behind.",
+    "zh": "你在写事故复盘，轮到这个句式了："
+   },
+   "term": "We got lucky that ...",
+   "zh": "我们走运的是……"
+  },
+  {
+   "examples": [
+    {
+     "en": "To prevent recurrence, we will add a contract test between the services.",
+     "zh": "为防止复发，我们将在两个服务之间加契约测试。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "To prevent recurrence, we will rehearse this rollback monthly.",
+    "zh": "你在写事故复盘，轮到这个句式了："
+   },
+   "term": "To prevent recurrence, we will ...",
+   "zh": "为防止复发，我们将……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Detection took longer than it should have because the alert watched the wrong signal.",
+     "zh": "检测耗时比应有的要久，因为告警盯错了信号。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Detection took longer than it should have; the gap is nine minutes.",
+    "zh": "你在写事故复盘，轮到这个句式了："
+   },
+   "term": "Detection took longer than it should have.",
+   "zh": "检测耗时比应有的要久。"
+  },
+  {
+   "examples": [
+    {
+     "en": "The fix was deployed at 16:40 UTC and errors drained within minutes.",
+     "zh": "修复在 UTC 16:40 上线，错误几分钟内就排空了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The fix was deployed at 09:15, during the incident call itself.",
+    "zh": "你在写事故复盘，轮到这个句式了："
+   },
+   "term": "The fix was deployed at ...",
+   "zh": "修复在……（时间点）上线"
+  },
+  {
+   "examples": [
+    {
+     "en": "All times below are in UTC; local times confused the first review.",
+     "zh": "以下时间均为 UTC；本地时间把第一次评审搞乱过。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "All times below are in UTC, taken from the load balancer logs.",
+    "zh": "你在写事故复盘，轮到这个句式了："
+   },
+   "term": "All times below are in UTC.",
+   "zh": "以下时间均为 UTC。（时间线声明）"
+  },
+  {
+   "examples": [
+    {
+     "en": "No customer data was lost; delayed writes were replayed from the queue.",
+     "zh": "没有客户数据丢失；延迟的写入从队列里重放了。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "No customer data was lost, and no manual cleanup was required.",
+    "zh": "你在写事故复盘，轮到这个句式了："
+   },
+   "term": "No customer data was lost.",
+   "zh": "没有客户数据丢失。"
+  },
+  {
+   "examples": [
+    {
+     "en": "The impact was limited to read-only dashboards in one region.",
+     "zh": "影响仅限于一个区域的只读仪表盘。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The impact was limited to new signups during a forty-minute window.",
+    "zh": "你在写事故复盘，轮到这个句式了："
+   },
+   "term": "The impact was limited to ...",
+   "zh": "影响仅限于……"
+  }
+ ],
+ "layer": "B",
+ "title": "事故复盘写作"
+}

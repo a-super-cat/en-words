@@ -369,6 +369,91 @@
           "zh": "嗯，说得通。说实话，还挺让人耳目一新的。我不再提 Kafka 了。"
         }
       ]
+    },
+    {
+      "id": "design-defend-boring-tech",
+      "title": "为“无聊技术”辩护：顶住重写派的评审",
+      "setting": "设计评审会。你提议在现有栈上原地升级，而不是用时髦新框架重写。首席架构师 Marco 是重写派，产品负责人 Priya 只关心上线日期。你的方案文档已经提前发给了所有人。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Marco",
+          "en": "I'll be direct: we're polishing a legacy stack. A rewrite on the modern framework would pay off for years. Why settle for the boring option?",
+          "zh": "我直说：我们这是在给老栈抛光。用现代框架重写，收益能吃好多年。为什么要将就无聊的选项？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你先认同重写的长期吸引力，然后摆出你的核心判断：你选原地升级不是因为保守，而是因为团队规模和交付压力下，重写的风险调整后收益是负的。",
+          "en": "The rewrite is genuinely attractive long-term. We chose the upgrade over the rewrite because, at our team size, the risk-adjusted payoff of a rewrite is negative for at least a year.",
+          "chunks": [
+            { "term": "We chose ... over ... because ...", "zh": "我们选了……而不是……，因为……（决策句式）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Priya",
+          "en": "From my side, I only care about one thing: which option slips the Q3 launch? Marco's plan says six months, yours says six weeks.",
+          "zh": "我这边只关心一件事：哪个方案会拖住三季度上线？Marco 的方案说六个月，你的说六周。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你回答 Priya：你的方案分阶段上线，每一阶段都有退出标准，任何一步出问题都能停在原地，不存在“重写到一半回不去”的悬崖。",
+          "en": "Mine rolls out in phases, and every phase has exit criteria. If a step goes wrong we stop where we are. There is no half-rewritten cliff to fall off.",
+          "chunks": [
+            { "term": "phased rollout", "zh": "分阶段上线（按批次逐步放量）" },
+            { "term": "exit criteria", "zh": "退出标准（满足什么才算这一阶段完成）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marco",
+          "en": "Phases are fine, but you're hand-waving the real cost: the team learns nothing new, and hiring engineers who want to work on this stack gets harder every year.",
+          "zh": "分阶段是没问题，但你在回避真正的成本：团队学不到新东西，而且越来越难招到愿意在这个栈上干活的工程师。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你承认这一点是真的，并给出让步：把其中一个新模块作为试点用新框架做，团队练手、风险隔离，并把试点结果写回决策记录；但主系统不在试点的成败上下注。",
+          "en": "That cost is real, and I don't want to hand-wave it. Here's my concession: one new module becomes a pilot on the new framework. The team learns, the risk stays isolated, and we write the result into the decision record. The core system doesn't bet on the pilot.",
+          "chunks": [
+            { "term": "decision record", "zh": "决策记录（把决定和理由存档的文档）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marco",
+          "en": "A pilot I can live with. But I want it in writing what would change your mind. If the pilot crushes it, do we reopen the rewrite question?",
+          "zh": "试点我可以接受。但我要你写下来：什么情况会让你改主意。如果试点大获成功，我们重开重写的话题吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你答应：把触发条件写进文档——试点模块在两个迭代内达到约定的性能与交付指标，且维护成本低于现有栈，就重开讨论；这正是决策记录该干的事。",
+          "en": "Agreed, and I'll put the triggers in the document: if the pilot meets the success criteria we set today — performance and delivery numbers within two iterations, at lower maintenance cost — we reopen the question. That's exactly what the decision record is for.",
+          "chunks": [
+            { "term": "success criteria", "zh": "成功标准（怎么算做成了）" },
+            { "term": "decision record", "zh": "决策记录（把决定和理由存档的文档）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Priya",
+          "en": "Then I have what I need: Q3 is safe and there's a written path to revisit. Marco?",
+          "zh": "那我需要的都有了：三季度安全，而且有一条写下来的重议路径。Marco，你呢？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你收尾：总结建议——批准原地升级方案，试点和触发条件一并写入决策记录，今天就定，避免这个话题每周复活一次。",
+          "en": "In summary, we recommend approving the upgrade, with the pilot and its triggers recorded today, so this debate stops resurrecting itself every week.",
+          "chunks": [
+            { "term": "In summary, we recommend ...", "zh": "总而言之，我们建议……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marco",
+          "en": "Fine. Rough consensus it is. I'll add my objections to the record so future-us knows what to watch.",
+          "zh": "好吧，就这么粗略共识。我会把我的反对意见写进记录，让未来的我们知道该盯什么。"
+        }
+      ]
     }
   ]
 }

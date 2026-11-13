@@ -1,0 +1,112 @@
+{
+ "category": "executive",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Bottom line: we need two more weeks or one less feature.",
+     "zh": "结论先说：我们要么多两周，要么少一个功能。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Bottom line: the date holds if the vendor delivers on the 12th.",
+    "zh": "你在给管理层汇报，轮到这个句式了："
+   },
+   "term": "Bottom line: ...",
+   "zh": "结论先说：……"
+  },
+  {
+   "examples": [
+    {
+     "en": "The ask today is one decision: approve the extra region.",
+     "zh": "今天的诉求只有一个决定：批准多加一个区域。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "The ask today is small: a named owner from the platform team.",
+    "zh": "你在给管理层汇报，轮到这个句式了："
+   },
+   "term": "The ask today is ...",
+   "zh": "今天的诉求是……"
+  },
+  {
+   "examples": [
+    {
+     "en": "The main risk to the date is the payment vendor's review queue.",
+     "zh": "对日期最大的风险是支付供应商的评审队列。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "The main risk to the date is not the code; it is the data migration.",
+    "zh": "你在给管理层汇报，轮到这个句式了："
+   },
+   "term": "The main risk to the date is ...",
+   "zh": "对日期最大的风险是……"
+  },
+  {
+   "examples": [
+    {
+     "en": "I need a decision on the scope cut by Thursday.",
+     "zh": "范围削减这件事，我需要周四之前拍板。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I need a decision on the launch window by end of day.",
+    "zh": "你在给管理层汇报，轮到这个句式了："
+   },
+   "term": "I need a decision on ... by ...",
+   "zh": "我需要……（事情）在……（时间）前拍板"
+  },
+  {
+   "examples": [
+    {
+     "en": "In one line: the system is ready, the paperwork is not.",
+     "zh": "一句话概括：系统准备好了，文书还没有。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In one line: revenue work is safe, the experiment slipped.",
+    "zh": "你在给管理层汇报，轮到这个句式了："
+   },
+   "term": "In one line: ...",
+   "zh": "一句话概括：……"
+  },
+  {
+   "examples": [
+    {
+     "en": "We are confident about the backend date; the app store review is the wildcard.",
+     "zh": "我们对后端的日期有把握；应用商店审核是那个变数。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We are confident about the migration mechanics, less so about the timeline.",
+    "zh": "你在给管理层汇报，轮到这个句式了："
+   },
+   "term": "We are confident about ...",
+   "zh": "我们对……有把握"
+  },
+  {
+   "examples": [
+    {
+     "en": "What I need from this group is a single owner for the vendor.",
+     "zh": "我需要这个会上的大家做的，是给供应商定一个单一负责人。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "What I need from this group is air cover while we cut scope.",
+    "zh": "你在给管理层汇报，轮到这个句式了："
+   },
+   "term": "What I need from this group is ...",
+   "zh": "我需要这个会上的大家……"
+  }
+ ],
+ "layer": "B",
+ "title": "高管汇报与状态更新"
+}

@@ -394,6 +394,93 @@
           ]
         }
       ]
+    },
+    {
+      "id": "incident-command-sev1-bridge",
+      "title": "当事故指挥官：主持一级事故电话会",
+      "setting": "周五晚上八点，支付成功率从 98% 跌到 71%。这次你不是被叫来修问题的人，你是事故指挥官。电话里有 SRE 的 Tom、支付服务的 Mei 和客户支持负责人 Dana。你的任务是协调、决策和对外沟通，不亲自写代码。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Tom",
+          "en": "Payments are at seventy-one percent success and dropping. Nobody has declared this yet and three channels are debugging in parallel. It's getting messy.",
+          "zh": "支付成功率掉到百分之七十一，还在往下掉。还没人正式宣告事故，三个频道在并行排查。场面开始乱了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你接管：正式宣告这是一级事故，你担任指挥官；先定规矩——所有更新只在这个桥上说，每十五分钟同步一次；排查的人只排查，决策由你拍。",
+          "en": "I'm declaring this a severity-one incident and taking command. Ground rules: all updates happen on this bridge, every fifteen minutes. Investigators investigate; decisions come to me.",
+          "chunks": [
+            { "term": "declare the incident", "zh": "宣告事故（正式拉响事故流程）" },
+            { "term": "incident commander", "zh": "事故指挥官（协调而非亲自修的人）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Mei",
+          "en": "Payment service looks healthy from inside. Errors spike downstream at the bank gateway, but our last deploy was four hours ago and I don't want to roll back blind.",
+          "zh": "支付服务内部看起来很健康。错误在下游的银行网关那里飙升，但我们上一次发布是四小时前，我不想盲目回滚。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你给她一个限时任务：十分钟内确认网关侧是否有变更或限流；同时让 Tom 准备好回滚但先别执行；你强调现在的目标是先止血（缩短缓解耗时），根因可以晚点再找。",
+          "en": "Mei, you have ten minutes to confirm whether the gateway changed anything or is throttling us. Tom, stage the rollback but don't execute yet. Our goal right now is to shorten time to mitigate; the root cause can wait.",
+          "chunks": [
+            { "term": "time to mitigate", "zh": "缓解耗时（发现到止血用了多久）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dana",
+          "en": "Support is getting flooded. What do I tell customers? I need something for the status page in the next ten minutes, even if it's 'we don't know yet'.",
+          "zh": "客服已经被打爆了。我该跟客户说什么？十分钟内我需要状态页上有东西，哪怕是“我们还不知道”。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你给 Dana 一句可以直接用的话：我们已知支付在部分银行失败、影响范围正在确认、下一次更新在十五分钟后；并让她只报客户影响，不猜技术原因。",
+          "en": "Here's the status page update: payments are failing for some banks, we're confirming the customer impact, next update in fifteen minutes. Report only the customer impact; don't guess at technical causes.",
+          "chunks": [
+            { "term": "customer impact", "zh": "客户影响（用户实际受了什么影响）" },
+            { "term": "status page update", "zh": "状态页更新（对外同步进展）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Mei",
+          "en": "Confirmed: the gateway started throttling us at 19:40 after a policy change on their side. It's not our deploy. I've opened a ticket with them, and Tom is shifting traffic to the secondary gateway.",
+          "zh": "确认了：网关那边 19:40 改了策略之后开始限流我们。不是我们的发布问题。我已经给他们开了工单，Tom 正在把流量切到备用网关。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你拍板并记录时间线：批准切流量，要求 Tom 报切换完成时间；让 Mei 把网关侧的策略变更写进时间线；你预告成功率回到 95% 以上就降级事故等级。",
+          "en": "Approved. Tom, announce when the shift completes. Mei, put the gateway policy change on the timeline with the 19:40 timestamp. Once success holds above ninety-five percent, I'll downgrade the severity.",
+          "chunks": [
+            { "term": "incident timeline", "zh": "事故时间线（按分钟还原的过程）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Tom",
+          "en": "Traffic's shifted. Success rate is climbing: eighty-eight, ninety-three... holding at ninety-seven for five minutes now.",
+          "zh": "流量切完了。成功率在爬：八十八、九十三……现在稳定在九十七，已经五分钟了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你宣布收尾：再观察二十分钟，若保持稳定就解除事故状态并发出解除消息；复盘定在周一，你负责影响范围概述的初稿。",
+          "en": "Hold for twenty more minutes. If it stays stable, we stand down and send the all-clear message. The review is Monday; I'll draft the blast radius summary.",
+          "chunks": [
+            { "term": "stand down", "zh": "解除事故状态（宣布恢复正常）" },
+            { "term": "all-clear message", "zh": "解除警报消息（告诉大家恢复了）" },
+            { "term": "blast radius summary", "zh": "影响范围概述（到底波及了多少）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dana",
+          "en": "Customers are already calmer with the updates flowing. Thanks for running this tightly — last time we had three hours of chaos before anyone took charge.",
+          "zh": "更新发出去之后客户已经平静多了。谢谢你把这次管得这么紧——上次我们乱了三个小时才有人出来牵头。"
+        }
+      ]
     }
   ]
 }

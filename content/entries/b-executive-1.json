@@ -1,0 +1,532 @@
+{
+ "category": "executive",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "The executive summary fits on one page and ends with the ask.",
+     "zh": "执行摘要一页放得下，最后落在诉求上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Write the executive summary last; it should steal the document's best sentences.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "executive summary",
+   "zh": "执行摘要（给高管看的一页结论）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Bottom line up front: we ship two weeks late, with the risky feature cut.",
+     "zh": "结论先行：我们晚两周上线，砍掉那个高风险功能。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I will give you the bottom line up front, then the reasoning.",
+    "zh": "在管理层会议上你这样开口："
+   },
+   "term": "bottom line up front",
+   "zh": "结论先行（先给结论再给细节）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The ask is one engineer for six weeks, nothing more.",
+     "zh": "诉求就是一个工程师、六周时间，没别的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "State the ask early; executives should never guess it.",
+    "zh": "在管理层会议上你这样开口："
+   },
+   "term": "the ask",
+   "zh": "诉求（这次汇报到底要什么）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Decision needed: freeze scope now or accept the slip.",
+     "zh": "需要拍板：现在冻结范围，还是接受延期。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "One decision needed this week, flagged at the top of the update.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "decision needed",
+   "zh": "需要拍板（等领导定的事）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Just a heads-up: the vendor review may slip past the deadline.",
+     "zh": "事先提醒一下：供应商评审可能错过截止日期。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "A heads-up is not a request; it is cheap insurance against surprise.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "heads-up",
+   "zh": "事先提醒（非正式的预警）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I want to flag a risk on the data migration timeline.",
+     "zh": "我想标记一个数据迁移时间线上的风险。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Flag a risk when you first see it, not when it matures.",
+    "zh": "在管理层会议上你这样开口："
+   },
+   "term": "flag a risk",
+   "zh": "标记一个风险（把隐患摆上台面）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Raise a concern early, while it is still cheap to fix.",
+     "zh": "担忧要尽早提出，趁它还便宜的时候修。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I would rather raise a concern early and be wrong than be right and late.",
+    "zh": "在管理层会议上你这样开口："
+   },
+   "term": "raise a concern early",
+   "zh": "尽早提出担忧"
+  },
+  {
+   "examples": [
+    {
+     "en": "The migration is off track after the second failed rehearsal.",
+     "zh": "第二次演练失败之后，迁移已经偏离轨道了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Say off track plainly; euphemisms waste the meeting.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "off track",
+   "zh": "偏离轨道（进度出问题了）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The API work is ahead of schedule; testing is not.",
+     "zh": "接口工作进度超前；测试没有。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Being ahead of schedule on the easy half fools nobody.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "ahead of schedule",
+   "zh": "进度超前"
+  },
+  {
+   "examples": [
+    {
+     "en": "The revised estimate is six weeks, with the reasoning attached.",
+     "zh": "修订后的估算是六周，理由附在后面。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Bring a revised estimate and what changed, not just a new date.",
+    "zh": "在管理层会议上你这样开口："
+   },
+   "term": "revised estimate",
+   "zh": "修订后的估算（改口的新时间）"
+  },
+  {
+   "examples": [
+    {
+     "en": "My confidence level on the March date is about seventy percent.",
+     "zh": "我对三月这个日期的信心水平大约是七成。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Give a confidence level with every date you promise upward.",
+    "zh": "在管理层会议上你这样开口："
+   },
+   "term": "confidence level",
+   "zh": "信心水平（对估算的把握程度）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The key milestones are beta in May and general availability in July.",
+     "zh": "关键里程碑是五月的公测和七月的正式发布。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Report against the key milestones, not against activity.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "key milestones",
+   "zh": "关键里程碑"
+  },
+  {
+   "examples": [
+    {
+     "en": "The next milestone is a load test at production scale.",
+     "zh": "下一个里程碑是生产规模的压测。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Name the next milestone and its date in every update.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "next milestone",
+   "zh": "下一个里程碑"
+  },
+  {
+   "examples": [
+    {
+     "en": "The path to green is two fixes and one hard conversation with the vendor.",
+     "zh": "转绿路径是两个修复，加上和供应商的一次硬谈话。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Executives ask for the path to green, not for a longer status list.",
+    "zh": "在管理层会议上你这样开口："
+   },
+   "term": "path to green",
+   "zh": "转绿路径（从红灯回到正轨的计划）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The recovery plan cuts scope, not quality gates.",
+     "zh": "挽回计划砍的是范围，不是质量门槛。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Attach the recovery plan to the same update that admits the slip.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "recovery plan",
+   "zh": "挽回计划（把延期追回来的安排）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The mitigation plan assumes the vendor misses and keeps us shippable.",
+     "zh": "缓解计划假设供应商掉链子，而我们照样能发布。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A risk without a mitigation plan is just a worry.",
+    "zh": "在管理层会议上你这样开口："
+   },
+   "term": "mitigation plan",
+   "zh": "缓解计划（风险成真时怎么办）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The resource ask is one contractor for the migration quarter.",
+     "zh": "资源诉求是迁移季度里一个外包工程师。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Put the resource ask in the summary, not in paragraph nine.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "resource ask",
+   "zh": "资源诉求（要人要预算的正式说法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The headcount request is justified by the on-call load, not ambition.",
+     "zh": "编制申请的理由是值班负荷，不是野心。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Bring data to a headcount request: pages, tickets, toil hours.",
+    "zh": "在管理层会议上你这样开口："
+   },
+   "term": "headcount request",
+   "zh": "编制申请（要正式名额）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The budget request covers the failover region we keep postponing.",
+     "zh": "预算申请覆盖的是我们一直推迟的故障切换区域。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Tie every budget request to a risk it retires.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "budget request",
+   "zh": "预算申请"
+  },
+  {
+   "examples": [
+    {
+     "en": "The platform rewrite is a strategic bet, not a quarterly fix.",
+     "zh": "平台重写是一个战略押注，不是季度修复。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Call it a strategic bet only if leadership is funding the downside.",
+    "zh": "在管理层会议上你这样开口："
+   },
+   "term": "strategic bet",
+   "zh": "战略押注（长期投入的方向）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Quarterly goals stay at three; the fourth is always fiction.",
+     "zh": "季度目标保持三个；第四个永远是虚构的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Frame the update against quarterly goals, not against effort.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "quarterly goals",
+   "zh": "季度目标"
+  },
+  {
+   "examples": [
+    {
+     "en": "The progress update leads with outcomes, then numbers, then asks.",
+     "zh": "进展更新先讲结果，再讲数字，最后讲诉求。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A progress update people forward is short enough to read standing up.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "progress update",
+   "zh": "进展更新（定期状态汇报）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Wins this week: the failover rehearsal passed on the first try.",
+     "zh": "本周成果：故障切换演练一次通过。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Wins this week should be verifiable, not vibes.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "wins this week",
+   "zh": "本周成果（先讲好消息的固定段）"
+  },
+  {
+   "examples": [
+    {
+     "en": "End with blockers and asks, while the room can still act.",
+     "zh": "最后讲阻塞与诉求，趁大家还在场能行动。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "My blockers and asks fit on one slide, deliberately.",
+    "zh": "在管理层会议上你这样开口："
+   },
+   "term": "blockers and asks",
+   "zh": "阻塞与诉求（需要帮助的两类事）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The rule with leadership is no surprises: bad news travels fast here.",
+     "zh": "和领导相处的规则是不要意外：坏消息在这里要传得快。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "No surprises cuts both ways; good news early is also welcome.",
+    "zh": "在管理层会议上你这样开口："
+   },
+   "term": "no surprises",
+   "zh": "不要意外（向上管理的基本原则）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keep it brief: three bullets for the board, details in the appendix.",
+     "zh": "说短一点：给董事会三条要点，细节放附录。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I will keep it brief and take questions offline.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "keep it brief",
+   "zh": "说短一点（提醒自己或对方）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The one-pager forces the argument to survive without slides.",
+     "zh": "一页纸文档逼着论点在没有幻灯片的情况下也立得住。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Bring a one-pager; the meeting is thirty minutes.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "one-pager",
+   "zh": "一页纸文档（把提案压到一页）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Benchmarks are appendix material; the summary carries the verdict.",
+     "zh": "基准测试是附录材料；摘要里放结论。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Move the raw tables to appendix material before sending.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "appendix material",
+   "zh": "附录材料（细节放后面、正文只留结论）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The design is available as a deep dive on request.",
+     "zh": "设计细节可以按需深挖，被问到时再讲。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Offer a deep dive on request instead of front-loading forty slides.",
+    "zh": "在管理层会议上你这样开口："
+   },
+   "term": "deep dive on request",
+   "zh": "按需深挖（细节留到被问时再讲）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A skip-level update stays factual; it is not a complaint channel.",
+     "zh": "越级汇报保持事实性；它不是投诉通道。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For the skip-level update I brought the same numbers I show my manager.",
+    "zh": "在管理层会议上你这样开口："
+   },
+   "term": "skip-level update",
+   "zh": "越级汇报（给上级的上级同步）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The board update counts customers and risks, not commits.",
+     "zh": "董事会汇报统计客户和风险，不统计提交数。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Write the board update for readers who met the product twice.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "board update",
+   "zh": "董事会汇报"
+  },
+  {
+   "examples": [
+    {
+     "en": "The investor update leads with growth and names the risk honestly.",
+     "zh": "投资人更新先讲增长，并诚实地点出风险。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "An investor update that hides a churn problem borrows trouble.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "investor update",
+   "zh": "投资人更新"
+  },
+  {
+   "examples": [
+    {
+     "en": "The all-hands announcement explains the why before the what.",
+     "zh": "全员公告先讲为什么，再讲是什么。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Draft the all-hands announcement with people team reviewing tone.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "all-hands announcement",
+   "zh": "全员公告（全公司同步的消息）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An org change announcement answers who, what changes, and what does not.",
+     "zh": "组织调整公告要回答：谁变、什么变、什么不变。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The org change announcement lands Tuesday, after the affected teams hear first.",
+    "zh": "你在给领导写周报或状态更新，这样落笔："
+   },
+   "term": "org change announcement",
+   "zh": "组织调整公告"
+  },
+  {
+   "examples": [
+    {
+     "en": "A restructure announcement that buries the lede breeds rumors.",
+     "zh": "把重点埋起来的重组公告会滋生谣言。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We rehearsed the restructure announcement questions managers would get.",
+    "zh": "在管理层会议上你这样开口："
+   },
+   "term": "restructure announcement",
+   "zh": "重组公告"
+  }
+ ],
+ "layer": "B",
+ "title": "高管汇报与状态更新"
+}
