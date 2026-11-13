@@ -106,6 +106,207 @@
         { "term": "impl Trait", "zh": "隐藏具体类型的写法（用在返回位置）" }
       ],
       "followUps": ["What does object safety mean, in plain words?"]
+    },
+    {
+      "id": "rust-borrow-checker-fight",
+      "prompt": "Tell me about a real fight you had with the borrow checker in one of your own projects. What did it teach you?",
+      "zh": "讲一次你在自己的项目里和借用检查器真正较量过的经历。它教会了你什么？",
+      "outline": [
+        "Personal project, so I could afford to wrestle instead of clone everything",
+        "The error looked unreasonable until I drew who owned what",
+        "Splitting the struct made the borrows stop overlapping",
+        "Cloning was the right call in exactly one hot spot, not everywhere",
+        "Now I design ownership first and let the checker review me"
+      ],
+      "chunks": [
+        { "term": "the borrow checker", "zh": "借用检查器" },
+        { "term": "mutable reference", "zh": "可变引用" },
+        { "term": "immutable reference", "zh": "不可变引用" },
+        { "term": "exclusive access", "zh": "独占访问" },
+        { "term": "clone the value", "zh": "克隆这个值（显式做一次深拷贝）" }
+      ],
+      "followUps": ["What pattern do you reach for when two parts of a struct need each other?"]
+    },
+    {
+      "id": "rust-lifetimes-in-practice",
+      "prompt": "When do lifetime annotations stop being automatic in your code? Give me a concrete example.",
+      "zh": "在你的代码里，生命周期标注什么时候开始不能靠自动推导了？给个具体例子。",
+      "outline": [
+        "Elision covers the common single-input cases silently",
+        "Returning a reference into parsed data forced explicit annotations",
+        "The signature had to promise the output outlives nothing it borrows",
+        "A dangling reference is the bug the annotation exists to prevent",
+        "When the web of borrows grew, I switched to owned data instead"
+      ],
+      "chunks": [
+        { "term": "lifetime elision", "zh": "生命周期省略（编译器自动推断，不用手写）" },
+        { "term": "lifetime annotation", "zh": "生命周期标注" },
+        { "term": "dangling reference", "zh": "悬垂引用" },
+        { "term": "outlive", "zh": "比……活得久（生命周期更长），o 开头" },
+        { "term": "the 'static lifetime", "zh": "'static 生命周期（在整个程序运行期间都有效）" }
+      ],
+      "followUps": ["How do you explain a lifetime to a C++ developer in one sentence?"]
+    },
+    {
+      "id": "rust-send-sync",
+      "prompt": "Explain Send and Sync like you would to a Java developer. When did they matter in your code?",
+      "zh": "像给 Java 开发者讲那样讲讲 Send 和 Sync。它们在你的代码里什么时候真正起过作用？",
+      "outline": [
+        "Send means a value may travel to another thread",
+        "Sync means references may be shared across threads safely",
+        "The compiler checks them from the types, not from documentation",
+        "A non-Send type in my scraper forced a dedicated worker thread",
+        "That is fearless concurrency in practice: races become compile errors"
+      ],
+      "chunks": [
+        { "term": "Send and Sync", "zh": "标记类型能否跨线程转移、能否跨线程共享的两个 trait" },
+        { "term": "fearless concurrency", "zh": "无畏并发" },
+        { "term": "data race", "zh": "数据竞争（多个线程无同步地访问同一块内存，且至少有一个在写）" },
+        { "term": "wrap it in a mutex", "zh": "用互斥锁把它包起来" },
+        { "term": "message passing", "zh": "消息传递（线程之间不共享内存，靠发消息通信）" }
+      ],
+      "followUps": ["Which of your types would you deliberately make not Send?"]
+    },
+    {
+      "id": "rust-interior-mutability",
+      "prompt": "When do you reach for interior mutability in Rust, and what does it cost you?",
+      "zh": "你什么时候会在 Rust 里用内部可变性？它让你付出了什么代价？",
+      "outline": [
+        "It moves borrow checking from compile time to runtime",
+        "A cache inside an otherwise immutable struct was my use case",
+        "The cost: a bad access pattern panics instead of failing to compile",
+        "Across threads the same idea needs a mutex, not a cell",
+        "Smart pointers make the pattern explicit at the type level"
+      ],
+      "chunks": [
+        { "term": "interior mutability", "zh": "内部可变性" },
+        { "term": "borrow at runtime", "zh": "运行时借用（RefCell 的方式）" },
+        { "term": "smart pointer", "zh": "智能指针" },
+        { "term": "put it in a Box", "zh": "把它放进 Box 里（分配到堆上）" },
+        { "term": "clone on write", "zh": "写时克隆（Cow）" }
+      ],
+      "followUps": ["How do you keep runtime borrow panics out of production paths?"]
+    },
+    {
+      "id": "rust-generics-vs-trait-objects",
+      "prompt": "Generics or trait objects: how do you choose in your own code?",
+      "zh": "泛型还是 trait 对象：你在自己的代码里怎么选？",
+      "outline": [
+        "Generics monomorphize: fast, but one copy of code per type",
+        "Trait objects dispatch dynamically and keep binaries smaller",
+        "Object safety rules decide what can even be a trait object",
+        "Plugin-style registries pushed me to trait objects once",
+        "Default to generics; pay for dynamism only where design needs it"
+      ],
+      "chunks": [
+        { "term": "monomorphization", "zh": "单态化" },
+        { "term": "static dispatch", "zh": "静态分发" },
+        { "term": "dynamic dispatch", "zh": "动态分发" },
+        { "term": "trait object", "zh": "trait 对象" },
+        { "term": "object safety", "zh": "对象安全（能否做 trait 对象）" }
+      ],
+      "followUps": ["How does that choice show up in compile times?"]
+    },
+    {
+      "id": "rust-unsafe-boundaries",
+      "prompt": "Where would you allow unsafe in a personal project, and how do you fence it in?",
+      "zh": "在个人项目里，你会在哪里允许 unsafe？你怎么把它围起来？",
+      "outline": [
+        "Default answer is no unsafe until a profile proves the need",
+        "The foreign function interface is the one place it was unavoidable",
+        "The safe wrapper states the invariants the raw calls depend on",
+        "Undefined behavior is the price of breaking those invariants",
+        "Keep the block tiny and let the type system guard the door"
+      ],
+      "chunks": [
+        { "term": "unsafe block", "zh": "unsafe 代码块" },
+        { "term": "undefined behavior", "zh": "未定义行为" },
+        { "term": "foreign function interface", "zh": "外部函数接口（FFI 的全称）" },
+        { "term": "memory safety", "zh": "内存安全" },
+        { "term": "at compile time", "zh": "在编译期（而不是运行时）" }
+      ],
+      "followUps": ["What would make you reject an unsafe dependency?"]
+    },
+    {
+      "id": "rust-async-frozen",
+      "prompt": "Tell me about debugging an async Rust program that just froze in one of your projects.",
+      "zh": "讲一次你调试自己项目里一个直接冻住的异步 Rust 程序的经历。",
+      "outline": [
+        "Symptom: the program hung with no error and low CPU",
+        "One task blocked the executor with a long synchronous computation",
+        "Other futures were never polled while it held the thread",
+        "Moving the work to a spawned blocking task unfroze everything",
+        "Lesson: the runtime is cooperative; blocking is a silent contract breach"
+      ],
+      "chunks": [
+        { "term": "async runtime", "zh": "异步运行时" },
+        { "term": "poll a future", "zh": "轮询一个 future（推动它往前执行）" },
+        { "term": "spawn a task", "zh": "启动一个（异步）任务，s 开头" },
+        { "term": "block the executor", "zh": "阻塞执行器（在异步任务里做阻塞操作的后果）" },
+        { "term": "closure capture", "zh": "闭包捕获（环境变量）" }
+      ],
+      "followUps": ["How do you notice this class of bug in code review?"]
+    },
+    {
+      "id": "rust-macros-experience",
+      "prompt": "Have you written your own macros, or only used them? Walk me through one.",
+      "zh": "你写过自己的宏吗，还是只用过别人的？带我看一个。",
+      "outline": [
+        "Honestly: mostly a consumer, through derive macros on my types",
+        "Deriving serialization removed pages of handwritten mapping",
+        "I wrote one small declarative macro to kill test boilerplate",
+        "Procedural macros are a compiler plugin: powerful, slower to build",
+        "Rule I follow: a macro must read better than the code it replaces"
+      ],
+      "chunks": [
+        { "term": "derive macro", "zh": "派生宏（#[derive(...)]）" },
+        { "term": "procedural macro", "zh": "过程宏" },
+        { "term": "compile times", "zh": "编译耗时（编译要花多长时间，复数）" },
+        { "term": "pattern matching", "zh": "模式匹配" },
+        { "term": "cfg attribute", "zh": "cfg 属性（条件编译开关）" }
+      ],
+      "followUps": ["When is a plain function better than a macro?"]
+    },
+    {
+      "id": "rust-compile-times",
+      "prompt": "Your Rust workspace keeps growing and compile times hurt. What do you do, in order?",
+      "zh": "你的 Rust 工作区越长越大、编译时间开始疼了。你按什么顺序处理？",
+      "outline": [
+        "Measure first: which crate and which phase eats the time",
+        "Generic-heavy crates monomorphize into long codegen work",
+        "Splitting the workspace stops one change from rebuilding the world",
+        "Feature flags let debug builds skip heavy optional dependencies",
+        "A shared cache across machines was the last, biggest lever"
+      ],
+      "chunks": [
+        { "term": "compile times", "zh": "编译耗时（编译要花多长时间，复数）" },
+        { "term": "cargo workspace", "zh": "Cargo 工作区（多 crate 项目）" },
+        { "term": "feature flag (cargo)", "zh": "（Cargo 的）特性开关" },
+        { "term": "crate", "zh": "Rust 的包（一个编译单元，也指第三方库），c 开头" },
+        { "term": "monomorphization", "zh": "单态化" }
+      ],
+      "followUps": ["What do you refuse to do for the sake of compile time?"]
+    },
+    {
+      "id": "rust-error-design",
+      "prompt": "How do you design errors in a Rust library versus a Rust application?",
+      "zh": "在 Rust 里，库和应用的错误设计有什么不同？你怎么做？",
+      "outline": [
+        "Libraries owe callers typed errors they can match on",
+        "thiserror keeps those enums honest with little boilerplate",
+        "Applications can aggregate with context and print one good message",
+        "The question mark operator makes propagation the default path",
+        "unwrap is for tests and truly impossible states, never for IO"
+      ],
+      "chunks": [
+        { "term": "Result type", "zh": "表示“操作可能失败”的返回类型（Rust 用它代替异常）" },
+        { "term": "propagate the error", "zh": "把错误向上传播（交给调用方处理）" },
+        { "term": "the question mark operator", "zh": "问号运算符（写在表达式后面的 ?）" },
+        { "term": "error context", "zh": "错误上下文（给错误加说明）" },
+        { "term": "thiserror", "zh": "定义库错误类型的那个库（常和 anyhow 搭配）" },
+        { "term": "unwrap", "zh": "直接取出里面的值，没有值就崩溃（Option 和 Result 上的方法，u 开头）" }
+      ],
+      "followUps": ["Show me an error type you are proud of."]
     }
   ]
 }

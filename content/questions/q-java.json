@@ -106,6 +106,207 @@
         { "term": "warm up the JVM", "zh": "预热虚拟机" }
       ],
       "followUps": ["How do you make sure the fix did not just move the bottleneck?"]
+    },
+    {
+      "id": "java-memory-model",
+      "prompt": "Explain the Java memory model. Why can one thread spin forever on a plain boolean flag set by another thread?",
+      "zh": "讲讲 Java 内存模型。为什么一个线程会永远等不到另一个线程设置的普通 boolean 标志？",
+      "outline": [
+        "The symptom: the worker thread never sees the flag change",
+        "Threads may cache values; visibility is not automatic",
+        "A volatile field creates the happens-before edge that publishes the write",
+        "Synchronized and atomics add atomicity on top of visibility",
+        "My rule: shared mutable state always gets a concurrent tool"
+      ],
+      "chunks": [
+        { "term": "volatile field", "zh": "用那个保证多线程可见性的关键字修饰的字段" },
+        { "term": "see a stale value", "zh": "读到过期的值" },
+        { "term": "happens-before relation", "zh": "先于关系（事件间的因果先后）" },
+        { "term": "atomic operation", "zh": "原子操作" },
+        { "term": "shared mutable state", "zh": "共享可变状态" }
+      ],
+      "followUps": ["Where is volatile not enough?"]
+    },
+    {
+      "id": "java-thread-safe-building-blocks",
+      "prompt": "Which thread-safe building blocks do you actually reach for in Java, and where do they still fail you?",
+      "zh": "你在 Java 里实际会用哪些线程安全的构件？它们又会在哪里让你翻车？",
+      "outline": [
+        "Start from the failure: a plain map corrupting under concurrent writes",
+        "Atomic classes fix single variables; locks fix compound actions",
+        "The trap is check-then-act split across two safe calls",
+        "Compare-and-swap loops handle contention without a lock",
+        "Contention, not correctness, becomes the ceiling under load"
+      ],
+      "chunks": [
+        { "term": "thread-safe", "zh": "线程安全的" },
+        { "term": "check-then-act", "zh": "先检查再执行（一种典型的竞态写法）" },
+        { "term": "compare-and-swap", "zh": "比较并交换（CAS 的全称）" },
+        { "term": "race condition", "zh": "竞态条件" },
+        { "term": "lock contention", "zh": "锁竞争" }
+      ],
+      "followUps": ["How do you prove a fix under load, not just in a unit test?"]
+    },
+    {
+      "id": "java-thread-pool-tuning",
+      "prompt": "How do you size a thread pool for a service, and what should happen when its queue is full?",
+      "zh": "你怎么给服务定线程池大小？队列满了应该发生什么？",
+      "outline": [
+        "CPU-bound work stays near core count; IO-bound can go higher",
+        "Measure wait versus compute before copying numbers from a blog",
+        "An unbounded queue hides overload until latency explodes",
+        "Full queue is a signal: reject fast or push back on callers",
+        "We watch queue depth and task wait time, not just active threads"
+      ],
+      "chunks": [
+        { "term": "thread pool", "zh": "线程池" },
+        { "term": "submit a task", "zh": "提交任务（给线程池）" },
+        { "term": "block the calling thread", "zh": "阻塞调用方线程" },
+        { "term": "task queue", "zh": "任务队列（跑后台任务用的，t 开头）" },
+        { "term": "backpressure", "zh": "背压" }
+      ],
+      "followUps": ["Tell me about a pool setting that caused an incident."]
+    },
+    {
+      "id": "java-virtual-threads",
+      "prompt": "What problem do virtual threads solve, and where do they not help?",
+      "zh": "虚拟线程解决什么问题？又在哪些地方帮不上忙？",
+      "outline": [
+        "Platform threads carry roughly a megabyte of stack each",
+        "Virtual threads make blocking style cheap enough to keep",
+        "They shine on IO-bound services with thousands of open requests",
+        "CPU-bound work gains nothing; the cores are the same cores",
+        "Watch out: some blocking paths can still pin the carrier thread"
+      ],
+      "chunks": [
+        { "term": "virtual threads", "zh": "虚拟线程" },
+        { "term": "platform thread", "zh": "平台线程（和虚拟线程相对）" },
+        { "term": "block the calling thread", "zh": "阻塞调用方线程" },
+        { "term": "thread pool", "zh": "线程池" },
+        { "term": "CompletableFuture", "zh": "Java 8 引入的可组合异步结果类（C 开头）" }
+      ],
+      "followUps": ["How would you roll virtual threads into an existing service safely?"]
+    },
+    {
+      "id": "java-generics-type-erasure",
+      "prompt": "Explain type erasure to me. What does it forbid, and how does it bite in real code?",
+      "zh": "给我讲讲类型擦除。它禁止了什么？在真实代码里怎么咬人？",
+      "outline": [
+        "Generics are largely a compile-time story; the runtime sees raw types",
+        "Erasure is why you cannot create an array of a type parameter",
+        "Bounded wildcards express variance the compiler can check",
+        "Raw types compile with warnings and defer errors to runtime",
+        "Frameworks recover type info through reflection tricks and tokens"
+      ],
+      "chunks": [
+        { "term": "generics", "zh": "泛型" },
+        { "term": "type erasure", "zh": "类型擦除" },
+        { "term": "bounded wildcard", "zh": "有界通配符" },
+        { "term": "raw type", "zh": "原始类型（不带类型参数的泛型类）" },
+        { "term": "autoboxing", "zh": "自动装箱" }
+      ],
+      "followUps": ["How does erasure affect the JSON libraries you use?"]
+    },
+    {
+      "id": "java-high-concurrency-endpoint",
+      "prompt": "One of your Java endpoints suddenly gets fifty times the traffic. Walk me through how you keep it alive.",
+      "zh": "你的某个 Java 接口突然来了五十倍流量。带我走一遍你怎么保住它。",
+      "outline": [
+        "Protect first: rate limiting at the edge before the code suffers",
+        "Cache the hot read path and make every write idempotent",
+        "Move slow work onto a queue so requests return quickly",
+        "Watch the connection pool; the database usually breaks first",
+        "Add a circuit breaker so a dying dependency fails fast"
+      ],
+      "chunks": [
+        { "term": "rate limiting", "zh": "限流" },
+        { "term": "idempotency key", "zh": "幂等键" },
+        { "term": "message queue", "zh": "消息队列" },
+        { "term": "circuit breaker", "zh": "熔断器" },
+        { "term": "connection pool", "zh": "连接池" }
+      ],
+      "followUps": ["Which metric tells you the service is actually recovering?"]
+    },
+    {
+      "id": "java-bean-lifecycle",
+      "prompt": "Walk me through a Spring Boot app from startup to the first request it serves.",
+      "zh": "带我走一遍 Spring Boot 应用从启动到处理第一个请求的全过程。",
+      "outline": [
+        "The application context refreshes and collects bean definitions",
+        "Beans are created, constructor injection wires the graph",
+        "Post-processors and auto-configuration shape the final context",
+        "Only then does the embedded server open its port",
+        "Knowing this order is how I debug works-after-restart mysteries"
+      ],
+      "chunks": [
+        { "term": "application context", "zh": "应用上下文（Spring 的容器）" },
+        { "term": "bean lifecycle", "zh": "Spring 托管对象的生命周期" },
+        { "term": "constructor injection", "zh": "构造器注入" },
+        { "term": "dependency injection", "zh": "依赖注入" },
+        { "term": "auto-configuration", "zh": "自动配置" }
+      ],
+      "followUps": ["Where do you hook in fail-fast startup checks?"]
+    },
+    {
+      "id": "java-stream-pitfalls",
+      "prompt": "Streams look clean, but where have they bitten you in production code?",
+      "zh": "Stream 写起来干净，但在生产代码里它在哪里坑过你？",
+      "outline": [
+        "A stream over a huge result can pull everything into memory",
+        "Side effects inside pipeline steps make failures hard to trace",
+        "The terminal operation is where the cost actually lands",
+        "Short-circuiting saves you only if the pipeline is ordered right",
+        "My rule: streams for transformation, loops for control flow"
+      ],
+      "chunks": [
+        { "term": "stream pipeline", "zh": "流式处理流水线（一串链式操作）" },
+        { "term": "terminal operation", "zh": "终止操作（Stream 的）" },
+        { "term": "side effect", "zh": "副作用" },
+        { "term": "hot path", "zh": "热点路径" },
+        { "term": "allocate on the heap", "zh": "在堆上分配" }
+      ],
+      "followUps": ["When is a plain loop honestly the better answer?"]
+    },
+    {
+      "id": "java-exception-strategy",
+      "prompt": "How do you design exception handling across a Java service so errors stay useful?",
+      "zh": "你怎么设计一个 Java 服务的异常处理，让错误信息保持有用？",
+      "outline": [
+        "Separate business errors from system failures at the boundary",
+        "Never swallow an exception silently; log it or translate it",
+        "Transactions decide rollback based on what escapes, so be deliberate",
+        "Return an empty Optional only when absence is a normal answer",
+        "One global handler keeps the error shape consistent for callers"
+      ],
+      "chunks": [
+        { "term": "checked exception", "zh": "受检异常" },
+        { "term": "swallow an exception", "zh": "吞掉异常" },
+        { "term": "roll back the transaction", "zh": "回滚事务" },
+        { "term": "return an empty Optional", "zh": "返回一个表示“没有值”的包装对象" },
+        { "term": "cross-cutting concern", "zh": "横切关注点" }
+      ],
+      "followUps": ["Tell me about an exception you deleted instead of handling."]
+    },
+    {
+      "id": "java-version-upgrade",
+      "prompt": "Tell me about upgrading a Java service to a newer JDK. What actually breaks?",
+      "zh": "讲讲把 Java 服务升级到新版 JDK 的经历。真正会坏的是什么？",
+      "outline": [
+        "The build breaks first: plugins and agents lag the JDK",
+        "Dependency conflicts surface through transitive dependencies",
+        "Old libraries fall off the classpath or hit removed APIs",
+        "GC defaults change, so inherited flags can quietly hurt",
+        "We warmed up the new version in staging before trusting it"
+      ],
+      "chunks": [
+        { "term": "dependency conflict", "zh": "依赖冲突" },
+        { "term": "transitive dependency", "zh": "传递依赖" },
+        { "term": "on the classpath", "zh": "在类路径上" },
+        { "term": "GC tuning", "zh": "GC 调优" },
+        { "term": "warm up the JVM", "zh": "预热虚拟机" },
+        { "term": "JIT compiler", "zh": "即时编译器" }
+      ],
+      "followUps": ["Which newer Java feature changed your daily code the most?"]
     }
   ]
 }

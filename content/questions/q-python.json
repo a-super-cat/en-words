@@ -106,6 +106,207 @@
         { "term": "C extension", "zh": "C 扩展（用 C 写的 Python 模块）" }
       ],
       "followUps": ["When is rewriting it in another language the right answer?"]
+    },
+    {
+      "id": "python-decorators-context-managers",
+      "prompt": "Show me how you actually use decorators and context managers in your own Python tools.",
+      "zh": "讲讲你在自己的 Python 工具里实际怎么用装饰器和上下文管理器。",
+      "outline": [
+        "A timing decorator wraps my script entry points for profiling",
+        "Context managers own files and connections so cleanup is automatic",
+        "A property decorator turned computed fields into clean attributes",
+        "One classmethod factory reads better than three constructors",
+        "I keep decorators thin; the dunder plumbing stays boring on purpose"
+      ],
+      "chunks": [
+        { "term": "decorator", "zh": "装饰器" },
+        { "term": "context manager", "zh": "上下文管理器" },
+        { "term": "property decorator", "zh": "属性装饰器（把方法装成属性的那个）" },
+        { "term": "classmethod factory", "zh": "类方法工厂（替代构造函数）" },
+        { "term": "dunder method", "zh": "双下划线方法（魔术方法的口头说法，d 开头）" }
+      ],
+      "followUps": ["When is a decorator the wrong tool?"]
+    },
+    {
+      "id": "python-typing-in-practice",
+      "prompt": "How much do type hints actually change how you write Python day to day?",
+      "zh": "类型标注到底在多大程度上改变了你日常写 Python 的方式？",
+      "outline": [
+        "In personal tools, hints document the data shapes I keep forgetting",
+        "A static type checker catches the rename I only half-finished",
+        "Duck typing still wins for small glue functions",
+        "TypedDict describes JSON payloads without a class zoo",
+        "Structural typing lets test doubles fit without inheritance"
+      ],
+      "chunks": [
+        { "term": "type hints", "zh": "类型提示（第二个词 h 开头）" },
+        { "term": "static type checker", "zh": "静态类型检查器" },
+        { "term": "duck typing", "zh": "鸭子类型" },
+        { "term": "TypedDict", "zh": "给字典标注字段类型的写法" },
+        { "term": "structural typing", "zh": "结构化类型（长得像就算数）" }
+      ],
+      "followUps": ["Where do you deliberately leave code untyped?"]
+    },
+    {
+      "id": "python-generators-memory",
+      "prompt": "Tell me about a time a generator saved one of your Python programs from running out of memory.",
+      "zh": "讲一次生成器把你的某个 Python 程序从内存爆掉里救出来的经历。",
+      "outline": [
+        "The script loaded a huge log file into a list and died",
+        "A generator turned the pipeline into one line at a time",
+        "The iterator protocol is what makes the chain composable",
+        "Reference counting freed each line as the pipeline advanced",
+        "Caching the hot lookup with lru_cache removed the next bottleneck"
+      ],
+      "chunks": [
+        { "term": "generator", "zh": "生成器" },
+        { "term": "iterator protocol", "zh": "迭代器协议" },
+        { "term": "reference counting", "zh": "引用计数" },
+        { "term": "drop to zero", "zh": "（引用计数）降到零，动词 d 开头" },
+        { "term": "lru_cache", "zh": "最近最少使用缓存装饰器（functools 里的）" }
+      ],
+      "followUps": ["What do you lose when everything becomes lazy?"]
+    },
+    {
+      "id": "python-packaging-story",
+      "prompt": "Python environments have a reputation. Tell me about your worst packaging fight and what setup you trust now.",
+      "zh": "Python 的环境管理名声在外。讲讲你最惨的一次依赖之战，以及你现在信任的配置。",
+      "outline": [
+        "A personal tool broke months later because nothing was pinned",
+        "The dependency resolver had silently chosen incompatible versions",
+        "Now every project gets a virtual environment from day one",
+        "Dependencies are pinned and the pyproject file is the source of truth",
+        "An editable install keeps the tool hackable while it matures"
+      ],
+      "chunks": [
+        { "term": "virtual environment", "zh": "虚拟环境" },
+        { "term": "pin the dependencies", "zh": "把依赖固定到确切版本（p 开头的动词）" },
+        { "term": "dependency resolver", "zh": "依赖解析器（算出一组互相兼容的版本的那个组件）" },
+        { "term": "editable install", "zh": "可编辑安装（改了源码立刻生效，不用重装）" },
+        { "term": "pyproject.toml", "zh": "Python 项目的统一配置文件" }
+      ],
+      "followUps": ["How do you share a script with a non-developer?"]
+    },
+    {
+      "id": "python-cancellation",
+      "prompt": "How do you cancel asyncio tasks cleanly in Python? What breaks if you just kill them?",
+      "zh": "在 Python 里怎么干净地取消 asyncio 任务？直接杀掉会坏什么？",
+      "outline": [
+        "Cancellation arrives as an exception at the next await point",
+        "Shielded cleanup must finish, or connections leak silently",
+        "An exception group surfaces several failures instead of hiding them",
+        "A blocking call inside a task stalls cancellation for everyone",
+        "I test cancellation like a feature, not an afterthought"
+      ],
+      "chunks": [
+        { "term": "asyncio event loop", "zh": "asyncio 的事件循环" },
+        { "term": "task cancellation", "zh": "任务取消（异步里的）" },
+        { "term": "exception group", "zh": "异常组（一次抛多个异常的机制）" },
+        { "term": "blocking call", "zh": "阻塞调用" },
+        { "term": "run coroutines concurrently", "zh": "并发运行多个协程" }
+      ],
+      "followUps": ["How does structured concurrency change your answer?"]
+    },
+    {
+      "id": "python-data-model",
+      "prompt": "How much of Python's data model do you actually use? Give me examples from your code.",
+      "zh": "Python 的数据模型你实际用到了多少？从你的代码里举例子。",
+      "outline": [
+        "Dunder methods make my small domain types behave like natives",
+        "A descriptor protocol example powers the lazy settings object",
+        "Method resolution order explained a mixin bug that looked random",
+        "Abstract base classes state the contract my plugins follow",
+        "Metaclasses stay in the toolbox; I have needed one exactly once"
+      ],
+      "chunks": [
+        { "term": "dunder method", "zh": "双下划线方法（魔术方法的口头说法，d 开头）" },
+        { "term": "descriptor protocol", "zh": "描述符协议（属性访问的底层钩子）" },
+        { "term": "method resolution order", "zh": "方法解析顺序" },
+        { "term": "abstract base class", "zh": "抽象基类" },
+        { "term": "metaclass", "zh": "元类" }
+      ],
+      "followUps": ["Which dunder do people abuse the most?"]
+    },
+    {
+      "id": "python-testing-approach",
+      "prompt": "How do you test a personal Python tool without turning it into a second job?",
+      "zh": "你怎么给一个个人用的 Python 工具写测试，又不把它变成第二份工作？",
+      "outline": [
+        "I test behavior at the boundary, not internals that change weekly",
+        "A pytest fixture builds the same tiny workspace for every test",
+        "Parametrizing covers the input table that used to be copy-pasted",
+        "Mocks stop at the boundary: network and clock, nothing deeper",
+        "Coverage targets the code paths I would cry about breaking"
+      ],
+      "chunks": [
+        { "term": "pytest fixture", "zh": "测试固件（共享的准备与清理代码）" },
+        { "term": "parametrize a test", "zh": "把测试参数化（一份代码跑多组输入）" },
+        { "term": "mock the boundary", "zh": "在边界处模拟（只模拟外部依赖）" },
+        { "term": "cover it with unit tests", "zh": "用单元测试把它覆盖到" },
+        { "term": "subprocess", "zh": "子进程（调用外部命令的模块）" }
+      ],
+      "followUps": ["What is the first test you write for a new tool?"]
+    },
+    {
+      "id": "python-concurrency-choice",
+      "prompt": "Threads, processes, or asyncio: how do you choose for a Python job in your own projects?",
+      "zh": "线程、进程还是 asyncio：你自己的项目里怎么选？",
+      "outline": [
+        "IO-bound work starts on asyncio or plain threads, whichever reads simpler",
+        "CPU-bound work goes to a process pool to escape the lock",
+        "The global interpreter lock is the fact every choice respects",
+        "concurrent.futures lets me pilot threads, then swap in processes",
+        "Free-threaded builds may rewrite this answer; I benchmark before believing"
+      ],
+      "chunks": [
+        { "term": "global interpreter lock", "zh": "全局解释器锁（GIL 的全称）" },
+        { "term": "release the GIL", "zh": "释放 GIL" },
+        { "term": "process pool", "zh": "进程池" },
+        { "term": "concurrent.futures", "zh": "标准库的并发执行器（线程池/进程池）" },
+        { "term": "free-threaded build", "zh": "自由线程构建版（去掉了 GIL 的 CPython）" }
+      ],
+      "followUps": ["Tell me about a time the obvious choice was wrong."]
+    },
+    {
+      "id": "python-web-backend-shape",
+      "prompt": "Walk me through how you structure a small Python web backend, say with FastAPI.",
+      "zh": "带我走一遍你怎么组织一个小的 Python Web 后端，比如用 FastAPI。",
+      "outline": [
+        "ASGI is the runtime contract; the app stays framework-thin",
+        "Routers validate the request body before business code wakes up",
+        "A serializer owns the shape that leaves the process",
+        "The database session is injected, never imported as a global",
+        "Worker processes scale the stateless parts horizontally"
+      ],
+      "chunks": [
+        { "term": "ASGI", "zh": "Python 异步 Web 应用和服务器之间的标准接口（缩写，A 开头）" },
+        { "term": "WSGI", "zh": "Python 同步 Web 应用和服务器之间的标准接口（缩写，W 开头）" },
+        { "term": "validate the request body", "zh": "校验请求体" },
+        { "term": "serializer", "zh": "序列化器（把模型对象和 JSON 互相转换的那一层）" },
+        { "term": "inject a database session", "zh": "注入一个数据库会话" },
+        { "term": "worker process", "zh": "工作进程" }
+      ],
+      "followUps": ["Where does your structure creak first as the app grows?"]
+    },
+    {
+      "id": "python-memory-model",
+      "prompt": "Explain how Python reclaims memory, and tell me about hunting a leak in a long-running script.",
+      "zh": "讲讲 Python 怎么回收内存，再讲一次你在长跑脚本里抓内存泄漏的经历。",
+      "outline": [
+        "Reference counting frees most objects the moment counts drop to zero",
+        "Cycles survive counting, so a cyclic collector sweeps them later",
+        "My leak was a cache: strong references kept every result forever",
+        "A weak reference cache let entries die with their owners",
+        "Passed by object reference explains why the cache mutated shared state"
+      ],
+      "chunks": [
+        { "term": "reference counting", "zh": "引用计数" },
+        { "term": "reference cycle", "zh": "循环引用（r 开头，不是 circular 那个说法）" },
+        { "term": "cyclic garbage collector", "zh": "循环垃圾回收器（CPython 里专门回收循环引用的）" },
+        { "term": "weak reference", "zh": "弱引用" },
+        { "term": "passed by object reference", "zh": "按对象引用传递（Python 的传参方式）" }
+      ],
+      "followUps": ["How do you watch memory in a script that runs for weeks?"]
     }
   ]
 }

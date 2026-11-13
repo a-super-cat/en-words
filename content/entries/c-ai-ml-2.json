@@ -1,0 +1,532 @@
+{
+ "category": "ai-ml",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "The system prompt pins the assistant's role and hard rules.",
+     "zh": "系统提示词固定了助手的角色和硬性规则。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I keep the system prompt versioned; changing it is a behavior change, not a copy edit.",
+    "zh": "面试官问 AI 工程经验，你回答："
+   },
+   "term": "system prompt",
+   "zh": "系统提示词（给模型的常驻指令）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A prompt template keeps structure fixed while data changes.",
+     "zh": "提示词模板让结构固定、只换数据。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Each use case gets one prompt template with typed slots for retrieval results.",
+    "zh": "你在给团队讲 RAG 方案时这样说："
+   },
+   "term": "prompt template",
+   "zh": "提示词模板（带变量占位的可复用提示）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Zero-shot prompting works until the output format starts drifting.",
+     "zh": "零样本提示一直好用，直到输出格式开始漂移。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We benchmark zero-shot prompting first; examples are added only when they earn it.",
+    "zh": "面试官问 AI 工程经验，你回答："
+   },
+   "term": "zero-shot prompting",
+   "zh": "零样本提示（不给例子直接让模型做）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Context window management is mostly deciding what to leave out.",
+     "zh": "上下文窗口管理主要是在决定什么不放进来。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Long chats need real context window management, not a bigger window every year.",
+    "zh": "评审一个 LLM 功能设计时你这样说："
+   },
+   "term": "context window management",
+   "zh": "上下文窗口管理（决定什么进上下文）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The chunking strategy respects section boundaries instead of fixed lengths.",
+     "zh": "切分策略尊重章节边界，而不是固定长度硬切。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Retrieval quality moved more with the chunking strategy than with the model choice.",
+    "zh": "你在给团队讲 RAG 方案时这样说："
+   },
+   "term": "chunking strategy",
+   "zh": "切分策略（文档切块喂索引的方式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The embedding model decides what 'similar' means for search.",
+     "zh": "嵌入模型决定了搜索里“相似”到底是什么意思。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Swapping the embedding model means re-indexing everything; we plan for that.",
+    "zh": "面试官问 AI 工程经验，你回答："
+   },
+   "term": "embedding model",
+   "zh": "嵌入模型（把文本变成向量的模型）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A vector database indexes embeddings for nearest-neighbor search.",
+     "zh": "向量数据库为嵌入建索引，做近邻搜索。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "At our scale a vector database is optional; the index library handles it.",
+    "zh": "你在给团队讲 RAG 方案时这样说："
+   },
+   "term": "vector database",
+   "zh": "向量数据库（存嵌入并做近邻检索）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Cosine similarity compares the angle between two embedding vectors.",
+     "zh": "余弦相似度比较两个嵌入向量之间的夹角。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We rank by cosine similarity, then rerank the top results with a stronger model.",
+    "zh": "面试官问 AI 工程经验，你回答："
+   },
+   "term": "cosine similarity",
+   "zh": "余弦相似度（按方向算文本接近程度）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Approximate nearest neighbor trades a little recall for a lot of speed.",
+     "zh": "近似最近邻用一点召回率换大量速度。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "At ten million vectors, approximate nearest neighbor is the only sane option.",
+    "zh": "评审一个 LLM 功能设计时你这样说："
+   },
+   "term": "approximate nearest neighbor",
+   "zh": "近似最近邻（牺牲一点精度换速度）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The HNSW index navigates from coarse layers down to exact neighbors.",
+     "zh": "HNSW 索引从粗层一路导航到精确近邻。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We chose an HNSW index for its recall at single-digit millisecond latency.",
+    "zh": "面试官问 AI 工程经验，你回答："
+   },
+   "term": "HNSW index",
+   "zh": "HNSW 索引（分层图近邻索引）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The retrieval pipeline is query rewrite, search, filter, rerank.",
+     "zh": "检索流水线是：查询改写、搜索、过滤、重排。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "When answers degrade, I instrument the retrieval pipeline before touching the prompt.",
+    "zh": "你在给团队讲 RAG 方案时这样说："
+   },
+   "term": "retrieval pipeline",
+   "zh": "检索流水线（从查询到候选文档的全链路）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Grounding ties every claim in the answer to a retrieved source.",
+     "zh": "接地让回答里的每个说法都能落到检索到的来源上。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Grounding is why the assistant cites documents instead of improvising.",
+    "zh": "评审一个 LLM 功能设计时你这样说："
+   },
+   "term": "grounding",
+   "zh": "接地（让回答扎根于检索到的事实）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Hallucination detection compares generated claims against the sources.",
+     "zh": "幻觉检测把生成的说法和来源逐一比对。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our hallucination detection flags unsupported claims for a second pass.",
+    "zh": "面试官问 AI 工程经验，你回答："
+   },
+   "term": "hallucination detection",
+   "zh": "幻觉检测（发现模型编造内容）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The evaluation harness runs every prompt change against the golden set.",
+     "zh": "评测框架拿每次提示词改动跑一遍黄金测试集。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Without an evaluation harness, prompt tuning is astrology.",
+    "zh": "你在给团队讲 RAG 方案时这样说："
+   },
+   "term": "evaluation harness",
+   "zh": "评测框架（批量跑测试集打分的工具）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The golden dataset holds two hundred hand-checked question-answer pairs.",
+     "zh": "黄金数据集里有两百组人工核对过的问答对。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our golden dataset grows every time support finds a new failure.",
+    "zh": "面试官问 AI 工程经验，你回答："
+   },
+   "term": "golden dataset",
+   "zh": "黄金数据集（人工标定的评测基准）"
+  },
+  {
+   "examples": [
+    {
+     "en": "LLM-as-a-judge scales grading but inherits the judge's blind spots.",
+     "zh": "大模型当裁判让打分可扩展，但也继承了裁判的盲区。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We calibrate LLM-as-a-judge against human ratings every release.",
+    "zh": "评审一个 LLM 功能设计时你这样说："
+   },
+   "term": "LLM-as-a-judge",
+   "zh": "大模型当裁判（用模型给模型输出打分）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Structured output turns a paragraph into fields the code can trust.",
+     "zh": "结构化输出把一段话变成代码可以信任的字段。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For extraction tasks, structured output beats regex on model prose.",
+    "zh": "你在给团队讲 RAG 方案时这样说："
+   },
+   "term": "structured output",
+   "zh": "结构化输出（让模型按 schema 返回数据）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The output parser validates and repairs malformed model responses.",
+     "zh": "输出解析器校验并修复格式不对的模型回复。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A strict output parser with one retry fixed most malformed responses.",
+    "zh": "面试官问 AI 工程经验，你回答："
+   },
+   "term": "output parser",
+   "zh": "输出解析器（把模型文本变成程序对象）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Function calling lets the model request a tool with typed arguments.",
+     "zh": "函数调用让模型带着类型参数请求使用工具。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Function calling is a contract: the model proposes, the code disposes.",
+    "zh": "评审一个 LLM 功能设计时你这样说："
+   },
+   "term": "function calling",
+   "zh": "函数调用（模型按定义调用外部工具）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Tool use turns a chatbot into something that can act.",
+     "zh": "工具使用把聊天机器人变成能办事的东西。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our agent's tool use is limited to read-only tools by default.",
+    "zh": "面试官问 AI 工程经验，你回答："
+   },
+   "term": "tool use",
+   "zh": "工具使用（模型调用外部能力完成任务）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The agent loop alternates reasoning, acting, and observing.",
+     "zh": "智能体循环在推理、行动和观察之间轮转。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Every agent loop needs a step cap and a budget cap before it needs features.",
+    "zh": "你在给团队讲 RAG 方案时这样说："
+   },
+   "term": "agent loop",
+   "zh": "智能体循环（想一步、做一步、看结果再继续）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A planning step makes the agent state its approach before touching tools.",
+     "zh": "规划步骤让智能体在碰工具之前先说清打法。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Adding a planning step cut thrashing on multi-part tasks noticeably.",
+    "zh": "评审一个 LLM 功能设计时你这样说："
+   },
+   "term": "planning step",
+   "zh": "规划步骤（先列计划再执行的环节）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The memory store keeps facts the agent should not have to rediscover.",
+     "zh": "记忆存储保留智能体不该反复重新发现的事实。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I split the memory store into facts, episodes, and user preferences.",
+    "zh": "面试官问 AI 工程经验，你回答："
+   },
+   "term": "memory store",
+   "zh": "记忆存储（智能体跨轮次保留的信息）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Conversation summarization compresses old turns to free the window.",
+     "zh": "对话摘要把旧轮次压掉，给窗口腾地方。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Conversation summarization kicks in before the context window overflows.",
+    "zh": "你在给团队讲 RAG 方案时这样说："
+   },
+   "term": "conversation summarization",
+   "zh": "对话摘要（把长对话压成摘要续聊）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Prompt caching makes long shared prefixes nearly free.",
+     "zh": "提示词缓存让长的共享前缀几乎免费。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Prompt caching changed our unit economics more than the model discount did.",
+    "zh": "评审一个 LLM 功能设计时你这样说："
+   },
+   "term": "prompt caching",
+   "zh": "提示词缓存（复用相同前缀省钱省时）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A semantic cache answers near-duplicate questions without a model call.",
+     "zh": "语义缓存对意思相近的问题直接复用答案、不调模型。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The semantic cache serves repeated questions in milliseconds at zero token cost.",
+    "zh": "面试官问 AI 工程经验，你回答："
+   },
+   "term": "semantic cache",
+   "zh": "语义缓存（问题意思相同就复用答案）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The KV cache trades memory for generation speed.",
+     "zh": "KV 缓存用显存换生成速度。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Long contexts grow the KV cache until memory becomes the real limit.",
+    "zh": "面试官问 AI 工程经验，你回答："
+   },
+   "term": "KV cache",
+   "zh": "KV 缓存（推理时缓存注意力键值）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Speculative decoding drafts with a small model and verifies with the big one.",
+     "zh": "推测解码用小模型打草稿、大模型验稿。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Speculative decoding doubled our throughput with identical outputs.",
+    "zh": "评审一个 LLM 功能设计时你这样说："
+   },
+   "term": "speculative decoding",
+   "zh": "推测解码（小模型草稿、大模型验稿）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Model quantization shrinks weights to fit smaller hardware.",
+     "zh": "模型量化压缩权重精度，让模型装进更小的硬件。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Model quantization let the model run on one GPU with minor quality loss.",
+    "zh": "面试官问 AI 工程经验，你回答："
+   },
+   "term": "model quantization",
+   "zh": "模型量化（压低权重精度换体积和速度）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A fine-tuning dataset teaches behavior, not knowledge.",
+     "zh": "微调数据集教的是行为，不是知识。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our fine-tuning dataset is two thousand curated support conversations.",
+    "zh": "你在给团队讲 RAG 方案时这样说："
+   },
+   "term": "fine-tuning dataset",
+   "zh": "微调数据集（教模型改行为的样本集）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Instruction tuning aligns a base model to follow requests.",
+     "zh": "指令微调让基础模型学会听指令做事。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Instruction tuning is why the same base model feels helpful instead of raw.",
+    "zh": "面试官问 AI 工程经验，你回答："
+   },
+   "term": "instruction tuning",
+   "zh": "指令微调（让模型学会听指令）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Preference data records which of two answers humans liked better.",
+     "zh": "偏好数据记录两个回答里人类更喜欢哪一个。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Preference data quality decides whether alignment training helps or hurts.",
+    "zh": "评审一个 LLM 功能设计时你这样说："
+   },
+   "term": "preference data",
+   "zh": "偏好数据（成对的好坏回答标注）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Batch inference amortizes model loading across thousands of jobs.",
+     "zh": "批量推理把模型加载成本摊到上千个任务上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Nightly classification runs as batch inference at half the interactive price.",
+    "zh": "你在给团队讲 RAG 方案时这样说："
+   },
+   "term": "batch inference",
+   "zh": "批量推理（攒一批请求一起跑）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Rate limit handling needs backoff with jitter, not a retry hammer.",
+     "zh": "限流处理需要带抖动的退避，而不是拿重试当锤子砸。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our rate limit handling queues per tenant so one customer cannot starve others.",
+    "zh": "面试官问 AI 工程经验，你回答："
+   },
+   "term": "rate limit handling",
+   "zh": "限流处理（被限速时的退避与排队）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Cost per token turns prompt design into a budget decision.",
+     "zh": "每 token 成本让提示词设计变成一道预算题。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I track cost per token per feature; two features ate half the AI budget.",
+    "zh": "评审一个 LLM 功能设计时你这样说："
+   },
+   "term": "cost per token",
+   "zh": "每 token 成本（调用模型的计价单位）"
+  }
+ ],
+ "layer": "C",
+ "title": "AI 与机器学习"
+}

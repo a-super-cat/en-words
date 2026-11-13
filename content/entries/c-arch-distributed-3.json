@@ -1,0 +1,427 @@
+{
+ "category": "arch-distributed",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Each update bumps the node's entry in the vector clock.",
+     "zh": "每次更新都会递增向量时钟里该节点的那一位。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We use a vector clock per key so replicas can tell concurrent writes from sequential ones.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "vector clock",
+   "zh": "向量时钟（追踪因果顺序的逻辑时钟）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A Lamport timestamp orders events without trusting wall clocks.",
+     "zh": "兰波特时间戳不用信任物理时钟就能给事件排序。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For ordering alone, a Lamport timestamp is enough; it cannot detect concurrency, though.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "Lamport timestamp",
+   "zh": "兰波特时间戳（最简单的逻辑时钟）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A logical clock only moves forward when events happen.",
+     "zh": "逻辑时钟只在事件发生时才向前走。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I would use a logical clock here, because physical clocks drift between machines.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "logical clock",
+   "zh": "逻辑时钟（用计数而非时间排序）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Clock skew makes timestamp-based ordering dangerous.",
+     "zh": "时钟偏移让基于时间戳的排序变得危险。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We avoid last-write-wins here because clock skew can silently drop the real winner.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "clock skew",
+   "zh": "时钟偏移（机器之间的钟差）"
+  },
+  {
+   "examples": [
+    {
+     "en": "If A happens before B, every node must respect that order.",
+     "zh": "如果 A 先于 B，每个节点都必须尊重这个次序。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The happens-before relation is what we preserve; everything else may be reordered freely.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "happens-before relation",
+   "zh": "先于关系（事件间的因果先后）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Causal consistency is the strongest model available partitions can offer.",
+     "zh": "因果一致性是分区下可用的最强模型。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For a comment feed, causal consistency suffices: replies never appear before the post.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "causal consistency",
+   "zh": "因果一致性（只保证有因果关系的顺序）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Causal broadcast holds a message until its causes are delivered.",
+     "zh": "因果广播会扣住一条消息，直到它的前置消息都投递完。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We rely on causal broadcast so no replica sees an effect before its cause.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "causal broadcast",
+   "zh": "因果广播（按因果顺序投递消息）"
+  },
+  {
+   "examples": [
+    {
+     "en": "FIFO ordering is weaker: it only preserves each sender's own order.",
+     "zh": "FIFO 顺序更弱：它只保证每个发送者自己的顺序。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Per-channel FIFO ordering is enough for log shipping; total order would be overkill.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "FIFO ordering",
+   "zh": "先进先出顺序（同一发送者的消息保序）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Total order is what consensus buys you, at a price.",
+     "zh": "全序正是共识买到的东西，代价不菲。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We need total order for ledger entries, so those go through the leader.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "total order",
+   "zh": "全序（所有节点看到同一顺序）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Session guarantees are cheap and cover most user-visible anomalies.",
+     "zh": "会话保证成本低，却能覆盖大多数用户可见的异常。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We offer session guarantees on top of eventual consistency for the profile service.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "session guarantees",
+   "zh": "会话保证（同一客户端内的四种承诺）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Monotonic reads stop users from seeing their edit, then losing it.",
+     "zh": "单调读能避免用户刚看到自己的修改、刷新后又没了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Sticky sessions give us monotonic reads without paying for consensus.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "monotonic reads",
+   "zh": "单调读（不会读到更旧的数据）"
+  },
+  {
+   "examples": [
+    {
+     "en": "With a consistent prefix, readers never see effect before cause.",
+     "zh": "有了一致前缀，读者永远不会先看到结果再看到起因。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Consistent prefix plus monotonic reads is a pragmatic middle ground.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "consistent prefix",
+   "zh": "一致前缀（看到的都是某个前缀顺序）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We hash partition by tenant id to spread the load evenly.",
+     "zh": "我们按租户 id 做哈希分区，把负载摊均匀。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I would hash partition the events; range scans are rare in this workload.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "hash partition",
+   "zh": "哈希分区（按键的哈希值分片）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A quorum read asks R replicas and takes the newest version.",
+     "zh": "法定人数读会询问 R 个副本，并取最新版本。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With W plus R greater than N, a quorum read always overlaps the last quorum write.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "quorum read",
+   "zh": "法定人数读（读多个副本取最新）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A quorum write is durable once W replicas acknowledge it.",
+     "zh": "法定人数写在 W 个副本确认后才算落盘。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We set W to a majority, so a quorum write survives any single failure.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "quorum write",
+   "zh": "法定人数写（写成功要多数副本确认）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Quorum intersection is the whole trick behind the safety proof.",
+     "zh": "法定人数交叠是整个安全性证明的关键把戏。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Safety comes from quorum intersection: any read quorum meets any write quorum.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "quorum intersection",
+   "zh": "法定人数交叠（读写集合必然相交）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The leader marks an entry committed after majority commit.",
+     "zh": "领导者在多数提交之后才把条目标记为已提交。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Majority commit is why a Raft cluster tolerates a minority of failures.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "majority commit",
+   "zh": "多数提交（过半副本确认才算提交）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The read concern decides how fresh a read must be.",
+     "zh": "读关注决定了读到的数据必须有多新。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For billing reads we set the read concern to majority; reports can stay local.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "read concern",
+   "zh": "读关注（MongoDB 的读一致性档位）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A stronger write concern trades latency for durability.",
+     "zh": "更强的写关注用延迟换持久性。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I would raise the write concern for orders and relax it for view counters.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "write concern",
+   "zh": "写关注（MongoDB 的写确认档位）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Tunable consistency lets each operation pick its own guarantee.",
+     "zh": "可调一致性让每个操作自己选保证档位。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We offer tunable consistency: carts are eventual, payments are quorum-backed.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "tunable consistency",
+   "zh": "可调一致性（按操作选档位）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Linearizability makes a cluster behave like one perfect copy.",
+     "zh": "线性一致性让集群表现得像一个完美的单副本。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "If the interview asks for the strongest guarantee, that is linearizability.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "linearizability",
+   "zh": "线性一致性（最强的单对象一致性模型）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Serializability means the result equals some one-by-one execution.",
+     "zh": "可串行化意味着结果等价于某种逐个执行。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "We need serializability for inventory, even if it costs throughput.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "serializability",
+   "zh": "可串行化（事务隔离的黄金标准）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Under snapshot isolation, a transaction reads one frozen snapshot.",
+     "zh": "在快照隔离下，一个事务读的是一张冻结的快照。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Snapshot isolation prevents read skew, but write skew can still slip through.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "snapshot isolation",
+   "zh": "快照隔离（读一个一致快照）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Optimistic concurrency control validates at commit instead of locking early.",
+     "zh": "乐观并发控制在提交时验证，而不是提前加锁。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Conflicts are rare here, so optimistic concurrency control beats locking.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "optimistic concurrency control",
+   "zh": "乐观并发控制（先做后验冲突）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Two-phase locking guarantees serializability but invites deadlocks.",
+     "zh": "两阶段锁能保证可串行化，但容易引来死锁。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Classic two-phase locking is correct, yet too costly for our latency budget.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "two-phase locking",
+   "zh": "两阶段锁（先全加锁、再全释放）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A distributed lock without fencing tokens is a footgun.",
+     "zh": "没有栅栏令牌的分布式锁就是个坑。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I would avoid a hand-rolled distributed lock and use the database instead.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "distributed lock",
+   "zh": "分布式锁（跨节点互斥）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Lease-based locking self-heals when the holder crashes.",
+     "zh": "基于租约的锁在持有者崩溃后能自愈。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We use lease-based locking with a fencing token checked on every write.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "lease-based locking",
+   "zh": "基于租约的锁（带过期的锁）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A randomized election timeout prevents split votes.",
+     "zh": "随机化的选举超时能防止选票分散。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Tuning the election timeout balances failover speed against flapping.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "election timeout",
+   "zh": "选举超时（触发新一轮选举的计时）"
+  }
+ ],
+ "layer": "C",
+ "title": "架构：分布式与扩展性"
+}

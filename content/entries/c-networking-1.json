@@ -1,0 +1,607 @@
+{
+ "category": "networking",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "DNS resolution walks from the root down to the authoritative server.",
+     "zh": "DNS 解析从根服务器一路往下走到权威服务器。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Most 'site is down' reports are just DNS resolution failing somewhere.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "DNS resolution",
+   "zh": "DNS 解析（把域名变成 IP 的过程）"
+  },
+  {
+   "examples": [
+    {
+     "en": "DNS propagation is not instant; caches expire on their own schedule.",
+     "zh": "DNS 传播不是即时的；缓存按自己的节奏过期。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "During the migration we waited on DNS propagation before closing the old endpoint.",
+    "zh": "你在排查一个网络问题时这样解释："
+   },
+   "term": "DNS propagation",
+   "zh": "DNS 传播（记录变更在全网生效的过程）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The authoritative nameserver is the final word for a zone.",
+     "zh": "权威 DNS 服务器是一个区域记录的最终依据。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If the authoritative nameserver is wrong, no resolver can save you.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "authoritative nameserver",
+   "zh": "权威 DNS 服务器（持有原始记录的服务器）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A recursive resolver does the walking and caching for clients.",
+     "zh": "递归解析器替客户端完成整个解析并做缓存。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Your ISP's recursive resolver answers most queries from cache.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "recursive resolver",
+   "zh": "递归解析器（替客户端跑完整解析）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Anycast routes each user to the nearest healthy instance.",
+     "zh": "任播把每个用户路由到最近的健康实例。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The DNS service uses anycast, so an outage in one region reroutes automatically.",
+    "zh": "设计评审聊到协议选型，你这样说："
+   },
+   "term": "anycast",
+   "zh": "任播（同一 IP 由多地节点共同宣告）"
+  },
+  {
+   "examples": [
+    {
+     "en": "BGP decides which networks carry traffic between providers.",
+     "zh": "BGP 决定流量在运营商之间走哪些网络。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "A bad BGP announcement can take a healthy service off the map.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "BGP",
+   "zh": "BGP（自治系统之间的路由协议）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The routing table maps each destination network to a next hop.",
+     "zh": "路由表把每个目标网络映射到下一跳。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The packet looped because two routing tables disagreed.",
+    "zh": "你在排查一个网络问题时这样解释："
+   },
+   "term": "routing table",
+   "zh": "路由表（决定包往哪发的表）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Each availability zone gets its own subnet for the cluster.",
+     "zh": "每个可用区都为集群分到自己的子网。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Private subnets hold the databases; only the balancers face the internet.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "subnet",
+   "zh": "子网（被切分出来的一段网络）"
+  },
+  {
+   "examples": [
+    {
+     "en": "CIDR notation describes a range with one prefix length.",
+     "zh": "CIDR 表示法用一个前缀长度描述一段地址。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In CIDR notation, a /24 leaves eight bits for hosts.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "CIDR notation",
+   "zh": "CIDR 表示法（用斜杠数字写地址段）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Port forwarding exposed the home server on one public port.",
+     "zh": "端口转发把家里的服务器通过一个公网端口暴露出去。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For debugging, I use SSH port forwarding into the private network.",
+    "zh": "你在排查一个网络问题时这样解释："
+   },
+   "term": "port forwarding",
+   "zh": "端口转发（把某端口流量转到别处）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A forward proxy fetches the internet on behalf of clients.",
+     "zh": "正向代理替客户端去访问互联网。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Corporate egress goes through a forward proxy so it can be audited.",
+    "zh": "设计评审聊到协议选型，你这样说："
+   },
+   "term": "forward proxy",
+   "zh": "正向代理（替客户端出网的代理）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The load balancing algorithm decides which backend gets each request.",
+     "zh": "负载均衡算法决定每个请求落到哪个后端。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Round robin is the simplest load balancing algorithm; least connections handles skew better.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "load balancing algorithm",
+   "zh": "负载均衡算法（挑后端节点的策略）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Least connections suits workloads where requests vary in cost.",
+     "zh": "最少连接适合请求成本差异大的负载。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We switched to least connections because long-lived requests broke round robin.",
+    "zh": "设计评审聊到协议选型，你这样说："
+   },
+   "term": "least connections",
+   "zh": "最少连接（挑当前连接最少的后端）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The TLS handshake agrees on keys before any data flows.",
+     "zh": "TLS 握手在数据流动之前先协商好密钥。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A resumed TLS handshake costs one round trip instead of two.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "TLS handshake",
+   "zh": "TLS 握手（建立加密连接的协商过程）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A certificate authority vouches for the identity behind a certificate.",
+     "zh": "证书颁发机构为证书背后的身份背书。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Browsers trust a certificate authority only if it is in their root store.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "certificate authority",
+   "zh": "证书颁发机构（签发证书的可信第三方）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The certificate chain links the site certificate to a trusted root.",
+     "zh": "证书链把站点证书一路连到可信的根。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The outage was an incomplete certificate chain on one load balancer.",
+    "zh": "你在排查一个网络问题时这样解释："
+   },
+   "term": "certificate chain",
+   "zh": "证书链（一串信任传递的证书）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Mutual TLS makes both sides prove who they are.",
+     "zh": "双向 TLS 让双方都证明自己的身份。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Service-to-service calls use mutual TLS; user traffic stops at plain TLS.",
+    "zh": "设计评审聊到协议选型，你这样说："
+   },
+   "term": "mutual TLS",
+   "zh": "双向 TLS（客户端也要出示证书）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Session resumption skips the expensive parts of the handshake.",
+     "zh": "会话恢复跳过了握手里最昂贵的部分。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With session resumption, reconnects after a network switch are nearly instant.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "session resumption",
+   "zh": "会话恢复（跳过完整握手快速重连）"
+  },
+  {
+   "examples": [
+    {
+     "en": "HTTP keep-alive turns many handshakes into one.",
+     "zh": "HTTP 长连接把多次握手合并成一次。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "HTTP keep-alive mattered most before multiplexing existed.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "HTTP keep-alive",
+   "zh": "HTTP 长连接（一个连接发多个请求）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Connection reuse is the cheapest latency win on a chatty API.",
+     "zh": "连接复用是话痨型 API 上最便宜的延迟优化。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The client disabled connection reuse, so every call paid a full handshake.",
+    "zh": "你在排查一个网络问题时这样解释："
+   },
+   "term": "connection reuse",
+   "zh": "连接复用（不为每个请求新建连接）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Head-of-line blocking lets one lost packet stall everything behind it.",
+     "zh": "队头阻塞让一个丢包拖住它后面的所有数据。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "HTTP/2 fixed head-of-line blocking at the HTTP layer, but TCP still has it.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "head-of-line blocking",
+   "zh": "队头阻塞（前面的慢拖住后面的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Multiplexing lets one connection carry many streams at once.",
+     "zh": "多路复用让一条连接同时承载多个流。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "HTTP/2's multiplexing removed the need for domain sharding.",
+    "zh": "设计评审聊到协议选型，你这样说："
+   },
+   "term": "multiplexing",
+   "zh": "多路复用（一连接并行跑多个流）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Server push tried to send assets before the browser asked.",
+     "zh": "服务器推送试图在浏览器开口之前就把资源送过去。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Server push mostly failed in practice; preload hints replaced it.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "server push",
+   "zh": "服务器推送（服务端主动送资源）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The WebSocket handshake starts as HTTP and upgrades the connection.",
+     "zh": "WebSocket 握手以 HTTP 开场，然后升级连接。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "After the WebSocket handshake, frames flow in both directions.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "WebSocket handshake",
+   "zh": "WebSocket 握手（从 HTTP 升级协议）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Long polling holds the request open until news arrives.",
+     "zh": "长轮询把请求挂住，直到有新消息才返回。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We used long polling before WebSockets were safe to assume.",
+    "zh": "设计评审聊到协议选型，你这样说："
+   },
+   "term": "long polling",
+   "zh": "长轮询（请求挂住等服务端有数据再回）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Short polling trades freshness for brutal simplicity.",
+     "zh": "短轮询用新鲜度换来了极致的简单。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Short polling every thirty seconds was fine for a status page.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "short polling",
+   "zh": "短轮询（定时反复发请求问有没有）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Server-sent events give a one-way stream over plain HTTP.",
+     "zh": "服务器发送事件在普通 HTTP 上提供单向推流。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For notifications, server-sent events are simpler than WebSockets and reconnect automatically.",
+    "zh": "设计评审聊到协议选型，你这样说："
+   },
+   "term": "server-sent events",
+   "zh": "服务器发送事件（服务端单向推流）"
+  },
+  {
+   "examples": [
+    {
+     "en": "With gRPC streaming, results arrive as they are produced.",
+     "zh": "用 gRPC 流式，结果一产生就陆续到达。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "gRPC streaming fits telemetry uploads better than unary calls.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "gRPC streaming",
+   "zh": "gRPC 流式（服务端/客户端/双向流）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A protocol buffer encodes fields by number, not by name.",
+     "zh": "Protocol Buffers 按编号而不是按名字编码字段。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The protocol buffer schema is the contract both sides code against.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "protocol buffer",
+   "zh": "二进制序列化格式（先定义字段编号再编解码）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Byte order bugs corrupt numbers only on some machines.",
+     "zh": "字节序的 bug 只在某些机器上把数字弄坏。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Network protocols fix a byte order so implementations agree.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "byte order",
+   "zh": "字节序（多字节数的排列方向）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The checksum catches corruption that length checks miss.",
+     "zh": "校验和能抓住长度检查漏掉的损坏。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Every chunk carries a checksum, verified before it is stored.",
+    "zh": "你在排查一个网络问题时这样解释："
+   },
+   "term": "checksum",
+   "zh": "校验和（验证数据完整性的小摘要）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Packet loss hurts interactive traffic more than raw throughput.",
+     "zh": "丢包对交互式流量的伤害比对吞吐量的伤害大。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Two percent packet loss made video calls unusable while downloads looked fine.",
+    "zh": "你在排查一个网络问题时这样解释："
+   },
+   "term": "packet loss",
+   "zh": "丢包（数据包没到目的地）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A retransmission fires when the acknowledgement never arrives.",
+     "zh": "当确认迟迟不到时，就会触发重传。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Spurious retransmission wastes bandwidth on slow-but-healthy links.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "retransmission",
+   "zh": "重传（没等到确认就再发）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The congestion window grows while the path stays healthy.",
+     "zh": "只要路径保持健康，拥塞窗口就会长大。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The congestion window is TCP's guess at how much the network can hold.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "congestion window",
+   "zh": "拥塞窗口（在途未确认数据的上限）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Slow start doubles the sending rate every round trip.",
+     "zh": "慢启动每个往返把发送速率翻一倍。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Slow start is why short connections never reach full speed.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "slow start",
+   "zh": "慢启动（拥塞窗口从小到大试探）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Nagle's algorithm batches tiny writes into fewer packets.",
+     "zh": "Nagle 算法把小写入攒成更少的数据包。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Nagle's algorithm fighting delayed ACKs added forty milliseconds to every call.",
+    "zh": "你在排查一个网络问题时这样解释："
+   },
+   "term": "Nagle's algorithm",
+   "zh": "Nagle 算法（攒小包合并发送）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Packets larger than the MTU get fragmented or dropped.",
+     "zh": "比 MTU 大的包会被分片或丢弃。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Tunnel overhead shrinks the effective MTU, which breaks naive senders.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "MTU",
+   "zh": "最大传输单元（一帧能装的最大字节数）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Fragmentation hides until one lost fragment kills the whole packet.",
+     "zh": "分片的问题平时看不见，直到丢一片拖垮整个包。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "We lowered packet sizes to avoid fragmentation across the VPN.",
+    "zh": "你在排查一个网络问题时这样解释："
+   },
+   "term": "fragmentation",
+   "zh": "分片（大包拆成小片传输）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The bandwidth delay product sizes the windows you actually need.",
+     "zh": "带宽时延积决定了你实际需要的窗口大小。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "On long fat links, the bandwidth delay product exceeds default buffers.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "bandwidth delay product",
+   "zh": "带宽时延积（管道里能装多少在途数据）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Endian mistakes flip numbers into garbage on the other side.",
+     "zh": "端序搞错会把数字在对面变成垃圾。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The format spec pins the endian choice so parsers agree.",
+    "zh": "面试官问网络基础，你回答："
+   },
+   "term": "endian",
+   "zh": "字节序端序（大端还是小端）"
+  }
+ ],
+ "layer": "C",
+ "title": "网络与协议"
+}

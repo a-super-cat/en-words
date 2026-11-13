@@ -1,0 +1,592 @@
+{
+ "category": "frontend-arch",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Module federation lets independently deployed apps share components at runtime.",
+     "zh": "模块联邦让独立部署的应用在运行时共享组件。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We use module federation so each team ships its shell piece on its own cadence.",
+    "zh": "面试官深挖前端架构，你回答："
+   },
+   "term": "module federation",
+   "zh": "模块联邦（运行时共享远程模块）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Build orchestration rebuilds only what a change actually touches.",
+     "zh": "构建编排只重建一次变更真正触及的部分。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With build orchestration, the monorepo builds in dependency order and caches the rest.",
+    "zh": "技术评审上聊前端方案，你这样说："
+   },
+   "term": "build orchestration",
+   "zh": "构建编排（安排多包多应用的构建顺序）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An incremental build turns a ten-minute pipeline into ninety seconds.",
+     "zh": "增量构建把十分钟的流水线变成九十秒。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The incremental build keys off content hashes, not timestamps.",
+    "zh": "面试官深挖前端架构，你回答："
+   },
+   "term": "incremental build",
+   "zh": "增量构建（只重建变化的部分）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A code splitting strategy balances first load against click delays.",
+     "zh": "代码分割策略要在首屏加载和点击延迟之间找平衡。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our code splitting strategy splits by route first, then by heavy component.",
+    "zh": "技术评审上聊前端方案，你这样说："
+   },
+   "term": "code splitting strategy",
+   "zh": "代码分割策略（决定哪些代码拆成懒加载块）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Route-level splitting keeps rarely visited pages out of the main bundle.",
+     "zh": "路由级拆分把不常访问的页面挡在主包之外。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Route-level splitting alone cut the initial bundle by a third.",
+    "zh": "你在优化首屏性能时这样解释："
+   },
+   "term": "route-level splitting",
+   "zh": "路由级拆分（按页面拆包）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The bundle budget fails CI when a pull request bloats the entry.",
+     "zh": "包体积预算会在 PR 把入口撑大时让 CI 失败。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We set a bundle budget per route and review breaches like test failures.",
+    "zh": "技术评审上聊前端方案，你这样说："
+   },
+   "term": "bundle budget",
+   "zh": "包体积预算（给 bundle 大小定的红线）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Dead code elimination works best with pure, side-effect-free modules.",
+     "zh": "死代码消除在模块纯净、无副作用时效果最好。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "One side-effectful import quietly disabled dead code elimination for the whole library.",
+    "zh": "面试官深挖前端架构，你回答："
+   },
+   "term": "dead code elimination",
+   "zh": "死代码消除（构建期删掉用不上的代码）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A compound component lets tabs and panels coordinate without prop drilling.",
+     "zh": "复合组件让选项卡和面板不用层层传 props 就能配合。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I model the accordion as a compound component with context doing the wiring.",
+    "zh": "面试官深挖前端架构，你回答："
+   },
+   "term": "compound component",
+   "zh": "复合组件（父子配合、共享隐式状态的组件模式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Form state management decides what lives in the form library versus the page.",
+     "zh": "表单状态管理决定什么放表单库、什么放页面。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Good form state management keeps validation close to the field it judges.",
+    "zh": "技术评审上聊前端方案，你这样说："
+   },
+   "term": "form state management",
+   "zh": "表单状态管理（校验、脏状态、提交的管法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "State normalization stores each entity once, keyed by id.",
+     "zh": "状态规范化把每个实体按 id 只存一份。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "State normalization ended the three-copies-of-the-same-user bugs.",
+    "zh": "面试官深挖前端架构，你回答："
+   },
+   "term": "state normalization",
+   "zh": "状态规范化（按 id 存实体、引用代替嵌套）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Optimistic UI makes likes feel instant on slow networks.",
+     "zh": "乐观界面让点赞在慢网络下也像即时的一样。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We use optimistic UI for reactions, never for payments.",
+    "zh": "技术评审上聊前端方案，你这样说："
+   },
+   "term": "optimistic UI",
+   "zh": "乐观界面（先更新界面、失败再回滚）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A sync engine queues local writes and reconciles them with the server.",
+     "zh": "同步引擎把本地写入排队，再与服务器对账。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our sync engine treats the server log as truth and the local store as a cache.",
+    "zh": "面试官深挖前端架构，你回答："
+   },
+   "term": "sync engine",
+   "zh": "同步引擎（本地优先应用的数据同步层）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Client-side conflict resolution merges two offline edits of one document.",
+     "zh": "客户端冲突解决合并同一文档的两份离线编辑。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For text we chose last-writer-wins client-side conflict resolution and logged the loser.",
+    "zh": "技术评审上聊前端方案，你这样说："
+   },
+   "term": "client-side conflict resolution",
+   "zh": "客户端冲突解决（离线编辑撞车后的合并）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Virtual DOM diffing compares trees to patch only what changed.",
+     "zh": "虚拟 DOM 对比通过比较两棵树，只修补变化的部分。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Keys exist so virtual DOM diffing does not confuse siblings after a reorder.",
+    "zh": "面试官深挖前端架构，你回答："
+   },
+   "term": "virtual DOM diffing",
+   "zh": "虚拟 DOM 对比（找出最小真实更新）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The fiber architecture lets React pause and resume rendering work.",
+     "zh": "Fiber 架构让 React 能暂停和恢复渲染工作。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Under the fiber architecture, urgent updates can interrupt a long render.",
+    "zh": "面试官深挖前端架构，你回答："
+   },
+   "term": "fiber architecture",
+   "zh": "Fiber 架构（React 的可中断渲染引擎）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Partial hydration wakes only the interactive islands on the page.",
+     "zh": "部分水合只唤醒页面上可交互的岛。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Partial hydration shipped the article as static HTML with two live widgets.",
+    "zh": "你在优化首屏性能时这样解释："
+   },
+   "term": "partial hydration",
+   "zh": "部分水合（只激活页面上需要的岛）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The islands architecture keeps most of the page as plain HTML.",
+     "zh": "岛屿架构让页面大部分保持纯 HTML。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We picked the islands architecture for the marketing site: static by default.",
+    "zh": "技术评审上聊前端方案，你这样说："
+   },
+   "term": "islands architecture",
+   "zh": "岛屿架构（静态页里嵌独立交互岛）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Resumability restores interactivity without re-executing the framework code.",
+     "zh": "可恢复性让页面不重跑框架代码就能恢复交互。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Qwik's resumability serializes listeners so the browser picks up where the server left off.",
+    "zh": "面试官深挖前端架构，你回答："
+   },
+   "term": "resumability",
+   "zh": "可恢复性（不重跑代码、从序列化状态接续）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Isomorphic rendering shares components between server and browser.",
+     "zh": "同构渲染让组件在服务器和浏览器之间共享。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Isomorphic rendering pays off only if the team respects the environment split.",
+    "zh": "技术评审上聊前端方案，你这样说："
+   },
+   "term": "isomorphic rendering",
+   "zh": "同构渲染（同一套代码在服务端和客户端跑）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Edge rendering cuts the distance between user and first byte.",
+     "zh": "边缘渲染缩短了用户与第一个字节之间的距离。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Edge rendering helped overseas users most; local users barely noticed.",
+    "zh": "你在优化首屏性能时这样解释："
+   },
+   "term": "edge rendering",
+   "zh": "边缘渲染（在靠近用户的边缘节点渲染）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A data fetching waterfall chains requests that could have run in parallel.",
+     "zh": "数据获取瀑布把本可并行的请求串成了链。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The fix for a data fetching waterfall is to start fetches higher and earlier.",
+    "zh": "面试官深挖前端架构，你回答："
+   },
+   "term": "data fetching waterfall",
+   "zh": "数据获取瀑布（串行等数据的链式延迟）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Request deduplication collapses simultaneous identical calls into one.",
+     "zh": "请求去重把同时发生的相同调用合并成一次。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Request deduplication at the data layer killed a third of our API traffic.",
+    "zh": "你在优化首屏性能时这样解释："
+   },
+   "term": "request deduplication",
+   "zh": "请求去重（相同请求合并成一次）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every cache invalidation strategy is a bet about how data changes.",
+     "zh": "每种缓存失效策略都是在赌数据会怎么变。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our cache invalidation strategy is boring on purpose: short TTL plus explicit purge on writes.",
+    "zh": "技术评审上聊前端方案，你这样说："
+   },
+   "term": "cache invalidation strategy",
+   "zh": "缓存失效策略（决定缓存何时过期或清除）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Critical CSS is inlined so the first paint never waits on a stylesheet.",
+     "zh": "关键 CSS 被内联起来，首屏绘制不用等样式表。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Extracting critical CSS moved first paint ahead by half a second.",
+    "zh": "你在优化首屏性能时这样解释："
+   },
+   "term": "critical CSS",
+   "zh": "关键 CSS（首屏需要的最小样式集）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Resource hints tell the browser what it will need next.",
+     "zh": "资源提示告诉浏览器接下来会用到什么。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Resource hints help when they name the real bottleneck, not everything.",
+    "zh": "你在优化首屏性能时这样解释："
+   },
+   "term": "resource hints",
+   "zh": "资源提示（预连接、预加载这类浏览器暗示）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A forced reflow happens when code reads layout right after changing it.",
+     "zh": "强制同步布局发生在代码改完样式立刻又读布局的时候。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The animation jank traced back to a forced reflow inside the scroll handler.",
+    "zh": "面试官深挖前端架构，你回答："
+   },
+   "term": "forced reflow",
+   "zh": "强制同步布局（读布局属性逼浏览器立刻排版）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Everything visual waits on the main thread.",
+     "zh": "所有视觉相关的事都要等主线程。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The main thread was busy for four seconds parsing one bundle.",
+    "zh": "你在优化首屏性能时这样解释："
+   },
+   "term": "main thread",
+   "zh": "主线程（浏览器跑 JS 和渲染的线程）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A web worker keeps heavy parsing off the main thread.",
+     "zh": "Web Worker 把重解析挪离主线程。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We moved syntax highlighting into a web worker; typing stayed smooth.",
+    "zh": "技术评审上聊前端方案，你这样说："
+   },
+   "term": "web worker",
+   "zh": "后台线程（在主线程之外跑重计算）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The compositor thread can scroll even while the main thread is stuck.",
+     "zh": "合成线程能在主线程卡住时继续滚动。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Transform and opacity animate on the compositor thread, which is why they stay smooth.",
+    "zh": "面试官深挖前端架构，你回答："
+   },
+   "term": "compositor thread",
+   "zh": "合成线程（负责图层合成与滚动）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Task scheduling yields to the browser between chunks of work.",
+     "zh": "任务调度在工作块之间给浏览器让路。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With explicit task scheduling, the long import stopped freezing the page.",
+    "zh": "技术评审上聊前端方案，你这样说："
+   },
+   "term": "task scheduling",
+   "zh": "任务调度（把长任务切开让路给交互）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The service worker lifecycle explains why updates wait for tabs to close.",
+     "zh": "Service Worker 生命周期解释了为什么更新要等标签页关闭。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Skipping the waiting phase in the service worker lifecycle ships updates faster but riskier.",
+    "zh": "面试官深挖前端架构，你回答："
+   },
+   "term": "service worker lifecycle",
+   "zh": "Service Worker 生命周期（安装、激活、接管）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A cache-first strategy serves the shell instantly and refreshes quietly.",
+     "zh": "缓存优先策略立刻给出外壳，再悄悄刷新。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Static assets use a cache-first strategy with hashed filenames.",
+    "zh": "你在优化首屏性能时这样解释："
+   },
+   "term": "cache-first strategy",
+   "zh": "缓存优先策略（先查缓存、没有再联网）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A network-first strategy keeps content fresh with a stale fallback.",
+     "zh": "网络优先策略保持内容新鲜，失败时再用旧的顶上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The news feed uses a network-first strategy; the shell uses the opposite.",
+    "zh": "技术评审上聊前端方案，你这样说："
+   },
+   "term": "network-first strategy",
+   "zh": "网络优先策略（先联网、失败再用缓存）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Background sync retries queued actions when connectivity returns.",
+     "zh": "后台同步在网络恢复后重试排队的操作。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With background sync, a review written on the train posts itself at the station.",
+    "zh": "面试官深挖前端架构，你回答："
+   },
+   "term": "background sync",
+   "zh": "后台同步（联网恢复后补发离线操作）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The content-visibility property lets the browser skip offscreen subtrees.",
+     "zh": "content-visibility 属性让浏览器跳过屏外子树的渲染。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "One line of content-visibility made the long report page scroll smoothly.",
+    "zh": "你在优化首屏性能时这样解释："
+   },
+   "term": "content-visibility",
+   "zh": "内容可见性（跳过屏外内容渲染的 CSS 属性）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A view transition animates between states without a router hack.",
+     "zh": "视图过渡让状态之间平滑动画，不用在路由上做手脚。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The view transition made list-to-detail navigation feel native.",
+    "zh": "技术评审上聊前端方案，你这样说："
+   },
+   "term": "view transition",
+   "zh": "视图过渡（页面状态间的平滑动画 API）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Prerendering builds the next page before the user clicks.",
+     "zh": "预渲染在用户点击之前就把下一页建好。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Speculation-driven prerendering made article navigation feel instant.",
+    "zh": "你在优化首屏性能时这样解释："
+   },
+   "term": "prerendering",
+   "zh": "预渲染（提前把页面渲染好等用户点）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Speculative loading spends bandwidth to buy certainty about the next click.",
+     "zh": "推测加载花带宽来买下一步点击的确定性。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Speculative loading rules let the browser prerender likely next pages safely.",
+    "zh": "面试官深挖前端架构，你回答："
+   },
+   "term": "speculative loading",
+   "zh": "推测加载（预测下一步并提前加载）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Local state should stay local until two distant components need it.",
+     "zh": "本地状态应该一直留在本地，直到两个相距甚远的组件都需要它。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Most of what teams globalize is really local state with ambition.",
+    "zh": "技术评审上聊前端方案，你这样说："
+   },
+   "term": "local state",
+   "zh": "本地状态（只属于组件自己的状态）"
+  }
+ ],
+ "layer": "C",
+ "title": "前端架构深挖"
+}

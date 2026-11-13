@@ -68,8 +68,8 @@ en-words 是一个**自用**的英语训练工具，只有一个用户。它跑�
 
 | 类型 | 数量 | 位置 |
 |---|---|---|
-| 词块 | 2781 条（A 层 446，B 层 775，C 层 1351，D 层 209） | `content/entries/*.json`，80 个文件 |
-| 面试题 | 185 道，12 个分类 | `content/questions/*.json` |
+| 词块 | 3043 条（A 层 446，B 层 775，C 层 1613，D 层 209） | `content/entries/*.json`，87 个文件 |
+| 面试题 | 215 道，12 个分类 | `content/questions/*.json` |
 | 场景剧本 | 42 个，10 个分类（2026-11-12 新增面试场景分类，排在口语页首位；2026-11-13 新增日常分类） | `content/scenarios/*.json` |
 | 词频词典 | 30000 个通用词 + 655 个补充词，每词带中英双语释义 | `content/wordlists/frequency.json`（脚本生成） |
 

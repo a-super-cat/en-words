@@ -1,0 +1,727 @@
+{
+ "category": "sre",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "A good service level indicator measures what users actually feel.",
+     "zh": "好的服务等级指标量的是用户真切感受到的东西。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our service level indicator is the share of requests answered correctly within 300 milliseconds.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "service level indicator",
+   "zh": "服务等级指标（量化用户体验的度量）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The service level objective allows a handful of bad minutes per month.",
+     "zh": "服务等级目标允许每个月有几分钟不达标。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We set the service level objective at 99.9 percent, measured on real user traffic.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "service level objective",
+   "zh": "服务等级目标（给指标定的达标线）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A service level agreement turns internal targets into contractual promises.",
+     "zh": "服务等级协议把内部目标变成了合同承诺。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The service level agreement promises credits when we miss, not just an apology.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "service level agreement",
+   "zh": "服务等级协议（对客户的合同承诺）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The error budget policy freezes launches when the budget is spent.",
+     "zh": "错误预算政策规定：预算花完就冻结发布。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "An error budget policy only works if leadership enforces it during incidents.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "error budget policy",
+   "zh": "错误预算政策（预算花完后冻结什么的约定）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The golden signals fit on one dashboard per service.",
+     "zh": "黄金指标一个服务一块仪表盘就装得下。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Start with the golden signals; everything else is diagnosis detail.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "golden signals",
+   "zh": "黄金指标（延迟、流量、错误、饱和度）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Saturation shows up first in queue length, not CPU.",
+     "zh": "饱和度最先体现在队列长度上，而不是 CPU。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Our earliest saturation warning is connection pool wait time.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "saturation",
+   "zh": "饱和度（离资源上限还有多远）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The RED method frames every service with rate, errors, and duration.",
+     "zh": "RED 方法用速率、错误和耗时三个维度看每个服务。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For request-driven services I start with the RED method on every dashboard.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "RED method",
+   "zh": "RED 方法（速率、错误、耗时三看服务）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The USE method checks utilization, saturation, and errors per resource.",
+     "zh": "USE 方法逐个资源看利用率、饱和度和错误。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The USE method is my checklist when a single machine misbehaves.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "USE method",
+   "zh": "USE 方法（利用率、饱和度、错误三看资源）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An actionable alert names the user impact and the first step.",
+     "zh": "可行动告警会写明用户影响和第一步该做什么。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If a page needs a wiki to interpret, it is not an actionable alert.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "actionable alert",
+   "zh": "可行动告警（收到就知道该做什么的告警）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Symptom-based alerting pages on pain users can feel.",
+     "zh": "基于症状的告警只盯用户能感受到的痛苦。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We moved to symptom-based alerting and cut nightly pages by half.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "symptom-based alerting",
+   "zh": "基于症状的告警（盯用户感受而非原因）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Cause-based alerting catches known failure modes early.",
+     "zh": "基于原因的告警能早早抓住已知的故障模式。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Cause-based alerting belongs on tickets, not on the pager.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "cause-based alerting",
+   "zh": "基于原因的告警（盯具体故障源头）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The paging threshold separates 'wake a human' from 'read it tomorrow'.",
+     "zh": "呼叫阈值区分了“叫醒一个人”和“明天再看”。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We tune the paging threshold against the error budget, not gut feeling.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "paging threshold",
+   "zh": "呼叫阈值（严重到要打电话叫人的线）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Alert routing sends database pages to the storage team, not the app team.",
+     "zh": "告警路由把数据库的呼叫送到存储团队，而不是应用团队。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Half the incident delay was alert routing sending the page to a departed team.",
+    "zh": "故障复盘会上你这样总结："
+   },
+   "term": "alert routing",
+   "zh": "告警路由（把告警送到对的团队）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A humane on-call rotation keeps the same faces out of every weekend.",
+     "zh": "人性化的值班轮换不会让同一批人每个周末都中招。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our on-call rotation is weekly, with a follow-the-sun handoff.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "on-call rotation",
+   "zh": "值班轮换（轮流当第一响应人）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The escalation policy pages the manager after fifteen silent minutes.",
+     "zh": "升级策略规定：静默十五分钟就呼叫经理。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Every critical alert carries an escalation policy tested quarterly.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "escalation policy",
+   "zh": "升级策略（没人响应时逐级找人）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The incident commander coordinates; the experts fix.",
+     "zh": "事故指挥官负责协调；专家负责修。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Naming an incident commander ended the everyone-fixes-everything chaos.",
+    "zh": "故障复盘会上你这样总结："
+   },
+   "term": "incident commander",
+   "zh": "事故指挥官（协调而非亲自修的人）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Incident severity follows user impact, not internal drama.",
+     "zh": "事故等级看的是用户影响，而不是内部有多热闹。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We declare incident severity from the customer's point of view.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "incident severity",
+   "zh": "事故等级（按影响范围定的级别）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The incident retrospective produced three fixes and one deletion.",
+     "zh": "这次事故回顾产出了三个修复和一个删除。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "An incident retrospective without owners and deadlines is theater.",
+    "zh": "故障复盘会上你这样总结："
+   },
+   "term": "incident retrospective",
+   "zh": "事故回顾（复盘会的另一种说法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every postmortem action item has an owner and a date.",
+     "zh": "每个复盘行动项都有负责人和日期。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We track each postmortem action item like a product feature.",
+    "zh": "故障复盘会上你这样总结："
+   },
+   "term": "postmortem action item",
+   "zh": "复盘行动项（带负责人和期限的改进项）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A blameless culture asks what made the wrong action feel right.",
+     "zh": "无指责文化追问的是：是什么让错误动作当时看起来是对的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Blameless culture is not soft; it is how you get the true timeline.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "blameless culture",
+   "zh": "无指责文化（对事不对人的复盘氛围）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Mean time to detect shrank once alerts keyed off user symptoms.",
+     "zh": "告警盯住用户症状之后，平均检测时长缩短了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our mean time to detect is four minutes; the budget says two.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "mean time to detect",
+   "zh": "平均检测时长（故障发生到发现）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Mean time to recover improved more from runbooks than from heroics.",
+     "zh": "平均恢复时长的改善，靠手册比靠英雄主义多。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Rehearsed rollbacks did more for mean time to recover than any tool.",
+    "zh": "故障复盘会上你这样总结："
+   },
+   "term": "mean time to recover",
+   "zh": "平均恢复时长（发现到恢复服务）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Change failure rate counts deployments that needed a fix or rollback.",
+     "zh": "变更失败率统计需要修复或回滚的发布占比。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our change failure rate halved after canaries became mandatory.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "change failure rate",
+   "zh": "变更失败率（发布引发故障的比例）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Lead time for changes measures the commit-to-production path.",
+     "zh": "变更前置时间量的是从提交到上线的路径。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Small batches cut lead time for changes from days to hours.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "lead time for changes",
+   "zh": "变更前置时间（提交到上线的时长）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Automated canary analysis compares error rates against the baseline fleet.",
+     "zh": "自动化的金丝雀分析会拿灰度组的错误率和基线机群对比。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Canary analysis aborted the release before users noticed anything.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "canary analysis",
+   "zh": "金丝雀分析（对比灰度与基线的指标）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Automated rollback fired two minutes into the bad deploy.",
+     "zh": "发布出问题两分钟后，自动回滚就触发了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With automated rollback, a bad release is a blip, not an incident.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "automated rollback",
+   "zh": "自动回滚（指标变坏自动撤回发布）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A load shedding strategy decides what to drop before the system decides for you.",
+     "zh": "负载削减策略决定先丢什么，免得系统替你乱丢。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our load shedding strategy sacrifices recommendations first, checkout never.",
+    "zh": "故障复盘会上你这样总结："
+   },
+   "term": "load shedding strategy",
+   "zh": "负载削减策略（过载时先丢什么的预案）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Graceful degradation keeps checkout alive when recommendations die.",
+     "zh": "优雅降级让推荐挂掉时结账依然可用。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We design for graceful degradation instead of pretending failures won't happen.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "graceful degradation",
+   "zh": "优雅降级（坏一部分、主功能照常）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The throttling strategy limits per tenant, not per IP.",
+     "zh": "限流策略按租户限制，而不是按 IP。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A fair throttling strategy degrades the noisy neighbor, not everyone.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "throttling strategy",
+   "zh": "限流策略（按什么维度限制谁）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A retry budget caps retries as a share of total requests.",
+     "zh": "重试预算把重试量封顶为总请求的一个比例。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The retry budget stopped a sick service from multiplying its own traffic.",
+    "zh": "故障复盘会上你这样总结："
+   },
+   "term": "retry budget",
+   "zh": "重试预算（给重试总量封顶）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Circuit breaker tuning balances fast failure against flapping.",
+     "zh": "熔断调参要在快速失败和反复抖动之间找平衡。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Most circuit breaker tuning pain comes from thresholds copied from a blog post.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "circuit breaker tuning",
+   "zh": "熔断调参（阈值与恢复探针的设置）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Dependency fan-out multiplies both latency and failure probability.",
+     "zh": "依赖扇出会同时放大延迟和故障概率。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Cutting dependency fan-out did more for reliability than any single fix.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "dependency fan-out",
+   "zh": "依赖扇出（一个请求引爆的下游调用数）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A chaos experiment states a hypothesis before breaking anything.",
+     "zh": "混沌实验在动手搞坏任何东西之前先写明假设。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We run one chaos experiment per quarter on the staging twin.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "chaos experiment",
+   "zh": "混沌实验（带假设和度量的故障演练）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A game day rehearses the incident with the whole team watching.",
+     "zh": "演练日让整个团队一起排练事故处理。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The game day exposed that our rollback needs a permission nobody on call has.",
+    "zh": "故障复盘会上你这样总结："
+   },
+   "term": "game day",
+   "zh": "演练日（团队一起模拟事故的练习）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Failure injection in staging caught the timeout mismatch early.",
+     "zh": "在预发环境做故障注入，提前抓住了超时配置不一致的问题。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Start failure injection small: one instance, one dependency, business hours only.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "failure injection",
+   "zh": "故障注入（主动把故障打进系统）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The steady-state hypothesis names the metrics that must not move.",
+     "zh": "稳态假设写明哪些指标不许动。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Without a steady-state hypothesis, a chaos experiment is just breaking things.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "steady-state hypothesis",
+   "zh": "稳态假设（实验前先定义正常是什么样）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Toil is the work that scales with the fleet instead of with value.",
+     "zh": "琐务是那种随机器规模涨、却不随价值涨的工作。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "We budget toil at under half of SRE time; the rest goes to engineering.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "toil",
+   "zh": "琐务（手工、重复、无沉淀的运维劳动）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Operational load grows silently until the team drowns in it.",
+     "zh": "运维负荷会悄悄增长，直到团队被它淹没。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Every new service must declare its operational load before launch.",
+    "zh": "故障复盘会上你这样总结："
+   },
+   "term": "operational load",
+   "zh": "运维负荷（页面、工单与琐务的总和）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Production readiness is a checklist, not a vibe.",
+     "zh": "生产就绪是一张清单，不是一种感觉。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The launch slipped a week because production readiness review found no rollback plan.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "production readiness",
+   "zh": "生产就绪（监控、回滚、容量都齐备）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The launch readiness review walks dashboards, alerts, and capacity.",
+     "zh": "上线就绪评审会过一遍仪表盘、告警和容量。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our launch readiness review killed two launches last year, both rightly.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "launch readiness review",
+   "zh": "上线就绪评审（发布前的把关会）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A capacity buffer absorbs the spike you failed to predict.",
+     "zh": "容量缓冲吸收你没预测到的那次尖峰。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We keep a thirty percent capacity buffer during campaign season.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "capacity buffer",
+   "zh": "容量缓冲（预留的余量空间）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The observability pipeline ships logs, metrics, and traces to one store.",
+     "zh": "可观测性管道把日志、指标和链路送到一个存储里。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A broken observability pipeline blinds you exactly when you need it most.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "observability pipeline",
+   "zh": "可观测性管道（遥测数据的采集处理链路）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Trace context propagation carries the trace id across every hop.",
+     "zh": "链路上下文传播把 trace id 带过每一跳。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "One library skipped trace context propagation, and the trace broke there.",
+    "zh": "故障复盘会上你这样总结："
+   },
+   "term": "trace context propagation",
+   "zh": "链路上下文传播（把 trace id 带过服务边界）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Each span records one operation with its timing and tags.",
+     "zh": "每个跨度记录一个操作及其耗时和标签。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "A trace is a tree of spans; the slow span names the culprit.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "span",
+   "zh": "跨度（链路中的一段工作单元）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Trace sampling keeps costs sane at a billion requests.",
+     "zh": "链路采样让十亿级请求下的成本保持理智。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With trace sampling at one percent, rare errors still slip through unseen.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "trace sampling",
+   "zh": "链路采样（只留一部分完整链路）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Tail-based sampling keeps the interesting traces: errors and slow ones.",
+     "zh": "尾部采样留下的是有意思的链路：出错的和慢的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We moved to tail-based sampling so failures are never the ones discarded.",
+    "zh": "面试官问线上稳定性怎么做，你回答："
+   },
+   "term": "tail-based sampling",
+   "zh": "尾部采样（看完整条链路再决定留不留）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Log aggregation turns fifty machines into one searchable stream.",
+     "zh": "日志聚合把五十台机器变成一条可搜索的流。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Without log aggregation, the incident would have taken hours to piece together.",
+    "zh": "故障复盘会上你这样总结："
+   },
+   "term": "log aggregation",
+   "zh": "日志聚合（把各处日志汇到一起）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Metric cardinality explodes when user ids sneak into labels.",
+     "zh": "用户 id 混进标签时，指标基数就会爆炸。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The outage of the monitoring system itself was a metric cardinality lesson.",
+    "zh": "你在可靠性评审上这样说："
+   },
+   "term": "metric cardinality",
+   "zh": "指标基数（标签组合的总数，会爆炸）"
+  }
+ ],
+ "layer": "C",
+ "title": "SRE 与稳定性工程"
+}

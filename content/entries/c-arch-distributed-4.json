@@ -1,0 +1,427 @@
+{
+ "category": "arch-distributed",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Leader completeness follows from the voting restriction.",
+     "zh": "领导者完整性来自投票环节的限制规则。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Raft's leader completeness property is why committed entries are never lost.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "leader completeness",
+   "zh": "领导者完整性（新领导者必有全部已提交日志）"
+  },
+  {
+   "examples": [
+    {
+     "en": "State machine replication turns consensus into a replicated service.",
+     "zh": "状态机复制把共识变成了一个可复制的服务。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Under the hood it is state machine replication: same log, same transitions.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "state machine replication",
+   "zh": "状态机复制（副本执行同一命令序列）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A replicated state machine stays consistent by replaying the shared log.",
+     "zh": "复制状态机通过重放共享日志保持一致。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We model the metadata store as a replicated state machine over Raft.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "replicated state machine",
+   "zh": "复制状态机（共识之上的服务形态）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Byzantine fault tolerance assumes nodes may lie, not just crash.",
+     "zh": "拜占庭容错假设节点不只是会崩，还会说谎。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Inside one company, Byzantine fault tolerance is usually unnecessary cost.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "Byzantine fault tolerance",
+   "zh": "拜占庭容错（容忍作恶节点）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Crash fault tolerance covers the failures we actually see in production.",
+     "zh": "崩溃容错覆盖了我们在生产环境真正遇到的故障。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Raft gives us crash fault tolerance, which is all a single-operator cluster needs.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "crash fault tolerance",
+   "zh": "崩溃容错（只容忍停机式故障）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The FLP impossibility result is why timeouts exist in practice.",
+     "zh": "FLP 不可能定理正是实践中必须用超时的原因。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We sidestep the FLP impossibility with failure detectors and partial synchrony.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "FLP impossibility",
+   "zh": "FLP 不可能定理（异步网络无确定性共识）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The PACELC theorem extends CAP to normal operation.",
+     "zh": "PACELC 定理把 CAP 扩展到了正常运行时的权衡。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "PACELC theorem in one line: if no partition, still choose between latency and consistency.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "PACELC theorem",
+   "zh": "PACELC 定理（分区之外还要权衡延迟）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every failure detector is wrong sometimes; design for that.",
+     "zh": "每个故障检测器有时都会判断错；设计要预料到这一点。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our failure detector marks nodes suspect first and dead only after confirmation.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "failure detector",
+   "zh": "故障检测器（判断节点死活的机制）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A suspicious failure triggers investigation, not failover.",
+     "zh": "可疑故障触发的是排查，而不是故障切换。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Treat a suspicious failure as a hint: check before you promote anything.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "suspicious failure",
+   "zh": "可疑故障（尚未确认的疑似失效）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The membership protocol spreads joins and leaves through gossip.",
+     "zh": "成员协议通过流言传播节点的加入和离开。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our membership protocol converges in a few gossip rounds.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "membership protocol",
+   "zh": "成员协议（维护集群名单的机制）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The SWIM protocol keeps failure detection cheap at thousands of nodes.",
+     "zh": "SWIM 协议让上千节点下的故障检测依然便宜。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We picked the SWIM protocol because heartbeats to everyone do not scale.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "SWIM protocol",
+   "zh": "SWIM 协议（可扩展的成员与故障检测）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A gossip protocol spreads state the way rumors spread.",
+     "zh": "流言协议传播状态的方式，就像谣言扩散一样。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Cluster state travels by gossip protocol; convergence takes seconds, not minutes.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "gossip protocol",
+   "zh": "流言协议（像传闲话一样扩散信息）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Delta synchronization ships only what changed since the last sync.",
+     "zh": "增量同步只传上次同步以来变化的部分。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For the mobile client, delta synchronization beats full downloads on every metric.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "delta synchronization",
+   "zh": "增量同步（只传变化的部分）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Anti-entropy sessions compare replicas and repair the drift.",
+     "zh": "反熵会话会比对副本并修复漂移。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Hints cover short outages; anti-entropy cleans up everything else.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "anti-entropy",
+   "zh": "反熵（副本间定期对账修复）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A Merkle tree localizes replica differences in a few comparisons.",
+     "zh": "默克尔树用少量比对就能定位副本间的差异。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Replicas exchange a Merkle tree root first, then drill into mismatched branches.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "Merkle tree",
+   "zh": "默克尔树（快速比对副本差异的哈希树）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Read repair fixes a stale replica when a read notices it.",
+     "zh": "读修复会在读发现副本过旧时顺手把它修好。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Read repair is lazy but free; anti-entropy is the safety net behind it.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "read repair",
+   "zh": "读修复（读的时候顺手修旧副本）"
+  },
+  {
+   "examples": [
+    {
+     "en": "During hinted handoff, a healthy node holds writes for a down peer.",
+     "zh": "在提示转交中，健康节点会替宕机的同伴暂存写入。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Hinted handoff keeps writes flowing while one node reboots.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "hinted handoff",
+   "zh": "提示转交（代存数据等目标恢复再转交）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A delete writes a tombstone instead of removing the row.",
+     "zh": "删除会写下一个墓碑标记，而不是直接删掉那行。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Every delete becomes a tombstone so replicas cannot resurrect old data.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "tombstone",
+   "zh": "墓碑标记（删除先打记号而非真删）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Three-phase commit reduces blocking but still breaks under partitions.",
+     "zh": "三阶段提交减少了阻塞，但在分区下依然会出问题。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Three-phase commit sounds safer, yet real systems prefer Paxos-style consensus.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "three-phase commit",
+   "zh": "三阶段提交（多一个准备阶段的原子提交）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The saga pattern replaces one big transaction with compensating steps.",
+     "zh": "Saga 模式用带补偿的步骤序列替代一个大事务。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Cross-service flows use the saga pattern; each step knows how to undo itself.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "saga pattern",
+   "zh": "Saga 模式（长事务拆成本地事务加补偿）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Exactly-once semantics usually mean at-least-once plus deduplication.",
+     "zh": "精确一次语义通常意味着至少一次投递加去重。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We claim exactly-once semantics only inside the pipeline, never end to end.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "exactly-once semantics",
+   "zh": "精确一次语义（不重不丢的处理保证）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Metrics use at-most-once delivery; a lost sample is acceptable.",
+     "zh": "指标用的是至多一次投递：丢一个样本可以接受。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "At-most-once delivery fits telemetry; orders need the opposite choice.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "at-most-once delivery",
+   "zh": "至多一次投递（可能丢、绝不重）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An XA transaction coordinates the database and the message broker.",
+     "zh": "XA 事务协调数据库和消息中间件。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We retired the last XA transaction; operational pain outweighed the elegance.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "XA transaction",
+   "zh": "XA 事务（跨资源的标准两阶段协议）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A version vector summarizes who has seen what, per replica.",
+     "zh": "版本向量概括了每个副本都见过什么。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Conflicts surface when neither version vector dominates the other.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "version vector",
+   "zh": "版本向量（每副本一份的因果指纹）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A CRDT merges concurrent edits without a coordinator.",
+     "zh": "CRDT 能在没有协调者的情况下合并并发编辑。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "For collaborative counters and sets, a CRDT removes the ordering problem entirely.",
+    "zh": "面试官追问分布式细节，你回答："
+   },
+   "term": "CRDT",
+   "zh": "无冲突复制数据类型（天然可合并的数据结构）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Strong eventual consistency promises convergence without waiting.",
+     "zh": "强最终一致性承诺无需等待即可收敛。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "CRDTs deliver strong eventual consistency: same updates in, same state out.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "strong eventual consistency",
+   "zh": "强最终一致性（同更新集必同状态）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Each physical node owns many virtual nodes on the ring.",
+     "zh": "每个物理节点在环上拥有许多虚拟节点。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Adding virtual nodes evens out the key distribution.",
+    "zh": "设计评审上有人问一致性怎么保证，你回答："
+   },
+   "term": "virtual node",
+   "zh": "虚拟节点（一致性哈希里的分片影子）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keys map to positions on the token ring.",
+     "zh": "键被映射到令牌环上的位置。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The token ring layout decides which replica set serves each range.",
+    "zh": "你在设计文档里这样写权衡："
+   },
+   "term": "token ring",
+   "zh": "令牌环（一致性哈希的环结构）"
+  }
+ ],
+ "layer": "C",
+ "title": "架构：分布式与扩展性"
+}

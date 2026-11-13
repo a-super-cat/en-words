@@ -1,0 +1,667 @@
+{
+ "category": "data",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "The buffer pool holds hot pages so reads skip the disk.",
+     "zh": "缓冲池里放着热页，读的时候就不用碰磁盘。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If the working set fits in the buffer pool, most reads never touch storage.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "buffer pool",
+   "zh": "缓冲池（数据库在内存里的页缓存）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The database rides on the page cache unless it uses direct IO.",
+     "zh": "除非用直接 IO，数据库都得靠操作系统的页缓存。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Double buffering happens when both the buffer pool and the page cache keep copies.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "page cache",
+   "zh": "页缓存（操作系统缓存的文件页）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A B-tree index keeps keys sorted for range scans.",
+     "zh": "B 树索引把键排好序，方便范围扫描。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A B-tree index fits this query: equality on the first column, range on the second.",
+    "zh": "你在排查一个慢查询时这样解释："
+   },
+   "term": "B-tree index",
+   "zh": "B 树索引（最常见的索引结构）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A hash index is fast for lookups but useless for ranges.",
+     "zh": "哈希索引查等值很快，但对范围查询毫无用处。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I would pick a hash index only if every access is by exact key.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "hash index",
+   "zh": "哈希索引（只支持等值查找）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An index-only scan never touches the table itself.",
+     "zh": "仅索引扫描根本不用碰表本身。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The covering index turned it into an index-only scan, and latency dropped tenfold.",
+    "zh": "你在排查一个慢查询时这样解释："
+   },
+   "term": "index-only scan",
+   "zh": "仅索引扫描（不回表的扫描）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The query planner picks the cheapest plan it can estimate.",
+     "zh": "查询规划器会挑它能估出的最便宜的计划。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "When statistics go stale, the query planner makes confident, wrong choices.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "query planner",
+   "zh": "查询规划器（决定执行路径的组件）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A cost-based optimizer is only as good as its statistics.",
+     "zh": "基于成本的优化器有多准，全看统计信息有多准。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The cost-based optimizer skipped the index because the table looked tiny.",
+    "zh": "你在排查一个慢查询时这样解释："
+   },
+   "term": "cost-based optimizer",
+   "zh": "基于成本的优化器（按估算成本选计划）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A table scan on a billion rows is a cry for an index.",
+     "zh": "对十亿行做全表扫描，就是在喊着要索引。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For a small lookup table, a table scan is honestly the fastest plan.",
+    "zh": "你在排查一个慢查询时这样解释："
+   },
+   "term": "table scan",
+   "zh": "全表扫描（逐行读整张表）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An index scan with many random lookups can lose to a table scan.",
+     "zh": "随机回表太多的索引扫描，可能输给全表扫描。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The plan flipped from an index scan to a table scan past a selectivity threshold.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "index scan",
+   "zh": "索引扫描（沿索引找行）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A nested loop join shines when the outer side is tiny.",
+     "zh": "嵌套循环连接在外表很小的时候最亮眼。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With an index on the inner side, a nested loop join is hard to beat.",
+    "zh": "你在排查一个慢查询时这样解释："
+   },
+   "term": "nested loop join",
+   "zh": "嵌套循环连接（小表驱动大表逐行查）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A hash join builds a hash table on the smaller input.",
+     "zh": "哈希连接会把较小的输入建成一张哈希表。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For two big tables with no useful index, a hash join usually wins.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "hash join",
+   "zh": "哈希连接（把一侧建成哈希表再探测）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A merge join is nearly free when both sides arrive sorted.",
+     "zh": "当两侧都排好序时，归并连接几乎是免费的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The merge join rode the existing index order, so no sort was needed.",
+    "zh": "你在排查一个慢查询时这样解释："
+   },
+   "term": "merge join",
+   "zh": "归并连接（两侧都已排序时合并）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The redo log replays committed changes after a crash.",
+     "zh": "重做日志在崩溃后重放已经提交的修改。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Durability comes from the redo log: commit means the log is on disk.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "redo log",
+   "zh": "重做日志（崩溃后重放已提交修改）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The undo log lets a transaction roll back and readers see old versions.",
+     "zh": "撤销日志让事务能回滚，也让读者能看到旧版本。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Long transactions bloat the undo log because old versions cannot be purged.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "undo log",
+   "zh": "撤销日志（回滚与读旧版本用）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The vacuum process reclaims space left by dead tuples.",
+     "zh": "清理进程回收死元组留下的空间。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "When the vacuum process falls behind, tables bloat and scans slow down.",
+    "zh": "你在排查一个慢查询时这样解释："
+   },
+   "term": "vacuum process",
+   "zh": "清理进程（回收死元组的空间）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every update leaves a dead tuple behind in MVCC systems.",
+     "zh": "在 MVCC 系统里，每次更新都会留下一个死元组。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A dead tuple is just an old row version waiting for cleanup.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "dead tuple",
+   "zh": "死元组（已删除或被更新淘汰的行版本）"
+  },
+  {
+   "examples": [
+    {
+     "en": "In a heap table, rows land wherever there is free space.",
+     "zh": "在堆表里，行落在任何有空位的地方。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Postgres stores a heap table plus separate indexes pointing into it.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "heap table",
+   "zh": "堆表（行无序存放的表组织方式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A partial index covers only rows where the flag is set.",
+     "zh": "部分索引只覆盖标志位被设置的行。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A partial index on active orders stays tiny and answers the hot query.",
+    "zh": "你在排查一个慢查询时这样解释："
+   },
+   "term": "partial index",
+   "zh": "部分索引（只索引满足条件的行）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An expression index makes lookups on lowercased email fast.",
+     "zh": "表达式索引让按小写邮箱查找变快。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Instead of a generated column, we used an expression index on the JSON field.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "expression index",
+   "zh": "表达式索引（对计算结果建索引）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A GiST index handles ranges and geometric searches.",
+     "zh": "GiST 索引处理范围和几何搜索。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For overlapping time ranges, a GiST index beats a plain B-tree.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "GiST index",
+   "zh": "GiST 索引（通用搜索树，几何/范围类型用）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A full-text index tokenizes documents at write time.",
+     "zh": "全文索引在写入时就把文档切好词。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Built-in full-text index is fine until ranking quality becomes the product.",
+    "zh": "评审上讨论存储选型，你这样说："
+   },
+   "term": "full-text index",
+   "zh": "全文索引（为文本搜索建的索引）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A column store reads only the columns a query touches.",
+     "zh": "列式存储只读查询用到的列。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Analytics belongs on a column store; the row store stays for transactions.",
+    "zh": "评审上讨论存储选型，你这样说："
+   },
+   "term": "column store",
+   "zh": "列式存储（按列存，分析场景快）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A row store fetches a whole record in one read.",
+     "zh": "行式存储一次读取就能拿到整条记录。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Point lookups favor a row store; scans favor the opposite layout.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "row store",
+   "zh": "行式存储（整行一起存，事务场景快）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An OLTP workload is many small reads and writes.",
+     "zh": "联机事务负载是大量短小的读写。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our OLTP workload peaks at noon; the warehouse sync runs at night.",
+    "zh": "评审上讨论存储选型，你这样说："
+   },
+   "term": "OLTP workload",
+   "zh": "联机事务负载（短小高频的读写）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An OLAP workload scans millions of rows to answer one question.",
+     "zh": "联机分析负载为回答一个问题要扫几百万行。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Never let an OLAP workload share the primary with checkout traffic.",
+    "zh": "评审上讨论存储选型，你这样说："
+   },
+   "term": "OLAP workload",
+   "zh": "联机分析负载（大扫描、聚合）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A star schema keeps joins shallow for reporting queries.",
+     "zh": "星型模式让报表查询的连接保持浅层。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We model the warehouse as a star schema: one fact table, clean dimensions.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "star schema",
+   "zh": "星型模式（事实表居中、维度表环绕）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A snowflake schema normalizes dimensions at the cost of more joins.",
+     "zh": "雪花模式把维度进一步规范化，代价是更多连接。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The snowflake schema saved space but made every report slower to write.",
+    "zh": "评审上讨论存储选型，你这样说："
+   },
+   "term": "snowflake schema",
+   "zh": "雪花模式（维度再规范化的星型变体）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The fact table records one row per order event.",
+     "zh": "事实表为每个订单事件记一行。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Facts go in the fact table; descriptions live in dimensions.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "fact table",
+   "zh": "事实表（存度量与外键的核心表）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A dimension table holds the attributes you slice reports by.",
+     "zh": "维度表存放你切分报表用的属性。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Slowly changing attributes are handled inside the dimension table.",
+    "zh": "你在排查一个慢查询时这样解释："
+   },
+   "term": "dimension table",
+   "zh": "维度表（存描述性属性的表）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Each team gets a data mart cut for its own questions.",
+     "zh": "每个团队都有一个为自家问题裁好的数据集市。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The finance data mart refreshes hourly from the central warehouse.",
+    "zh": "评审上讨论存储选型，你这样说："
+   },
+   "term": "data mart",
+   "zh": "数据集市（面向一个部门的子集仓库）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The ETL pipeline cleans raw events before loading them.",
+     "zh": "ETL 管道在加载之前先清洗原始事件。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our ETL pipeline runs hourly and validates row counts on the way in.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "ETL pipeline",
+   "zh": "ETL 管道（抽取、转换、再加载）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An ELT pipeline loads raw data first and transforms it in place.",
+     "zh": "ELT 管道先把原始数据加载进来，再在仓内转换。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Cheap warehouse compute made the ELT pipeline the default pattern.",
+    "zh": "评审上讨论存储选型，你这样说："
+   },
+   "term": "ELT pipeline",
+   "zh": "ELT 管道（先加载、后在仓内转换）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Change data capture turns database writes into an event stream.",
+     "zh": "变更数据捕获把数据库的写入变成事件流。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With change data capture, the search index updates seconds after each write.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "change data capture",
+   "zh": "变更数据捕获（把行级变更变成事件流）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The binlog is the source for replication and recovery alike.",
+     "zh": "二进制日志既是复制的来源，也是恢复的依据。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "We replayed the binlog to rebuild the reporting copy.",
+    "zh": "你在排查一个慢查询时这样解释："
+   },
+   "term": "binlog",
+   "zh": "二进制日志（MySQL 的变更日志）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Logical replication ships row changes, not raw pages.",
+     "zh": "逻辑复制传的是行级变更，而不是原始数据页。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Logical replication let us upgrade versions with almost no downtime.",
+    "zh": "评审上讨论存储选型，你这样说："
+   },
+   "term": "logical replication",
+   "zh": "逻辑复制（按行变更复制，可跨版本）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Physical replication copies the storage layer byte for byte.",
+     "zh": "物理复制逐字节地复制存储层。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Physical replication is fast but chains the replica to the same version.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "physical replication",
+   "zh": "物理复制（逐字节复制底层变更）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Streaming replication keeps the standby nearly current.",
+     "zh": "流复制让备库几乎实时跟上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We run streaming replication with a one-second lag alert.",
+    "zh": "你在排查一个慢查询时这样解释："
+   },
+   "term": "streaming replication",
+   "zh": "流复制（持续推送 WAL 的复制方式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Asynchronous replication risks losing the last writes in a crash.",
+     "zh": "异步复制在崩溃时可能丢掉最后几笔写入。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We accept asynchronous replication for analytics, never for orders.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "asynchronous replication",
+   "zh": "异步复制（不等待备库确认）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A replication slot pins WAL segments until the replica consumes them.",
+     "zh": "复制槽会留住 WAL 段，直到副本消费完为止。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A forgotten replication slot filled the disk with retained WAL.",
+    "zh": "你在排查一个慢查询时这样解释："
+   },
+   "term": "replication slot",
+   "zh": "复制槽（防止备库需要的 WAL 被清掉）"
+  },
+  {
+   "examples": [
+    {
+     "en": "WAL archiving ships completed segments to object storage.",
+     "zh": "WAL 归档把写满的日志段送到对象存储里。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "WAL archiving plus a base backup gives point-in-time recovery.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "WAL archiving",
+   "zh": "WAL 归档（把预写日志存去长期存储）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A hot standby serves read-only queries while replaying WAL.",
+     "zh": "热备一边重放 WAL，一边对外提供只读查询。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Reports run on the hot standby so the primary stays responsive.",
+    "zh": "评审上讨论存储选型，你这样说："
+   },
+   "term": "hot standby",
+   "zh": "热备（能对外提供只读查询的备库）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Connection pooling protects the database from thousands of clients.",
+     "zh": "连接池保护数据库免受成千上万的客户端冲击。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The fix was connection pooling in transaction mode, not a bigger database.",
+    "zh": "你在排查一个慢查询时这样解释："
+   },
+   "term": "connection pooling",
+   "zh": "连接池（复用数据库连接）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A prepared statement is parsed once and reused with new parameters.",
+     "zh": "预处理语句只解析一次，然后带着新参数重复使用。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A prepared statement also closes the door on classic SQL injection.",
+    "zh": "面试官问数据库内部机制，你回答："
+   },
+   "term": "prepared statement",
+   "zh": "预处理语句（预编译、可复用的 SQL）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The slow query log is where every performance hunt starts.",
+     "zh": "慢查询日志是每次性能排查的起点。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The slow query log showed one query eating forty percent of the database.",
+    "zh": "你在排查一个慢查询时这样解释："
+   },
+   "term": "slow query log",
+   "zh": "慢查询日志（记录超时的查询）"
+  }
+ ],
+ "layer": "C",
+ "title": "数据存储与数据库"
+}
