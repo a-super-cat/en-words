@@ -7,7 +7,7 @@ import SpeakButton from '../components/SpeakButton.vue';
 import { dropFocus, useHotkeys } from '../lib/keys';
 import { useRecorder } from '../lib/recorder';
 import { speak, stopSpeaking } from '../lib/tts';
-import { ROUND_SECONDS } from '../speaking/pick';
+import { pickLearnedChunks, ROUND_SECONDS } from '../speaking/pick';
 import { useApp } from '../stores/app';
 import { useSpeaking } from '../stores/speaking';
 import type { Attempt } from '../types';
@@ -24,6 +24,11 @@ const recorder = useRecorder();
 
 const question = speaking.questionById.get(String(route.params.id));
 const history = question ? speaking.attemptsOf(question.id).slice().reverse() : [];
+// 学过的相关表达：把复习里已经能说出的词块带进答题，练“自由运用”。没学过相关词块时为空，这一栏不出现。
+const learnedChunks = computed(() => (question ? pickLearnedChunks(question, app.entries, app.cards) : []));
+const ownTerms = new Set((question?.chunks ?? []).map((c) => c.term));
+const ownUsed = (a: Attempt) => a.used.filter((t) => ownTerms.has(t)).length;
+const learnedUsed = (a: Attempt) => a.used.length - ownUsed(a);
 const isBehavioral = question?.category === 'behavioral' || question?.category === 'leadership';
 
 const phase = ref<Phase>('ready');
@@ -162,6 +167,10 @@ useHotkeys((key, e) => {
             <div class="muted small">尽量用上这些表达</div>
             <ChunkList :chunks="question.chunks" layer="C" />
           </div>
+          <div v-if="learnedChunks.length > 0">
+            <div class="muted small">你学过的相关表达，也试着用上</div>
+            <ChunkList :chunks="learnedChunks" layer="C" />
+          </div>
           <details v-if="round === 2" open>
             <summary class="muted small">回答提纲</summary>
             <ul class="outline">
@@ -188,6 +197,7 @@ useHotkeys((key, e) => {
             {{ recorder.state.value === 'denied' ? '没有麦克风权限' : '录音不可用' }}，这次只计时，不能回听。
           </p>
           <ChunkList :chunks="question.chunks" layer="C" hide-add />
+          <ChunkList v-if="learnedChunks.length > 0" :chunks="learnedChunks" layer="C" hide-add />
           <div><button type="button" class="primary" @click="finishAnswer">说完了 <kbd>空格</kbd></button></div>
         </template>
       </section>
@@ -206,6 +216,11 @@ useHotkeys((key, e) => {
         <div>
           <div class="muted small">勾选这次用上的表达</div>
           <ChunkList v-model="used" :chunks="question.chunks" layer="C" />
+        </div>
+
+        <div v-if="learnedChunks.length > 0">
+          <div class="muted small">学过的相关表达，用上了也可以勾</div>
+          <ChunkList v-model="used" :chunks="learnedChunks" layer="C" />
         </div>
 
         <div>
@@ -273,11 +288,17 @@ useHotkeys((key, e) => {
             <tr v-for="r in results" :key="r.id">
               <td>第 {{ r.round }} 遍</td>
               <td class="n">{{ fmt(r.seconds) }}</td>
-              <td class="n">{{ r.used.length }} / {{ question.chunks.length }}</td>
+              <td class="n">
+                {{ ownUsed(r) }} / {{ question.chunks.length
+                }}<span v-if="learnedUsed(r) > 0" class="muted"> +{{ learnedUsed(r) }}</span>
+              </td>
               <td>{{ r.fluency }} {{ FLUENCY[r.fluency - 1] }}</td>
             </tr>
           </tbody>
         </table>
+        <p v-if="results.some((r) => learnedUsed(r) > 0)" class="muted small">
+          “+数字”是题目自带表达之外，额外用上的你学过的表达。
+        </p>
         <div class="row">
           <button type="button" class="primary" @click="another">再抽一题</button>
           <RouterLink to="/" class="btn">回到今日</RouterLink>
