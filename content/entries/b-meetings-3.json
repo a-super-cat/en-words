@@ -1,0 +1,457 @@
+{
+ "category": "meetings",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "She runs the meeting tightly — agenda out the day before, notes the same day.",
+     "zh": "她主持会议很利落——议程提前一天发，纪要当天出。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "You run the meeting this week; I'll take notes.",
+    "zh": "经理让你下周开始轮值主持站会。"
+   },
+   "term": "run the meeting",
+   "zh": "主持会议"
+  },
+  {
+   "examples": [
+    {
+     "en": "A good facilitator makes quiet people speak and loud people listen.",
+     "zh": "好的主持人能让安静的人开口、让话多的人倾听。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "I'll facilitate; you focus on the technical questions.",
+    "zh": "你被指派去引导一场容易吵起来的评审会。"
+   },
+   "term": "facilitate",
+   "zh": "主持并引导（讨论、会议）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let's timebox the naming debate to ten minutes.",
+     "zh": "命名之争咱们限时十分钟。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Timebox this to fifteen minutes, then we vote and move on.",
+    "zh": "讨论在一个小问题上无限拉长，你提议限时。"
+   },
+   "term": "timebox",
+   "zh": "给（议题、讨论）设定时间上限"
+  },
+  {
+   "examples": [
+    {
+     "en": "That's important but off-topic — put it in the parking lot.",
+     "zh": "这个重要但跑题了——先放进停车场清单。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We had six items in the parking lot; the follow-up call cleared them all.",
+    "zh": "有人把话题带偏，你想不打断热情地先搁置。"
+   },
+   "term": "parking lot",
+   "zh": "（会议的）停车场：先记下、会后再议的话题清单"
+  },
+  {
+   "examples": [
+    {
+     "en": "We tabled the rebrand topic until the budget is confirmed.",
+     "zh": "品牌改名这个议题被搁置了，等预算确认再说。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let's table this topic — the person who owns it isn't here.",
+    "zh": "关键决策人不在场，你提议这个话题先放一放。"
+   },
+   "term": "table a topic",
+   "zh": "搁置某个议题（以后再议）"
+  },
+  {
+   "examples": [
+    {
+     "en": "This affects only our two teams — let's take this offline.",
+     "zh": "这事只关系到我们两个团队——会后私下聊吧。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Take this offline and bring the conclusion back tomorrow.",
+    "zh": "两个人在大会上争细节，你出面打断。"
+   },
+   "term": "take this offline",
+   "zh": "会后私下再聊这个（别占用大家时间）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We went off track into tooling preferences for twenty minutes.",
+     "zh": "我们跑题聊了二十分钟的工具偏好。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Sorry, I went off track — back to the launch plan.",
+    "zh": "你自嘲刚才把大家带偏了，拉回来。"
+   },
+   "term": "go off track",
+   "zh": "跑题、偏离议程"
+  },
+  {
+   "examples": [
+    {
+     "en": "When the debate heats up, steer the discussion back to user impact.",
+     "zh": "争论升温时，把讨论拉回到对用户的影响上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "She steered the discussion from blame to root causes in minutes.",
+    "zh": "你请一位资深同事帮忙控场。"
+   },
+   "term": "steer the discussion",
+   "zh": "把讨论方向拉回来、引导讨论"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'll open the floor for the last ten minutes — anything goes.",
+     "zh": "最后十分钟开放发言——什么都可以问。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let's open the floor: who has the first question?",
+    "zh": "你主持分享会，讲完后进入提问环节。"
+   },
+   "term": "open the floor",
+   "zh": "开放发言、请大家自由提问"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let's go around the room — one blocker each, thirty seconds.",
+     "zh": "咱们轮流来——每人一个阻塞项，三十秒。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Going around the room surfaced risks nobody had written down.",
+    "zh": "人多时你想保证每个人都能说上话。"
+   },
+   "term": "go around the room",
+   "zh": "轮流发言（一圈人依次说）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Who's capturing action items today? Last time they evaporated.",
+     "zh": "今天谁负责记行动项？上次记的全没人跟进。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'll capture action items and post them in the channel.",
+    "zh": "你担心会上说的事又没人跟进。"
+   },
+   "term": "capture action items",
+   "zh": "（在纪要里）记录行动项"
+  },
+  {
+   "examples": [
+    {
+     "en": "Before we leave, let me recap the decisions so nobody walks out confused.",
+     "zh": "散会之前，我把定下来的决定复述一遍，免得有人糊涂。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Recap the decisions in the notes, in bold, at the top.",
+    "zh": "会议结论有点散，你来做收尾确认。"
+   },
+   "term": "recap the decisions",
+   "zh": "复述、汇总已定的决定"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let's confirm next steps before people drop off.",
+     "zh": "趁大家还没下线，把下一步确认了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Confirming next steps takes two minutes and saves two weeks.",
+    "zh": "会开完了但事情还没落地，你赶紧钉死。"
+   },
+   "term": "confirm next steps",
+   "zh": "确认下一步（动作和负责人）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We won't settle this today — schedule a follow-up for Thursday.",
+     "zh": "这事今天定不下来——约周四再开一次。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'll schedule a follow-up with the data team included.",
+    "zh": "讨论超时了，你提议另约时间深挖。"
+   },
+   "term": "schedule a follow-up",
+   "zh": "约一个后续会议"
+  },
+  {
+   "examples": [
+    {
+     "en": "That recurring meeting outlived its purpose months ago.",
+     "zh": "那个例会几个月前就失去存在的意义了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Cancel the recurring meeting; the async update covers it.",
+    "zh": "你想砍掉一个每周都开但没产出的会。"
+   },
+   "term": "recurring meeting",
+   "zh": "例会、周期性会议"
+  },
+  {
+   "examples": [
+    {
+     "en": "An ad hoc meeting beat three days of message ping-pong.",
+     "zh": "一次临时会胜过三天的消息来回。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Grab whoever's free for an ad hoc meeting — this is blocking the release.",
+    "zh": "问题在群里聊不清，你提议马上拉个会。"
+   },
+   "term": "ad hoc meeting",
+   "zh": "临时会议、随约随开的会"
+  },
+  {
+   "examples": [
+    {
+     "en": "The CEO announced the reorg at the all-hands meeting.",
+     "zh": "CEO 在全员大会上宣布了组织调整。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Questions for the all-hands meeting go in the shared doc first.",
+    "zh": "你跟新同事解释那个每月一次的大会是什么。"
+   },
+   "term": "all-hands meeting",
+   "zh": "全员大会"
+  },
+  {
+   "examples": [
+    {
+     "en": "At the town hall, employees asked about the hiring freeze directly.",
+     "zh": "在全员沟通会上，员工直接问了冻结招聘的事。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The town hall is your chance to ask leadership anything.",
+    "zh": "你想在有问答环节的大会上提一个敏感问题。"
+   },
+   "term": "town hall",
+   "zh": "（公司领导与员工的）全员沟通会"
+  },
+  {
+   "examples": [
+    {
+     "en": "My skip-level meeting is monthly, and it's mostly me listening.",
+     "zh": "我每月有一次跨级会议，大部分时间是我在听。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Prepare two honest observations for the skip-level meeting.",
+    "zh": "你跟朋友聊你明天要见大老板，有点紧张。"
+   },
+   "term": "skip-level meeting",
+   "zh": "跨级会议（和老板的老板开会）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We split into breakout rooms of four to brainstorm, then reported back.",
+     "zh": "我们分成四人一组的分组讨论室头脑风暴，然后回来汇报。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Twenty minutes in the breakout room, then each group shares one idea.",
+    "zh": "你组织线上工作坊，需要分组讨论环节。"
+   },
+   "term": "breakout room",
+   "zh": "（线上会议的）分组讨论室"
+  },
+  {
+   "examples": [
+    {
+     "en": "Can everyone see my screen? The font might be small.",
+     "zh": "大家都能看到我的屏幕吗？字可能有点小。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Before I start — can everyone see my screen okay?",
+    "zh": "你刚共享完屏幕，不确定大家是不是看到了。"
+   },
+   "term": "Can everyone see my screen?",
+   "zh": "大家都能看到我的屏幕吗"
+  },
+  {
+   "examples": [
+    {
+     "en": "The call dropped right as she was giving the final number.",
+     "zh": "她刚要说最后的数字，通话就断了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Sorry, the call dropped on my end — where were we?",
+    "zh": "你重新拨进来，先解释刚才为什么消失。"
+   },
+   "term": "the call dropped",
+   "zh": "通话断了、掉线了"
+  },
+  {
+   "examples": [
+    {
+     "en": "With this bad connection, let's switch cameras off.",
+     "zh": "网络这么差，咱们把摄像头关了吧。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Bad connection on my side — I'll type my update in the chat.",
+    "zh": "线上会一直卡，你提议降级到纯音频。"
+   },
+   "term": "bad connection",
+   "zh": "网络连接不好"
+  },
+  {
+   "examples": [
+    {
+     "en": "On calls we keep talking over each other — let's use the hand raise.",
+     "zh": "电话会上我们老是抢话——用举手功能吧。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Sorry, we talked over each other — you go first.",
+    "zh": "线上讨论一热烈就乱，你提议立个规矩。"
+   },
+   "term": "talk over each other",
+   "zh": "抢话、同时说话互相盖"
+  },
+  {
+   "examples": [
+    {
+     "en": "One person dominated the conversation for the full hour.",
+     "zh": "整整一个小时都是一个人在说话。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Watch the clock so one voice doesn't dominate the conversation.",
+    "zh": "你复盘会议时委婉指出主持方式的问题。"
+   },
+   "term": "dominate the conversation",
+   "zh": "（一个人）主导了整个对话、别人插不上话"
+  },
+  {
+   "examples": [
+    {
+     "en": "When discussion stalls, take a vote and record the minority view.",
+     "zh": "讨论僵住时就表决，并把少数派意见记录下来。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let's take a vote — winner ships, loser writes the doc.",
+    "zh": "两个方案吵不出结果，你提议直接投票。"
+   },
+   "term": "take a vote",
+   "zh": "投票表决"
+  },
+  {
+   "examples": [
+    {
+     "en": "A quick show of hands: who has shipped to production this week?",
+     "zh": "快速举个手：这周谁上过生产？"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "By a show of hands, most of the room preferred the simpler design.",
+    "zh": "你想快速摸个底，不想点名。"
+   },
+   "term": "show of hands",
+   "zh": "举手表决"
+  },
+  {
+   "examples": [
+    {
+     "en": "The vote is tied at four-four — as chair, you break the tie.",
+     "zh": "投票四比四打平，技术负责人投了决定性的一票。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "As facilitator, you'll break the tie if it comes to that.",
+    "zh": "你解释最后那个方案是怎么定下来的。"
+   },
+   "term": "break the tie",
+   "zh": "打破平局、做决定性一票"
+  },
+  {
+   "examples": [
+    {
+     "en": "We deferred the decision until the load test numbers arrive.",
+     "zh": "我们把决定推迟到压测数据出来之后。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Defer the decision a week — deciding wrong now costs more.",
+    "zh": "证据不足时你不赞成硬拍板。"
+   },
+   "term": "defer the decision",
+   "zh": "把决定推迟（到信息更全时）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'll own the follow-up with legal and report back Friday.",
+     "zh": "我来负责跟进法务那边，周五回报。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Who owns the follow-up on the vendor contract?",
+    "zh": "会上事情定完了，你主动认领后续跟进。"
+   },
+   "term": "own the follow-up",
+   "zh": "负责跟进（某件事的后续）"
+  }
+ ],
+ "layer": "B",
+ "title": "会议与讨论"
+}

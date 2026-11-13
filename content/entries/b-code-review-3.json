@@ -1,0 +1,457 @@
+{
+ "category": "code-review",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "I left a comment on the error handling — take a look when you can.",
+     "zh": "我在错误处理那块留了条评论，你有空看一下。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'll leave a comment rather than requesting changes — it's a question, not a blocker.",
+    "zh": "你评审完想知会作者你已经看过了。"
+   },
+   "term": "leave a comment",
+   "zh": "（在 PR 里）留一条评论"
+  },
+  {
+   "examples": [
+    {
+     "en": "An inline comment with a code suggestion beats a paragraph of explanation.",
+     "zh": "一条带代码建议的行内评论，胜过一大段文字解释。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Put it as an inline comment so he sees it in context.",
+    "zh": "你在教新人怎么把评审意见写到点子上。"
+   },
+   "term": "inline comment",
+   "zh": "行内评论（对着某一行代码的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Instead of describing the fix, suggest a change the author can apply with one click.",
+     "zh": "与其用文字描述怎么改，不如给出能一键应用的修改建议。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'll suggest a change — simpler than explaining it in prose.",
+    "zh": "你评审时想让作者改一行写法，与其打字解释不如直接贴代码。"
+   },
+   "term": "suggest a change",
+   "zh": "给出具体的修改建议（附代码）"
+  },
+  {
+   "examples": [
+    {
+     "en": "You need to resolve conflicts with main before this can merge.",
+     "zh": "合并之前你得先把和主干的冲突解决了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Resolve conflicts first, then ping me for a fresh look.",
+    "zh": "你评审时发现这个 PR 已经跟主干冲突了。"
+   },
+   "term": "resolve conflicts",
+   "zh": "解决（代码合并）冲突"
+  },
+  {
+   "examples": [
+    {
+     "en": "Rebase onto main and the diff shrinks to just your changes.",
+     "zh": "变基到最新主干之后，差异就只剩你自己的改动了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Please rebase onto main — half this diff isn't yours.",
+    "zh": "你发现 PR 里混进了别人的提交，让作者处理。"
+   },
+   "term": "rebase onto main",
+   "zh": "把分支变基到最新主干上"
+  },
+  {
+   "examples": [
+    {
+     "en": "Split the PR: config first, then the feature behind a flag.",
+     "zh": "把这个 PR 拆开：先合配置，功能放在开关后面再来。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd rather split the PR than review it badly in one sitting.",
+    "zh": "你打开一个八百行的 PR，决定先礼貌地请作者拆分。"
+   },
+   "term": "split the PR",
+   "zh": "把（太大的）PR 拆成几个小的"
+  },
+  {
+   "examples": [
+    {
+     "en": "Open a draft PR early so people can follow the direction.",
+     "zh": "早点开个草稿 PR，大家能跟上你的思路方向。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "This is a draft PR — feedback on the approach, not the polish.",
+    "zh": "你想让同事在动手写完之前先对齐方案。"
+   },
+   "term": "draft PR",
+   "zh": "草稿 PR（还没准备好评审的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Mark it as ready for review once CI passes locally.",
+     "zh": "本地 CI 过了之后，把它标记为可评审。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "It's still a draft — mark as ready for review and I'll jump in.",
+    "zh": "作者问你为什么还没人看他的 PR。"
+   },
+   "term": "mark as ready for review",
+   "zh": "把（草稿）标记为可评审"
+  },
+  {
+   "examples": [
+    {
+     "en": "CI is green and two approvals are in — merge when ready.",
+     "zh": "CI 全过了，两个批准也有了——随时可以合。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I don't review until CI is green; half the comments solve themselves.",
+    "zh": "你在群里同步 PR 状态，就差合并了。"
+   },
+   "term": "CI is green",
+   "zh": "CI 全部通过了"
+  },
+  {
+   "examples": [
+    {
+     "en": "This migration script needs a second pair of eyes before anyone runs it.",
+     "zh": "这个迁移脚本在执行之前需要多一个人检查。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Get a second pair of eyes on the payment code — always.",
+    "zh": "你要改生产数据的脚本，想找人帮你把关。"
+   },
+   "term": "second pair of eyes",
+   "zh": "第二双眼睛（多一个人检查）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Approving in thirty seconds is a rubber-stamp, not a review.",
+     "zh": "三十秒就批准，那叫无脑盖章，不叫评审。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "We don't rubber-stamp here — read the diff or decline the review.",
+    "zh": "你发现团队评审流于形式，在复盘里提出来。"
+   },
+   "term": "rubber-stamp",
+   "zh": "无脑批准、不看就盖章通过"
+  },
+  {
+   "examples": [
+    {
+     "en": "Nitpick: this variable name is slightly misleading, but not blocking.",
+     "zh": "小问题：这个变量名有点误导，但不阻塞合并。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Label nitpicks as nit — authors shouldn't guess what's blocking.",
+    "zh": "你想提一个小意见又不想显得在找茬。"
+   },
+   "term": "nitpick",
+   "zh": "挑小毛病、吹毛求疵；小问题（评论前缀 nit:）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Only one blocking comment: the null check. The rest are suggestions.",
+     "zh": "只有一条阻塞性意见：那个空值检查。其余都是建议。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Mark blocking comments clearly, or everything feels equally urgent.",
+    "zh": "你要在评审总结里分清哪些必须改、哪些可选。"
+   },
+   "term": "blocking comment",
+   "zh": "阻塞性意见（必须改才能合）"
+  },
+  {
+   "examples": [
+    {
+     "en": "This is a non-blocking suggestion: the helper could be shared with the other module.",
+     "zh": "这是个非阻塞建议：这个辅助函数可以和另一个模块共用。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Non-blocking suggestion, feel free to ignore: rename for clarity.",
+    "zh": "你有个优化想法，但不想拦住这次合并。"
+   },
+   "term": "non-blocking suggestion",
+   "zh": "非阻塞建议（可以不改）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Is this intentional? The timeout is ten times higher than everywhere else.",
+     "zh": "这是有意为之吗？这个超时比其他地方高了十倍。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Is this intentional, or a leftover from debugging?",
+    "zh": "你评审时看到一处可疑的写法，想先问清是不是故意的。"
+   },
+   "term": "Is this intentional?",
+   "zh": "这是有意为之吗？（评审里礼貌质疑的开场）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Extract a helper here — this is the third copy of the same logic.",
+     "zh": "把这里抽成辅助函数吧——同样的逻辑这是第三份了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Extract a helper and both call sites get simpler.",
+    "zh": "你评审时看到复制粘贴的代码，想给出建设性意见。"
+   },
+   "term": "extract a helper",
+   "zh": "把（重复逻辑）抽成辅助函数"
+  },
+  {
+   "examples": [
+    {
+     "en": "There's leftover debug code in the payment flow — a console log with card data.",
+     "zh": "支付流程里有遗留的调试代码——一条打印卡数据的日志。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Leftover debug code is the one thing I always scan for before approving.",
+    "zh": "你在合并前最后一遍检查发现了问题。"
+   },
+   "term": "leftover debug code",
+   "zh": "遗留的调试代码（忘了删的打印、注释）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Fixing the bug is half the job — add a regression test so it stays fixed.",
+     "zh": "修好 bug 只是一半——加个回归测试，让它别再复发。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Please add a regression test that fails on the old code.",
+    "zh": "你在评审一个修复 PR，发现没带测试。"
+   },
+   "term": "add a regression test",
+   "zh": "加一个回归测试（防同一个 bug 复发）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Attach a before-and-after screenshot for any UI change, please.",
+     "zh": "UI 改动请附上改动前后的对比截图。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A before-and-after screenshot would settle the spacing debate instantly.",
+    "zh": "你在评审一个样式 PR，光看代码判断不了效果。"
+   },
+   "term": "before-and-after screenshot",
+   "zh": "改动前后的对比截图"
+  },
+  {
+   "examples": [
+    {
+     "en": "Link the ticket in the description so reviewers get the background.",
+     "zh": "在描述里关联工单，评审的人能看到背景。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Always link the ticket — future archaeologists will thank you.",
+    "zh": "你在教新人写 PR 的规矩。"
+   },
+   "term": "link the ticket",
+   "zh": "（在 PR 里）关联工单、需求单"
+  },
+  {
+   "examples": [
+    {
+     "en": "The pull request template asks for test evidence — fill it in, don't delete it.",
+     "zh": "PR 模板里要求填测试证据——把它填上，别删掉。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our pull request template exists because every section was once missing.",
+    "zh": "你发现作者把模板清空了只写了一句话。"
+   },
+   "term": "pull request template",
+   "zh": "PR 模板（预设的描述格式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Do a self-review first — you'll catch half the comments yourself.",
+     "zh": "先自己审一遍——一半的评审意见你自己就能提前抓住。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "My self-review rule: read the diff as if a stranger wrote it.",
+    "zh": "你给新人传授减少返工的经验。"
+   },
+   "term": "self-review",
+   "zh": "（请别人看之前）自己先审一遍"
+  },
+  {
+   "examples": [
+    {
+     "en": "Our review turnaround is under four hours, and the team feels it.",
+     "zh": "我们的评审周转时间不到四小时，团队能明显感觉到。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Slow review turnaround is the hidden tax on every feature.",
+    "zh": "你在复盘研发效能，找最大的等待浪费。"
+   },
+   "term": "review turnaround",
+   "zh": "评审周转时间（从提交到评审完成）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Changes under payments need a code owner approval, no exceptions.",
+     "zh": "支付目录下的改动必须有代码负责人批准，没有例外。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ping the code owner directly — the queue view hides drafts.",
+    "zh": "你的 PR 迟迟合不了，缺的正是那一关。"
+   },
+   "term": "code owner",
+   "zh": "代码负责人（对某模块有评审权的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every stale PR is either merged this week or closed with a reason.",
+     "zh": "每个陈旧 PR 本周要么合并，要么写明理由关闭。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A stale PR rots: conflicts grow and context evaporates.",
+    "zh": "你在清理仓库里积压的评审队列。"
+   },
+   "term": "stale PR",
+   "zh": "放久了没人管的 PR（陈旧 PR）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Refactoring the router is out of scope for this PR — file a follow-up instead.",
+     "zh": "重构路由不在这个 PR 的范围内——另开一个后续任务吧。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Good catch, but out of scope for this PR; I'll track it separately.",
+    "zh": "评审的人越提越大，你想守住这次改动的边界。"
+   },
+   "term": "out of scope for this PR",
+   "zh": "不在这个 PR 的范围内（评审挡箭牌）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The hotfix didn't work — revert the merge and rethink.",
+     "zh": "热修复没起作用——把这次合并回滚掉，重新想。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Revert the merge now; we can reland it with the fix tomorrow.",
+    "zh": "上线后发现新问题，你决定先回滚保平安。"
+   },
+   "term": "revert the merge",
+   "zh": "回滚这次合并"
+  },
+  {
+   "examples": [
+    {
+     "en": "The merge queue rebases and retests each PR in order, so main never breaks.",
+     "zh": "合并队列会按顺序逐个变基并重跑测试，所以主干不会被合坏。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With a merge queue, 'merge when green' stops being a race.",
+    "zh": "你在给团队介绍新启用的合并机制。"
+   },
+   "term": "merge queue",
+   "zh": "合并队列（自动排队逐个合并）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Main is a protected branch — nobody pushes to it directly, not even admins.",
+     "zh": "主干是受保护分支——没人能直接推，管理员也不行。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A protected branch plus required checks is the whole ballgame.",
+    "zh": "新同事想直接往 main 推个小修复，你跟他讲规矩。"
+   },
+   "term": "protected branch",
+   "zh": "受保护分支（不能直推、必须走评审）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Resolve a thread only when the fix is pushed, not when it's promised.",
+     "zh": "只有修复真的推上去了，才把讨论串标记为已解决。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'll resolve the thread once the new test is in.",
+    "zh": "你在教作者怎么收尾评审意见。"
+   },
+   "term": "resolve a thread",
+   "zh": "把（评审里的）一条讨论串标记为已解决"
+  }
+ ],
+ "layer": "B",
+ "title": "Code Review 与协作"
+}
