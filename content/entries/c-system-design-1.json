@@ -1,0 +1,727 @@
+{
+ "category": "system-design",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "The cache sits on the read path, so most requests never touch the database.",
+     "zh": "缓存位于读取路径上，所以大多数请求根本不用碰数据库。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd put a cache on the read path, in front of the database.",
+    "zh": "系统设计面试里，你想说缓存放在读请求经过的位置，怎么说？"
+   },
+   "term": "on the read path",
+   "zh": "在读取路径上（请求读数据时经过）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Validation happens on the write path, before anything reaches storage.",
+     "zh": "校验发生在写入路径上，在数据落盘之前。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We validate on the write path, so bad data never gets stored.",
+    "zh": "你想解释为什么校验要放在写入的时候做。"
+   },
+   "term": "on the write path",
+   "zh": "在写入路径上"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let me walk you through the request flow, from the client to the database.",
+     "zh": "我带你过一遍请求的流转过程，从客户端到数据库。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let me start with the request flow at a high level.",
+    "zh": "面试官让你先讲整体流程，你怎么开场？"
+   },
+   "term": "request flow",
+   "zh": "请求的流转过程"
+  },
+  {
+   "examples": [
+    {
+     "en": "All requests flow through the gateway before they reach any service.",
+     "zh": "所有请求都先流经网关，再到达各个服务。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Traffic flows through the gateway, where we do auth and rate limiting.",
+    "zh": "你想说所有流量都要先过网关这一层。"
+   },
+   "term": "flow through",
+   "zh": "流经、经过（某个组件）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The proxy passes the request through without changing it.",
+     "zh": "代理把请求原样透传过去，不做任何修改。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "This layer just passes through to the backend; it holds no logic.",
+    "zh": "你想说明这一层不处理业务、只转发。"
+   },
+   "term": "pass through",
+   "zh": "透传、原样经过"
+  },
+  {
+   "examples": [
+    {
+     "en": "A CDN sits in front of the origin and absorbs most of the traffic.",
+     "zh": "CDN 位于源站前面，吸收了大部分流量。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The load balancer sits in front of the app servers.",
+    "zh": "你想描述 CDN 和源站的位置关系。"
+   },
+   "term": "sit in front of",
+   "zh": "位于……前面（流量先经过它）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The app servers sit behind the load balancer and never see raw internet traffic.",
+     "zh": "应用服务器位于负载均衡之后，从不直接面对互联网流量。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The database sits behind the service — nothing outside can reach it.",
+    "zh": "你想说数据库不直接对外、前面有服务挡着。"
+   },
+   "term": "sit behind",
+   "zh": "位于……之后（被前置组件保护着）"
+  },
+  {
+   "examples": [
+    {
+     "en": "After the deploy, we route traffic to the new version gradually.",
+     "zh": "发布之后，我们把流量逐步导向新版本。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We route traffic to the canary first — five percent to start.",
+    "zh": "你想讲灰度发布时流量怎么切。"
+   },
+   "term": "route traffic to",
+   "zh": "把流量导向……"
+  },
+  {
+   "examples": [
+    {
+     "en": "The auth check is in the critical path of every request, so it has to be fast.",
+     "zh": "鉴权检查在每个请求的关键路径上，所以必须快。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Anything in the critical path adds directly to the user's latency.",
+    "zh": "你想强调某个环节为什么不能慢。"
+   },
+   "term": "in the critical path",
+   "zh": "在关键路径上（慢了就拖慢整体）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We moved image resizing off the critical path and do it asynchronously.",
+     "zh": "我们把图片处理移出了关键路径，改成异步做。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Sending the email is moved off the critical path — a worker does it later.",
+    "zh": "你想说邮件发送不该阻塞下单请求。"
+   },
+   "term": "move ... off the critical path",
+   "zh": "把……移出关键路径（改成异步）"
+  },
+  {
+   "examples": [
+    {
+     "en": "If the downstream service slows down, our latency climbs with it.",
+     "zh": "如果下游服务变慢，我们的延迟也会跟着涨。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We set a strict timeout on every downstream service we call.",
+    "zh": "你想解释延迟为什么会被别的服务拖累。"
+   },
+   "term": "downstream service",
+   "zh": "下游服务"
+  },
+  {
+   "examples": [
+    {
+     "en": "The payment provider is an upstream dependency we can't control.",
+     "zh": "支付提供商是我们控制不了的上游依赖。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If that upstream dependency goes down, checkout degrades but browsing still works.",
+    "zh": "你想说某个第三方挂了会影响你们。"
+   },
+   "term": "upstream dependency",
+   "zh": "上游依赖"
+  },
+  {
+   "examples": [
+    {
+     "en": "We cache static assets at the edge, close to the user.",
+     "zh": "我们把静态资源缓存在边缘，离用户近。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Serving at the edge cuts most of the network latency.",
+    "zh": "你想解释为什么静态文件加载这么快。"
+   },
+   "term": "at the edge",
+   "zh": "在边缘（离用户最近的节点）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every extra hop adds latency you can't win back.",
+     "zh": "每多经过一层，就多一份拿不回来的延迟。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Each proxy is an extra hop between the user and the data.",
+    "zh": "你想说中间层太多会拖慢请求。"
+   },
+   "term": "an extra hop",
+   "zh": "多经过一层、多一跳"
+  },
+  {
+   "examples": [
+    {
+     "en": "The client never goes straight to the database; there's always an API in between.",
+     "zh": "客户端从不直达数据库，中间总隔着一层接口。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Nothing goes straight to the database from outside.",
+    "zh": "你想定一条规矩：谁都不能绕过服务层直连存储。"
+   },
+   "term": "go straight to",
+   "zh": "直达……（不经过中间层）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The services talk to each other over HTTP internally.",
+     "zh": "这些服务内部通过 HTTP 互相通信。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "These two never talk to each other directly — they go through the queue.",
+    "zh": "你想描述服务之间的通信方式。"
+   },
+   "term": "talk to each other",
+   "zh": "互相通信、彼此调用"
+  },
+  {
+   "examples": [
+    {
+     "en": "The checkout service depends on the inventory service being up.",
+     "zh": "结算服务依赖库存服务是可用的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "This component doesn't depend on the database at request time.",
+    "zh": "你想画依赖关系时说明谁靠谁。"
+   },
+   "term": "depend on",
+   "zh": "依赖于……"
+  },
+  {
+   "examples": [
+    {
+     "en": "The order service is the source of truth for order status.",
+     "zh": "订单状态以订单服务为准。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For balances, the ledger is the source of truth — not the cache.",
+    "zh": "几处数据不一致时，你想指定以哪个为准。"
+   },
+   "term": "the source of truth",
+   "zh": "唯一可信的数据源、以它为准"
+  },
+  {
+   "examples": [
+    {
+     "en": "The two services share the same database, which couples them more than we'd like.",
+     "zh": "这两个服务共用同一个数据库，耦合比我们希望的更紧。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "They were split into two services but still share the same database.",
+    "zh": "你想指出一个拆分不彻底的地方。"
+   },
+   "term": "share the same database",
+   "zh": "共用同一个数据库"
+  },
+  {
+   "examples": [
+    {
+     "en": "The service exposes an endpoint that returns the current health status.",
+     "zh": "这个服务对外提供一个返回健康状态的接口。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We'll expose an endpoint so the mobile app can fetch it directly.",
+    "zh": "你想说新服务会开放一个查询接口给别的团队。"
+   },
+   "term": "expose an endpoint",
+   "zh": "对外提供一个接口"
+  },
+  {
+   "examples": [
+    {
+     "en": "After payment, the request is handed off to the fulfillment service.",
+     "zh": "支付完成后，请求移交给履约服务。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The gateway hands off to the right backend based on the path.",
+    "zh": "你想描述流程在两个服务之间怎么交棒。"
+   },
+   "term": "hand off to",
+   "zh": "移交给（下一个环节、另一个服务）"
+  },
+  {
+   "examples": [
+    {
+     "en": "New payment providers plug into the same interface without changes elsewhere.",
+     "zh": "新的支付提供商接入同一个接口，其他地方不用改。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Any storage backend can plug into this interface.",
+    "zh": "你想说新渠道接进来很便宜。"
+   },
+   "term": "plug into",
+   "zh": "接入、插入到（现有体系）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We build the dashboard on top of the same metrics pipeline.",
+     "zh": "这个看板是在同一套指标管道之上构建的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We build on top of the existing event stream instead of adding a new one.",
+    "zh": "你想说新功能不用从零做起。"
+   },
+   "term": "build on top of",
+   "zh": "在……之上构建"
+  },
+  {
+   "examples": [
+    {
+     "en": "The gateway ties the services together behind a single address.",
+     "zh": "网关把这些服务串起来，对外只有一个地址。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "This layer ties together results from three different services.",
+    "zh": "你想描述聚合层的作用。"
+   },
+   "term": "tie ... together",
+   "zh": "把……串起来、整合到一起"
+  },
+  {
+   "examples": [
+    {
+     "en": "Other services shouldn't reach into its tables directly.",
+     "zh": "其他服务不应该直接伸手进它的表里。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Nothing reaches into another service's database — that's the rule.",
+    "zh": "你想立一条边界规矩：别跨服务查人家的库。"
+   },
+   "term": "reach into",
+   "zh": "伸手进（别人的内部、数据库）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Each service owns its data and publishes changes as events.",
+     "zh": "每个服务拥有自己的数据，并把变更以事件形式发出去。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The user service owns the data about users; everyone else asks it.",
+    "zh": "你想讲服务拆分时数据怎么划分。"
+   },
+   "term": "own the data",
+   "zh": "拥有（并负责）这份数据"
+  },
+  {
+   "examples": [
+    {
+     "en": "The product catalog is read-heavy, so caching pays off immediately.",
+     "zh": "商品目录是读多写少的，缓存立刻就能见效。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "This workload is read-heavy — a thousand reads for every write.",
+    "zh": "你想描述一个接口的访问特征：查的人多、改的人少。"
+   },
+   "term": "read-heavy",
+   "zh": "读多写少（的负载）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The logging pipeline is write-heavy and barely read at all.",
+     "zh": "日志管道是写多读少的，几乎没人读。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Event tracking is write-heavy, so we append to a queue first.",
+    "zh": "你想说埋点数据一直在灌、很少查。"
+   },
+   "term": "write-heavy",
+   "zh": "写多读少（的负载）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We serve reads from cache and only hit the database on a miss.",
+     "zh": "我们用缓存扛读请求，只有没命中时才查数据库。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ninety percent of reads are served from cache at peak.",
+    "zh": "你想讲读请求为什么这么快。"
+   },
+   "term": "serve reads from cache",
+   "zh": "用缓存扛读请求"
+  },
+  {
+   "examples": [
+    {
+     "en": "A change stream keeps the search index in sync with the database.",
+     "zh": "一条变更流让搜索索引和数据库保持同步。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "This job keeps the two stores in sync every five minutes.",
+    "zh": "你想说副本数据怎么跟主数据对齐。"
+   },
+   "term": "keep ... in sync",
+   "zh": "保持……同步"
+  },
+  {
+   "examples": [
+    {
+     "en": "Under load, the replica can lag behind the primary by a few seconds.",
+     "zh": "高负载下，副本会落后主库几秒。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If the replica lags behind, the user may not see their own update.",
+    "zh": "你想解释为什么刚写完马上读会读到旧数据。"
+   },
+   "term": "lag behind",
+   "zh": "落后、滞后于……"
+  },
+  {
+   "examples": [
+    {
+     "en": "For checkout, we read from the primary to avoid stale amounts.",
+     "zh": "结账时我们从主库读，避免金额是旧的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Balances are always read from the primary — correctness first.",
+    "zh": "你想说明哪个环节不能读副本。"
+   },
+   "term": "read from the primary",
+   "zh": "从主库读（保证读到最新）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Optimize for the common case: a warm cache and a small payload.",
+     "zh": "为常见情况优化：缓存是热的、数据包很小。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In the common case, the whole thing finishes in under a second.",
+    "zh": "你想说设计先照顾大多数情况。"
+   },
+   "term": "the common case",
+   "zh": "常见情况、常态"
+  },
+  {
+   "examples": [
+    {
+     "en": "In the worst case, a retry doubles the load on a struggling service.",
+     "zh": "在最坏情况下，重试会让一个已经吃力的服务负载翻倍。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In the worst case we lose a few seconds of metrics — acceptable.",
+    "zh": "你想推演一下极端情况会发生什么。"
+   },
+   "term": "in the worst case",
+   "zh": "在最坏情况下"
+  },
+  {
+   "examples": [
+    {
+     "en": "By default, requests time out after two seconds.",
+     "zh": "默认情况下，请求两秒超时。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Connections are pooled by default; you only tune it if you must.",
+    "zh": "你想说明一个参数的出厂设置。"
+   },
+   "term": "by default",
+   "zh": "默认（情况下）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The tier is stateless, so we can scale out whenever traffic climbs.",
+     "zh": "这一层是无状态的，流量涨了随时可以横向扩容。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If one region gets hot, we scale out there first.",
+    "zh": "你想说应用层扩起来很简单。"
+   },
+   "term": "scale out",
+   "zh": "横向扩容（加实例）"
+  },
+  {
+   "examples": [
+    {
+     "en": "When the queue grows, we add more instances of the worker.",
+     "zh": "队列变长时，我们就增加 worker 的实例数。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The simplest fix was to add more instances behind the balancer.",
+    "zh": "你想描述最直接的扩容手段。"
+   },
+   "term": "add more instances",
+   "zh": "增加（服务）实例"
+  },
+  {
+   "examples": [
+    {
+     "en": "At ten times the traffic, the single database becomes the bottleneck.",
+     "zh": "流量涨十倍后，单台数据库就会成为瓶颈。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The API is fine; search becomes the bottleneck first.",
+    "zh": "你想指出系统长大后先卡住的地方。"
+   },
+   "term": "become the bottleneck",
+   "zh": "成为瓶颈"
+  },
+  {
+   "examples": [
+    {
+     "en": "The queue smooths out burst traffic before it reaches the workers.",
+     "zh": "队列先把突发流量削平，再交给 worker。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Burst traffic at noon is three times the daily average.",
+    "zh": "你想描述抢购开始那一瞬间的流量形态。"
+   },
+   "term": "burst traffic",
+   "zh": "突发流量"
+  },
+  {
+   "examples": [
+    {
+     "en": "Under load, the p99 latency doubles.",
+     "zh": "在高负载下，p99 延迟会翻倍。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "It works in testing but falls over under load.",
+    "zh": "你想说明某个问题只有压上去才暴露。"
+   },
+   "term": "under load",
+   "zh": "在高负载下"
+  },
+  {
+   "examples": [
+    {
+     "en": "As traffic grows, the single database is the first thing to split.",
+     "zh": "随着流量增长，单台数据库是第一个要拆的东西。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "As traffic grows, we'd shard by tenant rather than by user.",
+    "zh": "你想讲系统演进的路线。"
+   },
+   "term": "as traffic grows",
+   "zh": "随着流量增长"
+  },
+  {
+   "examples": [
+    {
+     "en": "We split the monolith into three services along domain lines.",
+     "zh": "我们按领域边界把单体拆成了三个服务。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd split it into an API tier and a worker tier first.",
+    "zh": "你想讲一次拆分的思路。"
+   },
+   "term": "split ... into",
+   "zh": "把……拆分成……"
+  },
+  {
+   "examples": [
+    {
+     "en": "We trade memory for speed by caching aggressively.",
+     "zh": "我们用激进缓存拿内存换速度。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "This trades a bit of freshness for a much simpler design.",
+    "zh": "你想把一处取舍讲成一句话。"
+   },
+   "term": "trade ... for ...",
+   "zh": "用……换……（取舍）"
+  },
+  {
+   "examples": [
+    {
+     "en": "For version one, keep it simple: one database, no queue.",
+     "zh": "第一版保持简单：一个数据库，不上队列。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Keep it simple until the numbers force you to complicate it.",
+    "zh": "你想劝住一个过度设计的方案。"
+   },
+   "term": "keep it simple",
+   "zh": "保持简单、先做简单版"
+  },
+  {
+   "examples": [
+    {
+     "en": "A single region is good enough until we have overseas users.",
+     "zh": "在有海外用户之前，单区域就够用了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Eventual consistency is good enough for view counts.",
+    "zh": "你想为第一版方案的简化辩护。"
+   },
+   "term": "good enough",
+   "zh": "（已经）够用了"
+  },
+  {
+   "examples": [
+    {
+     "en": "We can shard it down the road if one database stops being enough.",
+     "zh": "以后如果一台数据库不够用了，再分片也不迟。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Multi-region is a down-the-road problem, not a launch blocker.",
+    "zh": "你想把一个大改造往后放并说明理由。"
+   },
+   "term": "down the road",
+   "zh": "以后、将来某个时候"
+  },
+  {
+   "examples": [
+    {
+     "en": "A good rule of thumb is to keep payloads under a hundred kilobytes.",
+     "zh": "一条好用的经验法则是把数据包控制在一百 KB 以内。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Rule of thumb: budget a third of the latency for the network.",
+    "zh": "你想给一个不用精确计算的判断标准。"
+   },
+   "term": "rule of thumb",
+   "zh": "经验法则、大致的估算标准"
+  },
+  {
+   "examples": [
+    {
+     "en": "The timeout applies all the way down the call chain.",
+     "zh": "这个超时设置沿着整条调用链一直生效到底层。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Trace IDs are passed all the way down, so logs join up.",
+    "zh": "你想强调某个配置贯穿了所有层级。"
+   },
+   "term": "all the way down",
+   "zh": "一直到最底层、整条链路"
+  }
+ ],
+ "layer": "C",
+ "title": "系统设计描述"
+}

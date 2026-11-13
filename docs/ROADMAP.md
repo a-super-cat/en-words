@@ -250,7 +250,7 @@
 
 ### P1-3 把 B、C 层补到方案的目标数量
 
-**状态**：进行中（2026-11-13 做过一次全量盘点）。已完成：B 层 interview-talk、remote-work、hedging、presenting 四个建议分类（2026-11-12），C 层 cloud-infra、security、performance、ai-ml 四个建议分类（2026-11-12），Rust/Python 各加一档进阶（2026-11-12），B 层行政事务分类 admin 40 条（2026-11-13，补上建议清单里最后一项零覆盖：请假、报销、入职手续、设备工单、离职交接）。**剩余缺口**：C 层“系统设计描述语”专门分类未建（读写路径、数据流向、组件关系的说法，现在散在 arch 两分类和 designGuide 里）；performance（27）、cloud-infra（35）、security（35）三个分类偏薄；B 层 meetings、code-review 的各 +30–40 扩充未做；总数离方案目标还差 B 约 270、C 约 170——目标本身是当初的估算，不必为凑数硬写，以真实场景覆盖为准。
+**状态**：进行中（2026-11-13 做过一次全量盘点）。已完成：B 层 interview-talk、remote-work、hedging、presenting 四个建议分类（2026-11-12），C 层 cloud-infra、security、performance、ai-ml 四个建议分类（2026-11-12），Rust/Python 各加一档进阶（2026-11-12），B 层行政事务分类 admin 40 条（2026-11-13，补上建议清单里最后一项零覆盖：请假、报销、入职手续、设备工单、离职交接）；C 层系统设计描述语分类 system-design 48 条（2026-11-13：读写路径、数据流向、组件关系、读写特征、扩容与取舍的口头表达，全是描述用的句式骨架，不与 arch 两分类的概念名词重复；已接进 P2-1 对应表，system-design 和 architecture 题目会优先带出）。**剩余缺口**：performance（27）、cloud-infra（35）、security（35）三个分类偏薄；B 层 meetings、code-review 的各 +30–40 扩充未做；总数离方案目标还差 B 约 270、C 约 120——目标本身是当初的估算，不必为凑数硬写，以真实场景覆盖为准。
 
 **现状和目标**（2026-11-13 盘点）：
 
