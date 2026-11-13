@@ -1,0 +1,757 @@
+{
+ "category": "social-life",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "He's really into photography — his weekends are all photo walks.",
+     "zh": "他特别喜欢摄影，周末全是出去拍照。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Lately I'm into board games — we play every Friday night.",
+    "zh": "你想跟新朋友聊聊你最近沉迷的东西。"
+   },
+   "term": "be into",
+   "zh": "对……很感兴趣、喜欢玩……"
+  },
+  {
+   "examples": [
+    {
+     "en": "I play the guitar a bit, mostly old rock songs.",
+     "zh": "我会弹一点吉他，主要是老摇滚。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I play the guitar, but I'm still a beginner, honestly.",
+    "zh": "别人问你有什么爱好，你想说你弹吉他但水平一般。"
+   },
+   "term": "play the guitar",
+   "zh": "弹吉他"
+  },
+  {
+   "examples": [
+    {
+     "en": "We go hiking in the hills west of the city most weekends.",
+     "zh": "大多数周末我们去城西的山里徒步。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The weather looks great — let's go hiking on Saturday.",
+    "zh": "你邀请朋友这周末一起去爬山。"
+   },
+   "term": "go hiking",
+   "zh": "去徒步、爬山"
+  },
+  {
+   "examples": [
+    {
+     "en": "Friday is board game night at my place.",
+     "zh": "周五是我家的桌游之夜。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Board game night this Friday — who's in?",
+    "zh": "你组织朋友来家里玩桌游，在群里喊人。"
+   },
+   "term": "board game",
+   "zh": "桌游、棋盘游戏"
+  },
+  {
+   "examples": [
+    {
+     "en": "We're planning a road trip along the coast next month.",
+     "zh": "我们计划下个月沿海岸来一次自驾游。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For the road trip, let's split the driving — four hours each.",
+    "zh": "你跟朋友商量假期自驾的路线。"
+   },
+   "term": "road trip",
+   "zh": "公路旅行、自驾游"
+  },
+  {
+   "examples": [
+    {
+     "en": "Camping by the lake means mosquitoes, but the stars are worth it.",
+     "zh": "在湖边露营少不了蚊子，但那片星空值得。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Pack bug spray if we're camping near water.",
+    "zh": "你劝朋友露营别被蚊子吓退。"
+   },
+   "term": "camping",
+   "zh": "露营"
+  },
+  {
+   "examples": [
+    {
+     "en": "My dad taught me fishing on this very pier.",
+     "zh": "我爸就是在这个码头上教我钓鱼的。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "I go fishing early on Sundays — it's my quiet time.",
+    "zh": "你跟同事聊起你周末的固定节目。"
+   },
+   "term": "fishing",
+   "zh": "钓鱼"
+  },
+  {
+   "examples": [
+    {
+     "en": "We really should catch up — coffee next week?",
+     "zh": "我们真该聚聚聊聊近况——下周喝杯咖啡？"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let's grab lunch and catch up properly.",
+    "zh": "你碰到好久没见的老朋友，提议找时间细聊。"
+   },
+   "term": "catch up",
+   "zh": "叙叙旧、聊聊近况"
+  },
+  {
+   "examples": [
+    {
+     "en": "Long time no see! You look exactly the same.",
+     "zh": "好久不见！你一点都没变。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Hey, long time no see — how have you been?",
+    "zh": "你在同学聚会上见到五年没见的老同学，第一句说什么？"
+   },
+   "term": "Long time no see.",
+   "zh": "好久不见"
+  },
+  {
+   "examples": [
+    {
+     "en": "What's new with you? Still at the same company?",
+     "zh": "你最近怎么样？还在原来那家公司吗？"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "So, what's new with you these days?",
+    "zh": "电话里跟老朋友寒暄，想引出对方的近况。"
+   },
+   "term": "What's new with you?",
+   "zh": "你最近怎么样、有什么新鲜事"
+  },
+  {
+   "examples": [
+    {
+     "en": "I go for a run before work when the air is still cool.",
+     "zh": "趁早上空气还凉，我上班前去跑一圈。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Want to go for a run tomorrow at seven?",
+    "zh": "你想约同事明早一起晨跑。"
+   },
+   "term": "go for a run",
+   "zh": "去跑步、跑一圈"
+  },
+  {
+   "examples": [
+    {
+     "en": "I hit the gym three times a week after work.",
+     "zh": "我每周下班后去三次健身房。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "No secret — I just hit the gym and sleep enough.",
+    "zh": "朋友问你怎么保持状态，你说你规律健身。"
+   },
+   "term": "hit the gym",
+   "zh": "去健身房（锻炼）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Do a quick warm-up before you run, or your knees will complain.",
+     "zh": "跑步前快速热个身，不然膝盖会抗议。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Five minutes of warm-up saves you from most injuries.",
+    "zh": "你提醒第一次跑步的朋友别直接开跑。"
+   },
+   "term": "warm-up",
+   "zh": "热身（运动前的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Cool down with a slow walk after a hard session.",
+     "zh": "高强度练完后慢走一会儿来放松。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let's cool down and stretch before we head out.",
+    "zh": "教练在课尾提醒大家别直接坐下。"
+   },
+   "term": "cool down",
+   "zh": "（运动后）放松、冷身"
+  },
+  {
+   "examples": [
+    {
+     "en": "Stretch for ten minutes after every workout.",
+     "zh": "每次练完拉伸十分钟。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Since I stretch properly, I'm barely sore the next day.",
+    "zh": "你跟健身搭子说你最近拉伸跟上了，酸痛少很多。"
+   },
+   "term": "stretch",
+   "zh": "拉伸；伸展"
+  },
+  {
+   "examples": [
+    {
+     "en": "Sore muscles after leg day make stairs an adventure.",
+     "zh": "练完腿第二天肌肉酸痛，下楼梯跟探险一样。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I've got sore muscles everywhere — yesterday was leg day.",
+    "zh": "你昨天练太狠，今天跟同事吐槽。"
+   },
+   "term": "sore muscles",
+   "zh": "肌肉酸痛"
+  },
+  {
+   "examples": [
+    {
+     "en": "I registered for the city marathon in October.",
+     "zh": "我报名了十月的城市马拉松。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Registration closes Friday — register for the race today if you're in.",
+    "zh": "你想拉朋友一起报名半马。"
+   },
+   "term": "register for",
+   "zh": "报名、注册参加"
+  },
+  {
+   "examples": [
+    {
+     "en": "My gym membership includes all the classes.",
+     "zh": "我的健身房会员包含所有团课。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A gym membership here costs less than a coffee a day.",
+    "zh": "你在比较两家健身房的年卡划不划算。"
+   },
+   "term": "gym membership",
+   "zh": "健身房会员（资格）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A personal trainer fixed my squat form in one session.",
+     "zh": "私教一节课就纠正了我的深蹲姿势。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Book a personal trainer for the first month — form first, weights later.",
+    "zh": "你建议新手朋友先上几节私教课打基础。"
+   },
+   "term": "personal trainer",
+   "zh": "私人教练、私教"
+  },
+  {
+   "examples": [
+    {
+     "en": "Book a flight early — prices jump in the last two weeks.",
+     "zh": "机票要早订，最后两周价格会猛涨。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I booked a flight for Friday evening, right after work.",
+    "zh": "你提醒要出差的同事赶紧订票。"
+   },
+   "term": "book a flight",
+   "zh": "订机票"
+  },
+  {
+   "examples": [
+    {
+     "en": "I always pick a window seat so I can watch the clouds.",
+     "zh": "我总是选考窗的座位，就为了看云。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A window seat, please, if there's one left.",
+    "zh": "值机时你想跟工作人员说你要靠窗。"
+   },
+   "term": "window seat",
+   "zh": "靠窗的座位"
+  },
+  {
+   "examples": [
+    {
+     "en": "With a tight connection, an aisle seat gets you off the plane faster.",
+     "zh": "转机时间紧的话，靠过道的座位能让你下飞机快一点。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I take the aisle seat — I like being able to get up freely.",
+    "zh": "你跟朋友解释为什么你长途也选过道位。"
+   },
+   "term": "aisle seat",
+   "zh": "靠过道的座位"
+  },
+  {
+   "examples": [
+    {
+     "en": "You can check in online twenty-four hours before the flight.",
+     "zh": "航班起飞前二十四小时就能在线值机。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Check in tonight so we get seats together.",
+    "zh": "你提醒同行的人别忘了提前值机选座。"
+   },
+   "term": "check in",
+   "zh": "办理登机手续；办理入住"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keep your boarding pass and ID ready at security.",
+     "zh": "过安检时把登机牌和证件准备好。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "My boarding pass is on my phone — the app has it.",
+    "zh": "你在机场提醒爸妈把登机牌收好。"
+   },
+   "term": "boarding pass",
+   "zh": "登机牌"
+  },
+  {
+   "examples": [
+    {
+     "en": "For a two-day trip, a carry-on is all I need.",
+     "zh": "两天的行程，一个登机箱就够了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Just pack a carry-on — we'll be moving around a lot.",
+    "zh": "你劝朋友轻装出行，别托运等行李。"
+   },
+   "term": "carry-on",
+   "zh": "随身行李、登机行李"
+  },
+  {
+   "examples": [
+    {
+     "en": "We have a three-hour layover in Seoul.",
+     "zh": "我们在首尔中转停留三小时。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "A one-hour layover is too tight for an international connection.",
+    "zh": "你看行程单，想确认中转时间够不够。"
+   },
+   "term": "layover",
+   "zh": "（转机时的）停留、中转"
+  },
+  {
+   "examples": [
+    {
+     "en": "Jet lag hit me hard — I was awake at three every morning.",
+     "zh": "时差把我折腾惨了，每天凌晨三点就醒。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Give me a day to get over the jet lag, then I'm back.",
+    "zh": "你出差回来跟同事说时差还没倒过来。"
+   },
+   "term": "jet lag",
+   "zh": "时差反应、倒时差的不适"
+  },
+  {
+   "examples": [
+    {
+     "en": "Ask at the front desk if you need a later checkout.",
+     "zh": "想延迟退房就去前台问。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The front desk can call us a taxi for the airport.",
+    "zh": "你在酒店想多睡会儿，让同伴去前台问问。"
+   },
+   "term": "front desk",
+   "zh": "（酒店）前台"
+  },
+  {
+   "examples": [
+    {
+     "en": "We asked for a late checkout since our flight is in the evening.",
+     "zh": "我们的航班是晚上的，所以申请了延迟退房。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Could we get a late checkout, say two o'clock?",
+    "zh": "你打电话给前台想延迟到两点退房。"
+   },
+   "term": "late checkout",
+   "zh": "延迟退房"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'd like to extend my stay by one night, if the room is free.",
+     "zh": "如果房间还空着，我想再续住一晚。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Extending my stay was easy — the front desk handled it in a minute.",
+    "zh": "行程变了，你去前台办理续住。"
+   },
+   "term": "extend my stay",
+   "zh": "续住、延长住宿"
+  },
+  {
+   "examples": [
+    {
+     "en": "Too tired to go out, we ordered room service.",
+     "zh": "累得不想出门，我们叫了客房送餐。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Room service stops at ten, so order before then.",
+    "zh": "你跟朋友说今晚就在房间里解决晚饭。"
+   },
+   "term": "room service",
+   "zh": "（酒店）客房送餐服务"
+  },
+  {
+   "examples": [
+    {
+     "en": "We spent the first day sightseeing and the second just relaxing.",
+     "zh": "第一天我们到处观光，第二天就纯放松。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "One day of sightseeing is enough for me — I prefer slow mornings.",
+    "zh": "你跟同事分享你的旅行安排。"
+   },
+   "term": "sightseeing",
+   "zh": "观光、游览景点"
+  },
+  {
+   "examples": [
+    {
+     "en": "I always buy one small souvenir — a fridge magnet.",
+     "zh": "我每次只买一个小纪念品——一个冰箱贴。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "These keychains are souvenirs for my team.",
+    "zh": "你在机场被朋友问起给家人带了什么。"
+   },
+   "term": "souvenir",
+   "zh": "纪念品、伴手礼"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let's make plans for the long weekend before everything books up.",
+     "zh": "长周末的安排得趁早定下来，不然什么都订满了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We keep saying 'soon' — let's actually make plans this time.",
+    "zh": "你在群里催大家赶紧把行程定下来。"
+   },
+   "term": "make plans",
+   "zh": "定计划、把（聚会、出行）约起来"
+  },
+  {
+   "examples": [
+    {
+     "en": "Are you free this weekend? A few of us are going to the lake.",
+     "zh": "你这周末有空吗？我们几个想去湖边。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Quick question — are you free this weekend?",
+    "zh": "你想约朋友周末一起出去玩，第一句怎么问？"
+   },
+   "term": "Are you free this weekend?",
+   "zh": "你这周末有空吗"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'll take a rain check on dinner tonight — deadline week at work.",
+     "zh": "今晚的饭我先欠着——这周工作赶截止日期。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Can I take a rain check? Next week is much better for me.",
+    "zh": "你想婉拒今晚的邀约但表示下次一定。"
+   },
+   "term": "take a rain check",
+   "zh": "这次就算了、改天再约"
+  },
+  {
+   "examples": [
+    {
+     "en": "Sorry, I can't make it on Friday — family stuff.",
+     "zh": "抱歉，我周五去不了——家里有事。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "I can't make it this time, but count me in for the next one.",
+    "zh": "你要在群里说明你参加不了这次聚餐。"
+   },
+   "term": "I can't make it.",
+   "zh": "我去不了、我到不了"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'm running late — the meeting before ran over.",
+     "zh": "我要迟到了——前一个会拖堂了。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Start without me, I'm running late by about ten minutes.",
+    "zh": "你堵在路上，给等你的朋友发消息。"
+   },
+   "term": "I'm running late.",
+   "zh": "我要迟到了、我晚点了"
+  },
+  {
+   "examples": [
+    {
+     "en": "Save me a seat near the middle, I'll be there in five.",
+     "zh": "帮我占个中间的座位，我五分钟到。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Could you save me a seat? The train is just pulling in.",
+    "zh": "你让先到的朋友帮你留个位子。"
+   },
+   "term": "save me a seat",
+   "zh": "帮我占个座位"
+  },
+  {
+   "examples": [
+    {
+     "en": "You drove all the way — lunch is my treat.",
+     "zh": "你大老远开车过来，午饭我请。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Put your wallet away — it's my treat today.",
+    "zh": "你想请帮你搬家的朋友吃饭表示感谢。"
+   },
+   "term": "my treat",
+   "zh": "我请客、我买单"
+  },
+  {
+   "examples": [
+    {
+     "en": "We usually go Dutch on team lunches.",
+     "zh": "团队午餐我们一般各付各的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let's go Dutch — it's easier with a group this size.",
+    "zh": "一群人吃饭结账时，你提议各付各的。"
+   },
+   "term": "go Dutch",
+   "zh": "各付各的、AA 制（口语说法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "They're having a housewarming on Saturday for the new flat.",
+     "zh": "他们周六为新房办乔迁聚会。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "For the housewarming, let's bring a plant instead of wine.",
+    "zh": "你收到朋友暖房派对的邀请，跟伴侣商量带什么去。"
+   },
+   "term": "housewarming",
+   "zh": "乔迁聚会、暖房派对"
+  },
+  {
+   "examples": [
+    {
+     "en": "You don't need to bring anything, but a bottle is always safe.",
+     "zh": "你什么都不用带，不过带一瓶酒总是不会错的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'll bring a bottle and that cheesecake you liked.",
+    "zh": "你第一次去朋友家吃饭，问另一个朋友该带什么。"
+   },
+   "term": "bring a bottle",
+   "zh": "（去别人家做客时）带一瓶酒"
+  },
+  {
+   "examples": [
+    {
+     "en": "Please RSVP by Friday so we can order enough food.",
+     "zh": "请周五前回复确认出席，我们好订够餐食。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The invitation says RSVP — they need a headcount for the room.",
+    "zh": "你在给聚会邀请写说明，让大家确认人数。"
+   },
+   "term": "RSVP",
+   "zh": "请回复（邀请上要求确认出席）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The invitation includes a plus-one, so bring your partner.",
+     "zh": "邀请里包含一个携伴名额，把你伴侣带来吧。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Can I bring a plus-one to the company dinner?",
+    "zh": "你想确认婚礼能不能带上女朋友一起去。"
+   },
+   "term": "plus-one",
+   "zh": "（参加活动时）可额外携带的一位同伴"
+  },
+  {
+   "examples": [
+    {
+     "en": "I wrap gifts terribly — bags exist for people like me.",
+     "zh": "我包礼物特别烂——礼品袋就是为我这种人发明的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Could you wrap this gift? It's for my mum.",
+    "zh": "你在给朋友准备生日礼物，自嘲包装手艺。"
+   },
+   "term": "wrap a gift",
+   "zh": "包装礼物"
+  },
+  {
+   "examples": [
+    {
+     "en": "Ask for a gift receipt in case the size is wrong.",
+     "zh": "要一张礼品小票，万一尺码不对还能换。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I put the gift receipt in the box, so she can exchange it freely.",
+    "zh": "你给朋友买衣服，结账时多要一样东西。"
+   },
+   "term": "gift receipt",
+   "zh": "礼品小票（凭它可退换货）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Our office does Secret Santa with a fifty-yuan limit.",
+     "zh": "我们办公室玩秘密圣诞礼物交换，上限五十元。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I drew our manager for Secret Santa — no pressure at all.",
+    "zh": "你向新同事解释办公室圣诞活动的玩法。"
+   },
+   "term": "Secret Santa",
+   "zh": "秘密圣诞礼物交换（抽签互送）"
+  },
+  {
+   "examples": [
+    {
+     "en": "My New Year's resolution lasted until February, like everyone's.",
+     "zh": "我的新年决心撑到了二月，跟所有人一样。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "This year my New Year's resolution is just one: sleep before midnight.",
+    "zh": "跨年时大家聊新年目标，你自嘲一句。"
+   },
+   "term": "New Year's resolution",
+   "zh": "新年决心、新年目标"
+  },
+  {
+   "examples": [
+    {
+     "en": "It's a potluck — bring one dish to share.",
+     "zh": "这是百乐餐，每人带一道菜来分享。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "For the potluck, I'll bring dumplings — easy to share.",
+    "zh": "你在给周末聚餐定形式，让每个人带菜。"
+   },
+   "term": "potluck",
+   "zh": "百乐餐（每人带一道菜的聚餐）"
+  }
+ ],
+ "layer": "A",
+ "title": "社交生活"
+}

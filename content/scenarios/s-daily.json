@@ -198,6 +198,213 @@
           ]
         }
       ]
+    },
+    {
+      "id": "airport-and-hotel",
+      "title": "在机场和酒店",
+      "setting": "你出差去新加坡，在机场值机时被告知航班延误，你要确认中转还赶不赶得上；落地后到酒店入住，还要谈延迟退房和订车。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Ryan",
+          "en": "Good morning. Checking in for the Singapore flight? May I see your passport, please?",
+          "zh": "早上好。是去新加坡的航班值机吗？请出示一下护照好吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说是的，递上护照。你想坐靠窗的位子，并说明你只有一个随身行李，不用托运。",
+          "en": "Yes, that's me. Could I get a window seat, please? And I only have a carry-on, nothing to check.",
+          "chunks": [
+            { "term": "check in", "zh": "办理登机手续；办理入住" },
+            { "term": "window seat", "zh": "靠窗的座位" },
+            { "term": "carry-on", "zh": "随身行李、登机行李" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ryan",
+          "en": "All set. Just so you know, the flight is delayed by about an hour because of weather at the destination.",
+          "zh": "办好了。提前跟您说一声，由于目的地天气原因，航班延误大约一小时。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你有点担心：你后面还有一程转机，中转只有两小时。你拿着登机牌问他还赶不赶得上。",
+          "en": "My boarding pass says gate twelve — with this delay, will I still make my connection? I only have a two-hour layover.",
+          "chunks": [
+            { "term": "layover", "zh": "（转机时的）停留、中转" },
+            { "term": "boarding pass", "zh": "登机牌" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ryan",
+          "en": "You should be fine — the second flight is often held for connecting passengers. If anything changes, the app will update your gate.",
+          "zh": "应该没问题——后一程航班通常会等转机的旅客。如果有变化，App 会更新你的登机口信息。"
+        },
+        {
+          "speaker": "them",
+          "name": "Anna",
+          "en": "Welcome! Checking in with us tonight? I'll need your ID and a card for the deposit.",
+          "zh": "欢迎！您今晚办理入住吗？我需要您的证件和一张用来押押金的卡。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说是的。又问周日能不能延迟退房，因为你回程的航班是晚上的。",
+          "en": "Yes, checking in. One question — could I get a late checkout on Sunday? My flight home is in the evening.",
+          "chunks": [
+            { "term": "late checkout", "zh": "延迟退房" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Anna",
+          "en": "No problem, I've noted two o'clock for you. Breakfast runs from six thirty, on the second floor.",
+          "zh": "没问题，我给您备注了两点。可以，早餐从六点半开始，在二楼。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你再确认两件事：客房送餐到几点、能不能请前台帮你订周日三点去机场的出租车。",
+          "en": "Great, thanks. Until what time does room service run? And could the front desk book me a taxi to the airport for three on Sunday?",
+          "chunks": [
+            { "term": "room service", "zh": "（酒店）客房送餐服务" },
+            { "term": "front desk", "zh": "（酒店）前台" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "planning-the-weekend",
+      "title": "和朋友规划周末",
+      "setting": "周三晚上，你和朋友 Lisa 在电话里商量周末安排：周六去徒步，周日在你家办百乐餐。还有个朋友 Tom 可能会迟到，要把计划留出余地。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Lisa",
+          "en": "So — what are we doing this weekend? The weather is supposed to be amazing.",
+          "zh": "说吧——这周末我们干什么？天气据说特别好。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你先问她周末有没有空，然后提议周六去城西徒步，天气正好。",
+          "en": "Are you free this weekend? I was thinking we go hiking in the west hills on Saturday — perfect weather for it.",
+          "chunks": [
+            { "term": "Are you free this weekend?", "zh": "你这周末有空吗" },
+            { "term": "go hiking", "zh": "去徒步、爬山" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Lisa",
+          "en": "Hiking sounds great. Mike wants to join — he just got new boots. What about Sunday?",
+          "zh": "徒步太好了。Mike 也想来——他刚买了新登山靴。周日呢？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你提议周日晚上在你家玩桌游加百乐餐，每人带一道菜。你可以负责主食。",
+          "en": "Sunday evening at my place? Board games and a potluck — everyone brings one dish. I'll handle the main.",
+          "chunks": [
+            { "term": "board game", "zh": "桌游、棋盘游戏" },
+            { "term": "potluck", "zh": "百乐餐（每人带一道菜的聚餐）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Lisa",
+          "en": "Potluck works — I'll bring that salad you liked. Oh, Tom just texted: he might run late on Saturday, traffic from his side is awful.",
+          "zh": "百乐餐没问题——我带你上次喜欢的那个沙拉。对了，Tom 刚发消息：他周六可能会晚点，他那边堵车很厉害。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说那就把计划定得松一点：徒步改到十点出发，周日六点开餐。让大家别赶。",
+          "en": "No problem — let's make plans with some slack: hiking at ten instead of nine, potluck at six on Sunday. Nobody has to rush.",
+          "chunks": [
+            { "term": "make plans", "zh": "定计划、把（聚会、出行）约起来" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Lisa",
+          "en": "Perfect. See you Saturday — and don't forget the bug spray this time!",
+          "zh": "完美。周六见——这次别忘了带驱蚊水！"
+        },
+        {
+          "speaker": "me",
+          "zh": "你笑说已经装包里了。周日你会带一瓶红酒，就是她上次喜欢的那款。",
+          "en": "Already packed, lesson learned. I'll bring a bottle on Sunday too — that red you liked last time.",
+          "chunks": [
+            { "term": "bring a bottle", "zh": "（去别人家做客时）带一瓶酒" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "at-the-barber",
+      "title": "去理发店",
+      "setting": "你没预约就走进一家理发店，想赶在出差之前剪个头。你要问能不能直接剪、要等多久，并把想要的发型说清楚，最后结账时顺手把下个月的也约上。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Sam",
+          "en": "Hey there. Do you have an appointment with us today?",
+          "zh": "你好。你今天有预约吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说你没有预约，问他们接不接直接上门的客人，大概要等多久。",
+          "en": "I don't, sorry. Do you take walk-ins? How long would the wait be?",
+          "chunks": [
+            { "term": "walk-in", "zh": "不用预约、直接上门（的顾客）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sam",
+          "en": "Sure, about twenty minutes. Take a seat — coffee's on the side there.",
+          "zh": "可以的，大概等二十分钟。先坐会儿——咖啡在那边，自己倒。"
+        },
+        {
+          "speaker": "me",
+          "zh": "轮到你了。你说想赶在出差前剪个头：两边剪短一点，上面留点长度，别剪得太短。",
+          "en": "I want to get a haircut before a work trip. Shorter on the sides, keep some length on top — not too short, please.",
+          "chunks": [
+            { "term": "get a haircut", "zh": "理发、剪头发" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sam",
+          "en": "Got it. Want a wash first? It makes the cut cleaner.",
+          "zh": "明白。先洗个头吗？洗了剪得更干净。"
+        },
+        {
+          "speaker": "them",
+          "name": "Sam",
+          "en": "All done. Take a look — how does that feel?",
+          "zh": "剪好了。你照镜子看看——感觉怎么样？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说正合适，很清爽。你问多少钱、能不能刷卡付。",
+          "en": "That looks great, nice and clean. How much do I owe you — and can I pay by card?",
+          "chunks": [
+            { "term": "cash or card", "zh": "（付）现金还是刷卡" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sam",
+          "en": "Forty-five, and card is fine. See you in about a month, then.",
+          "zh": "四十五，刷卡可以。那就一个月后见。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说好，你现在就把下个月的预约做了，省得到时候又要等。",
+          "en": "Deal. Let me make an appointment for next month right now, so I don't have to wait next time.",
+          "chunks": [
+            { "term": "make an appointment", "zh": "预约（看病、理发、办事）" }
+          ]
+        }
+      ]
     }
   ]
 }
