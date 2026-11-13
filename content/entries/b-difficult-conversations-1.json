@@ -1,0 +1,667 @@
+{
+ "category": "difficult-conversations",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Nobody enjoys having to break bad news to a client.",
+     "zh": "没人喜欢去跟客户宣布坏消息。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'll break the bad news on tomorrow's call — with a recovery plan attached.",
+    "zh": "项目要延期了，经理让你想想怎么跟客户开口。"
+   },
+   "term": "break bad news",
+   "zh": "开口宣布坏消息"
+  },
+  {
+   "examples": [
+    {
+     "en": "I promised the demo on Friday and I let the team down.",
+     "zh": "我答应周五给演示，结果让团队失望了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Sorry — I know I let you down on this one.",
+    "zh": "你跟经理承认这次没兑现承诺。"
+   },
+   "term": "let someone down",
+   "zh": "让某人失望、辜负某人"
+  },
+  {
+   "examples": [
+    {
+     "en": "Working remotely, you have to set boundaries or work never ends.",
+     "zh": "远程工作必须划清界限，不然工作永远没完。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I set boundaries early: no messages after seven unless it's urgent.",
+    "zh": "你跟总是深夜发消息的同事委婉说明白天再回。"
+   },
+   "term": "set boundaries",
+   "zh": "划清界限、立好规矩"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let's address the elephant in the room: the budget is gone.",
+     "zh": "咱们直说那个大家都躲着的问题吧：预算没了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The elephant in the room is that nobody trusts the timeline anymore.",
+    "zh": "会上所有人都在绕开核心问题，你决定挑明。"
+   },
+   "term": "the elephant in the room",
+   "zh": "大家心里都清楚却避而不谈的问题"
+  },
+  {
+   "examples": [
+    {
+     "en": "A fifteen-minute call cleared the air between the two teams.",
+     "zh": "一通十五分钟的电话，两个团队把话说开了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let's clear the air before the retro — something feels off.",
+    "zh": "你提议跟有摩擦的同事单独聊一次。"
+   },
+   "term": "clear the air",
+   "zh": "把话说开、消除误会或紧张气氛"
+  },
+  {
+   "examples": [
+    {
+     "en": "That one's on me — I approved the change without a test run.",
+     "zh": "那件事怪我——我没跑测试就批准了变更。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "The outage? That one's on me, and here's what I'm changing.",
+    "zh": "复盘会上你要主动认下自己的那部分责任。"
+   },
+   "term": "That one's on me.",
+   "zh": "那件事怪我、是我的责任"
+  },
+  {
+   "examples": [
+    {
+     "en": "I owe you an apology for snapping in yesterday's meeting.",
+     "zh": "昨天会上我冲你发火，我欠你一个道歉。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "I owe you an apology — you were right about the cache all along.",
+    "zh": "你想私下跟同事为昨天的态度道歉。"
+   },
+   "term": "I owe you an apology.",
+   "zh": "我欠你一个道歉"
+  },
+  {
+   "examples": [
+    {
+     "en": "We shipped a bug to your users; here's how we'll make it right.",
+     "zh": "我们把一个缺陷发到了你们用户那里；下面是我们弥补的办法。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Give me until Friday and I'll make it right.",
+    "zh": "客户投诉后，你要在回复里给出补救方案。"
+   },
+   "term": "make it right",
+   "zh": "把事情弥补好、纠正错误"
+  },
+  {
+   "examples": [
+    {
+     "en": "She raised a concern about the security review being skipped.",
+     "zh": "她对跳过安全评审这件事提出了担忧。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I want to raise a concern about the launch date — respectfully.",
+    "zh": "你觉得方案有风险，想在评审会上正式提出来。"
+   },
+   "term": "raise a concern",
+   "zh": "提出担忧、表达异议"
+  },
+  {
+   "examples": [
+    {
+     "en": "If the noise continues, we'll have to file a complaint.",
+     "zh": "如果噪音还继续，我们就得正式投诉了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "He filed a complaint with HR about the on-call schedule.",
+    "zh": "你跟邻居沟通无果，考虑走正式渠道。"
+   },
+   "term": "file a complaint",
+   "zh": "正式投诉、提交投诉"
+  },
+  {
+   "examples": [
+    {
+     "en": "If support can't fix it in a day, escalate the issue to engineering.",
+     "zh": "如果客服一天内解决不了，就把问题升级到工程团队。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Escalate the issue now — waiting is costing us customers.",
+    "zh": "工单卡了三天，你决定往上报。"
+   },
+   "term": "escalate the issue",
+   "zh": "把问题升级、上报到更高层"
+  },
+  {
+   "examples": [
+    {
+     "en": "Give constructive feedback: name the behavior, not the person.",
+     "zh": "给建设性反馈要对事不对人：说行为，不说人品。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'll give constructive feedback in our one-on-one, with examples.",
+    "zh": "你要给下属提改进意见，又怕伤到对方。"
+   },
+   "term": "give constructive feedback",
+   "zh": "给出建设性反馈（对事不对人）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Code review comments aren't attacks — don't take it personally.",
+     "zh": "代码评审的意见不是攻击，别往心里去。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "She takes it personally whenever her design gets questioned.",
+    "zh": "你安慰被评审意见打击到的新人。"
+   },
+   "term": "take it personally",
+   "zh": "把（批评）往心里去、当成针对个人"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keep your cool when the client raises their voice; answer slowly.",
+     "zh": "客户提高嗓门时你要沉住气，慢慢回答。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "You kept your cool through the whole incident call — impressive.",
+    "zh": "同事要跟客户吵起来，你拉他一把。"
+   },
+   "term": "keep your cool",
+   "zh": "保持冷静、沉住气"
+  },
+  {
+   "examples": [
+    {
+     "en": "Don't lose your temper in the standup — you'll regret it all day.",
+     "zh": "我在站会上发了脾气，后悔了一整天。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If you lose your temper in a review, you rarely change anyone's mind.",
+    "zh": "你跟朋友复盘今天那场不愉快的会。"
+   },
+   "term": "lose your temper",
+   "zh": "发脾气、失控"
+  },
+  {
+   "examples": [
+    {
+     "en": "There's no need to raise your voice — I can hear you fine.",
+     "zh": "没必要提高嗓门——我听得很清楚。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Once someone raises their voice, the meeting is basically over.",
+    "zh": "对方在电话里越说越激动，你想把场面稳住。"
+   },
+   "term": "raise your voice",
+   "zh": "提高嗓门（吵架式地）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We disagreed on the design, so we talked it out over coffee.",
+     "zh": "我们在设计上有分歧，就喝杯咖啡坐下来谈开了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Whatever it is, let's talk it out like adults.",
+    "zh": "你和搭档闹了别扭，决定当面聊清楚。"
+   },
+   "term": "talk it out",
+   "zh": "坐下来把事情谈开"
+  },
+  {
+   "examples": [
+    {
+     "en": "The two teams worked it out without involving management.",
+     "zh": "两个团队没惊动管理层，自己协商解决了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Give us an hour in a room and we'll work it out.",
+    "zh": "两个组在资源上起了争执，最后私下协调好了。"
+   },
+   "term": "work it out",
+   "zh": "协商解决（分歧、问题）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We agreed to disagree on the framework and moved on.",
+     "zh": "我们在框架选型上求同存异，然后继续往前走。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "On tabs versus spaces, we simply agree to disagree.",
+    "zh": "争论半小时没结果，你提议先搁置分歧。"
+   },
+   "term": "agree to disagree",
+   "zh": "求同存异、各自保留意见"
+  },
+  {
+   "examples": [
+    {
+     "en": "Weekend deployments are where I draw the line.",
+     "zh": "周末还要上线，这就是我划的底线了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Everyone has to draw the line somewhere on scope creep.",
+    "zh": "公司又想加新要求，你要明确哪些不能再让了。"
+   },
+   "term": "draw the line",
+   "zh": "划下底线、到此为止"
+  },
+  {
+   "examples": [
+    {
+     "en": "Joking about her accent crossed the line.",
+     "zh": "拿她的口音开玩笑，这就过分了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Feedback is fine; personal comments cross the line.",
+    "zh": "同事的玩笑让你不舒服，你要指出它越界了。"
+   },
+   "term": "cross the line",
+   "zh": "越界、做得太过分"
+  },
+  {
+   "examples": [
+    {
+     "en": "Stand your ground on the security requirements, politely but firmly.",
+     "zh": "安全要求上立场要站稳——客气，但坚定。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Stand your ground on this one — the launch slipping two days is the right call.",
+    "zh": "产品经理想砍掉安全评审，你准备顶住。"
+   },
+   "term": "stand your ground",
+   "zh": "坚持立场、不退让"
+  },
+  {
+   "examples": [
+    {
+     "en": "Give me a heads-up before you merge big changes.",
+     "zh": "合并大改动之前提前跟我说一声。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Just a heads-up: the staging environment resets tonight.",
+    "zh": "你希望搭档下次动公共代码前先知会你。"
+   },
+   "term": "give a heads-up",
+   "zh": "提前知会、打个招呼提醒一声"
+  },
+  {
+   "examples": [
+    {
+     "en": "I need to have a hard conversation with my report about his performance.",
+     "zh": "我得跟我下属进行一次艰难的谈话，谈谈他的绩效。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Hard conversations get easier the sooner you have them.",
+    "zh": "你拖了两周了，今天决定把那次谈话谈了。"
+   },
+   "term": "have a hard conversation",
+   "zh": "进行一次艰难的谈话"
+  },
+  {
+   "examples": [
+    {
+     "en": "The feature underperformed — signups were half the forecast.",
+     "zh": "这个功能表现不达标——注册量只有预期的一半。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Two quarters of underperforming and the product was shut down.",
+    "zh": "你要在复盘里客气但准确地指出数据没达标。"
+   },
+   "term": "underperform",
+   "zh": "表现不达标、业绩低于预期"
+  },
+  {
+   "examples": [
+    {
+     "en": "Sometimes a manager has to let someone go even when it isn't their fault.",
+     "zh": "融资告吹之后，他们不得不裁掉三个人。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "When you let someone go, do it in person and keep it short.",
+    "zh": "你在新闻里看到某公司又裁员了。"
+   },
+   "term": "let someone go",
+   "zh": "（公司）解雇、裁掉某人"
+  },
+  {
+   "examples": [
+    {
+     "en": "The package included three months of severance.",
+     "zh": "补偿方案里包含三个月的离职补偿金。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Negotiate the severance — it's standard to ask.",
+    "zh": "你向朋友解释被优化时该谈的补偿构成。"
+   },
+   "term": "severance",
+   "zh": "离职补偿金、遣散费"
+  },
+  {
+   "examples": [
+    {
+     "en": "In the US, giving two weeks' notice is the polite standard.",
+     "zh": "在美国，提前两周通知离职是礼貌惯例。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I gave my two weeks' notice on Monday, in writing.",
+    "zh": "你要向外国朋友解释你打算怎么提离职。"
+   },
+   "term": "two weeks' notice",
+   "zh": "（离职的）两周提前通知"
+  },
+  {
+   "examples": [
+    {
+     "en": "She handed in her notice after accepting the remote role.",
+     "zh": "她接了那份远程工作之后，递交了辞呈。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Hand in your notice only after the new contract is signed.",
+    "zh": "你跟朋友说你已经正式提离职了。"
+   },
+   "term": "hand in your notice",
+   "zh": "递交辞呈、正式提出离职"
+  },
+  {
+   "examples": [
+    {
+     "en": "Bring it up in the retro, not in the middle of the incident.",
+     "zh": "这件事在复盘会上提，别在故障处理中间提。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'll bring it up with her directly, not in the group chat.",
+    "zh": "你有个敏感问题想找合适的场合说。"
+   },
+   "term": "bring it up",
+   "zh": "把（某件事）提出来、提起"
+  },
+  {
+   "examples": [
+    {
+     "en": "Stop dancing around the issue — is the launch at risk or not?",
+     "zh": "别绕着问题打转了——上线到底有没有风险？"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "He danced around the issue for an hour before admitting the delay.",
+    "zh": "对方汇报了十分钟都没说到点子上，你想直问。"
+   },
+   "term": "dance around the issue",
+   "zh": "绕着问题打转、回避正题"
+  },
+  {
+   "examples": [
+    {
+     "en": "Don't beat around the bush — tell me what the client actually said.",
+     "zh": "别拐弯抹角了——把客户原话告诉我。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I appreciate directness; please don't beat around the bush.",
+    "zh": "同事铺垫了半天，你想听直接结论。"
+   },
+   "term": "beat around the bush",
+   "zh": "拐弯抹角、不直说"
+  },
+  {
+   "examples": [
+    {
+     "en": "Rip the band-aid off: tell the client about the delay today, not Friday.",
+     "zh": "长痛不如短痛：今天就跟客户说延期，别拖到周五。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "She ripped the band-aid off in the first five minutes of the call.",
+    "zh": "坏消息拖着只会更糟，你劝经理早说。"
+   },
+   "term": "rip the band-aid off",
+   "zh": "长痛不如短痛、干脆直接说（坏消息）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Don't sugarcoat the review — he needs the real picture.",
+     "zh": "评审意见别粉饰——他需要知道真实情况。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "I won't sugarcoat it: the numbers are bad this quarter.",
+    "zh": "你请经理给你反馈时直说就行。"
+   },
+   "term": "sugarcoat",
+   "zh": "把（难听的话）说得好听、粉饰"
+  },
+  {
+   "examples": [
+    {
+     "en": "Honest feedback can still be kind — don't hurt someone's feelings unnecessarily.",
+     "zh": "诚实的反馈也可以友善——别无谓地伤人感情。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I didn't mean to hurt her feelings with that comment.",
+    "zh": "你准备说重话之前提醒自己注意方式。"
+   },
+   "term": "hurt someone's feelings",
+   "zh": "伤到某人的感情、让人难受"
+  },
+  {
+   "examples": [
+    {
+     "en": "He took offense at the joke even though none was meant.",
+     "zh": "那个玩笑本无恶意，他却觉得被冒犯了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "No offense was intended — sorry if it landed wrong.",
+    "zh": "你解释某个同事为什么突然冷脸了。"
+   },
+   "term": "take offense",
+   "zh": "觉得被冒犯、生气"
+  },
+  {
+   "examples": [
+    {
+     "en": "Holding a grudge after a code review helps nobody.",
+     "zh": "因为代码评审记仇，对谁都没好处。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "He doesn't hold grudges — argue hard, then it's over.",
+    "zh": "你劝同事别把上次的争执一直放在心上。"
+   },
+   "term": "hold a grudge",
+   "zh": "记仇、耿耿于怀"
+  },
+  {
+   "examples": [
+    {
+     "en": "They patched things up after a long lunch and an honest talk.",
+     "zh": "一顿长午饭加一次坦诚的谈话，他们和好了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let's patch things up — this silence is helping no one.",
+    "zh": "你和搭档冷战了两天，你想主动修复。"
+   },
+   "term": "patch things up",
+   "zh": "和好、修复（闹僵的）关系"
+  },
+  {
+   "examples": [
+    {
+     "en": "The two founders buried the hatchet and merged their teams.",
+     "zh": "两位创始人放下旧怨，合并了团队。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "It's time to bury the hatchet and ship the release.",
+    "zh": "你形容两个闹翻的合伙人最终和解。"
+   },
+   "term": "bury the hatchet",
+   "zh": "言归于好、放下旧怨"
+  },
+  {
+   "examples": [
+    {
+     "en": "Sometimes you swallow your pride and apologize first.",
+     "zh": "有时候你得放下面子，先道歉。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "He swallowed his pride and asked the junior dev for help.",
+    "zh": "你知道自己也有错，决定先低头。"
+   },
+   "term": "swallow your pride",
+   "zh": "放下面子、忍下委屈"
+  },
+  {
+   "examples": [
+    {
+     "en": "We learned it the hard way: never deploy on a Friday night.",
+     "zh": "我们以惨痛代价学到了：绝不在周五晚上上线。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Backups? I learned that the hard way, trust me.",
+    "zh": "你在给新人讲团队那条铁律的来历。"
+   },
+   "term": "learn it the hard way",
+   "zh": "以惨痛代价学到（教训）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Don't put him on the spot in front of the client — ask later.",
+     "zh": "别在客户面前把他架住——回头再问。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "She hates being put on the spot in big meetings.",
+    "zh": "会上有人突然点名逼同事表态，你觉得不妥。"
+   },
+   "term": "put someone on the spot",
+   "zh": "让某人当场表态、把某人架住"
+  },
+  {
+   "examples": [
+    {
+     "en": "He called out the unfair on-call rotation in the team meeting.",
+     "zh": "他在团队会上当众指出了值班轮换不公的问题。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Call out the behavior, not the person, if you can.",
+    "zh": "你想在会上直接点破那个大家都装看不见的不公。"
+   },
+   "term": "call someone out",
+   "zh": "当众指出（某人的错误或不当）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Don't complain about her behind her back — tell her directly.",
+     "zh": "别在背后抱怨她——有话当面说。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Decisions made behind the team's back always leak out.",
+    "zh": "你发现有人在背后议论同事，你想制止。"
+   },
+   "term": "behind someone's back",
+   "zh": "背着某人、在背后（搞小动作）"
+  }
+ ],
+ "layer": "B",
+ "title": "难对话"
+}

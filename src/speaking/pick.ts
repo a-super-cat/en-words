@@ -44,8 +44,8 @@ export function audioToPrune(attempts: { id: string; at: number; audio?: Blob }[
  */
 export const QUESTION_ENTRY_CATEGORIES: Record<string, string[]> = {
   intro: ['c.interview', 'b.interview-talk', 'b.presenting', 'b.hedging', 'a.daily-home', 'a.daily-out'],
-  behavioral: ['c.interview', 'b.interview-talk', 'b.hedging', 'b.one-on-one', 'b.small-talk', 'a.daily-home', 'a.daily-out'],
-  leadership: ['b.meetings', 'b.planning', 'b.one-on-one', 'b.presenting', 'c.engineering'],
+  behavioral: ['c.interview', 'b.interview-talk', 'b.hedging', 'b.one-on-one', 'b.small-talk', 'b.difficult-conversations', 'a.daily-home', 'a.daily-out'],
+  leadership: ['b.meetings', 'b.planning', 'b.one-on-one', 'b.presenting', 'c.engineering', 'b.negotiation', 'b.difficult-conversations'],
   'system-design': ['c.system-design', 'c.arch-distributed', 'c.arch-reliability', 'c.cloud-infra', 'c.data', 'c.performance', 'c.patterns'],
   architecture: ['c.system-design', 'c.patterns', 'c.arch-distributed', 'c.arch-reliability', 'c.software-types', 'c.engineering', 'c.cloud-infra'],
   frontend: ['c.react', 'c.vue', 'c.web-frontend', 'c.frontend-tooling', 'c.nodejs'],

@@ -481,6 +481,114 @@
         { "term": "unblock", "zh": "让（某人）能继续干活、解除阻塞" },
         { "term": "escalate", "zh": "升级（把问题上报给更合适的人）" }
       ]
+    },
+    {
+      "id": "why-looking-for-change",
+      "prompt": "Why are you looking for a change right now?",
+      "zh": "你为什么现在想换工作？",
+      "outline": [
+        "Current role is outsourced project work; scope and stack are fixed",
+        "Eight years in, I want end-to-end ownership of a product",
+        "Remote team means a longer-term home, not another rotation",
+        "Frame it as moving toward growth, never complaints about now"
+      ],
+      "chunks": [
+        { "term": "grow into", "zh": "逐步成长到能胜任（某个角色），g 开头的短语动词" },
+        { "term": "stretch assignment", "zh": "略超出现有能力、能逼人成长的任务" },
+        { "term": "I'd like to take on more ...", "zh": "我想承担更多……（职责、挑战）" },
+        { "term": "I'm interested in moving into ...", "zh": "我有兴趣转向……（某个方向或角色）" }
+      ],
+      "followUps": ["What would make you stay in a role for three years or more?", "What are you hoping this role gives you that your current one doesn't?"]
+    },
+    {
+      "id": "why-remote",
+      "prompt": "Why do you want to work remotely?",
+      "zh": "你为什么想做远程工作？",
+      "outline": [
+        "Written async communication is my strength: strong reader and writer",
+        "I document decisions and put agreements in writing by default",
+        "Deep-work hours let me own problems end to end",
+        "I am looking for a team to stay with for years"
+      ],
+      "chunks": [
+        { "term": "take ownership of", "zh": "主动把……的责任担起来（含 o 开头的名词）" },
+        { "term": "put it in writing", "zh": "落实到书面、白纸黑字写下来" },
+        { "term": "play to my strengths", "zh": "发挥我的长处" },
+        { "term": "long-term value", "zh": "长期价值" }
+      ],
+      "followUps": ["How do you handle time-zone differences with a team?", "How do you stay visible and connected when nobody sees you in an office?"]
+    },
+    {
+      "id": "what-motivates-you",
+      "prompt": "What motivates you to do your best work?",
+      "zh": "什么能激励你把工作做到最好？",
+      "outline": [
+        "Real users depending on what I ship",
+        "Hard problems with the autonomy to solve them properly",
+        "Fast, honest feedback loops so I can adjust quickly",
+        "Example: owned an internal platform where AI features cut manual test-case work"
+      ],
+      "chunks": [
+        { "term": "take ownership of", "zh": "主动把……的责任担起来（含 o 开头的名词）" },
+        { "term": "stretch assignment", "zh": "略超出现有能力、能逼人成长的任务" },
+        { "term": "I appreciate the feedback.", "zh": "谢谢你的反馈。（a 开头的动词，比 thanks 郑重）" },
+        { "term": "play to my strengths", "zh": "发挥我的长处" }
+      ],
+      "followUps": ["What kind of work drains you instead?", "Tell me about a project where you felt this motivation strongly."]
+    },
+    {
+      "id": "where-in-five-years",
+      "prompt": "Where do you see yourself in three to five years?",
+      "zh": "你觉得三到五年后你会在什么位置？",
+      "outline": [
+        "Senior or staff-level individual contributor, not the management track",
+        "Owning a product area end to end, from design to operations",
+        "Deeper systems skills on top of my frontend depth",
+        "Fully fluent working in an English-speaking team day to day"
+      ],
+      "chunks": [
+        { "term": "individual contributor", "zh": "不带人的技术岗（和管理岗相对，两个词，常缩写成 IC）" },
+        { "term": "grow into", "zh": "逐步成长到能胜任（某个角色），g 开头的短语动词" },
+        { "term": "take ownership of", "zh": "主动把……的责任担起来（含 o 开头的名词）" },
+        { "term": "I'm interested in moving into ...", "zh": "我有兴趣转向……（某个方向或角色）" }
+      ],
+      "followUps": ["What skills are you actively building to get there?", "How does this role fit into that plan?"]
+    },
+    {
+      "id": "greatest-weakness",
+      "prompt": "What's your greatest weakness?",
+      "zh": "你最大的弱点是什么？",
+      "outline": [
+        "Spoken English fluency under pressure; reading and writing are strong",
+        "I train speaking daily with a structured output system, and it shows",
+        "Second one: I used to take on too much before asking for help",
+        "Now I raise risks early in standups instead of silently absorbing them"
+      ],
+      "chunks": [
+        { "term": "blind spot", "zh": "盲区（自己意识不到的弱点）" },
+        { "term": "I'll work on that.", "zh": "这点我会改进。（w 开头的短语动词）" },
+        { "term": "What could I have done better?", "zh": "我当时哪里可以做得更好？" },
+        { "term": "give a heads-up", "zh": "提前知会、打个招呼提醒一声" }
+      ],
+      "followUps": ["How is that weakness going to affect your work here?", "What is your plan to improve it over the next six months?"]
+    },
+    {
+      "id": "why-hire-you",
+      "prompt": "Why should we hire you over other candidates?",
+      "zh": "我们为什么应该选你，而不是其他候选人？",
+      "outline": [
+        "Eight years shipping real commercial systems across the stack",
+        "I write clearly, which makes me easy to work with asynchronously",
+        "I take ownership end to end; example: the LLM test-case platform",
+        "Honest about depth: Rust and Python are personal projects, and I say so"
+      ],
+      "chunks": [
+        { "term": "play to my strengths", "zh": "发挥我的长处" },
+        { "term": "take ownership of", "zh": "主动把……的责任担起来（含 o 开头的名词）" },
+        { "term": "put it in writing", "zh": "落实到书面、白纸黑字写下来" },
+        { "term": "long-term value", "zh": "长期价值" }
+      ],
+      "followUps": ["What would your first ninety days look like here?", "Is there anything in your background that concerns us that you'd like to address?"]
     }
   ]
 }

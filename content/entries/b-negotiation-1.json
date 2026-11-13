@@ -1,0 +1,577 @@
+{
+ "category": "negotiation",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Their first quote is high, but there's room to negotiate.",
+     "zh": "他们的第一口价很高，但有商量余地。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Don't accept the first number — there's always room to negotiate.",
+    "zh": "采购说供应商报价偏高，你安慰他新价格一般都有水分。"
+   },
+   "term": "room to negotiate",
+   "zh": "有商量余地、可以谈"
+  },
+  {
+   "examples": [
+    {
+     "en": "We made a counteroffer fifteen percent below their ask.",
+     "zh": "我们还了一个比他们要价低百分之十五的价。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Their counteroffer came back higher than I expected, but we're close.",
+    "zh": "你跟老板汇报谈判进展，说已经还价了。"
+   },
+   "term": "counteroffer",
+   "zh": "还价、反报价"
+  },
+  {
+   "examples": [
+    {
+     "en": "If we meet halfway on the timeline, both teams can sign off.",
+     "zh": "如果我们在工期上各让一步，两个团队都能签字。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Can we meet halfway? You get two extra days, we keep the scope as is.",
+    "zh": "两边在交付日期上僵住了，你提议折中。"
+   },
+   "term": "meet halfway",
+   "zh": "各让一步、折中"
+  },
+  {
+   "examples": [
+    {
+     "en": "My bottom line is a two-year term — anything shorter and we walk.",
+     "zh": "我的底线是两年期——再短我们就不谈了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Know your bottom line before you walk into the room.",
+    "zh": "谈判前你跟合伙人对齐哪些条件绝不能让。"
+   },
+   "term": "bottom line",
+   "zh": "底线；最低可接受条件"
+  },
+  {
+   "examples": [
+    {
+     "en": "Sometimes the strongest move is to walk away.",
+     "zh": "有时候最强硬的一步就是直接不谈了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If they won't move on liability, we walk away. Simple as that.",
+    "zh": "对方条件太离谱，你考虑终止合作谈判。"
+   },
+   "term": "walk away",
+   "zh": "（谈不拢就）退出、终止谈判"
+  },
+  {
+   "examples": [
+    {
+     "en": "No data export is a deal-breaker for our compliance team.",
+     "zh": "不能导出数据，这对我们的合规团队来说是一票否决项。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "For me, the deal-breaker is the termination clause, not the price.",
+    "zh": "你在评估供应商时指出哪个功能缺了就免谈。"
+   },
+   "term": "deal-breaker",
+   "zh": "一票否决项、谈不拢就散的关键条件"
+  },
+  {
+   "examples": [
+    {
+     "en": "To sweeten the deal, they threw in a year of free support.",
+     "zh": "为了促成交易，他们搭了一年免费支持。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Sweeten the deal with onboarding help and we'll sign this week.",
+    "zh": "价格谈不下来，销售改用赠品来打动你。"
+   },
+   "term": "sweeten the deal",
+   "zh": "加点甜头、（为促成交易）提高条件"
+  },
+  {
+   "examples": [
+    {
+     "en": "His final message was basically take it or leave it.",
+     "zh": "他最后那条消息基本就是要就要、不要拉倒。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A take-it-or-leave-it offer rarely works in long-term partnerships.",
+    "zh": "你向同事转述对方的强硬态度。"
+   },
+   "term": "take it or leave it",
+   "zh": "要就要、不要拉倒（最后条件）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every good contract has some give and take in it.",
+     "zh": "每份好合同里都有些互让的成分。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Negotiation is give and take — nobody gets everything.",
+    "zh": "你劝僵持的双方都松一点口。"
+   },
+   "term": "give and take",
+   "zh": "互让、互相妥协"
+  },
+  {
+   "examples": [
+    {
+     "en": "Having a second vendor quoted gives us leverage.",
+     "zh": "手里有第二家供应商的报价，我们就有筹码了。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Our leverage is simple: we can switch providers in a week.",
+    "zh": "你建议团队先拿到竞品报价再去谈续约。"
+   },
+   "term": "leverage",
+   "zh": "（谈判中的）筹码、优势"
+  },
+  {
+   "examples": [
+    {
+     "en": "The free migration became our main bargaining chip.",
+     "zh": "免费迁移成了我们手里最大的筹码。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Keep that clause as a bargaining chip — don't give it away early.",
+    "zh": "你在复盘谈判时说哪个条件其实是拿来交换的。"
+   },
+   "term": "bargaining chip",
+   "zh": "谈判筹码（可交换的条件）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Data residency in the EU is non-negotiable for us.",
+     "zh": "数据必须存放在欧盟，这点没得商量。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Security audits are non-negotiable in this industry.",
+    "zh": "客户法务明确告诉你哪条是红线。"
+   },
+   "term": "non-negotiable",
+   "zh": "没得商量的、不可谈判的"
+  },
+  {
+   "examples": [
+    {
+     "en": "We'll accept the longer term in exchange for a lower rate.",
+     "zh": "我们可以接受更长的期限，作为交换，价格要降下来。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In exchange for exclusivity, we expect a much better price.",
+    "zh": "你提出用合同期限换价格优惠。"
+   },
+   "term": "in exchange for",
+   "zh": "作为交换、以……换取……"
+  },
+  {
+   "examples": [
+    {
+     "en": "You're at ninety, we're at seventy — let's split the difference.",
+     "zh": "你出九十，我们出七十——取个中间数吧。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Splitting the difference got the contract signed the same day.",
+    "zh": "双方报价只差一点，你提议对半折中。"
+   },
+   "term": "split the difference",
+   "zh": "（价格上）一人让一半、取中间数"
+  },
+  {
+   "examples": [
+    {
+     "en": "Everything is on the table except the delivery date.",
+     "zh": "除了交付日期，什么都可以谈。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "There's a better offer on the table from another vendor, honestly.",
+    "zh": "你向对方表明除了红线之外都好商量。"
+   },
+   "term": "on the table",
+   "zh": "（条件、提议）摆在台面上的、待考虑的"
+  },
+  {
+   "examples": [
+    {
+     "en": "After the budget cut, the redesign is off the table.",
+     "zh": "预算削减之后，改版这件事就不予考虑了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Relax — layoffs are off the table this year.",
+    "zh": "你要告诉团队某个方案已经彻底排除了。"
+   },
+   "term": "off the table",
+   "zh": "不予考虑的、已经排除的"
+  },
+  {
+   "examples": [
+    {
+     "en": "Legal will push back on the unlimited liability clause.",
+     "zh": "法务会对无限责任条款提出反对的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We should push back on their payment terms — ninety days is too long.",
+    "zh": "你预判哪个条款会被法务打回来。"
+   },
+   "term": "push back on",
+   "zh": "反对、顶回去、提出异议"
+  },
+  {
+   "examples": [
+    {
+     "en": "Hold firm on the price; they'll come back with a better offer.",
+     "zh": "价格上别松口，他们会带着更好的报价回来的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We held firm for two weeks and the rate dropped ten percent.",
+    "zh": "同事担心谈崩，你劝他沉住气。"
+   },
+   "term": "hold firm",
+   "zh": "坚持立场、不松口"
+  },
+  {
+   "examples": [
+    {
+     "en": "They won't budge on the contract length.",
+     "zh": "他们在合同期限上就是不松口。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Ask once more — sometimes they budge at the very end.",
+    "zh": "你跟老板说对方在关键条款上纹丝不动。"
+   },
+   "term": "budge",
+   "zh": "让步、松口（多用于否定句）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A small concession now can unlock the whole deal.",
+     "zh": "现在做个小让步，能把整单生意盘活。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "We offered one concession: free training for their team.",
+    "zh": "你建议先让一步小的，换对方让一步大的。"
+   },
+   "term": "concession",
+   "zh": "让步（作出的妥协）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The compromise was a phased rollout over two quarters.",
+     "zh": "折中方案是分两个季度分阶段上线。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Good compromise — neither side loves it, both can live with it.",
+    "zh": "你在会上总结双方最终达成的方案。"
+   },
+   "term": "compromise",
+   "zh": "妥协、折中方案"
+  },
+  {
+   "examples": [
+    {
+     "en": "A renewal at a fair price is a win-win for both sides.",
+     "zh": "以合理的价格续约，对双方都是双赢。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'm looking for a win-win, not a one-sided discount.",
+    "zh": "你向客户强调这次合作不是零和博弈。"
+   },
+   "term": "win-win",
+   "zh": "双赢"
+  },
+  {
+   "examples": [
+    {
+     "en": "Pricing talks don't have to be zero-sum.",
+     "zh": "价格谈判不一定是你死我活的零和游戏。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let's not treat this as zero-sum — there's value to share.",
+    "zh": "对方把谈判当战争，你想把气氛拉回来。"
+   },
+   "term": "zero-sum",
+   "zh": "零和的（你赢就是我输）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Their first offer was a lowball — half our usual rate.",
+     "zh": "他们的第一口价压得离谱——只有我们平常费率的一半。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Don't lowball your contractors; the good ones just walk away.",
+    "zh": "自由职业者朋友跟你吐槽客户压价。"
+   },
+   "term": "lowball",
+   "zh": "（故意地）压低报价、报个侮辱价"
+  },
+  {
+   "examples": [
+    {
+     "en": "She quoted us three thousand for the full audit.",
+     "zh": "她给整个审计报了三千的价。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Get quotes from at least three vendors before we decide.",
+    "zh": "你让助理去向三家供应商询价。"
+   },
+   "term": "quote",
+   "zh": "报价（金额）；报（价）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Read the terms and conditions — the auto-renewal clause is the trap.",
+     "zh": "细看条款——自动续约那条是坑。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The headline price is fine; the terms and conditions are the problem.",
+    "zh": "你提醒合伙人签之前要逐条看细则。"
+   },
+   "term": "terms and conditions",
+   "zh": "条款与条件（合同细则）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We agreed on the rate right there — shake on it and we were done.",
+     "zh": "我们当场谈妥了费率——握个手就说定了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let's shake on it — paperwork can follow on Monday.",
+    "zh": "你在电话里跟客户敲定口头协议。"
+   },
+   "term": "shake on it",
+   "zh": "握手成交、说定了"
+  },
+  {
+   "examples": [
+    {
+     "en": "It took six calls to close the deal.",
+     "zh": "打了六通电话才把这单谈成。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "One more demo for their CTO and we close the deal.",
+    "zh": "你跟团队庆祝大客户终于签了。"
+   },
+   "term": "close the deal",
+   "zh": "敲定交易、谈成这单"
+  },
+  {
+   "examples": [
+    {
+     "en": "Whatever we agree on a call, we put it in writing the same day.",
+     "zh": "电话里谈定的任何事，我们当天就落实到书面。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Happy to proceed — please put it in writing so legal can review.",
+    "zh": "口头承诺后你坚持要对方发邮件确认。"
+   },
+   "term": "put it in writing",
+   "zh": "落实到书面、白纸黑字写下来"
+  },
+  {
+   "examples": [
+    {
+     "en": "Both sides negotiated in good faith and finished in a day.",
+     "zh": "双方都带着诚意谈，一天就谈完了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Asking for references is a sign of good faith, not distrust.",
+    "zh": "你在评价这次谈判为什么顺利。"
+   },
+   "term": "good faith",
+   "zh": "诚意、善意"
+  },
+  {
+   "examples": [
+    {
+     "en": "We'd rather build a long-term partnership than squeeze one contract.",
+     "zh": "我们更愿意建立长期合作，而不是在一份合同上榨干对方。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Price matters, but we're choosing a long-term partnership here.",
+    "zh": "你向供应商表明你看重长期关系。"
+   },
+   "term": "long-term partnership",
+   "zh": "长期合作关系"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let's start with a three-month trial period and review the numbers.",
+     "zh": "先来三个月试运行期，到时候看数据再说。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A trial period lowers the risk for both sides.",
+    "zh": "对方对长期合同犹豫，你提议先短期试跑。"
+   },
+   "term": "trial period",
+   "zh": "试用期；试运行期"
+  },
+  {
+   "examples": [
+    {
+     "en": "Your opening offer sets the tone for the whole negotiation.",
+     "zh": "你的首轮报价决定了整场谈判的基调。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Make the opening offer ambitious but defensible.",
+    "zh": "你在准备谈判策略，先定第一口价。"
+   },
+   "term": "opening offer",
+   "zh": "首轮报价、开出的第一个条件"
+  },
+  {
+   "examples": [
+    {
+     "en": "If they come down another five percent, we have a deal.",
+     "zh": "他们再降百分之五，这单就成了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Can you come down at all on the setup fee?",
+    "zh": "你探对方销售的口风，看还能不能降。"
+   },
+   "term": "come down",
+   "zh": "（价格上）让步、降价"
+  },
+  {
+   "examples": [
+    {
+     "en": "We can stretch the budget if the tool replaces two others.",
+     "zh": "如果这个工具能替代另外两个，我们可以把预算放宽些。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Stretch the budget this once — the migration pays for itself.",
+    "zh": "你向财务申请为关键工具多批点钱。"
+   },
+   "term": "stretch the budget",
+   "zh": "把预算放宽、挤出更多预算"
+  },
+  {
+   "examples": [
+    {
+     "en": "Their final quote came in within budget, so finance approved it.",
+     "zh": "他们的最终报价在预算之内，财务就批了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Keep the whole rollout within budget and nobody will complain.",
+    "zh": "你跟老板汇报采购结果时强调没超支。"
+   },
+   "term": "within budget",
+   "zh": "在预算之内"
+  },
+  {
+   "examples": [
+    {
+     "en": "We got a volume discount by committing to two hundred seats.",
+     "zh": "我们承诺买两百个席位，拿到了批量折扣。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Is there a volume discount if we double the order?",
+    "zh": "你在谈企业版授权时争取按量优惠。"
+   },
+   "term": "volume discount",
+   "zh": "批量折扣、量大优惠"
+  },
+  {
+   "examples": [
+    {
+     "en": "The tool costs more upfront but wins on long-term value.",
+     "zh": "这个工具前期贵，但长期价值更高。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Judge the offer on long-term value, not the first invoice.",
+    "zh": "你劝团队别只盯着第一年的价格。"
+   },
+   "term": "long-term value",
+   "zh": "长期价值"
+  }
+ ],
+ "layer": "B",
+ "title": "谈判与说服"
+}
