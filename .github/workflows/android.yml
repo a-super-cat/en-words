@@ -1,12 +1,13 @@
-# 云端打安卓调试包（debug APK），不需要本地装 Android Studio / SDK。
+# 云端打安卓包，不需要本地装 Android Studio / SDK。
 # 触发方式：
-# - 推 main：出一个开发包，放在运行的 Artifacts 里（30 天过期），versionCode 用运行序号。
-# - 打 v* 标签（如 v0.1.0）：正式版本。版本号取自标签（versionName=v 后面的部分，
+# - 推 main：出一个 debug 开发包，放在运行的 Artifacts 里（30 天过期），versionCode 用运行序号。
+# - 打 v* 标签（如 v0.1.0）：正式版本，用固定密钥正式签名（密钥存 GitHub Secrets：
+#   ENWORDS_KEYSTORE_B64 / ENWORDS_KEYSTORE_PASSWORD）。版本号取自标签（versionName=v 后面的部分，
 #   versionCode=major*10000+minor*100+patch，只增不减），APK 附到对应的 GitHub Release 里长期保存。
 # - 手动触发（workflow_dispatch）：同推 main。
-# 注意：开发包和正式包的 versionCode 可能互相倒退，安卓不允许低版本覆盖高版本，交叉安装时先卸载旧的。
-# debug 包用自动生成的调试签名，只能自用，不能上架应用商店；正式签名留到需要时再配。
-name: Android APK (debug)
+# 注意：开发包（debug 签名）和正式包（正式签名）签名不同，互相覆盖安装时要先卸载；
+# 正式包之间签名相同、versionCode 递增，可以直接覆盖升级。
+name: Android APK
 
 on:
   workflow_dispatch:
@@ -69,14 +70,36 @@ jobs:
       - name: 同步网页产物到安卓工程
         run: npx cap sync android
 
-      - name: 打 debug APK
+      - name: 解码正式签名密钥（仅标签构建）
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          ENWORDS_KEYSTORE_B64: ${{ secrets.ENWORDS_KEYSTORE_B64 }}
+        run: |
+          if [ -z "$ENWORDS_KEYSTORE_B64" ]; then
+            echo "缺 GitHub Secret：ENWORDS_KEYSTORE_B64，未配正式签名，停止构建" >&2
+            exit 1
+          fi
+          echo "$ENWORDS_KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/enwords-release.p12"
+          ls -la "$RUNNER_TEMP/enwords-release.p12"
+
+      - name: 打 debug APK（非标签构建）
+        if: ${{ !startsWith(github.ref, 'refs/tags/v') }}
         working-directory: android
         run: ./gradlew assembleDebug
 
+      - name: 打正式签名 APK（标签构建）
+        if: startsWith(github.ref, 'refs/tags/v')
+        working-directory: android
+        env:
+          ENWORDS_STORE_FILE: ${{ runner.temp }}/enwords-release.p12
+          ENWORDS_STORE_PASSWORD: ${{ secrets.ENWORDS_KEYSTORE_PASSWORD }}
+        run: ./gradlew assembleRelease
+
       - name: APK 按版本改名
         run: |
-          cp android/app/build/outputs/apk/debug/app-debug.apk \
-             "en-words-${{ steps.version.outputs.name }}.apk"
+          SRC="android/app/build/outputs/apk/debug/app-debug.apk"
+          [ -f "$SRC" ] || SRC="android/app/build/outputs/apk/release/app-release.apk"
+          cp "$SRC" "en-words-${{ steps.version.outputs.name }}.apk"
           ls -la en-words-*.apk
 
       - name: 上传 APK（构建产物，30 天）
@@ -94,4 +117,4 @@ jobs:
           gh release create "$GITHUB_REF_NAME" \
             "en-words-${{ steps.version.outputs.name }}.apk" \
             --title "en-words $GITHUB_REF_NAME" \
-            --notes "安卓调试包（debug 签名，自用）。安装前需允许“安装未知应用”。"
+            --notes "安卓正式签名包（自用）。安装前需允许“安装未知应用”。从 v0.7.3 或更早版本升级时，因签名更换需先卸载旧版（先在设置里导出备份）；v0.7.4 起的版本之间可直接覆盖升级。"

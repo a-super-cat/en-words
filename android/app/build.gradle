@@ -16,8 +16,25 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    signingConfigs {
+        release {
+            // 正式签名只在 CI 标签构建时通过环境变量注入（密钥来自 GitHub Secrets）；
+            // 本地和普通构建没有这些变量，就不配签名，不影响开发。
+            def ksFile = System.getenv("ENWORDS_STORE_FILE")
+            if (ksFile) {
+                storeFile file(ksFile)
+                storePassword System.getenv("ENWORDS_STORE_PASSWORD")
+                keyAlias "enwords"
+                keyPassword System.getenv("ENWORDS_STORE_PASSWORD")
+                storeType "PKCS12"
+            }
+        }
+    }
     buildTypes {
         release {
+            if (System.getenv("ENWORDS_STORE_FILE")) {
+                signingConfig signingConfigs.release
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
