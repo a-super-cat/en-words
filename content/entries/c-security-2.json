@@ -1,0 +1,382 @@
+{
+ "category": "security",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "We do threat modeling before building anything that touches payments.",
+     "zh": "凡是碰支付的东西，我们动手前都先做威胁建模。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Threat modeling is cheaper than the incident review it prevents.",
+    "zh": "你在设计评审前推动大家先过一遍攻击面。"
+   },
+   "term": "threat modeling",
+   "zh": "威胁建模（提前想攻击者会怎么打）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Zero trust means the office network gets no free pass anymore.",
+     "zh": "零信任意味着办公内网也不再有免检待遇。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Under zero trust, every request proves itself, internal or not.",
+    "zh": "你在给团队解释新 VPN 方案为什么老要验证身份。"
+   },
+   "term": "zero trust",
+   "zh": "零信任（不默认信任内网，每次都验证）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Token rotation limits the damage if a refresh token ever leaks.",
+     "zh": "令牌轮换能限制刷新令牌万一泄露时的损失。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Short-lived access tokens plus rotation beat one eternal token.",
+    "zh": "你在评审登录方案，指出长效令牌的风险。"
+   },
+   "term": "token rotation",
+   "zh": "令牌轮换（定期更换令牌）"
+  },
+  {
+   "examples": [
+    {
+     "en": "TLS termination happens at the load balancer, so services speak plain HTTP internally.",
+     "zh": "TLS 在负载均衡处终止，内部服务之间走明文 HTTP。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Move TLS termination to the edge and certificate management gets simpler.",
+    "zh": "你在画请求链路图，标出哪里解密。"
+   },
+   "term": "TLS termination",
+   "zh": "TLS 终止（在网关处解密 HTTPS）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Certificate pinning stopped fake hotspots from intercepting our app traffic.",
+     "zh": "证书绑定让假热点再也截不了我们 App 的流量。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Certificate pinning is powerful — and bricks the app if you rotate badly.",
+    "zh": "你在给支付类 App 做安全加固清单。"
+   },
+   "term": "certificate pinning",
+   "zh": "证书绑定（App 只信任指定证书，防中间人）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A stored XSS in the comment field hit every reader of the post.",
+     "zh": "评论字段的存储型 XSS 让每个看帖的人都中招。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Stored XSS is the dangerous kind — it waits in the database for victims.",
+    "zh": "你在复盘一个安全事件，区分两种 XSS 的差别。"
+   },
+   "term": "stored XSS",
+   "zh": "存储型 XSS（恶意脚本存进数据库，别人打开页面就中招）"
+  },
+  {
+   "examples": [
+    {
+     "en": "DOM-based XSS never touches the server, so logs show nothing.",
+     "zh": "DOM 型 XSS 不经过服务器，日志里什么都看不到。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Sanitizing on the server does nothing for DOM-based XSS.",
+    "zh": "你在排查一个 WAF 拦不住的注入问题。"
+   },
+   "term": "DOM-based XSS",
+   "zh": "DOM 型 XSS（在浏览器端由脚本拼页面时触发）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An SSRF in the image fetcher let attackers reach the metadata service.",
+     "zh": "图片抓取功能里的 SSRF 让攻击者摸到了元数据服务。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Any feature that fetches a user-supplied URL is an SSRF candidate.",
+    "zh": "你在审一个让用户填 URL 的功能，先想最坏情况。"
+   },
+   "term": "SSRF",
+   "zh": "服务端请求伪造（让服务器去访问内网地址）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Path traversal in the download endpoint exposed the config files.",
+     "zh": "下载接口的路径穿越让配置文件被读走了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Canonicalize the path before it touches the filesystem — that's the standard path traversal fix.",
+    "zh": "你在审文件下载代码，检查参数过滤。"
+   },
+   "term": "path traversal",
+   "zh": "路径穿越（用 ../ 跳出允许的目录读文件）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Rate limiting and lockouts make brute force impractical.",
+     "zh": "限速加锁定让暴力破解基本没戏。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Without a lockout policy, brute force is a matter of time.",
+    "zh": "你在给登录接口加防护，跟产品解释为什么要验证码。"
+   },
+   "term": "brute force",
+   "zh": "暴力破解（一个个试密码）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Password spraying stays under lockout thresholds by trying few passwords per account.",
+     "zh": "密码喷洒每个账号只试几次，正好躲开锁定阈值。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "MFA is the real answer to password spraying.",
+    "zh": "你在看一起撞库事件，解释它和普通暴力破解的区别。"
+   },
+   "term": "password spraying",
+   "zh": "密码喷洒（拿常用密码少量试很多账号）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Most breaches start with social engineering, not exotic exploits.",
+     "zh": "大多数入侵始于社会工程学，而不是高深的漏洞利用。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "That 'IT support' call was pure social engineering.",
+    "zh": "你在给团队做安全意识培训，先讲最常见的入口。"
+   },
+   "term": "social engineering",
+   "zh": "社会工程学（骗人而不是骗系统）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The phishing mail copied our login page pixel for pixel.",
+     "zh": "那封钓鱼邮件把我们的登录页仿得像素级一致。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Report phishing, don't just delete it — security needs the headers.",
+    "zh": "你收到一封可疑邮件，提醒全组小心。"
+   },
+   "term": "phishing",
+   "zh": "钓鱼（伪造页面、邮件骗账号密码）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Offline backups are the difference between ransomware and a bad weekend.",
+     "zh": "有没有离线备份，决定了勒索软件是灾难还是一个糟糕的周末。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Paying the ransom funds the next ransomware campaign.",
+    "zh": "你在评审备份策略时强调要有一份断网的。"
+   },
+   "term": "ransomware",
+   "zh": "勒索软件（加密文件索要赎金）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Insecure deserialization of the session cookie gave attackers code execution.",
+     "zh": "对会话 Cookie 的不安全反序列化让攻击者拿到了代码执行。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Never deserialize data you can't verify — sign it or don't trust it.",
+    "zh": "你在审一个老 Java 服务的隐患清单。"
+   },
+   "term": "insecure deserialization",
+   "zh": "不安全的反序列化（把不可信数据直接还原成对象）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Broken access control is the most common finding in our audits.",
+     "zh": "越权是我们审计里最常见的问题。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Changing the ID in the URL should never work — that's broken access control.",
+    "zh": "你在给新人讲为什么每个接口都要校验归属。"
+   },
+   "term": "broken access control",
+   "zh": "越权访问控制失效（能看不该看的数据）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Frame-ancestors headers stop clickjacking on the settings pages.",
+     "zh": "用 frame-ancestors 响应头能挡住设置页的点击劫持。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Clickjacking sounds quaint until it's a 'delete account' button.",
+    "zh": "你在给安全扫描的报告逐项定修复方案。"
+   },
+   "term": "clickjacking",
+   "zh": "点击劫持（把你的页面套进透明框架骗点击）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Session hijacking over open Wi-Fi was trivial before everything went HTTPS.",
+     "zh": "在全站 HTTPS 之前，开放 Wi-Fi 上的会话劫持轻而易举。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Rotate the session ID after login to blunt session hijacking.",
+    "zh": "你在解释为什么 Cookie 要加 HttpOnly 和 Secure。"
+   },
+   "term": "session hijacking",
+   "zh": "会话劫持（偷走登录会话冒充用户）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Public Wi-Fi without a VPN is an open door for a man-in-the-middle.",
+     "zh": "不用 VPN 连公共 Wi-Fi，等于给中间人攻击敞开大门。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Certificate warnings exist precisely to catch a man-in-the-middle.",
+    "zh": "你在提醒出差的同事注意网络使用习惯。"
+   },
+   "term": "man-in-the-middle",
+   "zh": "中间人攻击（在通信中间偷听或篡改）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The researcher followed responsible disclosure and gave us ninety days.",
+     "zh": "那位研究者走的是负责任披露，给了我们九十天修复。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Responsible disclosure only works if companies answer their security mail.",
+    "zh": "你在处理外部报告的漏洞，安排修复窗口。"
+   },
+   "term": "responsible disclosure",
+   "zh": "负责任披露（先通知厂商修复再公开漏洞）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The data breach exposed email addresses but no passwords.",
+     "zh": "这次数据泄露暴露了邮箱地址，但没有密码。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "After a data breach, forced password resets are the cheap part.",
+    "zh": "你在读一则科技新闻，跟同事讨论影响范围。"
+   },
+   "term": "data breach",
+   "zh": "数据泄露（事件）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Data masking keeps real phone numbers out of the analytics warehouse.",
+     "zh": "数据脱敏让真实手机号进不了分析数仓。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Apply data masking before logs or exports, not after someone complains.",
+    "zh": "你在给数据平台定规矩，哪些字段出生产环境必须处理。"
+   },
+   "term": "data masking",
+   "zh": "数据脱敏（把敏感字段打码）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Adding the standard security headers closed half the scanner findings.",
+     "zh": "把标准安全响应头加上，扫描报告的问题少了一半。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Security headers are ten lines of config — there's no excuse to skip them.",
+    "zh": "你在给前端服务做上线前的安全检查。"
+   },
+   "term": "security headers",
+   "zh": "安全响应头（一组防 XSS、劫持等的 HTTP 头）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Verify the webhook signature before trusting any payment callback.",
+     "zh": "信任任何支付回调之前，先验 Webhook 签名。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A webhook signature is how you know the request is really from the provider.",
+    "zh": "你在评审支付回调接口，指出没验签等于裸奔。"
+   },
+   "term": "webhook signature",
+   "zh": "Webhook 签名（验证回调确实来自对方）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The WAF blocks the obvious injection attempts before they reach the app.",
+     "zh": "WAF 在明显的注入尝试到达应用之前就把它们挡住了。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "A WAF buys time; it doesn't fix the vulnerable code.",
+    "zh": "你在解释为什么扫描器打不进来——第一层就被拦了。"
+   },
+   "term": "WAF",
+   "zh": "WAF（Web 应用防火墙）"
+  }
+ ],
+ "layer": "C",
+ "title": "安全"
+}

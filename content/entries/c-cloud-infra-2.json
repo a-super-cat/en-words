@@ -1,0 +1,337 @@
+{
+ "category": "cloud-infra",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Multi-region deployment halves latency for our Asian users.",
+     "zh": "多区域部署让亚洲用户的延迟降了一半。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We run multi-region for the checkout path only — the rest can wait.",
+    "zh": "你在给管理层解释为什么要多花一倍基础设施钱。"
+   },
+   "term": "multi-region",
+   "zh": "多区域（在多个地理区域部署）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The outage hit the data plane in one region; the control plane stayed up.",
+     "zh": "这次故障打的是某个区域的数据平面，控制平面没受影响。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If the data plane is down, nobody cares that the console works.",
+    "zh": "你在复盘云厂商故障，区分是哪一层挂了。"
+   },
+   "term": "data plane",
+   "zh": "数据平面（真正跑流量的部分，与控制平面相对）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Cross-region replication gives us a warm standby for disaster recovery.",
+     "zh": "跨区域复制让我们有一个随时可切的热备。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Turn on cross-region replication before you promise an RTO.",
+    "zh": "你在设计容灾方案，跟团队算复制延迟的账。"
+   },
+   "term": "cross-region replication",
+   "zh": "跨区域复制（数据同步到另一个区域）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Static assets are cached at the edge location nearest to each user.",
+     "zh": "静态资源缓存在离每个用户最近的边缘节点上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "More edge locations help, but cache hit ratio matters more.",
+    "zh": "你在解释 CDN 为什么在海外也快。"
+   },
+   "term": "edge location",
+   "zh": "边缘节点（离用户最近的分发点）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Databases want block storage; backups are fine on cheaper tiers.",
+     "zh": "数据库要的是块存储；备份放在便宜档位就行。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Attach block storage for the database volume and snapshot it nightly.",
+    "zh": "你在给新项目选存储类型，跟财务解释差别。"
+   },
+   "term": "block storage",
+   "zh": "块存储（像硬盘一样挂载的存储）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We picked a memory-heavy instance type for the cache tier.",
+     "zh": "缓存层我们选了内存大的机型。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "That instance type is overkill — half the CPU sits idle all day.",
+    "zh": "你在做容量规划，跟同事对不同机型的价格性能比。"
+   },
+   "term": "instance type",
+   "zh": "实例规格、机型（CPU/内存组合）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The auto scaling group adds instances when CPU passes seventy percent.",
+     "zh": "CPU 超过百分之七十时，伸缩组会自动加实例。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Put the workers in an auto scaling group and stop babysitting deploys.",
+    "zh": "你在给新人讲大促时系统怎么自动扩容。"
+   },
+   "term": "auto scaling group",
+   "zh": "弹性伸缩组（按负载自动增减实例）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Dev environments scale to zero at night and save real money.",
+     "zh": "开发环境晚上缩容到零，省的是真金白银。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Scale to zero is perfect for preview environments and cron workers.",
+    "zh": "你在找云账单的节约点，盯上闲置环境。"
+   },
+   "term": "scale to zero",
+   "zh": "缩容到零（没流量时不保留实例）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We chose a managed service for Postgres — nobody here wants pager duty for a database.",
+     "zh": "Postgres 我们选了托管服务——没人想给数据库值夜班。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A managed service costs more per hour and less per incident.",
+    "zh": "你在自建和托管之间做选型，算运维人力账。"
+   },
+   "term": "managed service",
+   "zh": "托管服务（云厂商代运维的服务）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Instances in the private subnet reach the internet through the NAT gateway.",
+     "zh": "私有子网里的实例通过 NAT 网关访问外网。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The NAT gateway is a quiet line item — check its data charges.",
+    "zh": "你在画网络拓扑，解释内网机器怎么下载依赖。"
+   },
+   "term": "NAT gateway",
+   "zh": "NAT 网关（私有网络访问外网的出口）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Logging runs as a sidecar so the app code never touches it.",
+     "zh": "日志用边车跑，业务代码完全不用管它。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "A sidecar per pod is flexible but doubles your container count.",
+    "zh": "你在评审服务网格方案，解释日志收集怎么落地。"
+   },
+   "term": "sidecar",
+   "zh": "边车（与主容器并行运行的辅助容器）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We added a GPU node pool just for the inference workloads.",
+     "zh": "我们专门为推理负载加了一个 GPU 节点池。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Keep batch jobs on their own node pool so they can't starve the API.",
+    "zh": "你在规划集群扩容，需要把特殊负载隔离开。"
+   },
+   "term": "node pool",
+   "zh": "节点池（一组同规格的集群机器）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The vendor ships a helm chart, so installation is one command.",
+     "zh": "厂商提供了 Helm 包，安装就是一条命令的事。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Pin the helm chart version — the defaults changed under us once.",
+    "zh": "你在给团队介绍新中间件的部署方式。"
+   },
+   "term": "helm chart",
+   "zh": "Helm 包（Kubernetes 的部署模板包）"
+  },
+  {
+   "examples": [
+    {
+     "en": "CI pushes every build to the container registry with the commit hash as the tag.",
+     "zh": "CI 把每次构建都推到镜像仓库，用提交哈希当标签。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our container registry keeps the last fifty images per service.",
+    "zh": "你在讲发布流水线，镜像从哪来到哪去。"
+   },
+   "term": "container registry",
+   "zh": "镜像仓库（存放容器镜像的地方）"
+  },
+  {
+   "examples": [
+    {
+     "en": "With GitOps, rolling back is just reverting a commit.",
+     "zh": "用了 GitOps 之后，回滚就是还原一个提交的事。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "GitOps ends the 'who changed production' guessing game.",
+    "zh": "你在向团队推新的部署方式，卖点是可追溯。"
+   },
+   "term": "GitOps",
+   "zh": "用 Git 仓库作为部署的唯一事实来源"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every pull request spins up an ephemeral environment for review.",
+     "zh": "每个 PR 都会拉起一个临时环境供评审。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ephemeral environments killed the 'it works on staging' argument.",
+    "zh": "你在给产品经理演示新功能，不用等测试环境排队。"
+   },
+   "term": "ephemeral environment",
+   "zh": "临时环境（用完即弃的预览、测试环境）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Environment parity is why we containerized everything, dev included.",
+     "zh": "环境一致性是我们连开发都容器化的原因。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Chase environment parity and 'works on my machine' mostly disappears.",
+    "zh": "你在线上遇到一个只在生产出现的问题，归因于环境差异。"
+   },
+   "term": "environment parity",
+   "zh": "环境一致性（开发、测试、生产尽量相同）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Connection draining lets in-flight requests finish before the instance dies.",
+     "zh": "连接排空让正在处理的请求能在实例下线前完成。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Without connection draining, every deploy drops live WebSockets.",
+    "zh": "你在解释为什么发布时用户不该遇到断连。"
+   },
+   "term": "connection draining",
+   "zh": "连接排空（下线前等现有连接结束）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A rolling restart picked up the new config without downtime.",
+     "zh": "滚动重启让新配置在零停机的情况下生效了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Do a rolling restart after the config change — one zone at a time.",
+    "zh": "你需要让全部实例加载新证书，又不能停服。"
+   },
+   "term": "rolling restart",
+   "zh": "滚动重启（一批一批地重启实例）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Right-sizing the fleet cut our cloud bill by a fifth.",
+     "zh": "把整个机群做一轮规格优化，云账单砍了五分之一。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Right-sizing is boring and it funds half our roadmap.",
+    "zh": "你在给季度成本复盘列节约项。"
+   },
+   "term": "right-sizing",
+   "zh": "规格优化（把过大的实例换成合适的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A monthly sweep for idle resources pays for itself every time.",
+     "zh": "每月扫一遍闲置资源，每次都回本。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Tag owners on resources, or idle resources will quietly eat the budget.",
+    "zh": "你发现有人测试完忘了关机器。"
+   },
+   "term": "idle resources",
+   "zh": "闲置资源（开着不用还在计费的资源）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Multi-tenancy keeps our costs low but makes every bug a shared bug.",
+     "zh": "多租户让成本低，但也让每个缺陷都是大家的缺陷。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "With multi-tenancy, noisy neighbors are a product problem, not just ops.",
+    "zh": "你在给客户解释 SaaS 的隔离方案时提到架构形态。"
+   },
+   "term": "multi-tenancy",
+   "zh": "多租户（一套系统服务多个客户）"
+  }
+ ],
+ "layer": "C",
+ "title": "云与基础设施"
+}

@@ -1,0 +1,382 @@
+{
+ "category": "performance",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Our p95 latency dropped from 900 to 300 milliseconds after the index fix.",
+     "zh": "加了索引之后，我们的 P95 延迟从 900 毫秒降到了 300 毫秒。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Averages hide the pain — report p95 latency instead.",
+    "zh": "你在周会上汇报接口优化的效果，用的是分位数而不是平均值。"
+   },
+   "term": "p95 latency",
+   "zh": "P95 延迟（95% 的请求在此时间内完成）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Time to first byte is mostly backend — the page can't render before it.",
+     "zh": "首字节时间主要看后端——它没到，页面什么都渲染不了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If time to first byte is high, no frontend trick will save you.",
+    "zh": "你在定位页面慢，先分清是服务器慢还是前端慢。"
+   },
+   "term": "time to first byte",
+   "zh": "首字节时间（服务器响应的快慢）"
+  },
+  {
+   "examples": [
+    {
+     "en": "First contentful paint improved once we inlined the critical CSS.",
+     "zh": "把关键 CSS 内联之后，首次内容绘制变快了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "First contentful paint under two seconds keeps users from bouncing.",
+    "zh": "你在优化白屏时间，跟同事说先看哪个指标。"
+   },
+   "term": "first contentful paint",
+   "zh": "首次内容绘制（用户第一次看到内容的时间）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The SEO team tracks web vitals weekly since the ranking update.",
+     "zh": "自从排名算法更新，SEO 团队每周都盯着网页核心指标。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Good web vitals are now part of the definition of done.",
+    "zh": "产品经理问你为什么要花时间优化性能指标。"
+   },
+   "term": "web vitals",
+   "zh": "（谷歌的）网页核心性能指标"
+  },
+  {
+   "examples": [
+    {
+     "en": "Scroll jank on low-end phones is still our top complaint.",
+     "zh": "低端手机上滚动卡顿仍是我们收到的头号投诉。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "That animation causes visible jank — it runs layout on every frame.",
+    "zh": "测试同事反馈列表滑动不流畅，你来定位。"
+   },
+   "term": "jank",
+   "zh": "（动画、滚动的）卡顿、掉帧"
+  },
+  {
+   "examples": [
+    {
+     "en": "Parsing that huge JSON blocks the main thread for half a second.",
+     "zh": "解析那个巨大的 JSON 会把主线程阻塞半秒。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Anything blocking the main thread over 50 milliseconds feels sluggish.",
+    "zh": "你在评审里指出一段同步代码会冻住界面。"
+   },
+   "term": "blocking the main thread",
+   "zh": "阻塞主线程"
+  },
+  {
+   "examples": [
+    {
+     "en": "A skeleton screen makes the wait feel shorter than a spinner does.",
+     "zh": "骨架屏让等待感觉比转圈动画更短。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Use a skeleton screen here — it mirrors the layout users are about to see.",
+    "zh": "你在给加载慢的信息流页面选占位方案。"
+   },
+   "term": "skeleton screen",
+   "zh": "骨架屏（加载时先显示的占位轮廓）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Break the import into chunks and yield to the main thread between them.",
+     "zh": "把导入拆成小块，每块之间让出主线程。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Yield to the main thread every few items and the UI stays responsive.",
+    "zh": "你给同事讲长任务不冻界面的处理手法。"
+   },
+   "term": "yield to the main thread",
+   "zh": "（长任务中途）让出主线程、先响应用户"
+  },
+  {
+   "examples": [
+    {
+     "en": "Event loop lag spikes whenever the GC runs a major cycle.",
+     "zh": "每当垃圾回收跑大周期，事件循环延迟就飙升。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We alert on event loop lag above 100 milliseconds.",
+    "zh": "你在看监控，找界面周期性卡顿的原因。"
+   },
+   "term": "event loop lag",
+   "zh": "事件循环延迟（主线程忙不过来的程度）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A long garbage collection pause froze the game for two frames.",
+     "zh": "一次长的垃圾回收停顿让游戏冻了两帧。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Frequent garbage collection pauses usually mean too much allocation.",
+    "zh": "你在分析一段周期性掉帧，怀疑是内存分配太多。"
+   },
+   "term": "garbage collection pause",
+   "zh": "垃圾回收停顿"
+  },
+  {
+   "examples": [
+    {
+     "en": "With ten thousand rows, a virtual list is not optional.",
+     "zh": "有一万行数据时，虚拟列表不是可选项。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The virtual list keeps DOM nodes under a hundred, whatever the data size.",
+    "zh": "你在评审一个长列表页面，要求改成只渲染可见部分。"
+   },
+   "term": "virtual list",
+   "zh": "虚拟列表（只渲染可见行）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Benchmarks look great with a warm cache and terrible without one.",
+     "zh": "缓存热的时候压测数据漂亮，冷的时候惨不忍睹。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Production runs a warm cache, so test results should too.",
+    "zh": "你提醒同事压测前要说明缓存是冷是热。"
+   },
+   "term": "warm cache",
+   "zh": "热缓存（已经预热、命中率高）"
+  },
+  {
+   "examples": [
+    {
+     "en": "After every deploy we pay the cold cache price for ten minutes.",
+     "zh": "每次发布之后，我们都要付十分钟冷缓存的代价。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Pre-warm the important keys so a cold cache never hits real users.",
+    "zh": "你跟运维讨论发布后流量高峰的应对。"
+   },
+   "term": "cold cache",
+   "zh": "冷缓存（刚启动、还没命中数据）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Our cache hit ratio sits at ninety-two percent, mostly product pages.",
+     "zh": "我们的缓存命中率在百分之九十二，主要是商品页贡献的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A cache hit ratio under eighty means the TTL or the keys are wrong.",
+    "zh": "你在评估要不要引入二级缓存。"
+   },
+   "term": "cache hit ratio",
+   "zh": "缓存命中率"
+  },
+  {
+   "examples": [
+    {
+     "en": "When the cache expired, the thundering herd took the database down.",
+     "zh": "缓存一过期，惊群效应把数据库打挂了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Request coalescing solves the thundering herd problem neatly.",
+    "zh": "你在复盘一次缓存失效引发的雪崩。"
+   },
+   "term": "thundering herd",
+   "zh": "惊群效应（缓存同时失效，大量请求砸向后端）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Total blocking time halved once we split the chart library out of the main bundle.",
+     "zh": "把图表库从主包里拆出去之后，总阻塞时间降了一半。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Watch total blocking time — it predicts how sluggish taps feel.",
+    "zh": "你在看性能报告，找交互卡顿的量化证据。"
+   },
+   "term": "total blocking time",
+   "zh": "总阻塞时间（长任务堵住交互的累计时长）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Cutting payload size in half did more than any code optimization.",
+     "zh": "把响应体积砍掉一半，比任何代码优化都管用。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Check the payload size before you touch the rendering code.",
+    "zh": "你在复盘接口为什么在弱网上这么慢。"
+   },
+   "term": "payload size",
+   "zh": "响应体积、传输的数据量"
+  },
+  {
+   "examples": [
+    {
+     "en": "Image optimization alone saved us forty percent of page weight.",
+     "zh": "光图片优化一项就省了百分之四十的页面体积。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Modern formats plus responsive sizes — image optimization is free wins.",
+    "zh": "你在排优化清单，把见效最快的排前面。"
+   },
+   "term": "image optimization",
+   "zh": "图片优化（压缩、格式、尺寸）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Brotli shaves another fifteen percent off our JavaScript bundles.",
+     "zh": "Brotli 把我们的 JS 包又压小了百分之十五。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Serve Brotli to browsers that support it, gzip as the fallback.",
+    "zh": "你在跟运维确认服务器开没开新一代压缩。"
+   },
+   "term": "brotli",
+   "zh": "新一代压缩算法（比 gzip 压得更小）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Always test with network throttling on — your users are not on office Wi-Fi.",
+     "zh": "一定要开着网络限速测——你的用户不在办公室 Wi-Fi 上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With network throttling set to slow 4G, the checkout took nine seconds.",
+    "zh": "你在提醒同事别只在本机快网下验收。"
+   },
+   "term": "network throttling",
+   "zh": "网络限速（模拟弱网调试）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Our Lighthouse score went from sixty to ninety-one this quarter.",
+     "zh": "这个季度我们的 Lighthouse 评分从六十涨到了九十一。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Don't chase the Lighthouse score blindly — measure real users too.",
+    "zh": "你在季度总结里汇报性能工作的成果。"
+   },
+   "term": "Lighthouse score",
+   "zh": "Lighthouse 性能评分"
+  },
+  {
+   "examples": [
+    {
+     "en": "Synthetic monitoring caught the checkout slowdown before any user reported it.",
+     "zh": "合成监控在用户投诉之前就发现了结账变慢。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Synthetic monitoring gives you a clean baseline, day or night.",
+    "zh": "你在选监控方案，解释两种监控的区别。"
+   },
+   "term": "synthetic monitoring",
+   "zh": "合成监控（用脚本定时模拟用户访问）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Real user monitoring shows our p75 is fine in Europe and rough in Asia.",
+     "zh": "真实用户监控显示，我们的 P75 在欧洲没问题、在亚洲比较差。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Trust real user monitoring over lab numbers when they disagree.",
+    "zh": "你在用真实数据决定先优化哪个地区。"
+   },
+   "term": "real user monitoring",
+   "zh": "真实用户监控（采集真实访客的性能数据）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Input latency above a hundred milliseconds makes typing feel broken.",
+     "zh": "输入延迟超过一百毫秒，打字就会感觉坏掉了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Measure input latency on a cheap phone, not your dev machine.",
+    "zh": "你在定位输入框打字跟不上的问题。"
+   },
+   "term": "input latency",
+   "zh": "输入延迟（点按、输入到界面响应的间隔）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Debounce the search input or every keystroke hits the API.",
+     "zh": "搜索框要做防抖，不然每敲一个字都请求一次接口。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "A 300-millisecond debounce makes the search feel instant and calm.",
+    "zh": "你在评审里指出一个高频事件没做防抖处理。"
+   },
+   "term": "debounce",
+   "zh": "防抖（等停止触发后才执行）"
+  }
+ ],
+ "layer": "C",
+ "title": "性能优化"
+}
