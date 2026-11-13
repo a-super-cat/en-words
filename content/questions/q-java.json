@@ -1,0 +1,111 @@
+{
+  "category": "java",
+  "title": "Java 深挖",
+  "questions": [
+    {
+      "id": "java-gc-production-issue",
+      "prompt": "Tell me about a time one of your Java services had memory or GC problems in production. How did you track it down?",
+      "zh": "讲一次你的 Java 服务在线上出内存或 GC 问题的经历。你是怎么定位的？",
+      "outline": [
+        "Symptoms first: latency spikes or an out-of-memory crash, and when it started",
+        "Took a heap dump and looked at what was holding references",
+        "Found the cause: an unbounded cache keeping objects alive",
+        "The fix: bounded the cache and reduced object churn",
+        "Afterwards: GC logging and alerts so it would not come back quietly"
+      ],
+      "chunks": [
+        { "term": "garbage collector", "zh": "垃圾回收器" },
+        { "term": "GC pause", "zh": "GC 停顿" },
+        { "term": "memory leak", "zh": "内存泄漏" },
+        { "term": "take a heap dump", "zh": "抓一份堆转储" },
+        { "term": "hold a reference to", "zh": "持有对……的引用" },
+        { "term": "GC tuning", "zh": "GC 调优" }
+      ],
+      "followUps": ["How did you tell it was a leak and not just a small heap?"]
+    },
+    {
+      "id": "java-concurrency-bug",
+      "prompt": "Describe a concurrency bug you had to hunt down in Java. What was the root cause?",
+      "zh": "讲一个你排查过的 Java 并发 bug。根本原因是什么？",
+      "outline": [
+        "The symptom: wrong counts or timeouts that only showed up under load",
+        "It never reproduced locally, so I worked from thread dumps and logs",
+        "Root cause: a check-then-act sequence on shared mutable state",
+        "The fix: an atomic operation and a smaller critical section",
+        "Added a stress test so the race would fail in CI, not in production"
+      ],
+      "chunks": [
+        { "term": "race condition", "zh": "竞态条件" },
+        { "term": "shared mutable state", "zh": "共享可变状态" },
+        { "term": "check-then-act", "zh": "先检查再执行（一种典型的竞态写法）" },
+        { "term": "atomic operation", "zh": "原子操作" },
+        { "term": "critical section", "zh": "临界区" },
+        { "term": "take a thread dump", "zh": "抓一份线程转储" }
+      ],
+      "followUps": ["Why not just synchronize the whole method?"]
+    },
+    {
+      "id": "java-spring-transactions",
+      "prompt": "How do declarative transactions work in Spring — and when do they silently stop working?",
+      "zh": "Spring 的声明式事务是怎么工作的？什么时候会悄悄失效？",
+      "outline": [
+        "Transactions are applied by a proxy around the bean",
+        "Self-invocation bypasses the proxy, so the annotation does nothing",
+        "Propagation decides whether to join or start a transaction",
+        "Rollback happens for runtime exceptions, not checked ones, by default",
+        "How I verify: an integration test that forces a failure mid-way"
+      ],
+      "chunks": [
+        { "term": "declarative transactions", "zh": "声明式事务" },
+        { "term": "bypass the proxy", "zh": "绕过代理" },
+        { "term": "transaction propagation", "zh": "事务传播（行为）" },
+        { "term": "roll back the transaction", "zh": "回滚事务" },
+        { "term": "cross-cutting concern", "zh": "横切关注点" },
+        { "term": "checked exception", "zh": "受检异常" }
+      ],
+      "followUps": ["What happens if the method is private or final?"]
+    },
+    {
+      "id": "java-n-plus-one",
+      "prompt": "How would you find and fix an N+1 query problem in a Java service?",
+      "zh": "你怎么发现并修复 Java 服务里的 N+1 查询问题？",
+      "outline": [
+        "Start from the symptom: one slow endpoint, database under pressure",
+        "Count the queries for a single request; lazy loading is usually the trigger",
+        "Fix options: fetch join, eager loading where it fits, or batch fetching",
+        "Watch the connection pool while verifying the fix",
+        "Prove it with before-and-after query counts, not just timings"
+      ],
+      "chunks": [
+        { "term": "N+1 query problem", "zh": "N+1 查询问题" },
+        { "term": "lazy loading", "zh": "懒加载（用到时才查关联数据）" },
+        { "term": "fetch join", "zh": "抓取连接（一条 SQL 把关联数据一起查出来）" },
+        { "term": "eager loading", "zh": "急加载（查主对象时把关联数据一起查出来）" },
+        { "term": "connection pool", "zh": "连接池" },
+        { "term": "attach a profiler", "zh": "挂上性能剖析器" }
+      ],
+      "followUps": ["When would you keep lazy loading on purpose?"]
+    },
+    {
+      "id": "java-endpoint-profiling",
+      "prompt": "One of your Java endpoints is too slow. Walk me through how you would profile and speed it up.",
+      "zh": "你的一个 Java 接口太慢了。带我过一遍你会怎么剖析和优化。",
+      "outline": [
+        "Measure first: timings per layer before changing anything",
+        "Attach a profiler and find the hot path",
+        "Common findings: allocation churn from short-lived objects, lock contention, slow queries",
+        "Remember benchmarks lie before the JVM has warmed up",
+        "Change one thing at a time and re-measure"
+      ],
+      "chunks": [
+        { "term": "attach a profiler", "zh": "挂上性能剖析器" },
+        { "term": "hot path", "zh": "热点路径" },
+        { "term": "allocate on the heap", "zh": "在堆上分配" },
+        { "term": "short-lived objects", "zh": "短命对象（很快就变成垃圾的对象）" },
+        { "term": "lock contention", "zh": "锁竞争" },
+        { "term": "warm up the JVM", "zh": "预热虚拟机" }
+      ],
+      "followUps": ["How do you make sure the fix did not just move the bottleneck?"]
+    }
+  ]
+}

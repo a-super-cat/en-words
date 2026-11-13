@@ -1,0 +1,111 @@
+{
+  "category": "python",
+  "title": "Python 深挖",
+  "questions": [
+    {
+      "id": "python-gil-concurrency",
+      "prompt": "Explain the GIL. Given that, how do you write concurrent Python?",
+      "zh": "解释一下 GIL。有了它，你会怎么写并发的 Python？",
+      "outline": [
+        "The GIL lets only one thread run Python bytecode at a time",
+        "Threads still work well for I/O-bound work, because the GIL is released while waiting",
+        "CPU-bound work goes to a process pool to use several cores",
+        "asyncio fits when there are many connections and little computation",
+        "A free-threaded build exists now, but most deployments still have the GIL"
+      ],
+      "chunks": [
+        { "term": "global interpreter lock", "zh": "全局解释器锁（GIL 的全称）" },
+        { "term": "CPU-bound task", "zh": "CPU 密集型任务（第二个词 b 开头）" },
+        { "term": "I/O-bound task", "zh": "I/O 密集型任务（第二个词 b 开头）" },
+        { "term": "release the GIL", "zh": "释放 GIL" },
+        { "term": "process pool", "zh": "进程池" },
+        { "term": "asyncio event loop", "zh": "asyncio 的事件循环" }
+      ],
+      "followUps": ["How do you decide between threads, processes, and asyncio?"]
+    },
+    {
+      "id": "python-async-pitfalls",
+      "prompt": "Tell me about the pitfalls of async Python. What do you watch out for?",
+      "zh": "讲讲异步 Python 的坑。你会注意什么？",
+      "outline": [
+        "One blocking call inside a coroutine freezes the whole event loop",
+        "CPU work or blocking I/O must be handed to an executor",
+        "Cancellation is cooperative: tasks need cleanup in finally blocks",
+        "Timeouts and exception groups make failures visible instead of silent",
+        "How I test it: load the endpoint and watch for loop stalls"
+      ],
+      "chunks": [
+        { "term": "blocking call", "zh": "阻塞调用" },
+        { "term": "asyncio event loop", "zh": "asyncio 的事件循环" },
+        { "term": "yield control back to the event loop", "zh": "把控制权交还给事件循环" },
+        { "term": "run coroutines concurrently", "zh": "并发运行多个协程" },
+        { "term": "task cancellation", "zh": "任务取消（异步里的）" },
+        { "term": "exception group", "zh": "异常组（一次抛多个异常的机制）" }
+      ],
+      "followUps": ["How would you notice a blocked event loop in production?"]
+    },
+    {
+      "id": "python-gotchas",
+      "prompt": "What Python gotchas would you warn a junior developer about?",
+      "zh": "有哪些 Python 的坑你会提醒初级开发者？",
+      "outline": [
+        "A mutable default argument is shared between calls",
+        "Shallow copy versus deep copy when mutating nested data",
+        "Mutating a list while iterating over it skips elements",
+        "Naive versus aware datetimes cause subtle timezone bugs",
+        "Most of these bite silently, so tests matter more than memorization"
+      ],
+      "chunks": [
+        { "term": "mutable default argument", "zh": "可变默认参数" },
+        { "term": "shallow copy", "zh": "浅拷贝" },
+        { "term": "deep copy", "zh": "深拷贝" },
+        { "term": "mutate while iterating", "zh": "迭代时修改（容器的经典错误）" },
+        { "term": "naive vs aware datetime", "zh": "无时区与有时区的时间（混用必爆的那个坑）" },
+        { "term": "mutate in place", "zh": "原地修改（对象），m 开头的动词" }
+      ],
+      "followUps": ["Why does the mutable default argument exist at all?"]
+    },
+    {
+      "id": "python-production-practices",
+      "prompt": "How do you keep a Python project maintainable once it is in production?",
+      "zh": "一个 Python 项目上了生产之后，你怎么保持它可维护？",
+      "outline": [
+        "Type hints on public functions, checked by a static type checker in CI",
+        "A virtual environment per project and pinned dependencies",
+        "dataclasses or TypedDict at the boundaries instead of loose dicts",
+        "pytest fixtures and parametrized tests keep the suite small",
+        "One linter-formatter, ruff, so style stops being a discussion"
+      ],
+      "chunks": [
+        { "term": "type hints", "zh": "类型提示（第二个词 h 开头）" },
+        { "term": "static type checker", "zh": "静态类型检查器" },
+        { "term": "virtual environment", "zh": "虚拟环境" },
+        { "term": "pin the dependencies", "zh": "把依赖固定到确切版本（p 开头的动词）" },
+        { "term": "dataclass", "zh": "数据类（自动生成样板方法的那个装饰类）" },
+        { "term": "pytest fixture", "zh": "测试固件（共享的准备与清理代码）" }
+      ],
+      "followUps": ["How much typing is enough — do you annotate everything?"]
+    },
+    {
+      "id": "python-slow-script",
+      "prompt": "A Python job is too slow. Walk me through how you would speed it up.",
+      "zh": "一个 Python 任务太慢了。带我过一遍你会怎么优化。",
+      "outline": [
+        "Profile the code first; the slow part is rarely where you guess",
+        "Fix the algorithm or the data structure before micro-optimizing",
+        "Cache repeated work with lru_cache where the inputs repeat",
+        "Generators keep memory flat on large inputs",
+        "Still CPU-bound: a process pool, or a C extension for the hot loop"
+      ],
+      "chunks": [
+        { "term": "profile the code", "zh": "对代码做性能剖析（动词短语，p 开头）" },
+        { "term": "lru_cache", "zh": "最近最少使用缓存装饰器（functools 里的）" },
+        { "term": "generator", "zh": "生成器" },
+        { "term": "CPU-bound task", "zh": "CPU 密集型任务（第二个词 b 开头）" },
+        { "term": "process pool", "zh": "进程池" },
+        { "term": "C extension", "zh": "C 扩展（用 C 写的 Python 模块）" }
+      ],
+      "followUps": ["When is rewriting it in another language the right answer?"]
+    }
+  ]
+}

@@ -50,6 +50,9 @@ export const QUESTION_ENTRY_CATEGORIES: Record<string, string[]> = {
   architecture: ['c.patterns', 'c.arch-distributed', 'c.arch-reliability', 'c.software-types', 'c.engineering', 'c.cloud-infra'],
   frontend: ['c.react', 'c.vue', 'c.web-frontend', 'c.frontend-tooling', 'c.nodejs'],
   backend: ['c.java', 'c.python', 'c.nodejs', 'c.data', 'c.patterns', 'c.security'],
+  java: ['c.java', 'c.patterns', 'c.engineering'],
+  rust: ['c.rust'],
+  python: ['c.python', 'c.data'],
   data: ['c.data', 'c.python', 'c.performance'],
   reverse: ['b.interview-talk', 'b.hedging', 'b.meetings', 'c.business'],
 };

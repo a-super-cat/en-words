@@ -1,0 +1,111 @@
+{
+  "category": "rust",
+  "title": "Rust 深挖",
+  "questions": [
+    {
+      "id": "rust-ownership-model",
+      "prompt": "Explain Rust's ownership model. What clicked for you, and what still trips you up?",
+      "zh": "解释一下 Rust 的所有权模型。哪一点让你一下子通了？哪一点现在还会绊住你？",
+      "outline": [
+        "One owner per value; assignment moves instead of copying",
+        "Borrowing: many readers or one writer, enforced at compile time",
+        "Lifetimes describe how long references stay valid",
+        "What clicked: treating the borrow checker as a strict pair programmer",
+        "Honest limit: my Rust experience is from personal projects, not production"
+      ],
+      "chunks": [
+        { "term": "ownership model", "zh": "所有权模型" },
+        { "term": "move semantics", "zh": "移动语义" },
+        { "term": "the borrow checker", "zh": "借用检查器" },
+        { "term": "mutable reference", "zh": "可变引用" },
+        { "term": "lifetime annotation", "zh": "生命周期标注" },
+        { "term": "go out of scope", "zh": "（变量）离开作用域" }
+      ],
+      "followUps": ["How do you get out of a borrow checker fight you cannot win?"]
+    },
+    {
+      "id": "rust-error-handling",
+      "prompt": "How do you handle errors in your Rust projects?",
+      "zh": "你的 Rust 项目里怎么处理错误？",
+      "outline": [
+        "Result and Option instead of exceptions; errors are values",
+        "The question mark operator propagates with almost no boilerplate",
+        "Libraries: a typed error enum with thiserror",
+        "Applications: anyhow-style error context at the boundary",
+        "unwrap only where a failure is truly impossible, and say why"
+      ],
+      "chunks": [
+        { "term": "Result type", "zh": "表示“操作可能失败”的返回类型（Rust 用它代替异常）" },
+        { "term": "propagate the error", "zh": "把错误向上传播（交给调用方处理）" },
+        { "term": "the question mark operator", "zh": "问号运算符（写在表达式后面的 ?）" },
+        { "term": "thiserror", "zh": "定义库错误类型的那个库（常和 anyhow 搭配）" },
+        { "term": "error context", "zh": "错误上下文（给错误加说明）" },
+        { "term": "unwrap", "zh": "直接取出里面的值，没有值就崩溃（Option 和 Result 上的方法，u 开头）" }
+      ],
+      "followUps": ["When is panic! acceptable in your code?"]
+    },
+    {
+      "id": "rust-async-model",
+      "prompt": "How does async work in Rust, and how is it different from the async you know from other languages?",
+      "zh": "Rust 的异步是怎么工作的？和你熟悉的其他语言的异步有什么不同？",
+      "outline": [
+        "A future does nothing until something polls it",
+        "There is no built-in runtime; my projects use an async runtime like Tokio",
+        "Tasks are spawned onto the executor and must not block it",
+        "A blocking call inside async code stalls every task on that thread",
+        "Send and Sync bounds decide what can cross an await point"
+      ],
+      "chunks": [
+        { "term": "async runtime", "zh": "异步运行时" },
+        { "term": "poll a future", "zh": "轮询一个 future（推动它往前执行）" },
+        { "term": "spawn a task", "zh": "启动一个（异步）任务，s 开头" },
+        { "term": "block the executor", "zh": "阻塞执行器（在异步任务里做阻塞操作的后果）" },
+        { "term": "Send and Sync", "zh": "标记类型能否跨线程转移、能否跨线程共享的两个 trait" },
+        { "term": "zero-cost abstraction", "zh": "零成本抽象" }
+      ],
+      "followUps": ["What happens if you call a blocking sleep inside an async function?"]
+    },
+    {
+      "id": "rust-why-rust-tradeoffs",
+      "prompt": "Why did you pick Rust for your personal projects — and what are the downsides?",
+      "zh": "你为什么选 Rust 做个人项目？它的代价是什么？",
+      "outline": [
+        "Motivation: native performance with memory safety and no garbage collector",
+        "Fearless concurrency makes parallel code far less scary",
+        "Downsides: compile times and the borrow checker's learning curve",
+        "The ecosystem is smaller than Java's or Python's for some tasks",
+        "Where I would not pick it: quick scripts — Python wins there"
+      ],
+      "chunks": [
+        { "term": "memory safety", "zh": "内存安全" },
+        { "term": "at compile time", "zh": "在编译期（而不是运行时）" },
+        { "term": "fearless concurrency", "zh": "无畏并发" },
+        { "term": "compile times", "zh": "编译耗时（编译要花多长时间，复数）" },
+        { "term": "zero-cost abstraction", "zh": "零成本抽象" },
+        { "term": "runtime overhead", "zh": "运行时开销" }
+      ],
+      "followUps": ["Would you use Rust for a CRUD web service at work?"]
+    },
+    {
+      "id": "rust-traits-dispatch",
+      "prompt": "Explain traits and generics in Rust. When do you use static dispatch, and when dynamic?",
+      "zh": "解释一下 Rust 的 trait 和泛型。什么时候用静态分发，什么时候用动态分发？",
+      "outline": [
+        "A trait bound says what a generic type must be able to do",
+        "Static dispatch monomorphizes: a specialized copy per type, no runtime cost",
+        "A trait object gives dynamic dispatch through a vtable",
+        "impl Trait is sugar for generics in argument or return position",
+        "Rule of thumb: generics by default, trait objects for heterogeneous collections or plugin points"
+      ],
+      "chunks": [
+        { "term": "trait bound", "zh": "trait 约束（限制泛型参数必须实现某个 trait）" },
+        { "term": "monomorphization", "zh": "单态化" },
+        { "term": "static dispatch", "zh": "静态分发" },
+        { "term": "dynamic dispatch", "zh": "动态分发" },
+        { "term": "trait object", "zh": "trait 对象" },
+        { "term": "impl Trait", "zh": "隐藏具体类型的写法（用在返回位置）" }
+      ],
+      "followUps": ["What does object safety mean, in plain words?"]
+    }
+  ]
+}
