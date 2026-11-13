@@ -1,0 +1,607 @@
+{
+ "category": "admin",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "I'd like to take a day off next Friday to deal with some family stuff.",
+     "zh": "我想下周五请一天假，处理点家里的事。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Can I take a day off next Friday? Something came up at home.",
+    "zh": "你想跟经理请下周五的假，怎么开口？"
+   },
+   "term": "take a day off",
+   "zh": "请一天假"
+  },
+  {
+   "examples": [
+    {
+     "en": "We get twenty days of paid time off a year, plus public holidays.",
+     "zh": "我们一年有二十天带薪休假，另外还有法定假日。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "How much paid time off do people usually take here?",
+    "zh": "面试时你想问对方的休假政策，怎么问比较得体？"
+   },
+   "term": "paid time off",
+   "zh": "带薪休假"
+  },
+  {
+   "examples": [
+    {
+     "en": "I woke up with a fever, so I'm taking sick leave today.",
+     "zh": "我醒来发烧了，所以今天请病假。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Morning — I'm taking sick leave today. I have a fever and lost my voice.",
+    "zh": "你早上起来嗓子哑了，想在群里说今天请病假。"
+   },
+   "term": "sick leave",
+   "zh": "病假"
+  },
+  {
+   "examples": [
+    {
+     "en": "Please request time off in the system at least two weeks in advance.",
+     "zh": "请至少提前两周在系统里申请休假。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Just request time off in the portal, and your manager will get a notification.",
+    "zh": "你想提醒新同事请假要走系统申请，怎么说？"
+   },
+   "term": "request time off",
+   "zh": "申请休假"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let me check my leave balance before I plan the trip.",
+     "zh": "我先看看还剩多少假期，再计划这次出行。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Hi, could you tell me my current leave balance?",
+    "zh": "你想知道自己今年还剩几天年假，去问 HR。"
+   },
+   "term": "leave balance",
+   "zh": "剩余假期（天数）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Our vacation policy is use it or lose it, so take your days before December.",
+     "zh": "我们的休假政策是不用就作废，所以十二月之前把假休掉吧。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Remember, it's use it or lose it — book your remaining days before the year ends.",
+    "zh": "年底了，你提醒同事年假再不休就作废了。"
+   },
+   "term": "use it or lose it",
+   "zh": "（假期）不用就作废"
+  },
+  {
+   "examples": [
+    {
+     "en": "After the weekend release, I took a day of time off in lieu.",
+     "zh": "周末上线忙完之后，我调休了一天。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I worked the weekend release — can I take Monday as time off in lieu?",
+    "zh": "上周末你加班处理上线，想跟经理申请周一调休。"
+   },
+   "term": "time off in lieu",
+   "zh": "调休"
+  },
+  {
+   "examples": [
+    {
+     "en": "My manager approved my request within an hour.",
+     "zh": "我的经理一小时内就批准了我的申请。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Yes, my manager approved my request this morning.",
+    "zh": "同事问你假期批下来没有，你怎么回答？"
+   },
+   "term": "approve a request",
+   "zh": "批准（休假、报销等）申请"
+  },
+  {
+   "examples": [
+    {
+     "en": "She's on parental leave until March and will be back part-time after that.",
+     "zh": "她休育儿假到三月，之后先兼职回来。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "When is he back from parental leave?",
+    "zh": "你听说同事要去休陪产假了，想确认他什么时候回来。"
+   },
+   "term": "parental leave",
+   "zh": "育儿假（产假、陪产假）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The company offers three days of bereavement leave.",
+     "zh": "公司提供三天丧假。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I need to take bereavement leave this week — my grandfather passed away.",
+    "zh": "你需要请丧假，在电话里跟经理说明情况。"
+   },
+   "term": "bereavement leave",
+   "zh": "丧假"
+  },
+  {
+   "examples": [
+    {
+     "en": "File an expense report within thirty days of the trip.",
+     "zh": "在出差结束后三十天内提交报销单。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I still need to file an expense report for the Singapore trip.",
+    "zh": "出差回来一周了，你提醒自己别忘了什么？"
+   },
+   "term": "file an expense report",
+   "zh": "提交报销单"
+  },
+  {
+   "examples": [
+    {
+     "en": "Reimbursement usually lands in your account within two weeks.",
+     "zh": "报销款一般在两周内到账。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "How long does reimbursement usually take?",
+    "zh": "财务说报销已经在走了，你想问大概多久到账。"
+   },
+   "term": "reimbursement",
+   "zh": "报销（款项）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keep the receipt for anything over twenty-five dollars.",
+     "zh": "超过二十五美元的消费都要留好收据。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Keep the receipt — you'll need it to claim the taxi fare back.",
+    "zh": "你垫付了打车费，同事提醒你留好收据才能报销。"
+   },
+   "term": "keep the receipt",
+   "zh": "留好发票、收据"
+  },
+  {
+   "examples": [
+    {
+     "en": "I paid out of pocket for the hotel and claimed it back later.",
+     "zh": "酒店是我先垫付的，后来报销回来了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Don't worry, I'll pay out of pocket and expense it later.",
+    "zh": "公司卡刷不了，你跟同事说你先垫上。"
+   },
+   "term": "out of pocket",
+   "zh": "自掏腰包、先垫付"
+  },
+  {
+   "examples": [
+    {
+     "en": "For flights and hotels, use the company credit card instead of your own.",
+     "zh": "机票和酒店用公司信用卡付，别用你自己的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Should I book it on the company credit card?",
+    "zh": "你第一次出差订酒店，不知道该刷哪张卡。"
+   },
+   "term": "company credit card",
+   "zh": "公司信用卡"
+  },
+  {
+   "examples": [
+    {
+     "en": "The per diem covers meals and local transport.",
+     "zh": "每日补贴涵盖餐饮和当地交通。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Is dinner covered by the per diem, or do I expense it separately?",
+    "zh": "你在看差旅政策，想确认吃饭的钱怎么算。"
+   },
+   "term": "per diem",
+   "zh": "出差每日补贴"
+  },
+  {
+   "examples": [
+    {
+     "en": "Once the form is filled in, submit it for approval and your manager will be notified.",
+     "zh": "表格填好后提交审批，你的经理会收到通知。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The report is ready — I just need to submit it for approval.",
+    "zh": "你填完报销表，下一步该做什么？"
+   },
+   "term": "submit for approval",
+   "zh": "提交审批"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'm going on a business trip to Singapore next month.",
+     "zh": "我下个月要去新加坡出差。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'll be on a business trip next week, so I may reply slowly.",
+    "zh": "站会上你同步一下自己下周不在的原因。"
+   },
+   "term": "business trip",
+   "zh": "出差"
+  },
+  {
+   "examples": [
+    {
+     "en": "You'll get reimbursed once finance reviews the report.",
+     "zh": "财务审核完报销单，你就会拿到报销了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Hi, when will I get reimbursed for the conference ticket?",
+    "zh": "你垫的钱还没到账，去问财务进度。"
+   },
+   "term": "get reimbursed",
+   "zh": "拿到报销、报销到账"
+  },
+  {
+   "examples": [
+    {
+     "en": "Send your invoice at the end of the month so we can process the payment.",
+     "zh": "请在月底前发出你的账单，我们好走付款流程。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "I'll send my invoice on the last working day of the month.",
+    "zh": "你是合同工，客户问你什么时候发账单。"
+   },
+   "term": "invoice",
+   "zh": "发票；给客户或公司的账单"
+  },
+  {
+   "examples": [
+    {
+     "en": "HR sent over the paperwork for me to sign this week.",
+     "zh": "HR 把需要我这周签的入职文书发过来了。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "I've signed all the paperwork and sent it back to HR.",
+    "zh": "入职前 HR 让你把一堆文件签好寄回，你在邮件里确认。"
+   },
+   "term": "paperwork",
+   "zh": "（入职、签证等的）文书手续"
+  },
+  {
+   "examples": [
+    {
+     "en": "I signed the contract and returned it the same day.",
+     "zh": "我签了合同，当天就寄回去了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I signed the contract this morning — you should have it now.",
+    "zh": "HR 在跟进你的合同进度，你怎么回复？"
+   },
+   "term": "sign the contract",
+   "zh": "签（劳动）合同"
+  },
+  {
+   "examples": [
+    {
+     "en": "The probation period is three months, with a review at the end.",
+     "zh": "试用期是三个月，结束时有一次评估。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "How long is the probation period, and how is it evaluated?",
+    "zh": "面试聊到最后，你想问试用期多久、怎么评估。"
+   },
+   "term": "probation period",
+   "zh": "试用期"
+  },
+  {
+   "examples": [
+    {
+     "en": "Benefits enrollment happens during your first week.",
+     "zh": "福利登记在你入职第一周内办。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "When is the deadline for benefits enrollment this year?",
+    "zh": "HR 提醒你别错过今年的福利登记窗口，你想确认截止日期。"
+   },
+   "term": "benefits enrollment",
+   "zh": "福利登记、参保手续"
+  },
+  {
+   "examples": [
+    {
+     "en": "Does the plan include health insurance for remote employees?",
+     "zh": "这个方案给远程员工提供健康保险吗？"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Could you tell me more about the health insurance for remote staff?",
+    "zh": "你和 HR 确认远程岗位的福利，想问医保这一项。"
+   },
+   "term": "health insurance",
+   "zh": "健康保险、医保"
+  },
+  {
+   "examples": [
+    {
+     "en": "The company matches part of what you put into the retirement plan.",
+     "zh": "你往退休金计划里存的钱，公司会按比例配一部分。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "How much does the company match on the retirement plan?",
+    "zh": "你在看福利手册，想确认公司配缴的比例。"
+   },
+   "term": "retirement plan",
+   "zh": "退休金计划、养老金"
+  },
+  {
+   "examples": [
+    {
+     "en": "Payroll set up direct deposit, so my salary lands on the last working day.",
+     "zh": "财务设好了工资直存，我的工资在每月最后一个工作日到账。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Please use this account for direct deposit.",
+    "zh": "发薪方式要登记，你跟财务确认用哪个账户。"
+   },
+   "term": "direct deposit",
+   "zh": "（工资）直接存入银行账户"
+  },
+  {
+   "examples": [
+    {
+     "en": "The employee handbook spells out the leave policy in detail.",
+     "zh": "员工手册里把休假政策写得很细。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Check the employee handbook — the leave policy is in there.",
+    "zh": "你不确定丧假有几天，同事让你去查哪里？"
+   },
+   "term": "employee handbook",
+   "zh": "员工手册"
+  },
+  {
+   "examples": [
+    {
+     "en": "They asked for an emergency contact during onboarding.",
+     "zh": "入职时他们让留一个紧急联系人。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For the emergency contact, can I put my partner's number?",
+    "zh": "你填入职表格，看到要填紧急联系人这一栏，想确认填谁合适。"
+   },
+   "term": "emergency contact",
+   "zh": "紧急联系人"
+  },
+  {
+   "examples": [
+    {
+     "en": "My start date is the first Monday of next month.",
+     "zh": "我的入职日期是下个月的第一个周一。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Does a start date of the 6th work for you?",
+    "zh": "offer 谈妥了，你跟对方确认哪天开始上班。"
+   },
+   "term": "start date",
+   "zh": "入职日期、上班第一天"
+  },
+  {
+   "examples": [
+    {
+     "en": "The company laptop arrived two days before my start date.",
+     "zh": "公司配的笔记本在我入职前两天就到了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Will the company laptop be shipped to me, or do I buy my own?",
+    "zh": "你入职前问 HR 电脑是会寄过来还是要自己买。"
+   },
+   "term": "company laptop",
+   "zh": "公司配的笔记本电脑"
+  },
+  {
+   "examples": [
+    {
+     "en": "If the VPN keeps dropping, raise a ticket with IT support.",
+     "zh": "如果 VPN 老掉线，就给 IT 支持提个工单。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "My account is locked — I'll reach out to IT support.",
+    "zh": "你账号被锁了，同事建议你找谁？"
+   },
+   "term": "IT support",
+   "zh": "IT 支持、技术支持部门"
+  },
+  {
+   "examples": [
+    {
+     "en": "Raise a ticket and attach a screenshot of the error.",
+     "zh": "提个工单，把报错截图附上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Could you raise a ticket for the broken dock? IT will pick it up.",
+    "zh": "你想让新同事自己走工单流程反馈设备问题，怎么说？"
+   },
+   "term": "raise a ticket",
+   "zh": "提交（问题）工单"
+  },
+  {
+   "examples": [
+    {
+     "en": "I still don't have access permissions for the billing repo.",
+     "zh": "我还是没有计费仓库的访问权限。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I can't open the repo — could you check my access permissions?",
+    "zh": "入职第二天你发现自己进不去代码仓库，跟 IT 说明。"
+   },
+   "term": "access permissions",
+   "zh": "（系统、仓库的）访问权限"
+  },
+  {
+   "examples": [
+    {
+     "en": "You can order equipment up to five hundred dollars without extra approval.",
+     "zh": "五百美元以内的设备可以直接订，不用额外审批。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "How do I order equipment, like a second monitor?",
+    "zh": "你想再配一台显示器，先问问流程。"
+   },
+   "term": "order equipment",
+   "zh": "申领、订购（办公）设备"
+  },
+  {
+   "examples": [
+    {
+     "en": "He resigned to join a startup and left at the end of the month.",
+     "zh": "他辞职去了一家创业公司，月底走的。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Did you hear? Marco resigned last week.",
+    "zh": "你跟朋友说起同事离职的事。"
+   },
+   "term": "resign",
+   "zh": "辞职"
+  },
+  {
+   "examples": [
+    {
+     "en": "My notice period is one month, so I can start in early January.",
+     "zh": "我的离职通知期是一个月，所以一月初能入职。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "My notice period is one month, so the earliest I can start is January.",
+    "zh": "面试时对方问你最快什么时候能入职，你要说清通知期。"
+   },
+   "term": "notice period",
+   "zh": "离职通知期、提前告知期"
+  },
+  {
+   "examples": [
+    {
+     "en": "She gave notice last week and finishes at the end of the month.",
+     "zh": "她上周提出了离职，月底正式离开。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I've decided to move on, so I'd like to give notice today.",
+    "zh": "你决定换工作，在电话里正式向经理提出离职。"
+   },
+   "term": "give notice",
+   "zh": "正式提出离职"
+  },
+  {
+   "examples": [
+    {
+     "en": "HR scheduled an exit interview for my final week.",
+     "zh": "HR 把离职面谈安排在了我最后一周。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "What does the exit interview usually cover?",
+    "zh": "HR 发来邀请，你想确认离职面谈都聊些什么。"
+   },
+   "term": "exit interview",
+   "zh": "离职面谈"
+  },
+  {
+   "examples": [
+    {
+     "en": "My last day is Friday the 20th, and I'll return the laptop that morning.",
+     "zh": "我最后一天是 20 号周五，那天上午我把笔记本还掉。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Just a heads-up: my last day is Friday, so please loop Ana in after that.",
+    "zh": "你在团队频道里跟大家告别，顺便说清最后一天是哪天。"
+   },
+   "term": "last day",
+   "zh": "（在公司的）最后一天"
+  }
+ ],
+ "layer": "B",
+ "title": "行政事务"
+}

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { CardState, Entry, Layer } from '../types';
-import { buildReviewQueue, dayKey, isDue, pickNewGroups } from './queue';
+import { buildReviewQueue, dayKey, daysSinceBackup, isDue, pickNewGroups } from './queue';
 import { DAY, newCard } from './schedule';
 import { forecast, minutesByDay, streakDays } from './stats';
 
@@ -133,5 +133,23 @@ describe('streakDays', () => {
   it('中断后重新计数', () => {
     expect(streakDays(new Set([day(0), day(-2), day(-3)]), NOON)).toBe(1);
     expect(streakDays(new Set([day(-2)]), NOON)).toBe(0);
+  });
+});
+
+describe('daysSinceBackup', () => {
+  it('从没备份过返回 null', () => {
+    expect(daysSinceBackup(null, NOON)).toBeNull();
+  });
+
+  it('按自然日算：同一天是 0，跨过午夜就算 1 天', () => {
+    const morning = new Date(2026, 0, 5, 8, 0, 0).getTime();
+    const lateNight = new Date(2026, 0, 5, 23, 30, 0).getTime();
+    expect(daysSinceBackup(morning, lateNight)).toBe(0);
+    expect(daysSinceBackup(morning, NOON + DAY)).toBe(1);
+    expect(daysSinceBackup(morning, NOON + 8 * DAY)).toBe(8);
+  });
+
+  it('备份时间在未来（改过系统时间）时不返回负数', () => {
+    expect(daysSinceBackup(NOON + DAY, NOON)).toBe(0);
   });
 });

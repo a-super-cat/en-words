@@ -202,6 +202,144 @@
           ]
         }
       ]
+    },
+    {
+      "id": "first-week-expectations",
+      "title": "第一周和经理确认期望",
+      "setting": "入职第一周的一对一视频通话。经理 Elena 想看看你的适应情况，你想问清第一个月的重点、怎么汇报、卡住了找谁。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Elena",
+          "en": "So, how's the first week going? Anything blocking you so far?",
+          "zh": "第一周感觉怎么样？到目前为止有什么卡住你的吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说整体很顺利，环境都配好了。你想确认第一个月的重点：先尽快熟悉代码库，还是直接开始接任务。",
+          "en": "Pretty smooth so far — my setup is all done. I wanted to check the focus for my first month: should I get up to speed on the codebase first, or start picking up tasks right away?",
+          "chunks": [
+            { "term": "pick up", "zh": "接手、认领（任务）" },
+            { "term": "get ... up to speed", "zh": "让……尽快熟悉情况" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Elena",
+          "en": "A bit of both. Start with the onboarding docs and the checkout codebase. By week three, I'd like you to own a small feature end to end.",
+          "zh": "两者都要。先看入职文档和结算的代码库。到第三周，我希望你能端到端地负责一个小功能。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你问汇报方式：每天站会同步够不够，还是希望你周五额外发一份书面更新。另外你说如果进度有风险，你会提前说。",
+          "en": "Sounds good. How would you like me to keep you posted — is the daily standup enough, or would you prefer a written update on Fridays? Either way, I'll flag it early if anything slips.",
+          "chunks": [
+            { "term": "a written update", "zh": "一份书面更新" },
+            { "term": "flag ... early", "zh": "提前把（风险、问题）说出来" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Elena",
+          "en": "Standup plus the Friday note is perfect. And if you're stuck for more than an hour, ping me or Kwame — please don't suffer in silence.",
+          "zh": "站会加上周五的简短更新就很好。另外，如果你卡住超过一个小时，就找我或者 Kwame——千万别自己闷着。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说记下了。你会养成一个习惯：先查文档，查不到就尽早问，而不是靠猜。",
+          "en": "Got it. I'll make a point of checking the docs first, and asking early instead of guessing.",
+          "chunks": [
+            { "term": "make a point of", "zh": "特意、刻意做到……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Elena",
+          "en": "That's the spirit. Your onboarding buddy is Sophie — she'll show you the ropes this week.",
+          "zh": "就是这个态度。你的入职伙伴是 Sophie——这周她会带你熟悉各种门道。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你道谢，并确认这周的计划：先看文档和代码，把疑问写进文档里，有解决不了的就在频道里问 Sophie。",
+          "en": "Thanks, that helps a lot. I'll work through the docs and the codebase this week, write this up in the doc as I go, and ask Sophie in the channel when I get stuck.",
+          "chunks": [
+            { "term": "write this up in the doc", "zh": "把这些整理写进文档" },
+            { "term": "ask in public channels", "zh": "在公开频道里提问" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "it-access-follow-up",
+      "title": "权限没开通，找 IT 跟进",
+      "setting": "入职第二天，公司笔记本已经到了，但代码仓库和 VPN 都进不去。你先找 IT 支持说明情况，再在团队频道里请 Kwame 先发你文档链接，别干等着。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Marco",
+          "en": "Hi, IT support here. I can see your laptop was delivered yesterday — are you all set?",
+          "zh": "你好，这里是 IT 支持。我看你的笔记本昨天已经送到了——都弄好了吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说笔记本没问题，但仓库和 VPN 都登不上去，看起来你的访问权限还没开通。你问是不是要提一个工单。",
+          "en": "The laptop is fine, thanks. But I can't get into the repos or the VPN yet — it looks like my access permissions haven't been set up. Should I raise a ticket for this?",
+          "chunks": [
+            { "term": "access permissions", "zh": "访问权限" },
+            { "term": "raise a ticket", "zh": "提交工单" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marco",
+          "en": "Yes, please raise one under Access Requests and pick New Joiner. It usually takes a day. When was your start date?",
+          "zh": "好的，请在“访问申请”下面提一个，类型选“新入职”。一般要一天。你的入职日期是哪天？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说入职日期是周一，工单刚刚已经提交了。你提醒一下自己已经被拉进站会了，问能不能加急。",
+          "en": "My start date was Monday, and I've just submitted the ticket. Just flagging that I'm already on the standup invite — is there any way to speed it up?",
+          "chunks": [
+            { "term": "start date", "zh": "入职日期" },
+            { "term": "just flagging", "zh": "只是提醒一下" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marco",
+          "en": "I'll bump the priority. In the meantime, docs and chat use a different account, so your team can already add you there.",
+          "zh": "我会把优先级提上去。这段时间文档和聊天工具用的是另一套账号，你的团队现在就可以把你加进去。"
+        },
+        {
+          "speaker": "them",
+          "name": "Kwame",
+          "en": "Hey, heard your access is stuck. Want me to send you the onboarding docs so you're not just waiting around?",
+          "zh": "嘿，听说你的权限卡住了。要不要我把入职文档发你，省得你干等？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你先提醒他 IT 正在加急处理，但仓库权限可能还要一天。然后请他把入职文档和设计文档发你，你等的时候先把讨论串的历史看一遍。",
+          "en": "Heads up: IT is bumping my ticket, but repo access may take another day. Could you share the onboarding and design docs? I'll catch up on the thread history while I wait.",
+          "chunks": [
+            { "term": "Heads up: ...", "zh": "提醒一下：……" },
+            { "term": "catch up on the thread", "zh": "把讨论串的历史补看一遍" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Kwame",
+          "en": "Links sent. And if it isn't sorted by tomorrow, tell me — I'll chase IT together with you.",
+          "zh": "链接发你了。如果明天还没弄好，告诉我——我陪你一起催 IT。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你向他道谢，说权限一开通你就先把本地环境跑起来，之后就接得上了，有问题再找他。",
+          "en": "Thanks a lot. Once the access comes through, I'll get the local setup running and pick it up from there. I'll ping you if I hit anything.",
+          "chunks": [
+            { "term": "pick it up", "zh": "接上、继续处理" }
+          ]
+        }
+      ]
     }
   ]
 }

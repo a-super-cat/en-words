@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue';
+import { BACKUP_REMIND_DAYS, daysSinceBackup } from '../srs/queue';
 import { useApp } from '../stores/app';
 import { useSpeaking } from '../stores/speaking';
 
@@ -13,6 +14,14 @@ const scenario = computed(() => speaking.nextScenario());
 
 const SECONDS_PER_REVIEW = 12;
 const SECONDS_PER_NEW = 30;
+
+// 备份提醒：有学习数据、且从没导出过备份或距上次导出满一周时才出现，不天天打扰
+const backupDays = computed(() => daysSinceBackup(app.lastBackupAt, app.now));
+const backupReminder = computed<'never' | 'stale' | null>(() => {
+  if (app.cards.size === 0) return null;
+  if (app.lastBackupAt === null) return 'never';
+  return (backupDays.value ?? 0) >= BACKUP_REMIND_DAYS ? 'stale' : null;
+});
 
 const today = new Date().toLocaleDateString('zh-CN', { month: 'long', day: 'numeric', weekday: 'long' });
 const reviewMinutes = computed(() => Math.ceil((app.dueCount.total * SECONDS_PER_REVIEW) / 60));
@@ -46,6 +55,16 @@ const totals = computed(() =>
       <h1>{{ today }}</h1>
       <span class="badge" :class="{ good: app.streak > 0 }">连续 {{ app.streak }} 天</span>
     </div>
+
+    <section v-if="backupReminder" class="panel row between">
+      <p class="small">
+        <template v-if="backupReminder === 'never'">
+          学习数据只存在这台设备上，你还没有导出过备份。导出一份，换设备或清数据时能恢复。
+        </template>
+        <template v-else>距上次导出备份已经 {{ backupDays }} 天了，建议再导出一份。</template>
+      </p>
+      <RouterLink to="/settings" class="btn">去导出</RouterLink>
+    </section>
 
     <section class="panel row between">
       <div>

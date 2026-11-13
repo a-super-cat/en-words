@@ -14,6 +14,15 @@ export function startOfDay(now: number): number {
 
 export const endOfDay = (now: number) => startOfDay(now) + DAY - 1;
 
+/** 备份提醒的间隔（天）：距上次导出备份满这么多天，今日页就提醒 */
+export const BACKUP_REMIND_DAYS = 7;
+
+/** 距上次备份过了几个自然日；从没备份过（null）返回 null */
+export function daysSinceBackup(lastBackupAt: number | null, now: number): number | null {
+  if (lastBackupAt === null) return null;
+  return Math.max(0, Math.round((startOfDay(now) - startOfDay(lastBackupAt)) / DAY));
+}
+
 export function dayKey(time: number): string {
   const d = new Date(time);
   const pad = (n: number) => String(n).padStart(2, '0');

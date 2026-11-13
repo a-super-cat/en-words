@@ -6,11 +6,14 @@ import { useVocab, type VocabBackup } from './vocab';
 export type FullBackup = Backup & { speaking?: SpeakingBackup; vocab?: VocabBackup };
 
 export async function exportBackup(): Promise<FullBackup> {
-  return {
+  const data: FullBackup = {
     ...(await useApp().exportData()),
     speaking: useSpeaking().exportData(),
     vocab: await useVocab().exportData(),
   };
+  // 备份文件生成出来就算导出，记下时间给今日页的备份提醒用
+  await useApp().noteBackupExported();
+  return data;
 }
 
 /** 返回错误信息；成功时返回 null */

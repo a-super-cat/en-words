@@ -78,6 +78,8 @@ export const useApp = defineStore('app', () => {
   const days = shallowReactive(new Set<string>());
   const settings = reactive<Settings>({ ...DEFAULTS });
   const todayStats = reactive({ reviews: 0, ms: 0 });
+  /** 上次导出备份的时间（毫秒），从没导出过是 null。今日页靠它提醒备份 */
+  const lastBackupAt = ref<number | null>(null);
 
   const entries = computed(() => [...builtin.entries, ...userEntries.value]);
   const byId = computed(() => new Map(entries.value.map((e) => [e.id, e])));
@@ -128,12 +130,13 @@ export const useApp = defineStore('app', () => {
 
   async function init(): Promise<void> {
     try {
-      const [cardRows, noteRows, userRows, saved, logs] = await Promise.all([
+      const [cardRows, noteRows, userRows, saved, logs, backupRow] = await Promise.all([
         db.cards.toArray(),
         db.notes.toArray(),
         db.userEntries.toArray(),
         db.kv.get('settings'),
         db.logs.toArray(),
+        db.kv.get('lastBackupAt'),
       ]);
       cards.clear();
       for (const c of cardRows) cards.set(c.key, c);
@@ -141,6 +144,7 @@ export const useApp = defineStore('app', () => {
       for (const n of noteRows) notes.set(n.entryId, n);
       userEntries.value = userRows.sort((a, b) => a.order - b.order);
       Object.assign(settings, DEFAULTS, (saved?.value as Partial<Settings> | undefined) ?? {});
+      lastBackupAt.value = typeof backupRow?.value === 'number' ? backupRow.value : null;
 
       const start = startOfDay(Date.now());
       days.clear();
@@ -419,6 +423,16 @@ export const useApp = defineStore('app', () => {
     await db.kv.put({ key: 'settings', value: plainSettings() });
   }
 
+  /** 导出备份时记下时间，今日页靠它提醒“该备份了”。记不下只是少个提醒，不让导出跟着失败 */
+  async function noteBackupExported(): Promise<void> {
+    lastBackupAt.value = Date.now();
+    try {
+      await db.kv.put({ key: 'lastBackupAt', value: lastBackupAt.value });
+    } catch {
+      // 忽略：提醒是次要的
+    }
+  }
+
   async function exportData(): Promise<Backup> {
     const [cardRows, logs, entryRows, noteRows] = await Promise.all([
       db.cards.toArray(),
@@ -479,6 +493,8 @@ export const useApp = defineStore('app', () => {
     notes,
     settings,
     todayStats,
+    lastBackupAt,
+    noteBackupExported,
     dueCount,
     learnedToday,
     unseenCount,

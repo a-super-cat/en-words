@@ -101,6 +101,84 @@
         { "term": "What drew me to this role is ...", "zh": "这个岗位吸引我的地方是……" },
         { "term": "be a good fit for", "zh": "和……很契合、很适合" }
       ]
+    },
+    {
+      "id": "reverse-remote-setup",
+      "prompt": "The role is fully remote. What would you like to know about how we work remotely?",
+      "zh": "这个岗位是全远程的。关于我们远程工作的方式，你想了解些什么？",
+      "outline": [
+        "How widely the team is spread across time zones",
+        "Core overlap hours and how many meetings are expected",
+        "Async-first habits: docs, tickets, recorded walkthroughs",
+        "How handoffs work when someone's day ends",
+        "On-call and incident handling across zones"
+      ],
+      "chunks": [
+        { "term": "working hours overlap", "zh": "工作时间重叠" },
+        { "term": "move this to async", "zh": "把这件事改成异步沟通" },
+        { "term": "ask in public channels", "zh": "在公开频道里提问" },
+        { "term": "a written update", "zh": "一份书面更新" },
+        { "term": "hand over to the next shift", "zh": "交接给下一班的人" }
+      ],
+      "followUps": ["How many hours of overlap does the team keep each day?"]
+    },
+    {
+      "id": "reverse-hiring-timeline",
+      "prompt": "Would you like to know what happens after this interview?",
+      "zh": "你想了解一下这次面试之后还有哪些环节吗？",
+      "outline": [
+        "How many rounds are left and who runs them",
+        "Whether there is a take-home task or a live exercise",
+        "Who makes the final decision",
+        "The timeline for feedback and an offer",
+        "Close politely and offer anything else they need"
+      ],
+      "chunks": [
+        { "term": "What are the next steps in the process?", "zh": "流程接下来的步骤是什么？" },
+        { "term": "When can I expect to hear back?", "zh": "我大概什么时候能收到回复？" },
+        { "term": "Please let me know if you need anything else from me.", "zh": "如果还需要我提供什么，请告诉我。" },
+        { "term": "Thanks for taking the time to speak with me.", "zh": "谢谢你抽时间跟我聊。" }
+      ],
+      "followUps": ["Is there anything about my background you'd like me to clarify?"]
+    },
+    {
+      "id": "reverse-growth-path",
+      "prompt": "What would you like to ask about growing in this role?",
+      "zh": "关于在这个岗位上如何成长，你想问些什么？",
+      "outline": [
+        "Whether there is a clear promotion path and criteria",
+        "IC track versus management track",
+        "How performance reviews work and how often",
+        "Mentorship, budgets for courses and conferences",
+        "How people take on bigger scope over time"
+      ],
+      "chunks": [
+        { "term": "grow into", "zh": "逐渐成长为、胜任" },
+        { "term": "stretch assignment", "zh": "有挑战性的任务（用来锻炼人）" },
+        { "term": "set ... up for success", "zh": "为……的成功创造条件" },
+        { "term": "mentor junior engineers", "zh": "带初级工程师" },
+        { "term": "hit a ceiling", "zh": "碰到天花板、发展受限" }
+      ],
+      "followUps": ["Could you give an example of someone who grew into a senior role here?"]
+    },
+    {
+      "id": "reverse-onboarding-ramp",
+      "prompt": "What would you like to know about onboarding here?",
+      "zh": "关于我们这边的入职流程，你想了解些什么？",
+      "outline": [
+        "What the first week looks like: setup, docs, introductions",
+        "Whether there is a buddy or mentor",
+        "How big the first project usually is",
+        "Expectations at thirty, sixty, and ninety days",
+        "Where the team's knowledge is documented"
+      ],
+      "chunks": [
+        { "term": "get ... up to speed", "zh": "让……尽快熟悉情况" },
+        { "term": "record a quick walkthrough", "zh": "录一段简短的讲解视频" },
+        { "term": "documented in the RFC", "zh": "记在 RFC 文档里" },
+        { "term": "own ... end to end", "zh": "端到端地负责……" }
+      ],
+      "followUps": ["What do new hires usually find hardest in the first month?"]
     }
   ]
 }
