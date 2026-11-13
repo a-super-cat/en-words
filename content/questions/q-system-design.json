@@ -521,6 +521,101 @@
         { "term": "eventual consistency", "zh": "最终一致性" }
       ],
       "followUps": ["Would you use orchestration or choreography for the saga, and why?"]
+    },
+    {
+      "id": "rewrite-or-patch",
+      "prompt": "A legacy service is painful to change, and your team is split between rewriting it and patching it. How do you decide?",
+      "zh": "一个老服务改起来很痛苦，团队在重写和缝补之间分裂。你怎么决策？",
+      "outline": [
+        "Quantify the pain: change frequency, incident rate, cost of delay",
+        "Rewrites freeze features and rediscover every hidden edge case",
+        "Default to strangling: carve off pieces by traffic and value",
+        "Timebox a spike to test the riskiest assumption before committing"
+      ],
+      "chunks": [
+        { "term": "legacy system", "zh": "遗留系统、老系统（l 开头的形容词）" },
+        { "term": "rewrite from scratch", "zh": "从零重写、推倒重来（含 s 开头的名词）" },
+        { "term": "strangler fig pattern", "zh": "绞杀者模式" },
+        { "term": "refactor incrementally", "zh": "渐进式重构、一点一点地重构（动词 + i 开头的副词）" },
+        { "term": "pay down technical debt", "zh": "偿还技术债（动词短语，p 开头）" }
+      ],
+      "followUps": ["How do you sell that decision to management?", "When is a full rewrite actually the right call?"]
+    },
+    {
+      "id": "build-or-buy",
+      "prompt": "How do you decide whether to build a capability in-house or buy a third-party service?",
+      "zh": "你怎么判断一项能力应该自研，还是买第三方服务？",
+      "outline": [
+        "First question: is this core differentiation or a commodity?",
+        "Compare total cost: license plus maintenance, on-call, and upgrades",
+        "Price the exit: data portability and migration effort if you leave",
+        "Buy the commodity, build what makes the product different"
+      ],
+      "chunks": [
+        { "term": "managed service", "zh": "托管服务（云厂商代运维的服务）" },
+        { "term": "at the cost of", "zh": "以……为代价（c 开头的名词）" },
+        { "term": "long-term value", "zh": "长期价值" },
+        { "term": "within budget", "zh": "在预算之内" },
+        { "term": "take ownership of", "zh": "主动把……的责任担起来（含 o 开头的名词）" }
+      ],
+      "followUps": ["Tell me about a build-versus-buy call you got wrong.", "How do you evaluate a vendor's reliability claims before signing?"]
+    },
+    {
+      "id": "cloud-bill-doubled",
+      "prompt": "Your service's cloud bill has doubled in a quarter. How do you bring it down without hurting reliability?",
+      "zh": "你的服务云账单一个季度翻了一倍。你怎么在不伤害可靠性的前提下把它降下来？",
+      "outline": [
+        "Get visibility first: cost broken down by service and team",
+        "Hunt waste: idle resources, oversized instances, forgotten environments",
+        "Then architecture: storage tiers, data transfer, over-replication",
+        "Set budgets and alerts, with SLOs and error budgets as the floor"
+      ],
+      "chunks": [
+        { "term": "right-sizing", "zh": "规格优化（把过大的实例换成合适的）" },
+        { "term": "idle resources", "zh": "闲置资源（开着不用还在计费的资源）" },
+        { "term": "error budget", "zh": "错误预算" },
+        { "term": "within budget", "zh": "在预算之内" },
+        { "term": "long-term value", "zh": "长期价值" }
+      ],
+      "followUps": ["How do you keep cost discipline from fading after one campaign?", "What would you refuse to cut, even under budget pressure?"]
+    },
+    {
+      "id": "what-to-log-metric-alert",
+      "prompt": "For a brand-new service, how do you decide what to log, what to turn into metrics, and what to alert on?",
+      "zh": "对一个全新上线的服务，你怎么决定打什么日志、做什么指标、报什么警？",
+      "outline": [
+        "Start from user-facing SLOs; alert on symptoms, not causes",
+        "Logs are for debugging single requests: structured, with correlation IDs",
+        "Metrics are for trends, capacity, and spotting slow degradation",
+        "Every alert needs a runbook and an owner, or it is noise"
+      ],
+      "chunks": [
+        { "term": "structured logging", "zh": "结构化日志" },
+        { "term": "emit metrics", "zh": "上报指标（动词短语，e 开头）" },
+        { "term": "alert on ...", "zh": "针对…告警（动词 + 介词）" },
+        { "term": "alert fatigue", "zh": "告警疲劳" },
+        { "term": "observability", "zh": "可观测性" }
+      ],
+      "followUps": ["Your team is drowning in alerts. What's your first move?", "How much logging is too much? Where do you draw the line?"]
+    },
+    {
+      "id": "standardize-database",
+      "prompt": "Two teams strongly disagree about which database to standardize on. How do you drive this to a decision?",
+      "zh": "两个团队对统一使用哪个数据库意见强烈对立。你怎么推动这件事得出结论？",
+      "outline": [
+        "Agree on decision criteria first: access patterns, consistency, operations",
+        "Prototype the riskiest real workload on both candidates",
+        "Timebox the debate and write the decision down with its reasons",
+        "Once decided, everyone commits; define what evidence would reopen it"
+      ],
+      "chunks": [
+        { "term": "strong consistency", "zh": "强一致性" },
+        { "term": "eventual consistency", "zh": "最终一致性" },
+        { "term": "get buy-in from", "zh": "争取到……的认可和支持（含 b 开头的名词）" },
+        { "term": "coding standards", "zh": "代码规范（两个词，第二个词 s 开头）" },
+        { "term": "take ownership of", "zh": "主动把……的责任担起来（含 o 开头的名词）" }
+      ],
+      "followUps": ["What if the losing team quietly refuses to adopt it?", "When is standardizing the wrong move?"]
     }
   ]
 }

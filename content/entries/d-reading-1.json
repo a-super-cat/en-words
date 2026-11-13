@@ -1,0 +1,457 @@
+{
+ "category": "reading",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "The algorithm is elegant. However, it assumes the input is already sorted.",
+     "zh": "这个算法很优雅。然而，它假设输入已经排好序了。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "However, this approach only works when the data fits in memory.",
+    "zh": "书里先夸了一个方案，接下来要指出它的前提。"
+   },
+   "term": "however",
+   "zh": "然而、但是（书面转折）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The lock is held during network calls; therefore, contention is high under load.",
+     "zh": "锁在网络调用期间一直被持有；因此，高负载下竞争很激烈。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Therefore, we recommend batching writes whenever possible.",
+    "zh": "你读到一段推理，前面是原因，这里是结论。"
+   },
+   "term": "therefore",
+   "zh": "因此、所以（书面因果）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Requests are processed in parallel, thus reducing overall latency.",
+     "zh": "请求被并行处理，从而降低了整体延迟。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The cache absorbs most reads, thus shielding the database.",
+    "zh": "你在文档里看到一个用它来衔接结果的分句。"
+   },
+   "term": "thus",
+   "zh": "从而、因此（书面，常带分词结构）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The index is not updated synchronously; hence the occasional stale read.",
+     "zh": "索引不是同步更新的；由此，偶尔会读到旧数据。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Hence the need for a reconciliation job every night.",
+    "zh": "书里用一个词就把前因后果收束住了。"
+   },
+   "term": "hence",
+   "zh": "因此、由此（正式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The design is simple. Moreover, it degrades gracefully under partial failure.",
+     "zh": "这个设计很简单。而且，它在部分故障时能优雅降级。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Moreover, the same mechanism handles retries and timeouts.",
+    "zh": "作者在列完一个优点之后又追加一个更强的。"
+   },
+   "term": "moreover",
+   "zh": "而且、此外（递进补充）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Furthermore, all writes are logged before they are applied.",
+     "zh": "此外，所有写入在生效之前都会先记日志。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Furthermore, the protocol requires no coordination between nodes.",
+    "zh": "你在论文式段落里看到层层递进的补充。"
+   },
+   "term": "furthermore",
+   "zh": "此外、再者（比 moreover 更正式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The protocol is complex; nevertheless, it remains the standard choice.",
+     "zh": "这个协议很复杂；尽管如此，它仍是标准选择。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The results were noisy; nevertheless, the trend is clear.",
+    "zh": "书里承认了缺点之后，仍然给出肯定结论。"
+   },
+   "term": "nevertheless",
+   "zh": "尽管如此、然而（让步转折）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The primary handles writes; meanwhile, replicas serve the read traffic.",
+     "zh": "主库处理写入；与此同时，从库承接读流量。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Meanwhile, a background job compacts the old segments.",
+    "zh": "你在读架构描述，两条线并行展开。"
+   },
+   "term": "meanwhile",
+   "zh": "与此同时（时间或对照）"
+  },
+  {
+   "examples": [
+    {
+     "en": "In contrast, the second algorithm trades memory for speed.",
+     "zh": "相比之下，第二个算法用内存换速度。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In contrast, event-driven systems react rather than poll.",
+    "zh": "作者刚讲完方案 A，开始讲方案 B 的不同取向。"
+   },
+   "term": "in contrast",
+   "zh": "相比之下、与之形成对照"
+  },
+  {
+   "examples": [
+    {
+     "en": "By contrast, a monolith deploys as a single unit.",
+     "zh": "与此相对，单体应用是作为一个整体部署的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "By contrast, the old system required a full restart for any change.",
+    "zh": "你在对照微服务时读到单体的描述。"
+   },
+   "term": "by contrast",
+   "zh": "与此相对、反过来看"
+  },
+  {
+   "examples": [
+    {
+     "en": "As a result, the queue drained slowly and latency climbed.",
+     "zh": "结果是，队列排空得很慢，延迟随之上升。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "As a result of this change, error rates dropped by half.",
+    "zh": "你在复盘文章里读到故障的连锁后果。"
+   },
+   "term": "as a result",
+   "zh": "结果是、因此"
+  },
+  {
+   "examples": [
+    {
+     "en": "Consequently, most teams treat the schema as a public contract.",
+     "zh": "因而，大多数团队把数据结构当作公开契约来对待。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The API is public; consequently, every change is a breaking change for someone.",
+    "zh": "书里从一个事实推出了一条工程惯例。"
+   },
+   "term": "consequently",
+   "zh": "因而、结果（正式因果）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Traffic peaks at noon; accordingly, capacity is provisioned for the peak.",
+     "zh": "流量在中午达峰；相应地，容量按峰值来配置。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The data is sensitive and is encrypted accordingly.",
+    "zh": "你读到依据前文事实作出的安排。"
+   },
+   "term": "accordingly",
+   "zh": "相应地、照此"
+  },
+  {
+   "examples": [
+    {
+     "en": "In summary, caching helps reads far more than writes.",
+     "zh": "总而言之，缓存对读的帮助远大于对写。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In summary: measure first, then optimize the hot path only.",
+    "zh": "一章快结束时，作者开始收束要点。"
+   },
+   "term": "in summary",
+   "zh": "总而言之、总结一下"
+  },
+  {
+   "examples": [
+    {
+     "en": "In effect, the retry loop turns the service into its own load generator.",
+     "zh": "实际上，这个重试循环让服务变成了自己的压测机。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The flag, in effect, disables the new code path entirely.",
+    "zh": "作者要指出一个做法名义和实质的区别。"
+   },
+   "term": "in effect",
+   "zh": "实际上、实质上"
+  },
+  {
+   "examples": [
+    {
+     "en": "Similarly, a write can be lost if the acknowledgement is sent too early.",
+     "zh": "同样地，如果确认发得太早，写入也可能丢失。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Similarly, connection pools must be bounded to be safe.",
+    "zh": "书里由一个例子类推到另一个情形。"
+   },
+   "term": "similarly",
+   "zh": "同样地、类似地"
+  },
+  {
+   "examples": [
+    {
+     "en": "Release the lock before awaiting; otherwise, the pool will exhaust itself.",
+     "zh": "在等待之前先释放锁；否则，连接池会耗尽。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Keep the operation idempotent; otherwise, retries will corrupt the state.",
+    "zh": "文档在给出告诫句，前半是正确做法。"
+   },
+   "term": "otherwise",
+   "zh": "否则；不然（书面）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Reads scale horizontally, whereas writes remain bound to a single primary.",
+     "zh": "读可以水平扩展，而写仍然绑在一个主库上。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The old API returned everything, whereas the new one paginates.",
+    "zh": "你读到一句把读写特性对照起来的话。"
+   },
+   "term": "whereas",
+   "zh": "而（对比两个事实，正式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The fix works, albeit with a small performance cost.",
+     "zh": "这个修复是有效的，虽然有一点性能代价。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Progress was steady, albeit slower than planned.",
+    "zh": "你在书里看到一个压缩得很短的让步表达。"
+   },
+   "term": "albeit",
+   "zh": "虽然、尽管（简洁让步，后接短语）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The gateway validates tokens, thereby keeping services simpler.",
+     "zh": "网关负责校验令牌，从而让各个服务更简单。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Data is partitioned by user, thereby avoiding cross-shard queries.",
+    "zh": "文档里描述一个组件顺带带来的好处。"
+   },
+   "term": "thereby",
+   "zh": "从而、由此（常带分词结构）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Some operations, for instance bulk deletes, bypass the cache entirely.",
+     "zh": "有些操作，例如批量删除，会完全绕过缓存。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A sudden traffic spike, for instance, can exhaust the connection pool.",
+    "zh": "作者在抛出一个概念后要给具体例子。"
+   },
+   "term": "for instance",
+   "zh": "例如、比如（书面举例）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Slow queries hold connections, which in turn starves the pool.",
+     "zh": "慢查询占住连接，进而让连接池枯竭。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Each retry adds load, which in turn causes more failures.",
+    "zh": "你在读一段连锁反应的分析。"
+   },
+   "term": "in turn",
+   "zh": "进而、反过来（引发下一步）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The bottleneck was indeed the disk, not the network.",
+     "zh": "瓶颈的确是磁盘，而不是网络。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Indeed, most outages trace back to a change, not a failure of hardware.",
+    "zh": "实验结果出来后，作者证实了之前的猜测。"
+   },
+   "term": "indeed",
+   "zh": "的确、确实（加强语气）"
+  },
+  {
+   "examples": [
+    {
+     "en": "After the fix, errors dropped to virtually zero.",
+     "zh": "修复之后，错误降到了几乎为零。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The two implementations are virtually identical in behavior.",
+    "zh": "你看到这个词在修饰一个数量，先别按“虚拟”去理解。"
+   },
+   "term": "virtually",
+   "zh": "几乎、实际上（不是“虚拟地”）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Essentially, a scheduler is a queue with opinions.",
+     "zh": "本质上，调度器就是一个有主见的队列。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The pattern is essentially the same in every framework.",
+    "zh": "作者用一句话把一个复杂东西讲透。"
+   },
+   "term": "essentially",
+   "zh": "本质上、基本上"
+  },
+  {
+   "examples": [
+    {
+     "en": "The contract explicitly forbids calling the API in a loop.",
+     "zh": "契约明确禁止在循环里调用这个接口。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Unless explicitly stated, all fields are required.",
+    "zh": "你在规范文档里读到一条写死的禁令。"
+   },
+   "term": "explicitly",
+   "zh": "明确地、显式地"
+  },
+  {
+   "examples": [
+    {
+     "en": "The framework implicitly starts a transaction around each request.",
+     "zh": "框架会隐式地为每个请求开启一个事务。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "By passing null, you implicitly accept the default ordering.",
+    "zh": "书里提醒读者注意那些没写出来的默认行为。"
+   },
+   "term": "implicitly",
+   "zh": "隐含地、隐式地"
+  },
+  {
+   "examples": [
+    {
+     "en": "The invariant must hold regardless of the order of events.",
+     "zh": "不管事件的顺序如何，这个不变量都必须成立。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Retries are safe regardless of how many times they run.",
+    "zh": "你在读一条关于正确性的严格表述。"
+   },
+   "term": "regardless of",
+   "zh": "不管、不论（后面接条件）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The two systems differ with respect to consistency guarantees.",
+     "zh": "这两个系统在一致性保证方面有所不同。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With respect to latency, the approaches are equivalent.",
+    "zh": "论文里在限定讨论的维度。"
+   },
+   "term": "with respect to",
+   "zh": "关于、就……而言（正式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Prior to deployment, run the migration in dry-run mode.",
+     "zh": "部署之前，先以试运行模式跑一遍迁移。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "All clients must upgrade prior to the cutoff date.",
+    "zh": "你在操作手册里读到时序要求。"
+   },
+   "term": "prior to",
+   "zh": "在……之前（正式，= before）"
+  }
+ ],
+ "layer": "D",
+ "title": "书面与阅读"
+}

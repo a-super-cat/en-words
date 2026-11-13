@@ -1,0 +1,472 @@
+{
+ "category": "reading",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "The cluster comprises three coordinators and nine workers.",
+     "zh": "这个集群由三个协调节点和九个工作节点组成。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Each shard comprises exactly one primary and two replicas.",
+    "zh": "你在架构文档里读到整体与部分的关系。"
+   },
+   "term": "comprise",
+   "zh": "由……组成、包含（正式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A transaction consists of a series of reads and writes.",
+     "zh": "一个事务由一系列读和写构成。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The protocol consists of three phases: propose, accept, and learn.",
+    "zh": "书里开始拆解一个概念的组成部分。"
+   },
+   "term": "consist of",
+   "zh": "由……构成（主语是整体）"
+  },
+  {
+   "examples": [
+    {
+     "en": "These three properties constitute what we mean by durability.",
+     "zh": "这三个性质构成了我们所说的持久性的含义。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Partial failures constitute the normal case in distributed systems.",
+    "zh": "你在定义段里读到部分如何拼出整体。"
+   },
+   "term": "constitute",
+   "zh": "构成、组成（主语是部分，正式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Each row corresponds to exactly one event in the log.",
+     "zh": "每一行都恰好对应日志里的一条事件。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The status codes correspond to the states in the diagram.",
+    "zh": "你在数据模型章节读到两层之间的映射关系。"
+   },
+   "term": "correspond to",
+   "zh": "对应于、与……一致"
+  },
+  {
+   "examples": [
+    {
+     "en": "The consistency model derives from two simple rules.",
+     "zh": "这个一致性模型源自两条简单的规则。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Most of these patterns derive from problems first seen in telecom systems.",
+    "zh": "作者在追溯一个设计的历史来源。"
+   },
+   "term": "derive from",
+   "zh": "源自、由……推导出"
+  },
+  {
+   "examples": [
+    {
+     "en": "Retries without backoff give rise to cascading failures.",
+     "zh": "没有退避的重试会引起级联失败。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Partial knowledge gives rise to a whole class of subtle bugs.",
+    "zh": "书里在分析某个坏味道的后果。"
+   },
+   "term": "give rise to",
+   "zh": "引起、导致（正式因果）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Reads account for ninety percent of the traffic.",
+     "zh": "读操作占了流量的百分之九十。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "This one query accounts for most of the database load.",
+    "zh": "你读到一段带比例的数据分析。"
+   },
+   "term": "account for",
+   "zh": "占（比例）；解释（原因）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A deployment involves more than shipping code.",
+     "zh": "一次部署涉及的不只是把代码发出去。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Every schema change involves coordination with three teams.",
+    "zh": "作者在提醒读者某个过程的复杂度。"
+   },
+   "term": "involve",
+   "zh": "涉及、包含（步骤或参与者）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The proof assumes that messages are never duplicated.",
+     "zh": "这个证明假设消息永远不会重复。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Never assume the network is reliable, fast, or secure.",
+    "zh": "你在读算法分析，先看清它的前提条件。"
+   },
+   "term": "assume",
+   "zh": "假设、假定（书中高频）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The measurements indicate that contention, not CPU, is the limit.",
+     "zh": "测量结果表明，限制因素是竞争，而不是 CPU。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "A rising queue length indicates the consumers are falling behind.",
+    "zh": "你读到实验数据得出的判断。"
+   },
+   "term": "indicate",
+   "zh": "表明、显示（证据指向）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Consistency does not imply correctness of the business logic.",
+     "zh": "一致性并不意味着业务逻辑就是对的。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "To call a retry safe is to imply the operation is idempotent.",
+    "zh": "书里在辨析两个容易混淆的概念。"
+   },
+   "term": "imply",
+   "zh": "意味着、暗示（逻辑上的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A checksum ensures that corruption is detected, if not prevented.",
+     "zh": "校验和确保损坏能被检测到，哪怕不能被阻止。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The protocol ensures that at most one leader exists at a time.",
+    "zh": "你在设计文档里读到机制的目的。"
+   },
+   "term": "ensure",
+   "zh": "确保、保证做到"
+  },
+  {
+   "examples": [
+    {
+     "en": "Backpressure prevents a fast producer from overwhelming a slow consumer.",
+     "zh": "背压防止了快生产者把慢消费者打垮。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Leases prevent two nodes from both believing they are the leader.",
+    "zh": "书里在讲一个保护机制存在的理由。"
+   },
+   "term": "prevent",
+   "zh": "防止、阻止发生"
+  },
+  {
+   "examples": [
+    {
+     "en": "Systems tend to fail at their boundaries, not their cores.",
+     "zh": "系统往往坏在边界上，而不是核心部分。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Under load, queues tend to grow faster than intuition suggests.",
+    "zh": "你读到一句总结性的经验之谈。"
+   },
+   "term": "tend to",
+   "zh": "往往、倾向于（描述规律）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Subsequent requests reuse the cached result.",
+     "zh": "随后的请求会复用缓存的结果。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The first failure triggered timeouts in all subsequent calls.",
+    "zh": "你在时序描述里看到指代后面步骤的词。"
+   },
+   "term": "subsequent",
+   "zh": "随后的、后来的"
+  },
+  {
+   "examples": [
+    {
+     "en": "The preceding chapter introduced the failure model.",
+     "zh": "前面的章节介绍了故障模型。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Unlike the preceding approach, this one needs no coordination.",
+    "zh": "书里回指上文时用了这个词。"
+   },
+   "term": "preceding",
+   "zh": "前面的、在先的"
+  },
+  {
+   "examples": [
+    {
+     "en": "The clients retry their respective requests after a delay.",
+     "zh": "客户端在延迟之后重试各自的请求。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Nodes report their respective loads to the scheduler.",
+    "zh": "你读到一句把多个对象一一对应的表述。"
+   },
+   "term": "respective",
+   "zh": "各自的、分别对应的"
+  },
+  {
+   "examples": [
+    {
+     "en": "The notion of a transaction does not map cleanly to distributed systems.",
+     "zh": "事务这个概念没法干净地映射到分布式系统上。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "This chapter formalizes the notion of linearizability.",
+    "zh": "作者在引入一个需要重新定义的旧概念。"
+   },
+   "term": "notion",
+   "zh": "概念、观念（正式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We now turn to the performance aspect of the design.",
+     "zh": "我们现在转到这个设计的性能层面。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The human aspect of migrations is routinely underestimated.",
+    "zh": "章节切换时作者点明要换个角度。"
+   },
+   "term": "aspect",
+   "zh": "方面、层面"
+  },
+  {
+   "examples": [
+    {
+     "en": "The only criterion that matters here is worst-case latency.",
+     "zh": "这里唯一重要的判据是最坏情况下的延迟。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Each criterion is weighted before the options are scored.",
+    "zh": "你在选型章节读到评估的尺度。"
+   },
+   "term": "criterion",
+   "zh": "标准、判据（复数 criteria）"
+  },
+  {
+   "examples": [
+    {
+     "en": "This phenomenon is known as the thundering herd problem.",
+     "zh": "这个现象就是所谓的惊群问题。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Retry storms are a common phenomenon in large fleets.",
+    "zh": "书里给一个观察到的效应正式命名。"
+   },
+   "term": "phenomenon",
+   "zh": "现象（复数 phenomena）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Our hypothesis was that the disk, not the CPU, saturated first.",
+     "zh": "我们的假设是磁盘先于 CPU 达到饱和。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The data supports the hypothesis, with one exception.",
+    "zh": "你在实验章节读到待验证的命题。"
+   },
+   "term": "hypothesis",
+   "zh": "假设、假说（待验证的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every design rests on assumptions about workload and failure modes.",
+     "zh": "每个设计都建立在关于负载和故障模式的假设之上。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "State your assumptions before defending the design.",
+    "zh": "作者在章节开头列明讨论的边界。"
+   },
+   "term": "assumption",
+   "zh": "假设、前提（未经证明就采用的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The implication is that reads must tolerate some staleness.",
+     "zh": "这意味着，读必须容忍一定程度的旧数据。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "We underestimated the operational implications of a new datastore.",
+    "zh": "书里从一个技术选择往下推它的代价。"
+   },
+   "term": "implication",
+   "zh": "影响、后果、引申含义"
+  },
+  {
+   "examples": [
+    {
+     "en": "One consequence of strong consistency is higher latency.",
+     "zh": "强一致性的一个后果是更高的延迟。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "As a consequence, the team abandoned the approach.",
+    "zh": "你在取舍分析里读到代价清单。"
+   },
+   "term": "consequence",
+   "zh": "后果、结果（多指不好的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Under no circumstances should the migration run during peak hours.",
+     "zh": "在任何情况下，迁移都不应在高峰时段运行。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "In most circumstances, the simpler design wins.",
+    "zh": "你在操作红线里读到强硬的表述。"
+   },
+   "term": "circumstance",
+   "zh": "情况、环境条件（常与 under 连用，表示“在……情况下”）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The main drawback of this approach is operational complexity.",
+     "zh": "这个方法的主要缺点是运维复杂。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Every caching strategy has the same drawback: invalidation.",
+    "zh": "作者在优缺点小结里列不足。"
+   },
+   "term": "drawback",
+   "zh": "缺点、短板"
+  },
+  {
+   "examples": [
+    {
+     "en": "The binding constraint is disk throughput, not bandwidth.",
+     "zh": "真正的约束是磁盘吞吐，而不是带宽。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Design begins by naming the constraints honestly.",
+    "zh": "你在容量分析里读到定瓶颈的判断。"
+   },
+   "term": "constraint",
+   "zh": "约束、限制条件"
+  },
+  {
+   "examples": [
+    {
+     "en": "The underlying storage engine determines most of the behavior.",
+     "zh": "底层的存储引擎决定了大部分行为表现。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Fix the underlying cause, not the loudest symptom.",
+    "zh": "书里在区分表面现象和底层机制。"
+   },
+   "term": "underlying",
+   "zh": "底层的、根本的"
+  },
+  {
+   "examples": [
+    {
+     "en": "There is a fundamental trade-off between consistency and availability.",
+     "zh": "一致性和可用性之间存在根本的取舍。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The fundamental problem is agreeing on a shared state.",
+    "zh": "你读到分布式系统绕不开的那条定理的引子。"
+   },
+   "term": "fundamental",
+   "zh": "根本的、基础的"
+  },
+  {
+   "examples": [
+    {
+     "en": "In a large fleet, hardware failure is not an exception but inevitable.",
+     "zh": "在大规模集群里，硬件故障不是例外，而是不可避免的。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Some staleness is inevitable once you replicate data.",
+    "zh": "作者在强调设计必须默认坏事会发生。"
+   },
+   "term": "inevitable",
+   "zh": "不可避免的"
+  }
+ ],
+ "layer": "D",
+ "title": "书面与阅读"
+}
