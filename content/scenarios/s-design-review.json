@@ -454,6 +454,147 @@
           "zh": "好吧，就这么粗略共识。我会把我的反对意见写进记录，让未来的我们知道该盯什么。"
         }
       ]
+    },
+    {
+      "id": "exec-briefing-grilling",
+      "title": "高管汇报：被 CFO 和 CTO 连环追问",
+      "setting": "季度技术评审会。你有五分钟汇报质量平台的进展，台下坐着 CFO Dana 和 CTO Marcus。你的第二页幻灯片还没讲完，问题就已经来了。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Dana (CFO)",
+          "en": "Before the details: give me the bottom line. Is this program on track, and what do you need from us today?",
+          "zh": "先别讲细节：给我结论。这个项目在正轨上吗？你今天需要我们给什么？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你按高管汇报的规矩开场：结论先行——整体在正轨上、二季度里程碑能保住，但今天需要一个决定：追加一个平台工程师编制，否则三季度的日期有风险。",
+          "en": "Bottom line up front: the program is on track for the Q2 milestone. The ask today is one more platform engineer; without it, the Q3 date is at risk.",
+          "chunks": [
+            { "term": "bottom line up front", "zh": "结论先行（先给结论再给细节）" },
+            { "term": "The main risk to the date is ...", "zh": "对日期最大的风险是……" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marcus (CTO)",
+          "en": "Every team asks for headcount. Why is yours different? Your automation numbers looked flat this quarter.",
+          "zh": "每个团队都在要人。你的为什么不一样？你们这季度的自动化数字看起来没什么增长。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你不辩解口径、直接给业务数字：自动化覆盖的测试路径已经到了 85%，平的不是产出而是成本——每个新业务接入的边际成本降了四成，这才是这个平台存在的理由。",
+          "en": "Let me flag the real number: automated paths are at eighty-five percent coverage, and the marginal cost of onboarding a new business line dropped forty percent. The platform is doing its job.",
+          "chunks": [
+            { "term": "flag a risk", "zh": "标记一个风险（把隐患摆上台面）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dana (CFO)",
+          "en": "If I approve the engineer, what do I get, and by when? In one sentence.",
+          "zh": "如果我批了这个人，我能得到什么、什么时候得到？一句话。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你给出回绿路径：一句话——人到岗后，三季度里程碑的置信度从现在的六成回到八成半，接入新业务的周期从三周压到一周；细节在一页纸附录里。",
+          "en": "With the hire, we have a clear path to green: Q3 confidence goes from sixty to eighty-five percent, and onboarding drops from three weeks to one. The detail is in the one-pager.",
+          "chunks": [
+            { "term": "path to green", "zh": "转绿路径（从红灯回到正轨的计划）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marcus (CTO)",
+          "en": "And if we say no?",
+          "zh": "如果我们说不行呢？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你平静地给出不批的后果和替代方案，不威胁、不卖惨：如果不批，你会砍掉报表模块的二期来保住主线，风险你已经标记在附录第一页，需要他们今天拍板的是砍的范围而不是日期。",
+          "en": "Then I cut the reporting phase two to protect the main line — that is the decision needed today: the scope, not the date. The executive summary lists both options with costs.",
+          "chunks": [
+            { "term": "executive summary", "zh": "执行摘要（给高管看的一页结论）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dana (CFO)",
+          "en": "Good. Scope option it is, and send me the one-pager before Friday. That's how these updates should sound.",
+          "zh": "好。就按砍范围的方案走，周五前把一页纸发我。汇报就该是这个样子。"
+        }
+      ]
+    },
+    {
+      "id": "tech-talk-tough-qa",
+      "title": "技术分享答疑：CTO 当场唱反调",
+      "setting": "公司内部技术分享，你刚讲完“为什么我们应该停掉自研网关、改用成熟方案”。提问环节，平时很少发言的 CTO 拿起了话筒，整个会议室都安静了。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "CTO",
+          "en": "Interesting talk. But your trade-off analysis ignores migration risk. We have forty services on that gateway. Defend that.",
+          "zh": "分享很有意思。但你的权衡分析忽略了迁移风险。我们有四十个服务在那台网关上。为这一点辩护一下。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你先承认他的点成立、再把账摊开：迁移风险恰恰是你考虑过的备选方案里的第一项——正因为四十个服务，你才建议按流量分三批迁移、每批可回滚，总窗口两个季度。",
+          "en": "Fair point, and it was the first of the alternatives considered: exactly because there are forty services, the proposal migrates in three traffic-based batches, each reversible, over two quarters.",
+          "chunks": [
+            { "term": "alternatives considered", "zh": "备选方案（考虑过但没选的做法）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "CTO",
+          "en": "Reversible is a strong word. The last migration took nine months and two outages. Why is this time different?",
+          "zh": "“可回滚”是个很重的词。上次迁移花了九个月、出了两次故障。这次为什么不一样？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你拿上次的事故复盘当证据说话：上次的教训恰恰写进了这次的成功标准里——每批迁移前必须有流量镜像验证和一键切回演练，没有这两样，宁可不迁。",
+          "en": "Last time taught us the lessons learned from that postmortem: this plan's success criteria require traffic mirroring and a rehearsed one-switch rollback before any batch moves.",
+          "chunks": [
+            { "term": "success criteria", "zh": "成功标准（怎么算做成了）" },
+            { "term": "lessons learned", "zh": "经验教训（复盘的沉淀小节）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Senior engineer (audience)",
+          "en": "Honest question: isn't this just resume-driven development in reverse — boring tech to look mature?",
+          "zh": "说句实话：这不就是反向的简历驱动开发吗——用无聊技术装成熟？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你笑着接住这个尖锐问题并把标准亮出来：如果两年后没人记得这个决定，它就成功了——网关的价值在于不出事，你用故障数和接入时长两个可测指标接受检验。",
+          "en": "If nobody remembers this decision in two years, it worked. Judge it by the trade-off analysis: incident count and onboarding time, measured quarterly, in public.",
+          "chunks": [
+            { "term": "trade-off analysis", "zh": "权衡分析（逐项比较取舍）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Platform lead (audience)",
+          "en": "One more: managed gateways bill per request. At our volume, doesn't the invoice eat the savings?",
+          "zh": "再问一个：托管网关按请求量收费。以我们的量，账单不会把省下的钱吃掉吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你把成本范围划清：网关费用你已经算进 RFC 的草案里做对比；明确不在这次范围内的是顺带替换服务间鉴权——那是另一个项目。",
+          "en": "The gateway fees are in scope for the RFC cost model; I priced them against our current on-call cost. What stays out of scope is replacing service-to-service auth in the same move — that is a separate project.",
+          "chunks": [
+            { "term": "in scope", "zh": "在范围内（这次要做的）" },
+            { "term": "out of scope", "zh": "不在范围内（这次不做的）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "CTO",
+          "en": "All right. Write it up as an RFC with the migration batches and the rollback rehearsal. I'll read it this week.",
+          "zh": "好。把它写成一份 RFC，把迁移批次和回滚演练都写进去。我这周看。"
+        }
+      ]
     }
   ]
 }

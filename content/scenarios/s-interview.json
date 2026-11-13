@@ -532,6 +532,87 @@
      ]
     }
    ]
+  },
+  {
+   "id": "iv-panel-ambush",
+   "setting": "最后一轮小组面试，三位面试官。Staff 工程师 Lena 对你简历里“把热更新从 40 秒优化到 8 秒”这一条很感兴趣——而且不打算轻易放过你。",
+   "title": "终面围攻：面试官咬住一个决定不放",
+   "turns": [
+    {
+     "en": "You claim hot reload went from forty seconds to eight. Walk me through exactly what was slow. No hand-waving.",
+     "name": "Lena",
+     "speaker": "them",
+     "zh": "你说热更新从四十秒优化到了八秒。精确地讲给我听，到底慢在哪儿。不许含糊。"
+    },
+    {
+     "chunks": [
+      {
+       "term": "Let me walk you through my thinking.",
+       "zh": "我讲一下我的思考过程"
+      }
+     ],
+     "en": "Let me walk you through my thinking. Of the forty seconds, a full plug-in scan ate most of it; rebuilding the dependency graph was second. I measured before touching anything.",
+     "speaker": "me",
+     "zh": "你按她的要求拆解数字：四十秒里插件全量扫描占大头，其次是依赖图重建；你先定位再动手，讲清思路的顺序。"
+    },
+    {
+     "en": "Anyone can say 'we added caching'. What exactly did you cache, and what broke because of it?",
+     "name": "Lena",
+     "speaker": "them",
+     "zh": "谁都会说“我们加了缓存”。你到底缓存了什么？又因为缓存坏过什么？"
+    },
+    {
+     "chunks": [
+      {
+       "term": "I can elaborate on ... if that's useful.",
+       "zh": "如果需要，我可以展开讲……"
+      }
+     ],
+     "en": "We cached module resolution results keyed by file fingerprint. What broke: a stale read in week two, when an edited dependency did not invalidate. I fixed it with a reverse dependency index. I can elaborate on the invalidation if that's useful.",
+     "speaker": "me",
+     "zh": "你给出细节并主动交代代价：缓存的是模块解析结果，键是文件指纹；代价是上线第二周出现过一次脏读——改了被依赖文件却没失效，你用依赖反向索引补上了。"
+    },
+    {
+     "en": "Why not just upgrade the bundler version instead of all this surgery?",
+     "name": "Lena",
+     "speaker": "them",
+     "zh": "为什么不直接升级打包工具版本，非要做这么多手术？"
+    },
+    {
+     "chunks": [
+      {
+       "term": "Just to make sure I understood...",
+       "zh": "我确认一下我的理解……"
+      }
+     ],
+     "en": "Just to make sure I understood: why not take the upgrade path? Because the plug-in ecosystem pinned the version; upgrading would have broken a dozen internal plug-ins at once. Surgery was the smaller risk.",
+     "speaker": "me",
+     "zh": "你先确认自己理解了她的问题再回答：她问的是为什么不用现成升级路径——因为当时插件生态锁死了版本，升级会同时打断十几个内部插件，风险比手术大。"
+    },
+    {
+     "en": "How do you know the eight seconds wasn't mostly the new CI machines you got that quarter?",
+     "name": "Lena",
+     "speaker": "them",
+     "zh": "你怎么知道那八秒不主要是你们那季度换了新 CI 机器的功劳？"
+    },
+    {
+     "chunks": [
+      {
+       "term": "Am I on the right track?",
+       "zh": "我这个方向对吗？"
+      }
+     ],
+     "en": "Same machine, same repo, fifty runs before and after, median compared. The new hardware alone was worth under a second — we measured it separately. Am I on the right track for what you wanted?",
+     "speaker": "me",
+     "zh": "你给出对照证据并自查轨道：同一台机器、同一仓库、改动前后各跑五十次取中位数，机器红利单独测过、只占不到一秒；你确认一下自己答得对不对路。"
+    },
+    {
+     "en": "That's the first answer today with its own control group. Good. Let's move to the system design part.",
+     "name": "Lena",
+     "speaker": "them",
+     "zh": "这是今天第一个自带对照组的回答。不错。我们进入系统设计环节。"
+    }
+   ]
   }
  ],
  "title": "面试场景"

@@ -1,0 +1,697 @@
+{
+ "category": "contracts",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "The employment contract names the salary, the hours, and little else.",
+     "zh": "雇佣合同写明了薪水、工时，别的几乎没写。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Read the employment contract twice: once for what it promises, once for what it omits.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "employment contract",
+   "zh": "雇佣合同"
+  },
+  {
+   "examples": [
+    {
+     "en": "A contractor agreement taxes you differently from an employment contract.",
+     "zh": "承包商协议的纳税方式和雇佣合同不同。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Under a contractor agreement, invoices replace payslips.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "contractor agreement",
+   "zh": "承包商协议（以独立承包商身份签的合同）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The non-disclosure agreement survives the end of the contract by two years.",
+     "zh": "保密协议在合同结束后还有效两年。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Sign the non-disclosure agreement before the technical deep dive, not after.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "non-disclosure agreement",
+   "zh": "保密协议"
+  },
+  {
+   "examples": [
+    {
+     "en": "The confidentiality clause covers code, data, and even the roadmap.",
+     "zh": "保密条款覆盖代码、数据，甚至路线图。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A confidentiality clause without a time limit is worth negotiating.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "confidentiality clause",
+   "zh": "保密条款"
+  },
+  {
+   "examples": [
+    {
+     "en": "Intellectual property rights in side projects are the clause to read first.",
+     "zh": "副业项目的知识产权是最先要读的条款。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The contract assigns intellectual property rights in everything built 'for the company'.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "intellectual property rights",
+   "zh": "知识产权"
+  },
+  {
+   "examples": [
+    {
+     "en": "Under work for hire, the company owns what you build on its time.",
+     "zh": "按职务作品原则，你在公司时间里做的东西归公司所有。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Work for hire usually covers job duties, not your weekend open source.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "work for hire",
+   "zh": "职务作品（雇主付钱、成果归雇主）"
+  },
+  {
+   "examples": [
+    {
+     "en": "You assign ownership of deliverables, not of your pre-existing tools.",
+     "zh": "你转让的是交付物的所有权，不是你原有工具的所有权。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Check whether you assign ownership of inventions made outside working hours.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "assign ownership",
+   "zh": "转让所有权（把成果归属签给对方）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A non-compete clause can ban you from your own industry for a year.",
+     "zh": "竞业限制条款能让你一年内不能干自己的老本行。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The non-compete clause names competitors so broadly it covers the whole market.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "non-compete clause",
+   "zh": "竞业限制条款"
+  },
+  {
+   "examples": [
+    {
+     "en": "Non-solicitation stops you hiring your old teammates after you leave.",
+     "zh": "禁止招揽条款阻止你离职后挖老队友。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Non-solicitation usually lasts twelve months and covers clients as well.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "non-solicitation",
+   "zh": "禁止挖角/禁止招揽条款"
+  },
+  {
+   "examples": [
+    {
+     "en": "At-will employment means either side can end it without a reason.",
+     "zh": "自由雇佣意味着任何一方都可以无理由结束雇佣关系。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "At-will employment makes the notice period a courtesy, not a right.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "at-will employment",
+   "zh": "自由雇佣（双方可随时无理由解约，美国常见）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The termination clause is the contract's fire exit: read it before signing.",
+     "zh": "解约条款是合同的消防通道：签之前先读它。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Under the termination clause, unused vacation converts to pay.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "termination clause",
+   "zh": "解约条款"
+  },
+  {
+   "examples": [
+    {
+     "en": "Severance pay in the offer is one month, whatever the law requires beyond that aside.",
+     "zh": "录用条件里的遣散费是一个月，法律另有要求的另说。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Severance pay is often negotiable before you sign, never after.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "severance pay",
+   "zh": "遣散费、离职补偿"
+  },
+  {
+   "examples": [
+    {
+     "en": "The probationary period is ninety days with a review at the midpoint.",
+     "zh": "试用期是九十天，中间有一次评估。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "During the probationary period, the notice on both sides is one week.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "probationary period",
+   "zh": "试用期"
+  },
+  {
+   "examples": [
+    {
+     "en": "Anything outside the scope of work needs a change order, not a favor.",
+     "zh": "工作范围之外的事需要变更单，不需要人情。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The scope of work lists deliverables, milestones, and what is excluded.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "scope of work",
+   "zh": "工作范围（合同里界定要做什么）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Deliverables are defined by acceptance tests, not by effort.",
+     "zh": "交付物由验收标准界定，不由投入的工作量界定。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Late deliverables trigger the fee in section six.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "deliverables",
+   "zh": "交付物（合同要求交的东西）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The payment terms say invoices are paid within thirty days.",
+     "zh": "付款条款说发票在三十天内支付。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For a first client, tighten the payment terms until trust exists.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "payment terms",
+   "zh": "付款条款"
+  },
+  {
+   "examples": [
+    {
+     "en": "Net 30 means the clock starts when the invoice lands, not when work ends.",
+     "zh": "30 天账期的意思是：时钟从发票送达时开始算，不是从活干完时算。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The agreement says net 30, but their finance team pays on Fridays only.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "net 30",
+   "zh": "30 天账期（发票开出后 30 天内付款）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A late payment fee of two percent a month concentrates minds wonderfully.",
+     "zh": "每月百分之二的逾期付款滞纳金能奇妙地让人专注起来。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Waiving the late payment fee once is kindness; twice is policy.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "late payment fee",
+   "zh": "逾期付款滞纳金"
+  },
+  {
+   "examples": [
+    {
+     "en": "The limitation of liability caps your exposure at the fees paid.",
+     "zh": "责任限制把你的赔付敞口封顶在已收费用。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Without a limitation of liability, one bug could cost more than the contract is worth.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "limitation of liability",
+   "zh": "责任限制（赔付上限条款）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Indemnification decides who pays when a stranger sues over your work.",
+     "zh": "赔偿担保决定当陌生人因你的工作起诉时由谁买单。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Read indemnification carefully: it is the clause that can outlive the fee.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "indemnification",
+   "zh": "赔偿担保（替对方承担第三方索赔）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Missing the deadline is a breach of contract only if time was of the essence.",
+     "zh": "只有当时间被写成关键要素时，错过截止日期才算违约。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A breach of contract needs notice and a cure period before termination.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "breach of contract",
+   "zh": "违约"
+  },
+  {
+   "examples": [
+    {
+     "en": "Non-payment past sixty days counts as a material breach in this agreement.",
+     "zh": "在这份协议里，逾期付款超过六十天算重大违约。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A material breach lets the other side walk away immediately.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "material breach",
+   "zh": "重大违约（严重到可直接解约的违约）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The governing law is Delaware, which surprises nobody in this industry.",
+     "zh": "适用法律是特拉华州法，这在行业里谁都不意外。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Governing law matters most when everything else has already gone wrong.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "governing law",
+   "zh": "适用法律（合同按哪国/哪州法律解释）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Jurisdiction decides whose courts hear the fight.",
+     "zh": "管辖地决定这场官司去谁的法院打。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Accepting a foreign jurisdiction means litigating far from home.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "jurisdiction",
+   "zh": "管辖地（打官司去哪里的法院）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The dispute resolution section prefers mediation before anyone sues.",
+     "zh": "争议解决部分倾向于先调解、再谈起诉。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Dispute resolution clauses hide in the back and rule the worst days.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "dispute resolution",
+   "zh": "争议解决（出纠纷时的处理路径）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Arbitration is private, faster, and usually final.",
+     "zh": "仲裁是私下的、更快的，而且通常是终局的。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The clause sends disputes to arbitration and waives the court route.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "arbitration",
+   "zh": "仲裁（不上法庭、私下裁决）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Force majeure excuses performance when the world intervenes.",
+     "zh": "不可抗力在世界插手时免除履约责任。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The force majeure list includes war, embargo, and infrastructure collapse.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "force majeure",
+   "zh": "不可抗力"
+  },
+  {
+   "examples": [
+    {
+     "en": "The entire agreement clause erases every promise made in the interview.",
+     "zh": "完整协议条款会抹掉面试时许下的一切承诺。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Because of the entire agreement clause, get the remote-work promise in writing.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "entire agreement",
+   "zh": "完整协议（以本合同为准，口头承诺无效）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An amendment needs both signatures, like the original.",
+     "zh": "修正需要双方签字，和原件一样。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Salary changes arrive as an amendment, not as an email, however friendly.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "amendment",
+   "zh": "修正、修订（对合同的正式修改）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Approvals count only in writing under this agreement.",
+     "zh": "按这份协议，批准只有以书面形式才算数。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If it is not in writing, it is a rumor with good intentions.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "in writing",
+   "zh": "以书面形式（正式、留痕的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The signed offer letter is legally binding in most jurisdictions.",
+     "zh": "签了字的录用信在大多数法域都具有法律约束力。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A verbal yes is encouraging; a legally binding document is better.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "legally binding",
+   "zh": "具有法律约束力的"
+  },
+  {
+   "examples": [
+    {
+     "en": "The effective date is the signing date, not the start date.",
+     "zh": "生效日期是签字日期，不是入职日期。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Confidentiality runs from the effective date, even before you start.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "effective date",
+   "zh": "生效日期"
+  },
+  {
+   "examples": [
+    {
+     "en": "The expiration date on the NDA is three years after disclosure.",
+     "zh": "保密协议的到期日期是披露后三年。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Diarize the expiration date of every restriction you sign.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "expiration date",
+   "zh": "到期日期"
+  },
+  {
+   "examples": [
+    {
+     "en": "The contract will renew automatically unless either side objects in writing.",
+     "zh": "除非任一方书面反对，否则合同将自动续期。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Services you forgot renew automatically; contracts you forgot do the same.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "renew automatically",
+   "zh": "自动续期"
+  },
+  {
+   "examples": [
+    {
+     "en": "Either side may terminate for cause with immediate effect.",
+     "zh": "任一方都可因故解约，立即生效。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Fraud is the textbook reason to terminate for cause.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "terminate for cause",
+   "zh": "因故解约（对方犯错时立即解约）"
+  },
+  {
+   "examples": [
+    {
+     "en": "You may terminate for convenience with thirty days' notice.",
+     "zh": "你可以提前三十天通知，无因解约。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Terminate for convenience is the clause that makes the contract honest.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "terminate for convenience",
+   "zh": "无因解约（不需要理由、提前通知即可）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An independent contractor invoices monthly and files their own taxes.",
+     "zh": "独立承包商每月开票、自己报税。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Misclassifying an employee as an independent contractor is a legal risk for the company.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "independent contractor",
+   "zh": "独立承包商"
+  },
+  {
+   "examples": [
+    {
+     "en": "Tax withholding differs for employees and contractors in most countries.",
+     "zh": "在大多数国家，雇员和承包商的代扣代缴税款是不同的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "No tax withholding on contractor payments means you budget for the tax bill yourself.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "tax withholding",
+   "zh": "代扣代缴税款"
+  },
+  {
+   "examples": [
+    {
+     "en": "The benefits package matters more than the headline salary gap.",
+     "zh": "福利包比表面上的薪水差距更重要。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Contractors get no benefits package; price that into the rate.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "benefits package",
+   "zh": "福利包（保险、假期等一揽子福利）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Equity compensation is a lottery ticket with a vesting schedule.",
+     "zh": "股权薪酬是一张带着兑现时间表的彩票。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ask how equity compensation is taxed in your country before valuing it.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "equity compensation",
+   "zh": "股权薪酬（期权/限制性股票）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The vesting schedule spreads the grant over four years.",
+     "zh": "兑现时间表把授予分摊到四年里。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Read the vesting schedule for what happens when you leave early.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "vesting schedule",
+   "zh": "兑现时间表（期权分期到手的安排）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The cliff period is one year: leave at month eleven, keep nothing.",
+     "zh": "悬崖期是一年：第十一个月走人，什么都留不下。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A cliff period aligns incentives and terrifies job-hoppers, by design.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "cliff period",
+   "zh": "悬崖期（期权满一年才首次到手的期限）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A data processing agreement governs any personal data the work touches.",
+     "zh": "数据处理协议管辖工作涉及的一切个人数据。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "European clients attach a data processing agreement almost by reflex.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "data processing agreement",
+   "zh": "数据处理协议（处理个人数据的附属协议）"
+  },
+  {
+   "examples": [
+    {
+     "en": "You may not hand the work to a subcontractor without written consent.",
+     "zh": "未经书面同意，你不能把工作交给分包商。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The clause makes you liable for your subcontractor as for yourself.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "subcontractor",
+   "zh": "分包商、转包方"
+  },
+  {
+   "examples": [
+    {
+     "en": "A trade secret stays protected only while it stays secret.",
+     "zh": "商业秘密只有保持秘密时才受保护。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Customer lists and pricing models are the classic trade secret examples.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "trade secret",
+   "zh": "商业秘密"
+  },
+  {
+   "examples": [
+    {
+     "en": "The moonlighting policy allows open source but bans competitor work.",
+     "zh": "兼职政策允许开源，但禁止给竞争对手干活。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Check the moonlighting policy before your side project earns its first dollar.",
+    "zh": "你在读一份远程工作的合同，看到这个说法："
+   },
+   "term": "moonlighting policy",
+   "zh": "兼职政策（公司对员工接私活的规定）"
+  }
+ ],
+ "layer": "D",
+ "title": "合同与法律英语"
+}

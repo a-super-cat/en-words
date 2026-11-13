@@ -179,6 +179,101 @@
         { "term": "own ... end to end", "zh": "端到端地负责……" }
       ],
       "followUps": ["What do new hires usually find hardest in the first month?"]
+    },
+    {
+      "id": "reverse-comp-structure",
+      "prompt": "How is compensation structured here: base, bonus, equity? How do the equity pieces actually vest over time?",
+      "zh": "这里的薪酬结构是怎样的：底薪、奖金、股权？股权部分到底怎么个兑现法？",
+      "outline": [
+        "Base versus bonus versus equity split",
+        "Ask about the vesting schedule in years",
+        "Ask what the cliff period is",
+        "Ask how equity is valued today",
+        "Ask when the probationary period ends"
+      ],
+      "chunks": [
+        { "term": "equity compensation", "zh": "股权薪酬（期权/限制性股票）" },
+        { "term": "vesting schedule", "zh": "兑现时间表（期权分期到手的安排）" },
+        { "term": "cliff period", "zh": "悬崖期（期权满一年才首次到手的期限）" },
+        { "term": "probationary period", "zh": "试用期" }
+      ],
+      "followUps": ["Is the equity options or RSUs?", "What happens to unvested equity if I leave?"]
+    },
+    {
+      "id": "reverse-contract-terms",
+      "prompt": "I would work from China. Which contract type do you use for international engineers, and are there non-compete or IP clauses I should understand before signing?",
+      "zh": "我会在中国工作。你们对国际工程师用哪种合同？签之前我需要了解的竞业或知识产权条款有吗？",
+      "outline": [
+        "Ask contractor versus employee of record",
+        "Ask how IP in work output is assigned",
+        "Ask specifically about the non-compete scope",
+        "Ask about side projects and open source",
+        "Get the answer in writing before signing"
+      ],
+      "chunks": [
+        { "term": "contractor agreement", "zh": "承包商协议（以独立承包商身份签的合同）" },
+        { "term": "non-compete clause", "zh": "竞业限制条款" },
+        { "term": "intellectual property rights", "zh": "知识产权" },
+        { "term": "independent contractor", "zh": "独立承包商" }
+      ],
+      "followUps": ["Who handles my local taxes and social insurance?", "Is the non-compete paid, as in some countries?"]
+    },
+    {
+      "id": "reverse-first-ninety-days",
+      "prompt": "What would my first ninety days look like: onboarding, probation expectations, and how I would know I am on track?",
+      "zh": "我入职前九十天会是什么样：入职流程、试用期要求、我怎么知道自己在正轨上？",
+      "outline": [
+        "Ask what the probation period evaluates",
+        "Ask who my onboarding buddy would be",
+        "Ask which handbook and docs to read first",
+        "Ask when the first review happens",
+        "Ask what good looks like at day ninety"
+      ],
+      "chunks": [
+        { "term": "probation period", "zh": "试用期" },
+        { "term": "benefits enrollment", "zh": "福利登记、参保手续" },
+        { "term": "employee handbook", "zh": "员工手册" },
+        { "term": "start date", "zh": "入职日期、上班第一天" }
+      ],
+      "followUps": ["What do new hires usually struggle with here?", "How much of onboarding is self-serve?"]
+    },
+    {
+      "id": "reverse-equipment-access",
+      "prompt": "What equipment and access do remote engineers receive on day one, and who helps when something breaks?",
+      "zh": "远程工程师第一天会拿到什么设备和权限？东西坏了找谁？",
+      "outline": [
+        "Ask which company laptop is standard",
+        "Ask when to order equipment for home",
+        "Ask which access permissions come pre-approved",
+        "Ask how IT support works across time zones",
+        "Ask about stipends for desk and internet"
+      ],
+      "chunks": [
+        { "term": "company laptop", "zh": "公司配的笔记本电脑" },
+        { "term": "order equipment", "zh": "申领、订购（办公）设备" },
+        { "term": "access permissions", "zh": "（系统、仓库的）访问权限" },
+        { "term": "IT support", "zh": "IT 支持、技术支持部门" }
+      ],
+      "followUps": ["Is there a home-office stipend?", "Can I use my own machine instead?"]
+    },
+    {
+      "id": "reverse-why-this-role",
+      "prompt": "Why is this role open: new headcount, a backfill, or a team being built from scratch?",
+      "zh": "这个岗位为什么招人：新增编制、替补离职，还是新组建的团队？",
+      "outline": [
+        "Ask what changed to create the role",
+        "Ask if it is a strategic bet or maintenance",
+        "Ask what the team's quarterly goals are",
+        "Ask what the next milestone for the team is",
+        "Read the answer for stability signals"
+      ],
+      "chunks": [
+        { "term": "headcount request", "zh": "编制申请（要正式名额）" },
+        { "term": "strategic bet", "zh": "战略押注（长期投入的方向）" },
+        { "term": "quarterly goals", "zh": "季度目标" },
+        { "term": "next milestone", "zh": "下一个里程碑" }
+      ],
+      "followUps": ["How long has the role been open?", "What happened to the last person in it?"]
     }
   ]
 }

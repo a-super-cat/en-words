@@ -198,6 +198,101 @@
         { "term": "given the constraints", "zh": "考虑到当时的限制条件" },
         { "term": "in hindsight", "zh": "事后看来" }
       ]
+    },
+    {
+      "id": "lead-brief-executives",
+      "prompt": "Brief senior executives on a technical program in five minutes. What makes the briefing land?",
+      "zh": "用五分钟向高管汇报一个技术项目。怎样汇报才有效？",
+      "outline": [
+        "Bottom line up front: status, ask, risk",
+        "One slide of milestones, no architecture porn",
+        "Numbers in business terms: revenue, dates, cost",
+        "End with the decision you need today",
+        "Depth lives in the appendix, on request"
+      ],
+      "chunks": [
+        { "term": "bottom line up front", "zh": "结论先行（先给结论再给细节）" },
+        { "term": "executive summary", "zh": "执行摘要（给高管看的一页结论）" },
+        { "term": "The main risk to the date is ...", "zh": "对日期最大的风险是……" },
+        { "term": "keep it brief", "zh": "说短一点（提醒自己或对方）" }
+      ],
+      "followUps": ["What do you do when they ask for the deep dive anyway?", "How do you handle a number you are unsure of?"]
+    },
+    {
+      "id": "lead-deadline-pushback",
+      "prompt": "Leadership has publicly committed to a date your team cannot hit. What do you do?",
+      "zh": "领导层已经公开承诺了一个你的团队做不到的日期。你怎么办？",
+      "outline": [
+        "Flag the risk privately the same day",
+        "Bring a revised estimate with evidence",
+        "Offer a path to green with scope options",
+        "No surprises: bad news ages badly",
+        "Let leadership own the public correction"
+      ],
+      "chunks": [
+        { "term": "flag a risk", "zh": "标记一个风险（把隐患摆上台面）" },
+        { "term": "no surprises", "zh": "不要意外（向上管理的基本原则）" },
+        { "term": "revised estimate", "zh": "修订后的估算（改口的新时间）" },
+        { "term": "path to green", "zh": "转绿路径（从红灯回到正轨的计划）" }
+      ],
+      "followUps": ["What if they insist on the date anyway?", "How much evidence is enough?"]
+    },
+    {
+      "id": "lead-ask-headcount",
+      "prompt": "Make the case for two more engineers to a CFO who counts everything.",
+      "zh": "向一个什么都算账的 CFO 论证为什么需要再加两个工程师。",
+      "outline": [
+        "Tie the ask to revenue blocked today",
+        "Show the queue: what waits, what it costs",
+        "Offer options: hire, contract, or cut scope",
+        "State your confidence level honestly",
+        "Show the cost of the twelfth month of delay"
+      ],
+      "chunks": [
+        { "term": "headcount request", "zh": "编制申请（要正式名额）" },
+        { "term": "resource ask", "zh": "资源诉求（要人要预算的正式说法）" },
+        { "term": "budget request", "zh": "预算申请" },
+        { "term": "confidence level", "zh": "信心水平（对估算的把握程度）" }
+      ],
+      "followUps": ["Why engineers, not contractors?", "What if you get one instead of two?"]
+    },
+    {
+      "id": "lead-org-change",
+      "prompt": "Announce a reorganization that moves two teams and reshapes the roadmap. How do you communicate it?",
+      "zh": "宣布一次组织调整：两个团队要动、路线图要改。你怎么传达？",
+      "outline": [
+        "Announce once, in writing, with reasons",
+        "Say what changes and what deliberately does not",
+        "Name the new owners and the milestones",
+        "Raise a concern channel for the first month",
+        "Repeat the message in every forum for weeks"
+      ],
+      "chunks": [
+        { "term": "org change announcement", "zh": "组织调整公告" },
+        { "term": "all-hands announcement", "zh": "全员公告（全公司同步的消息）" },
+        { "term": "raise a concern early", "zh": "尽早提出担忧" },
+        { "term": "key milestones", "zh": "关键里程碑" }
+      ],
+      "followUps": ["How do you handle the people who lose scope?", "What rumors do you pre-empt?"]
+    },
+    {
+      "id": "lead-bad-news-early",
+      "prompt": "Your flagship project is slipping by a month. When do you tell leadership, and how?",
+      "zh": "你的旗舰项目要延期一个月。你什么时候告诉领导层、怎么说？",
+      "outline": [
+        "Tell them when you know, not when you are sure",
+        "Bring the recovery plan, not just the slip",
+        "Name the mitigation plan for customers",
+        "One owner, one message, no drip feed",
+        "Update weekly until the date is green again"
+      ],
+      "chunks": [
+        { "term": "raise a concern early", "zh": "尽早提出担忧" },
+        { "term": "off track", "zh": "偏离轨道（进度出问题了）" },
+        { "term": "recovery plan", "zh": "挽回计划（把延期追回来的安排）" },
+        { "term": "mitigation plan", "zh": "缓解计划（风险成真时怎么办）" }
+      ],
+      "followUps": ["What if the slip might recover in two weeks?", "Who else hears it before leadership does?"]
     }
   ]
 }

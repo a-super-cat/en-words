@@ -589,6 +589,101 @@
         { "term": "long-term value", "zh": "长期价值" }
       ],
       "followUps": ["What would your first ninety days look like here?", "Is there anything in your background that concerns us that you'd like to address?"]
+    },
+    {
+      "id": "beh-worst-incident-you-caused",
+      "prompt": "Tell me about the worst production incident you personally caused. What happened, and what changed afterwards?",
+      "zh": "讲讲你亲手造成过的最严重的一次生产事故。发生了什么、之后改了什么？",
+      "outline": [
+        "Set the scene: what you shipped and when",
+        "Say plainly which decision was yours",
+        "Walk the timeline to detection and mitigation",
+        "Name the preventive measure that followed",
+        "End with the lesson you still apply"
+      ],
+      "chunks": [
+        { "term": "declare the incident", "zh": "宣告事故（正式拉响事故流程）" },
+        { "term": "root cause analysis", "zh": "根本原因分析（复盘的核心动作）" },
+        { "term": "lessons learned", "zh": "经验教训（复盘的沉淀小节）" },
+        { "term": "blameless writeup", "zh": "无指责复盘稿（写系统不写人）" }
+      ],
+      "followUps": ["What did you tell the affected users?", "How long did it take you to tell your manager?"]
+    },
+    {
+      "id": "beh-confidently-wrong",
+      "prompt": "Tell me about a time you were confidently wrong in front of your team. How did it play out?",
+      "zh": "讲讲你曾经在团队面前自信满满却错了的一次。后来怎么样？",
+      "outline": [
+        "State your wrong position, unvarnished",
+        "Say who challenged it and with what evidence",
+        "Admit the moment you knew: that one's on me",
+        "Describe swallowing your pride in the review",
+        "Share the check you added to your thinking"
+      ],
+      "chunks": [
+        { "term": "That one's on me.", "zh": "那件事怪我、是我的责任" },
+        { "term": "learn it the hard way", "zh": "以惨痛代价学到（教训）" },
+        { "term": "swallow your pride", "zh": "放下面子、忍下委屈" },
+        { "term": "patch things up", "zh": "和好、修复（闹僵的）关系" }
+      ],
+      "followUps": ["Did anyone lose trust in you over it?", "How do you test your confidence now?"]
+    },
+    {
+      "id": "beh-feedback-you-fought",
+      "prompt": "Tell me about critical feedback you initially disagreed with. Where did it end up?",
+      "zh": "讲讲你一开始不认同的一次严厉反馈。最后怎么样了？",
+      "outline": [
+        "Quote the feedback fairly, not defensively",
+        "Admit your first reaction honestly",
+        "Describe clearing the air with the giver",
+        "Name the behavior that actually changed",
+        "Say what the feedback missed, with respect"
+      ],
+      "chunks": [
+        { "term": "give constructive feedback", "zh": "给出建设性反馈（对事不对人）" },
+        { "term": "take it personally", "zh": "把（批评）往心里去、当成针对个人" },
+        { "term": "clear the air", "zh": "把话说开、消除误会或紧张气氛" },
+        { "term": "work it out", "zh": "协商解决（分歧、问题）" }
+      ],
+      "followUps": ["How long did the change take?", "Do you still disagree with part of it?"]
+    },
+    {
+      "id": "beh-project-that-died",
+      "prompt": "Tell me about a project you built that was cancelled or never shipped. What did you take from it?",
+      "zh": "讲讲你做过的一个被砍掉或从未上线的项目。你从中得到了什么？",
+      "outline": [
+        "Explain what it was and why it started",
+        "Say what went poorly in the signals you missed",
+        "Admit where you got lucky it died early",
+        "Name the follow-up action in your next project",
+        "Frame the lesson without bitterness"
+      ],
+      "chunks": [
+        { "term": "what went poorly", "zh": "做得差的地方（复盘的固定小节）" },
+        { "term": "where we got lucky", "zh": "我们走运的地方（差点更糟的环节）" },
+        { "term": "lessons learned", "zh": "经验教训（复盘的沉淀小节）" },
+        { "term": "follow-up action", "zh": "跟进行动（复盘后要做的改进项）" }
+      ],
+      "followUps": ["When did you first suspect it would die?", "What would have saved it?"]
+    },
+    {
+      "id": "beh-fight-with-manager",
+      "prompt": "Tell me about a serious disagreement with your manager. How did it end?",
+      "zh": "讲讲你和上级发生过的一次严重分歧。最后怎么收场的？",
+      "outline": [
+        "State both positions in their strongest form",
+        "Say how you brought it up, not around it",
+        "Describe the hard conversation itself",
+        "Agree to disagree where the data ran out",
+        "Name what the relationship looks like now"
+      ],
+      "chunks": [
+        { "term": "agree to disagree", "zh": "求同存异、各自保留意见" },
+        { "term": "stand your ground", "zh": "坚持立场、不退让" },
+        { "term": "have a hard conversation", "zh": "进行一次艰难的谈话" },
+        { "term": "bring it up", "zh": "把（某件事）提出来、提起" }
+      ],
+      "followUps": ["What would you do differently in the first conversation?", "Did you ever consider going over their head?"]
     }
   ]
 }

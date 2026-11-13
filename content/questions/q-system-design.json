@@ -616,6 +616,101 @@
         { "term": "take ownership of", "zh": "主动把……的责任担起来（含 o 开头的名词）" }
       ],
       "followUps": ["What if the losing team quietly refuses to adopt it?", "When is standardizing the wrong move?"]
+    },
+    {
+      "id": "sd-followup-scale-100x",
+      "prompt": "Your design works. Now traffic grows a hundred times. Talk me through what breaks first, and in what order.",
+      "zh": "你的设计跑通了。现在流量涨一百倍。讲讲最先坏的是什么、按什么顺序坏。",
+      "outline": [
+        "Start from today's real bottleneck, not imagination",
+        "Reads break before writes in this design",
+        "First fix: cache and scale out the read path",
+        "Then the database becomes the wall",
+        "State what you deliberately leave unscaled"
+      ],
+      "chunks": [
+        { "term": "become the bottleneck", "zh": "成为瓶颈" },
+        { "term": "burst traffic", "zh": "突发流量" },
+        { "term": "scale out", "zh": "横向扩容（加实例）" },
+        { "term": "on the read path", "zh": "在读取路径上（请求读数据时经过）" }
+      ],
+      "followUps": ["What if the growth is writes, not reads?", "Which single component scares you most?"]
+    },
+    {
+      "id": "sd-followup-db-down",
+      "prompt": "The primary database dies at peak hour. Walk me through the first five minutes: what users see, what you check, what you do.",
+      "zh": "主库在高峰时挂了。讲讲头五分钟：用户看到什么、你查什么、你做什么。",
+      "outline": [
+        "Users see stale reads and failed checkouts",
+        "First check: replica lag and failover state",
+        "Promote the freshest replica, accept small loss",
+        "Communicate status before the root cause",
+        "Post-incident: why failover was manual"
+      ],
+      "chunks": [
+        { "term": "lag behind", "zh": "落后、滞后于……" },
+        { "term": "in the worst case", "zh": "在最坏情况下" },
+        { "term": "read from the primary", "zh": "从主库读（保证读到最新）" },
+        { "term": "keep ... in sync", "zh": "保持……同步" }
+      ],
+      "followUps": ["How much data loss is acceptable here?", "Who decides to fail over at 3 a.m.?"]
+    },
+    {
+      "id": "sd-followup-cost-cut",
+      "prompt": "Finance says your design costs double the budget. Defend it, or cut it: what goes, and what do you trade away?",
+      "zh": "财务说你的设计成本是预算的两倍。你要么辩护，要么砍：砍什么、拿什么换？",
+      "outline": [
+        "Separate the bill: compute, storage, egress",
+        "Cut the multi-region ambition first",
+        "Trade freshness for cost on analytics reads",
+        "Keep it simple where traffic is small",
+        "Name the risk each cut buys"
+      ],
+      "chunks": [
+        { "term": "trade ... for ...", "zh": "用……换……（取舍）" },
+        { "term": "good enough", "zh": "（已经）够用了" },
+        { "term": "keep it simple", "zh": "保持简单、先做简单版" },
+        { "term": "rule of thumb", "zh": "经验法则、大致的估算标准" }
+      ],
+      "followUps": ["Which line item grows fastest with traffic?", "What breaks first if you cut the cache?"]
+    },
+    {
+      "id": "sd-followup-strong-consistency",
+      "prompt": "The business now demands strong consistency on the checkout flow. What changes in your design, and what gets slower?",
+      "zh": "业务现在要求结账流程强一致。你的设计要改什么、什么会变慢？",
+      "outline": [
+        "Make the primary the source of truth for orders",
+        "Reads on the critical path go to the primary",
+        "Retries and double charges become the risk",
+        "Everything outside checkout can stay eventual",
+        "Name the latency cost honestly"
+      ],
+      "chunks": [
+        { "term": "the source of truth", "zh": "唯一可信的数据源、以它为准" },
+        { "term": "in the critical path", "zh": "在关键路径上（慢了就拖慢整体）" },
+        { "term": "read-heavy", "zh": "读多写少（的负载）" },
+        { "term": "lag behind", "zh": "落后、滞后于……" }
+      ],
+      "followUps": ["How do you prevent double charging on retries?", "What happens when the primary is unreachable?"]
+    },
+    {
+      "id": "sd-followup-small-team",
+      "prompt": "You actually have three engineers and six weeks. Shrink this design to what that team can build and run.",
+      "zh": "你实际上只有三个工程师和六周时间。把设计缩减到这个团队真能建起来、还养得起的规模。",
+      "outline": [
+        "Start from the managed service, not from scratch",
+        "Build on top of boring, proven pieces",
+        "One database, no premature splitting",
+        "Automate only the top two manual pains",
+        "Write down what comes down the road"
+      ],
+      "chunks": [
+        { "term": "keep it simple", "zh": "保持简单、先做简单版" },
+        { "term": "build on top of", "zh": "在……之上构建" },
+        { "term": "good enough", "zh": "（已经）够用了" },
+        { "term": "down the road", "zh": "以后、将来某个时候" }
+      ],
+      "followUps": ["What do you refuse to operate yourselves?", "Which shortcut will hurt first?"]
     }
   ]
 }
