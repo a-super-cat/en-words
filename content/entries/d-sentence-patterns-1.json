@@ -1,0 +1,607 @@
+{
+ "category": "sentence-patterns",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "It is worth noting that the cache is not a database of record.",
+     "zh": "值得注意的是，缓存不是权威数据源。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "It is worth noting that retries can make an outage worse.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "It is worth noting that ...",
+   "zh": "值得注意的是……"
+  },
+  {
+   "examples": [
+    {
+     "en": "It turns out that the simplest index was the fastest.",
+     "zh": "事实证明，最简单的索引反而是最快的。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "It turns out that most of the latency came from one query.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "It turns out that ...",
+   "zh": "结果发现、事实证明……"
+  },
+  {
+   "examples": [
+    {
+     "en": "This is not to say that caching is always the answer.",
+     "zh": "这并不是说缓存永远是答案。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "This is not to say that the approach has no merits.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "This is not to say that ...",
+   "zh": "这并不是说……（防误读的让步）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The log not only records history, but also drives recovery.",
+     "zh": "日志不仅记录历史，还驱动恢复。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Replication not only protects data, but also spreads read load.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "Not only ..., but also ...",
+   "zh": "不仅……，而且……"
+  },
+  {
+   "examples": [
+    {
+     "en": "What matters is not the average, but the tail.",
+     "zh": "重要的不是平均值，而是尾部。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "What matters is not how often it fails, but how fast it recovers.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "What matters is not ..., but ...",
+   "zh": "重要的不是……，而是……"
+  },
+  {
+   "examples": [
+    {
+     "en": "To the extent that reads dominate, caching pays off quickly.",
+     "zh": "就读占主导的程度而言，缓存很快就能回本。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The design helps to the extent that traffic is predictable.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "To the extent that ...",
+   "zh": "在……的程度上、就……而言"
+  },
+  {
+   "examples": [
+    {
+     "en": "Provided that writes are idempotent, retries are harmless.",
+     "zh": "只要写操作是幂等的，重试就无害。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The scheme works provided that clocks stay roughly in sync.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "Provided that ...",
+   "zh": "只要、倘若（条件句开头）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Given that most reads are stale-tolerant, we relaxed the guarantee.",
+     "zh": "既然大多数读能容忍旧数据，我们就放宽了保证。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Given that storage is cheap, we keep three copies of everything.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "Given that ...",
+   "zh": "鉴于、既然（已知前提）"
+  },
+  {
+   "examples": [
+    {
+     "en": "It follows that no single node can decide alone.",
+     "zh": "由此得出：没有任何单个节点能独自做决定。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "If every step is reversible, it follows that rollback is trivial.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "It follows that ...",
+   "zh": "由此得出、因此必然……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Far from being free, coordination is the main cost here.",
+     "zh": "协调远非免费，它是这里的主要成本。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The result is far from being random; it is deterministic by construction.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "Far from being ...",
+   "zh": "远非、根本不……（强否定）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Pull-based delivery, as opposed to push, lets consumers set the pace.",
+     "zh": "拉取式投递与推送相反，它让消费者自己定节奏。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "As opposed to a cache, a buffer absorbs bursts rather than repeats.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "As opposed to ...",
+   "zh": "与……相反、与……相对照"
+  },
+  {
+   "examples": [
+    {
+     "en": "Consistency is achieved by means of a quorum.",
+     "zh": "一致性是通过法定人数机制实现的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Nodes coordinate by means of heartbeats and timeouts.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "By means of ...",
+   "zh": "通过、借助……手段"
+  },
+  {
+   "examples": [
+    {
+     "en": "With the exception of the leader, all nodes hold the same log.",
+     "zh": "除领导者之外，所有节点的日志都相同。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "All fields are optional with the exception of the identifier.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "With the exception of ...",
+   "zh": "除……之外"
+  },
+  {
+   "examples": [
+    {
+     "en": "In light of these results, the team revisited the design.",
+     "zh": "鉴于这些结果，团队重新审视了设计。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In light of the outage, the rollout policy was rewritten.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "In light of ...",
+   "zh": "鉴于、考虑到（新情况）"
+  },
+  {
+   "examples": [
+    {
+     "en": "In the absence of a leader, the cluster cannot accept writes.",
+     "zh": "在没有领导者的情况下，集群无法接受写入。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In the absence of backpressure, queues grow without bound.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "In the absence of ...",
+   "zh": "在没有……的情况下"
+  },
+  {
+   "examples": [
+    {
+     "en": "The design buys simplicity at the expense of some performance.",
+     "zh": "这个设计以牺牲一些性能为代价换来了简单。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Stronger guarantees come at the expense of availability.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "At the expense of ...",
+   "zh": "以……为代价"
+  },
+  {
+   "examples": [
+    {
+     "en": "The proof works on the assumption that messages eventually arrive.",
+     "zh": "这个证明建立在消息最终会到达的假设之上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Capacity was planned on the assumption that growth stays linear.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "On the assumption that ...",
+   "zh": "在假设……的前提下"
+  },
+  {
+   "examples": [
+    {
+     "en": "Notwithstanding these caveats, the approach remains the default choice.",
+     "zh": "尽管有这些注意事项，这个方法仍然是默认选择。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Notwithstanding its age, the protocol is still widely deployed.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "Notwithstanding ...",
+   "zh": "尽管、虽然（正式，置于名词前）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Despite the fact that nodes fail, the service stays up.",
+     "zh": "尽管节点会失效，服务依然保持在线。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Despite the fact that the test passed, the bug shipped.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "Despite the fact that ...",
+   "zh": "尽管事实是……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Even so, the team chose the simpler design.",
+     "zh": "即便如此，团队还是选择了更简单的设计。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The guarantees are weaker. Even so, most products accept them.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "Even so, ...",
+   "zh": "即便如此、尽管如此"
+  },
+  {
+   "examples": [
+    {
+     "en": "That said, the operational cost is easy to underestimate.",
+     "zh": "话虽如此，运维成本很容易被低估。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The design is sound. That said, debugging it is painful.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "That said, ...",
+   "zh": "话虽如此（转折引出保留意见）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Strictly speaking, the system is not linearizable, only sequentially consistent.",
+     "zh": "严格来说，这个系统不是线性一致的，只是顺序一致的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Strictly speaking, a hash collision is possible, if unlikely.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "Strictly speaking, ...",
+   "zh": "严格来说"
+  },
+  {
+   "examples": [
+    {
+     "en": "Broadly speaking, there are two families of solutions.",
+     "zh": "大体上说，这类问题有两大类解法。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Broadly speaking, storage systems trade latency for durability.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "Broadly speaking, ...",
+   "zh": "大体上说、广义地说"
+  },
+  {
+   "examples": [
+    {
+     "en": "In a sense, the log is the database; everything else is a cache.",
+     "zh": "在某种意义上，日志就是数据库；其余的都是缓存。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In a sense, every retry policy is a bet about failure duration.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "In a sense, ...",
+   "zh": "在某种意义上"
+  },
+  {
+   "examples": [
+    {
+     "en": "To a large extent, tail latency is a queueing problem.",
+     "zh": "尾延迟在很大程度上是一个排队问题。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Success depends, to a large extent, on the workload's shape.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "To a large extent, ...",
+   "zh": "在很大程度上"
+  },
+  {
+   "examples": [
+    {
+     "en": "More often than not, the bottleneck is somewhere boring.",
+     "zh": "瓶颈多半出在某个不起眼的地方。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "More often than not, a timeout beats a crash in disguise.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "More often than not, ...",
+   "zh": "往往、多半会"
+  },
+  {
+   "examples": [
+    {
+     "en": "The point is that correctness must not depend on timing.",
+     "zh": "关键在于：正确性不能依赖时序。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "The point is that retries must be budgeted, not improvised.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "The point is that ...",
+   "zh": "关键在于、问题是……"
+  },
+  {
+   "examples": [
+    {
+     "en": "The fact remains that disks fail more often than we assume.",
+     "zh": "事实仍然是：磁盘失效的频率比我们以为的更高。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Techniques change, but the fact remains that physics sets the floor.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "The fact remains that ...",
+   "zh": "事实仍然是……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Suffice it to say that the migration did not go smoothly.",
+     "zh": "只需这么说就够了：那次迁移进行得并不顺利。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Suffice it to say that exactly-once is a spectrum in practice.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "Suffice it to say that ...",
+   "zh": "只需说……就够了、不必细说"
+  },
+  {
+   "examples": [
+    {
+     "en": "It goes without saying that backups must be tested, not just taken.",
+     "zh": "不用说，备份必须经过测试，而不只是做出来放着。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "It goes without saying that production data is not test data.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "It goes without saying that ...",
+   "zh": "不用说、显而易见……"
+  },
+  {
+   "examples": [
+    {
+     "en": "As a rule, prefer boring technology for critical paths.",
+     "zh": "一般来说，关键路径优先选无聊的技术。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "As a rule, measure before you optimize anything.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "As a rule, ...",
+   "zh": "一般来说、按惯例"
+  },
+  {
+   "examples": [
+    {
+     "en": "By and large, the new scheduler behaves as designed.",
+     "zh": "总的来说，新调度器的行为符合设计。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "By and large, managed services move the pain rather than remove it.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "By and large, ...",
+   "zh": "总的来说、大体上"
+  },
+  {
+   "examples": [
+    {
+     "en": "On balance, the simpler protocol wins for this team.",
+     "zh": "权衡之后，更简单的协议对这支团队更合适。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "On balance, the migration paid for itself within a quarter.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "On balance, ...",
+   "zh": "权衡之后、综合来看"
+  },
+  {
+   "examples": [
+    {
+     "en": "After all, every abstraction leaks somewhere.",
+     "zh": "毕竟，每个抽象都会在某个地方泄漏。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Do not mock the old system. After all, it paid the bills for years.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "After all, ...",
+   "zh": "毕竟、终究"
+  },
+  {
+   "examples": [
+    {
+     "en": "In the long run, operability beats cleverness.",
+     "zh": "从长远来看，可运维性胜过小聪明。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In the long run, the boring choice compounds in your favor.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "In the long run, ...",
+   "zh": "从长远来看"
+  },
+  {
+   "examples": [
+    {
+     "en": "Over time, hot partitions drift as user behavior changes.",
+     "zh": "随着时间推移，用户行为变化会让热点分区漂移。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Over time, the cache learns the shape of the traffic.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "Over time, ...",
+   "zh": "随着时间的推移"
+  },
+  {
+   "examples": [
+    {
+     "en": "In the presence of failures, the protocol still guarantees safety.",
+     "zh": "在存在故障的情况下，这个协议依然保证安全性。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ordering matters most in the presence of concurrency.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "In the presence of ...",
+   "zh": "在存在……的情况下"
+  },
+  {
+   "examples": [
+    {
+     "en": "The proposal was rejected on the grounds that it hid the failure modes.",
+     "zh": "这个提议被否决了，理由是它掩盖了故障模式。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "He objected on the grounds that the test proved nothing about recovery.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "On the grounds that ...",
+   "zh": "理由是、以……为根据"
+  },
+  {
+   "examples": [
+    {
+     "en": "Subject to these constraints, the design is straightforward.",
+     "zh": "在这些约束之内，设计就很直接了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Subject to capacity, any region can serve any tenant.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "Subject to ...",
+   "zh": "取决于、受……制约（句首）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Insofar as latency matters, the local replica wins.",
+     "zh": "就延迟而言，本地副本胜出。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The argument holds insofar as failures stay independent.",
+    "zh": "你在读技术书时看到这样的开头，先认出句式再读后半句："
+   },
+   "term": "Insofar as ...",
+   "zh": "就……而言、在……的范围内"
+  }
+ ],
+ "layer": "D",
+ "title": "高级句式"
+}

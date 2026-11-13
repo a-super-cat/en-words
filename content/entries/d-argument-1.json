@@ -1,0 +1,457 @@
+{
+ "category": "argument",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "The evidence suggests that most stalls begin in the storage layer.",
+     "zh": "证据表明，大多数卡顿始于存储层。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Taken together, the evidence suggests that the queue, not the CPU, is the limit.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "The evidence suggests that ...",
+   "zh": "证据表明……"
+  },
+  {
+   "examples": [
+    {
+     "en": "This raises the question of who owns the retry budget.",
+     "zh": "这引出了一个问题：重试预算到底归谁管。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "This raises the question of whether ordering matters at all.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "This raises the question of ...",
+   "zh": "这引出了……的问题"
+  },
+  {
+   "examples": [
+    {
+     "en": "One might argue that a single region is simpler to run.",
+     "zh": "有人可能会说，单区域运行起来更简单。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "One might argue that consensus is overkill for this problem.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "One might argue that ...",
+   "zh": "有人可能会说……（引出对立观点）"
+  },
+  {
+   "examples": [
+    {
+     "en": "It could be argued that the cache, not the database, is the real system.",
+     "zh": "也可以说，缓存而不是数据库，才是真正的系统。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "It could be argued that the distinction is purely historical.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "It could be argued that ...",
+   "zh": "也可以说、有理由认为……"
+  },
+  {
+   "examples": [
+    {
+     "en": "A common misconception is that more replicas always mean more safety.",
+     "zh": "一个常见的误解是：副本越多就一定越安全。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "A common misconception is that timeouts imply failure.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "A common misconception is that ...",
+   "zh": "一个常见的误解是……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Contrary to popular belief, most outages start with a change, not a crash.",
+     "zh": "与普遍看法相反，大多数故障始于一次变更，而不是崩溃。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Contrary to popular belief, the disk is rarely the slowest part.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "Contrary to popular belief, ...",
+   "zh": "与普遍看法相反"
+  },
+  {
+   "examples": [
+    {
+     "en": "In reality, the bottleneck moved to the network years ago.",
+     "zh": "实际上，瓶颈早在几年前就转移到了网络上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In reality, few workloads are write-heavy all day long.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "In reality, ...",
+   "zh": "实际上（纠正前文印象）"
+  },
+  {
+   "examples": [
+    {
+     "en": "As we shall see, the same trick solves both problems.",
+     "zh": "正如我们将要看到的，同一招能解决这两个问题。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "As we shall see, the recovery path reuses the replication machinery.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "As we shall see, ...",
+   "zh": "正如我们将要看到的（书中预告）"
+  },
+  {
+   "examples": [
+    {
+     "en": "As noted earlier, timeouts cannot distinguish slowness from failure.",
+     "zh": "如前所述，超时无法区分慢和故障。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "As noted earlier, every message carries a term number.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "As noted earlier, ...",
+   "zh": "如前所述（回指）"
+  },
+  {
+   "examples": [
+    {
+     "en": "For simplicity, assume each partition fits on one machine.",
+     "zh": "为简单起见，假设每个分区都能装进一台机器。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For simplicity, we ignore clock skew in this first model.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "For simplicity, ...",
+   "zh": "为简单起见（简化声明）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Without loss of generality, let the first node be the leader.",
+     "zh": "不失一般性地，设第一个节点为领导者。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Without loss of generality, assume the messages arrive in order.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "Without loss of generality, ...",
+   "zh": "不失一般性地（数学与证明常用）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Consider the case where two leaders believe they are both in charge.",
+     "zh": "考虑这样一种情况：两个领导者都以为自己在掌权。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Consider the case where the cache and the database disagree.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "Consider the case where ...",
+   "zh": "考虑这样一种情况：……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Suppose that the network drops every tenth message.",
+     "zh": "假设网络会丢掉每第十条消息。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Suppose that the leader crashes halfway through the write.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "Suppose that ...",
+   "zh": "假设……（推演起点）"
+  },
+  {
+   "examples": [
+    {
+     "en": "It is easy to see that the total work grows with the number of shards.",
+     "zh": "很容易看出，总工作量随分片数增长。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "It is easy to see that a quorum must intersect with any other quorum.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "It is easy to see that ...",
+   "zh": "很容易看出……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Note that this guarantee says nothing about latency.",
+     "zh": "注意，这个保证对延迟只字未提。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Note that the order is logical, not physical.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "Note that ...",
+   "zh": "注意、请注意……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Bear in mind that every default will be misused by someone.",
+     "zh": "要记住，每个默认值都会被某个人用错。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Bear in mind that a green dashboard is not proof of health.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "Bear in mind that ...",
+   "zh": "记住、要考虑到……"
+  },
+  {
+   "examples": [
+    {
+     "en": "This is because the leader must wait for a quorum to reply.",
+     "zh": "这是因为领导者必须等法定人数回复。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "This is because writes are serialized through a single log.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "This is because ...",
+   "zh": "这是因为……"
+  },
+  {
+   "examples": [
+    {
+     "en": "This explains why adding nodes sometimes makes things slower.",
+     "zh": "这解释了为什么加节点有时反而会让事情变慢。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "This explains why the tail dominates the user experience.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "This explains why ...",
+   "zh": "这解释了为什么……"
+  },
+  {
+   "examples": [
+    {
+     "en": "That is why the protocol forbids two leaders in one term.",
+     "zh": "这就是为什么协议禁止一个任期内出现两个领导者。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "That is why the book treats ordering as the central problem.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "That is why ...",
+   "zh": "这就是为什么……"
+  },
+  {
+   "examples": [
+    {
+     "en": "The so-called free tier throttles aggressively at peak hours.",
+     "zh": "所谓的免费档在高峰时段限流很凶。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Beware of so-called silver bullets in system design.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "So-called ...",
+   "zh": "所谓的……（带距离感地引用说法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "In technical terms, the cache offers read-your-writes consistency.",
+     "zh": "用技术术语来说，这个缓存提供的是读己所写一致性。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In technical terms, the failure was a liveness issue, not a safety one.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "In technical terms, ...",
+   "zh": "用技术术语来说"
+  },
+  {
+   "examples": [
+    {
+     "en": "Loosely speaking, the system remembers everything and forgets on schedule.",
+     "zh": "粗略地说，这个系统什么都记，然后按计划遗忘。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Loosely speaking, a vector clock is a timestamp with a memory.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "Loosely speaking, ...",
+   "zh": "粗略地说、不严格地说"
+  },
+  {
+   "examples": [
+    {
+     "en": "Put simply, consensus is how machines agree on one story.",
+     "zh": "简单地说，共识就是机器们如何就一个版本达成一致。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Put simply, backpressure is the art of saying not yet.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "Put simply, ...",
+   "zh": "简单地说"
+  },
+  {
+   "examples": [
+    {
+     "en": "For the purposes of this chapter, a node is a single machine.",
+     "zh": "就本章的目的而言，一个节点就是一台机器。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For the purposes of the model, the network is just delay and loss.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "For the purposes of ...",
+   "zh": "就……的目的而言（限定讨论范围）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let us consider a cluster of five nodes and two failures.",
+     "zh": "我们来考虑一个五节点、两次故障的集群。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Let us consider what the client observes during a failover.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "Let us consider ...",
+   "zh": "我们来考虑……（书中引导）"
+  },
+  {
+   "examples": [
+    {
+     "en": "It should be clear that no timeout value is always right.",
+     "zh": "很明显，没有任何超时值是永远正确的。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "By now it should be clear that ordering is the hard part.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "It should be clear that ...",
+   "zh": "很明显、应当清楚……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keep in mind that the common case is not the only case.",
+     "zh": "记住，常见情况不是唯一的情况。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Keep in mind that benchmarks lie by omission.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "Keep in mind that ...",
+   "zh": "记住、别忘了……"
+  },
+  {
+   "examples": [
+    {
+     "en": "The reason is simple: every replica must apply the same order.",
+     "zh": "原因很简单：每个副本都必须按相同的顺序执行。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "The reason is simple: the log is the only thing everyone trusts.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "The reason is simple: ...",
+   "zh": "原因很简单：……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Hence the term split brain: two halves, each thinking it leads.",
+     "zh": "因此有了“脑裂”这个说法：两半各自以为自己在领导。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Hence the term thundering herd, for the stampede that follows a cache expiry.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "Hence the term ...",
+   "zh": "因此有了……这个说法"
+  },
+  {
+   "examples": [
+    {
+     "en": "The cluster suffers from what is known as a thundering herd.",
+     "zh": "这个集群遇到了即所谓的惊群效应。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "This behaviour is what is known as cascading failure.",
+    "zh": "你在读技术书或长文时看到这样的论证句，先认出作者在做什么动作："
+   },
+   "term": "What is known as ...",
+   "zh": "即所谓的……（引入术语全名）"
+  }
+ ],
+ "layer": "D",
+ "title": "论证与篇章"
+}

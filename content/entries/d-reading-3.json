@@ -1,0 +1,682 @@
+{
+ "category": "reading",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Let x denote the number of replicas in the cluster.",
+     "zh": "设 x 表示集群中的副本数。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "In what follows, we use n to denote the number of nodes.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "denote",
+   "zh": "表示、指示（符号或术语的含义）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We refer to the second phase as the commit phase.",
+     "zh": "我们把第二阶段称为提交阶段。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Throughout this chapter, 'record' refers to a single log entry.",
+    "zh": "书里在给一个东西下命名时用了这个说法。"
+   },
+   "term": "refer to",
+   "zh": "指的是、称……为；查阅"
+  },
+  {
+   "examples": [
+    {
+     "en": "The estimate is based on last quarter's traffic, not a guess.",
+     "zh": "这个估计是基于上季度流量的，不是拍脑袋。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The ranking is based on freshness as well as relevance.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "be based on",
+   "zh": "基于、建立在……之上"
+  },
+  {
+   "examples": [
+    {
+     "en": "Any sizing exercise must take into account growth over two years.",
+     "zh": "任何容量评估都必须把两年的增长考虑在内。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Take into account that reads outnumber writes ten to one.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "take into account",
+   "zh": "把……考虑在内"
+  },
+  {
+   "examples": [
+    {
+     "en": "The cache serves as a shield between the app and the database.",
+     "zh": "缓存充当了应用和数据库之间的盾牌。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "This node serves as the coordinator for the shard.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "serve as",
+   "zh": "充当、起……作用"
+  },
+  {
+   "examples": [
+    {
+     "en": "The log functions as the system's source of truth.",
+     "zh": "日志起着系统事实来源的作用。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In this design, the queue functions as a buffer under load spikes.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "function as",
+   "zh": "起……的作用、作为……运转"
+  },
+  {
+   "examples": [
+    {
+     "en": "Any node can act as the leader after an election.",
+     "zh": "任何节点在选举之后都能充当领导者。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The gateway acts as the single entry point for all traffic.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "act as",
+   "zh": "充当、扮演……角色"
+  },
+  {
+   "examples": [
+    {
+     "en": "The savings amount to roughly a third of the storage bill.",
+     "zh": "节省下来的费用总共约为存储账单的三分之一。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "These three rules amount to a simple form of backpressure.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "amount to",
+   "zh": "总共达、等于（实质上）"
+  },
+  {
+   "examples": [
+    {
+     "en": "For readers, a stale snapshot is equivalent to a slightly older database.",
+     "zh": "对读者来说，一个旧快照等价于一个稍旧一点的数据库。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Reordering these two operations is equivalent to dropping the first.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "be equivalent to",
+   "zh": "等价于、与……等同"
+  },
+  {
+   "examples": [
+    {
+     "en": "Most inconsistency results from concurrent writes, not from bugs.",
+     "zh": "大多数不一致源于并发写入，而不是缺陷。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The delay results from a saturated connection pool.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "result from",
+   "zh": "由……引起、源于（主语是结果）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Retries contribute to the overload they are meant to survive.",
+     "zh": "重试促成了它们本想扛过去的过载。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Several small inefficiencies contribute to the slow page.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "contribute to",
+   "zh": "促成、是……的原因之一"
+  },
+  {
+   "examples": [
+    {
+     "en": "Estimates are subject to change as traffic patterns shift.",
+     "zh": "估计值会随着流量模式变化而调整。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "All requests are subject to the same rate limit.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "be subject to",
+   "zh": "受……影响、取决于；须遵守"
+  },
+  {
+   "examples": [
+    {
+     "en": "The protocol distinguishes between reads that need freshness and those that do not.",
+     "zh": "这个协议会区分需要新鲜度的读和不需要的读。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "It is important to distinguish between a timeout and a failure.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "distinguish between",
+   "zh": "区分、分辨（两者）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Workloads are characterized by their read-write ratio.",
+     "zh": "负载的特征由其读写比来刻画。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Three properties characterize a well-behaved retry policy.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "characterize",
+   "zh": "刻画、描述……的特征"
+  },
+  {
+   "examples": [
+    {
+     "en": "The term 'consistency' encompasses several distinct guarantees.",
+     "zh": "“一致性”这个词涵盖了几种不同的保证。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The platform encompasses ingestion, storage, and serving.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "encompass",
+   "zh": "涵盖、包括（范围）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Strong consistency entails coordination, and coordination costs latency.",
+     "zh": "强一致性必然涉及协调，而协调要付出延迟的代价。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Exactly-once delivery entails durable state on both sides.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "entail",
+   "zh": "必然涉及、需要（正式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Two replicas suffice for reads; the third is for durability.",
+     "zh": "两个副本对读就够了；第三个是为持久性。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "It suffices to check the last segment of the log.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "suffice",
+   "zh": "足够、够用（正式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Requests that exceed the quota are rejected with a clear error.",
+     "zh": "超过配额的请求会被以明确的错误拒绝。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Latency grows sharply once load exceeds seventy percent of capacity.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "exceed",
+   "zh": "超过（数量、限度）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The scheduler utilizes idle machines for batch work.",
+     "zh": "调度器利用闲置机器跑批处理任务。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Modern drives utilize their cache aggressively under mixed workloads.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "utilize",
+   "zh": "利用、使用（正式版的 use）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Growth in data volume necessitates a different partitioning scheme.",
+     "zh": "数据量的增长使得另一种分区方案成为必需。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The new threat model necessitates encrypting backups as well.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "necessitate",
+   "zh": "使……成为必需、需要"
+  },
+  {
+   "examples": [
+    {
+     "en": "From the graph alone, we can infer that the queue is the constraint.",
+     "zh": "仅从这张图，我们就能推断出队列是瓶颈所在。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Readers may infer the ordering from the timestamps.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "infer",
+   "zh": "推断、推论（读者一侧的推）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Given the invariants, we can deduce that no two leaders coexist.",
+     "zh": "给定这些不变量，我们可以演绎得出：两个领导者不可能共存。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "From these rules we deduce the safety of the protocol.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "deduce",
+   "zh": "演绎得出、推断出"
+  },
+  {
+   "examples": [
+    {
+     "en": "Coordination cost is proportional to the number of participants.",
+     "zh": "协调成本与参与者数量成正比。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The savings are proportional to the cache hit ratio.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "be proportional to",
+   "zh": "与……成正比"
+  },
+  {
+   "examples": [
+    {
+     "en": "In this case, the simplest design is also the most robust.",
+     "zh": "在这种情况下，最简单的设计反而是最稳健的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Retries are safe in this case because the operation is idempotent.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "in this case",
+   "zh": "在这种情况下"
+  },
+  {
+   "examples": [
+    {
+     "en": "In some cases, dropping the request is better than queueing it.",
+     "zh": "在某些情况下，丢掉请求比排队更好。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In some cases the replica can even be ahead of the primary.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "in some cases",
+   "zh": "在某些情况下"
+  },
+  {
+   "examples": [
+    {
+     "en": "We optimize for the common case, specifically reads of recent data.",
+     "zh": "我们为常见情况优化，具体来说是近期数据的读取。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The limit applies specifically to unauthenticated requests.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "specifically",
+   "zh": "具体地、具体来说"
+  },
+  {
+   "examples": [
+    {
+     "en": "Two components dominate the cost, namely storage and egress.",
+     "zh": "成本主要由两个部分主导，即存储和出口流量。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "One property matters above all, namely predictability.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "namely",
+   "zh": "即、也就是（引出名单或解释）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The system is available, that is, it answers within the deadline.",
+     "zh": "这个系统是可用的，也就是说，它能在截止时间内响应。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Each partition is independent, that is, it shares nothing with the others.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "that is",
+   "zh": "也就是说、即"
+  },
+  {
+   "examples": [
+    {
+     "en": "The hot path, i.e. the code executed on every request, must stay lean.",
+     "zh": "热路径，即每个请求都会执行的代码，必须保持精简。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Use the primary region, i.e. the one closest to the writers.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "i.e.",
+   "zh": "即、也就是（拉丁语 id est 的缩写）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Some stores, e.g. log-structured ones, turn writes into appends.",
+     "zh": "有些存储，例如日志结构化的，会把写变成追加。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Certain operations, e.g. schema changes, require a maintenance window.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "e.g.",
+   "zh": "例如（拉丁语 exempli gratia 的缩写）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Nodes discover each other via a gossip protocol.",
+     "zh": "节点通过流言协议互相发现。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Configuration reaches the fleet via a single control channel.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "via",
+   "zh": "通过、经由（正式介词）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The limit is one thousand requests per second per client.",
+     "zh": "限制是每个客户端每秒一千个请求。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "As per the runbook, page the on-call engineer first.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "per",
+   "zh": "每、按照（as per 按照）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The chapter weighs strong versus eventual consistency in practice.",
+     "zh": "本章在实践层面权衡强一致性与最终一致性。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Push versus pull is the first decision in any feed design.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "versus",
+   "zh": "与……相比、对照"
+  },
+  {
+   "examples": [
+    {
+     "en": "The log and all backups thereof are encrypted at rest.",
+     "zh": "日志及其所有备份都做了静态加密。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The index, or any part thereof, must fit in memory.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "thereof",
+   "zh": "它的、其中（正式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A lease is a mechanism whereby one node claims exclusive ownership.",
+     "zh": "租约是一种机制，节点凭此声明独占所有权。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "They introduced a token system whereby requests carry their own priority.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "whereby",
+   "zh": "凭此、借以（正式关系词）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Several stores, notably log-structured ones, handle writes this way.",
+     "zh": "有几种存储，尤其日志结构化的，就是这样处理写的。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Latency improved across the board, most notably at the tail.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "notably",
+   "zh": "尤其、显著地"
+  },
+  {
+   "examples": [
+    {
+     "en": "In principle, the algorithm handles any number of nodes.",
+     "zh": "原则上，这个算法能处理任意数量的节点。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In principle nothing prevents sharding by tenant instead.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "in principle",
+   "zh": "原则上、理论上可以"
+  },
+  {
+   "examples": [
+    {
+     "en": "A quorum, by definition, is more than half of the voters.",
+     "zh": "按定义，法定人数就是超过半数的投票者。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "An idempotent operation is, by definition, safe to repeat.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "by definition",
+   "zh": "按定义、根据定义必然"
+  },
+  {
+   "examples": [
+    {
+     "en": "Most outages stem from changes, not from component failures.",
+     "zh": "大多数故障源于变更，而不是组件损坏。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The confusion stems from two features sharing one name.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "stem from",
+   "zh": "源于、来自（问题或现象的根源）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The incident shed light on a gap in the failover tests.",
+     "zh": "这次故障让我们看清了故障切换测试里的一个缺口。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Benchmarks shed little light on behavior under partial failure.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "shed light on",
+   "zh": "阐明、帮助理解"
+  },
+  {
+   "examples": [
+    {
+     "en": "Two failed replications cast doubt on the durability claim.",
+     "zh": "两次复制失败使持久性的说法受到了质疑。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Later measurements cast doubt on the original conclusion.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "cast doubt on",
+   "zh": "使……受到质疑"
+  },
+  {
+   "examples": [
+    {
+     "en": "The outage calls into question whether the failover was ever tested.",
+     "zh": "这次故障让人质疑：那套故障切换到底测试过没有。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "One counterexample calls the whole guarantee into question.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "call into question",
+   "zh": "使……成问题、质疑"
+  },
+  {
+   "examples": [
+    {
+     "en": "The model postulates a network that can delay messages arbitrarily.",
+     "zh": "这个模型假定网络可以任意延迟消息。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "We postulate that failures are independent between racks.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "postulate",
+   "zh": "假定、假设（提出一个前提）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The authors contend that coordination is unavoidable at this scale.",
+     "zh": "作者们主张，在这个规模下协调是不可避免的。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Few would contend that more replicas are always better.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "contend",
+   "zh": "主张、认为（论证用词）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We now examine what happens when the leader fails mid-write.",
+     "zh": "我们现在来考察领导者在写入中途失效时会发生什么。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The next section examines the recovery path in detail.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "examine",
+   "zh": "考察、仔细研究"
+  }
+ ],
+ "layer": "D",
+ "title": "书面与阅读"
+}

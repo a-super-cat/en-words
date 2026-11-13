@@ -1,0 +1,502 @@
+{
+ "category": "reading",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Teams assess the blast radius before choosing a rollout speed.",
+     "zh": "团队在选择发布速度之前，先评估影响范围。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Assess the consistency requirements before reaching for a database.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "assess",
+   "zh": "评估、估量"
+  },
+  {
+   "examples": [
+    {
+     "en": "These guarantees pertain to single objects, not to transactions.",
+     "zh": "这些保证只涉及单个对象，不涉及事务。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The following rules pertain to writes only.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "pertain to",
+   "zh": "与……有关、涉及（正式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The improvement is due to fewer round trips, not faster hardware.",
+     "zh": "改善是由于往返次数变少了，而不是硬件更快。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Most of the tail is due to a handful of hot keys.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "be due to",
+   "zh": "由于、归因于"
+  },
+  {
+   "examples": [
+    {
+     "en": "Owing to the partition, the two halves evolved independently.",
+     "zh": "由于分区，两部分独立地演化了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The experiment was repeated owing to doubts about the first run.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "owing to",
+   "zh": "由于、因为（正式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The node was drained on account of repeated disk errors.",
+     "zh": "这个节点因为反复出现磁盘错误而被排空。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "On account of its simplicity, the design ages well.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "on account of",
+   "zh": "因为、由于"
+  },
+  {
+   "examples": [
+    {
+     "en": "The protocol guarantees at most one leader per term.",
+     "zh": "这个协议保证每个任期至多一个领导者。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A request touches at most two partitions.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "at most",
+   "zh": "至多、最多不超过"
+  },
+  {
+   "examples": [
+    {
+     "en": "Polling is, at best, a few seconds behind the real state.",
+     "zh": "轮询充其量也只能落后真实状态几秒。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The estimate is at best an educated guess.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "at best",
+   "zh": "充其量、最好也不过"
+  },
+  {
+   "examples": [
+    {
+     "en": "By comparison, the recovery path is almost trivial.",
+     "zh": "相比之下，恢复路径几乎是平凡的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Writes look expensive; by comparison, reads are nearly free.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "by comparison",
+   "zh": "相比之下、对照来看"
+  },
+  {
+   "examples": [
+    {
+     "en": "The spike can be attributed to a retry storm in one client.",
+     "zh": "这次飙升可以归因于某个客户端的重试风暴。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Half the incidents were attributed to configuration changes.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "be attributed to",
+   "zh": "被归因于、是……造成的"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every modern consensus protocol traces back to Paxos.",
+     "zh": "每一个现代共识协议都能追溯到 Paxos。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The bug traces back to an assumption in the original design.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "trace back to",
+   "zh": "追溯到、源头在于"
+  },
+  {
+   "examples": [
+    {
+     "en": "The format dates back to the earliest days of the web.",
+     "zh": "这个格式始于万维网的最初年代。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "These conventions date back to the mainframe era.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "date back to",
+   "zh": "始于、追溯到（某个年代）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Tail latency improves markedly once the hot keys are split.",
+     "zh": "热点键拆开之后，尾延迟明显改善。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The two designs differ markedly in operational cost.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "markedly",
+   "zh": "明显地、显著地"
+  },
+  {
+   "examples": [
+    {
+     "en": "Reads are considerably cheaper than writes on this hardware.",
+     "zh": "在这套硬件上，读比写便宜得多。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Compression helps considerably when payloads repeat.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "considerably",
+   "zh": "相当、非常（程度大）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The new index is substantially smaller and only slightly slower.",
+     "zh": "新索引体积小了很多，只慢了一点点。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Substantially, the design is unchanged from the previous edition.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "substantially",
+   "zh": "大体上；大幅度地"
+  },
+  {
+   "examples": [
+    {
+     "en": "The optimized version is only marginally faster in practice.",
+     "zh": "优化后的版本在实践中只是略微快了一点。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "A third replica helps marginally once two are in place.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "marginally",
+   "zh": "略微、勉强地"
+  },
+  {
+   "examples": [
+    {
+     "en": "On paper, the design tolerates any single failure.",
+     "zh": "纸面上，这个设计能容忍任意单点故障。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The protocol is elegant on paper and brutal to operate.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "on paper",
+   "zh": "纸面上、理论上看"
+  },
+  {
+   "examples": [
+    {
+     "en": "In retrospect, the warning signs were visible a week earlier.",
+     "zh": "事后回看，预警信号一周前就已经出现了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In retrospect, we should have paged the database team immediately.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "in retrospect",
+   "zh": "事后回看、回想起来"
+  },
+  {
+   "examples": [
+    {
+     "en": "The system is eventually consistent by design, not by accident.",
+     "zh": "这个系统的最终一致性是设计使然，不是意外。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Data expires after thirty days, by design.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "by design",
+   "zh": "有意设计的、本就如此"
+  },
+  {
+   "examples": [
+    {
+     "en": "In comparison with polling, webhooks react almost instantly.",
+     "zh": "与轮询相比，Webhook 的反应几乎是即时的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The approach is cheap in comparison with the alternative.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "in comparison with",
+   "zh": "与……相比（正式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Compared with the previous quarter, incidents fell by a third.",
+     "zh": "和上一季度相比，故障减少了三分之一。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Writes are rare compared with reads in this workload.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "compared with",
+   "zh": "和……比起来"
+  },
+  {
+   "examples": [
+    {
+     "en": "The overhead is small relative to the cost of a network round trip.",
+     "zh": "与一次网络往返的成本相比，这点开销很小。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Priorities only matter relative to each other.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "relative to",
+   "zh": "相对于、与……相比"
+  },
+  {
+   "examples": [
+    {
+     "en": "In the context of a single machine, locking is cheap.",
+     "zh": "在单机的背景下，加锁是很便宜的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "These numbers only make sense in the context of peak traffic.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "in the context of",
+   "zh": "在……的背景下、语境中"
+  },
+  {
+   "examples": [
+    {
+     "en": "In the case of a tie, the older proposal wins.",
+     "zh": "在票数相同的情况下，较早的提议获胜。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In the case of hot partitions, splitting is automatic.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "in the case of",
+   "zh": "就……而言、在……的情况下"
+  },
+  {
+   "examples": [
+    {
+     "en": "In the event of a region failure, traffic shifts within minutes.",
+     "zh": "万一某个区域故障，流量会在几分钟内切换。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In the event of ambiguity, prefer the safer interpretation.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "in the event of",
+   "zh": "万一发生……、如果出现（正式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "In the course of the migration, two hidden dependencies surfaced.",
+     "zh": "在迁移过程中，两个隐藏的依赖浮出了水面。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Records may be reordered in the course of delivery.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "in the course of",
+   "zh": "在……过程中"
+  },
+  {
+   "examples": [
+    {
+     "en": "The result arrives in the form of an ordered log.",
+     "zh": "结果以有序日志的形式到达。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Backpressure often shows up in the form of growing queues.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "in the form of",
+   "zh": "以……的形式"
+  },
+  {
+   "examples": [
+    {
+     "en": "In a nutshell: cache reads aggressively, write carefully.",
+     "zh": "简而言之：读要大胆缓存，写要小心翼翼。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The strategy, in a nutshell, is to fail fast and recover faster.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "in a nutshell",
+   "zh": "简而言之、总括来说"
+  },
+  {
+   "examples": [
+    {
+     "en": "In essence, the scheduler is an arbiter of scarce resources.",
+     "zh": "本质上，调度器是稀缺资源的仲裁者。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In essence, both designs make the same trade-off.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "in essence",
+   "zh": "本质上、实质上"
+  },
+  {
+   "examples": [
+    {
+     "en": "At its core, the problem is agreeing on an order of events.",
+     "zh": "从根本上说，这个问题就是对事件顺序达成一致。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "At its core, caching is a bet on locality.",
+    "zh": "你在读一本系统设计书，看到这样一句："
+   },
+   "term": "at its core",
+   "zh": "在其核心、从根本上说"
+  },
+  {
+   "examples": [
+    {
+     "en": "The debate is, at heart, about who owns the data.",
+     "zh": "这场争论本质上是关于数据归谁所有。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "At heart, every queue is a promise about the future.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "at heart",
+   "zh": "本质上、骨子里"
+  },
+  {
+   "examples": [
+    {
+     "en": "When it comes to durability, there are no shortcuts.",
+     "zh": "当涉及到持久性时，没有捷径可走。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Teams get conservative when it comes to deleting data.",
+    "zh": "你在读官方文档的设计说明，看到这样一句："
+   },
+   "term": "when it comes to",
+   "zh": "当涉及到……时"
+  },
+  {
+   "examples": [
+    {
+     "en": "Speaking of failures, the recovery chapter deserves a second read.",
+     "zh": "说到故障，恢复那一章值得再读一遍。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Speaking of ordering, vector clocks arrive in the next section.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "speaking of",
+   "zh": "说到、谈到（引出新话题）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Engineers who can reason about partial failure are in short supply.",
+     "zh": "能对部分故障进行推理的工程师供不应求。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In the early web, bandwidth was in short supply and patience was not.",
+    "zh": "你在读一篇技术博客的深度分析，看到这样一句："
+   },
+   "term": "in short supply",
+   "zh": "供不应求、稀缺"
+  }
+ ],
+ "layer": "D",
+ "title": "书面与阅读"
+}
