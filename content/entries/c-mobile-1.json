@@ -1,0 +1,577 @@
+{
+ "category": "mobile",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Rebuilding the whole widget tree for a keystroke is a rookie mistake.",
+     "zh": "每次击键都重建整棵组件树是新手错误。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In Flutter everything is the widget tree; state placement decides what rebuilds.",
+    "zh": "面试官问你的移动端经验，你回答："
+   },
+   "term": "widget tree",
+   "zh": "组件树（Flutter/UI 的层级结构）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Rebuild a widget when its inputs change, not on a timer.",
+     "zh": "在输入变化时重建组件，而不是靠定时器。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If a timer makes you rebuild a widget every second, the design is wrong.",
+    "zh": "你在评审移动端方案时这样说："
+   },
+   "term": "rebuild a widget",
+   "zh": "重建组件（触发 UI 刷新）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Hot reload keeps the state while swapping the layout.",
+     "zh": "热重载在替换布局的同时保留状态。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Hot reload spoils you; web refresh cycles feel slow forever after.",
+    "zh": "面试官问你的移动端经验，你回答："
+   },
+   "term": "hot reload",
+   "zh": "热重载（不重启改界面）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A hot restart clears state but skips the full install.",
+     "zh": "热重启会清掉状态，但省去了完整安装。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "When hot reload leaves ghosts, do a hot restart before blaming the code.",
+    "zh": "你向同事解释这个概念时这样讲："
+   },
+   "term": "hot restart",
+   "zh": "热重启（重置状态的完整重启）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A platform channel carries calls from Dart into native code.",
+     "zh": "平台通道把调用从 Dart 送进原生代码。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We use a platform channel for the payment SDK that has no Flutter plugin.",
+    "zh": "你在评审移动端方案时这样说："
+   },
+   "term": "platform channel",
+   "zh": "平台通道（跨端调原生能力的桥）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The native module wraps the scanner hardware behind a simple API.",
+     "zh": "原生模块把扫码硬件包在一个简单的接口后面。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I wrote the native module in Kotlin and bridged it to the Flutter side.",
+    "zh": "面试官问你的移动端经验，你回答："
+   },
+   "term": "native module",
+   "zh": "原生模块"
+  },
+  {
+   "examples": [
+    {
+     "en": "The JavaScript bridge lets the web page ask the app for the camera.",
+     "zh": "JS 桥让网页能向应用申请调用相机。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Every JavaScript bridge method is an API contract; version it like one.",
+    "zh": "你在评审移动端方案时这样说："
+   },
+   "term": "JavaScript bridge",
+   "zh": "JS 桥（网页与原生互相调用的通道）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A deep link should land on content, not on the home tab.",
+     "zh": "深度链接应该落在内容上，而不是首页标签。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Marketing campaigns arrive through a deep link with attribution parameters.",
+    "zh": "面试官问你的移动端经验，你回答："
+   },
+   "term": "deep link",
+   "zh": "深度链接（直接打开应用内某页的链接）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A universal link opens the app when installed and the site when not.",
+     "zh": "通用链接在装了应用时打开应用，没装时打开网站。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Universal links need the association file hosted exactly right, or they silently fall back.",
+    "zh": "你向同事解释这个概念时这样讲："
+   },
+   "term": "universal link",
+   "zh": "通用链接（iOS 的官方深链方案）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Ask for notification permission after value, not at first launch.",
+     "zh": "要在用户感受到价值之后、而不是首次启动时，就申请通知权限。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Notification permission rates double when the ask follows a completed task.",
+    "zh": "你在评审移动端方案时这样说："
+   },
+   "term": "notification permission",
+   "zh": "通知权限"
+  },
+  {
+   "examples": [
+    {
+     "en": "The app lifecycle decides when you may sync and when you must stop.",
+     "zh": "应用生命周期决定你什么时候能同步、什么时候必须停。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Most upload bugs are app lifecycle bugs: the OS killed us mid-transfer.",
+    "zh": "面试官问你的移动端经验，你回答："
+   },
+   "term": "app lifecycle",
+   "zh": "应用生命周期（前台、后台、挂起等状态）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Background fetch is a privilege the OS grants unpredictably.",
+     "zh": "后台拉取是系统不定期赐予的特权。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Design background fetch as a bonus, never as a guarantee.",
+    "zh": "你在评审移动端方案时这样说："
+   },
+   "term": "background fetch",
+   "zh": "后台拉取（应用在后台偷偷更新数据）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The review guidelines ban the payment flow our first design used.",
+     "zh": "审核指南禁止了我们第一版设计用的支付流程。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Reading the review guidelines before designing payments saved us a rejection.",
+    "zh": "面试官问你的移动端经验，你回答："
+   },
+   "term": "review guidelines",
+   "zh": "审核指南（应用商店的规则）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An in-app purchase must restore on a new device from the same account.",
+     "zh": "应用内购买必须能在同账号的新设备上恢复。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Server-side receipt validation is what makes an in-app purchase trustworthy.",
+    "zh": "你向同事解释这个概念时这样讲："
+   },
+   "term": "in-app purchase",
+   "zh": "应用内购买"
+  },
+  {
+   "examples": [
+    {
+     "en": "Sandbox testing uses fake accounts so no real money moves.",
+     "zh": "沙盒测试用假账号，这样就不会动到真钱。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Run the whole purchase matrix in sandbox testing before the review build.",
+    "zh": "你在评审移动端方案时这样说："
+   },
+   "term": "sandbox testing",
+   "zh": "沙盒测试（在测试环境验证购买等流程）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An expired provisioning profile fails the build at the worst moment.",
+     "zh": "过期的描述文件总在最糟糕的时刻让构建失败。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The provisioning profile ties the app, the certificate, and the devices together.",
+    "zh": "你向新人解释 iOS 发布流程，这样说："
+   },
+   "term": "provisioning profile",
+   "zh": "描述文件（iOS 的签名授权文件）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Lose the keystore and you lose the ability to update your own app.",
+     "zh": "丢了密钥库，你就失去了更新自己应用的能力。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "We keep the keystore backed up in two places; it outlives every laptop.",
+    "zh": "面试官问你的移动端经验，你回答："
+   },
+   "term": "keystore",
+   "zh": "密钥库（安卓的签名密钥文件）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Test the release build, not just debug: optimizers change behavior.",
+     "zh": "要测正式构建，不能只测调试版：优化器会改变行为。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The crash existed only in the release build, thanks to tree shaking.",
+    "zh": "你在评审移动端方案时这样说："
+   },
+   "term": "release build",
+   "zh": "正式构建（发布用的优化包）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A debug build trades speed for observability.",
+     "zh": "调试构建用速度换可观测性。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Never profile performance on a debug build; the numbers lie politely.",
+    "zh": "你向同事解释这个概念时这样讲："
+   },
+   "term": "debug build",
+   "zh": "调试构建"
+  },
+  {
+   "examples": [
+    {
+     "en": "The app bundle lets the store ship each device only its slices.",
+     "zh": "应用包让商店只给每台设备发它需要的那几片。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Switching to the app bundle cut our download size by a third.",
+    "zh": "面试官问你的移动端经验，你回答："
+   },
+   "term": "app bundle",
+   "zh": "应用包（按设备拆分的发布格式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An APK split per architecture keeps each download small.",
+     "zh": "按架构做 APK 拆分能让每个下载包保持小巧。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With an APK split for densities, the images stop doubling the size.",
+    "zh": "你向同事解释这个概念时这样讲："
+   },
+   "term": "apk split",
+   "zh": "APK 拆分（按架构/密度出多个包）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The app size budget is fifty megabytes; every SDK argues with it.",
+     "zh": "应用体积预算是五十兆；每个 SDK 都要跟它吵一架。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We review the app size budget at every release; SDK creep is silent.",
+    "zh": "你在发版评审时这样说："
+   },
+   "term": "app size budget",
+   "zh": "应用体积预算"
+  },
+  {
+   "examples": [
+    {
+     "en": "A cold start pays for every plugin your app registers.",
+     "zh": "冷启动要为应用注册的每个插件买单。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Cold start over two seconds shows up in retention within a month.",
+    "zh": "你在评审移动端方案时这样说："
+   },
+   "term": "cold start (app)",
+   "zh": "冷启动（进程从零拉起）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A splash screen that waits for the network teaches users to hate it.",
+     "zh": "一个要等网络的启动屏会教会用户讨厌它。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our splash screen shows cached content the moment local data is ready.",
+    "zh": "面试官问你的移动端经验，你回答："
+   },
+   "term": "splash screen",
+   "zh": "启动屏、闪屏"
+  },
+  {
+   "examples": [
+    {
+     "en": "Tokens belong in secure storage, not in plain preferences.",
+     "zh": "令牌应该放在安全存储里，而不是普通的偏好设置里。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Secure storage wraps the platform keychain and keystore for us.",
+    "zh": "你在评审移动端方案时这样说："
+   },
+   "term": "secure storage",
+   "zh": "安全存储（系统钥匙串里的存储）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Biometric unlock is convenience layered over the real credential.",
+     "zh": "生物识别解锁是盖在真实凭据之上的便利层。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Biometric unlock fails closed: three misses and the PIN returns.",
+    "zh": "你向同事解释这个概念时这样讲："
+   },
+   "term": "biometric unlock",
+   "zh": "生物识别解锁（指纹/面容）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A permission request without a reason reads as suspicion.",
+     "zh": "一个不带理由的权限申请读起来就像在招人怀疑。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We explain before the permission request, in our own UI, in one sentence.",
+    "zh": "面试官问你的移动端经验，你回答："
+   },
+   "term": "permission request",
+   "zh": "权限申请"
+  },
+  {
+   "examples": [
+    {
+     "en": "A runtime permission can be revoked while your feature is running.",
+     "zh": "运行时权限可以在你的功能正运行时被撤销。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Design every feature to survive a runtime permission disappearing mid-flow.",
+    "zh": "你在评审移动端方案时这样说："
+   },
+   "term": "runtime permission",
+   "zh": "运行时权限（用到时才申请的那种）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A mini program lives inside a host app and plays by its rules.",
+     "zh": "小程序活在一个宿主应用里面，按它的规矩行事。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I shipped a merchant mini program on Alipay that reached a hundred thousand merchants.",
+    "zh": "面试官问你的移动端经验，你回答："
+   },
+   "term": "mini program",
+   "zh": "小程序"
+  },
+  {
+   "examples": [
+    {
+     "en": "Subpackage loading keeps the first screen fast and the rest lazy.",
+     "zh": "分包加载让首屏快、其余部分懒加载。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With subpackage loading, the reports module downloads only when opened.",
+    "zh": "你在评审移动端方案时这样说："
+   },
+   "term": "subpackage loading",
+   "zh": "分包加载（小程序按需下代码包）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The package size limit forced us to move charts to on-demand loading.",
+     "zh": "包体积限制逼我们把图表改成按需加载。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Every platform has a package size limit; design the split on day one.",
+    "zh": "你向同事解释这个概念时这样讲："
+   },
+   "term": "package size limit",
+   "zh": "包体积限制（平台对代码包的硬上限）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A hybrid app trades native feel for one shared codebase.",
+     "zh": "混合应用用原生手感换一套共享代码库。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our internal tools are a hybrid app: the shell is native, the screens are web.",
+    "zh": "面试官问你的移动端经验，你回答："
+   },
+   "term": "hybrid app",
+   "zh": "混合应用（原生壳 + 网页内容）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The webview container handles login and payment; pages handle content.",
+     "zh": "WebView 容器管登录和支付；页面管内容。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Keep the webview container thin, or you rebuild the browser badly.",
+    "zh": "你在评审移动端方案时这样说："
+   },
+   "term": "webview container",
+   "zh": "WebView 容器（装网页的原生外壳）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Design in logical pixels; pixel density is the runtime's problem.",
+     "zh": "用逻辑像素做设计；像素密度是运行时的事。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Icons ship at three pixel densities or they blur on flagship phones.",
+    "zh": "你向同事解释这个概念时这样讲："
+   },
+   "term": "pixel density",
+   "zh": "像素密度"
+  },
+  {
+   "examples": [
+    {
+     "en": "Buttons must live inside the safe area on every device shape.",
+     "zh": "按钮必须落在每种机型的安全区里面。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The checkout button hid under the gesture bar until we respected the safe area.",
+    "zh": "你在评审移动端方案时这样说："
+   },
+   "term": "safe area (mobile)",
+   "zh": "安全区（避开刘海和手势条的区域）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The notch eats the title unless the layout insets for it.",
+     "zh": "刘海会吃掉标题，除非布局为它让出内边距。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Test on a device with a notch and one without; both lie differently.",
+    "zh": "你向同事解释这个概念时这样讲："
+   },
+   "term": "notch",
+   "zh": "刘海（屏幕顶部的挖孔/凹口）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Gesture handling decides whether a swipe feels like butter or sandpaper.",
+     "zh": "手势处理决定滑动的手感是黄油还是砂纸。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our drawer conflicted with the system back gesture until we fixed gesture handling.",
+    "zh": "面试官问你的移动端经验，你回答："
+   },
+   "term": "gesture handling",
+   "zh": "手势处理"
+  },
+  {
+   "examples": [
+    {
+     "en": "List virtualization keeps a ten-thousand-row feed at sixty frames.",
+     "zh": "列表虚拟化能让一万行的信息流保持六十帧。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "On mobile, list virtualization is the difference between smooth and uninstalled.",
+    "zh": "你在评审移动端方案时这样说："
+   },
+   "term": "list virtualization (mobile)",
+   "zh": "列表虚拟化（移动端长列表只渲染可见项）"
+  }
+ ],
+ "layer": "C",
+ "title": "移动与跨端"
+}

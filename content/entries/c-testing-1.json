@@ -1,0 +1,517 @@
+{
+ "category": "testing",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "A test strategy starts from risk, not from a coverage target.",
+     "zh": "测试策略从风险出发，不是从覆盖率目标出发。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "My test strategy for the platform was risk-first: payments paths get everything, reports get smoke.",
+    "zh": "面试官问你的测试实践，你回答："
+   },
+   "term": "test strategy",
+   "zh": "测试策略（整体怎么测的打法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Unit test coverage is a floor to notice, not a target to chase.",
+     "zh": "单元测试覆盖率是用来留意的下限，不是用来追的目标。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We track unit test coverage per module and review drops, not absolutes.",
+    "zh": "你在质量评审会上这样说："
+   },
+   "term": "unit test coverage",
+   "zh": "单元测试覆盖率"
+  },
+  {
+   "examples": [
+    {
+     "en": "A contract test fails when a provider breaks a promise consumers rely on.",
+     "zh": "当提供方打破消费者依赖的约定时，契约测试就会失败。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Contract tests let the two teams deploy independently without a staging marriage.",
+    "zh": "面试官问你的测试实践，你回答："
+   },
+   "term": "contract test",
+   "zh": "契约测试（验证服务间接口约定）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A consumer-driven contract records what each consumer actually needs.",
+     "zh": "消费者驱动契约记录的是每个消费者真正需要的东西。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We moved to consumer-driven contracts after one 'minor' field rename broke three apps.",
+    "zh": "你在给团队定测试规范时这样讲："
+   },
+   "term": "consumer-driven contract",
+   "zh": "消费者驱动契约（由使用方定义接口期望）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A mock object verifies the conversation, not just the answer.",
+     "zh": "模拟对象验证的是对话过程，不只是答案。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I reach for a mock object only at boundaries: payment gateways, email, clocks.",
+    "zh": "面试官问你的测试实践，你回答："
+   },
+   "term": "mock object",
+   "zh": "模拟对象（带期望校验的替身）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A fake server answers real HTTP, so integration bugs surface early.",
+     "zh": "假服务器能回应真实 HTTP，集成问题能早点暴露。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our fake server replays recorded bank responses, including the weird ones.",
+    "zh": "你在给团队定测试规范时这样讲："
+   },
+   "term": "fake server",
+   "zh": "假服务器（能跑真实协议的轻量替身）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A test fixture builds the same tiny world for every test.",
+     "zh": "测试夹具为每个测试搭建同一个小世界。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Shared fixtures were our biggest source of order-dependent tests; now each test builds its own.",
+    "zh": "面试官问你的测试实践，你回答："
+   },
+   "term": "test fixture",
+   "zh": "测试夹具（为测试准备的固定环境/数据）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Test data management decides how realistic data reaches test environments safely.",
+     "zh": "测试数据管理决定真实感的数据如何安全地进入测试环境。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our test data management masks production snapshots before anyone can use them.",
+    "zh": "你在质量评审会上这样说："
+   },
+   "term": "test data management",
+   "zh": "测试数据管理"
+  },
+  {
+   "examples": [
+    {
+     "en": "Seed data should tell a story: a user, an order, a refund.",
+     "zh": "种子数据应该讲一个故事：一个用户、一笔订单、一次退款。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "When seed data rots, every new hire's first week gets slower.",
+    "zh": "你在给团队定测试规范时这样讲："
+   },
+   "term": "seed data",
+   "zh": "种子数据（预置的基础数据）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Test flakiness is a tax every engineer pays daily until someone owns it.",
+     "zh": "测试不稳定性是每个工程师每天都在交的税，直到有人出来治理它。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We cut test flakiness by fixing clocks and network in tests, not by retrying harder.",
+    "zh": "面试官问你的测试实践，你回答："
+   },
+   "term": "test flakiness",
+   "zh": "测试不稳定性（flaky 的程度与治理）"
+  },
+  {
+   "examples": [
+    {
+     "en": "When you quarantine a test, file the ticket in the same commit.",
+     "zh": "隔离一个测试时，在同一个提交里把工单建好。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We quarantine a test for at most two weeks; after that it is fixed or deleted.",
+    "zh": "你在质量评审会上这样说："
+   },
+   "term": "quarantine a test",
+   "zh": "隔离一个测试（把不稳定的先摘出去）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Mutation testing asks whether your tests would notice a real bug.",
+     "zh": "变异测试问的是：你的测试到底能不能发现真正的 bug。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Mutation testing humbled our ninety-percent coverage in one afternoon.",
+    "zh": "面试官问你的测试实践，你回答："
+   },
+   "term": "mutation testing",
+   "zh": "变异测试（故意改坏代码看测试抓不抓得到）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Property-based testing found the rounding case our examples never imagined.",
+     "zh": "基于属性的测试找到了我们例子里从没想到的舍入情况。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For parsers and pricing, property-based testing beats a hundred hand-written cases.",
+    "zh": "你在给团队定测试规范时这样讲："
+   },
+   "term": "property-based testing",
+   "zh": "基于属性的测试（用生成数据验证不变量）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Fuzz testing feeds the parser garbage until it confesses.",
+     "zh": "模糊测试给解析器喂垃圾，直到它招供为止。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "One night of fuzz testing found more crashes than a year of code review.",
+    "zh": "面试官问你的测试实践，你回答："
+   },
+   "term": "fuzz testing",
+   "zh": "模糊测试（喂随机畸形输入找崩溃）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A visual regression test notices the button moved three pixels left.",
+     "zh": "视觉回归测试能发现按钮向左挪了三个像素。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Visual regression tests guard the design system, not every marketing page.",
+    "zh": "你在质量评审会上这样说："
+   },
+   "term": "visual regression test",
+   "zh": "视觉回归测试（比对页面截图变化）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Accessibility testing catches what sighted developers never see.",
+     "zh": "无障碍测试能抓住有视力的开发者永远看不到的问题。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We run accessibility testing in CI; the failures are mostly labels and contrast.",
+    "zh": "面试官问你的测试实践，你回答："
+   },
+   "term": "accessibility testing",
+   "zh": "无障碍测试"
+  },
+  {
+   "examples": [
+    {
+     "en": "The golden file is the approved output; any diff needs a human yes.",
+     "zh": "黄金文件是被批准过的输出；任何差异都需要人点头。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Reports render against a golden file so format changes are always deliberate.",
+    "zh": "你在给团队定测试规范时这样讲："
+   },
+   "term": "golden file",
+   "zh": "黄金文件（人工确认过的标准输出）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Test environment parity is why staging bugs predict production bugs.",
+     "zh": "测试环境一致性决定了预发的 bug 能不能预言生产的 bug。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We invest in test environment parity for data shape, not for hardware size.",
+    "zh": "你在质量评审会上这样说："
+   },
+   "term": "test environment parity",
+   "zh": "测试环境一致性（和生产有多像）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The regression suite runs nightly; the smoke subset gates every merge.",
+     "zh": "回归测试套件每晚跑；冒烟子集卡住每次合并。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A regression suite that nobody trusts gets muted, so we keep it under twenty minutes.",
+    "zh": "面试官问你的测试实践，你回答："
+   },
+   "term": "regression suite",
+   "zh": "回归测试套件"
+  },
+  {
+   "examples": [
+    {
+     "en": "A test report should lead with risk: what is untested and why.",
+     "zh": "测试报告应该先讲风险：什么没测、为什么。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our test report names the three riskiest untested paths explicitly.",
+    "zh": "你在质量评审会上这样说："
+   },
+   "term": "test report",
+   "zh": "测试报告"
+  },
+  {
+   "examples": [
+    {
+     "en": "Defect leakage measures the bugs your process was supposed to catch.",
+     "zh": "缺陷泄漏度量的是你的流程本应抓住却漏掉的 bug。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Defect leakage, not bug count, is the metric I report upward.",
+    "zh": "面试官问你的测试实践，你回答："
+   },
+   "term": "defect leakage",
+   "zh": "缺陷泄漏（漏到生产才发现的 bug 比例）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Bug triage is thirty minutes of deciding what not to fix.",
+     "zh": "缺陷分诊就是用三十分钟决定哪些不修。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In bug triage we rank by user impact, then by age.",
+    "zh": "你在质量评审会上这样说："
+   },
+   "term": "bug triage",
+   "zh": "缺陷分诊（给 bug 定级排序的会）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Severity vs priority: a typo on the payment page is low severity, top priority.",
+     "zh": "严重程度与优先级的区别：支付页上的错别字严重程度低，优先级最高。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Teaching severity vs priority ended most arguments in triage.",
+    "zh": "你在给团队定测试规范时这样讲："
+   },
+   "term": "severity vs priority",
+   "zh": "严重程度与优先级的区别"
+  },
+  {
+   "examples": [
+    {
+     "en": "Reproducible steps turn an angry report into a fixable bug.",
+     "zh": "复现步骤能把一份愤怒的反馈变成一个可修的 bug。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "No reproducible steps, no ticket: that rule protects everyone's time.",
+    "zh": "面试官问你的测试实践，你回答："
+   },
+   "term": "reproducible steps",
+   "zh": "复现步骤"
+  },
+  {
+   "examples": [
+    {
+     "en": "A minimal reproduction is a gift to whoever fixes the bug.",
+     "zh": "最小复现是送给修 bug 的人的礼物。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I ask reporters for a minimal reproduction before I open the debugger.",
+    "zh": "你在给团队定测试规范时这样讲："
+   },
+   "term": "minimal reproduction",
+   "zh": "最小复现（剥到最简的出问题例子）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Exploratory testing finds the bugs the scripts were never told about.",
+     "zh": "探索性测试能找到脚本从来没被告知过的 bug。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We charter exploratory testing sessions before every major release.",
+    "zh": "你在质量评审会上这样说："
+   },
+   "term": "exploratory testing",
+   "zh": "探索性测试（边想边测的人工测试）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Session-based testing gives exploration a charter and a clock.",
+     "zh": "基于会话的测试给探索定了章程和时钟。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In session-based testing, a tester explores one risk area for ninety minutes and reports back.",
+    "zh": "你向新同事解释你们的测试方式，这样说："
+   },
+   "term": "session-based testing",
+   "zh": "基于会话的测试（限时、有章程的探索测试）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Risk-based testing spends the budget where failure hurts most.",
+     "zh": "基于风险的测试把预算花在失败最痛的地方。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Risk-based testing is how a small team covers a big surface honestly.",
+    "zh": "面试官问你的测试实践，你回答："
+   },
+   "term": "risk-based testing",
+   "zh": "基于风险的测试（先测最怕出事的地方）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Shift-left testing means reviewing testability during design, not after code.",
+     "zh": "测试左移意味着在设计阶段就评审可测性，而不是代码写完之后。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Shift-left testing cut our late-stage surprises more than any tool purchase.",
+    "zh": "你在质量评审会上这样说："
+   },
+   "term": "shift-left testing",
+   "zh": "测试左移（把质量活动提前到开发早期）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A quality gate that people route around is decoration, not a gate.",
+     "zh": "一道被人绕着走的质量门禁只是装饰，不是门禁。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our quality gate checks coverage on changed code only; legacy debt has its own plan.",
+    "zh": "你在给团队定测试规范时这样讲："
+   },
+   "term": "quality gate",
+   "zh": "质量门禁（不达标就不许过）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Set the coverage threshold on new code, or the number becomes theater.",
+     "zh": "覆盖率阈值要定在新代码上，不然这个数字就是演戏。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The coverage threshold is eighty on diffs; the repo average climbs behind it.",
+    "zh": "面试官问你的测试实践，你回答："
+   },
+   "term": "coverage threshold",
+   "zh": "覆盖率阈值（门禁的数字线）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Branch coverage exposes the else your line coverage never visited.",
+     "zh": "分支覆盖率能暴露出行覆盖率从没去过的那个 else。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For pricing logic I read branch coverage, not line coverage.",
+    "zh": "你在给团队定测试规范时这样讲："
+   },
+   "term": "branch coverage",
+   "zh": "分支覆盖率"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every boundary value deserves a test: zero, one, max, max plus one.",
+     "zh": "每个边界值都值得一个用例：零、一、最大值、最大值加一。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Check the boundary value on the discount threshold; that's where the last bug lived.",
+    "zh": "你评审测试用例时这样提醒同事："
+   },
+   "term": "boundary value",
+   "zh": "边界值（测试用例设计法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Equivalence partitioning turns infinite inputs into a handful of classes.",
+     "zh": "等价类划分把无穷的输入变成几个类别。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With equivalence partitioning, one case per class is enough until a class misbehaves.",
+    "zh": "你给实习生讲测试设计，这样说："
+   },
+   "term": "equivalence partitioning",
+   "zh": "等价类划分（测试用例设计法）"
+  }
+ ],
+ "layer": "C",
+ "title": "测试与质量工程"
+}

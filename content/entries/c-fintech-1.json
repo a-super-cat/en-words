@@ -1,0 +1,667 @@
+{
+ "category": "fintech",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Consumer lending lives on thin margins and precise risk models.",
+     "zh": "消费信贷靠的是薄利和精确的风险模型。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I spent two years building internal platforms for a consumer lending company.",
+    "zh": "面试官问你消费金融项目的细节，你回答："
+   },
+   "term": "consumer lending",
+   "zh": "消费信贷（面向个人的小额贷款业务）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The credit line grows only after a clean repayment history.",
+     "zh": "授信额度只有在还款记录干净之后才会涨。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We set the initial credit line conservatively and raise it with behavior.",
+    "zh": "评审信贷系统设计时你这样说："
+   },
+   "term": "credit line",
+   "zh": "授信额度（批给用户的可借上限）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Credit assessment pulls bureau data, income, and device signals.",
+     "zh": "信用评估会拉征信数据、收入和设备信号。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our credit assessment runs in under a second for most applicants.",
+    "zh": "面试官问你消费金融项目的细节，你回答："
+   },
+   "term": "credit assessment",
+   "zh": "信用评估（决定批不批、批多少）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Creditworthiness is a probability, not a moral judgment.",
+     "zh": "信用资质是一个概率，不是一种道德评判。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The score estimates creditworthiness; the policy decides the cutoff.",
+    "zh": "你在和风控同事对齐需求时这样说："
+   },
+   "term": "creditworthiness",
+   "zh": "信用资质（值不值得借钱给他）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Risk scoring blends application data with repayment history.",
+     "zh": "风险评分把申请数据和还款历史混合起来算。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Risk scoring happens before underwriting, not instead of it.",
+    "zh": "评审信贷系统设计时你这样说："
+   },
+   "term": "risk scoring",
+   "zh": "风险评分（给申请人打风险分）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Risk control is the product in lending; the app is just the doorway.",
+     "zh": "在借贷业务里，风控就是产品本身；应用只是入口。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "On the platform team I worked closest with the risk control group.",
+    "zh": "面试官问你消费金融项目的细节，你回答："
+   },
+   "term": "risk control",
+   "zh": "风险控制、风控"
+  },
+  {
+   "examples": [
+    {
+     "en": "Underwriting combines automated rules with manual review for edge cases.",
+     "zh": "审批环节把自动规则和边缘案例的人工复核结合起来。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Straight-through underwriting approves clean applications without a human.",
+    "zh": "你在和风控同事对齐需求时这样说："
+   },
+   "term": "underwriting",
+   "zh": "核保/审批（决定贷款是否通过的环节）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Loan approval is a decision the system must explain afterwards.",
+     "zh": "贷款审批通过是一个系统事后必须能解释的决定。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Every loan approval writes its rule hits into the audit trail.",
+    "zh": "评审信贷系统设计时你这样说："
+   },
+   "term": "loan approval",
+   "zh": "贷款审批通过"
+  },
+  {
+   "examples": [
+    {
+     "en": "Loan disbursement happens only after the contract is signed in-app.",
+     "zh": "放款只在应用内签完合同之后发生。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Disbursement failures are worse than approval delays: the user was promised money.",
+    "zh": "面试官问你消费金融项目的细节，你回答："
+   },
+   "term": "loan disbursement",
+   "zh": "放款（把钱打到用户账户）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Delinquency is measured in buckets: one day, thirty, sixty, ninety.",
+     "zh": "逾期按桶来度量：一天、三十天、六十天、九十天。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Early delinquency signals feed the collections queue, not the blacklist.",
+    "zh": "你在和风控同事对齐需求时这样说："
+   },
+   "term": "delinquency",
+   "zh": "逾期（未按期还款的状态）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The default rate, not the approval rate, decides whether the product survives.",
+     "zh": "决定产品生死的是违约率，不是审批通过率。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We watch default rate by acquisition channel, because quality differs wildly.",
+    "zh": "评审信贷系统设计时你这样说："
+   },
+   "term": "default rate",
+   "zh": "违约率（最终还不上的比例）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Debt collection is regulated down to the wording of a text message.",
+     "zh": "催收被监管到一条短信的措辞。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our platform schedules collection contacts and records every touch for compliance.",
+    "zh": "面试官问你消费金融项目的细节，你回答："
+   },
+   "term": "debt collection",
+   "zh": "催收（追讨逾期欠款）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The repayment schedule must survive payday moving by a week.",
+     "zh": "还款计划必须经得起发薪日挪动一周。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Users see the full repayment schedule before they confirm the loan.",
+    "zh": "你在和风控同事对齐需求时这样说："
+   },
+   "term": "repayment schedule",
+   "zh": "还款计划（每期还多少、何时还）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An installment plan splits the purchase into monthly payments.",
+     "zh": "分期计划把一笔消费拆成每月还款。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The installment plan is chosen at checkout, not after the bill arrives.",
+    "zh": "评审信贷系统设计时你这样说："
+   },
+   "term": "installment plan",
+   "zh": "分期计划"
+  },
+  {
+   "examples": [
+    {
+     "en": "The annual percentage rate includes fees, so it beats the headline rate for honesty.",
+     "zh": "年化利率包含费用，所以它比宣传利率更诚实。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Regulators require the annual percentage rate in the same font size as the offer.",
+    "zh": "你在和风控同事对齐需求时这样说："
+   },
+   "term": "annual percentage rate",
+   "zh": "年化利率（APR，含费用的真实年利率）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Prepayment is free on this product; the penalty exists only in the older one.",
+     "zh": "这个产品提前还款免费；罚金只存在于老产品里。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Prepayment behavior is itself a signal in the risk model.",
+    "zh": "面试官问你消费金融项目的细节，你回答："
+   },
+   "term": "prepayment",
+   "zh": "提前还款"
+  },
+  {
+   "examples": [
+    {
+     "en": "Unsecured lending prices risk without collateral to fall back on.",
+     "zh": "无抵押借贷在定价风险时没有抵押物兜底。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "With collateral, the loss given default drops; without it, scoring carries everything.",
+    "zh": "评审信贷系统设计时你这样说："
+   },
+   "term": "collateral",
+   "zh": "抵押物"
+  },
+  {
+   "examples": [
+    {
+     "en": "A guarantor signs only after seeing the same repayment schedule.",
+     "zh": "担保人只有在看过同一份还款计划后才签字。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The guarantor flow needs its own consent and identity checks.",
+    "zh": "你在和风控同事对齐需求时这样说："
+   },
+   "term": "guarantor",
+   "zh": "担保人"
+  },
+  {
+   "examples": [
+    {
+     "en": "Identity verification combines document checks with a live selfie.",
+     "zh": "身份核验把证件检查和活体自拍结合起来。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Most application drop-off happens at identity verification, so we instrument it heavily.",
+    "zh": "评审信贷系统设计时你这样说："
+   },
+   "term": "identity verification",
+   "zh": "身份核验（确认申请人是本人）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Know your customer checks are a legal gate, not a UX preference.",
+     "zh": "了解你的客户审查是一道法律关卡，不是体验偏好。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "KYC — know your customer — is where our onboarding funnel starts.",
+    "zh": "面试官问你消费金融项目的细节，你回答："
+   },
+   "term": "know your customer",
+   "zh": "了解你的客户（KYC，金融合规的身份审查）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Anti-money laundering monitoring watches patterns, not single transactions.",
+     "zh": "反洗钱监控盯的是模式，不是单笔交易。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The anti-money laundering rules flag structuring: many small transfers just under the limit.",
+    "zh": "你在和风控同事对齐需求时这样说："
+   },
+   "term": "anti-money laundering",
+   "zh": "反洗钱（AML）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A fraud ring reuses devices and addresses across hundreds of applications.",
+     "zh": "欺诈团伙会在几百份申请里复用设备和地址。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Graph features expose a fraud ring that per-application rules miss.",
+    "zh": "评审信贷系统设计时你这样说："
+   },
+   "term": "fraud ring",
+   "zh": "欺诈团伙（有组织的造假申请网络）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Account takeover spikes after every external password leak.",
+     "zh": "每次外部密码泄漏之后，账户盗用都会飙升。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We added step-up verification after an account takeover wave.",
+    "zh": "面试官问你消费金融项目的细节，你回答："
+   },
+   "term": "account takeover",
+   "zh": "账户盗用（攻击者接管用户账户）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Transaction monitoring scores every transfer before it settles.",
+     "zh": "交易监控在每笔转账结算之前给它打分。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Transaction monitoring must decide in milliseconds, so the rules stay shallow.",
+    "zh": "你在和风控同事对齐需求时这样说："
+   },
+   "term": "transaction monitoring",
+   "zh": "交易监控（实时盯异常交易）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Risk-based pricing charges the riskiest borrowers the highest rates.",
+     "zh": "风险定价让风险最高的借款人付最高的利率。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Risk-based pricing is fair only if the score itself is fair.",
+    "zh": "评审信贷系统设计时你这样说："
+   },
+   "term": "risk-based pricing",
+   "zh": "风险定价（风险越高利率越高）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The credit bureau report is one input, not the verdict.",
+     "zh": "征信机构的报告是一个输入，不是判决。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We query the credit bureau once per application and cache the result.",
+    "zh": "面试官问你消费金融项目的细节，你回答："
+   },
+   "term": "credit bureau",
+   "zh": "征信机构"
+  },
+  {
+   "examples": [
+    {
+     "en": "Users can dispute errors on their credit report, and many should.",
+     "zh": "用户可以对征信报告上的错误提出异议，而且很多人都应该这样做。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A thin credit report is not a bad one; the model must know the difference.",
+    "zh": "你在和风控同事对齐需求时这样说："
+   },
+   "term": "credit report",
+   "zh": "征信报告"
+  },
+  {
+   "examples": [
+    {
+     "en": "The debt-to-income ratio caps how much new credit the system offers.",
+     "zh": "负债收入比给系统能批的新额度封了顶。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We compute the debt-to-income ratio from verified income, not self-reported.",
+    "zh": "评审信贷系统设计时你这样说："
+   },
+   "term": "debt-to-income ratio",
+   "zh": "负债收入比"
+  },
+  {
+   "examples": [
+    {
+     "en": "Loan origination is the funnel: application, assessment, approval, disbursement.",
+     "zh": "贷款发起就是那个漏斗：申请、评估、审批、放款。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I worked on the loan origination platform end to end.",
+    "zh": "面试官问你消费金融项目的细节，你回答："
+   },
+   "term": "loan origination",
+   "zh": "贷款发起（从申请到放款的全流程）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Loan servicing starts where origination ends: statements, payments, support.",
+     "zh": "贷款服务期管理从发起结束的地方开始：账单、还款、客服。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Most user contacts happen in loan servicing, not during application.",
+    "zh": "你在和风控同事对齐需求时这样说："
+   },
+   "term": "loan servicing",
+   "zh": "贷款服务期管理（放款后的还款与客服）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A charge-off happens after 180 days and failed collection.",
+     "zh": "核销发生在逾期 180 天且催收失败之后。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Charge-off timing is accounting policy, not a button engineers press.",
+    "zh": "评审信贷系统设计时你这样说："
+   },
+   "term": "charge-off",
+   "zh": "核销（确认收不回、从账上划掉）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A write-off closes the books on a loan, not the legal claim.",
+     "zh": "坏账冲销关上的是账本，不是法律追索权。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Write-off rates by cohort tell you which month's underwriting slipped.",
+    "zh": "面试官问你消费金融项目的细节，你回答："
+   },
+   "term": "write-off",
+   "zh": "坏账冲销（同核销的常用说法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The provision for losses is set aside before the defaults arrive.",
+     "zh": "损失拨备是在违约到来之前就预留出来的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Finance owns the provision for losses; we just supply the forecasts.",
+    "zh": "你在和风控同事对齐需求时这样说："
+   },
+   "term": "provision for losses",
+   "zh": "损失拨备（提前预留的坏账准备金）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Capital adequacy rules decide how fast a lender may grow.",
+     "zh": "资本充足率的规则决定一家放贷机构能长多快。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Growth plans in lending always answer to capital adequacy.",
+    "zh": "评审信贷系统设计时你这样说："
+   },
+   "term": "capital adequacy",
+   "zh": "资本充足率（扛风险的本钱够不够）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Regulatory compliance shapes the data model more than user needs do.",
+     "zh": "监管合规对数据模型的塑造比用户需求还大。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In fintech, regulatory compliance is a feature, not paperwork after the fact.",
+    "zh": "面试官问你消费金融项目的细节，你回答："
+   },
+   "term": "regulatory compliance",
+   "zh": "监管合规"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every approval decision keeps an audit trail for regulators.",
+     "zh": "每个审批决定都为监管保留审计轨迹。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The audit trail is append-only; even admins cannot edit it.",
+    "zh": "你在和风控同事对齐需求时这样说："
+   },
+   "term": "audit trail",
+   "zh": "审计轨迹（谁在何时改了什么的完整记录）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Sensitive data is encrypted at rest and masked in every internal tool.",
+     "zh": "敏感数据静态加密，在每个内部工具里都脱敏显示。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Access to sensitive data is logged, justified, and reviewed monthly.",
+    "zh": "评审信贷系统设计时你这样说："
+   },
+   "term": "sensitive data",
+   "zh": "敏感数据（身份证、银行卡等）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Consent management records what the user agreed to, and when they revoked it.",
+     "zh": "授权管理记录用户同意了什么、又在何时撤回。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Our consent management had to survive a full regulatory audit.",
+    "zh": "面试官问你消费金融项目的细节，你回答："
+   },
+   "term": "consent management",
+   "zh": "授权管理（用户同意的记录与撤回）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The cooling-off period lets a borrower cancel within twenty-four hours.",
+     "zh": "冷静期让借款人在二十四小时内可以无条件取消。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The cooling-off period must be visible before signing, not buried in terms.",
+    "zh": "你在和风控同事对齐需求时这样说："
+   },
+   "term": "cooling-off period",
+   "zh": "冷静期（签约后可无条件取消的期限）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Restructuring a loan beats pushing a struggling borrower into default.",
+     "zh": "给困难用户做贷款重组，比把他推进违约要好。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The hardship flow is basically restructuring a loan with dignity.",
+    "zh": "评审信贷系统设计时你这样说："
+   },
+   "term": "restructuring a loan",
+   "zh": "贷款重组（给困难用户调整还款安排）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A hardship program pauses payments for borrowers who lose income.",
+     "zh": "困难帮扶计划为失去收入的借款人暂停还款。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Building the hardship program taught me the servicing side of the business.",
+    "zh": "面试官问你消费金融项目的细节，你回答："
+   },
+   "term": "hardship program",
+   "zh": "困难帮扶计划（失业生病时的减免安排）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A settlement offer closes an old debt for less than the full amount.",
+     "zh": "和解方案让一笔旧债以低于全额的价格结清。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Settlement offers are calculated per segment, never improvised by agents.",
+    "zh": "你在和风控同事对齐需求时这样说："
+   },
+   "term": "settlement offer",
+   "zh": "和解方案（打折一次性结清欠款）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A payment reminder three days before the due date cuts late payments noticeably.",
+     "zh": "到期前三天的还款提醒能显著减少逾期。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The wording of the payment reminder is reviewed by compliance, like everything user-facing.",
+    "zh": "评审信贷系统设计时你这样说："
+   },
+   "term": "payment reminder",
+   "zh": "还款提醒"
+  },
+  {
+   "examples": [
+    {
+     "en": "The overdue notice must state the amount, the days, and the way out.",
+     "zh": "逾期通知必须写明金额、天数和解决办法。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We A/B tested the overdue notice tone; firm and respectful won.",
+    "zh": "面试官问你消费金融项目的细节，你回答："
+   },
+   "term": "overdue notice",
+   "zh": "逾期通知"
+  }
+ ],
+ "layer": "C",
+ "title": "金融科技与信贷"
+}
