@@ -1,0 +1,577 @@
+{
+ "category": "travel",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "The consulate issues emergency documents, not new passports, on the spot.",
+     "zh": "领事馆当场发的是紧急旅行证件，不是新护照。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Call the consulate before you go; some take appointments only.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "consulate",
+   "zh": "领事馆"
+  },
+  {
+   "examples": [
+    {
+     "en": "Report a theft within twenty-four hours or the insurer walks away.",
+     "zh": "要在二十四小时内报案失窃，否则保险公司会拒赔。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "You report a theft at the station nearest to where it happened.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "report a theft",
+   "zh": "报案（报告失窃）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keep your travel documents in the hotel safe, copies in your phone.",
+     "zh": "旅行证件放在酒店保险箱里，手机里留复印件。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Losing all travel documents abroad turns a holiday into paperwork.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "travel documents",
+   "zh": "旅行证件（护照、签证等统称）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An emergency travel document gets you home, and nowhere else.",
+     "zh": "紧急旅行证件只能让你回家，别的地方去不了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The emergency travel document took two days and two photos.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "emergency travel document",
+   "zh": "紧急旅行证件（护照丢了时临时发的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A photocopy of your passport speeds up every replacement step.",
+     "zh": "一张护照复印件能让每个补办步骤都快起来。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Email yourself a photocopy of your passport before every trip.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "photocopy of passport",
+   "zh": "护照复印件"
+  },
+  {
+   "examples": [
+    {
+     "en": "The VAT refund needs the form stamped at your last EU airport.",
+     "zh": "增值税退税需要在你离开欧盟的最后一个机场给表格盖章。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The VAT refund on the camera paid for a very nice dinner.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "VAT refund",
+   "zh": "增值税退税（游客购物退税）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Tax-free shopping starts above a minimum spend per store.",
+     "zh": "免税购物要在单家店消费满最低金额才行。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ask for the tax-free shopping form before they close the till.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "tax-free shopping",
+   "zh": "免税购物（商店里办退税的那种）"
+  },
+  {
+   "examples": [
+    {
+     "en": "No customs stamp, no refund — the rule has no mercy.",
+     "zh": "没有海关盖章就没有退税——这条规矩不讲情面。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Get the customs stamp before you check your bags, in case they inspect them.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "customs stamp",
+   "zh": "海关盖章（退税单上的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keep proof of purchase for the warranty and the tax refund.",
+     "zh": "购买凭证要留好，为保修也为退税。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A photo of the receipt counts as proof of purchase most places.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "proof of purchase",
+   "zh": "购买凭证（小票、发票）"
+  },
+  {
+   "examples": [
+    {
+     "en": "If you miss the train, the cheap ticket usually dies with it.",
+     "zh": "如果你误了火车，那种便宜票通常也跟着作废。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Miss the train once in a foreign station and you never pack slowly again.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "miss the train",
+   "zh": "误了火车、没赶上火车"
+  },
+  {
+   "examples": [
+    {
+     "en": "The next available train leaves in forty minutes from platform nine.",
+     "zh": "下一班可乘的火车四十分钟后从九站台发车。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ask for the next available train, not the next train — they differ.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "next available train",
+   "zh": "下一班可乘的火车"
+  },
+  {
+   "examples": [
+    {
+     "en": "The platform number changes at the last minute in big stations.",
+     "zh": "在大站，站台号会在最后一分钟变。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Never trust the platform number printed an hour ago.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "platform number",
+   "zh": "站台号"
+  },
+  {
+   "examples": [
+    {
+     "en": "The train conductor can sell you the upgrade on board, for a fee.",
+     "zh": "列车员可以在车上卖给你升舱票，要加手续费。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Show the conductor your old ticket before the train moves.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "train conductor",
+   "zh": "列车员、查票员"
+  },
+  {
+   "examples": [
+    {
+     "en": "A valid ticket for the wrong train is decoration, not transport.",
+     "zh": "一张有效但坐错车的票只是装饰，不是交通。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Stamp the paper ticket before boarding or it is not a valid ticket.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "valid ticket",
+   "zh": "有效票（能用的票）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The first class carriage has power sockets and actual silence.",
+     "zh": "一等车厢有电源插座，还有真正的安静。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Upgrading to the first class carriage cost less than the coffee queue's time.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "first class carriage",
+   "zh": "一等车厢"
+  },
+  {
+   "examples": [
+    {
+     "en": "A six-day ski pass costs less than four single days.",
+     "zh": "六天的滑雪通票比买四张单日票还便宜。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The ski pass is a card you tap at the lift gate — don't bend it.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "ski pass",
+   "zh": "滑雪通票（缆车+雪场通行证）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The lift ticket is included in the lesson package on day one.",
+     "zh": "第一天的课程套餐里包含缆车票。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Buy the lift ticket online; the window line is the first slope of the day.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "lift ticket",
+   "zh": "缆车票"
+  },
+  {
+   "examples": [
+    {
+     "en": "The beginner slope has its own slow lift and zero judgment.",
+     "zh": "初级雪道有自己的慢速缆车，而且没人笑话你。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Stay on the beginner slope until turning is boring.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "beginner slope",
+   "zh": "初级雪道"
+  },
+  {
+   "examples": [
+    {
+     "en": "A ski instructor fixes in one morning what videos can't in a season.",
+     "zh": "滑雪教练一个上午能纠正视频一整季都教不会的东西。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Book the ski instructor for the first morning, not the last.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "ski instructor",
+   "zh": "滑雪教练"
+  },
+  {
+   "examples": [
+    {
+     "en": "Equipment rental by the hotel is pricier but painless.",
+     "zh": "酒店旁边的装备租赁贵一点，但省事。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Reserve equipment rental online with your shoe size and height.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "equipment rental",
+   "zh": "装备租赁"
+  },
+  {
+   "examples": [
+    {
+     "en": "Ski boots should feel snug, never painful — swap sizes freely.",
+     "zh": "滑雪靴应该贴合、绝不能疼——随便换尺码。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Your own socks make rental ski boots survivable.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "ski boots",
+   "zh": "滑雪靴"
+  },
+  {
+   "examples": [
+    {
+     "en": "Helmet rental is five euros; a concussion is somewhat more.",
+     "zh": "头盔租赁五欧元；脑震荡要贵出不少。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Add helmet rental to every booking, no debate.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "helmet rental",
+   "zh": "头盔租赁"
+  },
+  {
+   "examples": [
+    {
+     "en": "Ask for a painkiller that won't make you drowsy on the slopes.",
+     "zh": "要一种不会让你在雪道上犯困的止痛药。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The painkiller section is behind the pharmacy counter in most countries.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "painkiller",
+   "zh": "止痛药"
+  },
+  {
+   "examples": [
+    {
+     "en": "Prescription medicine needs the paper from your doctor, translated helps.",
+     "zh": "处方药需要医生开的处方，翻译过的更好用。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Carry prescription medicine in hand luggage, always.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "prescription medicine",
+   "zh": "处方药"
+  },
+  {
+   "examples": [
+    {
+     "en": "Over-the-counter medicine for a cold is sold even in supermarkets here.",
+     "zh": "这里治感冒的非处方药连超市都有卖。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ask what's over-the-counter medicine and what needs the pharmacist's key.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "over-the-counter medicine",
+   "zh": "非处方药"
+  },
+  {
+   "examples": [
+    {
+     "en": "The dosage on foreign boxes may differ from home; read it twice.",
+     "zh": "外国包装上的剂量可能和家里不同；读两遍。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Check the dosage per tablet, not per box.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "dosage",
+   "zh": "剂量、用量"
+  },
+  {
+   "examples": [
+    {
+     "en": "Take twice a day with food, the pharmacist said, tapping the box.",
+     "zh": "药剂师敲着盒子说：一天吃两次，随餐。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "'Take twice a day' can mean every twelve hours or morning and night — ask.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "take twice a day",
+   "zh": "一天吃两次"
+  },
+  {
+   "examples": [
+    {
+     "en": "Motion sickness ruins ferries; take the pill thirty minutes before.",
+     "zh": "晕船会毁掉坐渡轮的体验；提前三十分钟吃药。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For motion sickness, the front seat and the horizon are half the cure.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "motion sickness",
+   "zh": "晕车/晕船（动晕症）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Ask for an itemized bill at checkout; totals hide surprises.",
+     "zh": "退房时要一份明细账单；总数最会藏惊喜。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The itemized bill showed two minibar charges from the previous guest.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "itemized bill",
+   "zh": "明细账单（逐项列出的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The minibar sensor charges you for merely picking things up.",
+     "zh": "迷你吧的传感器让你只要拿起来看一眼就扣费。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Photograph the minibar on arrival if the hotel is known for 'errors'.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "minibar",
+   "zh": "迷你吧（房间里的小冰箱酒水）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A service charge is already in the bill; tipping again is optional.",
+     "zh": "账单里已经含了服务费；再给小费是自愿的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Check for a service charge before leaving cash on the table.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "service charge",
+   "zh": "服务费"
+  },
+  {
+   "examples": [
+    {
+     "en": "Read the final bill before the taxi, not inside it.",
+     "zh": "要在上出租车之前看最终账单，不是在车里看。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The final bill is emailed; the dispute window is thirty days.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "final bill",
+   "zh": "最终账单（结清的那张）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The hold on the card releases in five to ten days, the desk promised.",
+     "zh": "前台承诺说，信用卡预授权会在五到十天里释放。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A hold on the card is not a charge, but your limit feels it the same.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "hold on the card",
+   "zh": "信用卡预授权（押金冻结）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The encore was the song everyone actually came for.",
+     "zh": "返场唱的正是大家真正为之而来的那首歌。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Clap like you mean it; encores are earned, not scheduled. Except when they are.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "encore",
+   "zh": "安可、返场（演出结束后再加演）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The opening act was better than the headliner, and the crowd knew it.",
+     "zh": "暖场乐队比主演还好，观众心里有数。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Arrive for the opening act; half of music discovery lives there.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "opening act",
+   "zh": "暖场乐队/开场表演"
+  },
+  {
+   "examples": [
+    {
+     "en": "General admission means your spot depends on your arrival, not your wallet.",
+     "zh": "普通入场的意思是：你的位置取决于你几点到，不取决于你的钱包。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For general admission, the rail by the sound desk sounds best.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "general admission",
+   "zh": "普通入场（不指定座位、站票区）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A standing ticket is cheaper and closer, if your legs agree.",
+     "zh": "站票更便宜、离舞台更近——如果你的腿同意的话。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Standing ticket plus old shoes is the veteran combination.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "standing ticket",
+   "zh": "站票"
+  },
+  {
+   "examples": [
+    {
+     "en": "The souvenir shop at the exit sells the same magnets for double.",
+     "zh": "出口处的纪念品商店卖同样的冰箱贴，价格翻倍。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Buy gifts at a neighborhood shop, not the souvenir shop by the gate.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "souvenir shop",
+   "zh": "纪念品商店"
+  }
+ ],
+ "layer": "A",
+ "title": "旅游娱乐"
+}

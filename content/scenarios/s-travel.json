@@ -427,6 +427,498 @@
           ]
         }
       ]
+    },
+    {
+      "id": "lost-passport-abroad",
+      "title": "护照丢了：警局报案 + 领事馆补证",
+      "setting": "旅行第四天，你的包在地铁上被偷，护照、钱包都在里面。你先到最近的警察局报案，接待你的警官是 Officer Marek；拿到报案证明后，你又赶到领事馆。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Officer Marek",
+          "en": "Good afternoon. You are here to report a theft? Tell me what happened, slowly.",
+          "zh": "下午好。您是来报案失窃的吗？慢慢说，发生了什么。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你把事情讲清楚：下午两点在地铁二号线，包从你脚边被拽走，里面有护照、钱包和相机；你要报案主要是为了保险和补证件。",
+          "en": "Yes, I need to report a theft. Around two this afternoon, on metro line two, my bag was taken from beside my feet. It had my passport, wallet, and camera. I need the report for insurance and for replacing my documents.",
+          "chunks": [
+            { "term": "report a theft", "zh": "报案（报告失窃）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Officer Marek",
+          "en": "We will make the police report now. Do you have any copy of the passport? A photo on your phone helps us and the consulate.",
+          "zh": "我们现在就做报案记录。您有护照的任何复印件吗？手机里的照片对我们和领事馆都有帮助。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说手机里有护照复印件的照片，也已经发到邮箱备份了；你还问这份报案记录多久能拿到、要几份。",
+          "en": "Yes — I keep a photocopy of my passport on my phone, and another in my email. How soon can I get the police report, and can I have two copies?",
+          "chunks": [
+            { "term": "photocopy of passport", "zh": "护照复印件" },
+            { "term": "police report", "zh": "报警记录、警方报告" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Officer Marek",
+          "en": "Signed copy in twenty minutes. One for the insurer, one for your consulate. Anything else stolen — cards? Cancel them now, use our phone if you need.",
+          "zh": "签好字的副本二十分钟后给您。一份给保险公司，一份给领事馆。还有什么被偷的——银行卡？现在就挂失，需要的话可以用我们的电话。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你确认卡已经在手机银行里冻结了，并向他要了报案编号，方便保险那边随时查询。",
+          "en": "The cards are already frozen in my banking app. Could I also get the report number, so my insurance can look the case up directly?",
+          "chunks": [
+            { "term": "travel insurance", "zh": "旅行保险" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Consulate staff",
+          "en": "(at the consulate) With the police report and the passport photo, we can issue an emergency travel document. Two photos, one form, and it is valid for your flight home on Sunday.",
+          "zh": "（在领事馆）有了报案证明和护照照片，我们可以给您签发紧急旅行证件。两张照片、一张表格，效期覆盖您周日回家的航班。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你确认限制条件：这张证件只能直飞回家、不能再去第三国，对吗？你原计划周六顺路去邻国一天，看来要取消。",
+          "en": "Just to confirm: the emergency travel document only gets me home — I can't use it for the side trip to the neighboring country on Saturday?",
+          "chunks": [
+            { "term": "emergency travel document", "zh": "紧急旅行证件（护照丢了时临时发的）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Consulate staff",
+          "en": "Correct — direct route home only, and it is surrendered when you arrive. Back home you apply for a new passport with this document and the report.",
+          "zh": "没错——只能直飞回国，抵达时要交回。回家后再用这份证件和报案证明去申办新护照。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你收尾：你把所有旅行证件今晚重新备份一遍——原件放酒店保险箱，出门只带复印件和手机照片，这次教训够了。",
+          "en": "Understood. From tonight, my travel documents live in the hotel safe; I carry only copies and phone photos. Lesson learned the expensive way.",
+          "chunks": [
+            { "term": "travel documents", "zh": "旅行证件（护照、签证等统称）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Consulate staff",
+          "en": "Smart. Come at nine tomorrow with the photos; the document will be ready by noon. Enjoy what's left of your trip.",
+          "zh": "明智。明天九点带照片来，证件中午就能好。祝您剩下的旅程愉快。"
+        }
+      ]
+    },
+    {
+      "id": "pharmacy-abroad",
+      "title": "国外药店：描述症状、买对药",
+      "setting": "旅行第二天，你晕船后又吹了空调，头疼、嗓子疼、浑身酸。你走进街角的药店，药剂师是 Anna。你不会当地语言，只能用英语把症状说准。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Anna (pharmacist)",
+          "en": "Hello. How can I help you today?",
+          "zh": "您好。今天有什么可以帮您的？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你描述症状和起因：昨天坐船晕船、晚上空调吹了一夜，现在头疼、喉咙痛、肌肉酸，但没有发烧；你想要对症的非处方药。",
+          "en": "Hi. I got motion sickness on a boat yesterday, then slept under air conditioning all night. Now I have a headache, a sore throat, and aching muscles — no fever, though. What over-the-counter medicine would you recommend?",
+          "chunks": [
+            { "term": "motion sickness", "zh": "晕车/晕船（动晕症）" },
+            { "term": "over-the-counter medicine", "zh": "非处方药" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Anna (pharmacist)",
+          "en": "For the headache and aches, this one is standard. Are you allergic to anything? Do you take any other medicine regularly?",
+          "zh": "头疼和酸痛的话，这一款是标准的。您对什么过敏吗？平时有长期服用的药吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你交代过敏史：你对青霉素过敏，对止痛药没有；平时不吃长期药。你问这款止痛药的剂量和能不能跟晕车药同吃。",
+          "en": "I'm allergic to penicillin, but painkillers have always been fine. No regular medicine. What's the dosage on this painkiller, and can I take it with motion sickness tablets?",
+          "chunks": [
+            { "term": "painkiller", "zh": "止痛药" },
+            { "term": "dosage", "zh": "剂量、用量" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Anna (pharmacist)",
+          "en": "One tablet, up to three times a day, with food. Yes, together is fine, but the sickness tablets cause drowsiness — no driving, and no slopes tomorrow, I'd say.",
+          "zh": "一片，一天最多三次，随餐。一起吃可以，不过晕车药会让人犯困——别开车，我建议明天也别上雪道。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你确认吃法并多问一嘴：嗓子疼有没有含片；另外你明天的船程还要两个小时，晕船药是提前半小时吃、对吗？",
+          "en": "Got it: one with food, three a day max. And take twice a day was for the other box — not this one, right? Also, do you have lozenges for the throat?",
+          "chunks": [
+            { "term": "take twice a day", "zh": "一天吃两次" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Anna (pharmacist)",
+          "en": "Right, not this one. Lozenges are on that shelf, honey or menthol. And yes — the sickness pill thirty minutes before the boat, not when you already feel ill.",
+          "zh": "对，不是这一个。含片在那个架子上，蜂蜜或薄荷的。晕船药是登船前三十分钟吃，不是已经难受了再吃。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你拿齐东西结账，最后确认一句总的用法你有没有理解错。",
+          "en": "Then I have everything: painkiller with food, lozenges as needed, sickness pill half an hour before the ferry. Thank you — the pharmacy near the hotel was closed, you saved my evening.",
+          "chunks": [
+            { "term": "pharmacy", "zh": "药房、药店" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "missed-train-rebooking",
+      "title": "误了火车：站台改签实战",
+      "setting": "你在欧洲旅行，行李寄存柜取东西耽误了十分钟，眼睁睁看着火车关门。你拉着箱子跑到车站服务台，工作人员是 Jonas。你那张还是特价票，心里没底。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Jonas (station staff)",
+          "en": "You look like the 14:05 just left without you. What happened?",
+          "zh": "您看起来像是刚错过 14:05 那班车。发生什么了？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你老实承认：寄存柜排队耽误了，你误了火车；这是你的票——特价提前票，你想知道它是不是彻底作废了。",
+          "en": "Exactly that — the lockers had a queue and I missed the train by three minutes. This is my ticket, a saver fare. Is it completely worthless now?",
+          "chunks": [
+            { "term": "miss the train", "zh": "误了火车、没赶上火车" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Jonas (station staff)",
+          "en": "The saver fare is tied to that train, so normally yes. But there was a platform change at 13:50 that wasn't announced in English — that makes it our problem too. I can rebook you free.",
+          "zh": "特价票是绑定车次的，一般确实作废。但 13:50 有过一次站台变更，没有英文广播——这也算我们的问题。我可以免费给您改签。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你抓住机会问清新车次：下一班可乘的是几点、哪个站台、要不要换乘。",
+          "en": "That's a relief. What's the next available train, which platform, and is it direct?",
+          "chunks": [
+            { "term": "next available train", "zh": "下一班可乘的火车" },
+            { "term": "platform number", "zh": "站台号" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Jonas (station staff)",
+          "en": "15:20 from platform six, direct, arrives 18:40. Your new ticket is printing. Keep this slip — it explains the free rebooking if the conductor asks.",
+          "zh": "15:20，六站台，直达，18:40 到。新票在打印了。这张小条拿好——列车员问起来，它能说明这次免费改签。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你确认新票的有效性：这张票在新车次上就是有效票对吧？另外路上三小时，你想升一等车厢，差价多少、是在这里付还是车上付。",
+          "en": "So this is a valid ticket for the 15:20. One more thing: I'd like to upgrade to the first class carriage for the three hours — how much is the difference, here or on board?",
+          "chunks": [
+            { "term": "valid ticket", "zh": "有效票（能用的票）" },
+            { "term": "first class carriage", "zh": "一等车厢" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Jonas (station staff)",
+          "en": "On board is fine; the train conductor charges fifteen for the upgrade. Seats in first are unreserved today, sit anywhere.",
+          "zh": "车上付就行；列车员收十五的升舱费。今天一等座不对号，随便坐。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你收尾确认时间安排：你去站台边的咖啡店等到三点再上站台，站台号临走前再看一次大屏确认。",
+          "en": "Perfect. I'll wait in the café and double-check the platform number on the big screen before I go down. Thank you for the honest rebooking.",
+          "chunks": [
+            { "term": "platform number", "zh": "站台号" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tax-refund-shopping",
+      "title": "购物退税：商场办理到机场盖章",
+      "setting": "旅行最后一天，你在一家大商场给家人买了相机和包，总价超过退税门槛。你在商场的退税服务台先办手续，工作人员是 Elena；第二天到机场海关，你还要完成最后一步。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Elena (store desk)",
+          "en": "You'd like the tax-free forms for these purchases? I need your passport and the receipts, please.",
+          "zh": "您要办这些购物的免税表吗？请给我您的护照和收据。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你递上材料并问清规则：两个包和相机是三张小票、同一家商场，合并办可以吗；退税比例和到账方式也请她说一下。",
+          "en": "Here they are. Three receipts from this store — can they go on one form for tax-free shopping? And how much VAT refund do I get, and is it back to my card?",
+          "chunks": [
+            { "term": "tax-free shopping", "zh": "免税购物（商店里办退税的那种）" },
+            { "term": "VAT refund", "zh": "增值税退税（游客购物退税）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Elena (store desk)",
+          "en": "One form works; the refund is about twelve percent, back to the card in five to ten days — after customs stamps it at the airport. Goods must stay unused and in hand luggage if they ask to see them.",
+          "zh": "一份表就可以；退税大约百分之十二，海关盖章后五到十天退到卡里。商品要保持未使用，如果海关要看，要在随身行李里。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你确认关键顺序：明天先去海关盖章、再去托运行李，对吗？要是先托运了相机，盖章这步就过不了。",
+          "en": "So the order tomorrow: get the customs stamp first, then check my bags — because if the camera is checked in, they can't inspect it and I lose the refund.",
+          "chunks": [
+            { "term": "customs stamp", "zh": "海关盖章（退税单上的）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Elena (store desk)",
+          "en": "Exactly right. Keep every proof of purchase with the form in one envelope. At this airport, customs is before security, landside, desk four.",
+          "zh": "完全正确。每张购买凭证都和表格放在一个信封里。这个机场的海关在安检之前、外侧区域，四号窗口。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你在机场海关完成最后一步：把信封递过去，说明你要给这份退税表盖章，相机在随身包里可以随时出示。",
+          "en": "(at the airport) Good morning — I need a customs stamp on this tax refund form. The camera is in my carry-on if you want to see it.",
+          "chunks": [
+            { "term": "tax refund", "zh": "退税" },
+            { "term": "carry-on", "zh": "随身行李、登机行李" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Customs officer",
+          "en": "Show me the camera, please... Serial matches the receipt. Stamp done. Drop the envelope in the blue box; the refund follows to your card.",
+          "zh": "请把相机给我看一下……序列号和收据对得上。章盖好了。把信封投进蓝箱子，退款会打到您的卡里。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你确认没有遗漏：免税店里买的巧克力不需要这一步对吧——那是出发后在免税区买的，本来就不含税。",
+          "en": "One last check: the chocolate from the duty-free shop doesn't need any of this — it was already tax-free when I bought it airside, right?",
+          "chunks": [
+            { "term": "duty-free shop", "zh": "免税店" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Customs officer",
+          "en": "Correct — nothing to stamp for duty-free purchases. Safe flight home.",
+          "zh": "对——免税商品不需要盖章。祝您飞行平安。"
+        }
+      ]
+    },
+    {
+      "id": "ski-rental-and-lesson",
+      "title": "滑雪第一天：租装备 + 约教练",
+      "setting": "你第一次滑雪，到了雪场山脚下的租赁店。店员 Petra 负责给你配装备，旁边的滑雪学校可以约课。你对装备一窍不通，全靠问清楚。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Petra (rental shop)",
+          "en": "Morning! Skiing or snowboarding, and for how many days?",
+          "zh": "早上好！滑双板还是单板？租几天？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说明情况：双板、三天，完全新手；你要全套装备租赁，鞋码 42、身高 175，板长请她按新手推荐。",
+          "en": "Skis, three days, total beginner. I need full equipment rental — boots size forty-two, I'm a hundred seventy-five tall. Please suggest a beginner-friendly ski length.",
+          "chunks": [
+            { "term": "equipment rental", "zh": "装备租赁" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Petra (rental shop)",
+          "en": "Shorter skis for learning, then. Try these boots — snug is right, painful is wrong. Walk around for two minutes.",
+          "zh": "那就用短一点的学习板。试试这双雪靴——贴合是对的，疼就是错的。穿着走两分钟。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你试穿反馈：左脚大脚趾顶得慌，右脚正好；你想换大半码的左脚……其实两只都换大半码更稳妥。头盔租赁也加上。",
+          "en": "The left of these ski boots presses my big toe; the right is fine. Can I try both half a size up? And add helmet rental, please.",
+          "chunks": [
+            { "term": "ski boots", "zh": "滑雪靴" },
+            { "term": "helmet rental", "zh": "头盔租赁" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Petra (rental shop)",
+          "en": "Better? Now, passes and lessons are next door, but the short version: a three-day ski pass includes all lifts. The school runs group lessons at ten and two.",
+          "zh": "好些了？通票和课程在隔壁，不过简短版：三天的滑雪通票包含所有缆车。学校十点和两点有团课。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你约课并问细节：你报明早十点的团课，缆车票包含在通票里对吧；新手第一天只在初级雪道活动，教练会带你们上去吗。",
+          "en": "I'll book the ten o'clock group lesson tomorrow. The lift ticket is part of the ski pass, right? And on day one we stay on the beginner slope with the instructor?",
+          "chunks": [
+            { "term": "lift ticket", "zh": "缆车票" },
+            { "term": "ski pass", "zh": "滑雪通票（缆车+雪场通行证）" },
+            { "term": "beginner slope", "zh": "初级雪道" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ski instructor (next morning)",
+          "en": "Welcome to the ten o'clock group. Today: stopping, turning, and falling safely — in that order of importance. Nobody goes near the big lift until those three work.",
+          "zh": "欢迎来到十点的团课。今天学：刹车、转弯、安全摔倒——按这个重要性顺序。这三样没学会，谁也不许碰大缆车。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你表态并问一个新手最怕的问题：摔倒了怎么站起来要先教——你可不想在初级雪道上像翻盖的乌龟。",
+          "en": "Deal. Please teach getting up after a fall early — I don't want to be a flipped turtle on the beginner slope all morning.",
+          "chunks": [
+            { "term": "beginner slope", "zh": "初级雪道" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ski instructor (next morning)",
+          "en": "First lesson of the day, then. Sideways, skis across the slope, push up. You'll master it by lunch — everyone does, usually by falling a lot before lunch.",
+          "zh": "那就作为今天第一课。侧身、雪板横着朝向坡面、手撑起来。午饭前你就能掌握——通常是因为午饭前摔得够多。"
+        }
+      ]
+    },
+    {
+      "id": "concert-night-out",
+      "title": "演唱会之夜：站票、暖场与安可",
+      "setting": "出差到外地，正好赶上你喜欢的乐队巡演。你和同事买了普通入场的站票，提前到场。检票员、酒水台、散场——一晚的热闹都在这儿了。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Door staff",
+          "en": "Tickets, please. You're general admission — doors are open, the floor fills from the front. Wristbands at the next table.",
+          "zh": "请出示票。你们是普通入场——门已经开了，内场从前面开始站。到旁边的桌子领手环。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你确认站票规则：凭手环今晚可以自由进出内场吗？开演前你想先去买杯喝的、再占位置。",
+          "en": "With the wristband, can general admission come and go from the floor? We'd like drinks first, then find a spot. Standing ticket strategy: hydrate, then commit.",
+          "chunks": [
+            { "term": "general admission", "zh": "普通入场（不指定座位、站票区）" },
+            { "term": "standing ticket", "zh": "站票" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Door staff",
+          "en": "In and out all night with the band on. Bar's to the left; there's a cover charge for the after-party upstairs later, but the show itself is all included.",
+          "zh": "戴着手环整晚随便进出。酒吧在左边；楼上散场派对另收入场费，但演出本身全包了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你和同事分工占位：你去买水，同事去音响台旁边占位——你听说那里的声音最好，顺便问暖场几点开始。",
+          "en": "I'll grab water; my friend will hold a spot by the sound desk — best sound in the house, they say. What time does the opening act start?",
+          "chunks": [
+            { "term": "opening act", "zh": "暖场乐队/开场表演" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Friend (text, read aloud)",
+          "en": "(phone) Got us a spot, rail on the right side. The opening act is actually great — hurry back.",
+          "zh": "（手机消息）位置占好了，右侧栏杆边。暖场乐队意外地很棒——快回来。"
+        },
+        {
+          "speaker": "me",
+          "zh": "演出结束后，你和全场一起喊安可，并和同事感慨这一晚值回票价。",
+          "en": "(after the show) That was worth every cent. The live music, the crowd singing the old songs — and that encore, they played the one song I came for.",
+          "chunks": [
+            { "term": "live music", "zh": "现场音乐" },
+            { "term": "encore", "zh": "安可、返场（演出结束后再加演）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Friend",
+          "en": "Same time next tour? I'll get the tickets the day they drop this time — no resale markup for us.",
+          "zh": "下次巡演还来？这次我开票当天就买——咱们可不当黄牛的冤大头。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你应约并收尾：下次提前买票、还是站票前排；今晚的照片你回去发他；楼上散场派对他要是想去，你就把入场费那份 AA 说清。",
+          "en": "Deal — standing near the rail again. I'll send you tonight's photos when I get back. If you want the after-party upstairs, the cover charge is on you this time.",
+          "chunks": [
+            { "term": "cover charge", "zh": "入场费（酒吧/俱乐部收的门票钱）" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hotel-checkout-bill-dispute",
+      "title": "退房结账：账单上多出没消费的项目",
+      "setting": "退房时你看了一眼账单，发现多了两笔迷你吧消费和一笔停车费——你根本没开车。前台是 Marco，你赶着去机场，但这两笔钱不能稀里糊涂付了。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Marco (front desk)",
+          "en": "Checking out, room 1206? Your total is on the screen. Shall I charge the card on file?",
+          "zh": "1206 房退房吗？您的总金额在屏幕上。就刷预留的那张卡吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你要求先看明细账单：先别刷卡，你想逐项看一遍明细——你对其中两笔有疑问。",
+          "en": "Before you charge anything, could I see the itemized bill, please? Two lines on it don't look like mine.",
+          "chunks": [
+            { "term": "itemized bill", "zh": "明细账单（逐项列出的）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marco (front desk)",
+          "en": "Of course, printing it now. Which lines concern you?",
+          "zh": "当然，正在打印。您对哪两项有疑问？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你指出具体问题：周二晚上的两笔迷你吧消费——那晚你十一点才入住、直接睡了；还有停车费，你根本没租车，这趟是打车来的。",
+          "en": "These two minibar charges from Tuesday night — I checked in at eleven and went straight to bed. And a parking fee? I never had a car this trip; I took taxis.",
+          "chunks": [
+            { "term": "minibar", "zh": "迷你吧（房间里的小冰箱酒水）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marco (front desk)",
+          "en": "The minibar sensor logs when items are lifted. Sometimes guests pick things up to read the label and it still charges. Let me check the housekeeping record for that night...",
+          "zh": "迷你吧传感器记录的是物品被拿起的时间。有时客人拿起来看标签也会触发扣费。我查一下那晚的保洁记录……"
+        },
+        {
+          "speaker": "me",
+          "zh": "你等核对结果，同时守住底线：如果是传感器误触发就请删掉；确认之前，预授权先不要转成正式扣款。",
+          "en": "Please do. If it was the sensor, those lines should come off. And until it's sorted, don't convert the hold on the card into a final charge.",
+          "chunks": [
+            { "term": "hold on the card", "zh": "信用卡预授权（押金冻结）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marco (front desk)",
+          "en": "You're right — housekeeping logged the minibar untouched that night, and there's no car registered to your room. Both charges are removed. This is your corrected final bill.",
+          "zh": "您说得对——保洁记录显示那晚迷你吧没动过，您的房间也没登记车辆。两笔都删掉了。这是修正后的最终账单。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你再核对一遍并确认细节：服务费账单里已经包含，所以不需要再留现金小费了，对吗？修正版请发一份到你邮箱。",
+          "en": "Let me check the final bill once more... The service charge is already included, so no extra cash tip needed. Please email me the corrected copy.",
+          "chunks": [
+            { "term": "final bill", "zh": "最终账单（结清的那张）" },
+            { "term": "service charge", "zh": "服务费" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marco (front desk)",
+          "en": "Sent. And sorry for the sensor — enjoy the flight home.",
+          "zh": "已发送。传感器误扣很抱歉——祝您返程愉快。"
+        }
+      ]
     }
   ]
 }
