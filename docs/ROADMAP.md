@@ -207,6 +207,7 @@
 - `c-java-2.json`，2026-11-12，改了 4 条（zh 泄露：equals/hashCode、Stream、Optional、JVM）。例句 5 条疑似未用词块的复查后均为词形变化（took/swallowed 等），本身正确。
 - `c-interview-1.json`、`c-interview-2.json`，2026-11-12，第一轮审校改 0 条：zh 无答案泄露、无重复；13 条例句疑似未用词块复查后均为词形/人称变化，本身正确。另查清一个疑点：`situation.en` 有 44 条直接含 term——核对代码后确认这是设计（stage 3 情境应答只给用户看 `situation.zh` 提问，`en` 是答后展示的示范回答），不是泄露。
 - `b-small-talk-1.json`、`b-small-talk-2.json`，2026-11-12，改了 9 条：zh 提示里夹带英文片段的全部改成纯中文提示（如 catch up on sleep 的“（c 开头的短语动词+sleep）”、Let me know 的“（以 Let me know 开头）”——都等于把答案给了一半）。其余条目朗读抽查自然、无重复 zh。
+- 【深审·第二轮】`b-code-review-1.json`、`b-code-review-2.json`，2026-11-13，逐条深审改 0 条：评审用语地道、语域标注准确（PTAL/LGTM/nit 等缩略与礼貌层级都对）。
 - 注：以上是第一轮（答案泄露、例句用没用词块、zh 重复、技术高频项抽查）。英文地道性逐条深审还没做完，后续继续。
 - 【深审·第二轮】`b-meetings-1.json`、`b-meetings-2.json`，2026-11-13，逐条深审改 0 条：英文自然、地道性与语气标注均无问题，这批文件质量可靠。（深审标准：母语高级工程师是否会这样说、搭配/介词/语域、技术准确性、zh 译文准确性。）
 
