@@ -1,0 +1,622 @@
+{
+ "category": "daily-out",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "I take the subway to work — driving would take twice as long.",
+     "zh": "我坐地铁上班，开车要花两倍时间。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Take the subway — it's only four stops from here.",
+    "zh": "新同事问你每天怎么通勤。"
+   },
+   "term": "take the subway",
+   "zh": "坐地铁"
+  },
+  {
+   "examples": [
+    {
+     "en": "I missed the bus by about thirty seconds this morning.",
+     "zh": "今天早上我就差三十秒没赶上公交。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Sorry I'm late — I missed the bus and the next one was packed.",
+    "zh": "你迟到了，跟同事解释原因。"
+   },
+   "term": "miss the bus",
+   "zh": "没赶上公交车"
+  },
+  {
+   "examples": [
+    {
+     "en": "Get off at the next stop and walk two blocks east.",
+     "zh": "在下一站下车，往东走两个街区。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Get off at Central and I'll meet you at the exit.",
+    "zh": "你要给来找你的朋友指路，告诉他在哪站下。"
+   },
+   "term": "get off at",
+   "zh": "在……（站）下车"
+  },
+  {
+   "examples": [
+    {
+     "en": "At the central station, transfer to the blue line.",
+     "zh": "在中央站换乘蓝线。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Take the red line two stops, then transfer to the airport express.",
+    "zh": "你帮外国朋友规划去机场的路线。"
+   },
+   "term": "transfer to",
+   "zh": "换乘（到另一条线）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Avoid driving across town during rush hour.",
+     "zh": "高峰期别开车穿城。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let's leave at five — before rush hour starts.",
+    "zh": "你建议朋友提前出门避开高峰。"
+   },
+   "term": "rush hour",
+   "zh": "（交通）高峰期"
+  },
+  {
+   "examples": [
+    {
+     "en": "We sat in a traffic jam for forty minutes.",
+     "zh": "我们在堵车里堵了四十分钟。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "There's a bad traffic jam on the ring road — I'll be twenty minutes late.",
+    "zh": "你打电话说路上堵车，会晚点到。"
+   },
+   "term": "traffic jam",
+   "zh": "堵车、交通堵塞"
+  },
+  {
+   "examples": [
+    {
+     "en": "I booked a ride to the airport for five in the morning.",
+     "zh": "我订了早上五点去机场的车。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Book a ride now — surge pricing kicks in after the concert.",
+    "zh": "散场后人很多，你提议提前叫车。"
+   },
+   "term": "book a ride",
+   "zh": "（用软件）打车、叫车"
+  },
+  {
+   "examples": [
+    {
+     "en": "Drop me off at the corner, please — I'll walk the last bit.",
+     "zh": "把我放在路口就行，最后一小段我走过去。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Drop me off at the station entrance if that's easier.",
+    "zh": "你坐朋友的车，让他在哪儿放你下来。"
+   },
+   "term": "drop me off at",
+   "zh": "把我放在……下车、送我到……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let's fill up the tank before we leave the city.",
+     "zh": "出城之前先把油加满。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Fill up the tank here — gas is pricier on the highway.",
+    "zh": "自驾出发前，你提醒司机先加油。"
+   },
+   "term": "fill up the tank",
+   "zh": "把油箱加满"
+  },
+  {
+   "examples": [
+    {
+     "en": "Finding a parking spot downtown on a Friday night is hopeless.",
+     "zh": "周五晚上在市中心找停车位是没指望的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Circle the block once more — that parking spot up ahead looks free.",
+    "zh": "你开车去赴约，先在电话里说可能要找车位晚点。"
+   },
+   "term": "parking spot",
+   "zh": "停车位"
+  },
+  {
+   "examples": [
+    {
+     "en": "Try it on — the fitting room is right over there.",
+     "zh": "试穿一下吧，试衣间就在那边。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Can I try it on before I decide?",
+    "zh": "你在店里拿不准尺码，店员建议你试穿。"
+   },
+   "term": "try it on",
+   "zh": "试穿、试戴"
+  },
+  {
+   "examples": [
+    {
+     "en": "There's a queue for the fitting room on weekends.",
+     "zh": "周末试衣间要排队。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The fitting room is at the back, next to the mirrors.",
+    "zh": "你陪朋友买衣服，告诉她试衣间在哪。"
+   },
+   "term": "fitting room",
+   "zh": "试衣间"
+  },
+  {
+   "examples": [
+    {
+     "en": "The winter coats are half price this week.",
+     "zh": "这周冬装外套半价。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Everything in that window is half price until Sunday.",
+    "zh": "你跟朋友分享一个打折消息。"
+   },
+   "term": "half price",
+   "zh": "半价、五折"
+  },
+  {
+   "examples": [
+    {
+     "en": "The tickets sold out in ten minutes.",
+     "zh": "票十分钟就卖光了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I went to buy the shoes and they were already sold out.",
+    "zh": "你想买的那款鞋没货了，跟朋友吐槽。"
+   },
+   "term": "sold out",
+   "zh": "卖光了、售罄"
+  },
+  {
+   "examples": [
+    {
+     "en": "I asked for a refund because the headphones stopped working in a week.",
+     "zh": "耳机一周就坏了，我申请了退款。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "I'd like a refund, please — it broke the second day.",
+    "zh": "你要把有质量问题的商品退掉，跟客服说。"
+   },
+   "term": "refund",
+   "zh": "退款"
+  },
+  {
+   "examples": [
+    {
+     "en": "Can I exchange it for a smaller size?",
+     "zh": "我能把它换成小一号的吗？"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "She exchanged the red one for a black one.",
+    "zh": "你买的衬衫大了，想去店里换一件。"
+   },
+   "term": "exchange it for",
+   "zh": "把（买错的）换成……"
+  },
+  {
+   "examples": [
+    {
+     "en": "The machine asks: cash or card?",
+     "zh": "机器在问：现金还是刷卡？"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Either is fine — cash or card, both work.",
+    "zh": "你在小店结账，老板问你怎么付。"
+   },
+   "term": "cash or card",
+   "zh": "（付）现金还是刷卡"
+  },
+  {
+   "examples": [
+    {
+     "en": "I need to get a haircut before the wedding next week.",
+     "zh": "下周婚礼之前我得去理个发。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "You're right — I'll get a haircut this weekend.",
+    "zh": "朋友说你头发长了，你说明天就去剪。"
+   },
+   "term": "get a haircut",
+   "zh": "理发、剪头发"
+  },
+  {
+   "examples": [
+    {
+     "en": "The barber takes walk-ins, but weekends get busy.",
+     "zh": "这家理发店接受直接上门，但周末很忙。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Do you take walk-ins, or do I need to book ahead?",
+    "zh": "你没预约就想理发，打电话先问问。"
+   },
+   "term": "walk-in",
+   "zh": "不用预约、直接上门（的顾客）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Check the opening hours before you go — the museum closes early on Mondays.",
+     "zh": "去之前看一眼开放时间，这家博物馆周一关得早。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "What are the opening hours on public holidays?",
+    "zh": "你计划周末去图书馆，先查几点开门。"
+   },
+   "term": "opening hours",
+   "zh": "营业时间、开放时间"
+  },
+  {
+   "examples": [
+    {
+     "en": "I need to mail a package to my parents before the holiday.",
+     "zh": "节前我得给父母寄个包裹。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "How long does it take to mail a package to Canada?",
+    "zh": "你在邮局问寄国际包裹要多久。"
+   },
+   "term": "mail a package",
+   "zh": "寄包裹"
+  },
+  {
+   "examples": [
+    {
+     "en": "There's a pharmacy around the corner that's open all night.",
+     "zh": "街角有家药房，通宵营业。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Can you grab some fever medicine from the pharmacy?",
+    "zh": "你半夜发烧，让朋友帮你去买退烧药。"
+   },
+   "term": "pharmacy",
+   "zh": "药房、药店"
+  },
+  {
+   "examples": [
+    {
+     "en": "I booked a table for four at seven.",
+     "zh": "我订了七点钟四个人的位子。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd like to book a table for this Friday evening, please.",
+    "zh": "你打电话到餐厅订周五晚上的位子。"
+   },
+   "term": "book a table",
+   "zh": "订位、预订餐位"
+  },
+  {
+   "examples": [
+    {
+     "en": "Still or sparkling? — Just still, thanks.",
+     "zh": "要不带气的还是带气的水？——不带气的就行，谢谢。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For water, still or sparkling is the first thing they'll ask.",
+    "zh": "服务员问你要哪种水，你没听懂这个说法。"
+   },
+   "term": "still or sparkling",
+   "zh": "（水）要不带气的还是带气的"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'll have the steak medium rare, please.",
+     "zh": "我的牛排要三分熟。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Medium rare for me — pink in the middle but warm.",
+    "zh": "你点牛排时服务员问你要几分熟。"
+   },
+   "term": "medium rare",
+   "zh": "（牛排）三分熟"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'm allergic to peanuts, so please check with the kitchen.",
+     "zh": "我对花生过敏，麻烦跟厨房确认一下。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "He's allergic to shellfish — is there shrimp in this soup?",
+    "zh": "你在餐厅点餐，要提醒服务员你的过敏原。"
+   },
+   "term": "allergic to",
+   "zh": "对……过敏"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'll have the salad with the dressing on the side.",
+     "zh": "沙拉的酱汁请另放。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Can I get the dressing on the side, please?",
+    "zh": "你点沙拉时想把酱分开放，自己控制量。"
+   },
+   "term": "dressing on the side",
+   "zh": "（沙拉）酱汁另放、分开上"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keep the change — thanks for the ride.",
+     "zh": "不用找了，谢谢你载我。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Here's twenty — keep the change.",
+    "zh": "你付出租车费时让司机留下零钱当小费。"
+   },
+   "term": "keep the change",
+   "zh": "不用找（零钱）了"
+  },
+  {
+   "examples": [
+    {
+     "en": "Can we take the rest to go?",
+     "zh": "剩下的我们可以打包带走吗？"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We'll take the rest to go — it'd be a waste otherwise.",
+    "zh": "菜点多了吃不完，你问服务员能不能打包。"
+   },
+   "term": "take the rest to go",
+   "zh": "把剩下的（菜）打包带走"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let's split the bill — you got the mains, I'll cover the drinks and tip.",
+     "zh": "我们分摊吧——你付主菜，我付饮料和小费。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "There were six of us, so we just split the bill evenly.",
+    "zh": "一顿饭吃完，你提议大家平摊。"
+   },
+   "term": "split the bill",
+   "zh": "分摊账单、AA 制"
+  },
+  {
+   "examples": [
+    {
+     "en": "I have a fever and a headache, so I'm staying home today.",
+     "zh": "我发烧又头疼，今天在家休息了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "She has a fever of thirty-nine — we're taking her to the clinic.",
+    "zh": "你跟经理请假，说自己发烧了。"
+   },
+   "term": "have a fever",
+   "zh": "发烧"
+  },
+  {
+   "examples": [
+    {
+     "en": "I think I'm catching a cold — my throat feels scratchy.",
+     "zh": "我觉得我要感冒了，嗓子有点不舒服。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Did you catch a cold? You keep sneezing.",
+    "zh": "同事一直打喷嚏，你问他是不是感冒了。"
+   },
+   "term": "catch a cold",
+   "zh": "感冒、着凉了"
+  },
+  {
+   "examples": [
+    {
+     "en": "I woke up with a sore throat and can barely talk.",
+     "zh": "我醒来嗓子疼得厉害，话都快说不出来了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "What do you recommend for a sore throat?",
+    "zh": "你去药店想买点润喉的药。"
+   },
+   "term": "sore throat",
+   "zh": "嗓子疼、喉咙痛"
+  },
+  {
+   "examples": [
+    {
+     "en": "I twisted my ankle playing basketball yesterday.",
+     "zh": "我昨天打篮球把脚崴了。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "I twisted my ankle on the stairs — it's swollen but I can walk.",
+    "zh": "你在诊所跟医生描述你是怎么受伤的。"
+   },
+   "term": "I twisted my ankle.",
+   "zh": "我崴脚了、扭伤了脚踝"
+  },
+  {
+   "examples": [
+    {
+     "en": "I feel dizzy if I stand up too fast.",
+     "zh": "我站起来太快就会头晕。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I feel dizzy in the mornings — should I get my blood pressure checked?",
+    "zh": "你跟医生说你最近总头晕。"
+   },
+   "term": "feel dizzy",
+   "zh": "感到头晕"
+  },
+  {
+   "examples": [
+    {
+     "en": "The doctor wrote me a prescription for antibiotics.",
+     "zh": "医生给我开了抗生素的处方。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "You need a prescription for this one — it's not sold over the counter.",
+    "zh": "你在药房取药，药剂师问你有没有处方。"
+   },
+   "term": "prescription",
+   "zh": "处方；处方药"
+  },
+  {
+   "examples": [
+    {
+     "en": "Take one tablet twice a day after meals.",
+     "zh": "饭后吃一片，一天两次。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Twice a day, morning and night — set a reminder so you don't forget.",
+    "zh": "药剂师在交代你这个药怎么吃。"
+   },
+   "term": "twice a day",
+   "zh": "一天两次（服药频次）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Take it after meals so it doesn't upset your stomach.",
+     "zh": "饭后吃，这样不伤胃。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The label says after meals, not on an empty stomach.",
+    "zh": "你提醒家人这个药要饭后吃。"
+   },
+   "term": "after meals",
+   "zh": "饭后（吃药、服用）"
+  },
+  {
+   "examples": [
+    {
+     "en": "This medicine may make you drowsy, so don't drive after taking it.",
+     "zh": "这个药可能会让你犯困，吃完别开车。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "If you feel drowsy, skip the dose before driving.",
+    "zh": "你在看药品说明，上面写了副作用提醒。"
+   },
+   "term": "drowsy",
+   "zh": "犯困的、昏昏欲睡的（药效）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We went to the emergency room at midnight because of his stomach pain.",
+     "zh": "他半夜肚子疼，我们去了急诊室。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The emergency room was packed — we waited three hours.",
+    "zh": "你跟朋友说昨晚陪家人去了趟急诊。"
+   },
+   "term": "emergency room",
+   "zh": "急诊室"
+  },
+  {
+   "examples": [
+    {
+     "en": "I made an appointment with the dentist for next Tuesday.",
+     "zh": "我约了下周二看牙医。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd like to make an appointment — sometime this week if possible.",
+    "zh": "你牙疼，打电话去诊所预约。"
+   },
+   "term": "make an appointment",
+   "zh": "预约（看病、理发、办事）"
+  }
+ ],
+ "layer": "A",
+ "title": "外出日常"
+}

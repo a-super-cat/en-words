@@ -1,0 +1,667 @@
+{
+ "category": "daily-home",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Rent is due on the first of the month, so I pay rent a few days early.",
+     "zh": "房租每月一号到期，所以我总是提前几天交。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Don't forget we pay rent tomorrow — it's the first.",
+    "zh": "你想提醒室友这个月房租还没交。"
+   },
+   "term": "pay rent",
+   "zh": "付房租、交房租"
+  },
+  {
+   "examples": [
+    {
+     "en": "Utilities aren't included in the rent, so budget another hundred or so.",
+     "zh": "房租里不含水电杂费，另外再预留一百来块。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Are utilities included, or do I pay them separately?",
+    "zh": "你看房时想问清水电费是不是包含在租金里。"
+   },
+   "term": "utilities",
+   "zh": "水电燃气等日常杂费"
+  },
+  {
+   "examples": [
+    {
+     "en": "The flat comes furnished, so I just showed up with a suitcase.",
+     "zh": "这套房是带家具的，我拎个箱子就住进来了。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "It's furnished, so we don't need to buy any furniture.",
+    "zh": "你在租房广告里看到带家具的房子，跟朋友说省事了。"
+   },
+   "term": "furnished",
+   "zh": "带家具的（房子、房间）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We move in next Saturday; the landlord will hand over the keys in the morning.",
+     "zh": "我们下周六搬进来，房东早上会把钥匙给我们。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I move in on Saturday — wish me luck with the boxes.",
+    "zh": "你想告诉朋友你哪天搬新家。"
+   },
+   "term": "move in",
+   "zh": "搬进来、入住"
+  },
+  {
+   "examples": [
+    {
+     "en": "He will move out at the end of the month to be closer to work.",
+     "zh": "他月底搬走，搬去离公司近一点的地方。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "When do you move out, and have you found a place yet?",
+    "zh": "室友跟你说他下个月要搬走，你问他去哪。"
+   },
+   "term": "move out",
+   "zh": "搬出去、退租"
+  },
+  {
+   "examples": [
+    {
+     "en": "The landlord fixed the heater the same day I called.",
+     "zh": "我打电话当天，房东就把暖气修好了。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "My landlord is great — things get fixed within a day.",
+    "zh": "你想跟同事说房东人很好，报修响应快。"
+   },
+   "term": "landlord",
+   "zh": "房东"
+  },
+  {
+   "examples": [
+    {
+     "en": "The lease runs for a year and renews automatically after that.",
+     "zh": "租约是一年，之后自动续约。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Can I break the lease early if I have to move for work?",
+    "zh": "你想确认租约签了几年、能不能提前退。"
+   },
+   "term": "lease",
+   "zh": "租约、租赁合同"
+  },
+  {
+   "examples": [
+    {
+     "en": "The deposit is one month's rent, refundable when you move out.",
+     "zh": "押金是一个月的房租，退租时返还。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "How much is the deposit, and when do I get it back?",
+    "zh": "你签约前想问清押金多少。"
+   },
+   "term": "deposit",
+   "zh": "押金"
+  },
+  {
+   "examples": [
+    {
+     "en": "The plumber came to fix a leak under the kitchen sink.",
+     "zh": "水管工来修厨房水槽下面的漏水。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "There's water everywhere — can someone fix the leak today?",
+    "zh": "你发现浴室在漏水，在电话里跟房东说明。"
+   },
+   "term": "fix a leak",
+   "zh": "修漏水"
+  },
+  {
+   "examples": [
+    {
+     "en": "The bathroom sink is clogged again; water drains really slowly.",
+     "zh": "浴室的水槽又堵了，水下得很慢。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The drain is clogged — is there a plumber you usually call?",
+    "zh": "你要跟物业说厨房下水堵了。"
+   },
+   "term": "clogged",
+   "zh": "堵住了的（下水、马桶）"
+  },
+  {
+   "examples": [
+    {
+     "en": "It took me ten minutes just to change a light bulb — the cover was stuck.",
+     "zh": "我就换个灯泡花了十分钟，灯罩卡住了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Can you hold the chair while I change the light bulb?",
+    "zh": "客厅灯不亮了，你让室友帮忙扶梯子。"
+   },
+   "term": "change a light bulb",
+   "zh": "换灯泡"
+  },
+  {
+   "examples": [
+    {
+     "en": "There was a power outage last night, so the whole street went dark.",
+     "zh": "昨晚停电了，整条街都黑了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Sorry, we had a power outage and my phone died.",
+    "zh": "你想跟同事解释昨晚为什么没回消息。"
+   },
+   "term": "power outage",
+   "zh": "停电"
+  },
+  {
+   "examples": [
+    {
+     "en": "The air conditioning in this building is either freezing or broken.",
+     "zh": "这栋楼的空调要么冷得要命，要么就是坏的。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Can we turn the air conditioning down a bit? It's freezing.",
+    "zh": "你想吐槽办公室空调太冷了。"
+   },
+   "term": "air conditioning",
+   "zh": "空调"
+  },
+  {
+   "examples": [
+    {
+     "en": "The heating only comes on in November, so October nights are chilly.",
+     "zh": "暖气要十一月才来，十月的夜里有点冷。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "When does the heating come on in this building?",
+    "zh": "你想问房东暖气什么时候开始供。"
+   },
+   "term": "heating",
+   "zh": "暖气、供暖"
+  },
+  {
+   "examples": [
+    {
+     "en": "My neighbor waters my plants when I travel.",
+     "zh": "我出门旅行时，邻居会帮我浇花。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The new neighbor seems friendly — he helped carry my boxes.",
+    "zh": "你想说新邻居人很好，搬家时还来帮忙。"
+   },
+   "term": "neighbor",
+   "zh": "邻居"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keep it down, please — the baby just fell asleep.",
+     "zh": "小声一点，宝宝刚睡着。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Could you keep it down on Sunday mornings? The walls are thin.",
+    "zh": "楼上在装修，你想敲门请他们周末别太早开工。"
+   },
+   "term": "keep it down",
+   "zh": "小声一点、动静小点"
+  },
+  {
+   "examples": [
+    {
+     "en": "You cooked, so I'll do the dishes tonight.",
+     "zh": "你做饭，所以今晚我来洗碗。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'll do the dishes if you take out the trash.",
+    "zh": "你跟室友分工，提议你洗碗他倒垃圾。"
+   },
+   "term": "do the dishes",
+   "zh": "洗碗"
+  },
+  {
+   "examples": [
+    {
+     "en": "The bin is full — I'll take out the trash on my way down.",
+     "zh": "垃圾桶满了，我下楼时顺手把垃圾倒了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Take out the trash when you leave, it's starting to smell.",
+    "zh": "你提醒室友下楼时把垃圾带下去。"
+   },
+   "term": "take out the trash",
+   "zh": "倒垃圾、把垃圾拿出去"
+  },
+  {
+   "examples": [
+    {
+     "en": "I usually do laundry on Sunday mornings.",
+     "zh": "我一般在周日上午洗衣服。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let me do laundry first, then I'll meet you at noon.",
+    "zh": "你想告诉朋友你周末上午要先洗衣服再出门。"
+   },
+   "term": "do laundry",
+   "zh": "洗衣服"
+  },
+  {
+   "examples": [
+    {
+     "en": "With a cat around, I vacuum the carpet twice a week.",
+     "zh": "家里有猫，我一周给地毯吸两次尘。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'll vacuum the carpet while you clean the kitchen.",
+    "zh": "你想说周末大扫除包括吸尘。"
+   },
+   "term": "vacuum the carpet",
+   "zh": "给地毯吸尘"
+  },
+  {
+   "examples": [
+    {
+     "en": "You make the bed in two minutes and the room looks tidy right away.",
+     "zh": "铺床只要两分钟，房间立刻就整齐了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I make the bed as soon as I get up — it's a small win.",
+    "zh": "你想立个小习惯：起床先铺床。"
+   },
+   "term": "make the bed",
+   "zh": "铺床、整理床铺"
+  },
+  {
+   "examples": [
+    {
+     "en": "Can you water the plants while I'm on holiday?",
+     "zh": "我度假的时候你能帮我浇花吗？"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The plants by the window need watering twice a week.",
+    "zh": "你要出差一周，拜托朋友隔天来浇花。"
+   },
+   "term": "water the plants",
+   "zh": "浇花、给植物浇水"
+  },
+  {
+   "examples": [
+    {
+     "en": "I feed the cat before I feed myself in the morning.",
+     "zh": "早上我先喂猫，再喂自己。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If I'm late, could you feed the cat around seven?",
+    "zh": "你拜托室友你加班时帮你喂猫。"
+   },
+   "term": "feed the cat",
+   "zh": "喂猫"
+  },
+  {
+   "examples": [
+    {
+     "en": "He walks the dog twice a day, rain or shine.",
+     "zh": "他一天遛两次狗，刮风下雨都去。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I need to walk the dog first — let's meet at eight.",
+    "zh": "你想跟朋友约晚饭，得先回家遛狗。"
+   },
+   "term": "walk the dog",
+   "zh": "遛狗"
+  },
+  {
+   "examples": [
+    {
+     "en": "Don't forget to lock the door when you leave.",
+     "zh": "出门时别忘了锁门。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Lock the door behind you — the lock sticks a bit.",
+    "zh": "你出门前在群里提醒室友锁好门窗。"
+   },
+   "term": "lock the door",
+   "zh": "锁门"
+  },
+  {
+   "examples": [
+    {
+     "en": "Turn off the lights in the rooms nobody's using.",
+     "zh": "没人的房间把灯关了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "You left your room empty — go turn off the lights.",
+    "zh": "你发现孩子房间空着灯却开着，喊他去关。"
+   },
+   "term": "turn off the lights",
+   "zh": "关灯"
+  },
+  {
+   "examples": [
+    {
+     "en": "I have to pick up a package from the locker downstairs.",
+     "zh": "我得去楼下的快递柜取个包裹。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Your package is at the front desk — pick it up before six.",
+    "zh": "你让同事帮你看一下包裹到了没有。"
+   },
+   "term": "pick up a package",
+   "zh": "取快递、拿包裹"
+  },
+  {
+   "examples": [
+    {
+     "en": "The Wi-Fi is down again, so I'm working from the café today.",
+     "zh": "Wi-Fi 又断了，所以我今天去咖啡馆办公。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "The Wi-Fi is down at my place — I'll be on mobile data, so no video.",
+    "zh": "你在家办公网断了，在群里跟同事说明。"
+   },
+   "term": "The Wi-Fi is down.",
+   "zh": "网络断了、Wi-Fi 用不了"
+  },
+  {
+   "examples": [
+    {
+     "en": "I do the grocery shopping on my way home from work.",
+     "zh": "我下班路上顺便把菜买了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let's do the grocery shopping together on Saturday — the big store has deals.",
+    "zh": "你想约朋友周末一起去大采购。"
+   },
+   "term": "grocery shopping",
+   "zh": "买菜、去超市采购日用品"
+  },
+  {
+   "examples": [
+    {
+     "en": "The market on the corner has the best fresh produce in the area.",
+     "zh": "街角那家市场有这一带最新鲜的蔬果。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Go to the morning market for fresh produce — it's half the supermarket price.",
+    "zh": "你向朋友推荐一个买菜的地方。"
+   },
+   "term": "fresh produce",
+   "zh": "新鲜蔬果"
+  },
+  {
+   "examples": [
+    {
+     "en": "The milk expires tomorrow, so let's finish it tonight.",
+     "zh": "牛奶明天就过期了，今晚把它喝完吧。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Check the date — this yogurt expired last week.",
+    "zh": "你打开冰箱发现酸奶过期了，跟室友说一声。"
+   },
+   "term": "expire",
+   "zh": "过期、到期"
+  },
+  {
+   "examples": [
+    {
+     "en": "We had leftovers for lunch — last night's curry tastes even better today.",
+     "zh": "我们中午吃了剩菜，昨晚的咖喱今天更好吃。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Don't cook — there are plenty of leftovers in the fridge.",
+    "zh": "你想说晚饭不用做了，吃昨天的剩菜就行。"
+   },
+   "term": "leftovers",
+   "zh": "剩菜、剩饭"
+  },
+  {
+   "examples": [
+    {
+     "en": "We're low on rice — add it to the shopping list.",
+     "zh": "米快没了，把它记到购物清单上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We're low on eggs; can you grab a box on your way home?",
+    "zh": "你做饭时发现鸡蛋只剩两个了。"
+   },
+   "term": "be low on",
+   "zh": "（某种东西）快没了、不多了"
+  },
+  {
+   "examples": [
+    {
+     "en": "Just heat up the soup in the microwave for two minutes.",
+     "zh": "把汤放微波炉里热两分钟就行。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Your dinner is in the fridge — just heat it up when you're back.",
+    "zh": "你告诉室友晚饭在冰箱里，热一下就能吃。"
+   },
+   "term": "heat up",
+   "zh": "加热（食物）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Boil water first, then add the noodles.",
+     "zh": "先烧水，再下面条。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "While the water boils, chop the vegetables.",
+    "zh": "你指挥第一次做饭的朋友从第一步开始。"
+   },
+   "term": "boil water",
+   "zh": "烧水、把水烧开"
+  },
+  {
+   "examples": [
+    {
+     "en": "You chop the vegetables, and I'll handle the stove.",
+     "zh": "你切菜，我来看火。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Chop the vegetables into big chunks so they don't fall apart.",
+    "zh": "你和朋友一起做饭，分一下工。"
+   },
+   "term": "chop vegetables",
+   "zh": "切菜"
+  },
+  {
+   "examples": [
+    {
+     "en": "Marinate the chicken for at least an hour so it picks up the flavor.",
+     "zh": "把鸡肉至少腌一个小时，这样才入味。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The trick is to marinate it overnight.",
+    "zh": "你向朋友传授烤鸡翅好吃的诀窍。"
+   },
+   "term": "marinate",
+   "zh": "腌制（肉类等）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let the sauce simmer for twenty minutes while the pasta cooks.",
+     "zh": "趁煮意面的时候，让酱汁小火炖二十分钟。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "It says simmer on low — don't let it boil hard.",
+    "zh": "你读菜谱读到一步，要确认火候。"
+   },
+   "term": "simmer",
+   "zh": "小火慢炖、文火煨"
+  },
+  {
+   "examples": [
+    {
+     "en": "Stir-fry the beef with peppers over high heat.",
+     "zh": "用大火把牛肉和青椒一起炒。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "I'll stir-fry whatever's in the fridge — quick and easy.",
+    "zh": "你今晚想做一道快手炒菜。"
+   },
+   "term": "stir-fry",
+   "zh": "炒、爆炒（菜）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I followed the recipe exactly, and it still came out bland.",
+     "zh": "我完全照着菜谱做的，还是没味儿。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Can you send me the recipe for that soup you made?",
+    "zh": "你向朋友要上次那道菜的做法。"
+   },
+   "term": "recipe",
+   "zh": "菜谱、配方"
+  },
+  {
+   "examples": [
+    {
+     "en": "The secret ingredient is a spoon of miso at the very end.",
+     "zh": "秘诀是最后加一勺味噌这个配料。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "I have everything except one ingredient — fresh ginger.",
+    "zh": "你列购物清单时发现少了一样配料。"
+   },
+   "term": "ingredient",
+   "zh": "食材、配料"
+  },
+  {
+   "examples": [
+    {
+     "en": "There's a drawer full of snacks in the kitchen if you're hungry.",
+     "zh": "厨房有个抽屉全是零食，饿了自己拿。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Help yourself to the snacks — I'm making tea.",
+    "zh": "你招呼来家里玩的朋友别客气。"
+   },
+   "term": "snack",
+   "zh": "零食、小吃"
+  },
+  {
+   "examples": [
+    {
+     "en": "Nobody felt like cooking, so we ordered takeout.",
+     "zh": "谁都不想做饭，于是我们点了外卖。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Let's order takeout — my treat this time.",
+    "zh": "加班到很晚，你提议点外卖解决晚饭。"
+   },
+   "term": "order takeout",
+   "zh": "点外卖"
+  },
+  {
+   "examples": [
+    {
+     "en": "Help yourself to anything in the fridge.",
+     "zh": "冰箱里的东西随便拿，别客气。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Make yourself at home — help yourself to drinks.",
+    "zh": "朋友来家里，你让他自己倒水拿吃的。"
+   },
+   "term": "help yourself",
+   "zh": "自己拿、别客气（招呼客人时）"
+  }
+ ],
+ "layer": "A",
+ "title": "居家日常"
+}

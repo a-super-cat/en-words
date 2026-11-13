@@ -1,0 +1,203 @@
+{
+  "category": "daily",
+  "title": "日常",
+  "scenarios": [
+    {
+      "id": "dinner-with-friends",
+      "title": "在餐厅请朋友吃饭",
+      "setting": "周五晚上，你在一家西餐厅请朋友 Lisa 吃饭。你订了位，Lisa 对花生过敏，点餐时你要替她跟服务员确认。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Alex",
+          "en": "Good evening! Do you have a reservation with us tonight?",
+          "zh": "晚上好！请问您今晚有预订吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说你订了七点钟四个人的位子，报上你的名字，让服务员查一下。",
+          "en": "Yes — I booked a table for four at seven, under the name Zavier.",
+          "chunks": [
+            { "term": "book a table", "zh": "订位、预订餐位" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Alex",
+          "en": "Found it, right this way. Can I start you off with some water — still or sparkling?",
+          "zh": "查到了，这边请。先给各位上点水——要不带气的还是带气的？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说不带气的就行。另外你提前说明：你的朋友对花生过敏，点餐时需要跟厨房确认。",
+          "en": "Still for everyone, thanks. One thing to flag: my friend is allergic to peanuts, so we need to be careful with the dishes.",
+          "chunks": [
+            { "term": "still or sparkling", "zh": "（水）要不带气的还是带气的" },
+            { "term": "allergic to", "zh": "对……过敏" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Lisa",
+          "en": "That ribeye looks amazing. How are you having yours cooked?",
+          "zh": "那个肋眼牛排看起来太棒了。你的要几分熟？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说你要三分熟的，沙拉的酱汁另放。又问 Lisa 要不要先点个前菜一起分。",
+          "en": "Medium rare for me, and the salad dressing on the side, please. Lisa, shall we share a starter first?",
+          "chunks": [
+            { "term": "medium rare", "zh": "（牛排）三分熟" },
+            { "term": "dressing on the side", "zh": "（沙拉）酱汁另放、分开上" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Alex",
+          "en": "Would you like anything else — dessert, or maybe coffee?",
+          "zh": "还需要点别的吗——甜点，或者咖啡？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说不用了。Lisa 剩下的意面打包带走，再请他把账单拿过来；这顿你们平摊。",
+          "en": "We're good, thanks. Could we take the rest to go, and get the bill when you're ready? Lisa — let's split the bill this time.",
+          "chunks": [
+            { "term": "take the rest to go", "zh": "把剩下的（菜）打包带走" },
+            { "term": "split the bill", "zh": "分摊账单、AA 制" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seeing-a-doctor",
+      "title": "去诊所看医生",
+      "setting": "你嗓子疼、发烧一整天了，在诊所前台登记后见医生。你要把症状说清楚，并听懂医生交代的吃法和注意事项。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Emma",
+          "en": "Hi there. Do you have an appointment, or is this a walk-in?",
+          "zh": "您好。您有预约吗，还是直接过来的？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说你约了十点半的。简单说症状：从昨天开始嗓子疼，还发烧。",
+          "en": "I made an appointment for ten thirty. I've had a sore throat since yesterday, and I have a fever too.",
+          "chunks": [
+            { "term": "make an appointment", "zh": "预约（看病、理发、办事）" },
+            { "term": "sore throat", "zh": "嗓子疼、喉咙痛" },
+            { "term": "have a fever", "zh": "发烧" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dr. Lee",
+          "en": "Let me take a look — say ahh. Your throat is quite red; it's most likely viral. Any other symptoms?",
+          "zh": "我看一下——张嘴说啊。你的嗓子很红，多半是病毒性的。还有别的症状吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说站起来太快会头晕，昨晚基本没睡好。问他需不需要验血。",
+          "en": "I feel dizzy when I stand up too fast, and I barely slept last night. Do I need a blood test?",
+          "chunks": [
+            { "term": "feel dizzy", "zh": "感到头晕" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dr. Lee",
+          "en": "Not for now. I'll prescribe something for the fever and the throat. One tablet, twice a day, after meals. It may make you a little drowsy, so no driving right after a dose.",
+          "zh": "暂时不用。我给你开点退烧和治嗓子的药。一天两次，饭后吃一片。这个药可能让你有点犯困，刚吃完别开车。"
+        },
+        {
+          "speaker": "them",
+          "name": "Dr. Lee",
+          "en": "Also, drink plenty of water and get some rest. If the fever is still there after three days, come back and we will run a blood test.",
+          "zh": "另外，多喝水，好好休息。如果三天之后还发烧，就回来，我们做个血检。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你问如果半夜又烧起来怎么办。另外问饮食上有没有什么要忌口的。",
+          "en": "If I have a fever again tonight, should I just take another tablet? And is there any food I should avoid?",
+          "chunks": [
+            { "term": "have a fever", "zh": "发烧" }
+          ]
+        },
+        {
+          "speaker": "me",
+          "zh": "你把用法复述一遍确认，再问要不要给单位开个病假条、大概几天能好。",
+          "en": "Twice a day, after meals — got it. Could I get a note for work? And how many days until I should feel better?",
+          "chunks": [
+            { "term": "twice a day", "zh": "一天两次（服药频次）" },
+            { "term": "after meals", "zh": "饭后（吃药、服用）" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viewing-an-apartment",
+      "title": "看房",
+      "setting": "周末你去看一套要出租的两居室，中介 Tom 带你看房。你要问清家具、杂费、押金和租期，还要确认安不安静——你经常在家办公。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Tom",
+          "en": "So this is the two-bedroom I told you about. Great light in the afternoon. What do you think so far?",
+          "zh": "这就是我跟你说的那套两居室。下午采光特别好。你目前感觉怎么样？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说整体不错，问房子是不是带家具的，床和书桌包不包。",
+          "en": "It looks good. Does it come furnished? Is the bed and the desk included?",
+          "chunks": [
+            { "term": "furnished", "zh": "带家具的（房子、房间）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Tom",
+          "en": "Yes, fully furnished. The landlord covers water; electricity and internet are on you.",
+          "zh": "是的，全套家具。水费房东出，电费和网费你自己付。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你接着问三笔账：杂费每月大概多少、押金多少、最短能签多久的租约。",
+          "en": "Roughly how much are utilities each month? And what's the deposit — and the shortest lease you'd accept?",
+          "chunks": [
+            { "term": "utilities", "zh": "水电燃气等日常杂费" },
+            { "term": "deposit", "zh": "押金" },
+            { "term": "lease", "zh": "租约、租赁合同" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Tom",
+          "en": "Deposit is one month's rent. Most people sign for a year. The current tenant moves out on the twenty-eighth.",
+          "zh": "押金是一个月房租。大家一般签一年。现在的租户二十八号搬走。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你问能不能一号搬进来，再确认晚上安不安静，因为你经常在家办公。",
+          "en": "Could I move in on the first? And is it quiet at night? I work from home a lot.",
+          "chunks": [
+            { "term": "move in", "zh": "搬进来、入住" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Tom",
+          "en": "The couple upstairs has a baby, but the walls are decent — you'd barely hear them.",
+          "zh": "楼上住着一对带宝宝的夫妻，不过墙的隔音还不错，基本听不见。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说今晚考虑一下再答复。最后问一句：东西坏了是找中介还是直接找房东。",
+          "en": "I'll think it over tonight and let you know tomorrow. One last thing — if something breaks, do I call you or the landlord directly?",
+          "chunks": [
+            { "term": "landlord", "zh": "房东" }
+          ]
+        }
+      ]
+    }
+  ]
+}
