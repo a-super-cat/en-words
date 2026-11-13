@@ -1,0 +1,712 @@
+{
+ "category": "travel",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Our itinerary leaves one free afternoon in Kyoto.",
+     "zh": "我们的行程在京都留了一个自由活动的下午。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "I keep the itinerary in my phone and a paper copy in my bag.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "itinerary",
+   "zh": "行程（安排好的一天一天的计划）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A rental car beats three trains when traveling with kids.",
+     "zh": "带孩子出行时，租辆车比倒三趟火车强。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Pick up the rental car at the airport, drop it downtown.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "rental car",
+   "zh": "租的车、租车"
+  },
+  {
+   "examples": [
+    {
+     "en": "The guided tour skips the two-hour line at the entrance.",
+     "zh": "跟导游的游览不用在入口排那两个小时的队。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We booked a guided tour for the first day to learn the layout.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "guided tour",
+   "zh": "跟团游、有导游的游览"
+  },
+  {
+   "examples": [
+    {
+     "en": "The admission ticket includes the special exhibition this month.",
+     "zh": "这张门票包含本月的特展。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Buy the admission ticket online; the window price is higher.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "admission ticket",
+   "zh": "门票"
+  },
+  {
+   "examples": [
+    {
+     "en": "Paying ten euros to skip the line saved our whole morning.",
+     "zh": "花十欧免排队，救了我们一整个上午。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With kids, always pay to skip the line.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "skip the line",
+   "zh": "免排队、走快速通道"
+  },
+  {
+   "examples": [
+    {
+     "en": "The audio guide made the ruins ten times more interesting.",
+     "zh": "语音导览让这片废墟有意思了十倍。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The audio guide comes in eight languages, including Chinese.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "audio guide",
+   "zh": "语音导览（租的讲解器）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The observation deck opens an hour before sunset.",
+     "zh": "观景台在日落前一小时开放。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Go to the observation deck at dusk, when both day and night views show.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "observation deck",
+   "zh": "观景台"
+  },
+  {
+   "examples": [
+    {
+     "en": "The cable car sways a little; hold the rail if heights bother you.",
+     "zh": "缆车会晃一点；怕高就扶着栏杆。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The cable car is the slow way up and the best way.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "cable car",
+   "zh": "缆车"
+  },
+  {
+   "examples": [
+    {
+     "en": "The ferry ride to the island takes forty minutes in good weather.",
+     "zh": "天气好时，坐渡轮去那座岛要四十分钟。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Book the ferry ride a day ahead in high season.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "ferry ride",
+   "zh": "坐渡轮"
+  },
+  {
+   "examples": [
+    {
+     "en": "The town is an easy day trip from the capital.",
+     "zh": "这个小镇从首都出发是个轻松的一日游。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We did a day trip to the coast and were back for dinner.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "day trip",
+   "zh": "一日游（当天往返的短途旅行）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Locals call the night market the one must-see in town.",
+     "zh": "本地人说夜市是镇上唯一必看的地方。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Skip the must-see list and wander the old streets instead.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "must-see",
+   "zh": "必看的（景点）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The tiny temple behind the station is a real hidden gem.",
+     "zh": "车站后面的小寺庙是个真正的小众宝藏地。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Every trip needs one hidden gem that no guidebook sells.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "hidden gem",
+   "zh": "小众宝藏地（还没被游客发现的好地方）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The restaurant row by the gate is a classic tourist trap.",
+     "zh": "大门边那排餐馆是典型的游客陷阱。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If the menu has photos in six languages, expect a tourist trap.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "tourist trap",
+   "zh": "游客陷阱（专坑游客的地方）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The village is off the beaten path and better for it.",
+     "zh": "这个村子不在主流路线上，也因此更好。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Rent the car and go off the beaten path for one day.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "off the beaten path",
+   "zh": "人迹罕至的、非主流路线的"
+  },
+  {
+   "examples": [
+    {
+     "en": "I set a wake-up call for five; the train is at six thirty.",
+     "zh": "我订了五点的叫醒服务；火车是六点半的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A wake-up call plus two phone alarms: trust nothing at 5 a.m.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "wake-up call",
+   "zh": "叫醒服务（酒店的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Hang the do not disturb sign and sleep through housekeeping.",
+     "zh": "挂上请勿打扰的牌子，睡过保洁时间。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The do not disturb sign was ignored twice; complain at the desk.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "do not disturb",
+   "zh": "请勿打扰（门上的牌子）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Housekeeping knocks at nine unless the sign is out.",
+     "zh": "除非挂了牌子，客房保洁九点就会敲门。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Ask housekeeping for extra towels when you check in.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "housekeeping",
+   "zh": "客房保洁（服务）"
+  },
+  {
+   "examples": [
+    {
+     "en": "With two kids, ask for extra towels on day one.",
+     "zh": "带两个孩子的话，第一天就多要几条毛巾。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Extra towels and a second pillow: the two requests every hotel expects.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "extra towels",
+   "zh": "多要几条毛巾"
+  },
+  {
+   "examples": [
+    {
+     "en": "A king-size bed after three hostel bunks feels like a palace.",
+     "zh": "睡了三晚青年旅舍上下铺之后，大床感觉像宫殿。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The listing promised a king-size bed and delivered two twins pushed together.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "king-size bed",
+   "zh": "大床、特大号床"
+  },
+  {
+   "examples": [
+    {
+     "en": "An ocean-view room costs extra and is worth every cent at dawn.",
+     "zh": "海景房要加钱，但清晨时分每一分都值。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Upgrade to the ocean-view room for the last night only.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "ocean-view room",
+   "zh": "海景房"
+  },
+  {
+   "examples": [
+    {
+     "en": "The complimentary breakfast runs from six thirty to ten.",
+     "zh": "免费早餐从六点半供应到十点。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A complimentary breakfast saves a hungry family's first hour.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "complimentary breakfast",
+   "zh": "免费早餐（房价含的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Collect the tickets at the box office with your ID.",
+     "zh": "凭身份证在售票处取票。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The box office opens two hours before the show.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "box office",
+   "zh": "售票处（剧场、影院的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The film plays in French with English subtitles.",
+     "zh": "这部电影放法语原声、带英文字幕。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Check the subtitle language before booking foreign films.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "subtitle",
+   "zh": "字幕"
+  },
+  {
+   "examples": [
+    {
+     "en": "The premiere had the cast taking questions afterwards.",
+     "zh": "首映之后主创还答了观众问。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Premiere tickets vanish in minutes; set an alarm.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "premiere",
+   "zh": "首映、首演"
+  },
+  {
+   "examples": [
+    {
+     "en": "The singer earned a standing ovation before the last note ended.",
+     "zh": "最后一个音符还没结束，歌手已经赢得了全场起立鼓掌。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A standing ovation from a tough crowd means something.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "standing ovation",
+   "zh": "全场起立鼓掌"
+  },
+  {
+   "examples": [
+    {
+     "en": "The amusement park limits entry now; book the date online.",
+     "zh": "这家游乐园现在限流了；提前在网上订日期。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "An amusement park on a weekday is a different, better place.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "amusement park",
+   "zh": "游乐园"
+  },
+  {
+   "examples": [
+    {
+     "en": "The wooden roller coaster rattles like it is angry.",
+     "zh": "那座木质过山车哐当作响，像在发脾气。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ride the roller coaster first, eat after. Trust me.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "roller coaster",
+   "zh": "过山车"
+  },
+  {
+   "examples": [
+    {
+     "en": "The fast pass costs extra and returns two hours of your day.",
+     "zh": "快速通行证要加钱，但能还给你两个小时。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Buy the fast pass only for the two biggest rides.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "fast pass",
+   "zh": "快速通行证（游乐园的免排队票）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The height requirement is one hundred twenty centimeters, no exceptions.",
+     "zh": "身高要求是一百二十厘米，没有例外。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Measure the kids at home to avoid a height requirement heartbreak.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "height requirement",
+   "zh": "身高要求（游乐设施的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The square has live music every Friday in summer.",
+     "zh": "夏天每周五广场上都有现场音乐。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We picked the bar for its live music, not its drinks.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "live music",
+   "zh": "现场音乐"
+  },
+  {
+   "examples": [
+    {
+     "en": "There is a cover charge after nine, but the band is worth it.",
+     "zh": "九点之后收入场费，但这支乐队值得。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A cover charge usually includes the first drink. Ask.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "cover charge",
+   "zh": "入场费（酒吧/俱乐部收的门票钱）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The night market eats your evening and your diet plans.",
+     "zh": "夜市会吃掉你的夜晚和你的减肥计划。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Start the night market hungry and with small bills.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "night market",
+   "zh": "夜市"
+  },
+  {
+   "examples": [
+    {
+     "en": "Street food is where a city tells the truth about itself.",
+     "zh": "街头小吃是一个城市说真话的地方。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Follow the longest local line for the best street food.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "street food",
+   "zh": "街头小吃"
+  },
+  {
+   "examples": [
+    {
+     "en": "One food stall has sold the same noodles for forty years.",
+     "zh": "有个小吃摊四十年只卖同一种面。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The food stall by the temple gate opens at five in the morning.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "food stall",
+   "zh": "小吃摊"
+  },
+  {
+   "examples": [
+    {
+     "en": "The duty-free shop is cheaper for perfume, pricier for everything else.",
+     "zh": "免税店的香水更便宜，其他东西都更贵。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Buy chocolate at the duty-free shop, not gadgets.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "duty-free shop",
+   "zh": "免税店"
+  },
+  {
+   "examples": [
+    {
+     "en": "Baggage claim took longer than the flight.",
+     "zh": "行李提取等的时间比飞行还长。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Meet me at baggage claim, carousel four.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "baggage claim",
+   "zh": "行李提取处"
+  },
+  {
+   "examples": [
+    {
+     "en": "The customs declaration asks about cash over ten thousand.",
+     "zh": "海关申报会问是否携带超过一万的现金。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Declare the camera gear on the customs declaration to avoid questions later.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "customs declaration",
+   "zh": "海关申报"
+  },
+  {
+   "examples": [
+    {
+     "en": "Visa on arrival needs a passport photo and cash in dollars.",
+     "zh": "落地签需要一张护照照片和美元现金。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The visa on arrival line moves faster than the e-visa line, strangely.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "visa on arrival",
+   "zh": "落地签"
+  },
+  {
+   "examples": [
+    {
+     "en": "The departure lounge has showers, which after fourteen hours feels like heaven.",
+     "zh": "候机厅里有淋浴，飞了十四小时之后这感觉如同天堂。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A departure lounge pass is the best thirty dollars in travel.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "departure lounge",
+   "zh": "候机厅、出发休息区"
+  },
+  {
+   "examples": [
+    {
+     "en": "The boarding gate changed twice; keep an eye on the screens.",
+     "zh": "登机口换了两次；盯着屏幕看。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Be at the boarding gate thirty minutes before, whatever the app says.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "boarding gate",
+   "zh": "登机口"
+  },
+  {
+   "examples": [
+    {
+     "en": "The fuel policy is full-to-full; photograph the gauge at pickup.",
+     "zh": "油量政策是满油借满油还；取车时拍下油表。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A full-to-empty fuel policy quietly charges you for a tank you won't use.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "fuel policy",
+   "zh": "油量政策（租车满油借满油还之类）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Unlimited mileage matters when the coast road calls your name.",
+     "zh": "当海岸公路在召唤你时，不限里程就重要了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The cheaper rate capped us at a hundred kilometers; unlimited mileage cost six more.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "unlimited mileage",
+   "zh": "不限里程（租车的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A different drop-off location adds a one-way fee.",
+     "zh": "异地还车要加一笔单程费。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Choose the drop-off location near the station, not the airport.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "drop-off location",
+   "zh": "还车地点、交还点"
+  },
+  {
+   "examples": [
+    {
+     "en": "The sunset cruise boards at five and includes one drink.",
+     "zh": "日落巡游五点登船，含一杯饮料。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Book the sunset cruise for your last evening, not the first.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "sunset cruise",
+   "zh": "日落巡游（乘船看日落）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The set menu feeds two for the price of one main.",
+     "zh": "这份套餐的价格等于一道主菜，却够两个人吃。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "At lunch, the set menu is the locals' cheat code.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "set menu",
+   "zh": "套餐（固定搭配的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The wine tasting visits three family vineyards in one afternoon.",
+     "zh": "这场品酒一个下午逛三家家族酒庄。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Book the wine tasting with the driver option. Obviously.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "wine tasting",
+   "zh": "品酒（活动）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The local specialty is a stew you will dream about later.",
+     "zh": "当地特色菜是一锅你以后会梦到的炖菜。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ask the waiter for the local specialty, not the famous one.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "local specialty",
+   "zh": "当地特色菜/特产"
+  }
+ ],
+ "layer": "A",
+ "title": "旅游娱乐"
+}

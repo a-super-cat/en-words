@@ -1,0 +1,432 @@
+{
+  "category": "travel",
+  "title": "旅游娱乐",
+  "scenarios": [
+    {
+      "id": "renting-a-car-at-the-airport",
+      "title": "机场租车：躲开推销，自己说了算",
+      "setting": "你落地后到机场租车柜台取预订的车。工作人员 Kevin 热情得有点过头——升级、保险、各种附加包一个接一个。你赶时间，但不想为不需要的东西付钱。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Kevin (rental agent)",
+          "en": "Welcome! I have your booking — a compact for four days. For just twenty more a day I can put you in the SUV. Much safer on the coast road.",
+          "zh": "欢迎！您的预订我这里有——四天的小型车。每天只多二十，我就能给您换成 SUV。海岸公路上安全多了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你婉拒升级：小型车够用、四天行程都在城里和海边平路上，你不打算为用不上的空间和油耗买单。",
+          "en": "Thanks, but the compact is fine. We're staying on paved roads, and I'd rather keep the rental car cheap to fuel.",
+          "chunks": [
+            { "term": "rental car", "zh": "租的车、租车" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Kevin (rental agent)",
+          "en": "Fair enough. Now, insurance: your booking has basic cover. Our full package removes all excess. Most customers take it for peace of mind.",
+          "zh": "那好。保险方面：您的预订只有基础险。我们的全包套餐免掉所有免赔额。大多数客人都买个安心。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你先问清自己已有什么：你的信用卡自带租车险、预订里也含第三方责任险，你只想确认缺口在哪，而不是重复买。",
+          "en": "Before I decide: my credit card covers collision, and the booking includes third-party insurance. What gap is actually left?",
+          "chunks": [
+            { "term": "third-party insurance", "zh": "第三方责任险" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Kevin (rental agent)",
+          "en": "Honestly, just the excess on damage to our car — about a thousand. The full package zeroes it.",
+          "zh": "老实说只剩一个缺口：我们车辆损坏的免赔额，大概一千。全包套餐能把它归零。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你算完账做决定：四天全包比一千免赔额便宜得多、这次买；同时确认油量政策，避免还车时被收一整箱油的钱。",
+          "en": "At that price, I'll take the full package for four days. One more thing: what's the fuel policy — full-to-full?",
+          "chunks": [
+            { "term": "fuel policy", "zh": "油量政策（租车满油借满油还之类）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Kevin (rental agent)",
+          "en": "Full-to-full, yes. Take a photo of the gauge when you leave. Returning to a different city adds a one-way fee of forty-five.",
+          "zh": "是的，满油借满油还。出发时拍一下油表。异地还车要加四十五的单程费。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你确认行程不受影响：你本来就回这个机场还车，里程方面你要不限里程的费率，因为有一天要沿海岸开三百公里。",
+          "en": "We return here, so no one-way fee — same drop-off location as pickup. And I need the unlimited mileage rate: one day is a three-hundred-kilometer coast drive.",
+          "chunks": [
+            { "term": "unlimited mileage", "zh": "不限里程（租车的）" },
+            { "term": "drop-off location", "zh": "还车地点、交还点" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Kevin (rental agent)",
+          "en": "Done. Unlimited mileage included, return here by ten on Thursday. Keys, contract, and the photo tip — enjoy the coast.",
+          "zh": "办好了。不限里程包含在内，周四十点前回到这里还车。钥匙、合同，还有记得拍油表——海岸玩得开心。"
+        }
+      ]
+    },
+    {
+      "id": "hotel-aircon-broken",
+      "title": "酒店房间：空调坏了，争取换房",
+      "setting": "晚上十一点，你回到酒店房间发现空调只吹热风，房间闷得睡不着。你打电话到前台，接电话的是夜班员工 Sofia。你累但态度要坚定。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Sofia (front desk)",
+          "en": "Front desk, this is Sofia. How can I help you?",
+          "zh": "这里是前台，我是 Sofia。有什么可以帮您的？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说明问题：1206 房的空调只出热风，你试过遥控器所有模式，房间现在 29 度，今晚没法睡。",
+          "en": "Hi Sofia, this is room 1206 calling the front desk. The air conditioning only blows hot air. I've tried every mode; the room is twenty-nine degrees and I can't sleep in it.",
+          "chunks": [
+            { "term": "front desk", "zh": "（酒店）前台" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sofia (front desk)",
+          "en": "I'm so sorry. I can send maintenance up, but at this hour it may take forty minutes, and they may not fix it tonight.",
+          "zh": "非常抱歉。我可以派维修上来，但这个时间可能要四十分钟，而且今晚不一定修得好。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你提出你真正想要的方案：与其等维修，你希望直接换一间房，同楼层或者安静一点的都可以，你五分钟就能收拾好。",
+          "en": "Rather than wait for repairs, could I just move rooms? Same floor or anywhere quiet — I can pack in five minutes. And since we lose half the night moving, could we get a late checkout tomorrow?",
+          "chunks": [
+            { "term": "late checkout", "zh": "延迟退房" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sofia (front desk)",
+          "en": "Let me check... I have a room on the ninth floor, same type, and tonight I can upgrade you to an ocean-view room at no charge for the trouble.",
+          "zh": "我查一下……九楼有一间同户型的，今晚我可以免费给您升级到海景房，算是补偿。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你接受并顺带把明天的安排一次说清：换房没问题；另外明早你想多睡一会儿，请挂请勿打扰、保洁不用进房，只要在门口多放两条毛巾。",
+          "en": "That works, thank you. Two favors for tomorrow: please leave the do not disturb on in the morning — housekeeping can skip us — and just leave extra towels at the door.",
+          "chunks": [
+            { "term": "do not disturb", "zh": "请勿打扰（门上的牌子）" },
+            { "term": "housekeeping", "zh": "客房保洁（服务）" },
+            { "term": "extra towels", "zh": "多要几条毛巾" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sofia (front desk)",
+          "en": "All noted. The new key card is coming up with the porter now. And breakfast is complimentary until ten, so no rush tomorrow.",
+          "zh": "都记下了。新房卡正由行李员送上去。另外早餐免费供应到十点，明天不用赶。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你确认收尾：你下楼在大堂等行李员拿新卡，旧卡他回收；感谢她处理得痛快。",
+          "en": "Perfect — and a complimentary breakfast until ten means we can actually sleep in. I'll meet the porter downstairs with the old card. Thank you.",
+          "chunks": [
+            { "term": "complimentary breakfast", "zh": "免费早餐（房价含的）" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "booking-the-famous-restaurant",
+      "title": "网红餐厅：订位、点菜、结账全流程",
+      "setting": "旅行第三天，你想带家人去当地最有名的一家小馆子——不接受网上预订，只能打电话。你打过去，是老板娘 Rosa 接的。订完位，晚上你们准时到店。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Rosa (owner)",
+          "en": "Buenas tardes, Casa Rosa. How can I help?",
+          "zh": "下午好，这里是 Casa Rosa。有什么可以帮您？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你订今晚的位子：四个人、晚上七点半，提前说明有一位吃素食，希望靠窗安静一点的位置。",
+          "en": "Hello, I'd like to book a table for four tonight at seven thirty. One of us is vegetarian, and a quiet corner would be lovely if possible.",
+          "chunks": [
+            { "term": "book a table", "zh": "订位、预订餐位" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rosa (owner)",
+          "en": "Seven thirty is full, but I can do eight fifteen, near the garden. Name, please?",
+          "zh": "七点半满了，八点十五可以，花园边上。可以给我个名字吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你接受八点一刻并留下名字和电话；确认一下迟到多久会取消留位。",
+          "en": "Eight fifteen works — please book a table under Zavier; my number ends in 0421. How long will you hold the table if we're late?",
+          "chunks": [
+            { "term": "book a table", "zh": "订位、预订餐位" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rosa (owner)",
+          "en": "(that evening) Welcome back! For drinks: still or sparkling water? And shall I tell you today's specials?",
+          "zh": "（当晚）欢迎回来！先喝点什么：普通水还是气泡水？要不要听听今天的特餐？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你要气泡水，然后请她直接推荐当地特色菜——你不想点游客菜单上的东西，套餐如果划算也可以。",
+          "en": "Sparkling, please. And we'd love the local specialty rather than the tourist menu. Is the set menu a good deal for four?",
+          "chunks": [
+            { "term": "still or sparkling", "zh": "（水）要不带气的还是带气的" },
+            { "term": "local specialty", "zh": "当地特色菜/特产" },
+            { "term": "set menu", "zh": "套餐（固定搭配的）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rosa (owner)",
+          "en": "The set menu feeds four with the stew, the grilled fish, and dessert for the price of two mains. The stew is what we're known for.",
+          "zh": "套餐有炖菜、烤鱼和甜点，够四个人，价格等于两道主菜。那锅炖菜就是我们的招牌。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你拍板点套餐并照顾素食者：套餐来一份，其中一份主菜换成素食版；甜点里请避开坚果——你女儿对坚果过敏，这个要说清。",
+          "en": "We'll take the set menu, with one main swapped to the vegetarian version. And please, no nuts in the desserts — my daughter is allergic.",
+          "chunks": [
+            { "term": "set menu", "zh": "套餐（固定搭配的）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rosa (owner)",
+          "en": "(later) Everything okay? Whenever you're ready for the bill, just wave.",
+          "zh": "（后来）一切都好吗？想结账时招招手就行。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你结账并 AA：账单请分开打，你这份刷卡，另外两位付现金；小费你留在卡里一起付。",
+          "en": "Could we split the bill, please? Put mine on card — I'll add the tip there — and the other two will pay cash.",
+          "chunks": [
+            { "term": "split the bill", "zh": "分摊账单、AA 制" },
+            { "term": "cash or card", "zh": "（付）现金还是刷卡" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rosa (owner)",
+          "en": "Of course. Come back before you leave town — Thursdays we do the stew with seafood.",
+          "zh": "当然。离城之前再来一次吧——周四的炖菜是海鲜版的。"
+        }
+      ]
+    },
+    {
+      "id": "musical-tickets-at-box-office",
+      "title": "买音乐剧票：选座、字幕、取票",
+      "setting": "你在伦敦旅行，想带家人看一场音乐剧。热门场次网上只剩零星票，你直接到剧院售票处碰运气，售票员是 Tom。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Tom (box office)",
+          "en": "Good afternoon. Which show can I help you with?",
+          "zh": "下午好。您想看哪场演出？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你问今晚场次的余票：三个人，想坐得靠中间一点，预算每人八十镑以内；明晚也可以备选。",
+          "en": "Three tickets for tonight's show — I came straight to the box office hoping for central seats, up to eighty pounds each. Tomorrow night works as a backup.",
+          "chunks": [
+            { "term": "box office", "zh": "售票处（剧场、影院的）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Tom (box office)",
+          "en": "Tonight is nearly sold out — I have three in the rear stalls at seventy-five, together. Tomorrow has better: row K, dead center, at eighty.",
+          "zh": "今晚几乎售罄了——正厅后排有三个连座，七十五。明晚的更好：K 排正中间，八十。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你权衡后选明晚的好座位，并问清两个实际問題：演出有没有字幕屏（你母亲英文一般），以及票是现在取还是开演前取。",
+          "en": "Tonight being sold out settles it — let's take tomorrow, row K. Two questions: is there a subtitle screen for the songs? My mother's English is limited. And do I collect the tickets now or before the show?",
+          "chunks": [
+            { "term": "sold out", "zh": "卖光了、售罄" },
+            { "term": "subtitle", "zh": "字幕" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Tom (box office)",
+          "en": "There's a caption screen on the left for every performance. Collect anytime from six with the card you pay with. Running time is two hours forty, with one interval.",
+          "zh": "每场左侧都有字幕屏。六点后凭付款的卡随时取票。演出时长两小时四十分，含一次中场休息。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你确认细节后付款：就这么定；如果明天家里有人来不了，这张票能不能退或者改期，你先问清规则再付钱。",
+          "en": "Perfect. Before I pay: if one of us can't make it tomorrow, can a ticket be exchanged for another date? I'll collect them at the box office before the show.",
+          "chunks": [
+            { "term": "box office", "zh": "售票处（剧场、影院的）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Tom (box office)",
+          "en": "Exchanges yes, up to twenty-four hours before, small fee. Refunds no. Shall I put row K through?",
+          "zh": "可以改期，提前二十四小时以上就行，收一点手续费。退票不行。K 排这就给您出票？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你点头付款，收好取票凭证，并确认入场时间建议。",
+          "en": "Yes, please. We'll arrive by seven — hoping for another standing ovation.",
+          "chunks": [
+            { "term": "standing ovation", "zh": "全场起立鼓掌" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Tom (box office)",
+          "en": "Exactly — doors at seven. Enjoy the show; that cast got a standing ovation last week.",
+          "zh": "没错——七点开门入场。好好享受；这套卡司上周还赢得了全场起立鼓掌。"
+        }
+      ]
+    },
+    {
+      "id": "theme-park-with-kids",
+      "title": "带娃去游乐园：身高、快速通道、找孩子",
+      "setting": "周六，你带六岁的女儿去游乐园。入口处先买票，进园后直奔她心心念念的过山车。排队、规则、走散——一天的状况都在这儿了。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Ticket staff",
+          "en": "Two adults and one child? The child ticket is half price today. The fast pass add-on is twenty per person.",
+          "zh": "两位成人一位儿童？今天儿童票半价。快速通行证每人加二十。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你先问清快速通道到底值不值：它包含哪几个项目、大概省多少时间，今天热门项目的排队时长是多少。",
+          "en": "Half price for her is great. Before we decide on the fast pass: which rides does it cover, and how long are the queues today?",
+          "chunks": [
+            { "term": "half price", "zh": "半价、五折" },
+            { "term": "fast pass", "zh": "快速通行证（游乐园的免排队票）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ticket staff",
+          "en": "It covers the six biggest rides. The coaster is at ninety minutes right now; with the pass, about fifteen.",
+          "zh": "它涵盖六个最大的项目。过山车现在排队九十分钟；用快速通道大概十五分钟。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你买了，并立刻确认女儿最想坐的过山车身高要求——她一百一十八厘米，你不想排到跟前才被拦下。",
+          "en": "We'll take it. One check: the big roller coaster — what's the height requirement? My daughter is a hundred and eighteen centimeters.",
+          "chunks": [
+            { "term": "roller coaster", "zh": "过山车" },
+            { "term": "height requirement", "zh": "身高要求（游乐设施的）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ride operator",
+          "en": "(at the coaster) She's just tall enough, great. Arms inside, and the bar locks down tight — ready?",
+          "zh": "（在过山车处）她刚好够高，太好了。手臂放里面，压杠会锁紧——准备好了吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你安抚有点紧张的女儿并确认规则：她可以坐你旁边，全程你都在；坐完这一趟如果她喜欢，下午用快速通道再免排队坐一次。",
+          "en": "She sits next to me the whole ride, right? Then this afternoon we can skip the line and ride it again if she loves it.",
+          "chunks": [
+            { "term": "skip the line", "zh": "免排队、走快速通道" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Park announcement / staff",
+          "en": "(later, at the service desk) You reported a lost child in the blue jacket near the carousel? She's here, drawing with our staff.",
+          "zh": "（后来，在服务台）您报告的穿蓝外套走失的小朋友在旋转木马附近找到的？她在这儿，正和我们员工画画呢。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你谢天谢地并确认孩子状态：先问她有没有受伤、受惊，确认平安后向工作人员道谢，并说你会把手环上的电话写得更清楚。",
+          "en": "Thank goodness. Is she okay — not hurt, not too scared? Thank you for keeping her calm. This amusement park just earned a loyal family. Next time I'll write my number bigger on her wristband.",
+          "chunks": [
+            { "term": "amusement park", "zh": "游乐园" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Staff",
+          "en": "She's fine — she asked for ice cream twice, that's our medical clearance. Have a good rest of the day!",
+          "zh": "她没事——她已经要了两次冰淇淋了，这就是我们的医学证明。今天剩下的时间玩得开心！"
+        }
+      ]
+    },
+    {
+      "id": "sunset-cruise-and-night-market",
+      "title": "日落巡游 + 夜市：一晚的行程安排",
+      "setting": "在海边城市的最后一个傍晚。你四点到码头售票处订今晚的日落巡游，之后打算去夜市吃晚饭。售票员 Mia 给了你不少本地建议。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Mia (ticket office)",
+          "en": "Hi! The sunset cruise boards at five, back by seven thirty. Two tickets are left for the top deck.",
+          "zh": "您好！日落巡游五点登船，七点半回来。顶层甲板还剩两张票。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你订下顶层两张，并问清包含什么：饮料包不包、海上风大不大要不要带外套。",
+          "en": "We'll take the two top-deck seats for the sunset cruise. What's included — any drinks? And is it windy out there; should we bring jackets?",
+          "chunks": [
+            { "term": "sunset cruise", "zh": "日落巡游（乘船看日落）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Mia (ticket office)",
+          "en": "One drink each is included. Bring a light jacket, the breeze picks up after sunset. After the cruise, skip the harbor restaurants — the night market two streets up is where locals eat.",
+          "zh": "每人含一杯饮料。带件薄外套，日落后风会变大。巡游之后别去港口那些餐馆——往上两条街的夜市才是本地人吃饭的地方。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你记下建议并向她打听夜市攻略：哪个小吃摊最值得排队、几点去人最少、摊位收不收卡。",
+          "en": "Noted. At the night market, which food stall is worth the queue, and when is it least crowded? Do the stalls take cards?",
+          "chunks": [
+            { "term": "night market", "zh": "夜市" },
+            { "term": "food stall", "zh": "小吃摊" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Mia (ticket office)",
+          "en": "The noodle stall by the temple gate — forty years, one dish. Go after nine for shorter lines. Cash only, small bills. The grilled corn near the entrance is a hidden gem, too.",
+          "zh": "寺庙门口那家面摊——四十年了，只卖一道菜。九点后去队短一点。只收现金，备小额钞票。入口附近的烤玉米也是个小众宝藏。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你在夜市摊位前实践：按她的推荐排队点单，要两份面、一份烤玉米，问清辣度，并强调一份不要香菜。",
+          "en": "(at the stall) Two bowls of the noodles and one grilled corn, please. One bowl not spicy, and no cilantro in either. Street food first night rules — follow the longest line.",
+          "chunks": [
+            { "term": "street food", "zh": "街头小吃" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Stall owner",
+          "en": "Two noodles, one mild, no cilantro, one corn. Eight minutes. Sit anywhere, I'll call your number.",
+          "zh": "两份面，一份微辣，都不放香菜，一份玉米。八分钟。随便坐，我会叫号。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你道谢并感慨这一晚的安排，回头给 Mia 的建议打个满分。",
+          "en": "Perfect, thank you. This evening worked out exactly as planned — cruise at sunset, market after dark, and the corn really is a hidden gem. Best last night of the trip.",
+          "chunks": [
+            { "term": "hidden gem", "zh": "小众宝藏地（还没被游客发现的好地方）" }
+          ]
+        }
+      ]
+    }
+  ]
+}
