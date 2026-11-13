@@ -1,0 +1,442 @@
+{
+ "category": "sentence-patterns",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "There is no denying that the monolith was simpler to operate.",
+     "zh": "不可否认，单体应用运维起来更简单。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "There is no denying that the first design was elegant.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "There is no denying that ...",
+   "zh": "不可否认，……"
+  },
+  {
+   "examples": [
+    {
+     "en": "It is no wonder that the queue became the bottleneck.",
+     "zh": "难怪队列成了瓶颈。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Given the retry policy, it is no wonder that the outage amplified.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "It is no wonder that ...",
+   "zh": "难怪、无怪乎……"
+  },
+  {
+   "examples": [
+    {
+     "en": "No matter how fast the disk is, the network round trip dominates.",
+     "zh": "无论磁盘多快，网络往返都占主导。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "No matter how you tune it, a single writer has a ceiling.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "No matter how ...",
+   "zh": "无论多么……（让步句式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Whether the node fails or merely slows down, the protocol must cope.",
+     "zh": "无论节点是失效还是仅仅变慢，协议都必须应付。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Whether by design or by accident, the log became the source of truth.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "Whether ... or ...",
+   "zh": "无论……还是……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Now that replicas are cheap, the trade-off looks different.",
+     "zh": "如今副本很便宜，这个权衡看起来就不一样了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Now that the migration is done, the old warnings read differently.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "Now that ...",
+   "zh": "既然、如今已经……"
+  },
+  {
+   "examples": [
+    {
+     "en": "As long as one replica survives, no data is lost.",
+     "zh": "只要有一个副本存活，数据就不会丢。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The scheme is safe as long as the quorum holds.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "As long as ...",
+   "zh": "只要……（条件）"
+  },
+  {
+   "examples": [
+    {
+     "en": "As far as durability is concerned, the two designs are equivalent.",
+     "zh": "就持久性而言，这两个设计是等价的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "As far as the client is concerned, a timeout and a failure look the same.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "As far as ... is concerned",
+   "zh": "就……而言"
+  },
+  {
+   "examples": [
+    {
+     "en": "Even if the cache is warm, the first write still pays full price.",
+     "zh": "即使缓存是热的，第一次写入仍要付出全价。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Even if the leader is honest, the followers cannot know it.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "Even if ...",
+   "zh": "即使、就算……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keep the old snapshot in case the migration misbehaves.",
+     "zh": "留着旧快照，以防迁移出问题。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The replica keeps a buffer in case messages arrive out of order.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "In case ...",
+   "zh": "万一、以防……"
+  },
+  {
+   "examples": [
+    {
+     "en": "The log grows so fast that compaction cannot keep up.",
+     "zh": "日志增长得如此之快，以至于压缩跟不上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Failures are so rare that the recovery path is barely tested.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "So ... that ...",
+   "zh": "如此……以至于……"
+  },
+  {
+   "examples": [
+    {
+     "en": "The system behaves as if the network were reliable, until it isn't.",
+     "zh": "这个系统的行为好像网络是可靠的一样——直到网络不是了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "It is as if the queue remembers every insult ever offered to it.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "As if ...",
+   "zh": "好像、仿佛……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Only after the third outage did the team add the missing alert.",
+     "zh": "直到第三次故障之后，团队才补上那个缺失的告警。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Only after the postmortem did the pattern become obvious.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "Only after ... did ...",
+   "zh": "直到……之后，才……（倒装强调）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Not until the traffic doubled did the design show its limits.",
+     "zh": "直到流量翻倍，这个设计才显出它的极限。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Not until the leader failed did anyone read the recovery chapter.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "Not until ... did ...",
+   "zh": "直到……才……（倒装强调）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The fact that nodes fail is the starting point, not an edge case.",
+     "zh": "节点会失效这一事实是出发点，不是边缘情况。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The fact that it works in staging proves very little.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "The fact that ...",
+   "zh": "……这一事实（名词化主语）"
+  },
+  {
+   "examples": [
+    {
+     "en": "What I mean is that the boundary, not the technology, is the design.",
+     "zh": "我的意思是：边界、而不是技术，才是设计所在。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "What I mean is simpler: delete the second source of truth.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "What I mean is ...",
+   "zh": "我的意思是……"
+  },
+  {
+   "examples": [
+    {
+     "en": "That is not the point. The point is who owns the failure.",
+     "zh": "这不是重点。重点是失败归谁管。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Whether it is fast is measurable; that is not the point of this chapter.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "That is not the point.",
+   "zh": "这不是重点。"
+  },
+  {
+   "examples": [
+    {
+     "en": "This is where the write-ahead log comes in.",
+     "zh": "这正是预写日志派上用场的地方。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "When two replicas disagree, this is where vector clocks come in.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "This is where ... comes in.",
+   "zh": "这正是……派上用场的地方。"
+  },
+  {
+   "examples": [
+    {
+     "en": "It depends on the workload, as most honest answers do.",
+     "zh": "这取决于负载，就像大多数诚实的答案一样。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "It depends on whether reads can tolerate staleness.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "It depends on ...",
+   "zh": "这取决于……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Needless to say, none of this matters if the backups are broken.",
+     "zh": "不用说，如果备份是坏的，这一切都没有意义。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Needless to say, the estimate assumes the hardware behaves.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "Needless to say, ...",
+   "zh": "不用说、显然……"
+  },
+  {
+   "examples": [
+    {
+     "en": "As a matter of fact, the simplest node does most of the work.",
+     "zh": "事实上，最简单的那个节点干了大部分的活。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "As a matter of fact, the protocol predates the paper that named it.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "As a matter of fact, ...",
+   "zh": "事实上（加强语气）"
+  },
+  {
+   "examples": [
+    {
+     "en": "On the contrary, removing the cache made tail latency worse.",
+     "zh": "恰恰相反，去掉缓存让尾延迟更差了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The change did not help. On the contrary, incidents doubled.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "On the contrary, ...",
+   "zh": "恰恰相反（强反驳）"
+  },
+  {
+   "examples": [
+    {
+     "en": "In contrast, the pull model lets consumers fail quietly.",
+     "zh": "相比之下，拉取模型让消费者可以悄悄地失败。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In contrast, the second design treats failure as the normal case.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "In contrast, ...",
+   "zh": "相比之下、与之相对"
+  },
+  {
+   "examples": [
+    {
+     "en": "By contrast, a log keeps every decision the system ever made.",
+     "zh": "对照来看，日志保留了系统做过的每一个决定。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "By contrast, the managed service hides exactly the knobs you need.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "By contrast, ...",
+   "zh": "对照来看（同 in contrast）"
+  },
+  {
+   "examples": [
+    {
+     "en": "In comparison, the recovery path is almost trivial.",
+     "zh": "相比之下，恢复路径几乎微不足道。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In comparison, the write path is where the complexity lives.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "In comparison, ...",
+   "zh": "比较起来、相比之下"
+  },
+  {
+   "examples": [
+    {
+     "en": "All in all, the design trades money for simplicity.",
+     "zh": "总的来说，这个设计是用钱换简单。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "All in all, the chapter argues for fewer moving parts.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "All in all, ...",
+   "zh": "总的来说、总而言之"
+  },
+  {
+   "examples": [
+    {
+     "en": "In conclusion, ordering is the problem; everything else is bookkeeping.",
+     "zh": "总之，排序才是问题；其余的都是记账。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In conclusion, the author recommends boring technology, loudly.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "In conclusion, ...",
+   "zh": "总之、作为结论"
+  },
+  {
+   "examples": [
+    {
+     "en": "To conclude, measure the tail, not the average.",
+     "zh": "最后总结一下：量尾部，不要量平均值。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "To conclude, every guarantee in this book is conditional.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "To conclude, ...",
+   "zh": "最后总结一下"
+  },
+  {
+   "examples": [
+    {
+     "en": "In closing, the author thanks the operators who filed the bug reports.",
+     "zh": "最后，作者感谢了提交缺陷报告的运维人员。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In closing, remember that the map is not the system.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "In closing, ...",
+   "zh": "最后、在结束时"
+  },
+  {
+   "examples": [
+    {
+     "en": "Last but not least, delete the feature flags you no longer need.",
+     "zh": "最后但同样重要的是，删掉你不再需要的功能开关。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Last but not least, the human on call is part of the design.",
+    "zh": "你在读技术书时看到这样的句式："
+   },
+   "term": "Last but not least, ...",
+   "zh": "最后但同样重要的是"
+  }
+ ],
+ "layer": "D",
+ "title": "高级句式"
+}

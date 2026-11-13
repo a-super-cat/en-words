@@ -1,0 +1,412 @@
+{
+ "category": "daily-hard",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "The text just said: your flight is cancelled, check the app.",
+     "zh": "短信刚说：您的航班被取消，请查看应用。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "My flight was cancelled and I need to get to Denver tonight.",
+    "zh": "你在机场柜台处理航班问题，这样说："
+   },
+   "term": "flight cancelled",
+   "zh": "航班被取消"
+  },
+  {
+   "examples": [
+    {
+     "en": "You can rebook a flight in the app, if the app cooperates.",
+     "zh": "你可以在应用里改签航班——如果应用配合的话。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Could you rebook my flight to the earliest option tomorrow?",
+    "zh": "你在机场柜台处理航班问题，这样说："
+   },
+   "term": "rebook a flight",
+   "zh": "改签航班"
+  },
+  {
+   "examples": [
+    {
+     "en": "The next available flight is tomorrow at six in the morning.",
+     "zh": "下一班有位置的航班是明天早上六点。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Please put me on the next available flight, even with a stop.",
+    "zh": "你在机场柜台处理航班问题，这样说："
+   },
+   "term": "next available flight",
+   "zh": "下一班有位置的航班"
+  },
+  {
+   "examples": [
+    {
+     "en": "A missed connection because of their delay is their problem to fix.",
+     "zh": "因为他们延误造成的没赶上转机，是他们要解决的问题。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The delay caused a missed connection; I need a hotel and rebooking.",
+    "zh": "你在机场柜台处理航班问题，这样说："
+   },
+   "term": "missed connection",
+   "zh": "没赶上转机"
+  },
+  {
+   "examples": [
+    {
+     "en": "An overnight layover in a strange city needs a hotel plan.",
+     "zh": "在陌生城市过夜中转需要先安排好酒店。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The cheaper ticket has an overnight layover; I'd rather pay more.",
+    "zh": "你在规划行程时这样和同行的人商量："
+   },
+   "term": "overnight layover",
+   "zh": "过夜中转"
+  },
+  {
+   "examples": [
+    {
+     "en": "Ask for a hotel voucher when the cancellation strands you overnight.",
+     "zh": "取消让你过夜滞留时，要求一张酒店住宿券。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Am I entitled to a hotel voucher for tonight?",
+    "zh": "你在机场柜台处理航班问题，这样说："
+   },
+   "term": "hotel voucher",
+   "zh": "酒店住宿券（航司提供的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A meal voucher doesn't buy much at airport prices.",
+     "zh": "一张餐券按机场的物价买不了多少东西。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Can I also get a meal voucher while I wait?",
+    "zh": "你在机场柜台处理航班问题，这样说："
+   },
+   "term": "meal voucher",
+   "zh": "餐券（延误补偿的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Delayed baggage usually arrives on the next flight, they promise.",
+     "zh": "他们保证说，行李延误通常会上下一班飞机。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'm reporting delayed baggage; my bag didn't arrive on this flight.",
+    "zh": "你在行李服务柜台这样说："
+   },
+   "term": "delayed baggage",
+   "zh": "行李延误（没上同一班飞机）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Lost luggage ruins the first two days of any trip.",
+     "zh": "行李丢失能毁掉任何旅行的头两天。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "It's been three days; is my lost luggage officially lost now?",
+    "zh": "你在行李服务柜台这样说："
+   },
+   "term": "lost luggage",
+   "zh": "行李丢失"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keep every receipt for the travel insurance claim.",
+     "zh": "旅行保险理赔要用的收据一张都别扔。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd like to open a travel insurance claim for the cancelled flight.",
+    "zh": "你在给保险公司打电话，这样说："
+   },
+   "term": "travel insurance claim",
+   "zh": "旅行保险理赔"
+  },
+  {
+   "examples": [
+    {
+     "en": "Don't drive yourself; call an ambulance and sit down.",
+     "zh": "别自己开车；叫救护车，然后坐下。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Please call an ambulance — my father is having chest pain.",
+    "zh": "你在紧急情况下这样说："
+   },
+   "term": "call an ambulance",
+   "zh": "叫救护车"
+  },
+  {
+   "examples": [
+    {
+     "en": "The insurance company wants a police report for the stolen bike.",
+     "zh": "保险公司要一份被盗自行车的警方报告。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I need a copy of the police report for my insurance claim.",
+    "zh": "你在警局或办事窗口这样说："
+   },
+   "term": "police report",
+   "zh": "报警记录、警方报告"
+  },
+  {
+   "examples": [
+    {
+     "en": "A lost passport abroad means the embassy is your first stop.",
+     "zh": "在国外护照丢了，第一站是去大使馆。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'm reporting a lost passport and I need an emergency travel document.",
+    "zh": "你在大使馆这样说："
+   },
+   "term": "lost passport",
+   "zh": "护照丢了"
+  },
+  {
+   "examples": [
+    {
+     "en": "The embassy can replace a passport, not your itinerary.",
+     "zh": "大使馆能补办护照，补不了你的行程。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Does the embassy have an emergency line for citizens?",
+    "zh": "你在大使馆这样说："
+   },
+   "term": "embassy",
+   "zh": "大使馆"
+  },
+  {
+   "examples": [
+    {
+     "en": "Apply for a visa extension before the current one expires.",
+     "zh": "在当前签证过期之前申请签证延期。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd like to apply for a visa extension of thirty days.",
+    "zh": "你在出入境窗口这样说："
+   },
+   "term": "visa extension",
+   "zh": "签证延期"
+  },
+  {
+   "examples": [
+    {
+     "en": "The residence permit appointment books out six weeks ahead.",
+     "zh": "居留许可的预约已经排到六周之后了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'm here to renew my residence permit.",
+    "zh": "你在政府办公室这样说："
+   },
+   "term": "residence permit",
+   "zh": "居留许可"
+  },
+  {
+   "examples": [
+    {
+     "en": "In some countries you must register an address within two weeks of moving.",
+     "zh": "有些国家要求你在搬家后两周内登记住址。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I need to register an address for this apartment.",
+    "zh": "你在政府办公室这样说："
+   },
+   "term": "register an address",
+   "zh": "登记住址"
+  },
+  {
+   "examples": [
+    {
+     "en": "Without an appointment at the office, they simply turn you away.",
+     "zh": "没有办事窗口的预约，他们会直接把你打发走。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I have an appointment at the office at ten under the name Chia.",
+    "zh": "你在政府办公室这样说："
+   },
+   "term": "appointment at the office",
+   "zh": "办事窗口的预约"
+  },
+  {
+   "examples": [
+    {
+     "en": "Bring the documents in original, plus one photocopy of each.",
+     "zh": "带齐文件原件，每份再复印一份。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I brought the documents listed on the website, including the photos.",
+    "zh": "你在政府办公室这样说："
+   },
+   "term": "bring the documents",
+   "zh": "带齐文件"
+  },
+  {
+   "examples": [
+    {
+     "en": "The processing fee is paid by card only; cash is refused.",
+     "zh": "手续费只能刷卡，不收现金。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "How much is the processing fee, and can I pay by card?",
+    "zh": "你在政府办公室这样说："
+   },
+   "term": "processing fee",
+   "zh": "手续费、办理费"
+  },
+  {
+   "examples": [
+    {
+     "en": "The passport photo must show both ears and no smile, apparently.",
+     "zh": "证件照必须露双耳、不能笑，据说如此。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I need a passport photo that meets the embassy's size rules.",
+    "zh": "你在照相馆这样说："
+   },
+   "term": "passport photo",
+   "zh": "证件照"
+  },
+  {
+   "examples": [
+    {
+     "en": "Fill in the application form in block letters.",
+     "zh": "申请表要用大写字母填写。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Is this the right application form for a renewal?",
+    "zh": "你在政府办公室这样说："
+   },
+   "term": "application form",
+   "zh": "申请表"
+  },
+  {
+   "examples": [
+    {
+     "en": "Supporting documents prove the story the form tells.",
+     "zh": "证明文件是用来佐证表格里写的内容的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "These are the supporting documents: contract, payslips, and the lease.",
+    "zh": "你在政府办公室这样说："
+   },
+   "term": "supporting documents",
+   "zh": "证明文件、佐证材料"
+  },
+  {
+   "examples": [
+    {
+     "en": "A certified copy costs more but the office insists on it.",
+     "zh": "公证副本更贵，但办事窗口坚持要。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Where can I get a certified copy of this certificate?",
+    "zh": "你在政府办公室这样说："
+   },
+   "term": "certified copy",
+   "zh": "公证副本、认证复印件"
+  },
+  {
+   "examples": [
+    {
+     "en": "With the tracking number you can watch the parcel not move.",
+     "zh": "有了快递单号，你就能看着包裹一动不动。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The tracking number shows it delivered, but nothing arrived.",
+    "zh": "你在给客服打电话，这样说："
+   },
+   "term": "tracking number",
+   "zh": "快递单号、物流追踪号"
+  },
+  {
+   "examples": [
+    {
+     "en": "Quote the policy number and the claim moves faster.",
+     "zh": "报出保单号，理赔能快一点。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "My policy number ends in 4417; the claim is about water damage.",
+    "zh": "你在给保险公司打电话，这样说："
+   },
+   "term": "policy number",
+   "zh": "保单号"
+  },
+  {
+   "examples": [
+    {
+     "en": "Set a reminder a month before the renewal date.",
+     "zh": "在续期日期前一个月设个提醒。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The renewal date is also the last day to cancel for free.",
+    "zh": "你在看保单或合同条款，这样理解："
+   },
+   "term": "renewal date",
+   "zh": "续期日期、续保日期"
+  }
+ ],
+ "layer": "A",
+ "title": "纠纷、客服与证件"
+}

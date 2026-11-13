@@ -1,0 +1,412 @@
+{
+ "category": "argument",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "The nuance matters: available is not the same as responsive.",
+     "zh": "这个细微差别很重要：可用和响应及时不是一回事。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "A whole section is devoted to a nuance in the definition of delivery.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "nuance",
+   "zh": "细微差别、微妙之处"
+  },
+  {
+   "examples": [
+    {
+     "en": "The durability claim does not survive close scrutiny.",
+     "zh": "持久性的说法经不起仔细审查。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Under scrutiny, the benchmark's methodology falls apart.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "scrutiny",
+   "zh": "仔细审查、审视"
+  },
+  {
+   "examples": [
+    {
+     "en": "The book's appeal is its rigor about failure cases.",
+     "zh": "这本书的魅力在于它对故障情况的严谨。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "What the argument lacks in rigor it makes up in anecdotes.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "rigor",
+   "zh": "严谨（论证或方法的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Plausibility is not proof, and the chapter keeps them separate.",
+     "zh": "合理性不是证明，本章把两者分得很清楚。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Judge the design first on plausibility, then on measurements.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "plausibility",
+   "zh": "合理性、貌似可信的程度"
+  },
+  {
+   "examples": [
+    {
+     "en": "The viability of the approach depends on one assumption: cheap storage.",
+     "zh": "这个方法的可行性取决于一个假设：存储便宜。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "At scale, the viability of polling collapses.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "viability",
+   "zh": "可行性、存活能力"
+  },
+  {
+   "examples": [
+    {
+     "en": "The coherence of the model is what makes it teachable.",
+     "zh": "这个模型的连贯性正是它好教的原因。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Later editions traded coherence for coverage.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "coherence",
+   "zh": "连贯性、一致性（论证的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The intuition is simple: a quorum is a majority that cannot miss.",
+     "zh": "直觉很简单：法定人数就是一个不可能错过的多数。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Build the intuition first; the formalism follows in section two.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "intuition",
+   "zh": "直觉、直观理解"
+  },
+  {
+   "examples": [
+    {
+     "en": "The key insight is that ordering, not storage, is the hard part.",
+     "zh": "关键的洞见是：难的是排序，不是存储。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "One insight from the incident data reshaped the roadmap.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "insight",
+   "zh": "洞见、深刻见解"
+  },
+  {
+   "examples": [
+    {
+     "en": "Broadly defined, a database is anything that remembers for you.",
+     "zh": "广义地定义，数据库就是任何替你记东西的东西。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The term is broadly defined in the first chapter and narrowed later.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "broadly defined",
+   "zh": "广义地定义"
+  },
+  {
+   "examples": [
+    {
+     "en": "Narrowly defined, the guarantee covers single keys only.",
+     "zh": "狭义地定义，这个保证只覆盖单个键。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Narrowly defined, the attack requires physical access.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "narrowly defined",
+   "zh": "狭义地定义"
+  },
+  {
+   "examples": [
+    {
+     "en": "The literature review maps forty years of consensus research.",
+     "zh": "文献综述梳理了四十年共识研究的脉络。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Start with the literature review if you want the family tree of ideas.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "literature review",
+   "zh": "文献综述"
+  },
+  {
+   "examples": [
+    {
+     "en": "The research question is stated in one sentence on page one.",
+     "zh": "研究问题在第一页用一句话就说清了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A sharp research question disciplines the whole study.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "research question",
+   "zh": "研究问题（论文要回答的核心问题）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Whether the bound can be tightened remains an open problem.",
+     "zh": "这个界能不能收紧，至今仍是一个开放问题。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The chapter ends with three open problems and no embarrassment about them.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "open problem",
+   "zh": "开放问题（还没被解决的问题）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The empirical study measured real clusters, not simulations.",
+     "zh": "这项实证研究测的是真实集群，不是模拟。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "An empirical study of outages found configuration at fault most often.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "empirical study",
+   "zh": "实证研究"
+  },
+  {
+   "examples": [
+    {
+     "en": "The state of the art in stream processing assumes cheap memory.",
+     "zh": "流处理的当前最佳水平假设内存便宜。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Compare against the state of the art, not against the strawman.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "state of the art",
+   "zh": "当前最佳水平、业界最先进"
+  },
+  {
+   "examples": [
+    {
+     "en": "The key finding: most latency came from one chatty service.",
+     "zh": "关键发现是：大部分延迟来自一个话痨服务。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The key finding surprised even the authors.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "key finding",
+   "zh": "关键发现"
+  },
+  {
+   "examples": [
+    {
+     "en": "The main result is a lower bound on coordination.",
+     "zh": "主要结果是协调成本的一个下界。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "State the main result before the machinery that proves it.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "main result",
+   "zh": "主要结果（论文的核心结论）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Future work includes tightening the bound for the partial-failure case.",
+     "zh": "未来工作包括收紧部分故障情况下的界。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The future work section is honest about what the model ignores.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "future work",
+   "zh": "未来工作（论文结尾的展望）"
+  },
+  {
+   "examples": [
+    {
+     "en": "It remains to be seen whether the approach survives real traffic.",
+     "zh": "这个方法能否扛住真实流量，还有待观察。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "It remains to be seen whether the new runtime changes the trade-off.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "It remains to be seen whether ...",
+   "zh": "……还有待观察、尚待分晓"
+  },
+  {
+   "examples": [
+    {
+     "en": "There is little doubt that queues will form at the slowest stage.",
+     "zh": "几乎可以肯定，队列会在最慢的环节形成。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "There is little doubt that the next bottleneck is already in the design.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "There is little doubt that ...",
+   "zh": "几乎可以肯定……"
+  },
+  {
+   "examples": [
+    {
+     "en": "It is widely accepted that two-phase commit blocks under failure.",
+     "zh": "人们普遍认为两阶段提交在故障下会阻塞。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "It is widely accepted that the CAP framing is too coarse.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "It is widely accepted that ...",
+   "zh": "人们普遍认为……"
+  },
+  {
+   "examples": [
+    {
+     "en": "Recent work has shown that tail latency dominates user experience.",
+     "zh": "近期的研究表明，尾延迟主导了用户体验。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "Recent work has shown that most gains come from the boring fixes.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "Recent work has shown that ...",
+   "zh": "近期的研究表明……"
+  },
+  {
+   "examples": [
+    {
+     "en": "The key insight is that the log, not the table, is the product.",
+     "zh": "关键的洞见在于：日志、而不是表，才是产品。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "The key insight is that retries are a load multiplier in disguise.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "The key insight is that ...",
+   "zh": "关键的洞见在于……"
+  },
+  {
+   "examples": [
+    {
+     "en": "In what follows, we assume a crash-stop failure model.",
+     "zh": "在接下来的内容中，我们假设崩溃即停机的故障模型。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In what follows, 'node' means a process, not a machine.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "In what follows, ...",
+   "zh": "在接下来的内容中……（书中引导）"
+  },
+  {
+   "examples": [
+    {
+     "en": "As will become clear, the second design is the first one, generalized.",
+     "zh": "正如将要清楚的，第二个设计是第一个的推广。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "As will become clear, the timeout is doing three jobs at once.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "As will become clear, ...",
+   "zh": "正如将要清楚的……（预告）"
+  },
+  {
+   "examples": [
+    {
+     "en": "For further details, see the appendix on failure detectors.",
+     "zh": "更多细节见关于故障检测器的附录。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For further details, see the original Paxos paper.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "For further details, see ...",
+   "zh": "更多细节见……（指向引用）"
+  },
+  {
+   "examples": [
+    {
+     "en": "It should be noted that these results assume a stable leader.",
+     "zh": "应当指出，这些结果假设领导者是稳定的。"
+    }
+   ],
+   "kind": "sentence",
+   "situation": {
+    "en": "It should be noted that the model ignores Byzantine behavior.",
+    "zh": "你在读技术书或长文时看到这个说法："
+   },
+   "term": "It should be noted that ...",
+   "zh": "应当指出……（正式提醒）"
+  }
+ ],
+ "layer": "D",
+ "title": "论证与篇章"
+}

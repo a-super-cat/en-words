@@ -405,6 +405,219 @@
           ]
         }
       ]
+    },
+    {
+      "id": "disputing-a-card-charge",
+      "title": "打电话给银行：一笔不认账的扣款",
+      "setting": "周日早上你发现信用卡上有两笔你不认识的扣款，来自一个你从没用过的订阅服务。你打了银行客服热线，接电话的是客服代表 Marcus。你没有生气，但你要把这件事处理干净。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Marcus",
+          "en": "Thanks for calling. I can see your account. How can I help you today?",
+          "zh": "感谢致电。我这边能看到您的账户。今天有什么可以帮您的？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说明来意：对账单上有两笔你不认识的扣款，来自一个你没订阅过的服务，你要对这两笔提出异议。",
+          "en": "I'm calling to dispute a charge — actually two charges — from a subscription service I never signed up for.",
+          "chunks": [
+            { "term": "dispute a charge", "zh": "对一笔扣款提出异议" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marcus",
+          "en": "I see them: two charges of 29.99, on Tuesday and again on Friday. Did anyone else in your household possibly use your card?",
+          "zh": "我看到了：两笔 29.99，周二一笔、周五一笔。您家里有没有其他人可能用了您的卡？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你明确排除：这张卡只有你一个人用，而且扣款时间你在出差；你把它们定性为未授权交易，要求银行处理。",
+          "en": "No, I'm the only one who uses this card, and I was traveling for work on both dates. These are unauthorized transactions.",
+          "chunks": [
+            { "term": "unauthorized transaction", "zh": "未授权交易（不是本人花的）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marcus",
+          "en": "Understood. I can reverse both charges provisionally while we investigate. The investigation takes up to ten business days. Would you like me to freeze the card and issue a new one as well?",
+          "zh": "明白了。调查期间我可以先把两笔扣款临时退回。调查最多需要十个工作日。您需要我同时冻结这张卡并发一张新卡吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你同意冻结并发新卡，因为卡号已经泄露；并确认旧卡冻结后你的自动扣款会不会受影响。",
+          "en": "Yes, please freeze it and send a new card. Since the number is compromised, that's safer. Will freezing it stop my direct debits?",
+          "chunks": [
+            { "term": "freeze an account", "zh": "冻结账户" },
+            { "term": "direct debit", "zh": "自动扣款（授权商家定期扣）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marcus",
+          "en": "Direct debits linked to the account keep working; only card payments stop. Anything else before I process this?",
+          "zh": "和账户绑定的自动扣款会继续工作；停掉的只有刷卡支付。我处理之前，还有其他事吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你要两个东西留痕：这次通话的投诉案件编号，以及一封确认邮件，写明两笔退款和十天的时限。",
+          "en": "Two things: the complaint case number for this call, and a confirmation email stating both reversals and the ten-day timeline.",
+          "chunks": [
+            { "term": "complaint case number", "zh": "投诉案件编号" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marcus",
+          "en": "Done. Your case number is in the email I just sent, and the provisional credits will appear within two business days.",
+          "zh": "办好了。案件编号在我刚发的邮件里，临时退款会在两个工作日内到账。"
+        }
+      ]
+    },
+    {
+      "id": "deposit-fight-with-landlord",
+      "title": "和房东掰扯押金：退房后的扣费之争",
+      "setting": "你退房三周了，房东只退了一半押金，扣掉的理由是“墙面重刷”和“深度清洁”。入住时你拍了全套照片，退房验房时你也在场。你约了房东 Mr. Carter 在原房子门口当面谈。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Mr. Carter",
+          "en": "I kept four hundred for repainting and a deep clean. The walls were marked, that's beyond fair use. This is standard, every landlord does it.",
+          "zh": "我扣了四百，用于重新刷墙和深度清洁。墙上有痕迹，这超出了合理使用范围。这是惯例，每个房东都这么做。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你先把规则摆出来：正常磨损不能从押金里扣；你在意的不是惯例，而是合同和验房记录怎么说。",
+          "en": "Standard or not, normal wear and tear can't come out of the deposit. What matters is what the lease agreement and the inspection say.",
+          "chunks": [
+            { "term": "wear and tear", "zh": "正常磨损（不能扣押金的那种）" },
+            { "term": "lease agreement", "zh": "租赁合同" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Mr. Carter",
+          "en": "The move-out inspection noted scuffs on the living room wall. That's damage, not wear and tear.",
+          "zh": "退房验房记录了客厅墙上的擦痕。那是损坏，不是正常磨损。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你拿出证据：擦痕在你入住第一天的照片里就有，带时间戳；而且验房那天物业经理也在场，你请他当时确认过。",
+          "en": "Those scuffs are in my move-in photos, with timestamps. The property manager saw them too — he was there at the move-in inspection.",
+          "chunks": [
+            { "term": "move-out inspection", "zh": "退房验房" },
+            { "term": "property manager", "zh": "物业经理、房产经纪管理人" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Mr. Carter",
+          "en": "Even so, the cleaning fee stands. The oven needed professional work.",
+          "zh": "即便如此，清洁费还是要扣。烤箱需要专业清洗。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你让步一半但要求凭据：清洁费可以谈，但请他出示清洁公司的发票；四百块里把刷墙和清洁拆开算，各是多少。",
+          "en": "Let's separate the two. Show me the cleaning invoice, and break down the damage charge: how much is paint, how much is cleaning?",
+          "chunks": [
+            { "term": "damage charge", "zh": "损坏扣费" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Mr. Carter",
+          "en": "I don't have an invoice handy. The cleaner is a friend of mine, I paid cash.",
+          "zh": "发票我手边没有。清洁工是我朋友，我付的现金。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你给出收尾方案并划出底线：没有发票的扣费你不接受；请他在十四天内退还剩余押金，否则你会去小额索赔法庭，照片和合同都在你这边。",
+          "en": "Without an invoice, I can't accept the charge. Please return the rest of the deposit within fourteen days. If not, I'll file in small claims court — I have the photos and the lease.",
+          "chunks": [
+            { "term": "get the deposit back", "zh": "把押金要回来" },
+            { "term": "small claims court", "zh": "小额索赔法庭" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Mr. Carter",
+          "en": "...Fourteen days. You'll have it by bank transfer, and I'll send the cleaning invoice if I find it. I don't want court over this.",
+          "zh": "……十四天。我会银行转账退给你，清洁发票找到的话也发你。我不想为这点事上法庭。"
+        }
+      ]
+    },
+    {
+      "id": "flight-cancelled-at-the-counter",
+      "title": "航班取消：在柜台改签并要到酒店",
+      "setting": "晚上九点，你在芝加哥转机时收到通知：飞往丹佛的最后一班航班因机械故障取消。你排到了柜台，工作人员是 Dana。你的行李已经托运，明天上午十点你必须在丹佛参加一个客户会议。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Dana",
+          "en": "I know it's frustrating. The Denver flight is cancelled for a mechanical issue. I can put you on tomorrow morning's flight at 6 a.m.",
+          "zh": "我知道这很让人恼火。去丹佛的航班因机械故障取消了。我可以把您改到明天早上六点的航班。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你先确认这是目前最好的选项，并说明你的硬约束：明天十点的会不能迟到，六点起飞、八点落地来得及，但没有任何容错。",
+          "en": "Is that the next available flight? I have a meeting at ten that I can't miss. Six a.m. works, but it leaves me zero slack.",
+          "chunks": [
+            { "term": "next available flight", "zh": "下一班有位置的航班" },
+            { "term": "flight cancelled", "zh": "航班被取消" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dana",
+          "en": "It's the earliest into Denver. There's also a 9 p.m. tonight to Kansas City, then a morning hop, but that's riskier. Do you want me to hold both while you decide?",
+          "zh": "这是到丹佛最早的一班。今晚九点还有一班去堪萨斯城再转早班机的，但更冒险。要不要我先把两个都给您占上，您再决定？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你选稳妥方案：订早上六点那班直飞；同时问托运的行李今晚怎么办——你需要里面的充电器和换洗衣服。",
+          "en": "I'll take the 6 a.m. direct — please rebook a flight for me on that one. One question: my checked bag — can I get it back tonight? My charger and a change of clothes are in it.",
+          "chunks": [
+            { "term": "rebook a flight", "zh": "改签航班" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dana",
+          "en": "Retrieving checked bags tonight takes about two hours, and the bag is already tagged to the morning flight. Most people leave it and use the overnight kit we provide.",
+          "zh": "今晚取回托运行李大概要两小时，而且行李已经挂到早班机上了。大多数人会把行李留下，用我们提供的过夜包。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你接受行李方案，转而落实过夜安排：既然是机械故障（航司责任），你要求酒店住宿券和餐券，并确认去酒店的接驳。",
+          "en": "Fine, leave the bag. Since this is a mechanical cancellation, I'd like a hotel voucher and a meal voucher, and could you confirm the shuttle to the hotel?",
+          "chunks": [
+            { "term": "hotel voucher", "zh": "酒店住宿券（航司提供的）" },
+            { "term": "meal voucher", "zh": "餐券（延误补偿的）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dana",
+          "en": "Both vouchers are printing now. The shuttle runs every twenty minutes from door four. Your new boarding pass is in the app.",
+          "zh": "两张券正在打印。接驳车在四号门，每二十分钟一班。您的新登机牌已经在应用里了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你做最后核对：登机牌上的时间、行李直达丹佛、以及万一早班机再出问题时的改签规则，全部确认一遍再离开柜台。",
+          "en": "Last check: the boarding pass shows 6 a.m., the bag goes through to Denver, and if the morning flight fails too, I can rebook free. All correct?",
+          "chunks": [
+            { "term": "rebook a flight", "zh": "改签航班" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dana",
+          "en": "All correct. And the vouchers cover the room and dinner. Get some sleep — the 6 a.m. is on a fresh aircraft and crew.",
+          "zh": "都没错。券覆盖房间和晚餐。去睡一觉吧——早上六点那班是新的飞机和机组。"
+        }
+      ]
     }
   ]
 }

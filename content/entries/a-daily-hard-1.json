@@ -1,0 +1,412 @@
+{
+ "category": "daily-hard",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "Read the lease agreement twice before signing anything.",
+     "zh": "签任何东西之前，把租赁合同读两遍。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The lease agreement says repairs under fifty dollars are on me.",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "lease agreement",
+   "zh": "租赁合同"
+  },
+  {
+   "examples": [
+    {
+     "en": "A security deposit dispute usually comes down to photos from move-in day.",
+     "zh": "押金争议最后拼的往往是入住那天拍的照片。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I want to avoid a security deposit dispute, so let's do the inspection together.",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "security deposit dispute",
+   "zh": "押金争议"
+  },
+  {
+   "examples": [
+    {
+     "en": "It took three emails and two months to get the deposit back.",
+     "zh": "三封邮件、两个月，才把押金要回来。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "What do I need to do to get the deposit back in full?",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "get the deposit back",
+   "zh": "把押金要回来"
+  },
+  {
+   "examples": [
+    {
+     "en": "When the landlord refuses to fix the heating, put it in writing.",
+     "zh": "当房东拒绝修暖气时，把它落实到书面。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "My landlord refuses to return the deposit without an itemized list.",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "landlord refuses",
+   "zh": "房东拒绝（做某事）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The property manager answers faster than the landlord ever did.",
+     "zh": "物业经理回消息比房东本人快多了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'll send the photos to the property manager today.",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "property manager",
+   "zh": "物业经理、房产经纪管理人"
+  },
+  {
+   "examples": [
+    {
+     "en": "Submit the repair request in the app so there's a record.",
+     "zh": "维修申请在应用里提交，这样有记录。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I filed a repair request for the leaking pipe last Monday.",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "repair request",
+   "zh": "维修申请"
+  },
+  {
+   "examples": [
+    {
+     "en": "A maintenance request without photos waits longer.",
+     "zh": "没有照片的报修单等得更久。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Can you check the status of my maintenance request from Tuesday?",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "maintenance request",
+   "zh": "报修单（同维修申请的常用说法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A leaking pipe under the sink is quietly rotting the cabinet.",
+     "zh": "水槽下面漏水的水管正在悄悄把柜子泡烂。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "There's a leaking pipe in the bathroom and the floor is already wet.",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "leaking pipe",
+   "zh": "漏水的水管"
+  },
+  {
+   "examples": [
+    {
+     "en": "A broken heater in January is an emergency, not a nuisance.",
+     "zh": "一月份坏掉的暖气是紧急情况，不是小麻烦。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We've had a broken heater for three days now.",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "broken heater",
+   "zh": "坏掉的暖气"
+  },
+  {
+   "examples": [
+    {
+     "en": "No hot water since yesterday morning, and the baby noticed first.",
+     "zh": "从昨天早上起就没有热水了，宝宝第一个发现。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The whole building has no hot water again.",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "no hot water",
+   "zh": "没有热水"
+  },
+  {
+   "examples": [
+    {
+     "en": "The rent looks high until you see utilities included.",
+     "zh": "房租看起来高，直到你看到它包水电杂费。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Is it utilities included, or do I pay electricity separately?",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "utilities included",
+   "zh": "包水电杂费（租房说法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "To break the lease early, you usually owe a fee or a replacement tenant.",
+     "zh": "提前解约通常要付一笔费用，或者找一个接手的租客。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I may need to break the lease in June for a job move.",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "break the lease",
+   "zh": "提前解约"
+  },
+  {
+   "examples": [
+    {
+     "en": "The early termination fee equals one month of rent.",
+     "zh": "提前解约费相当于一个月的房租。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Can the early termination fee be waived if I find the next tenant?",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "early termination fee",
+   "zh": "提前解约费"
+  },
+  {
+   "examples": [
+    {
+     "en": "The move-out inspection decides how much deposit you see again.",
+     "zh": "退房验房决定你能拿回多少押金。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd like to be present at the move-out inspection.",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "move-out inspection",
+   "zh": "退房验房"
+  },
+  {
+   "examples": [
+    {
+     "en": "Normal wear and tear cannot come out of your deposit.",
+     "zh": "正常磨损不能从你的押金里扣。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Faded paint is wear and tear, not damage.",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "wear and tear",
+   "zh": "正常磨损（不能扣押金的那种）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Ask for photos before accepting any damage charge.",
+     "zh": "接受任何损坏扣费之前，先要求看照片。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I dispute this damage charge; the scratch was there at move-in.",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "damage charge",
+   "zh": "损坏扣费"
+  },
+  {
+   "examples": [
+    {
+     "en": "The customer service hotline keeps you on hold for forty minutes.",
+     "zh": "客服热线让你等了四十分钟。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I called the customer service hotline twice and got cut off both times.",
+    "zh": "你在给客服打电话，这样说："
+   },
+   "term": "customer service hotline",
+   "zh": "客服热线"
+  },
+  {
+   "examples": [
+    {
+     "en": "If the agent can't help, politely ask to speak to a supervisor.",
+     "zh": "如果客服帮不了，礼貌地要求和主管说话。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I've explained this three times. Could I speak to a supervisor, please?",
+    "zh": "你在给客服打电话，这样说："
+   },
+   "term": "speak to a supervisor",
+   "zh": "要求和主管说话"
+  },
+  {
+   "examples": [
+    {
+     "en": "Write down the complaint case number before you hang up.",
+     "zh": "挂电话之前记下投诉案件编号。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Could you give me the complaint case number for this call?",
+    "zh": "你在给客服打电话，这样说："
+   },
+   "term": "complaint case number",
+   "zh": "投诉案件编号"
+  },
+  {
+   "examples": [
+    {
+     "en": "Consumer rights cover faulty goods even without the extended warranty.",
+     "zh": "消费者权益覆盖有质量问题的商品，哪怕你没买延保。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Under consumer rights, a repair that fails three times means a refund.",
+    "zh": "你在给客服打电话，这样说："
+   },
+   "term": "consumer rights",
+   "zh": "消费者权益"
+  },
+  {
+   "examples": [
+    {
+     "en": "Small claims court exists for deposits landlords won't return.",
+     "zh": "小额索赔法庭就是为房东不退押金这种事存在的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If the deposit isn't back in fourteen days, I'll file in small claims court.",
+    "zh": "你在和房东或物业交涉，这样说："
+   },
+   "term": "small claims court",
+   "zh": "小额索赔法庭"
+  },
+  {
+   "examples": [
+    {
+     "en": "A warranty claim needs the receipt and the serial number.",
+     "zh": "保修索赔需要收据和序列号。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'm calling to open a warranty claim for a washing machine.",
+    "zh": "你在给客服打电话，这样说："
+   },
+   "term": "warranty claim",
+   "zh": "保修索赔"
+  },
+  {
+   "examples": [
+    {
+     "en": "A billing error charged me twice for the same month.",
+     "zh": "一个账单错误把我同一个月扣了两次。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "There's a billing error on my statement: two charges, one purchase.",
+    "zh": "你在给客服打电话，这样说："
+   },
+   "term": "billing error",
+   "zh": "账单错误"
+  },
+  {
+   "examples": [
+    {
+     "en": "The provider credited my account after the service outage.",
+     "zh": "服务中断之后，运营商给我账上退了钱。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'm reporting a service outage; the whole street seems down.",
+    "zh": "你在给客服打电话，这样说："
+   },
+   "term": "service outage",
+   "zh": "服务中断（宽带、电力等）"
+  },
+  {
+   "examples": [
+    {
+     "en": "They offered a compensation voucher instead of a refund.",
+     "zh": "他们给了一张补偿代金券，而不是退款。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A compensation voucher doesn't cover a missed wedding. I'd like a refund.",
+    "zh": "你在给客服打电话，这样说："
+   },
+   "term": "compensation voucher",
+   "zh": "补偿代金券"
+  },
+  {
+   "examples": [
+    {
+     "en": "Quote the reference number and the call gets much shorter.",
+     "zh": "报上参考编号，电话就能短很多。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "My reference number is at the top of the email you sent me.",
+    "zh": "你在给客服打电话，这样说："
+   },
+   "term": "reference number",
+   "zh": "参考编号（工单或订单的号）"
+  },
+  {
+   "examples": [
+    {
+     "en": "There's a five-day grace period before the late fee applies.",
+     "zh": "滞纳金生效之前有五天宽限期。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Does the grace period apply to the insurance renewal too?",
+    "zh": "你在给客服打电话，这样说："
+   },
+   "term": "grace period",
+   "zh": "宽限期（晚几天不算违约）"
+  }
+ ],
+ "layer": "A",
+ "title": "纠纷、客服与证件"
+}

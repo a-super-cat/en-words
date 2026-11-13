@@ -1,0 +1,607 @@
+{
+ "category": "reading",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "The new paradigm treats data as a stream, not a table.",
+     "zh": "新范式把数据看作流，而不是表。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Each paradigm shift makes the previous textbook chapter read like history.",
+    "zh": "你在读技术书或论文，看到这个词："
+   },
+   "term": "paradigm",
+   "zh": "范式（一个领域共用的思考框架）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The methodology matters more than the tool chosen to execute it.",
+     "zh": "方法论比执行它的工具更重要。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Their methodology section explains exactly how the numbers were gathered.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "methodology",
+   "zh": "方法论（做研究或工程的整套方法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The final chapter is a synthesis of forty years of results.",
+     "zh": "最后一章是四十年成果的综合。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "A good survey is a synthesis, not a list of summaries.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "synthesis",
+   "zh": "综合（把多方信息合成为一个结论）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every strong claim in the paper carries a citation.",
+     "zh": "论文里每个强有力的说法都带着引用。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Follow the citation if you doubt the summary.",
+    "zh": "你在读技术书或论文，看到这个词："
+   },
+   "term": "citation",
+   "zh": "引用、引文（标注来源处）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The real caveat hides in a footnote on page twelve.",
+     "zh": "真正的注意事项藏在第十二页的一条脚注里。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Read the footnote before quoting the headline number.",
+    "zh": "你在读技术书或论文，看到这个词："
+   },
+   "term": "footnote",
+   "zh": "脚注（页脚的小字补充）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The preface explains who the book is not for.",
+     "zh": "序言里讲了这本书不是写给谁的。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "In the preface, the author admits the first edition was wrong about locking.",
+    "zh": "你在读技术书或论文，看到这个词："
+   },
+   "term": "preface",
+   "zh": "序言、前言"
+  },
+  {
+   "examples": [
+    {
+     "en": "The glossary pins down what the author means by consistency.",
+     "zh": "术语表明确了作者所说的“一致性”到底指什么。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "When a term feels slippery, check the glossary before the index.",
+    "zh": "你在读技术书或论文，看到这个词："
+   },
+   "term": "glossary",
+   "zh": "术语表（书末的词义清单）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The bibliography is a reading list disguised as an appendix.",
+     "zh": "参考文献目录其实是一份伪装成附录的阅读清单。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Start from the bibliography if the topic is new to you.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "bibliography",
+   "zh": "参考文献目录"
+  },
+  {
+   "examples": [
+    {
+     "en": "The proofs live in the appendix, safely out of the main argument.",
+     "zh": "证明都放在附录里，安全地避开了正文的论证。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Benchmark details are in appendix B, after the main chapters.",
+    "zh": "你在读技术书或论文，看到这个词："
+   },
+   "term": "appendix",
+   "zh": "附录"
+  },
+  {
+   "examples": [
+    {
+     "en": "The manuscript circulated among practitioners years before publication.",
+     "zh": "这份手稿在出版前数年就在从业者之间流传。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "An early manuscript of the paper used a different name for the protocol.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "manuscript",
+   "zh": "手稿、文稿（未出版的稿子）"
+  },
+  {
+   "examples": [
+    {
+     "en": "This is a draft version; the numbers change in every revision.",
+     "zh": "这是草稿版本；数字每次修订都在变。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Cite the published paper, not the draft version you found first.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "draft version",
+   "zh": "草稿版本"
+  },
+  {
+   "examples": [
+    {
+     "en": "Peer review caught the flawed assumption in section three.",
+     "zh": "同行评审抓住了第三节里那个有缺陷的假设。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The result survived peer review, which is stronger than surviving Twitter.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "peer review",
+   "zh": "同行评审"
+  },
+  {
+   "examples": [
+    {
+     "en": "Empirical evidence, not elegance, settled the argument.",
+     "zh": "是经验证据、而不是优雅，终结了这场争论。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The claim is plausible, but the empirical evidence is thin.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "empirical evidence",
+   "zh": "经验证据（来自实验和观测的证据）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The theoretical framework predicts where the model breaks.",
+     "zh": "理论框架能预测这个模型会在哪里失效。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Chapter two builds the theoretical framework the rest relies on.",
+    "zh": "你在读技术书或论文，看到这个词："
+   },
+   "term": "theoretical framework",
+   "zh": "理论框架"
+  },
+  {
+   "examples": [
+    {
+     "en": "The case study follows one company's migration over two years.",
+     "zh": "这个案例研究跟踪了一家公司两年的迁移过程。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Treat a case study as one data point with unusually rich detail.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "case study",
+   "zh": "案例研究"
+  },
+  {
+   "examples": [
+    {
+     "en": "The survey data contradicts what the loudest voices claim.",
+     "zh": "调查数据和嗓门最大的人所说的正好相反。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Survey data says most teams deploy on Fridays anyway.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "survey data",
+   "zh": "调查数据"
+  },
+  {
+   "examples": [
+    {
+     "en": "A sample size of twelve cannot support that conclusion.",
+     "zh": "十二的样本量撑不起那个结论。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Check the sample size before repeating a percentage.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "sample size",
+   "zh": "样本量"
+  },
+  {
+   "examples": [
+    {
+     "en": "Statistical significance is not the same as practical importance.",
+     "zh": "统计显著性不等于实际重要性。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The effect reached statistical significance with a large enough sample.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "statistical significance",
+   "zh": "统计显著性"
+  },
+  {
+   "examples": [
+    {
+     "en": "A correlation coefficient near zero tells its own story.",
+     "zh": "接近于零的相关系数自有它的故事。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The correlation coefficient was 0.8, strong but still not causation.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "correlation coefficient",
+   "zh": "相关系数"
+  },
+  {
+   "examples": [
+    {
+     "en": "Report the standard deviation next to every average.",
+     "zh": "每个平均值旁边都要报标准差。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The standard deviation doubled after the traffic change.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "standard deviation",
+   "zh": "标准差（衡量离散程度）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Latencies follow a probability distribution, not a single number.",
+     "zh": "延迟遵循一个概率分布，而不是一个单一数字。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Knowing the probability distribution beats knowing the mean.",
+    "zh": "你在读技术书或论文，看到这个词："
+   },
+   "term": "probability distribution",
+   "zh": "概率分布"
+  },
+  {
+   "examples": [
+    {
+     "en": "Model the queue length as a random variable, not a constant.",
+     "zh": "把队列长度建模成随机变量，而不是常数。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Each request's latency is a random variable with a long tail.",
+    "zh": "你在读技术书或论文，看到这个词："
+   },
+   "term": "random variable",
+   "zh": "随机变量"
+  },
+  {
+   "examples": [
+    {
+     "en": "The expected value hides the variance that hurts users.",
+     "zh": "期望值掩盖了伤害用户的方差。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Decide on the expected value, plan for the tail.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "expected value",
+   "zh": "期望值（长期平均结果）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A linear regression on the logs shows growth outpacing capacity.",
+     "zh": "对日志做线性回归能看出增长跑赢了容量。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Linear regression is the first model to try, rarely the last.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "linear regression",
+   "zh": "线性回归"
+  },
+  {
+   "examples": [
+    {
+     "en": "A hypothesis test asks whether the difference could be noise.",
+     "zh": "假设检验问的是：这个差异会不会只是噪声。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Run the hypothesis test before celebrating the improvement.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "hypothesis test",
+   "zh": "假设检验"
+  },
+  {
+   "examples": [
+    {
+     "en": "The null hypothesis says the change did nothing.",
+     "zh": "零假设说：这次改动什么都没改变。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Failing to reject the null hypothesis is not proof of no effect.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "null hypothesis",
+   "zh": "零假设（默认没效果的假设）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The experimental group saw the new scheduler for two weeks.",
+     "zh": "实验组用了两周新调度器。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Compare the experimental group against the control, not against hope.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "experimental group",
+   "zh": "实验组"
+  },
+  {
+   "examples": [
+    {
+     "en": "Hold every variable constant except the one under study.",
+     "zh": "除了正在研究的那个，其余变量全部保持不变。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The chapter treats load as the independent variable.",
+    "zh": "你在读技术书或论文，看到这个词："
+   },
+   "term": "variable",
+   "zh": "变量（研究语境里会变化的量）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Treat the timeout as a constant only for the first model.",
+     "zh": "只在第一个模型里把超时当作常数。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "In this analysis, message size is a constant.",
+    "zh": "你在读技术书或论文，看到这个词："
+   },
+   "term": "constant",
+   "zh": "常数、常量"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every parameter in the model is measurable in production.",
+     "zh": "模型里的每个参数都能在生产环境里测出来。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Tune the parameter against traces, not against intuition.",
+    "zh": "你在读技术书或论文，看到这个词："
+   },
+   "term": "parameter",
+   "zh": "参数（可调的量）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The proof holds under the stated boundary conditions only.",
+     "zh": "这个证明只在所述的边界条件下成立。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "State the boundary condition before trusting the formula at the edges.",
+    "zh": "你在读技术书或论文，看到这个词："
+   },
+   "term": "boundary condition",
+   "zh": "边界条件"
+  },
+  {
+   "examples": [
+    {
+     "en": "The outcome depends on the initial condition more than expected.",
+     "zh": "结果对初始条件的依赖比预想的大。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "With a different initial condition, the simulation diverges.",
+    "zh": "你在读技术书或论文，看到这个词："
+   },
+   "term": "initial condition",
+   "zh": "初始条件"
+  },
+  {
+   "examples": [
+    {
+     "en": "The approximation is accurate within two percent.",
+     "zh": "这个近似值的误差在百分之二以内。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "A first-order approximation is enough for capacity planning.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "approximation",
+   "zh": "近似（值）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The estimation ignores GC pauses, so treat it as a floor.",
+     "zh": "这个估算忽略了 GC 停顿，所以把它当下限看。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Their estimation of the tail was optimistic by an order of magnitude.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "estimation",
+   "zh": "估算"
+  },
+  {
+   "examples": [
+    {
+     "en": "The upper bound on retries keeps the worst case finite.",
+     "zh": "重试的上界让最坏情况保持有限。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Prove an upper bound first; optimize the constant later.",
+    "zh": "你在读技术书或论文，看到这个词："
+   },
+   "term": "upper bound",
+   "zh": "上界（不会超过的值）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The lower bound says coordination cannot be free.",
+     "zh": "下界告诉我们：协调不可能是免费的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A lower bound argument settles arguments that benchmarks cannot.",
+    "zh": "你在读技术书或论文，看到这个词："
+   },
+   "term": "lower bound",
+   "zh": "下界（至少需要的值）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A back-of-the-envelope calculation kills most bad designs in minutes.",
+     "zh": "一次粗略估算能在几分钟内毙掉大多数坏设计。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Start with a back-of-the-envelope calculation before any prototype.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "back-of-the-envelope calculation",
+   "zh": "粗略估算（信封背面式的量级计算）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A sanity check: the estimate exceeds the machine's total memory.",
+     "zh": "做个合理性检查：这个估算超过了机器的总内存。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Run the sanity check before you trust the spreadsheet.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "sanity check",
+   "zh": "合理性检查（看看结果离不离谱）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Cross-check the graph against the raw logs once.",
+     "zh": "把图表和原始日志交叉核对一次。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "I cross-check vendor claims against our own traces.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "cross-check",
+   "zh": "交叉核对（用另一个来源验证）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Before the meeting, double-check the math in the appendix.",
+     "zh": "开会之前，把附录里的计算再核对一遍。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "He found the error because he bothered to double-check the math.",
+    "zh": "你在读一篇研究型长文，看到这个说法："
+   },
+   "term": "double-check the math",
+   "zh": "再算一遍、核对计算"
+  }
+ ],
+ "layer": "D",
+ "title": "书面与阅读"
+}

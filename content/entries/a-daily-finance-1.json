@@ -1,0 +1,697 @@
+{
+ "category": "daily-finance",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "I'd like to open an account for receiving my salary.",
+     "zh": "我想开一个用来收工资的账户。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "What documents do I need to open an account as a foreign resident?",
+    "zh": "你在银行柜台办业务，这样说："
+   },
+   "term": "open an account",
+   "zh": "开户"
+  },
+  {
+   "examples": [
+    {
+     "en": "You can close an account in the app, but the card stays active for a day.",
+     "zh": "你可以在应用里销户，但卡还会多活一天。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'm moving abroad, so I'd like to close an account and transfer the balance.",
+    "zh": "你给银行或保险公司打电话，这样说："
+   },
+   "term": "close an account",
+   "zh": "销户、关掉账户"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keep the emergency fund in a savings account, not under the mattress.",
+     "zh": "应急钱放在储蓄账户里，别放在床垫底下。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The savings account pays slightly more interest than the current one.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "savings account",
+   "zh": "储蓄账户"
+  },
+  {
+   "examples": [
+    {
+     "en": "My salary lands in my current account on the last working day.",
+     "zh": "我的工资在每个月最后一个工作日打到活期账户里。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A current account is for daily spending; savings are separate.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "current account",
+   "zh": "活期账户（日常收支账户，英式说法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "We opened a joint account for rent and shared bills.",
+     "zh": "我们开了一个联名账户，专门付房租和共同账单。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Can we make it a joint account so both of us can access it?",
+    "zh": "你在银行柜台办业务，这样说："
+   },
+   "term": "joint account",
+   "zh": "联名账户"
+  },
+  {
+   "examples": [
+    {
+     "en": "Check the account balance before the big transfer, not after.",
+     "zh": "大额转账之前先查账户余额，别等转完再查。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Your account balance does not include the pending card payment.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "account balance",
+   "zh": "账户余额"
+  },
+  {
+   "examples": [
+    {
+     "en": "The embassy asked for six months of bank statements.",
+     "zh": "大使馆要求提供六个月的银行流水。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Could you email me a bank statement for March, stamped if possible?",
+    "zh": "你给银行或保险公司打电话，这样说："
+   },
+   "term": "bank statement",
+   "zh": "银行对账单、流水"
+  },
+  {
+   "examples": [
+    {
+     "en": "A wire transfer to another country takes one to three business days.",
+     "zh": "跨国电汇需要一到三个工作日。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd like to make a wire transfer to this account in Germany.",
+    "zh": "你在银行柜台办业务，这样说："
+   },
+   "term": "wire transfer",
+   "zh": "电汇（跨行/跨境汇款）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The transfer fee eats five percent on small amounts.",
+     "zh": "小额转账时，手续费能吃掉百分之五。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "There is no transfer fee between accounts at the same bank.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "transfer fee",
+   "zh": "转账手续费"
+  },
+  {
+   "examples": [
+    {
+     "en": "The exchange rate at the airport counter is always terrible.",
+     "zh": "机场柜台的汇率从来都很坑。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Which exchange rate applies if I pay in euros instead of dollars?",
+    "zh": "你给银行或保险公司打电话，这样说："
+   },
+   "term": "exchange rate",
+   "zh": "汇率"
+  },
+  {
+   "examples": [
+    {
+     "en": "The gym takes its monthly fee by direct debit.",
+     "zh": "健身房的月费是自动扣款的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "You can cancel a direct debit in the app at any time.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "direct debit",
+   "zh": "自动扣款（授权商家定期扣）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Rent goes out by standing order on the first of every month.",
+     "zh": "房租是每月一号定期自动转账付的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd like to set up a standing order for the rent, starting next month.",
+    "zh": "你在银行柜台办业务，这样说："
+   },
+   "term": "standing order",
+   "zh": "定期自动转账（自己设的固定付款）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An overdraft fee can cost more than the coffee that caused it.",
+     "zh": "透支费可能比引起透支的那杯咖啡还贵。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Your overdraft limit is five hundred; beyond that, payments bounce.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "overdraft",
+   "zh": "透支（账户里没钱还扣款）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Your account is overdrawn by twelve dollars.",
+     "zh": "你的账户透支了十二美元。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "I got a message saying my account is overdrawn, but I made a deposit yesterday.",
+    "zh": "你给银行或保险公司打电话，这样说："
+   },
+   "term": "overdrawn",
+   "zh": "透支的、余额为负的"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keep the minimum balance or the monthly fee kicks in.",
+     "zh": "保持最低余额，否则月费就来了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The minimum balance for the free tier is one thousand.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "minimum balance",
+   "zh": "最低余额要求"
+  },
+  {
+   "examples": [
+    {
+     "en": "The card's annual fee is waived for the first year only.",
+     "zh": "这张卡的年费只免第一年。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "An annual fee of ninety-nine dollars buys the travel insurance.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "annual fee",
+   "zh": "年费"
+  },
+  {
+   "examples": [
+    {
+     "en": "A late fee applies if the payment arrives after the due date.",
+     "zh": "付款在到期日之后到账，就要交滞纳金。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I was charged a late fee even though I paid on the due date itself.",
+    "zh": "你给银行或保险公司打电话，这样说："
+   },
+   "term": "late fee",
+   "zh": "滞纳金、逾期费"
+  },
+  {
+   "examples": [
+    {
+     "en": "The interest rate on savings barely beats inflation here.",
+     "zh": "这里储蓄的利率勉强跑赢通胀。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "What interest rate does the twelve-month deposit pay?",
+    "zh": "你在银行柜台办业务，这样说："
+   },
+   "term": "interest rate",
+   "zh": "利率"
+  },
+  {
+   "examples": [
+    {
+     "en": "A fixed deposit locks the money away for higher interest.",
+     "zh": "定期存款把钱锁一段时间，换更高的利息。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd like to put half of it into a twelve-month fixed deposit.",
+    "zh": "你在银行柜台办业务，这样说："
+   },
+   "term": "fixed deposit",
+   "zh": "定期存款"
+  },
+  {
+   "examples": [
+    {
+     "en": "Withdrawing before the maturity date loses the interest.",
+     "zh": "在到期日之前取出来，利息就没了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The maturity date is printed on the deposit certificate.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "maturity date",
+   "zh": "到期日（存款或债券的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Name a beneficiary on the policy, or the payout gets complicated.",
+     "zh": "在保单上写一个受益人，不然赔付会很麻烦。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "I'd like to change the beneficiary on my policy to my wife.",
+    "zh": "你给银行或保险公司打电话，这样说："
+   },
+   "term": "beneficiary",
+   "zh": "受益人（保险或账户指定的人）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The bank froze the card after a suspicious transaction abroad.",
+     "zh": "境外出现一笔可疑交易后，银行冻结了这张卡。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I got an alert about a suspicious transaction, but that was me traveling.",
+    "zh": "你给银行或保险公司打电话，这样说："
+   },
+   "term": "suspicious transaction",
+   "zh": "可疑交易（银行风控盯上的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "You have sixty days to dispute a charge on your statement.",
+     "zh": "对账单上的一笔扣款提出异议，你有六十天时间。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'm calling to dispute a charge I don't recognize from last Tuesday.",
+    "zh": "你给银行或保险公司打电话，这样说："
+   },
+   "term": "dispute a charge",
+   "zh": "对一笔扣款提出异议"
+  },
+  {
+   "examples": [
+    {
+     "en": "Report an unauthorized transaction the moment you see it.",
+     "zh": "一看到未授权交易就立刻报告。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "There are two unauthorized transactions on my card from last night.",
+    "zh": "你给银行或保险公司打电话，这样说："
+   },
+   "term": "unauthorized transaction",
+   "zh": "未授权交易（不是本人花的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "You can freeze an account instantly in the app if the card is lost.",
+     "zh": "卡丢了的话，你可以在应用里立刻冻结账户。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Please freeze an account under my name; my wallet was stolen.",
+    "zh": "你给银行或保险公司打电话，这样说："
+   },
+   "term": "freeze an account",
+   "zh": "冻结账户"
+  },
+  {
+   "examples": [
+    {
+     "en": "Raising the credit limit before a big trip avoids awkward declines.",
+     "zh": "大旅行之前提高信用额度，能避免尴尬的拒付。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Your credit limit resets as payments clear, not when you pay.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "credit limit",
+   "zh": "信用额度"
+  },
+  {
+   "examples": [
+    {
+     "en": "A good credit score makes renting an apartment much easier.",
+     "zh": "信用分好，租房子会容易很多。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Does this bank report to the bureau that builds my credit score?",
+    "zh": "你在银行柜台办业务，这样说："
+   },
+   "term": "credit score",
+   "zh": "信用分"
+  },
+  {
+   "examples": [
+    {
+     "en": "The loan application asks for income proof from the last two years.",
+     "zh": "贷款申请要求提供最近两年的收入证明。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd like to check the status of my loan application from last week.",
+    "zh": "你在银行柜台办业务，这样说："
+   },
+   "term": "loan application",
+   "zh": "贷款申请"
+  },
+  {
+   "examples": [
+    {
+     "en": "A mortgage is the biggest loan most people ever sign.",
+     "zh": "房贷是大多数人这辈子签的最大一笔贷款。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "With a twenty-year mortgage, most early payments are interest.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "mortgage",
+   "zh": "房贷、按揭"
+  },
+  {
+   "examples": [
+    {
+     "en": "Saving the down payment took three years of boring discipline.",
+     "zh": "攒首付用了三年无聊的自律。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "How large a down payment do I need for the lower rate?",
+    "zh": "你在银行柜台办业务，这样说："
+   },
+   "term": "down payment",
+   "zh": "首付"
+  },
+  {
+   "examples": [
+    {
+     "en": "Early repayment of the loan carries no penalty here.",
+     "zh": "这笔贷款提前还款没有罚金。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The repayment schedule shows principal and interest separately.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "repayment",
+   "zh": "还款"
+  },
+  {
+   "examples": [
+    {
+     "en": "With a high deductible, small repairs come out of your pocket.",
+     "zh": "免赔额高的话，小修小补都得自己掏钱。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "The deductible is five hundred per claim, not per year.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "deductible",
+   "zh": "免赔额（保险里自己先掏的部分）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The insurance premium is charged monthly, not yearly.",
+     "zh": "保费是按月扣的，不是按年。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Your insurance premium went up after the claim last year.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "insurance premium",
+   "zh": "保费"
+  },
+  {
+   "examples": [
+    {
+     "en": "An insurance claim needs photos, receipts, and patience.",
+     "zh": "保险理赔需要照片、收据和耐心。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'm calling about an insurance claim I filed two weeks ago.",
+    "zh": "你给银行或保险公司打电话，这样说："
+   },
+   "term": "insurance claim",
+   "zh": "保险理赔"
+  },
+  {
+   "examples": [
+    {
+     "en": "You must file a claim within thirty days of the incident.",
+     "zh": "你必须在事故发生后三十天内提交理赔申请。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd like to file a claim for the water damage in my kitchen.",
+    "zh": "你给银行或保险公司打电话，这样说："
+   },
+   "term": "file a claim",
+   "zh": "提交理赔申请"
+  },
+  {
+   "examples": [
+    {
+     "en": "The claim was denied because the damage predates the policy.",
+     "zh": "理赔被拒了，因为损坏发生在保单生效之前。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "My claim was denied and I'd like to appeal with more documents.",
+    "zh": "你给银行或保险公司打电话，这样说："
+   },
+   "term": "claim denied",
+   "zh": "理赔被拒"
+  },
+  {
+   "examples": [
+    {
+     "en": "The coverage limit for luggage is lower than my laptop's price.",
+     "zh": "行李的赔付上限比我笔记本的价格还低。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Check the coverage limit before assuming the policy saves you.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "coverage limit",
+   "zh": "保额上限、赔付上限"
+  },
+  {
+   "examples": [
+    {
+     "en": "Only the policy holder can change the beneficiary.",
+     "zh": "只有投保人能更改受益人。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'm the policy holder; the policy number ends in 4417.",
+    "zh": "你给银行或保险公司打电话，这样说："
+   },
+   "term": "policy holder",
+   "zh": "投保人、保单持有人"
+  },
+  {
+   "examples": [
+    {
+     "en": "You can renew a policy online until the day it expires.",
+     "zh": "在保单到期当天之前都可以在线续保。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I'd like to renew a policy, but with a lower deductible this time.",
+    "zh": "你给银行或保险公司打电话，这样说："
+   },
+   "term": "renew a policy",
+   "zh": "续保"
+  },
+  {
+   "examples": [
+    {
+     "en": "Third-party insurance covers damage you cause to others.",
+     "zh": "第三方责任险赔的是你给别人造成的损失。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Is third-party insurance included in the rental price?",
+    "zh": "你在银行柜台办业务，这样说："
+   },
+   "term": "third-party insurance",
+   "zh": "第三方责任险"
+  },
+  {
+   "examples": [
+    {
+     "en": "Travel insurance pays off the first time a flight strands you.",
+     "zh": "旅行保险在第一次航班把你困住时就值回票价了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The travel insurance covers cancellations, not changes of mind.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "travel insurance",
+   "zh": "旅行保险"
+  },
+  {
+   "examples": [
+    {
+     "en": "Freelancers file a tax return every year, even with one client.",
+     "zh": "自由职业者每年都要报税，哪怕只有一个客户。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "I need a copy of last year's tax return for the visa application.",
+    "zh": "你给银行或保险公司打电话，这样说："
+   },
+   "term": "tax return",
+   "zh": "报税、纳税申报表"
+  },
+  {
+   "examples": [
+    {
+     "en": "The tax refund landed two months after filing.",
+     "zh": "退税在申报两个月后到账。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A bigger tax refund just means you lent the government money for free.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "tax refund",
+   "zh": "退税"
+  },
+  {
+   "examples": [
+    {
+     "en": "Income tax is withheld from the salary before you see it.",
+     "zh": "所得税在工资到你手里之前就被扣掉了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Remote workers may owe income tax in two countries at once.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "income tax",
+   "zh": "所得税"
+  },
+  {
+   "examples": [
+    {
+     "en": "The withholding on my payslip never matches the final bill exactly.",
+     "zh": "工资单上的代扣永远和最后的税单对不齐。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Can I adjust the withholding now that I work remotely?",
+    "zh": "你在银行柜台办业务，这样说："
+   },
+   "term": "withholding",
+   "zh": "代扣（工资里预先扣的税）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keep every invoice for taxes if you freelance.",
+     "zh": "如果你是自由职业，税务用的发票凭证一张都别扔。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The platform issues an invoice for taxes at the end of each month.",
+    "zh": "你在看自己的账单或保单条款，这样理解："
+   },
+   "term": "invoice for taxes",
+   "zh": "税务用的发票凭证"
+  }
+ ],
+ "layer": "A",
+ "title": "银行与保险"
+}
