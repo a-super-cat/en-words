@@ -257,6 +257,12 @@ a {
   padding-bottom: 96px;
 }
 
+/* 列表行的按下反馈统一放全局：:hover 在触控屏上不触发，按下去要有个回应 */
+.list .item:active,
+.list a:active {
+  background: var(--bg);
+}
+
 main {
   max-width: 780px;
   margin: 0 auto;

@@ -101,9 +101,9 @@ useHotkeys((key, e) => {
 </script>
 
 <template>
-  <div class="stack">
+  <div class="stack" :class="{ 'has-actionbar': scenario && !done }">
     <div class="row between">
-      <RouterLink to="/scenarios" class="btn ghost">← 场景</RouterLink>
+      <RouterLink to="/scenes" class="btn ghost">← 场景</RouterLink>
       <span v-if="scenario && !done" class="muted small">{{ index + 1 }} / {{ turns.length }}</span>
     </div>
 
@@ -133,13 +133,6 @@ useHotkeys((key, e) => {
             <p class="line">{{ turn.en }}</p>
             <p class="muted small">{{ turn.zh }}</p>
           </template>
-          <div class="row">
-            <button type="button" class="primary" @click="next">
-              {{ index < turns.length - 1 ? '下一句' : '结束' }} <kbd>空格</kbd>
-            </button>
-            <button v-if="ttsSupported" type="button" @click="say(turn.en)">再听一遍 <kbd>R</kbd></button>
-            <button v-if="!revealed" type="button" @click="reveal">看原文 <kbd>T</kbd></button>
-          </div>
         </template>
 
         <template v-else>
@@ -148,10 +141,7 @@ useHotkeys((key, e) => {
             <span class="muted small">用英文把这个意思说出来</span>
           </div>
           <p class="line">{{ turn.zh }}</p>
-          <div v-if="!revealed">
-            <button type="button" class="primary" @click="reveal">说完了，看参考说法 <kbd>空格</kbd></button>
-          </div>
-          <template v-else>
+          <template v-if="revealed">
             <hr />
             <div class="muted small">参考说法（意思到了就算对，不必逐字相同）</div>
             <div class="row tight">
@@ -159,13 +149,37 @@ useHotkeys((key, e) => {
               <SpeakButton :text="turn.en" />
             </div>
             <ChunkList :chunks="turn.chunks" layer="B" />
-            <div class="row">
-              <button type="button" class="danger" @click="judge(false)">没说出来 <kbd>1</kbd></button>
-              <button type="button" class="primary" @click="judge(true)">说出来了 <kbd>2</kbd></button>
-            </div>
           </template>
         </template>
       </section>
+
+      <!-- 场景推进和判定固定在底部，跟着对话走不用回滚页面找按钮 -->
+      <div v-if="!done && turn" class="actionbar">
+        <template v-if="turn.speaker === 'them'">
+          <button type="button" class="primary" @click="next">
+            <span>{{ index < turns.length - 1 ? '下一句' : '结束' }} <kbd>空格</kbd></span>
+          </button>
+          <button v-if="ttsSupported" type="button" @click="say(turn.en)">
+            <span>再听一遍 <kbd>R</kbd></span>
+          </button>
+          <button v-if="!revealed" type="button" @click="reveal">
+            <span>看原文 <kbd>T</kbd></span>
+          </button>
+        </template>
+        <template v-else-if="!revealed">
+          <button type="button" class="primary" @click="reveal">
+            <span>说完了，看参考说法 <kbd>空格</kbd></span>
+          </button>
+        </template>
+        <template v-else>
+          <button type="button" class="danger" @click="judge(false)">
+            <span>没说出来 <kbd>1</kbd></span>
+          </button>
+          <button type="button" class="primary" @click="judge(true)">
+            <span>说出来了 <kbd>2</kbd></span>
+          </button>
+        </template>
+      </div>
 
       <section v-if="done" class="panel stack center">
         <h2>这个场景练完了</h2>

@@ -113,7 +113,7 @@ useHotkeys((key, e) => {
 </script>
 
 <template>
-  <div class="stack">
+  <div class="stack" :class="{ 'has-actionbar': phase !== 'done' }">
     <div class="row between">
       <RouterLink to="/" class="btn ghost">← 退出</RouterLink>
       <span v-if="phase !== 'done'" class="muted small">
@@ -125,12 +125,6 @@ useHotkeys((key, e) => {
     <section v-if="phase === 'study' && current" class="panel stack">
       <span class="muted small">{{ app.categoryTitle.get(current.category) }} · 听一遍，跟读一遍</span>
       <EntryFacts :entry="current" show-situation />
-      <div class="row">
-        <button type="button" class="primary" @click="nextStudy(false)">
-          {{ studyIndex < group.length - 1 ? '下一条' : '开始小测' }} <kbd>空格</kbd>
-        </button>
-        <button type="button" @click="nextStudy(true)">已经会了 <kbd>K</kbd></button>
-      </div>
     </section>
 
     <section v-else-if="phase === 'test' && current" class="panel stack">
@@ -140,15 +134,31 @@ useHotkeys((key, e) => {
       <template v-if="revealed">
         <hr />
         <EntryFacts :entry="current" compact />
-        <div class="row">
-          <button type="button" class="danger" @click="answer(false)">{{ current.layer === 'D' ? '没想起来' : '没说对' }} <kbd>1</kbd></button>
-          <button type="button" class="primary" @click="answer(true)">{{ current.layer === 'D' ? '想起来了' : '说对了' }} <kbd>2</kbd></button>
-        </div>
       </template>
-      <div v-else>
-        <button type="button" class="primary" @click="reveal">看答案 <kbd>空格</kbd></button>
-      </div>
     </section>
+
+    <!-- 学习和自测的推进按钮固定在底部 -->
+    <div v-if="phase === 'study' && current" class="actionbar">
+      <button type="button" class="primary" @click="nextStudy(false)">
+        <span>{{ studyIndex < group.length - 1 ? '下一条' : '开始小测' }} <kbd>空格</kbd></span>
+      </button>
+      <button type="button" @click="nextStudy(true)">
+        <span>已经会了 <kbd>K</kbd></span>
+      </button>
+    </div>
+    <div v-else-if="phase === 'test' && current" class="actionbar">
+      <template v-if="revealed">
+        <button type="button" class="danger" @click="answer(false)">
+          <span>{{ current.layer === 'D' ? '没想起来' : '没说对' }} <kbd>1</kbd></span>
+        </button>
+        <button type="button" class="primary" @click="answer(true)">
+          <span>{{ current.layer === 'D' ? '想起来了' : '说对了' }} <kbd>2</kbd></span>
+        </button>
+      </template>
+      <button v-else type="button" class="primary" @click="reveal">
+        <span>看答案 <kbd>空格</kbd></span>
+      </button>
+    </div>
 
     <section v-else-if="phase === 'done'" class="panel stack center">
       <template v-if="learned > 0">
