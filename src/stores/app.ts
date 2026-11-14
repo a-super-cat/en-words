@@ -54,7 +54,8 @@ const DEFAULTS: Settings = {
   maxReviews: 120,
   autoSpeak: true,
   voice: '',
-  rate: 1,
+  // 默认 0.9 倍：Jenny 原速约 176 词/分偏快，0.9 落在日常对话平均的约 155 词/分
+  rate: 0.9,
   ttsEngine: 'system',
   azureKey: '',
   azureRegion: 'eastus',

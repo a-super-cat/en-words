@@ -21,8 +21,13 @@ export const escapeXml = (text: string): string =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&apos;');
 
-/** 应用里的语速（0.6–1.3）换成 SSML prosody 的百分比写法 */
-export const ssmlRate = (rate: number): string => `${Math.round(rate * 100)}%`;
+/**
+ * 应用里的语速（0.6–1.3 倍率）换成 SSML prosody rate 的写法：直接用倍率数字。
+ * 不能写百分比：Azure 的百分比是“在原速上增减”，"100%" 表示提速一倍而不是原速。
+ * 2026-11-14 实测对照（Jenny 读同一长句）：无 prosody、rate="1"、rate="0%" 都是约 176 词/分，
+ * 旧写法 rate="100%" 是约 348 词/分——这个 bug 从接入 Azure 起就在，滑杆全程没有一档是正常速度。
+ */
+export const ssmlRate = (rate: number): string => String(Math.round(rate * 100) / 100);
 
 export function buildSsml(text: string, voice: string, rate: number): string {
   return (

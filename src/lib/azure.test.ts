@@ -11,10 +11,10 @@ describe('escapeXml', () => {
 });
 
 describe('ssmlRate', () => {
-  it('语速换成百分比', () => {
-    expect(ssmlRate(1)).toBe('100%');
-    expect(ssmlRate(0.9)).toBe('90%');
-    expect(ssmlRate(1.25)).toBe('125%');
+  it('语速是倍率数字，不是百分比（百分比在 Azure 里是相对增减，100% 等于两倍速）', () => {
+    expect(ssmlRate(1)).toBe('1');
+    expect(ssmlRate(0.9)).toBe('0.9');
+    expect(ssmlRate(1.25)).toBe('1.25');
   });
 });
 
@@ -22,7 +22,7 @@ describe('buildSsml', () => {
   it('包含语音名、语速和转义后的文本', () => {
     const ssml = buildSsml('Fish & chips', 'en-US-JennyNeural', 0.9);
     expect(ssml).toContain('<voice name="en-US-JennyNeural">');
-    expect(ssml).toContain('rate="90%"');
+    expect(ssml).toContain('rate="0.9"');
     expect(ssml).toContain('Fish &amp; chips');
     expect(ssml.startsWith('<speak')).toBe(true);
   });

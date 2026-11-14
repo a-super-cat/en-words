@@ -137,7 +137,7 @@ async function fetchAzureBlob(text: string, opts: SpeakOptions): Promise<Blob> {
     headers: {
       'Ocp-Apim-Subscription-Key': opts.azureKey!,
       'Content-Type': 'application/ssml+xml',
-      'X-Microsoft-OutputFormat': 'audio-24khz-48kbitrate-mono-mp3',
+      'X-Microsoft-OutputFormat': 'audio-48khz-192kbitrate-mono-mp3',
     },
     body: buildSsml(text, opts.azureVoice!, opts.rate),
   });
