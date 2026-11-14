@@ -194,7 +194,7 @@ useHotkeys((key, e) => {
 </script>
 
 <template>
-  <div class="stack">
+  <div class="stack has-actionbar">
     <div class="row between">
       <RouterLink to="/" class="btn ghost">← 退出</RouterLink>
       <div class="row">
@@ -232,11 +232,7 @@ useHotkeys((key, e) => {
         <div v-if="isProduce" class="bar" :class="{ over: countdown === 0 }">
           <span :style="{ width: countdown === 0 ? '100%' : `${countdown * 100}%` }" />
         </div>
-        <div>
-          <button type="button" class="primary" @click="reveal">
-            {{ isProduce ? '说完了，看答案' : '看答案' }} <kbd>空格</kbd>
-          </button>
-        </div>
+        <p class="muted small">想好之后，点底部按钮看答案。</p>
       </template>
 
       <template v-else>
@@ -253,26 +249,36 @@ useHotkeys((key, e) => {
         <p v-if="overtime && !view.item.redo" class="notice">
           想了 {{ (revealMs / 1000).toFixed(1) }} 秒，超过了 {{ view.prompt.limitSec }} 秒。说对了也建议评“困难”。
         </p>
-
-        <div v-if="view.item.redo" class="row">
-          <button type="button" class="danger" @click="rate(1)">没说对 <kbd>1</kbd></button>
-          <button type="button" class="primary" @click="rate(3)">说对了 <kbd>2</kbd></button>
-        </div>
-        <div v-else class="ratings">
-          <button
-            v-for="r in RATINGS"
-            :key="r.rating"
-            type="button"
-            :class="[r.cls, { suggest: overtime && r.rating === 2 }]"
-            :disabled="busy"
-            @click="rate(r.rating)"
-          >
-            <span>{{ r.label }} <kbd>{{ r.rating }}</kbd></span>
-            <span class="muted small">{{ fmtDays(view.days[r.rating]) }}后</span>
-          </button>
-        </div>
       </template>
     </section>
+
+    <!-- 主要操作固定在底部拇指区：看答案、评分都不用够着屏幕中间 -->
+    <div v-if="view && !paused" class="actionbar">
+      <button v-if="!revealed" type="button" class="primary" @click="reveal">
+        <span>{{ isProduce ? '说完了，看答案' : '看答案' }} <kbd>空格</kbd></span>
+      </button>
+      <template v-else-if="view.item.redo">
+        <button type="button" class="danger" :disabled="busy" @click="rate(1)">
+          <span>没说对 <kbd>1</kbd></span>
+        </button>
+        <button type="button" class="primary" :disabled="busy" @click="rate(3)">
+          <span>说对了 <kbd>2</kbd></span>
+        </button>
+      </template>
+      <template v-else>
+        <button
+          v-for="r in RATINGS"
+          :key="r.rating"
+          type="button"
+          :class="[r.cls, { suggest: overtime && r.rating === 2 }]"
+          :disabled="busy"
+          @click="rate(r.rating)"
+        >
+          <span>{{ r.label }} <kbd>{{ r.rating }}</kbd></span>
+          <span class="muted small">{{ fmtDays(view.days[r.rating]) }}后</span>
+        </button>
+      </template>
+    </div>
 
     <section v-else-if="done" class="panel stack center">
       <template v-if="stats.rated > 0">

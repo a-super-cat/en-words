@@ -141,7 +141,7 @@ useHotkeys((key, e) => {
 </script>
 
 <template>
-  <div class="stack">
+  <div class="stack" :class="{ 'has-actionbar': question && (phase === 'ready' || phase === 'answering') }">
     <div class="row between">
       <RouterLink to="/speak" class="btn ghost">← 题库</RouterLink>
       <span v-if="question && phase !== 'done'" class="muted small">
@@ -184,10 +184,6 @@ useHotkeys((key, e) => {
             行为题用自己的真实经历回答。可以先看一眼
             <RouterLink to="/speak/stories">我的 STAR 故事</RouterLink>。
           </p>
-          <div class="row">
-            <button type="button" class="primary" @click="start">开始回答 <kbd>空格</kbd></button>
-            <button v-if="round === 2" type="button" @click="phase = 'done'">不答了，结束</button>
-          </div>
         </template>
 
         <template v-else-if="phase === 'answering'">
@@ -198,9 +194,23 @@ useHotkeys((key, e) => {
           </p>
           <ChunkList :chunks="question.chunks" layer="C" hide-add />
           <ChunkList v-if="learnedChunks.length > 0" :chunks="learnedChunks" layer="C" hide-add />
-          <div><button type="button" class="primary" @click="finishAnswer">说完了 <kbd>空格</kbd></button></div>
         </template>
       </section>
+
+      <!-- 开始/结束回答固定在底部，答题时不用低头找按钮 -->
+      <div v-if="phase === 'ready'" class="actionbar">
+        <button type="button" class="primary" @click="start">
+          <span>开始回答 <kbd>空格</kbd></span>
+        </button>
+        <button v-if="round === 2" type="button" @click="phase = 'done'">
+          <span>不答了，结束</span>
+        </button>
+      </div>
+      <div v-else-if="phase === 'answering'" class="actionbar">
+        <button type="button" class="primary" @click="finishAnswer">
+          <span>说完了 <kbd>空格</kbd></span>
+        </button>
+      </div>
 
       <section v-if="phase === 'review'" class="panel stack">
         <h2>回听和自评 · 用时 {{ fmt(seconds) }}</h2>

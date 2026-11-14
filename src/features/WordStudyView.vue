@@ -122,7 +122,7 @@ async function grade(rating: Rating) {
 </script>
 
 <template>
-  <div class="stack study">
+  <div class="stack has-actionbar">
     <div class="row between">
       <RouterLink to="/words" class="muted small back">‹ 单词</RouterLink>
       <span v-if="items.length > 0 && !done" class="muted small">{{ Math.min(index + 1, items.length) }} / {{ items.length }}</span>
@@ -170,7 +170,7 @@ async function grade(rating: Rating) {
       </section>
     </template>
 
-    <div v-if="ready && !done && current" class="gradebar">
+    <div v-if="ready && !done && current" class="actionbar">
       <button v-if="!revealed" type="button" class="primary big" @click="revealed = true">显示释义</button>
       <template v-else>
         <button
@@ -190,10 +190,6 @@ async function grade(rating: Rating) {
 </template>
 
 <style scoped>
-.study {
-  padding-bottom: 96px;
-}
-
 .back {
   text-decoration: none;
 }
@@ -244,41 +240,11 @@ async function grade(rating: Rating) {
   gap: 4px;
 }
 
-.gradebar {
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  gap: 8px;
-  padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  z-index: 6;
-}
-
-@media (min-width: 560px) {
-  .gradebar {
-    max-width: 480px;
-  }
-}
-
-.gradebar button {
-  flex: 1;
-  min-height: 52px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1px;
-}
-
-.gradebar button.big {
+.actionbar button.big {
   font-size: 1.05rem;
 }
 
-.gradebar .days {
+.actionbar .days {
   font-size: 0.72rem;
   opacity: 0.75;
 }
