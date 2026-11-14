@@ -1,0 +1,442 @@
+{
+ "category": "travel",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "A twisted ankle on day two rearranges the whole itinerary.",
+     "zh": "第二天就扭伤脚踝，会把整个行程重新洗牌。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Describe a twisted ankle precisely: swollen, bruised, can it bear weight?",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "twisted ankle",
+   "zh": "扭伤的脚踝"
+  },
+  {
+   "examples": [
+    {
+     "en": "Four stitches and a tetanus shot: the complete souvenir package.",
+     "zh": "缝四针再打一针破伤风：完整的纪念品套装。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Ask when the stitches come out and who can remove them back home.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "stitches",
+   "zh": "缝针（伤口缝合）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The X-ray scan ruled out a fracture in ten minutes.",
+     "zh": "X 光片十分钟就排除了骨折。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "An X-ray scan abroad costs little and answers everything.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "X-ray scan",
+   "zh": "拍 X 光片"
+  },
+  {
+   "examples": [
+    {
+     "en": "The blood test came back normal; the mystery remained a mystery.",
+     "zh": "验血结果正常；谜团还是谜团。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A blood test before noon means results by dinner.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "blood test",
+   "zh": "验血"
+  },
+  {
+   "examples": [
+    {
+     "en": "Keep the medical bill itemized; the insurer reads nothing else.",
+     "zh": "医疗账单要留明细版；保险公司只认这个。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ask whether the medical bill can be sent directly to the insurer.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "medical bill",
+   "zh": "医疗账单"
+  },
+  {
+   "examples": [
+    {
+     "en": "The claim form wants the same facts three times in three boxes.",
+     "zh": "理赔申请表会在三个格子问你三遍同样的事实。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Fill the claim form while the details are still loud in your memory.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "claim form",
+   "zh": "理赔申请表"
+  },
+  {
+   "examples": [
+    {
+     "en": "Emergency treatment is covered by insurance; the private clinic upgrade is not.",
+     "zh": "急诊治疗在保险覆盖范围内；私立诊所的升级部分不在。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ask 'is this covered by insurance' before the scan, not after.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "covered by insurance",
+   "zh": "在保险覆盖范围内的"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every out-of-pocket expense needs a receipt, however small.",
+     "zh": "每一笔自掏腰包的支出都要小票，再小也要。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Track each out-of-pocket expense in one phone note from day one.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "out-of-pocket expense",
+   "zh": "自掏腰包的支出（先垫付）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Direct billing means you sign and leave; no receipts to chase.",
+     "zh": "直付的意思是你签字就能走；不用追着小票跑。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ask for direct billing at registration — retroactive is a fight.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "direct billing",
+   "zh": "直付（医院直接和保险公司结算）"
+  },
+  {
+   "examples": [
+    {
+     "en": "An emergency room visit abroad is calmer than its reputation.",
+     "zh": "在国外去趟急诊，比传说中的要平静。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "An emergency room visit usually starts at a triage desk, not a queue.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "emergency room visit",
+   "zh": "去急诊就诊（这件事本身）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Monthly rent here equals three hotel nights; the math argues itself.",
+     "zh": "这里的月租金等于三晚酒店钱；这笔账自己就会算。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Negotiate the monthly rent with the stay length, not with charm.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "monthly rent",
+   "zh": "月租金"
+  },
+  {
+   "examples": [
+    {
+     "en": "A furnished apartment for a nomad means desk and chair, not just a bed.",
+     "zh": "对游民来说，带家具的公寓意味着有桌椅，而不只是有床。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Photograph a furnished apartment at move-in like it's a rental car.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "furnished apartment",
+   "zh": "带家具的公寓（拎包入住）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The security deposit for a month's stay is usually one month's rent.",
+     "zh": "住一个月的租房押金通常是一个月租金。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ask how the security deposit returns: cash, transfer, and when.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "security deposit (rental)",
+   "zh": "租房押金"
+  },
+  {
+   "examples": [
+    {
+     "en": "The lease term that matters is the exit clause, not the start date.",
+     "zh": "租期条款里重要的是退出条款，不是起始日期。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Read the lease term about early departure twice.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "lease term",
+   "zh": "租期条款"
+  },
+  {
+   "examples": [
+    {
+     "en": "Notice to move out is thirty days in most monthly contracts.",
+     "zh": "大多数月租合同的退租通知期是三十天。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Send the notice to move out in writing the day your plans change.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "notice to move out",
+   "zh": "退租通知（提前告知搬走）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A remote worker books apartments by wifi speed and chair quality.",
+     "zh": "远程工作者按网速和椅子质量来订公寓。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Cafés full of remote workers have the outlets and the silence rules.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "remote worker",
+   "zh": "远程工作者"
+  },
+  {
+   "examples": [
+    {
+     "en": "The coworking space sells day passes with coffee and dignity included.",
+     "zh": "共享办公空间卖日票，含咖啡和体面。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A coworking space near the flat saves the whole stay's mornings.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "coworking space",
+   "zh": "共享办公空间"
+  },
+  {
+   "examples": [
+    {
+     "en": "Fast wifi on the listing meant fast at 3 a.m., not at meeting time.",
+     "zh": "房源上写的快网速指的是凌晨三点快，不是开会时快。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ask the host for a speed test screenshot, not the words 'fast wifi'.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "fast wifi",
+   "zh": "快网速（能开视频会的那种）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The sleeper train turns an expensive night into transport and a story.",
+     "zh": "卧铺火车把昂贵的一夜变成交通工具加一个故事。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Book the sleeper train early; lower berths go first.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "sleeper train",
+   "zh": "卧铺火车"
+  },
+  {
+   "examples": [
+    {
+     "en": "The lower berth costs more and earns it after midnight.",
+     "zh": "下铺贵一点，但半夜之后就值回来了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Older travelers get the lower berth; offer the swap and be remembered.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "lower berth",
+   "zh": "下铺"
+  },
+  {
+   "examples": [
+    {
+     "en": "The upper berth is cheaper, quieter, and a small daily climb.",
+     "zh": "上铺更便宜、更安静，就是每天要小爬一次。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In the upper berth, keep water and phone in the net pocket.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "upper berth",
+   "zh": "上铺"
+  },
+  {
+   "examples": [
+    {
+     "en": "A kind compartment mate guards your bags at every stop.",
+     "zh": "一位友善的同包厢旅客会在每一站帮你看着行李。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Offer your compartment mate the window seat first; diplomacy is cheap.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "compartment mate",
+   "zh": "同包厢的旅客"
+  },
+  {
+   "examples": [
+    {
+     "en": "The border stop at night means passports collected and lights on at 3 a.m.",
+     "zh": "夜间边境停靠查验意味着凌晨三点收护照、开大灯。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Keep documents in the pillow pocket for the border stop at night.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "border stop at night",
+   "zh": "夜间边境停靠查验"
+  },
+  {
+   "examples": [
+    {
+     "en": "The station's lost and found opens at nine and closes your hope at five.",
+     "zh": "车站的失物招领处九点开门，五点关上你的希望。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Describe the item at lost and found with one detail only the owner knows.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "lost and found",
+   "zh": "失物招领处"
+  },
+  {
+   "examples": [
+    {
+     "en": "The valuables declaration caps each item; the camera needed its own line.",
+     "zh": "贵重物品申报对每件物品有上限；相机需要单独一行。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Photograph serial numbers when you write the valuables declaration.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "valuables declaration",
+   "zh": "贵重物品申报（投保/理赔时的清单）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The policy pays replacement cost, not the price you paid in 2019.",
+     "zh": "保单赔的是重置成本，不是你 2019 年买时的价格。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Argue replacement cost with a current listing, not with feelings.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "replacement cost",
+   "zh": "重置成本（按现在的价赔多少）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every email about the laptop starts with the claim number.",
+     "zh": "关于这台笔记本的每封邮件，开头都是理赔案件号。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Quote the claim number on the phone or restart the conversation each time.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "claim number",
+   "zh": "理赔案件号"
+  },
+  {
+   "examples": [
+    {
+     "en": "Processing time is fifteen working days, plus your patience.",
+     "zh": "处理时长是十五个工作日，外加你的耐心。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ask for the processing time in writing; phone promises evaporate.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "processing time",
+   "zh": "处理时长（审核要多久）"
+  },
+  {
+   "examples": [
+    {
+     "en": "'Case closed' arrives by email; the money arrives by its own calendar.",
+     "zh": "“结案”是邮件先到；钱按它自己的日历到。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A case closed email should state the final amount and the appeal window.",
+    "zh": "你在国外旅行或旅居，需要用到这个表达："
+   },
+   "term": "case closed",
+   "zh": "结案、案件关闭"
+  }
+ ],
+ "layer": "A",
+ "title": "旅游娱乐"
+}

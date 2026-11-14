@@ -2031,6 +2031,286 @@
           ]
         }
       ]
+    },
+    {
+      "id": "emergency-room-abroad",
+      "title": "国外急诊：滑雪扭伤后的完整就医",
+      "setting": "滑雪第三天，你在初级雪道摔了一跤，脚踝肿得像馒头，额头还蹭破了。朋友把你送到镇医院的急诊。分诊护士、医生、收费窗口——一套完整流程走下来。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Triage nurse",
+          "en": "Sit here, please. What happened, and where does it hurt most?",
+          "zh": "请坐这里。发生了什么？哪里最疼？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你把受伤经过说清：滑雪摔倒、右脚踝扭伤、肿胀、不能完全负重，额头有擦伤；你没有药物过敏，但你要先声明这一点以防用药。",
+          "en": "I fell skiing an hour ago. It's a twisted ankle — right side, swollen, and I can't put full weight on it. There's also a cut on my forehead. No drug allergies, for the record.",
+          "chunks": [
+            { "term": "twisted ankle", "zh": "扭伤的脚踝" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Doctor",
+          "en": "We'll start with an X-ray scan of the ankle. The forehead cut is shallow; it may need two stitches after we clean it. Any medication you take regularly?",
+          "zh": "我们先给脚踝拍 X 光片。额头的伤口不深，清洗后可能需要缝两针。您有长期服用的药吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你回答没有长期用药，并问费用的处理方式：你有旅行保险，这家医院能不能直付、还是你要先垫付再回去报销，你想在检查前问清楚。",
+          "en": "No regular medication. One question before the X-ray scan: I have travel insurance — can this hospital do direct billing, or do I pay first and claim later?",
+          "chunks": [
+            { "term": "X-ray scan", "zh": "拍 X 光片" },
+            { "term": "direct billing", "zh": "直付（医院直接和保险公司结算）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Doctor",
+          "en": "We can bill your insurer directly for the scan and treatment if you sign the form at the desk. The X-ray shows no fracture — a bad sprain. The cut needs three stitches and a tetanus update.",
+          "zh": "如果您在前台签了表，检查和治疗我们可以直接和保险公司结算。X 光显示没有骨折——是严重扭伤。伤口需要缝三针，再补一针破伤风。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你确认治疗方案并问清后续：缝针没问题；扭伤这边是打固定还是只给拐杖、几天不能滑雪、拆线在家附近的诊所能不能拆。",
+          "en": "Stitches are fine. For the ankle: is it a brace and crutches? How many days off skiing — and can a clinic back home remove the stitches?",
+          "chunks": [
+            { "term": "stitches", "zh": "缝针（伤口缝合）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Doctor",
+          "en": "Brace, crutches, no skiing for a week — the holiday becomes cafés and museums, my friend. Stitches out in seven days, any clinic can do it. The desk will print your report for the insurer.",
+          "zh": "固定支具、拐杖、一周不能滑雪——朋友，你的假期要变成咖啡馆和博物馆了。七天后拆线，任何诊所都可以。窗口会把给保险公司的报告打印给您。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你在收费窗口做最后确认：今天签了直付表，医疗账单就不从你卡里扣了对吗；报告和明细你都拿到了，回去的理赔就齐了。",
+          "en": "So with the direct billing form signed, the medical bill goes straight to the insurer, nothing from my card today. Report and itemized bill in hand — my emergency room visit paperwork is complete.",
+          "chunks": [
+            { "term": "medical bill", "zh": "医疗账单" },
+            { "term": "emergency room visit", "zh": "去急诊就诊（这件事本身）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Desk clerk",
+          "en": "Complete. Keep the brace receipt too — small out-of-pocket items still claim well with receipts.",
+          "zh": "齐了。支具的小票也留好——小的自费项目有票一样好报销。"
+        }
+      ]
+    },
+    {
+      "id": "monthly-rental-as-nomad",
+      "title": "数字游民月租：看房谈合同",
+      "setting": "你计划在一个海边城市远程办公住一个月。房东 Carlos 在应用上挂了一套“适合远程办公”的公寓，你去看房——你要问的不是风景，是网速、桌子和退出条款。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Carlos (landlord)",
+          "en": "Welcome! Two bedrooms, sea glimpse from the balcony, and the quiet street everyone wants. Rent is nine hundred a month. Questions?",
+          "zh": "欢迎！两居室，阳台能瞥见海，还有大家都想要的安静街道。月租九百。有什么问题吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你直奔工作命脉：网速请他现场测速给你看，你每天有四个小时视频会议；还有那张桌子的椅子能不能换成有靠背的。",
+          "en": "The view is lovely, but my job lives on calls: could you run a speed test now? 'Fast wifi' needs to survive four hours of video meetings a day. And is there a chair with a back for that desk?",
+          "chunks": [
+            { "term": "fast wifi", "zh": "快网速（能开视频会的那种）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Carlos (landlord)",
+          "en": "Three hundred down, forty up — fiber. The chair I'll swap from my own flat. The coworking space two streets down is the backup everyone uses when the power blinks.",
+          "zh": "下行三百、上行四十，光纤。椅子我从自己家搬一把过来。两条街外有家共享办公空间，停电时大家都去那儿当备份。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你谈价格和押金：你一次住满五周、提前付整月，月租能不能到八百二；押金多少、怎么退、几天到账，也要先说明白。",
+          "en": "Fiber sells it. For a five-week stay paid upfront, could the monthly rent come to eight twenty? And the security deposit (rental) — how much, and how and when does it come back? Good to know the coworking space is there as a backup, by the way.",
+          "chunks": [
+            { "term": "monthly rent", "zh": "月租金" },
+            { "term": "security deposit (rental)", "zh": "租房押金" },
+            { "term": "coworking space", "zh": "共享办公空间" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Carlos (landlord)",
+          "en": "Eight twenty for five weeks, agreed. Deposit is one month, back by transfer within seven days of checkout if the flat is as you found it. Utilities are billed at cost with the meter photos.",
+          "zh": "五周八百二，成交。押金一个月，退房后七天里转账退，前提是房子和入住时一样。水电按成本算，拍水表电表为准。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你问最关键的退出条款：如果工作变动你要提前两周走，租期怎么算——按天折算退剩余，还是整月不退。这个写进合同里你才签。",
+          "en": "Last critical point, the lease term: if work pulls me away two weeks early, is the rest refunded pro-rata, or lost? I need that in the contract before I sign.",
+          "chunks": [
+            { "term": "lease term", "zh": "租期条款" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Carlos (landlord)",
+          "en": "Pro-rata after week three, if you give notice two weeks ahead — I'll write it in. Furnished as you see it, plus the good chair. Deal?",
+          "zh": "第三周之后按天折算，前提是提前两周通知——我写进合同。家具就是你看到的这些，再加那把好椅子。成交？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你成交并把手续说清：合同电子版发你邮箱、你今晚签；入住那天你们一起拍一遍房子的照片存档，省得退押金时扯皮。",
+          "en": "Deal. Send the contract tonight; I sign digitally. On move-in day we photograph the whole furnished apartment together — deposit peace for both of us.",
+          "chunks": [
+            { "term": "furnished apartment", "zh": "带家具的公寓（拎包入住）" },
+            { "term": "notice to move out", "zh": "退租通知（提前告知搬走）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Carlos (landlord)",
+          "en": "Photos, meter readings, contract — a remote worker after my own heart. See you Friday with the good chair.",
+          "zh": "照片、水表电表、合同——你是个对我胃口的远程工作者。周五见，我带着好椅子来。"
+        }
+      ]
+    },
+    {
+      "id": "sleeper-train-border-night",
+      "title": "跨国卧铺：包厢夜话与凌晨边检",
+      "setting": "夜班卧铺火车从 A 国开往 B 国。你订了下铺，同包厢的是一位回老家探亲的退休教师 Ivan。凌晨三点，列车会在边境停靠查验。这一夜有故事，也有规矩。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Ivan (compartment mate)",
+          "en": "Evening. You have the lower berth, lucky man. I am Ivan, going home to my grandchildren. Your bag can go under my seat if the rack is full.",
+          "zh": "晚上好。您是下铺，幸运的人。我是 Ivan，回老家看孙辈。架子满了的话，您的包可以放我座位下面。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你道谢并回敬善意：你占了下铺的好位置，如果他夜里需要下来坐一会儿、或者想换一会儿，随时说；长夜漫漫，包厢里互相照应最重要。",
+          "en": "Thank you — and the lower berth is at your service if you want to sit properly for a while tonight. On a sleeper train, a good compartment mate is half the journey.",
+          "chunks": [
+            { "term": "lower berth", "zh": "下铺" },
+            { "term": "sleeper train", "zh": "卧铺火车" },
+            { "term": "compartment mate", "zh": "同包厢的旅客" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ivan (compartment mate)",
+          "en": "Kind. One warning from an old hand: the border stop at night comes at three. Officers take the passports, lights go on, nobody sleeps through it. Keep yours in the pillow pocket, not the suitcase.",
+          "zh": "好意心领。老手提醒一句：夜间边境查验在三点。边检会收走护照、开大灯，没人能睡过去。把护照放枕头袋里，别放箱子里。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你确认流程并问细节：护照收走后会发回来吗、一般停多久、查验时能不能去洗手间——这些你不想凌晨三点现场发懵。",
+          "en": "Good warning. For the border stop at night: do they return passports to the compartment, or do we collect them? And how long is the stop, roughly?",
+          "chunks": [
+            { "term": "border stop at night", "zh": "夜间边境停靠查验" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Border officer",
+          "en": "(3 a.m.) Passports, please. (checks, stamps, returns them one by one) Thank you. Rest well.",
+          "zh": "（凌晨三点）请出示护照。（检查、盖章、逐个发还）谢谢。好好休息。"
+        },
+        {
+          "speaker": "me",
+          "zh": "查验过去后，你和 Ivan 都睡不着了，干脆泡了茶聊起来：他退休前教历史，你问他这个国家变化最大的十年是哪十年。",
+          "en": "(after the stop) Well, sleep is cancelled. Tea, Ivan? This sleeper train clearly runs on stories after 3 a.m. anyway. Tell me — you taught history: which ten years changed this country the most?",
+          "chunks": [
+            { "term": "sleeper train", "zh": "卧铺火车" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ivan (compartment mate)",
+          "en": "Ah, now you ask the dangerous question at 3 a.m. — the answer takes exactly until our station. That is the secret timetable of night trains.",
+          "zh": "啊，你在凌晨三点问这个危险的问题——答案的长度正好到我们下车。这个就是夜班火车的秘密时刻表。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你在故事里收尾这一夜：你把他的话记在手机备忘录里，你说这趟卧铺买的不只是交通，是一堂移动的历史课。",
+          "en": "Then the upper berth can wait — I'm taking notes. This sleeper train is turning into the best classroom of my trip.",
+          "chunks": [
+            { "term": "sleeper train", "zh": "卧铺火车" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "insurance-claim-interview",
+      "title": "保险索赔面谈：相机丢了之后",
+      "setting": "你的相机在火车站被偷（报案记录已有）。回国后你按旅行保险流程提交了索赔，今天保险公司理赔员 Dana 打来核实电话。金额不小，她的问题会很细——你的材料齐不齐，决定了这一通电话的走向。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Dana (claims handler)",
+          "en": "Good morning, I'm calling about your claim number 4471 — the camera reported stolen on the fourteenth. Can you walk me through what happened?",
+          "zh": "早上好，我是为 4471 号理赔案件打来的——您申报十四号被盗的那台相机。能给我讲一遍经过吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你按时间线陈述事实：十四号下午在中央车站，相机包在寄存柜旁被拿走；你当场报了警、拿到了报案记录，编号在理赔表里；车站失物招领处你也登记并确认没有找到。",
+          "en": "On the fourteenth, around 3 p.m., my camera bag was taken beside the lockers at Central Station. I reported it immediately — the police report number is on the claim form — and I checked the station's lost and found the same evening and the next morning.",
+          "chunks": [
+            { "term": "claim form", "zh": "理赔申请表" },
+            { "term": "lost and found", "zh": "失物招领处" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dana (claims handler)",
+          "en": "I have the report, thank you. What I need for the valuation: the original receipt, or a bank statement showing the purchase. The policy pays replacement cost for a like-for-like model.",
+          "zh": "报案记录我收到了，谢谢。估值这边我需要：原始购买小票，或者能显示这笔消费的银行流水。保单按同款型号的重置成本赔付。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你递上材料并确认口径：购买时的电子发票你附在邮件里了，当时价格是去年的；重置成本按今年同款在售价格算，你查了官网价，比去年还低了一点，你按官网价申报的。",
+          "en": "The e-receipt is attached to my email from Tuesday. On replacement cost: I claimed today's price for the same model from the maker's store — slightly lower than what I paid, and I have the screenshot.",
+          "chunks": [
+            { "term": "replacement cost", "zh": "重置成本（按现在的价赔多少）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dana (claims handler)",
+          "en": "That's exactly right, and refreshingly honest. One gap: the lens in the bag was declared separately on your valuables declaration — do you have its serial number photo?",
+          "zh": "完全正确，而且诚实得少见。还差一样：包里那支镜头在您的贵重物品申报里是单独列的——您有它的序列号照片吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你说有：出发前你给全套设备拍了序列号存在云相册里，链接你现在就能发她；另外问一句处理时长和结案方式，你好安排什么时候买替代机。",
+          "en": "I do — the lens was on my valuables declaration, and I photographed every serial number before the trip; the album link is coming to you now. And what's the processing time from here, and how does the case close?",
+          "chunks": [
+            { "term": "valuables declaration", "zh": "贵重物品申报（投保/理赔时的清单）" },
+            { "term": "processing time", "zh": "处理时长（审核要多久）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dana (claims handler)",
+          "en": "With the serials, valuation completes this week. Payment lands within fifteen working days of approval, and you'll get a case closed email with the final amount and the appeal window. Anything else missing on your side?",
+          "zh": "有了序列号，估值这周完成。批准后十五个工作日内打款，您会收到一封结案邮件、写明最终金额和申诉期限。您那边还有缺的材料吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你做最后确认并收尾：材料清单你逐项核对过——报案记录、发票、序列号、失物招领登记，全齐了；你引用案件号，请她有进展时用这个号给你发邮件。",
+          "en": "I've checked the list twice: police report, receipt, serials, lost and found record — complete. Please quote the claim number in any email. I look forward to the case closed email, and thank you for a painless process.",
+          "chunks": [
+            { "term": "claim number", "zh": "理赔案件号" },
+            { "term": "case closed", "zh": "结案、案件关闭" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Dana (claims handler)",
+          "en": "Noted under 4471. Most claims drag on missing paper; yours arrived like a checklist. Expect the valuation email by Friday.",
+          "zh": "记在 4471 号下了。大多数索赔都拖在缺材料上；您这份像清单一样齐。估值邮件周五前到。"
+        }
+      ]
     }
   ]
 }
