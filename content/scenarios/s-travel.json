@@ -1480,6 +1480,557 @@
           ]
         }
       ]
+    },
+    {
+      "id": "tipping-at-dinner",
+      "title": "在美国结账：小费到底怎么给",
+      "setting": "你在纽约和当地朋友 Ben 吃晚饭。账单来了，上面有税、有一栏空白的小费行。你听说美国小费规矩多，正好当场把这一课补上。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Ben (friend)",
+          "en": "Bill's here. Before you panic: tax is in, tip is not. The empty line is where visitors quietly lose their dignity or their money.",
+          "zh": "账单来了。先别慌：税含在里面了，小费没含。那行空白就是游客悄悄丢面子或者丢钱的地方。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你虚心请教当地规矩：这边的 小费文化 通常给多少个点、是按税前还是税后算、服务好坏怎么影响。",
+          "en": "Teach me the local tipping culture properly: what percentage is normal here, is it on the pre-tax amount, and how does service quality move it?",
+          "chunks": [
+            { "term": "tipping culture", "zh": "小费文化（一个地方给小费的规矩）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ben (friend)",
+          "en": "Eighteen to twenty on the pre-tax total is standard now. Twenty-five if they were great, fifteen and a quiet word if they weren't. Card or cash, both fine — cash lands faster with the staff.",
+          "zh": "现在标准是税前的百分之十八到二十。服务特别好给二十五；不行的话十五，再小声说一句。刷卡现金都行——现金到员工手里更快。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你现场计算并确认：这顿税前 84，你给 20 个点就是 17 左右，凑整到 100 总额正好；你朋友那半也是同样的算法对吧。",
+          "en": "So on eighty-four pre-tax, twenty percent is about seventeen — I'll round up and make it a hundred total. Same math for your half, right?",
+          "chunks": [
+            { "term": "round up", "zh": "凑整（付钱时抹到整数多给一点）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ben (friend)",
+          "en": "Exactly. And because the waiter comped our dessert after the long wait, this is where regulars tip generously on top — the generous part is what gets remembered.",
+          "zh": "没错。而且服务员因为让我们等太久免了甜点钱——这种地方老客人会在标准之外给得大方点，被记住的正是这份大方。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你拍板并把这一课总结成自己能记住的版本：查清是否含服务费、按税前算、好服务向上凑，全国通用、细节再问本地人。",
+          "en": "Done: tip generously tonight, he earned it. My rule from now on — check whether it's service included, do the math on pre-tax, and ask a local when in doubt.",
+          "chunks": [
+            { "term": "tip generously", "zh": "小费给得大方" },
+            { "term": "service included", "zh": "服务费已含（账单里写明了）" }
+          ]
+        },
+        {
+          "speaker": "me",
+          "zh": "你再问两个边缘情况：酒保送的免费酒还要不要给小费、酒店保洁和行李员怎么算。",
+          "en": "Two edge cases: if a drink is on the house, do I still tip on it? And the hotel housekeeper and the man who carried our bags?",
+          "chunks": [
+            { "term": "on the house", "zh": "店家请客、免单（这一份）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ben (friend)",
+          "en": "Tip on a free drink as if you'd paid — the gesture is the point. Housekeeping: a few dollars on the pillow each morning, not one lump at the end; they change daily. Bags: two per bag.",
+          "zh": "免费的酒也要照付了的样子给小费——心意才是重点。保洁：每天早上在枕头上放几美元、不要最后一次性给，他们每天换人。行李：一件两美元。"
+        },
+        {
+          "speaker": "them",
+          "name": "Ben (friend)",
+          "en": "That's the whole religion. Next lesson is the coat check and the valet stand — small bills, ready in hand, no fumbling.",
+          "zh": "这就是全部教义了。下一课是衣帽间和代客泊车——小额钞票、提前拿在手里、不要翻包。"
+        }
+      ]
+    },
+    {
+      "id": "haggling-at-the-market",
+      "title": "集市砍价：一场有节奏的游戏",
+      "setting": "你在手工艺品市场看中一条手工围巾。摊主 Amara 开价 60。你喜欢它，但你知道这个价格里有给游客的水分——砍价在这里是礼仪，不是冒犯。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Amara (stall owner)",
+          "en": "Handwoven, madame, three days of work. For you, sixty.",
+          "zh": "手工织的，女士，三天的工作量。给您，六十。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你先夸手艺再进入游戏：围巾确实漂亮、颜色也对，但 60 超出你的预算；你按规矩还一个价：30，各退一步看能不能谈。",
+          "en": "It's beautiful work, and the color is exactly right. Sixty is beyond my budget though — could you do thirty? Let's haggle over the price a little.",
+          "chunks": [
+            { "term": "haggle over the price", "zh": "为价格砍价、讲价" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Amara (stall owner)",
+          "en": "Thirty is what the machine-made ones cost at the airport! This is wool from my sister's sheep. Fifty-five, and I am being generous.",
+          "zh": "三十是机场卖的机器织的价格！这是我姐姐家羊的羊毛。五十五，我已经很慷慨了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你还价有进有退：你指出开价是卖方的位置、不是判决；你出 40——这在当地算这条围巾的公道价，而且你付现金、不用她找零。",
+          "en": "The asking price is a starting point, not a verdict. Forty is my offer — a fair price for this scarf here, in cash, no change needed.",
+          "chunks": [
+            { "term": "asking price", "zh": "开价、要价（卖方报的价）" },
+            { "term": "fair price", "zh": "公道价" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Amara (stall owner)",
+          "en": "Cash... forty-five, final. And I will tell you which stall sells your friend's ceramics without the tourist tax.",
+          "zh": "现金的话……四十五，最后的价格。我还可以告诉你，哪家摊卖你朋友想要的陶瓷、不收游客税。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你成交并把气氛收圆：45 成交，你再多买一副手套凑个整，条件是她兑现陶瓷摊的情报——砍价的乐趣本来就在这后半段。",
+          "en": "Deal at forty-five. I'll add the gloves too — this beats the airport souvenir shop in every way. And I accept the ceramics intelligence as part of the bargain.",
+          "chunks": [
+            { "term": "souvenir shop", "zh": "纪念品商店" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Amara (stall owner)",
+          "en": "You bargain like family. Gloves wrapped with the scarf. The ceramics man is Hassan, two rows down — say Amara sent you, it changes his arithmetic.",
+          "zh": "您砍价像自家人。手套和围巾包在一起了。卖陶瓷的叫 Hassan、往下两排——说是我介绍的，他的算盘会不一样。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你最后打听一句：她织围巾的手艺是跟谁学的，她姐姐的羊场如果可以参观，那就是你明天的行程了。",
+          "en": "One last thing: where did you learn to weave? If your sister's farm takes visitors, that's tomorrow's day trip sorted.",
+          "chunks": [
+            { "term": "day trip", "zh": "一日游（当天往返的短途旅行）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Amara (stall owner)",
+          "en": "My grandmother taught me; the farm is twenty minutes by bus, and my sister feeds anyone who compliments the sheep. Go at nine, before the heat.",
+          "zh": "我祖母教我的；羊场坐公交二十分钟，我姐姐会给任何夸她羊的人管饭。九点去，趁天还没热。"
+        }
+      ]
+    },
+    {
+      "id": "queue-jumper-confrontation",
+      "title": "有人加塞：礼貌而坚定地开口",
+      "setting": "火车站售票窗口前排着长队，你已经等了十五分钟。一个男人径直走到窗口前，假装没看见队伍。你深吸一口气，决定做那个“开口的人”——语气档位：客气提醒、点明事实、请他排队。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Man at the window",
+          "en": "(to the clerk) One ticket to the airport, fast — my train is in twenty minutes.",
+          "zh": "（对售票员说）一张去机场的票，快——我的车二十分钟后开。"
+        },
+        {
+          "speaker": "me",
+          "zh": "第一档：客气地假设他是没看见。你提醒他队伍从后面开始，你也在赶车，大家都是。",
+          "en": "Excuse me — the line starts back there, and most of us are also racing trains. The queue is easy to miss from this side.",
+          "chunks": [
+            { "term": "excuse me, ...", "zh": "不好意思，打扰一下……（开口搭话的万能起手）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Man at the window",
+          "en": "I'm only buying one ticket. It'll take thirty seconds. You people have time.",
+          "zh": "我只买一张票。三十秒的事。你们有的是时间。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你升一档：把事实和平等原则说清，不吵不闹：每个人都是“只买一张票”，顺序就是这么保持的；请他等到轮到他。",
+          "en": "Everyone here is 'only buying one ticket' — that's how the line works. Please wait your turn like the rest of us; it moves fast.",
+          "chunks": [
+            { "term": "wait your turn", "zh": "按顺序等、轮到你再说" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Man at the window",
+          "en": "Mind your own business. (to the clerk) One ticket, please.",
+          "zh": "管好你自己的事。（对售票员）一张票，谢谢。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你最后一档：坚定但礼貌，对售票员和平静地陈述——他刚刚插队到所有人前面，如果先卖给他，队伍的规矩就不存在了。你把决定权还给窗口。",
+          "en": "Sir, with respect: you did just cut in line in front of a dozen people. Clerk, I'll leave it to you — but if jumping the queue works here, the queue doesn't.",
+          "chunks": [
+            { "term": "cut in line", "zh": "插队、加塞" },
+            { "term": "jump the queue", "zh": "插队（英式说法）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Clerk",
+          "en": "Sir, the line is over there. I'll serve you in turn. (to you) Next, please — airport as well?",
+          "zh": "先生，队伍在那边。我会按顺序为您服务。（对你）下一位——也是去机场吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你收尾如常买票，不乘胜追击、不点评刚才的人——赢了规矩就够了。",
+          "en": "Yes, one to the airport, please. The 16:40 if there are seats left. Thank you for keeping it fair.",
+          "chunks": [
+            { "term": "fair price", "zh": "公道价" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Older lady behind you",
+          "en": "(quietly) Well done. In this country everyone complains about jumpers and nobody speaks. You spoke.",
+          "zh": "（小声）干得漂亮。在这个国家，人人都抱怨插队，可没人开口。你开口了。"
+        }
+      ]
+    },
+    {
+      "id": "complaint-three-gears",
+      "title": "投诉三档：噪音问题从客气到强硬",
+      "setting": "隔壁房间的派对吵到凌晨一点。你先后用了三档处理：给隔壁打电话客气提醒（没用）、打给前台坚定投诉（派人来了一次又复发）、最后亲自下楼向值班经理提出明确要求。今晚你练的是“分寸的档位”。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Neighbor (phone)",
+          "en": "Hello? Who is this?",
+          "zh": "喂？哪位？"
+        },
+        {
+          "speaker": "me",
+          "zh": "第一档，最客气的说法：你自我介绍是隔壁房的，理解他们开心，只请他们把音量降一半——把要求放得具体又容易做到。",
+          "en": "Hi, I'm in the room next door. I know you're celebrating — congratulations, truly. Could you put it politely down a notch after one? Half volume would let the wall do the rest.",
+          "chunks": [
+            { "term": "put it politely", "zh": "委婉地说、客气地表达" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Neighbor (phone)",
+          "en": "Sure, sure. Sorry. (the music dips for ten minutes, then returns louder)",
+          "zh": "好的好的，抱歉。（音乐小了十分钟，然后更大了）"
+        },
+        {
+          "speaker": "me",
+          "zh": "你打给前台，升到第二档：坚定但礼貌——陈述事实（凌晨一点、第二次了）、影响（你明早六点的航班）、和你想要的处理（请他们正式通知，并记录这次投诉）。",
+          "en": "Front desk, it's room 1206 again. Firm but polite: it's past one, this is the second time, and I have a six a.m. flight. Please make a formal visit and log the complaint.",
+          "chunks": [
+            { "term": "firm but polite", "zh": "坚定但礼貌（投诉的语气档位）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Night manager",
+          "en": "(in person, 30 minutes later) The party has resumed again, I hear it myself now. What would you like me to do?",
+          "zh": "（三十分钟后，亲自出现）派对又开始了，我自己都听得见。您希望我怎么处理？"
+        },
+        {
+          "speaker": "me",
+          "zh": "第三档：你不再满足于“再去提醒一次”，明确提出方案：要么他们立刻结束、要么给你换到安静楼层的房间并免今晚房费；你说这是你能接受的两个版本，没有第三个了。",
+          "en": "I'll speak up for myself plainly: either the party ends now, or you move me to a quiet floor and tonight is waived. A third reminder is not a solution — those are the two versions I can accept.",
+          "chunks": [
+            { "term": "speak up for yourself", "zh": "为自己发声、别忍着" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Night manager",
+          "en": "You're right, and I'm sorry it took two calls. The party ends now — our house rules are clear after midnight. And tonight is on us, with breakfast credit for the early start.",
+          "zh": "您说得对，也很抱歉让您打了两次电话。派对现在就结束——我们的住客规矩写明了午夜之后的要求。今晚房费免了，再补一份早餐额度给您赶早班。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你接受处理并把关系收圆：你感谢他这次亲自上来解决，你投诉的是噪音和流程、不是他本人；明天退房时你会把这句写在评价里。",
+          "en": "Thank you — handled properly, finally. For the record, my complaint was about the noise and the process, not about you. Your house rules were clear all along; tonight they finally got enforced, and that is exactly the review I will write.",
+          "chunks": [
+            { "term": "house rules", "zh": "住客规矩（民宿/寄宿的规矩）" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "telling-the-ferry-story",
+      "title": "把旅行讲成故事：渡轮奇遇全记录",
+      "setting": "回国后和朋友聚餐，朋友问“这趟怎么样”。你不想只会说“挺好的”，你要把渡轮那段讲成一个真正的故事：有起手、有反转、有高光。朋友小雨是个很好的听众，会追问。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Xiaoyu (friend)",
+          "en": "Okay, full report. How was the trip — and don't just say 'fine', I want the good stuff.",
+          "zh": "好，全面汇报。这趟怎么样——别只说“挺好”，我要听精华。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你用讲故事的起手式开局：从最离谱的那段讲起——你绝对想不到，我们的渡轮在半路停了，原因是船长的女儿在对岸生孩子，全船人一起等了四十分钟。",
+          "en": "You won't believe this: our ferry stopped mid-crossing because the captain's daughter was giving birth on the other side, and the whole boat waited forty minutes for the news.",
+          "chunks": [
+            { "term": "you won't believe this", "zh": "你绝对想不到（讲故事的起手式）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Xiaoyu (friend)",
+          "en": "No way. People must have been furious — missing connections and everything.",
+          "zh": "不会吧。大家肯定气炸了——还要赶转乘什么的。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你往下铺垫：起初确实有人抱怨，但接下来发生了反转——船员打开了船上的小卖部免费发茶，有个老头拿出了手风琴。",
+          "en": "At first, yes. Then, out of nowhere, the crew opened the kiosk and handed out free tea, and an old man produced an accordion. It turned into a deck party.",
+          "chunks": [
+            { "term": "out of nowhere", "zh": "毫无征兆地、突然冒出来" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Xiaoyu (friend)",
+          "en": "And the baby?",
+          "zh": "那孩子呢？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你给出结局和高光：孩子出生了、全船鼓掌，船长通过广播说请全船吃冰淇淋；长话短说，那班晚点的渡轮成了整趟旅行的高光时刻。",
+          "en": "Born healthy — the whole boat applauded over the loudspeaker, and the captain put ice cream on his bill. Long story short: the delayed ferry became the highlight of the trip.",
+          "chunks": [
+            { "term": "long story short", "zh": "长话短说" },
+            { "term": "highlight of the trip", "zh": "整趟旅行的高光时刻" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Xiaoyu (friend)",
+          "en": "That's the kind of story you can't plan. What else — give me the top three moments.",
+          "zh": "这种故事是计划不出来的。还有呢——给我你的前三名时刻。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你顺手教她一个去的理由：前三里还有一段你先卖个关子，只留一句“你要是以后去，千万要在周日去那个小镇，具体原因吃完饭讲”。",
+          "en": "Number two involves a goat at a bus stop, which deserves its own telling. And if you ever go, be in the small town on a Sunday — reasons after dinner.",
+          "chunks": [
+            { "term": "if you ever go", "zh": "你以后要是去（给建议的开头）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Xiaoyu (friend)",
+          "en": "Deal. You tell stories like this now? The trip changed you.",
+          "zh": "成交。你现在讲故事都这样了？这趟旅行改造了你。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你笑着承认：其实就是把顺序倒过来——先讲最好笑的那一下、细节随后补上，故事自己就会走路了。",
+          "en": "Honestly? I just learned to start with the plot twist and let the details catch up. The story walks by itself after that.",
+          "chunks": [
+            { "term": "plot twist", "zh": "剧情反转（讲故事用语）" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guesthouse-host-late-night",
+      "title": "民宿主人深夜长谈：从茶聊到人生",
+      "setting": "山间民宿的最后一晚。主人夫妇 Marco 和 Ana 在院子里泡茶，招呼你坐下。这一聊就到了半夜——从他们的创业史，聊到你为什么一个人旅行。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Marco (host)",
+          "en": "Sit, sit. The kettle is on. Guests who stay for tea get the real version of this valley, not the brochure one.",
+          "zh": "坐，坐。水壶烧上了。留下来喝茶的客人，才能听到这个山谷真正的版本，不是宣传册上那个。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你落座并表达谢意：这三天民宿让你第二天早上就有了回家的感觉，这杯茶你等了一整天——其实是等了三天了。",
+          "en": "Gladly. This place made us feel at home by the second morning. I've been hoping for this tea for three days, honestly.",
+          "chunks": [
+            { "term": "feel at home", "zh": "有宾至如归的感觉" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ana (host)",
+          "en": "We built this house when the road was still gravel. Marco wanted cows. I wanted guests. The guests won; the cows visit anyway.",
+          "zh": "我们盖这栋房子时路还是碎石的。Marco 想养牛，我想接待客人。客人赢了；不过牛还是会自己来串门。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你和他们交换故事：你说自己在换工作的间隙出来走走，过去两年都是屏幕和会议；他们问起你的城市，你也讲了讲高楼里冬天的样子。",
+          "en": "We swapped lives tonight already. I'm between jobs and traveling while I can — two years of screens and standups. We swap stories properly: your valley for my winter city of towers.",
+          "chunks": [
+            { "term": "swap stories", "zh": "交换故事、互相讲经历" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marco (host)",
+          "en": "Between jobs is not between lives, my friend. The road years count double. Ana, tell him about the winter the roof went.",
+          "zh": "换工作的间隙不是人生的间隙，朋友。在路上的年份要算双倍。Ana，跟他讲讲屋顶被掀了的那个冬天。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你听完他们的故事后感慨：一见如故是真的存在——同样的书、同样的笑话、隔着半个地球。你们已经聊到半夜了，而茶壶还满着。",
+          "en": "You two are kindred spirits of mine — same books, same jokes, half a planet apart. We've managed to talk until midnight, and the kettle is somehow still full.",
+          "chunks": [
+            { "term": "kindred spirit", "zh": "灵魂相通的人、一见如故的人" },
+            { "term": "talk until midnight", "zh": "聊到半夜" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Ana (host)",
+          "en": "Then breakfast tomorrow is at nine, not eight, and nobody argues. Take the jam — the jar with your name is already packed.",
+          "zh": "那明天的早餐改到九点、不许争。果酱带上——写着你名字的那罐已经包好了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你道晚安时把这份情谊落实：明年你会带朋友回来；这之前，你先把答应他们的城市冬天的照片寄来，并请他们尝尝你寄的中国茶。",
+          "en": "Deal. Next year I return with friends — and I'll cook a home-cooked meal for this table in exchange, that's a promise. Until then: photos of my winter city, and Chinese tea by post.",
+          "chunks": [
+            { "term": "home-cooked meal", "zh": "家常饭（家里做的饭）" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bar-stranger-conversation",
+      "title": "酒吧拼桌：和陌生人聊开的一晚",
+      "setting": "海边小镇的酒吧爆满，你端着酒找座位时，一张两人桌的本地姑娘 Sofia 招呼你拼桌。她是渔船领航员，刚结束一季的工作。陌生人之间的话题，要靠你一层层打开。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Sofia (local)",
+          "en": "You can sit here — everyone ends up sharing on Fridays. I'm Sofia. In town for the boats or the beaches?",
+          "zh": "你可以坐这里——周五大家最后都要拼桌。我是 Sofia。你来镇上是为了船还是为了海滩？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你坐下并自我介绍：两者都是，你在等明天的日出巡游；她问起你从哪来，你说了城市名，结果她接下来说出了一句让你愣住的话。",
+          "en": "Thanks — I'll happily share a table. I'm Zavier, in town for the boats and the beaches both; tomorrow's sunrise cruise is the plan. (She laughs at his city name: her brother drives a bus there.) Small world, genuinely.",
+          "chunks": [
+            { "term": "shared a table", "zh": "拼桌（和陌生人同桌吃饭）" },
+            { "term": "small world", "zh": "世界真小（异地遇熟人的感叹）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sofia (local)",
+          "en": "Ha! Then we drink to the bus routes of two cities. Tell me — what does a software man do in a fishing town in the off-season?",
+          "zh": "哈！那我们为两座城市的公交线路干杯。说说看——一个做软件的人，淡季来渔村干什么？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你聊开自己：你在两个工作之间，专门挑淡季来，图的就是这种能和本地人慢慢说话的夜晚；你们一见如故，从渔船的夜班聊到代码的夜班，居然全对得上。",
+          "en": "Honestly, I'm between jobs and chose the off-season on purpose — for exactly this: slow evenings where locals actually talk. We clicked instantly, by the way: your night shifts at sea map perfectly onto my night shifts in incident channels.",
+          "chunks": [
+            { "term": "we clicked instantly", "zh": "我们一见如故、一下子就聊开了" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sofia (local)",
+          "en": "To night shifts, then. One local custom before the next round: here, the person who tells the best story doesn't pay for their drink. The floor is yours.",
+          "zh": "那就为夜班干杯。下一轮之前先说一个当地习俗：这里讲故事讲得最好的人不用付自己那杯。你请讲。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你接招讲了渡轮那段，并守住自己的节奏：故事你来换酒，但喝的速度你说了算——你提醒她也提醒自己，今晚还长。",
+          "en": "A fine local custom — challenge accepted: one ferry story for one free drink. But I pace myself tonight; the sunrise cruise boards at five thirty and I intend to be vertical for it.",
+          "chunks": [
+            { "term": "local custom", "zh": "当地习俗" },
+            { "term": "pace yourself", "zh": "悠着点、控制节奏（喝酒/吃饭/游玩）" }
+          ]
+        },
+        {
+          "speaker": "me",
+          "zh": "你在欠下这个人情之前再打听一句：本地人休息日去哪儿——你想把明天下午过成当地人的样子，而不是游客的样子。",
+          "en": "Before I owe this table another story: what do locals do here on a free Sunday? Every town keeps a hidden gem the guidebooks miss — where is yours?",
+          "chunks": [
+            { "term": "hidden gem", "zh": "小众宝藏地（还没被游客发现的好地方）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Sofia (local)",
+          "en": "The cove past the lighthouse — no signs, cold water, a grill if someone remembers charcoal. That's our hidden gem; tourists get the beach with the umbrellas.",
+          "zh": "灯塔过去那个小海湾——没有路牌、水很凉、有人记得带炭就能烧烤。那是我们的秘密宝地；游客去的是有遮阳伞的那片沙滩。"
+        },
+        {
+          "speaker": "them",
+          "name": "Sofia (local)",
+          "en": "Wise. The story paid for itself at the accordion part. Sail with my cousin tomorrow — I'll text him; locals' price, and he knows where the dolphins actually are.",
+          "zh": "聪明。你的故事讲到手风琴那段就已经值回酒钱了。明天跟我表哥的船出海吧——我给他发消息；本地人的价格，而且他知道海豚真正出没的地方。"
+        }
+      ]
+    },
+    {
+      "id": "family-dinner-as-guest",
+      "title": "去当地人家里吃饭：做客的规矩与温度",
+      "setting": "民宿主人邀请你周日去他们家吃午饭——真正的家庭聚餐：祖母掌勺、三个孩子、一只狗。你带了一瓶酒和一束花。人到了，主人母亲 Rosa 在门口迎你。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Rosa (grandmother)",
+          "en": "You came! Come in, come in. Shoes by the door, hands washed, and you sit here — next to me, so I can watch you eat.",
+          "zh": "你来了！快进来，鞋放门口，手洗干净，你坐这儿——坐我旁边，我好看着你吃。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你按规矩入席并送上心意：花是给 Rosa 的、酒是给桌上的；你夸一句厨房的香味，并老老实实承认自己为这顿饭早饭只吃了个苹果。",
+          "en": "For you, Rosa — flowers. And the wine is for the table. I hear a generous host measures guests by appetite, so I arrived professionally hungry: one apple for breakfast, strategically.",
+          "chunks": [
+            { "term": "a generous host", "zh": "热情好客的主人" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rosa (grandmother)",
+          "en": "A guest who arrives hungry honors the cook. Start with the soup. In this house we raise a glass before the main dish, to health and to absent friends.",
+          "zh": "饿着来的客人是给厨师面子。先喝汤。我们家的规矩是主菜之前先举杯——敬健康，也敬不在场的朋友。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你举杯并说祝酒词：敬健康、敬这张桌子、敬把陌生人变成客人的手艺；你说自己在学着像他们一样生活：慢、热、把人放在菜前面。",
+          "en": "To health, to this table, and to the art of turning strangers into guests. I'll raise a glass to that in any country.",
+          "chunks": [
+            { "term": "raise a glass", "zh": "举杯（敬酒）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Marco (host, from lunch scene)",
+          "en": "Careful — if you compliment the chef, she will feed you until the buttons surrender. The stew is her famous one.",
+          "zh": "小心——你要是夸了厨师，她会喂你喂到扣子投降。这锅炖菜是她的名作。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你当场夸菜并付诸行动：这锅炖菜是你这次旅行吃过的最好的一餐，你说完就请 Rosa 再给添一份——行动比形容词诚实。",
+          "en": "Then let the buttons be warned: this stew is the best meal of my trip. Rosa, may I have a second helping? Compliments are cheap; appetite is honest.",
+          "chunks": [
+            { "term": "compliment the chef", "zh": "夸奖厨师" },
+            { "term": "second helping", "zh": "再来一份、添饭" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rosa (grandmother)",
+          "en": "A second helping! You may marry into this family. Sit, sit — coffee after, and you will tell us about your city while the little ones show you the dog's tricks.",
+          "zh": "再来一份！你可以嫁进我们家了。坐好坐好——饭后有咖啡，你给我们讲讲你的城市，孩子们给你看狗的把戏。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你收尾道谢并把礼数学全：你帮着收了碗、把桌布的规矩也记住了；临走你请他们把合影发你一张，你要打印出来放在书桌上。",
+          "en": "Thank you for today — the food, the table manners lesson disguised as lunch, and a 'make yourself at home' that turned out to be literally true. Please send me the photo of us at the table; I'll print it for my desk.",
+          "chunks": [
+            { "term": "table manners", "zh": "餐桌礼仪" },
+            { "term": "make yourself at home", "zh": "别客气、就像在自己家一样" }
+          ]
+        }
+      ]
     }
   ]
 }

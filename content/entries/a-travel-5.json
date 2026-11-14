@@ -1,0 +1,442 @@
+{
+ "category": "travel",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "You won't believe this, but the train conductor remembered us from Tuesday.",
+     "zh": "你绝对想不到，列车员居然还记得我们是周二坐过他车的人。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "You won't believe this: the tiny bar had a queue of locals at midnight.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "you won't believe this",
+   "zh": "你绝对想不到（讲故事的起手式）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Long story short, we slept in the airport and it was weirdly fun.",
+     "zh": "长话短说，我们睡了机场，居然还挺好玩。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Long story short: wrong bus, right village, best meal of the trip.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "long story short",
+   "zh": "长话短说"
+  },
+  {
+   "examples": [
+    {
+     "en": "It turned out that the 'closed' museum opens free on Sundays.",
+     "zh": "结果发现，那家“关门”的博物馆周日免费开放。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "It turned out that our taxi driver was a retired history teacher.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "it turned out that",
+   "zh": "结果发现、到头来"
+  },
+  {
+   "examples": [
+    {
+     "en": "Out of nowhere, the whole village square started dancing.",
+     "zh": "毫无征兆地，整个村子广场开始跳舞。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The storm arrived out of nowhere at four and left by five.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "out of nowhere",
+   "zh": "毫无征兆地、突然冒出来"
+  },
+  {
+   "examples": [
+    {
+     "en": "Before we knew it, we had spent three hours in a bookshop.",
+     "zh": "不知不觉，我们在书店里待了三个小时。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Before we knew it, the last train was a rumor.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "before we knew it",
+   "zh": "不知不觉就……"
+  },
+  {
+   "examples": [
+    {
+     "en": "The sunrise ferry was the highlight of the trip, easily.",
+     "zh": "日出那班渡轮是整趟旅行的高光时刻，没悬念。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Cooking with our host family — highlight of the trip, no contest.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "highlight of the trip",
+   "zh": "整趟旅行的高光时刻"
+  },
+  {
+   "examples": [
+    {
+     "en": "Seeing the volcano glow at night is a once in a lifetime thing.",
+     "zh": "夜里看到火山口发光，是一生一次的事。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Expensive, yes — but a once in a lifetime seat at that table.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "once in a lifetime",
+   "zh": "一生一次的（体验）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The funny thing is, we found it by getting completely lost.",
+     "zh": "有意思的是，我们是彻底迷路才找到它的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The funny thing is, the backup plan beat the plan.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "the funny thing is",
+   "zh": "有意思的是、好笑的是"
+  },
+  {
+   "examples": [
+    {
+     "en": "Plot twist: the grumpy ticket inspector sang in a choir with our guide.",
+     "zh": "剧情反转：那个凶巴巴的检票员和我们的导游是同一个合唱团的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Plot twist — the 'tourist trap' was run by the chef's grandmother.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "plot twist",
+   "zh": "剧情反转（讲故事用语）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Fast forward to midnight: we're eating noodles with the night guards.",
+     "zh": "快进到午夜：我们正和夜班保安一起吃面。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Fast forward to the airport — and the bag still hadn't appeared.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "fast forward to",
+   "zh": "快进到（跳过中间讲后面）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Looking back, the rained-out day gave us the best stories.",
+     "zh": "现在回头看，被雨泡汤的那天给了我们最好的故事。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Looking back, getting lost was the itinerary we actually needed.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "looking back",
+   "zh": "现在回头看"
+  },
+  {
+   "examples": [
+    {
+     "en": "Little did I know, the old man at breakfast owned the whole vineyard.",
+     "zh": "我当时完全没想到，早餐桌上那位老人拥有整个葡萄园。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Little did I know, that wrong turn was the trip introducing itself.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "little did I know",
+   "zh": "我当时完全没想到（悬念式回望）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Small world: my university roommate, in a café in Lisbon.",
+     "zh": "世界真小：我的大学室友，在里斯本一家咖啡馆里。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Small world — the diver next to me grew up two streets from my parents.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "small world",
+   "zh": "世界真小（异地遇熟人的感叹）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Our host was a kindred spirit: same books, same jokes, different continent.",
+     "zh": "我们的房东是一见如故的人：同样的书、同样的笑话，只是不同大洲。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "You find a kindred spirit fast when the ferry is cancelled together.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "kindred spirit",
+   "zh": "灵魂相通的人、一见如故的人"
+  },
+  {
+   "examples": [
+    {
+     "en": "We meant to plan tomorrow; instead we talked until midnight about everything else.",
+     "zh": "我们本来想计划明天，结果聊到半夜的全是别的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Good hosts make you talk until midnight without noticing.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "talk until midnight",
+   "zh": "聊到半夜"
+  },
+  {
+   "examples": [
+    {
+     "en": "On night trains, strangers swap stories like currency.",
+     "zh": "在夜班火车上，陌生人像交换货币一样交换故事。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We swapped stories with the fishermen until their shift started.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "swap stories",
+   "zh": "交换故事、互相讲经历"
+  },
+  {
+   "examples": [
+    {
+     "en": "A home-cooked meal beats the famous restaurant, every single trip.",
+     "zh": "一顿家常饭胜过那家名餐厅，每次旅行都如此。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "She apologized for 'just a home-cooked meal' — it was the best food in the country.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "home-cooked meal",
+   "zh": "家常饭（家里做的饭）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A second helping is the loudest compliment a cook can hear.",
+     "zh": "再来一份是厨师能听到的最响亮的夸奖。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Take a second helping slowly; thirds are negotiations.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "second helping",
+   "zh": "再来一份、添饭"
+  },
+  {
+   "examples": [
+    {
+     "en": "The guesthouse made us feel at home by the second morning.",
+     "zh": "到第二天早上，这家民宿已经让我们有宾至如归的感觉。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A dog, a kettle, and no checkout pressure: you feel at home fast.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "feel at home",
+   "zh": "有宾至如归的感觉"
+  },
+  {
+   "examples": [
+    {
+     "en": "'Make yourself at home,' she said, pointing at the fridge like family.",
+     "zh": "“别客气，就像在自己家一样，”她指着冰箱说，像家人一样。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "When a host says make yourself at home, shoes and tea are the first exam.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "make yourself at home",
+   "zh": "别客气、就像在自己家一样"
+  },
+  {
+   "examples": [
+    {
+     "en": "After five loud days, a cozy night in with soup and a film won.",
+     "zh": "在吵了五天之后，一个喝着汤看电影的宅家夜晚胜出了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Rain plus a cozy night in beats any viewpoint.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "cozy night in",
+   "zh": "宅在住处舒服过一晚"
+  },
+  {
+   "examples": [
+    {
+     "en": "Every scar and missed train becomes a travel tale by winter.",
+     "zh": "每一个伤疤和每一班误掉的火车，到了冬天都会变成旅行故事。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Collect travel tales, not fridge magnets.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "travel tale",
+   "zh": "旅行故事、见闻"
+  },
+  {
+   "examples": [
+    {
+     "en": "The best part was the part we never planned.",
+     "zh": "最棒的部分是我们从未计划过的那部分。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The best part was breakfast on the roof, daily and unhurried.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "the best part was",
+   "zh": "最棒的部分是……"
+  },
+  {
+   "examples": [
+    {
+     "en": "The worst part was the bus station at 4 a.m., and even that became funny.",
+     "zh": "最糟的部分是凌晨四点的汽车站，而就连那个后来也变好笑了。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The worst part was one night only; the best parts keep renting rooms in my head.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "the worst part was",
+   "zh": "最糟的部分是……"
+  },
+  {
+   "examples": [
+    {
+     "en": "If you ever go, skip the main square and eat where the buses stop.",
+     "zh": "你以后要是去，别去主广场，在公交车停的地方吃。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "If you ever go in October, book the ferry before the hotels.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "if you ever go",
+   "zh": "你以后要是去（给建议的开头）"
+  },
+  {
+   "examples": [
+    {
+     "en": "That reminds me of the night the ferry simply didn't come.",
+     "zh": "这让我想起渡轮干脆没来的那个晚上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "That reminds me — I still owe our guide a photo from that day.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "that reminds me",
+   "zh": "这让我想起（话题衔接）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Speaking of which, the driver never did charge us for that detour.",
+     "zh": "顺便一提，那个司机最后根本没收我们绕路的钱。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Speaking of which, the museum shop sells the map you actually need.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "speaking of which",
+   "zh": "说到这个、顺便一提"
+  },
+  {
+   "examples": [
+    {
+     "en": "We clicked instantly with the couple from the next tent.",
+     "zh": "我们和隔壁帐篷的那对夫妇一见如故。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We clicked instantly over a shared hatred of early ferries.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "we clicked instantly",
+   "zh": "我们一见如故、一下子就聊开了"
+  },
+  {
+   "examples": [
+    {
+     "en": "We shared a table with two students and left with four new friends.",
+     "zh": "我们和两个学生拼桌，离开时多了四个新朋友。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In crowded beer gardens you shared a table or you don't eat.",
+    "zh": "你向朋友讲述旅行见闻，用这个说法开头或转折："
+   },
+   "term": "shared a table",
+   "zh": "拼桌（和陌生人同桌吃饭）"
+  }
+ ],
+ "layer": "A",
+ "title": "旅游娱乐"
+}
