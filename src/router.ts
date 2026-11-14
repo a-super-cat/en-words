@@ -16,6 +16,7 @@ export const router = createRouter({
     { path: '/', component: () => import('./features/TodayView.vue'), meta: { root: true, tab: 0, title: '今日' } },
     { path: '/learn', component: () => import('./features/LearnView.vue') },
     { path: '/review', component: () => import('./features/ReviewView.vue') },
+    { path: '/mixed', component: () => import('./features/MixedView.vue') },
     { path: '/speak', component: () => import('./features/SpeakListView.vue') },
     { path: '/speak/stories', component: () => import('./features/StoriesView.vue') },
     { path: '/speak/system-design', component: () => import('./features/DesignGuideView.vue') },

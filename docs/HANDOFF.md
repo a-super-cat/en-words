@@ -282,6 +282,7 @@ hash 模式，定义在 `src/router.ts`。
 | `/` | 今日 |
 | `/learn`、`/learn?extra=1` | 新学；带 `extra=1` 表示超出当天配额再学一组 |
 | `/review` | 复习 |
+| `/mixed` | 随机混合练：一轮里加权随机抽复习 + 先学后测新词条（算法在 `src/srs/mixed.ts`） |
 | `/speak` | 口语题库 |
 | `/speak/stories` | STAR 故事 |
 | `/speak/system-design` | 系统设计讲解框架 |

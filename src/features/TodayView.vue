@@ -153,6 +153,14 @@ const totals = computed(() =>
 
     <section class="panel row between">
       <div>
+        <h2>随机混合练</h2>
+        <p class="muted small">一轮里学新词条 + 复习旧词条，复习按快忘程度随机抽</p>
+      </div>
+      <RouterLink to="/mixed" class="btn primary">开始</RouterLink>
+    </section>
+
+    <section class="panel row between">
+      <div>
         <h2>口语</h2>
         <p class="muted small">今天已口答 {{ speaking.today.questions }} 题</p>
         <p v-if="question" class="small next">{{ question.prompt }}</p>

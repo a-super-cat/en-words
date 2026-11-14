@@ -230,6 +230,25 @@ export const useApp = defineStore('app', () => {
     await commit(changed, logs);
   }
 
+  /**
+   * 混合练里单个新词条学完后建卡：两个方向分别给初始评分
+   * （小测对了 3、没对 1、自称已经会了 4，由调用方换算好）。D 层不建产出卡。
+   */
+  async function learnEntry(entry: Entry, ratings: { recognize: Rating; produce?: Rating }): Promise<void> {
+    if (hasCard(entry.id)) return;
+    const t = Date.now();
+    const changed: CardState[] = [];
+    const logs: ReviewLog[] = [];
+    const push = (direction: 'recognize' | 'produce', rating: Rating) => {
+      const card = rateCard(newCard(entry.id, direction, t), rating, t);
+      changed.push(card);
+      logs.push({ key: card.key, entryId: entry.id, direction, rating, at: t, ms: 0, stage: 0 });
+    };
+    push('recognize', ratings.recognize);
+    if (entry.layer !== 'D' && ratings.produce !== undefined) push('produce', ratings.produce);
+    await commit(changed, logs);
+  }
+
   async function rate(key: string, rating: Rating, ms: number, stage: number): Promise<UndoToken | null> {
     const card = cards.get(key);
     if (!card) return null;
@@ -514,6 +533,7 @@ export const useApp = defineStore('app', () => {
     reviewQueue,
     pickNew,
     learnGroup,
+    learnEntry,
     rate,
     undo,
     setSuspended,
