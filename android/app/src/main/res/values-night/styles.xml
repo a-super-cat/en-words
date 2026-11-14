@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- 深色模式下整套主题只覆盖状态栏：颜色对齐网页里深色的 --surface（#1D2229），图标改回浅色。
+    <!-- 深色模式下整套主题只覆盖状态栏：颜色对齐网页里深色的 surface 色（#1D2229），图标改回浅色。
          资源覆盖是整份替换，所以基础款的几个 item 要在这里重写一遍。 -->
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="windowActionBar">false</item>

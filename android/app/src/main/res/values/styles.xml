@@ -13,7 +13,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:background">@null</item>
-        <!-- 状态栏跟应用标题栏同色（浅色 #FFFFFF = 网页里的 --surface）；深色版在 values-night 里覆盖 -->
+        <!-- 状态栏跟应用标题栏同色（浅色 #FFFFFF，对齐网页的 surface 色）；深色版在 values-night 里覆盖 -->
         <item name="android:statusBarColor">#FFFFFF</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
