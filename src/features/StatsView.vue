@@ -7,6 +7,8 @@ import { MATURE_DAYS, forecast, minutesByDay } from '../srs/stats';
 import { useApp } from '../stores/app';
 import { useSpeaking } from '../stores/speaking';
 import { useVocab } from '../stores/vocab';
+import { useWords } from '../stores/words';
+import { wordStatus } from '../vocab/words';
 import type { Direction, ReviewLog } from '../types';
 
 const DAYS = 30;
@@ -18,6 +20,24 @@ const DIRECTIONS: { key: Direction; label: string }[] = [
 const app = useApp();
 const speaking = useSpeaking();
 const vocab = useVocab();
+const words = useWords();
+
+// 单词线的汇总（和词条分开统计）：按卡的状态数，明天到期数按排期直接算
+const wordStats = computed(() => {
+  let learning = 0;
+  let mastered = 0;
+  let suspended = 0;
+  let dueTomorrow = 0;
+  const start = startOfDay(Date.now());
+  for (const c of words.all) {
+    const s = wordStatus(c);
+    if (s === 'mature') mastered++;
+    else if (s === 'suspended') suspended++;
+    else learning++;
+    if (!c.suspended && c.due >= start + DAY && c.due < start + 2 * DAY) dueTomorrow++;
+  }
+  return { total: words.all.length, learning, mastered, suspended, dueTomorrow };
+});
 
 const logs = shallowRef<ReviewLog[]>([]);
 onMounted(async () => {
@@ -104,6 +124,15 @@ const lastReading = computed(() => vocab.readings.at(-1));
         <div class="num">{{ lastReading ? `${(lastReading.coverage * 100).toFixed(1)}%` : '—' }}</div>
         <div class="muted small">最近一次阅读的认识占比</div>
       </div>
+    </section>
+
+    <section class="panel stack">
+      <h2>单词线</h2>
+      <p class="muted small">
+        已引入 {{ wordStats.total }} 个词 · 学习中 {{ wordStats.learning }} · 已掌握 {{ wordStats.mastered }} ·
+        已暂停 {{ wordStats.suspended }} · 明天到期 {{ wordStats.dueTomorrow }} 个
+      </p>
+      <div><RouterLink to="/words" class="btn">去学单词</RouterLink></div>
     </section>
 
     <section class="panel">

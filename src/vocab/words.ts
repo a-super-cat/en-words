@@ -127,16 +127,80 @@ export function buildWordQueue(input: WordQueueInput): WordQueue {
 
 const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
+/** 从词条例句里反查这个词出现过的句子，给单词卡和单词详情当例句 */
+export function findExamples(
+  word: string,
+  entries: Entry[],
+  limit = 3,
+): { en: string; zh: string }[] {
+  const re = new RegExp(`\\b${escapeRegExp(word)}\\b`, 'i');
+  const out: { en: string; zh: string }[] = [];
+  for (const e of entries) {
+    for (const ex of e.examples) {
+      if (re.test(ex.en)) {
+        out.push(ex);
+        if (out.length >= limit) return out;
+      }
+    }
+  }
+  return out;
+}
+
 /** 从词条例句里反查这个词出现过的句子，给单词卡当例句；没有就返回 undefined */
 export function findExample(
   word: string,
   entries: Entry[],
 ): { en: string; zh: string } | undefined {
-  const re = new RegExp(`\\b${escapeRegExp(word)}\\b`, 'i');
-  for (const e of entries) {
-    for (const ex of e.examples) {
-      if (re.test(ex.en)) return ex;
+  return findExamples(word, entries, 1)[0];
+}
+
+export interface BandProgress {
+  /** 第几段，从 1 开始 */
+  band: number;
+  total: number;
+  /** 标过“认识”、还没建卡的词 */
+  known: number;
+  mastered: number;
+  learning: number;
+  suspended: number;
+  /** 还没碰过的词（含标过“不认识”的） */
+  remaining: number;
+}
+
+/**
+ * 按词频段汇总单词线的进度（单词页的进度面板和分段词表页共用）。
+ * 口径和 buildWordQueue 一致：有卡按卡的状态算，没卡看 marks。
+ */
+export function bandProgress(
+  ranked: DictWord[],
+  cards: Iterable<WordCardState>,
+  marks: ReadonlyMap<string, Mark>,
+  bandSize = 1000,
+): BandProgress[] {
+  const byWord = new Map<string, WordCardState>();
+  for (const c of cards) byWord.set(c.word, c);
+  const bands = new Map<number, BandProgress>();
+  for (const d of ranked) {
+    if (d.rank === null) continue;
+    const band = Math.ceil(d.rank / bandSize);
+    let row = bands.get(band);
+    if (!row) {
+      row = { band, total: 0, known: 0, mastered: 0, learning: 0, suspended: 0, remaining: 0 };
+      bands.set(band, row);
+    }
+    row.total++;
+    const key = d.word.toLowerCase();
+    const card = byWord.get(key);
+    if (card) {
+      const s = wordStatus(card);
+      if (s === 'mature') row.mastered++;
+      else if (s === 'suspended') row.suspended++;
+      else row.learning++;
+    } else if (marks.get(key) === 'known') {
+      row.known++;
+    } else {
+      row.remaining++;
     }
   }
-  return undefined;
+  return [...bands.values()].sort((a, b) => a.band - b.band);
 }

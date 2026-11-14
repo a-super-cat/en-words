@@ -3,6 +3,7 @@ import { DAY } from '../srs/schedule';
 import type { Entry } from '../types';
 import type { DictWord } from './dictionary';
 import {
+  bandProgress,
   buildWordQueue,
   etymUrl,
   findExample,
@@ -96,6 +97,19 @@ describe('rateWordCard / wordStatus / introducedToday', () => {
     const a = newWordCard('a', NOW);
     const b = newWordCard('b', NOW - 2 * DAY);
     expect(introducedToday([a, b], NOW)).toBe(1);
+  });
+});
+
+describe('bandProgress', () => {
+  it('按段汇总卡状态和认识标记', () => {
+    const ranked = [dw('a', 1), dw('b', 2), dw('c', 1500), dw('d', 1600)];
+    const mastered = { ...newWordCard('a', NOW), stability: 30 };
+    const learning = newWordCard('c', NOW);
+    const rows = bandProgress(ranked, [mastered, learning], new Map([['b', 'known' as const]]), 1000);
+    expect(rows).toEqual([
+      { band: 1, total: 2, known: 1, mastered: 1, learning: 0, suspended: 0, remaining: 0 },
+      { band: 2, total: 2, known: 0, mastered: 0, learning: 1, suspended: 0, remaining: 1 },
+    ]);
   });
 });
 

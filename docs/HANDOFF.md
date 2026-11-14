@@ -414,7 +414,7 @@ hash 模式，定义在 `src/router.ts`。
 
 **生词本**（`app.addVocabWords`）：词频排名 ≤ 3000 的归 A 层（`a.vocab`），其余归 D 层（`d.vocab`）。从阅读里收的词带上原句作例句（例句的中文是空的）。
 
-**单词线**（移动端改版第二版，v0.32.0）：生词本的词不再混进词条的新学队列——`app.pickNew` 和 `unseenCount` 都排除了 `.vocab` 分类的词条（它们在词条侧已有卡的会继续在词条流里到期复习，不迁移、不清数据）。单词自己一条线：纯逻辑在 `src/vocab/words.ts`（队列 `buildWordQueue`：到期复习 → 生词本新词 → 词频序新词，跳过已标“认识”和 `knownRank` 以内的词；新词数受 `settings.newWordsPerDay` 限制，默认 15），排期把 `WordCardState` 适配成 `CardState` 复用 `srs/schedule` 的 FSRS 引擎，状态存在 DB 第 5 版的 `wordCards` 表、由 `stores/words.ts` 管，备份格式里是可选的 `words` 部分（旧备份没有按空处理）。单词卡背面有词典释义、构词拆解、词源笔记、词条例句反查（`findExample`）和 Etymonline 跳转（`etymUrl`，阅读页也共用这个函数）。
+**单词线**（移动端改版第二版，v0.32.0）：生词本的词不再混进词条的新学队列——`app.pickNew` 和 `unseenCount` 都排除了 `.vocab` 分类的词条（它们在词条侧已有卡的会继续在词条流里到期复习，不迁移、不清数据）。单词自己一条线：纯逻辑在 `src/vocab/words.ts`（队列 `buildWordQueue`：到期复习 → 生词本新词 → 词频序新词，跳过已标“认识”和 `knownRank` 以内的词；新词数受 `settings.newWordsPerDay` 限制，默认 15），排期把 `WordCardState` 适配成 `CardState` 复用 `srs/schedule` 的 FSRS 引擎，状态存在 DB 第 5 版的 `wordCards` 表、由 `stores/words.ts` 管，备份格式里是可选的 `words` 部分（旧备份没有按空处理）。单词卡背面有词典释义、构词拆解、词源笔记、词条例句反查（`findExample`）和 Etymonline 跳转（`etymUrl`，阅读页也共用这个函数）。v0.35.0 补齐完整版：单词页有查词搜索和词频段进度（`bandProgress`，与队列同口径）、`/words/band/:band` 分段词表、`/words/word/:word` 详情页（加入/暂停/重置走 `stores/words.ts` 的 `enqueue`/`setSuspended`/`removeCard`）、学习页撤销（评分前快照 + `upsert` 写回）、统计页单词线区块。
 
 ### 7.9 备份格式
 

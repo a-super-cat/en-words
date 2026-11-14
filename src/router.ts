@@ -27,6 +27,8 @@ export const router = createRouter({
     { path: '/words', component: () => import('./features/WordsTabView.vue'), meta: { root: true, tab: 1, title: '单词' } },
     { path: '/words/study', component: () => import('./features/WordStudyView.vue') },
     { path: '/words/notebook', component: () => import('./features/WordBookView.vue') },
+    { path: '/words/band/:band', component: () => import('./features/WordBandView.vue') },
+    { path: '/words/word/:word', component: () => import('./features/WordDetailView.vue') },
     { path: '/vocab', redirect: '/words' },
     { path: '/vocab/assess', component: () => import('./features/VocabDrillView.vue') },
     { path: '/vocab/triage/:band', component: () => import('./features/VocabDrillView.vue') },

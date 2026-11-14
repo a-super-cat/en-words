@@ -43,6 +43,26 @@ export const useWords = defineStore('words', () => {
     cards.delete(key);
   }
 
+  /** 把一个词手动加入学习：没卡就建一张今天到期的卡，有卡且暂停中就恢复 */
+  async function enqueue(word: string): Promise<void> {
+    const key = word.toLowerCase();
+    const current = cards.get(key);
+    if (current) {
+      if (current.suspended) await setSuspended(key, false);
+      return;
+    }
+    const card = newWordCard(key, Date.now());
+    await db.wordCards.put({ ...card });
+    cards.set(key, card);
+  }
+
+  /** 原样写回一张卡，撤销评分时用来恢复评分前的状态 */
+  async function upsert(card: WordCardState): Promise<void> {
+    const copy = { ...card };
+    await db.wordCards.put(copy);
+    cards.set(copy.word, copy);
+  }
+
   async function clearHistory(): Promise<void> {
     await db.wordCards.clear();
     await load();
@@ -57,5 +77,17 @@ export const useWords = defineStore('words', () => {
     await load();
   }
 
-  return { cards, all, load, grade, setSuspended, removeCard, clearHistory, exportData, importData };
+  return {
+    cards,
+    all,
+    load,
+    grade,
+    setSuspended,
+    removeCard,
+    enqueue,
+    upsert,
+    clearHistory,
+    exportData,
+    importData,
+  };
 });

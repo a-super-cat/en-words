@@ -7,7 +7,7 @@ import { getWordNote } from '../lib/wordNotes';
 import { useApp } from '../stores/app';
 import { useVocab } from '../stores/vocab';
 import { useWords } from '../stores/words';
-import type { Rating } from '../types';
+import type { Rating, WordCardState } from '../types';
 import { loadDictionary, type Dictionary, type DictWord } from '../vocab/dictionary';
 import {
   buildWordQueue,
@@ -23,6 +23,15 @@ interface Item {
   kind: 'due' | 'notebook' | 'new';
 }
 
+/** 上一次评分的快照，撤销时把卡恢复到评分前（新词第一次评分就删卡） */
+interface GradeSnapshot {
+  item: Item;
+  prev: WordCardState | null;
+  requeued: boolean;
+  fresh: boolean;
+  forgot: boolean;
+}
+
 const app = useApp();
 const vocab = useVocab();
 const words = useWords();
@@ -35,6 +44,7 @@ const busy = ref(false);
 const redone = new Set<string>();
 const stats = ref({ total: 0, fresh: 0, forgot: 0 });
 const ready = ref(false);
+const lastGrade = ref<GradeSnapshot | null>(null);
 
 onMounted(async () => {
   const d = await loadDictionary();
@@ -91,8 +101,13 @@ const RATINGS: { rating: Rating; label: string; cls: string }[] = [
   { rating: 4, label: '很熟', cls: '' },
 ];
 
-// 新卡出现时按设置自动朗读一次，学单词先过耳朵
+// 新卡出现时按设置自动朗读一次，学单词先过耳朵。撤销回退时不触发（要停在已翻面的状态）
+let skipWatch = false;
 watch(index, () => {
+  if (skipWatch) {
+    skipWatch = false;
+    return;
+  }
   revealed.value = false;
   const item = current.value;
   if (item && app.settings.autoSpeak) speak(item.word, app.settings);
@@ -103,18 +118,51 @@ async function grade(rating: Rating) {
   if (!item || busy.value) return;
   busy.value = true;
   try {
+    const before = words.cards.get(item.word);
+    const prev = before ? { ...before } : null;
     await words.grade(item.word, rating);
+    let requeued = false;
+    if (rating === 1 && !redone.has(item.word)) {
+      // 忘了的词在本轮末尾再出现一次，趁热再记一遍（只重排一次）
+      redone.add(item.word);
+      items.value = [...items.value, item];
+      requeued = true;
+    }
+    lastGrade.value = {
+      item,
+      prev,
+      requeued,
+      fresh: item.kind !== 'due',
+      forgot: rating === 1,
+    };
     stats.value.total++;
     if (item.kind !== 'due') stats.value.fresh++;
-    if (rating === 1) {
-      stats.value.forgot++;
-      // 忘了的词在本轮末尾再出现一次，趁热再记一遍（只重排一次）
-      if (!redone.has(item.word)) {
-        redone.add(item.word);
-        items.value = [...items.value, item];
-      }
-    }
+    if (rating === 1) stats.value.forgot++;
     index.value++;
+  } finally {
+    busy.value = false;
+  }
+}
+
+async function undo() {
+  const g = lastGrade.value;
+  if (!g || busy.value) return;
+  busy.value = true;
+  try {
+    if (g.prev) await words.upsert(g.prev);
+    else await words.removeCard(g.item.word);
+    if (g.requeued) {
+      const arr = items.value;
+      if (arr.length > 0 && arr[arr.length - 1] === g.item) items.value = arr.slice(0, -1);
+      redone.delete(g.item.word);
+    }
+    stats.value.total--;
+    if (g.fresh) stats.value.fresh--;
+    if (g.forgot) stats.value.forgot--;
+    skipWatch = true;
+    index.value--;
+    revealed.value = true;
+    lastGrade.value = null;
   } finally {
     busy.value = false;
   }
@@ -125,7 +173,10 @@ async function grade(rating: Rating) {
   <div class="stack has-actionbar">
     <div class="row between">
       <RouterLink to="/words" class="muted small back">‹ 单词</RouterLink>
-      <span v-if="items.length > 0 && !done" class="muted small">{{ Math.min(index + 1, items.length) }} / {{ items.length }}</span>
+      <span class="row">
+        <span v-if="items.length > 0 && !done" class="muted small">{{ Math.min(index + 1, items.length) }} / {{ items.length }}</span>
+        <button type="button" class="ghost" :disabled="!lastGrade || busy" @click="undo">撤销</button>
+      </span>
     </div>
     <div v-if="items.length > 0 && !done" class="bar"><span :style="{ width: `${(index / items.length) * 100}%` }"></span></div>
 
