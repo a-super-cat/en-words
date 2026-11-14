@@ -4,6 +4,8 @@ import { useRouter } from 'vue-router';
 import { useApp } from '../stores/app';
 import { useSpeaking } from '../stores/speaking';
 
+const props = defineProps<{ scope?: 'work' | 'life'; embedded?: boolean }>();
+
 const app = useApp();
 const speaking = useSpeaking();
 const router = useRouter();
@@ -15,14 +17,29 @@ const counts = computed(() => {
   return out;
 });
 
+// 工作和生活分开列：生活只看旅游分类，工作看其余分类，两边互不混排
 const groups = computed(() =>
-  speaking.scenarioCategories.map((c) => ({
-    ...c,
-    scenarios: speaking.scenarios.filter((s) => s.category === c.key),
-  })),
+  speaking.scenarioCategories
+    .filter((c) => !props.scope || (props.scope === 'life' ? c.key === 'travel' : c.key !== 'travel'))
+    .map((c) => ({
+      ...c,
+      scenarios: speaking.scenarios.filter((s) => s.category === c.key),
+    })),
 );
 
+const visible = computed(() => groups.value.flatMap((g) => g.scenarios));
+
 function draw() {
+  if (props.scope === 'life') {
+    const s = speaking.nextScenario('travel');
+    if (s) void router.push(`/scenarios/${s.id}`);
+    return;
+  }
+  if (props.scope === 'work') {
+    const pool = visible.value;
+    if (pool.length > 0) void router.push(`/scenarios/${pool[Math.floor(Math.random() * pool.length)].id}`);
+    return;
+  }
   const s = speaking.nextScenario();
   if (s) void router.push(`/scenarios/${s.id}`);
 }
@@ -30,21 +47,21 @@ function draw() {
 
 <template>
   <div class="stack">
-    <div class="row between">
+    <div v-if="!embedded" class="row between">
       <h1>场景对话</h1>
       <span class="muted small">今天练了 {{ speaking.today.scenarios }} 个</span>
     </div>
 
     <section class="panel stack">
       <p class="muted small">
-        同事的话由语音读出来，先听，听不清再看原文。轮到你时，看着中文意思开口说，再对照参考说法。
+        {{ scope === 'life' ? '对方' : '同事' }}的话由语音读出来，先听，听不清再看原文。轮到你时，看着中文意思开口说，再对照参考说法。
       </p>
       <div>
-        <button type="button" class="primary" :disabled="speaking.scenarios.length === 0" @click="draw">随机来一个</button>
+        <button type="button" class="primary" :disabled="visible.length === 0" @click="draw">随机来一个</button>
       </div>
     </section>
 
-    <p v-if="speaking.scenarios.length === 0" class="muted">场景库还是空的。</p>
+    <p v-if="visible.length === 0" class="muted">场景库还是空的。</p>
 
     <section v-for="g in groups" :key="g.key" class="stack">
       <h2>{{ g.title }}</h2>

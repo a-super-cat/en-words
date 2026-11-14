@@ -6,6 +6,8 @@ import { useVocab } from '../stores/vocab';
 import { BAND_SIZE, MAX_BANDS, bandOf, bandRange, bandWords } from '../vocab/assess';
 import { loadDictionary, type Dictionary } from '../vocab/dictionary';
 
+defineProps<{ embedded?: boolean }>();
+
 const app = useApp();
 const vocab = useVocab();
 const dict = shallowRef<Dictionary | null>(null);
@@ -46,7 +48,7 @@ function setKnownRank(event: Event) {
 
 <template>
   <div class="stack">
-    <h1>词汇</h1>
+    <h1 v-if="!embedded">词汇</h1>
 
     <section class="panel stack">
       <div class="row between">

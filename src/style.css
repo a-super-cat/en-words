@@ -64,40 +64,139 @@ a {
   color: var(--accent);
 }
 
-.nav {
+/* 应用外壳：标题栏贴顶、Tab 栏贴底，都是移动端的标准位置（拇指区） */
+.appbar {
   display: flex;
   align-items: center;
-  gap: 4px;
-  /* 顶部多留出安全区：安卓全面屏下状态栏会压住粘性导航 */
-  padding: calc(10px + env(safe-area-inset-top, 0px)) 20px 10px;
+  justify-content: space-between;
+  /* 顶部多留出安全区：安卓全面屏下状态栏会压住标题栏 */
+  padding: calc(10px + env(safe-area-inset-top, 0px)) 16px 10px;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  z-index: 5;
-  /* 窗口窄的时候导航横向滚动，不换行，保持高度不变 */
-  overflow-x: auto;
-  white-space: nowrap;
+  z-index: 6;
 }
 
-.nav .brand {
+.appbar-title {
+  font-size: 1.05rem;
   font-weight: 700;
-  margin-right: 16px;
 }
 
-.nav a {
-  padding: 6px 14px;
-  border-radius: 8px;
+.appbar-me {
+  display: inline-flex;
+  padding: 6px;
+  color: var(--muted);
+}
+
+.appbar-me:active {
+  color: var(--accent);
+}
+
+.tabbar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  z-index: 6;
+}
+
+.tabbar a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 7px 0 8px;
   color: var(--muted);
   text-decoration: none;
+  font-size: 11px;
 }
 
-/* 口语和场景下面还有子页面，在子页面里也保持高亮 */
-.nav a.router-link-exact-active,
-.nav a.section.router-link-active {
+.tabbar a.active {
   color: var(--accent);
-  background: var(--accent-soft);
   font-weight: 600;
+}
+
+.tabbar a:active {
+  opacity: 0.6;
+}
+
+/* 有 Tab 栏时正文底部多留出它的高度，免得最后一屏被挡住 */
+.with-tabs main {
+  padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+}
+
+/* 桌面浏览器打开时把应用收成手机宽的竖列，一套布局维护到底 */
+@media (min-width: 560px) {
+  body {
+    background: #dde1e7;
+  }
+
+  .tabbar {
+    max-width: 480px;
+  }
+
+  .frame {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100dvh;
+    background: var(--bg);
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@media (min-width: 560px) and (prefers-color-scheme: dark) {
+  body {
+    background: #0a0c0f;
+  }
+}
+
+/* 页面切换动画：Tab 之间按方向滑动，子页面淡入淡出 */
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.slide-left-enter-from {
+  opacity: 0;
+  transform: translateX(28px);
+}
+
+.slide-left-leave-to {
+  opacity: 0;
+  transform: translateX(-28px);
+}
+
+.slide-right-enter-from {
+  opacity: 0;
+  transform: translateX(-28px);
+}
+
+.slide-right-leave-to {
+  opacity: 0;
+  transform: translateX(28px);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.15s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 main {

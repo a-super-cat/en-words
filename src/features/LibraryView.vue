@@ -15,12 +15,15 @@ const STATUS_LABEL: Record<EntryStatus, string> = {
 };
 const STATUS_CLASS: Record<EntryStatus, string> = { new: '', learning: 'accent', mature: 'good', suspended: 'warn' };
 
+defineProps<{ embedded?: boolean }>();
+
 const app = useApp();
 const route = useRoute();
 
 const q = ref(typeof route.query.q === 'string' ? route.query.q : '');
 const layer = ref<'' | Layer>('');
-const category = ref('');
+// 可以带 cat 参数直达某个分类（比如从“生活”页跳到旅游词汇）
+const category = ref(typeof route.query.cat === 'string' ? route.query.cat : '');
 const status = ref<'' | EntryStatus>('');
 const limit = ref(PAGE);
 const openId = ref<string | null>(null);
@@ -92,7 +95,8 @@ async function add() {
 <template>
   <div class="stack">
     <div class="row between">
-      <h1>词库</h1>
+      <h1 v-if="!embedded">词库</h1>
+      <span v-else></span>
       <button type="button" @click="adding = !adding">{{ adding ? '取消' : '添加词条' }}</button>
     </div>
 
