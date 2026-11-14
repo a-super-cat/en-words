@@ -155,7 +155,7 @@ useHotkeys((key, e) => {
       <section class="panel stack">
         <div class="row tight">
           <p class="big grow">{{ question.prompt }}</p>
-          <SpeakButton :text="question.prompt" />
+          <SpeakButton :text="question.prompt" norecord />
         </div>
         <div>
           <button v-if="!showZh" type="button" class="ghost" @click="showZh = true">看中文</button>

@@ -197,7 +197,7 @@ en-words/
       EntryDetail.vue       词库里展开的详情（含“我的句子”、暂停、重置）
       ChunkList.vue         一组表达，带勾选框和“加入复习”按钮
       Highlight.vue         在例句里高亮词块
-      SpeakButton.vue       朗读按钮
+      SpeakButton.vue       朗读按钮（自带录音对比：麦克风录自己、与原音来回切换听，norecord 可关）
       AudioPlayer.vue       播放一段录音
       BarChart.vue          单序列柱状图
     features/               页面，一个文件一个页面

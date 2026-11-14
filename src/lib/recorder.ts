@@ -2,6 +2,12 @@ import { onBeforeUnmount, ref } from 'vue';
 
 export type RecorderState = 'idle' | 'recording' | 'denied' | 'unsupported';
 
+/** 当前环境能不能录音（需要 getUserMedia 和 MediaRecorder 都在） */
+export const recorderSupported =
+  typeof navigator !== 'undefined' &&
+  !!navigator.mediaDevices?.getUserMedia &&
+  typeof MediaRecorder !== 'undefined';
+
 /** 用浏览器自带的 MediaRecorder 录音。录音只留在本机。拿不到麦克风时不报错，调用方照常计时练习。 */
 export function useRecorder() {
   const state = ref<RecorderState>('idle');
