@@ -1,0 +1,547 @@
+{
+ "category": "travel",
+ "entries": [
+  {
+   "examples": [
+    {
+     "en": "The flight was overbooked by six seats, as flights always are.",
+     "zh": "这趟航班超售了六个座位，航班总是这样。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "When a flight is overbooked, the airline buys volunteers, not arguments.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "overbooked",
+   "zh": "超售的（航班/酒店卖超了）"
+  },
+  {
+   "examples": [
+    {
+     "en": "I'll give up my seat if the compensation is cash, not credit.",
+     "zh": "如果补偿是现金而不是代金券，我就自愿让出座位。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Never give up your seat for the first offer; it always rises.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "give up my seat",
+   "zh": "自愿让出座位（接受补偿改签）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Travel credit expires in a year and flies only with them.",
+     "zh": "旅行代金券一年到期，而且只能坐他家航班用。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Cash beats travel credit unless you fly the airline monthly.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "travel credit",
+   "zh": "旅行代金券（航司给的抵用额度）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The next flight out gets me there by dinner, one stop, no drama.",
+     "zh": "下一班能走的航班能让我晚饭前到，中转一次，没什么波折。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Always ask what the next flight out actually is before volunteering.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "next flight out",
+   "zh": "下一班能走的航班"
+  },
+  {
+   "examples": [
+    {
+     "en": "A dent on the door costs less than a scratch through the paint.",
+     "zh": "车门上的凹痕比划穿漆面的划痕便宜。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Photograph every dent at pickup, even the tiny ones.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "dent",
+   "zh": "凹痕（车身撞凹的地方）"
+  },
+  {
+   "examples": [
+    {
+     "en": "If you scratch the car, report it before returning, not after.",
+     "zh": "如果你把车刮了，还车之前就要报备，不要等之后。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Narrow old-town streets are where you scratch the car.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "scratch the car",
+   "zh": "把车刮了、剐蹭"
+  },
+  {
+   "examples": [
+    {
+     "en": "A minor accident still needs photos and the other driver's details.",
+     "zh": "小事故也需要照片和对方驾驶员的信息。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "For a minor accident with no injuries, exchange details and call the rental line.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "minor accident",
+   "zh": "小事故（剐蹭级别）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The insurer wants a police statement even for a parking scrape.",
+     "zh": "哪怕是停车剐蹭，保险公司也要一份警方记录。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "A police statement takes an hour and saves a month of emails.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "police statement",
+   "zh": "警方记录/笔录（事故备案）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The insurance excess is the first thousand of any claim — yours.",
+     "zh": "保险免赔额是任何理赔里的头一千块——你出。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Full cover means zero insurance excess; read that line twice.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "insurance excess",
+   "zh": "保险免赔额（自付的那部分）"
+  },
+  {
+   "examples": [
+    {
+     "en": "If the flat is not as described, message the host through the app first.",
+     "zh": "如果房子与描述不符，先在应用里给房东发消息。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "'Sea view' that needs binoculars is not as described.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "not as described",
+   "zh": "与描述不符（货不对板）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The listing photo used a wide lens and a generous truth.",
+     "zh": "房源照片用了广角镜头，还附赠了一份宽厚的真实。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Compare the listing photo with guest photos in reviews.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "listing photo",
+   "zh": "房源照片（挂出来的展示图）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Self check-in means a lockbox code, not a human with keys.",
+     "zh": "自助入住意味着一个密码锁盒，而不是一个拿钥匙的人。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Self check-in after midnight is a gift; photograph the code message.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "self check-in",
+   "zh": "自助入住（无接触拿钥匙）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The lockbox code is the last four digits of your phone number.",
+     "zh": "钥匙盒的密码是你手机号的后四位。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Spin the lockbox dials after closing it, every time.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "lockbox",
+   "zh": "钥匙密码盒（门口挂的那种）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Platform support can see every message; keep the fight in the app.",
+     "zh": "平台客服能看到每条消息；交涉都留在应用里进行。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Escalate to platform support with photos, dates, and one clear ask.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "platform support",
+   "zh": "平台客服（订房/订票平台的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A partial refund for the two nights without hot water felt fair.",
+     "zh": "没有热水的那两晚给个部分退款，算公道。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Ask for a partial refund per problem night, not for the whole stay.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "partial refund",
+   "zh": "部分退款"
+  },
+  {
+   "examples": [
+    {
+     "en": "The border officer asked three questions and stamped without smiling.",
+     "zh": "边检官问了三个问题，没笑就盖了章。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Answer the border officer briefly and exactly as asked.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "border officer",
+   "zh": "边检官、入境审查员"
+  },
+  {
+   "examples": [
+    {
+     "en": "'Purpose of your visit?' — 'Tourism, ten days, here is my hotel booking.'",
+     "zh": "“来访目的？”——“旅游，十天，这是我的酒店预订。”"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "State the purpose of your visit in one word first: tourism, business, study.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "purpose of your visit",
+   "zh": "来访目的（边检常问的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A return ticket is the cheapest proof that you plan to leave.",
+     "zh": "返程票是证明你打算离开的最便宜证据。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Keep the return ticket booking on your phone, offline.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "return ticket",
+   "zh": "返程票"
+  },
+  {
+   "examples": [
+    {
+     "en": "Proof of funds can be a banking app balance, shown on the spot.",
+     "zh": "资金证明可以是当场打开给他看的手机银行余额。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Some borders ask for proof of funds per day of stay.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "proof of funds",
+   "zh": "资金证明"
+  },
+  {
+   "examples": [
+    {
+     "en": "The address of stay means the first hotel, not every stop.",
+     "zh": "住宿地址指的是第一家酒店，不是每一站。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Have the address of stay copied in the local language for taxi drivers.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "address of stay",
+   "zh": "住宿地址（入境卡上填的）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The headliner plays last on the biggest stage, after dark.",
+     "zh": "压轴主演在天黑之后登上最大的舞台，最后演出。"
+    }
+   ],
+   "kind": "word",
+   "situation": {
+    "en": "Nap before the headliner; festivals are marathons.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "headliner",
+   "zh": "压轴主演（音乐节的最大牌）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Our campsite pitch fits the tent, the car, and six regrets about the rain.",
+     "zh": "我们的营位能放下帐篷、车，还有六份对下雨的懊悔。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Book the campsite pitch early; the flat dry ones go first.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "campsite pitch",
+   "zh": "营位（露营地里划给你的一块地）"
+  },
+  {
+   "examples": [
+    {
+     "en": "Top up the wristband in small amounts; refunds of leftovers take weeks.",
+     "zh": "给手环充值要小额多次；余额退款要等好几周。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "You top up the wristband at booths or in the festival app.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "top up the wristband",
+   "zh": "给手环充值（音乐节无现金支付）"
+  },
+  {
+   "examples": [
+    {
+     "en": "The last shuttle bus leaves twenty minutes after the headliner ends.",
+     "zh": "最后一班接驳车在压轴演出结束后二十分钟发车。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The shuttle bus queue is a second concert, with worse music.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "shuttle bus",
+   "zh": "接驳车、摆渡车"
+  },
+  {
+   "examples": [
+    {
+     "en": "A hot spring after a ski day is the whole point of the town.",
+     "zh": "滑雪一天之后泡温泉，是这座小镇的全部意义。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "In a Japanese hot spring, you wash before you soak. No exceptions.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "hot spring",
+   "zh": "温泉"
+  },
+  {
+   "examples": [
+    {
+     "en": "Book the massage treatment for the evening you arrive, not the last night.",
+     "zh": "按摩项目要订在你抵达的那晚，不要订在最后一晚。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The spa menu lists each massage treatment by minutes and pressure.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "massage treatment",
+   "zh": "按摩项目/理疗"
+  },
+  {
+   "examples": [
+    {
+     "en": "The booking under my name includes breakfast for two, not one.",
+     "zh": "用我的名字预订的这单含双人早餐，不是一个人的。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Check the booking under my name before arguing — sometimes you're wrong.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "booking under my name",
+   "zh": "用我的名字预订的"
+  },
+  {
+   "examples": [
+    {
+     "en": "A speeding ticket from a camera arrives by mail weeks later, even abroad.",
+     "zh": "摄像头拍的超速罚单几周后会寄到，国外也一样。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "The rental company adds a fee on top of your speeding ticket.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "speeding ticket",
+   "zh": "超速罚单"
+  },
+  {
+   "examples": [
+    {
+     "en": "Pull over where it's lit and keep your hands on the wheel.",
+     "zh": "在有光的地方靠边停车，手放在方向盘上。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "When the lights flash behind you, pull over at the first safe spot.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "pull over",
+   "zh": "靠边停车（被警察示意或主动）"
+  },
+  {
+   "examples": [
+    {
+     "en": "'License and registration, please' is the whole script's first line.",
+     "zh": "“请出示驾照和行驶证”是整个剧本的第一句台词。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Keep license and registration in the glove box, not your suitcase.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "license and registration",
+   "zh": "驾照和行驶证（警察的固定说法）"
+  },
+  {
+   "examples": [
+    {
+     "en": "A good travel companion argues about dinner, not about money.",
+     "zh": "好的旅伴只为晚饭争论，不为钱争论。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Choose a travel companion by their bad-day behavior, not their photos.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "travel companion",
+   "zh": "旅伴"
+  },
+  {
+   "examples": [
+    {
+     "en": "A change of plans is not a failed trip; it's the trip editing itself.",
+     "zh": "计划变更不是失败的旅行；是旅行在自己修改自己。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Announce a change of plans early, with the new version attached.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "change of plans",
+   "zh": "计划变更、改主意"
+  },
+  {
+   "examples": [
+    {
+     "en": "Let's split up for the afternoon and compare notes at dinner.",
+     "zh": "咱们下午分头行动，晚饭时交换见闻。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Happy groups split up for the afternoon without a single grudge.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "split up for the afternoon",
+   "zh": "下午分头行动"
+  },
+  {
+   "examples": [
+    {
+     "en": "Meet back at the hotel at six, phones charged, stories ready.",
+     "zh": "六点回到酒店集合，手机充好电，故事准备好。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Always agree where to meet back at before splitting up.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "meet back at",
+   "zh": "回到某地集合"
+  },
+  {
+   "examples": [
+    {
+     "en": "The travel budget has three lines: beds, food, and one big splurge.",
+     "zh": "旅行预算就三行：住宿、吃饭，和一次大额放纵。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "Track the travel budget daily in a shared note; surprises breed fights.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "travel budget",
+   "zh": "旅行预算"
+  },
+  {
+   "examples": [
+    {
+     "en": "Splurge on one meal per trip; eat like locals for the rest.",
+     "zh": "每次旅行只在一顿饭上奢侈一把；其余的像本地人一样吃。"
+    }
+   ],
+   "kind": "chunk",
+   "situation": {
+    "en": "We splurge on the cruise, save on the hotel. That's the deal.",
+    "zh": "你在国外旅行，需要用到这个表达："
+   },
+   "term": "splurge on",
+   "zh": "在……上奢侈一把"
+  }
+ ],
+ "layer": "A",
+ "title": "旅游娱乐"
+}

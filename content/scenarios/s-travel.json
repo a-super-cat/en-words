@@ -919,6 +919,567 @@
           "zh": "已发送。传感器误扣很抱歉——祝您返程愉快。"
         }
       ]
+    },
+    {
+      "id": "overbooked-flight-negotiation",
+      "title": "航班超售：在登机口谈一笔好补偿",
+      "setting": "登机口广播：航班超售，征集自愿改签的乘客，初始 offer 是 200 美元代金券。你明天的行程不赶，但你清楚这个价格还会涨。你走到柜台，工作人员是 Rachel。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Rachel (gate agent)",
+          "en": "We're oversold by four seats. First offer is a two-hundred-dollar voucher and the evening flight. Any interest before I raise it?",
+          "zh": "我们超售了四个座位。第一轮 offer 是两百美元代金券加晚上的航班。我涨价之前，您有兴趣吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你表达有兴趣但把条件问清：你想知道现金和代金券的区别、晚班几点到、过夜的话酒店和餐食谁负责。",
+          "en": "Possibly. Before I give up my seat: is the compensation cash or travel credit? And if the evening flight gets me in too late, who covers the hotel and meals?",
+          "chunks": [
+            { "term": "give up my seat", "zh": "自愿让出座位（接受补偿改签）" },
+            { "term": "travel credit", "zh": "旅行代金券（航司给的抵用额度）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rachel (gate agent)",
+          "en": "The voucher is credit with us, valid a year. Evening flight lands at eleven; no hotel needed unless it cancels. Cash only enters if we have to bump people involuntarily.",
+          "zh": "代金券是我们家的额度，有效一年。晚班十一点落地；除非它取消，否则不需要酒店。只有当我们不得不强制请人下飞机时，才谈现金。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你点破博弈：强制补偿的法定标准比自愿价高得多，而且现在没人举手——说明价格不够。你等下一轮，但把底线说清。",
+          "en": "Then let me be honest: the flight is overbooked, nobody raised a hand, and involuntary compensation costs the airline far more. I'll wait for the next round — cash, or credit at a number worth my evening.",
+          "chunks": [
+            { "term": "overbooked", "zh": "超售的（航班/酒店卖超了）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rachel (gate agent)",
+          "en": "You're not wrong. Give me five minutes... Okay: four hundred in credit, the evening flight, meal vouchers now, and if that flight slips past midnight, a hotel voucher too. That's my ceiling today.",
+          "zh": "您说得对。给我五分钟……好：四百代金券、晚班航班、现在就给餐券；如果那班飞过零点，再加酒店券。这是我今天的上限了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你再确认唯一的风险点：晚班如果取消，你是自动排到明天第一班、还是要自己来柜台抢位置。",
+          "en": "One risk to close: if the evening flight cancels, am I confirmed automatically on the first flight out tomorrow, or do I queue and pray?",
+          "chunks": [
+            { "term": "next flight out", "zh": "下一班能走的航班" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rachel (gate agent)",
+          "en": "Automatically confirmed, seat assigned, it's in the system before you leave this desk. And the compensation voucher prints with your new boarding pass.",
+          "zh": "自动确认、座位已定，您离开柜台之前就进系统了。补偿券会和新登机牌一起打印出来。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你成交并致谢，顺便提醒一句：代金券的有效期请打在券面上，你不想回去再打电话查。",
+          "en": "Deal. Print the compensation voucher with the expiry date on it, please — and thank you for negotiating like an adult.",
+          "chunks": [
+            { "term": "compensation voucher", "zh": "补偿代金券" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Rachel (gate agent)",
+          "en": "Done. Gate B4 at seven forty. Enjoy the meal vouchers — the place by security is genuinely good.",
+          "zh": "办好了。七点四十在 B4 登机。餐券好好用——安检旁那家是真的不错。"
+        }
+      ]
+    },
+    {
+      "id": "rental-car-minor-accident",
+      "title": "租车小剐蹭：从现场到租车公司的完整处理",
+      "setting": "自驾第三天，你在老城窄巷会车时蹭到了墙，对方没人受伤、其实根本没有“对方”——只有一面墙和你的右后门。你先打租车公司的协助热线，然后到还车门店当面处理，门店经理是 Luis。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Assistance line",
+          "en": "Roadside assistance. Is everyone safe? Tell me what happened.",
+          "zh": "道路救援热线。大家都安全吗？说一下发生了什么。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你报告情况：没人受伤，只有车身损伤——右后门有一道划痕和一小块凹痕，是你自己在巷子里刮到墙的。你问接下来按什么流程走。",
+          "en": "Everyone's safe — no other car involved. I managed to scratch the car on a wall in a narrow lane: a scratch and a small dent on the rear door. It was my fault. What do I do next?",
+          "chunks": [
+            { "term": "scratch the car", "zh": "把车刮了、剐蹭" },
+            { "term": "dent", "zh": "凹痕（车身撞凹的地方）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Assistance line",
+          "en": "Take photos of the damage, the wall, and the street. For any scrape, even without a second party, get a police statement at the nearest station — the insurer requires it. Then drive on; the car is fine.",
+          "zh": "把损伤、墙和街道都拍下来。任何剐蹭、哪怕没有第二方，都要去最近的警局拿一份警方记录——保险公司要求有。之后车可以继续开，没问题。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你确认顺序：你现在就去警局做记录，还车时把记录和照片一起交；费用方面，你买的是全包险，免赔额是零，对吗。",
+          "en": "Photos done. I'll get the police statement today and bring it at return. And since I took the full package, my insurance excess should be zero — correct?",
+          "chunks": [
+            { "term": "police statement", "zh": "警方记录/笔录（事故备案）" },
+            { "term": "insurance excess", "zh": "保险免赔额（自付的那部分）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Luis (branch manager)",
+          "en": "(at return) I see the statement and the photos — timestamps match your call. Clean paperwork. With your coverage, the minor accident closes here: no charge, no deposit hold beyond tonight.",
+          "zh": "（还车时）记录和照片我都看到了——时间戳和您的来电对得上。材料很干净。有您的保险，这次小事故到此结案：不收费，押金冻结今晚之后也不再多留。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你要一份书面结案证明：请把“无费用结案”写成一封邮件发你，免得下个月账单上冒出什么你还要再解释一遍。",
+          "en": "Please send that in writing — 'minor accident closed with no charge' — so if anything appears on my statement next month, I have your email.",
+          "chunks": [
+            { "term": "minor accident", "zh": "小事故（剐蹭级别）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Luis (branch manager)",
+          "en": "One formality at the desk: sign the damage report — it states single vehicle, minor accident, no third party involved.",
+          "zh": "柜台这边还有个手续：签一下损伤报告——上面写的是单车事故、小事故、无第三方。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你签字并总结一句：这个小事故的材料就齐了——照片、警方记录、再加上这份报告。",
+          "en": "Signed. So the minor accident is fully documented now: photos, the police statement, and this report.",
+          "chunks": [
+            { "term": "minor accident", "zh": "小事故（剐蹭级别）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Luis (branch manager)",
+          "en": "Sent already. For what it's worth: half our damage cases get messy only because drivers report late. You did it by the book.",
+          "zh": "已经发了。说句实在的：我们一半的损伤纠纷变麻烦，只是因为驾驶员报备太晚。您是按规矩办的。"
+        }
+      ]
+    },
+    {
+      "id": "airbnb-not-as-described",
+      "title": "民宿货不对板：和房东交涉到平台介入",
+      "setting": "你订的“海景两居室”到了之后发现：海景要趴窗才看得见一角、热水器是坏的、楼下就是酒吧街。你先在应用里联系房东 Hannah，谈不拢之后升级到平台客服。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Hannah (host, in-app message)",
+          "en": "Hi! The lockbox code is 4417. Hope you love the place — the view is my favorite part!",
+          "zh": "嗨！钥匙盒密码是 4417。希望你喜欢这房子——景色是我最喜欢的部分！"
+        },
+        {
+          "speaker": "me",
+          "zh": "你入住一小时后发去第一条消息：礼貌但具体地列问题：热水没有、“海景”在照片里和实际差太多、酒吧噪音大到半夜；你问她热水今晚能不能修。",
+          "en": "Hi Hannah, we're in — self check-in worked. Three problems, honestly: there's no hot water, the 'sea view' is a corner of blue from one window, and the bar downstairs is loud. The flat is not as described. Can the hot water be fixed tonight?",
+          "chunks": [
+            { "term": "self check-in", "zh": "自助入住（无接触拿钥匙）" },
+            { "term": "not as described", "zh": "与描述不符（货不对板）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Hannah (host, in-app message)",
+          "en": "The water heater needs a part; earliest is day after tomorrow. The view is exactly like the listing photo, taken from the balcony. Earplugs are in the drawer!",
+          "zh": "热水器需要一个零件，最早后天。景色和房源照片完全一样，是从阳台拍的。抽屉里有耳塞！"
+        },
+        {
+          "speaker": "me",
+          "zh": "你把证据和诉求一次说清：阳台照片用的是广角、而且拍的是隔壁楼顶的角度；你不打算吵，只要求合理方案：前两晚没有热水给部分退款，否则你只能找平台客服处理。",
+          "en": "The listing photo was taken with a wide lens from the roof corner — I have side-by-side photos. I'm not looking for a fight: a partial refund for the nights without hot water, or I have to take this to platform support.",
+          "chunks": [
+            { "term": "listing photo", "zh": "房源照片（挂出来的展示图）" },
+            { "term": "partial refund", "zh": "部分退款" },
+            { "term": "platform support", "zh": "平台客服（订房/订票平台的）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Platform support (phone)",
+          "en": "I can see the full message thread and your photos. The hot water and the view are both material differences. Here's what I can do: move you to a similar flat two streets away from tomorrow, refund tonight in full, and credit the difference.",
+          "zh": "我能看到完整的聊天记录和您的照片。热水和景色都属于实质性差异。我这边能做的：明天把您换到两条街外一套类似的房子、今晚全额退款，差价用额度补给您。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你接受方案并确认细节：换房的入住方式还是密码盒吗？换房那天行李能不能先放新房、你们下午再正式入住；退款到账时间也请确认。",
+          "en": "That works. For the new flat: is it a lockbox again? And can our bags go in at noon while we move at four? Also, when does tonight's refund land?",
+          "chunks": [
+            { "term": "lockbox", "zh": "钥匙密码盒（门口挂的那种）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Platform support (phone)",
+          "en": "Lockbox again, code by message at eleven. Bags at noon is fine. Refund hits your card in three to five days; I'll email the summary now.",
+          "zh": "还是密码盒，十一点发您密码。中午放行李可以。退款三到五天到您的卡；我现在把处理摘要发您邮箱。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你向房东发最后一条消息收尾：不带情绪地说明平台已经处理、明早退房时会把钥匙放回盒子，也祝她把热水器修好——下一個客人就不用经历这些了。",
+          "en": "(final message to Hannah) Platform support has sorted us out. We'll leave the keys in the lockbox tomorrow by ten. I hope the heater gets fixed for the next guests.",
+          "chunks": [
+            { "term": "lockbox", "zh": "钥匙密码盒（门口挂的那种）" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "border-control-interview",
+      "title": "入境边检：被多问了几句怎么答",
+      "setting": "你抵达一个新国家，边检官 Officer Grant 看了你的护照后没有马上盖章，而是开始问问题。队伍在你身后变长，你的心跳有点快——但其实你材料齐全，只要答得清楚、简短、一致。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Officer Grant",
+          "en": "Passport, please. What is the purpose of your visit?",
+          "zh": "请出示护照。您此行的目的是什么？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你按规矩答：一个词先行，再给具体天数和城市，别展开人生故事。",
+          "en": "Tourism — to answer the purpose of your visit question in full: ten days, four here in the capital, two at the coast, then back here.",
+          "chunks": [
+            { "term": "purpose of your visit", "zh": "来访目的（边检常问的）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Officer Grant",
+          "en": "Where will you be staying?",
+          "zh": "您住在哪里？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你答第一家酒店的名字和街区，手机上预订确认随时能出示。",
+          "en": "The Meridian Hotel, in the old town, for the first four nights. I have the booking here if you need it — that's the address of stay on my form.",
+          "chunks": [
+            { "term": "address of stay", "zh": "住宿地址（入境卡上填的）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Officer Grant",
+          "en": "Do you have a return ticket?",
+          "zh": "您有返程票吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你出示返程票：周日晚上飞回国的航班，手机里有离线保存的预订信息。",
+          "en": "Yes — a return ticket for Sunday night, and the booking is saved offline on my phone. Here it is.",
+          "chunks": [
+            { "term": "return ticket", "zh": "返程票" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Officer Grant",
+          "en": "How much money are you carrying, and how will you support yourself?",
+          "zh": "您带了多少钱？靠什么负担这趟行程？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你答现金数额并说明有卡和手机银行余额可以当场给他看——资金证明就在手机里。",
+          "en": "About four hundred in cash, and my cards. I can show proof of funds in my banking app right now if you'd like.",
+          "chunks": [
+            { "term": "proof of funds", "zh": "资金证明" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Officer Grant",
+          "en": "And the full itinerary — what are you doing day by day?",
+          "zh": "完整的行程呢——每天都做什么？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你简明扼要地报行程：头四天本市的景点、第五天坐火车去海边、最后两天回来购物，机票和酒店都对得上，并表明细节都在备忘录里。",
+          "en": "Days one to four, sightseeing here. Day five, the train to the coast for two nights. Back here for the last two days — my itinerary matches the hotel bookings; the details are in my notes.",
+          "chunks": [
+            { "term": "itinerary", "zh": "行程（安排好的一天一天的计划）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Officer Grant",
+          "en": "(stamps the passport) Enjoy your stay. Keep the return booking handy for the airline on departure day.",
+          "zh": "（盖章）祝您停留愉快。返程那天航空公司可能还要看返程预订，留着方便打开。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你礼貌收尾离开柜台，心里复盘一句：他的问题一个都不难，难的是紧张的时候把答案说短、说一致。",
+          "en": "Thank you, officer. (to yourself) Every answer short, every answer consistent — that's the whole game at border control.",
+          "chunks": [
+            { "term": "border officer", "zh": "边检官、入境审查员" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "music-festival-weekend",
+      "title": "音乐节三天：营地、手环与最后一班车",
+      "setting": "三天两夜的户外音乐节。你和两个朋友开车来，扎营在 B 区。入场、充值、看压轴、散场——音乐节生存全靠提前知道规则，同行的 Mia 是老手。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Mia (friend)",
+          "en": "We got a great campsite pitch — flat, near the water points, far from the generator. Tent up first, then wristbands, then beer. In that order.",
+          "zh": "咱们这个营位不错——平整、离取水点近、离发电机远。先搭帐篷，再领手环，再喝啤酒。这个顺序不能变。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你认领任务并问清手环的用法：你去领三个人的手环；听说场内全是无现金消费，手环要先充值、在哪里充、剩下的钱退不退你要问明白。",
+          "en": "I'll grab the wristbands. Everything inside is cashless, right? Where do I top up the wristband, and do leftover balances come back afterwards?",
+          "chunks": [
+            { "term": "top up the wristband", "zh": "给手环充值（音乐节无现金支付）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Mia (friend)",
+          "en": "App or the booths by the gate. Leftovers refund automatically, minus a small fee, in about two weeks. Top up small, top up often.",
+          "zh": "用应用或者大门边的 booth 都行。余额自动退、扣一点手续费、大概两周。少量多次充，这是规矩。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你规划今晚的看演顺序：主舞台的压轴乐队十点才上，你们先去小舞台看七点那支，九点回来占位置；中间吃饭错峰。",
+          "en": "Tonight's plan: the small stage at seven, back here by nine to claim spots — the headliner doesn't start until ten. Dinner in between, before the rush.",
+          "chunks": [
+            { "term": "headliner", "zh": "压轴主演（音乐节的最大牌）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Mia (friend)",
+          "en": "Good plan. One survival rule: the shuttle bus line at closing is a war zone. Either leave during the last song, or stay for the silent disco and take the one a.m. bus.",
+          "zh": "好计划。再加一条生存守则：散场时的接驳车队伍是战场。要么最后一首歌时就撤，要么去玩静音迪斯科、坐凌晨一点那班车。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你选后者并把集合规则定死：如果走散，就回营地集合，不在人群里互相找——手机在音乐节第三天基本是砖。",
+          "en": "Silent disco and the late shuttle bus, then. And if we get separated: meet back at the tent, not wandering the crowd. Phones are bricks by day three anyway.",
+          "chunks": [
+            { "term": "shuttle bus", "zh": "接驳车、摆渡车" },
+            { "term": "meet back at", "zh": "回到某地集合" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Mia (friend)",
+          "en": "Agreed. Now — tent, wristbands, beer. A festival done right is just logistics with better music.",
+          "zh": "同意。现在——帐篷、手环、啤酒。办得好的音乐节，本质就是物流配上了更好的音乐。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你笑着补充一句对营位的评价收尾。",
+          "en": "And this campsite pitch is the best logistics of all: close enough to hear the soundcheck, far enough to sleep through it.",
+          "chunks": [
+            { "term": "campsite pitch", "zh": "营位（露营地里划给你的一块地）" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spa-and-onsen-evening",
+      "title": "滑雪后的温泉之夜：预订与礼仪",
+      "setting": "滑雪第二天傍晚，你浑身酸痛，想去镇上最有名的温泉酒店泡汤外加做个按摩。你打电话到水疗中心前台，接电话的是 Yui，她把规矩讲得很清楚。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Yui (spa desk)",
+          "en": "Good evening, Sakura Spa. The public hot spring is open until ten; treatments need a booking. How can I help?",
+          "zh": "晚上好，这里是 Sakura 水疗中心。公共温泉开到十点，理疗项目需要预订。有什么可以帮您？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你预订按摩并确认温泉开放方式：你要今晚七点的六十分钟深层按摩，用你的名字预订；温泉是男女分开的裸汤，第一次来，你先把礼仪问清楚。",
+          "en": "I'd like a sixty-minute deep tissue massage treatment at seven, booking under my name, please. And about the hot spring — it's my first time. What are the rules I should know?",
+          "chunks": [
+            { "term": "massage treatment", "zh": "按摩项目/理疗" },
+            { "term": "hot spring", "zh": "温泉" },
+            { "term": "booking under my name", "zh": "用我的名字预订的" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Yui (spa desk)",
+          "en": "Wash fully at the showers before entering the water — no swimsuits, no towels in the bath. Small towel stays on your head or the side. Tattoos are fine here with a cover sticker from the desk.",
+          "zh": "进水之前先在淋浴区把身体洗净——不能穿泳衣、毛巾不能进池。小毛巾可以放在头上或池边。有纹身的话，在前台领一张遮盖贴就可以。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你复述确认顺序：先洗净、再泡汤、按摩排在泡汤之后还是之前更好，你问她的专业建议。",
+          "en": "So: shower first, soak after, and nothing in the water but people. Should the massage come before or after the hot spring soak, in your professional opinion?",
+          "chunks": [
+            { "term": "hot spring", "zh": "温泉" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Yui (spa desk)",
+          "en": "Soak first — twenty minutes loosens the muscles, then the treatment works deeper. Your booking is at seven; arrive by six fifteen for the bath.",
+          "zh": "先泡——二十分钟让肌肉松开，之后的按摩效果更深。您订的是七点，请六点一刻到，先泡汤。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你确认收尾：六点一刻到、带房卡可以把费用记在房账上，对吗？另外泡完之后二楼休息区可以躺到几点，你想把今晚彻底放空。",
+          "en": "I'll be there at six fifteen. Can I charge it to my room with the key card? And until what time can I use the lounge upstairs after? Tonight's plan is total collapse.",
+          "chunks": [
+            { "term": "room service", "zh": "（酒店）客房送餐服务" }
+          ]
+        },
+        {
+          "speaker": "me",
+          "zh": "你再问两个小规矩：温泉区里能不能拍照、泡完之后在哪里补水——你滑雪后总是忘记喝水。",
+          "en": "Two small rules more: can I take photos inside the hot spring area? And where do I get drinking water afterwards — I always forget to hydrate after skiing.",
+          "chunks": [
+            { "term": "hot spring", "zh": "温泉" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Yui (spa desk)",
+          "en": "No photos anywhere in the bath area, phones stay in the locker. Water and tea are free at the entrance — drink before and after, skiers are always drier than they think.",
+          "zh": "浴区内禁止拍照，手机要留在储物柜里。入口处有免费的水和茶——泡前泡后都喝一点，滑雪的人总是比自以为的更缺水。"
+        },
+        {
+          "speaker": "them",
+          "name": "Yui (spa desk)",
+          "en": "Room charge is fine with the key card. The lounge is open until eleven — most skiers fall asleep there by nine, we consider it a compliment.",
+          "zh": "房卡记账可以。休息区开放到十一点——大多数滑雪客九点就在那儿睡着了，我们把这当作夸奖。"
+        }
+      ]
+    },
+    {
+      "id": "pulled-over-while-driving",
+      "title": "自驾被警察拦下：一场超速的对话",
+      "setting": "自驾途中一段限速 90 的乡间公路，你开着租来的车，仪表盘显示 108。身后警灯亮起。你深吸一口气，把车停到路肩宽敞处， Officer Davis 走到窗边。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Officer Davis",
+          "en": "Evening. License and registration, please. Do you know why I stopped you?",
+          "zh": "晚上好。请出示驾照和行驶证。您知道我为什么拦您吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你规范应对：手放在方向盘上、先说明你要去手套箱拿证件，回答问题不绕弯：你猜是速度——这段路你以为限速更高。",
+          "en": "Evening, officer. My license and registration are in the glove box — I'll reach for them slowly. I imagine it's my speed; I believed the limit was higher on this stretch.",
+          "chunks": [
+            { "term": "license and registration", "zh": "驾照和行驶证（警察的固定说法）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Officer Davis",
+          "en": "It's ninety here; I clocked you at one hundred eight. This is a rental? The paperwork is in order. Where are you headed tonight?",
+          "zh": "这里限速九十，我测到您一百零八。这是租的车？文件没问题。您今晚去哪儿？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你如实交代行程并认下这个错：你们去湖边的酒店、还有半小时路，这是第一天开这辆车，不熟悉它的加速；不是借口，只是说明，但罚单你认。",
+          "en": "To a hotel by the lake, thirty minutes away. First day with this rental car and I misjudged its acceleration. That's an explanation, not an excuse — if there's a speeding ticket, I accept it.",
+          "chunks": [
+            { "term": "speeding ticket", "zh": "超速罚单" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Officer Davis",
+          "en": "Here's how it works: the ticket is a fine, payable online within thirty days; the rental company gets notified and adds an admin fee. Nothing to pay roadside. Understood?",
+          "zh": "流程是这样：罚单在线缴、三十天内付清；租车公司会收到通知、加收一笔管理费。路边不需要付任何东西。听明白了吗？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你复述确认避免误会：你在线付罚款、租车公司另收管理费、总额你回去看邮件；然后问一句现在能不能继续上路、后面这段路的限速是多少。",
+          "en": "Understood — and for the record, I did pull over at the first wide shoulder I saw. Fine online in thirty days, rental fee on top. Am I free to drive on, and what's the limit for the rest of this road, so I set the cruise control right?",
+          "chunks": [
+            { "term": "pull over", "zh": "靠边停车（被警察示意或主动）" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Officer Davis",
+          "en": "Ninety until the lake junction, then fifty through the village. Slow down and enjoy the lake — it's prettier than the ticket.",
+          "zh": "到湖边岔口之前都是九十，进村后五十。开慢点，好好享受湖景——它比罚单好看多了。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你道谢并把车速定在限速内继续上路，在心里把这次教训标价：这张罚单的价格，够在湖边吃两顿好的了。",
+          "en": "Thank you, officer. Lesson priced and learned — that speeding ticket just cost me two nice dinners at the lake.",
+          "chunks": [
+            { "term": "speeding ticket", "zh": "超速罚单" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "travel-companions-change-plans",
+      "title": "和旅伴改计划：分歧怎么商量",
+      "setting": "旅行第五天早餐桌上。你想去邻市的汽车博物馆，同行的老友 Chen 想睡到中午再去逛本地市集。两个人的预算和体力都见底了，这场对话决定今天怎么过——以及后面三天怎么过。",
+      "turns": [
+        {
+          "speaker": "them",
+          "name": "Chen (travel companion)",
+          "en": "I'm going to say it: I'm museumed out. Today I want a slow morning and the local market. Your car museum is two trains away.",
+          "zh": "我直说了：博物馆我已经看够了。今天我想睡个懒觉、逛逛本地市集。你的汽车博物馆要倒两趟车。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你不硬碰硬，先把真实分歧点出来：你不是非去不可，你怕的是后面三天都变成“睡到中午”，行程会废掉；你们需要的是一个对双方都公平的改法。",
+          "en": "Fair — and I'm not married to the museum. My fear is the next three days becoming 'sleep till noon' by default. Let's find a change of plans that doesn't quietly delete the trip.",
+          "chunks": [
+            { "term": "change of plans", "zh": "计划变更、改主意" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Chen (travel companion)",
+          "en": "What if today is slow — market, long lunch, nap — and tomorrow we do your museum first thing, when I'm human again?",
+          "zh": "这样行不行：今天就慢节奏——市集、长午餐、睡午觉；明天我恢复成人了，第一件事就去你的博物馆？"
+        },
+        {
+          "speaker": "me",
+          "zh": "你接受框架、再加一条分头行动的选项：今天他睡他的、你自己去逛旧城的市集，下午分头行动、六点在酒店集合交换战利品，谁也不迁就谁。",
+          "en": "Deal — and even better: this afternoon we split up for the afternoon entirely. You nap, I do the old-town market solo. Meet back at the hotel at six and compare treasures.",
+          "chunks": [
+            { "term": "split up for the afternoon", "zh": "下午分头行动" },
+            { "term": "meet back at", "zh": "回到某地集合" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Chen (travel companion)",
+          "en": "Sold. Now the money talk before it gets weird: we're at about eighty percent of the travel budget, and the big dinner is still coming.",
+          "zh": "成交。再把钱的事在变尴尬之前说清：旅行预算已经花了八成，那顿大餐还没吃呢。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你提出预算处理方案：大餐是全程唯一一次放纵，按原计划去；省钱从交通里出——明天去博物馆拼车改大巴，差价正好覆盖。",
+          "en": "The big dinner is our one splurge on this trip — we keep it. We save on transport instead: the bus to the museum tomorrow instead of the train-and-taxi combo covers the difference in the travel budget.",
+          "chunks": [
+            { "term": "splurge on", "zh": "在……上奢侈一把" },
+            { "term": "travel budget", "zh": "旅行预算" }
+          ]
+        },
+        {
+          "speaker": "them",
+          "name": "Chen (travel companion)",
+          "en": "A travel companion who trades trains for dinners. This is why we've survived five trips. Museum tomorrow, nine sharp — I'll even set my own alarm.",
+          "zh": "一个肯用火车换晚餐的旅伴。难怪我们一起旅行五次都没散。明天博物馆、九点整——我连自己的闹钟都设好。"
+        },
+        {
+          "speaker": "me",
+          "zh": "你用一句总结给这场协商收尾：计划就是用来改的，人才是要保住的。",
+          "en": "Plans are made to be edited; travel companions are not. Nine sharp it is.",
+          "chunks": [
+            { "term": "travel companion", "zh": "旅伴" }
+          ]
+        }
+      ]
     }
   ]
 }
