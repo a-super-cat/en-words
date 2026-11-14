@@ -26,6 +26,8 @@ const queue = computed(() => {
     knownRank: app.settings.knownRank,
     newLimit: app.settings.newWordsPerDay - introducedToday(words.all, now),
     now,
+    studying: vocab.studied.studying,
+    mastered: vocab.studied.mastered,
   });
 });
 

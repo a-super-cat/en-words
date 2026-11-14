@@ -98,6 +98,10 @@ export interface WordQueueInput {
   /** 今天还能引入的新词个数（调用方先扣掉今天已引入的） */
   newLimit: number;
   now: number;
+  /** 词条线正在学的单词（小写词形）：和当前学习内容互相印证，优先于纯词频 */
+  studying?: ReadonlySet<string>;
+  /** 词条线已经掌握的单词（小写词形）：不再当新词推 */
+  mastered?: ReadonlySet<string>;
 }
 
 export function buildWordQueue(input: WordQueueInput): WordQueue {
@@ -106,23 +110,78 @@ export function buildWordQueue(input: WordQueueInput): WordQueue {
     .filter((c) => !c.suspended && c.due <= endOfDay(input.now))
     .sort((a, b) => a.due - b.due);
   const have = new Set(all.map((c) => c.word));
+  const mastered = input.mastered ?? new Set<string>();
+  const studying = input.studying ?? new Set<string>();
   const fresh: WordQueue['fresh'] = [];
   const picked = new Set<string>();
-  for (const term of input.notebookWords) {
-    const key = term.toLowerCase();
-    if (have.has(key) || picked.has(key)) continue;
+  const take = (key: string, fromNotebook: boolean) => {
+    if (have.has(key) || picked.has(key) || mastered.has(key)) return;
     picked.add(key);
-    fresh.push({ word: key, fromNotebook: true });
+    fresh.push({ word: key, fromNotebook });
+  };
+  // 第一级：生词本（用户亲手收集的，优先级最高，不受词频门槛限制）
+  for (const term of input.notebookWords) take(term.toLowerCase(), true);
+  // 第二级：测评、筛查里明确标过“不认识”的词（用户信号比统计门槛可靠，同样不受 knownRank 限制）
+  for (const d of input.ranked) {
+    const key = d.word.toLowerCase();
+    if (input.marks.get(key) === 'unknown') take(key, false);
   }
+  // 第三级：词条线正在学的单词，在这边同步认读、互相印证
+  for (const d of input.ranked) {
+    const key = d.word.toLowerCase();
+    if (studying.has(key)) take(key, false);
+  }
+  // 第四级：其余按词频从高到低推进，跳过默认认识范围和标过“认识”的
   for (const d of input.ranked) {
     if (d.rank === null || d.rank <= input.knownRank) continue;
     const key = d.word.toLowerCase();
-    if (have.has(key) || picked.has(key)) continue;
     if (input.marks.get(key) === 'known') continue;
-    picked.add(key);
-    fresh.push({ word: key, fromNotebook: false });
+    take(key, false);
   }
   return { due, fresh: fresh.slice(0, Math.max(0, input.newLimit)) };
+}
+
+export interface WordSessionItem {
+  word: string;
+  kind: 'due' | 'notebook' | 'new';
+  /** intro = 先学（完整呈现、不打分）；test = 考（回忆后评分） */
+  mode: 'intro' | 'test';
+}
+
+/**
+ * 把一轮学习编排成“先学后测”：新词先以 intro 形式混编进复习流
+ * （每 2 张复习卡插 1 个，多出来的接在后面），全部内容之后再把新词以 test 形式考一遍。
+ * 新词第一次见面就考试是假考试——先呈现、隔一段再提取，评分才有意义。
+ */
+export function buildWordSession(
+  due: WordCardState[],
+  fresh: WordQueue['fresh'],
+): WordSessionItem[] {
+  const intros: WordSessionItem[] = fresh.map((f) => ({
+    word: f.word,
+    kind: f.fromNotebook ? 'notebook' : 'new',
+    mode: 'intro',
+  }));
+  const tests: WordSessionItem[] = fresh.map((f) => ({
+    word: f.word,
+    kind: f.fromNotebook ? 'notebook' : 'new',
+    mode: 'test',
+  }));
+  const out: WordSessionItem[] = [];
+  let ii = 0;
+  due.forEach((c, i) => {
+    out.push({ word: c.word, kind: 'due', mode: 'test' });
+    if ((i + 1) % 2 === 0 && ii < intros.length) out.push(intros[ii++]);
+  });
+  while (ii < intros.length) out.push(intros[ii++]);
+  return [...out, ...tests];
+}
+
+/** 例句挖空：把例句里目标词的原形换成空。其余词形（变形）挖不了，返回 null */
+export function makeCloze(word: string, exampleEn: string): string | null {
+  const re = new RegExp(`\\b${escapeRegExp(word)}\\b`, 'i');
+  if (!re.test(exampleEn)) return null;
+  return exampleEn.replace(re, '______');
 }
 
 const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

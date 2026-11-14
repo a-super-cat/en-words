@@ -5,9 +5,11 @@ import type { DictWord } from './dictionary';
 import {
   bandProgress,
   buildWordQueue,
+  buildWordSession,
   etymUrl,
   findExample,
   introducedToday,
+  makeCloze,
   newWordCard,
   rateWordCard,
   wordStatus,
@@ -79,6 +81,55 @@ describe('buildWordQueue', () => {
     });
     expect(q.due).toEqual([]);
     expect(q.fresh.map((f) => f.word)).not.toContain('beta');
+  });
+
+  it('四级优先：生词本 > 标过不认识 > 词条在学 > 词频；词条已掌握的跳过', () => {
+    const q = buildWordQueue({
+      cards: [],
+      notebookWords: ['delta'],
+      ranked,
+      marks: new Map([['gamma', 'unknown' as const]]),
+      knownRank: 10000,
+      newLimit: 10,
+      now: NOW,
+      studying: new Set(['beta']),
+      mastered: new Set(['alpha']),
+    });
+    // alpha 虽然词频最高，但词条线已掌握，不推；knownRank 拉满也不影响前三级
+    expect(q.fresh.map((f) => f.word)).toEqual(['delta', 'gamma', 'beta']);
+  });
+});
+
+describe('buildWordSession', () => {
+  it('新词先 intro 混编进复习流，最后统一以 test 再考一遍', () => {
+    const due = ['d1', 'd2', 'd3', 'd4'].map((w) => newWordCard(w, NOW - DAY));
+    const session = buildWordSession(due, [
+      { word: 'n1', fromNotebook: true },
+      { word: 'n2', fromNotebook: false },
+    ]);
+    expect(session.map((s) => `${s.word}:${s.mode}`)).toEqual([
+      'd1:test',
+      'd2:test',
+      'n1:intro',
+      'd3:test',
+      'd4:test',
+      'n2:intro',
+      'n1:test',
+      'n2:test',
+    ]);
+    expect(session.find((s) => s.word === 'n1')?.kind).toBe('notebook');
+  });
+
+  it('没有复习卡时 intro 在前、test 在后', () => {
+    const session = buildWordSession([], [{ word: 'n1', fromNotebook: false }]);
+    expect(session.map((s) => s.mode)).toEqual(['intro', 'test']);
+  });
+});
+
+describe('makeCloze', () => {
+  it('把例句里的目标词挖空', () => {
+    expect(makeCloze('cache', 'The cache is stale.')).toBe('The ______ is stale.');
+    expect(makeCloze('cache', 'We love caching.')).toBeNull();
   });
 });
 

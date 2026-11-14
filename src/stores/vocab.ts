@@ -116,6 +116,7 @@ export const useVocab = defineStore('vocab', () => {
     assessments,
     latest,
     model,
+    studied,
     notebook,
     load,
     setMark,

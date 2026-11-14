@@ -37,6 +37,8 @@ const wordToday = computed(() => {
     knownRank: app.settings.knownRank,
     newLimit: app.settings.newWordsPerDay - introducedToday(words.all, app.now),
     now: app.now,
+    studying: vocab.studied.studying,
+    mastered: vocab.studied.mastered,
   });
   return { due: q.due.length, fresh: q.fresh.length, total: q.due.length + q.fresh.length };
 });
