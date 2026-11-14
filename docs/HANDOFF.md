@@ -253,7 +253,7 @@ store (stores/*.ts)  ←── 内置内容 (content/*.json，启动时加载进
 
 ### 6.3 数据库
 
-数据库名 `en-words`，定义在 `src/db.ts`，目前是第 3 版。
+数据库名 `en-words`，定义在 `src/db.ts`，目前是第 5 版。
 
 | 版本 | 表 | 索引 | 存什么 |
 |---|---|---|---|
@@ -268,6 +268,8 @@ store (stores/*.ts)  ←── 内置内容 (content/*.json，启动时加载进
 | 3 | `marks` | `word` | 单词的认识/不认识标记 |
 | 3 | `readings` | `id, at` | 阅读记录 |
 | 3 | `assessments` | `id, at` | 测评记录 |
+| 4 | `ttsCache` | `key, at` | Azure 朗读合成音频缓存 |
+| 5 | `wordCards` | `word, due` | 单词线的记忆卡（`WordCardState`，主键是小写词形，和词条卡分开存、分开计数） |
 
 所有类型定义在 `src/types.ts`。
 
@@ -284,14 +286,19 @@ hash 模式，定义在 `src/router.ts`。
 | `/speak/stories` | STAR 故事 |
 | `/speak/system-design` | 系统设计讲解框架 |
 | `/speak/:id` | 答一道题，`id` 是题目的 id |
-| `/scenarios`、`/scenarios/:id` | 场景列表、练一个场景 |
+| `/scenes` | 场景 Tab（工作/生活切换）；旧路径 `/scenarios` 重定向到这里 |
+| `/scenarios/:id` | 练一个场景 |
 | `/reading` | 阅读助手 |
-| `/vocab` | 词汇 |
+| `/words` | 单词 Tab（单词/词条切换）；旧路径 `/vocab`、`/library` 重定向到这里（`/library` 的查询参数透传） |
+| `/words/study` | 单词学习（单词线的队列：到期复习 + 今日新词） |
+| `/words/notebook` | 生词本（单词线口径的状态、暂停、移除） |
 | `/vocab/assess` | 词汇量测评 |
 | `/vocab/triage/:band` | 分段筛查，`band` 是第几个频段（从 1 开始） |
-| `/library`、`/library?q=词` | 词库；`q` 是搜索词 |
+| `/me` | “我的”：统计与设置的收纳页 |
 | `/stats` | 统计 |
 | `/settings` | 设置 |
+
+底部 Tab 只有四个主页（`/`、`/words`、`/scenes`、`/reading`，路由 meta 里 `root: true`）显示标题栏和 Tab 栏，子页面全屏。
 
 注意：`/speak/stories` 和 `/speak/system-design` 必须写在 `/speak/:id` **前面**，否则会被当成题目 id。
 
@@ -406,6 +413,8 @@ hash 模式，定义在 `src/router.ts`。
 **测评**（`src/vocab/assess.ts`）：每 1000 词一段，每段抽 10 个，从第 1 段开始。连续两段认识的比例不超过 20% 就结束，最多 15 段。词汇量 = 各段比例 × 1000 之和。`knownRank` = 从第 1 段起连续达到 80% 的段数 × 1000，最少 1000。
 
 **生词本**（`app.addVocabWords`）：词频排名 ≤ 3000 的归 A 层（`a.vocab`），其余归 D 层（`d.vocab`）。从阅读里收的词带上原句作例句（例句的中文是空的）。
+
+**单词线**（移动端改版第二版，v0.32.0）：生词本的词不再混进词条的新学队列——`app.pickNew` 和 `unseenCount` 都排除了 `.vocab` 分类的词条（它们在词条侧已有卡的会继续在词条流里到期复习，不迁移、不清数据）。单词自己一条线：纯逻辑在 `src/vocab/words.ts`（队列 `buildWordQueue`：到期复习 → 生词本新词 → 词频序新词，跳过已标“认识”和 `knownRank` 以内的词；新词数受 `settings.newWordsPerDay` 限制，默认 15），排期把 `WordCardState` 适配成 `CardState` 复用 `srs/schedule` 的 FSRS 引擎，状态存在 DB 第 5 版的 `wordCards` 表、由 `stores/words.ts` 管，备份格式里是可选的 `words` 部分（旧备份没有按空处理）。单词卡背面有词典释义、构词拆解、词源笔记、词条例句反查（`findExample`）和 Etymonline 跳转（`etymUrl`，阅读页也共用这个函数）。
 
 ### 7.9 备份格式
 

@@ -7,6 +7,7 @@ import { useApp } from '../stores/app';
 import { useVocab } from '../stores/vocab';
 import { analyze, sentenceAt, type Segment, type UnknownWord, type WordStatus } from '../vocab/analyze';
 import { loadDictionary, type Dictionary } from '../vocab/dictionary';
+import { etymUrl } from '../vocab/words';
 
 /** 生词列表默认只显示前这么多个 */
 const LIST_PAGE = 30;
@@ -47,7 +48,7 @@ const selectedNote = computed(() => (selected.value?.word ? getWordNote(selected
 /** Etymonline 词源页链接：站方挡嵌入和抓取，只能跳转到它的页面看全文 */
 const selectedEtymUrl = computed(() => {
   const w = selected.value?.word?.word;
-  return w ? `https://www.etymonline.com/word/${encodeURIComponent(w.toLowerCase())}` : null;
+  return w ? etymUrl(w) : null;
 });
 const showAll = ref(false);
 

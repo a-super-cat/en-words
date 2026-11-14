@@ -50,6 +50,7 @@ const CORE_RANK = 3000;
 const DEFAULTS: Settings = {
   knownRank: CORE_RANK,
   newPerDay: 20,
+  newWordsPerDay: 15,
   reviewMinutes: 25,
   maxReviews: 120,
   autoSpeak: true,
@@ -116,7 +117,10 @@ export const useApp = defineStore('app', () => {
   });
   const unseenCount = computed(() => {
     const disabled = new Set(settings.disabledCategories);
-    return entries.value.filter((e) => !disabled.has(e.category) && !hasCard(e.id)).length;
+    // 生词本的词不算词条线的“未学”，它们在单词线里学（和 pickNew 的口径一致）
+    return entries.value.filter(
+      (e) => !disabled.has(e.category) && !e.category.endsWith('.vocab') && !hasCard(e.id),
+    ).length;
   });
   const newRemaining = computed(() =>
     Math.min(unseenCount.value, Math.max(0, settings.newPerDay - learnedToday.value)),
@@ -185,7 +189,9 @@ export const useApp = defineStore('app', () => {
   }
 
   function pickNew(count: number): Entry[][] {
-    return pickNewGroups(entries.value, hasCard, new Set(settings.disabledCategories), count);
+    // 生词本的词改走单词线（单词 Tab 里按 FSRS 单独排期），不再混进词条的新学队列
+    const pool = entries.value.filter((e) => !e.category.endsWith('.vocab'));
+    return pickNewGroups(pool, hasCard, new Set(settings.disabledCategories), count);
   }
 
   async function commit(changed: CardState[], logs: ReviewLog[]): Promise<number[]> {

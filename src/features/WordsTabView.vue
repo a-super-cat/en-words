@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 import SegTabs from '../components/SegTabs.vue';
 import LibraryView from './LibraryView.vue';
-import VocabView from './VocabView.vue';
+import WordHomeView from './WordHomeView.vue';
 
 const route = useRoute();
 // 带查询参数进来（从复习页查词、从旅游页看旅游词汇）时直接落在“词条”一侧
@@ -19,7 +19,7 @@ const seg = ref(route.query.q || route.query.cat ? 'entries' : 'words');
         { key: 'entries', label: '词条' },
       ]"
     />
-    <VocabView v-if="seg === 'words'" embedded />
+    <WordHomeView v-if="seg === 'words'" />
     <LibraryView v-else embedded />
   </div>
 </template>

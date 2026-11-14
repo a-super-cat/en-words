@@ -9,6 +9,7 @@ import type {
   ScenarioRun,
   Story,
   UserNote,
+  WordCardState,
   WordMark,
 } from './types';
 
@@ -25,6 +26,7 @@ class AppDB extends Dexie {
   readings!: Table<Reading, string>;
   assessments!: Table<Assessment, string>;
   ttsCache!: Table<{ key: string; blob: Blob; at: number }, string>;
+  wordCards!: Table<WordCardState, string>;
 
   constructor() {
     super('en-words');
@@ -50,6 +52,10 @@ class AppDB extends Dexie {
     // 移动端阶段 B：Azure 云端朗读的音频缓存，同一句不重复合成
     this.version(4).stores({
       ttsCache: 'key, at',
+    });
+    // 单词线：独立于词条卡的单词记忆卡，按词主键、到期时间建索引
+    this.version(5).stores({
+      wordCards: 'word, due',
     });
   }
 }

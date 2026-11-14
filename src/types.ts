@@ -57,6 +57,25 @@ export interface CardState {
   createdAt: number;
 }
 
+/**
+ * 单词线的记忆卡：和词条卡分开存、分开计数，主键就是小写词形。
+ * 字段和 CardState 对齐，好复用 srs/schedule 的 FSRS 排期函数。
+ */
+export interface WordCardState {
+  word: string;
+  due: number;
+  stability: number;
+  difficulty: number;
+  scheduledDays: number;
+  learningSteps: number;
+  reps: number;
+  lapses: number;
+  state: number;
+  lastReview: number | null;
+  suspended: boolean;
+  createdAt: number;
+}
+
 export interface ReviewLog {
   id?: number;
   key: string;
@@ -195,6 +214,8 @@ export interface Settings {
   /** 阅读助手默认认识词频排名在这个数以内的词。测评会更新它，也可以手动改。 */
   knownRank: number;
   newPerDay: number;
+  /** 单词线每天引入的新词上限，和词条的新学量分开算 */
+  newWordsPerDay: number;
   reviewMinutes: number;
   maxReviews: number;
   autoSpeak: boolean;

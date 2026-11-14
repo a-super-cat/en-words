@@ -20,7 +20,7 @@ const say = (text: string, bad = false) => {
   failed.value = bad;
 };
 
-function setNumber(key: 'newPerDay' | 'reviewMinutes' | 'maxReviews', event: Event, min: number, max: number) {
+function setNumber(key: 'newPerDay' | 'newWordsPerDay' | 'reviewMinutes' | 'maxReviews', event: Event, min: number, max: number) {
   const value = Math.round(Number((event.target as HTMLInputElement).value));
   if (Number.isFinite(value)) void app.updateSettings({ [key]: Math.min(max, Math.max(min, value)) } as Partial<Settings>);
 }
@@ -97,6 +97,17 @@ async function clearProgress() {
             step="5"
             :value="app.settings.newPerDay"
             @change="setNumber('newPerDay', $event, 0, 100)"
+          />
+        </label>
+        <label class="field">
+          每天新单词（个，单词线单独计）
+          <input
+            type="number"
+            min="0"
+            max="100"
+            step="5"
+            :value="app.settings.newWordsPerDay"
+            @change="setNumber('newWordsPerDay', $event, 0, 100)"
           />
         </label>
         <label class="field">

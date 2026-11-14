@@ -5,6 +5,7 @@ import { router } from './router';
 import { useApp } from './stores/app';
 import { useSpeaking } from './stores/speaking';
 import { useVocab } from './stores/vocab';
+import { useWords } from './stores/words';
 import './style.css';
 
 const vm = createApp(App);
@@ -14,6 +15,6 @@ vm.mount('#app');
 
 const app = useApp();
 void app.init();
-Promise.all([useSpeaking().load(), useVocab().load()]).catch(
+Promise.all([useSpeaking().load(), useVocab().load(), useWords().load()]).catch(
   (e: unknown) => (app.error = e instanceof Error ? e.message : String(e)),
 );

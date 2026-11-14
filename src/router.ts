@@ -25,6 +25,8 @@ export const router = createRouter({
     { path: '/scenarios/:id', component: () => import('./features/ScenarioView.vue') },
     { path: '/reading', component: () => import('./features/ReadingView.vue'), meta: { root: true, tab: 3, title: '阅读' } },
     { path: '/words', component: () => import('./features/WordsTabView.vue'), meta: { root: true, tab: 1, title: '单词' } },
+    { path: '/words/study', component: () => import('./features/WordStudyView.vue') },
+    { path: '/words/notebook', component: () => import('./features/WordBookView.vue') },
     { path: '/vocab', redirect: '/words' },
     { path: '/vocab/assess', component: () => import('./features/VocabDrillView.vue') },
     { path: '/vocab/triage/:band', component: () => import('./features/VocabDrillView.vue') },
